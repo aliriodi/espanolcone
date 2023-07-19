@@ -1,0 +1,47 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+
+    // Or if using `src` directory:
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        primary: '#3cbbd6',
+        primary_hover:'##4ED5F2',
+
+        secondary:'#33bb99',
+        secondary_hover:'#31DDB2',
+
+        success:'#8438ff',
+        success_hover:'#9156F0',
+
+        danger:'#e73b3c',
+        danger_hover:'#F34F54',
+
+        warning:'#ff7438',
+        warning_hover:'#FC824D',
+
+        info:'#fcc235',
+        info_hover:'#FFC946',
+
+        dark:'#3b3c3d',
+        dark_hover:'#4E4F50',
+
+        light:'#A4ACB9',
+
+        gray_clear: '#e1e0e6',
+        gray_light: '#f5f5f5',
+
+        white: '#fff',
+
+        violet_dark:'#5e5873',
+      },
+    },
+  },
+  plugins: [],
+}
