@@ -2,7 +2,9 @@ import Link from 'next/link'
 import React from 'react'
 import Menu from '../components/Menu';
 
+
 export default function Home() {
+ 
 
   const handleClickLogin = () => {
     // go to the login

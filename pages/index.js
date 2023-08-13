@@ -1,5 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { useDispatch , useSelector } from "react-redux";
+import React, { useEffect } from "react";
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
@@ -8,16 +10,21 @@ import Background from '../public/imgs/logIn-background.png'
 import Vector1 from '../public/imgs/vector-1.png'
 import Vector2 from '../public/imgs/vector-2.png'
 import Vector3 from '../public/imgs/vector-3.png'
-
+import { getuser } from "../redux/ECEActions";
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-
+  const dispatch = useDispatch();
   const handleClick = () => {
     // go to the home
     window.location.href = '/home';
   };
 
+  //Probando redux
+  useEffect(() => 
+    { dispatch(getuser());  }, [dispatch]);
+
+  const {  userL } = useSelector((state) => state.datos);
 
   return (
     <>
@@ -61,7 +68,7 @@ export default function Home() {
                     className='p-2 rounded-md border border-gray-clear'
                     type="text"
                     id="email"
-                    placeholder="jonhdoe@gmail.com"/>
+                    placeholder={userL.email}/>
               </div>
 
               {/* Campo Contraseña */}
@@ -73,7 +80,8 @@ export default function Home() {
                   <input
                   className='p-2 rounded-md border border-gray-clear' 
                   type="text"
-                  id="password"/>
+                  id="password"
+                  placeholder={userL.email}/>
                   <p>debe tener almenos 8 caracteres</p>
               </div>
 

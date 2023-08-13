@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faHouse } from '@fortawesome/free-solid-svg-icons';
 
 export default function Menu(){
+  
     return(
         <>
         <div className='bg-white flex flex-col fixed px-4 py-4 h-screen'>
