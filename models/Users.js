@@ -44,9 +44,18 @@ const UserSchema = new Schema(
         type: String,
       },
     },
+    image2: {
+      type: String,
+    },
+    aux: {
+      type: Object,
+    },
+    aux2:{
+      type: Object,
+    },
     role: {  //opcional para uso nuestro
-      type: ["user", "admin"],
-      default: "user",
+      type: ["user", "admin","guide","banned","teacher"],
+   //   default: "user",
     },
   },
   {
