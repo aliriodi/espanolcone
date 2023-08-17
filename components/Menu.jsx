@@ -12,7 +12,7 @@ export default function Menu(){
             {/* Logo */}
             <div>
                 <Link href="/home">
-                    <Image src={Logo} className=''style={{width: '108px'}} />
+                    <Image src={Logo} className='' style={{width: '108px'}} alt="logo" />
                 </Link>
             </div>
 
