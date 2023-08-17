@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { useDispatch , useSelector } from "react-redux";
 import React, { useEffect } from "react";
-import { Inter } from '@next/font/google'
+import { Inter } from "next/font/google"
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import Logo from '../public/imgs/logo.png'
