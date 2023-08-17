@@ -26,6 +26,7 @@ export default function CloudinaryUploader (props) {
 
       const data = await response.json();
       setImageURL(data.secure_url);
+      props.functionBD(data.secure_url);
       console.log(data)
       setLoading(false);
     } catch (error) {
