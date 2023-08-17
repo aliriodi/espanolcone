@@ -26,6 +26,7 @@ export default function CloudinaryUploader (props) {
 
       const data = await response.json();
       setImageURL(data.secure_url);
+      //funcion para escribir en Base ded atos viene por props cuando se llame el componente
       props.functionBD(data.secure_url);
       console.log(data)
       setLoading(false);
