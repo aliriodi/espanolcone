@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import Users from "../../../../models/Users";
 import dbConnect from "../../../../config/mongo"
+import addUsers from "../../users/add";
 
 export default async function POST(req, res){
     if (req.method !== 'POST') {
