@@ -25,7 +25,7 @@ export default async function addUsers(req, res) {
 
     const users = await Users.create(req.body)
 
-    console.log('CREATED DOCUMENT');
+    console.log('CREATED DOCUMENT', users);
    
     res.json({ users })
 
