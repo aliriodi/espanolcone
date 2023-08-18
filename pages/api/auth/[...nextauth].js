@@ -2,9 +2,11 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
+import FacebookProvider from "next-auth/providers/facebook";
 import addUsers from "../users/add";
 import Users from "../../../models/Users";
 import dbConnect from "../../../config/mongo";
+import axios from "axios";
 
 
 export default NextAuth({
@@ -12,17 +14,22 @@ export default NextAuth({
     CredentialsProvider({
       name: 'credentials',
       credentials: {
-        email: { label: "Email", type: "email", placeholder: "yourEmail@gmail.com" },
-        password: { label: "Password", type: "password", placeholder: "***********" }
+        email: { label: "Email", type: "email", placeholder: "yourEmail@gmail.com"},
+        password: { label: "Password", type: "password", placeholder: "***********"}
       },
       async authorize(credentials, req) {
-        const user = { email: credentials.email, name: "New User" };
-        return user;
+        const newUser = { email: credentials.email, password: credentials.password };
+        signInUser(newUser);
+        return newUser;
       }
     }),
     GoogleProvider({
         clientId: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET
+    }),
+    FacebookProvider({
+      clientId: process.env.FACEBOOK_CLIENT_ID,
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET
     })
   ],
   callbacks: {
@@ -39,29 +46,18 @@ export default NextAuth({
         //     image: {
         //       url: profile.picture,
         //       public_id: ""
-        //     },
-        //     password,
-        //     rol,
-        //     phone1,
-        //     phone2,
-        //     postcode,
-        //     image2,
-        //     aux,
-        //     aux2
+        //     }
         //   }
         // }
         // console.log(newUser)
-        // const res = {
-        //   status: function(code) {
-        //     // Implementa lógica para manejar el código de estado
-        //     return this; // Permite encadenar métodos
-        //   },
-        //   json: function(data) {
-        //     // Implementa lógica para manejar la respuesta JSON
-        //   }
-        // };
+        
+        // try{
+        //   await axios.post('api/users/add', newUser);
+        // }
+        // catch(e){
+        //   console.log("message: ",e)
+        // }
 
-        // await addUsers(newUser,res)
         //#endregion
 
         const newUser = {
@@ -74,26 +70,25 @@ export default NextAuth({
           }
         }
 
-        try{
-          await dbConnect()
-          
-          const existingUser = await Users.findOne({ email: profile.email });
-
-          if (!existingUser) await Users.create(newUser)
-        }
-        catch(e){
-          console.log(e)
-        }
+        signInUser(newUser)
         
         return profile.email_verified
       }
-
       return true 
     },
   }
 });
 
 
+async function signInUser(user){
+  try{
+    await dbConnect()
+    
+    const existingUser = await Users.findOne({ email: user.email });
 
-
-
+    if (!existingUser) await Users.create(user)
+  }
+  catch(e){
+    console.log(e)
+  }
+}
