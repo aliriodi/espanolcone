@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Spinner from '../components/Spinner';
 
 const getUsers = async () => {
   try {
@@ -22,11 +23,18 @@ const getUsers = async () => {
 
 export default function Users() {
   const [users, setUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const usersData = await getUsers();
-      setUsers(usersData);
+      try {
+        const usersData = await getUsers();
+        setUsers(usersData);
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Error loading Users", error);
+        setIsLoading(false); // Asegúrate de cambiar isLoading incluso en caso de error
+      }
     };
     fetchUsers();
   }, []);
@@ -38,46 +46,52 @@ export default function Users() {
 
   return (
     <>
-      <div className='flex flex-row mx-5 my-10'>
-        <div className='px-5'>users</div>
-        <button
-          onClick={handleClickLogin}
-          type='submit'
-          className='bg-blue-500 text-white px-5 py-2 rounded mr-5'>
-          Go Home
-        </button>
-      </div>
-      <div
-        className='bg-blue-200 
-      flex flex-col
-      py-5 
-      justify-end'>
-        {users.map(e => (
-          <div className='my-5 px-5 py-5 flex flex-col  border-solid border-black mx-5 border-2' key={e._id}>
-            <div className='flex flex-row'>
-              <div className='pr-10'>ID:</div>
-              <p>{e._id}</p>
-            </div>
-            <div className='flex flex-row'>
-              <div className='pr-10'>First Name:</div>
-              <p>{e.first_name}</p>
-            </div>
-            <div className='flex flex-row'>
-              <div className='pr-10'>Last Name:</div>
-              <p>{e.last_name}</p>
-            </div>
-            <div className='flex flex-row'>
-              <div className='pr-10'>Email:</div>
-              <p>{e.email}</p>
-            </div>
-            <div className='flex flex-row'>
-              <div className='pr-10'>Rol:</div>
-              <p>{e.role}</p>
-            </div>
-            <br />
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <>
+          <div className='flex flex-row mx-5 my-10'>
+            <div className='px-5'>users</div>
+            <button
+              onClick={handleClickLogin}
+              type='submit'
+              className='bg-blue-500 text-white px-5 py-2 rounded mr-5'>
+              Go Home
+            </button>
           </div>
-        ))}
-      </div>
+          <div
+            className='bg-blue-200 
+          flex flex-col
+          py-5 
+          justify-end'>
+            {users.map(e => (
+              <div className='my-5 px-5 py-5 flex flex-col  border-solid border-black mx-5 border-2' key={e._id}>
+                <div className='flex flex-row'>
+                  <div className='pr-10'>ID:</div>
+                  <p>{e._id}</p>
+                </div>
+                <div className='flex flex-row'>
+                  <div className='pr-10'>First Name:</div>
+                  <p>{e.first_name}</p>
+                </div>
+                <div className='flex flex-row'>
+                  <div className='pr-10'>Last Name:</div>
+                  <p>{e.last_name}</p>
+                </div>
+                <div className='flex flex-row'>
+                  <div className='pr-10'>Email:</div>
+                  <p>{e.email}</p>
+                </div>
+                <div className='flex flex-row'>
+                  <div className='pr-10'>Rol:</div>
+                  <p>{e.role}</p>
+                </div>
+                <br />
+              </div>
+            ))}
+          </div>
+        </>
+      )}
     </>
   );
 }
