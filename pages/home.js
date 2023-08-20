@@ -4,7 +4,7 @@ import Menu from '../components/Menu';
 
 
 export default function Home() {
- 
+
 
   const handleClickLogin = () => {
     // go to the login
@@ -22,22 +22,20 @@ export default function Home() {
     //TODO hacer navbar 
     //TODO hacer barra lateral
     //TODO hacer footer si hay */}
-      <Menu></Menu>
-      <main className='p-10'>
+      <Menu />
+      <main className='ml-9 p-5 flex flex-col h-screen'>
         <div className='pb-5'>home</div>
-        <div className='mx-5 '>
+        <div className='mx-5'>
           <button
             onClick={handleClickLogin}
             type='submit'
             className='bg-blue-500 text-white px-5 py-2 rounded mr-5'>
-            {/* <Link href="/">go Home</Link> */}
             Go Home
           </button>
           <button
             onClick={handleClickUsers}
             type='submit'
             className='bg-blue-500 text-white px-5 py-2 rounded'>
-            {/* <Link href="/">go Home</Link> */}
             Go Users
           </button>
         </div>
