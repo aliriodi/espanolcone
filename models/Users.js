@@ -12,16 +12,13 @@ const UserSchema = new Schema(
     last_name: {
       type: String,
     },
-    rol: {       //opcional para uso nuestro
-      type: String,
-    },
     phone1: {
       type: String,
     },
     phone2: {
       type: String,
     },
-    postcode: {
+    validate: {
       type: Number,
     },
     email: {
@@ -33,9 +30,6 @@ const UserSchema = new Schema(
       type: String,
       select: false
     },
-    // image: {
-    //   type: Object,
-    // },
     image: {
       url: {
         type: String,
@@ -44,24 +38,63 @@ const UserSchema = new Schema(
         type: String,
       },
     },
-    image2: {
-      type: String,
-    },
     aux: {
       type: Object,
     },
-    aux2:{
+    test: {
+      type: Object,
+    },
+    biblioteca: {
       type: Object,
     },
     role: {  //opcional para uso nuestro
-      type: ["user", "admin","guide","banned","teacher"],
-   //   default: "user",
+      type: ["user", "admin", "student", "invitado", "guide", "banned", "teacher"],
+      default: "user",
     },
+    calendar: {  //opcional para uso nuestro
+      type: ["fecha", "hora", "prof_name"],
+      default: "user",
+    },
+    classes: {
+      type: String,
+    },
+    guide: {
+      type: String,
+    },
+    language: {
+      type: String,
+    },
+    plan: {
+      type: String,
+    },
+    plan: {
+      name: {
+        type: String
+      },
+      cost: {
+        type: Number
+      },//costo del plan
+      features: {
+        type: [Object]
+      },
+    },
+    test: {
+      name: {
+        type: String
+      },
+      test: {
+        type: [Object]
+      },
+      type: {
+        type: [String],
+      },
+    },
+
   },
   {
     timestamps: true,
     versionKey: false,
-  }
+  },
 )
 
 // error poco frectuente de versionado de modelos por eso etsa esto, pero revisar si puedo armarlo como lo anterior
