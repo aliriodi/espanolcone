@@ -31,22 +31,50 @@ export default function Users() {
     fetchUsers();
   }, []);
 
+  const handleClickLogin = () => {
+    // go to the login
+    window.location.href = '/home';
+  };
+
   return (
     <>
-      <div>users</div>
+      <div className='flex flex-row mx-5 my-10'>
+        <div className='px-5'>users</div>
+        <button
+          onClick={handleClickLogin}
+          type='submit'
+          className='bg-blue-500 text-white px-5 py-2 rounded mr-5'>
+          Go Home
+        </button>
+      </div>
       <div
         className='bg-blue-200 
-      flex flex-row 
-      justify-end border-2 
-      border-solid 
-      border-black mx-5'>
+      flex flex-col
+      py-5 
+      justify-end'>
         {users.map(e => (
-          <div key={e._id}>
-            <p>{e._id}</p>
-            <p>{e.first_name}</p>
-            <p>{e.last_name}</p>
-            <p>{e.email}</p>
-            <p>{e.role}</p>
+          <div className='my-5 px-5 py-5 flex flex-col  border-solid border-black mx-5 border-2' key={e._id}>
+            <div className='flex flex-row'>
+              <div className='pr-10'>ID:</div>
+              <p>{e._id}</p>
+            </div>
+            <div className='flex flex-row'>
+              <div className='pr-10'>First Name:</div>
+              <p>{e.first_name}</p>
+            </div>
+            <div className='flex flex-row'>
+              <div className='pr-10'>Last Name:</div>
+              <p>{e.last_name}</p>
+            </div>
+            <div className='flex flex-row'>
+              <div className='pr-10'>Email:</div>
+              <p>{e.email}</p>
+            </div>
+            <div className='flex flex-row'>
+              <div className='pr-10'>Rol:</div>
+              <p>{e.role}</p>
+            </div>
+            <br />
           </div>
         ))}
       </div>
