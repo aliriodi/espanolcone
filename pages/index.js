@@ -10,7 +10,7 @@ import Background from '../public/imgs/logIn-background.png'
 import Vector1 from '../public/imgs/vector-1.png'
 import Vector2 from '../public/imgs/vector-2.png'
 import Vector3 from '../public/imgs/vector-3.png'
-import { getuser } from "../redux/ECEActions";
+import { getuser , getuseremail} from "../redux/ECEActions";
 import Layout from '../components/Layout';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
@@ -107,10 +107,11 @@ export default function Home() {
                   className='p-2 rounded-md border border-gray-clear'
                   type="text"
                   id="password"
-                  placeholder={userL.email} />
+                  placeholder={userL.email}
+                  value={undefined} />
                 <p>{t("p6")}</p>
               </div>
-
+ 
               {/* Recordar Contraseña */}
               <input type="checkbox" id="remember" className='mr-1' />
               <label htmlFor="remember">{t("p7")}</label>
