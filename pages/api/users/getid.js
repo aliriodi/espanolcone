@@ -1,5 +1,6 @@
 import dbConnect from '../../../config/mongo'
 import Users from '../../../models/Users'
+import Passwords from '../../../models/Passwords'
 
 // /**
 //  * 
@@ -22,17 +23,16 @@ export default async function getAllUsers(req, res) {
     //console.log(req.query)
 
     console.log('CREATING DOCUMENT');
-
-    const users = await Users.findOne({ email: req.query.email }).exec();
+    const passwords = await Passwords.findOne({ email: req.query.email }).exec();
+    
     //console.log(users.password)
     console.log('CREATED DOCUMENT');
-    if(users.password===req.query.password){
-    res.json({ users })}
+    if(passwords.password===req.query.password){
+      const users = await Users.findOne({ email: req.query.email }).exec();
+      res.json({ users })}
     else{
         res.json( {text:"Password Invalido"} )}
-    
-
-  } catch (error) {
+      } catch (error) {
     console.log(error);
     res.json({ error })
   }
