@@ -12,6 +12,10 @@
 .text-shadow {
   text-shadow: 0 4px 10px #000a;
 }
+
+.youtube iframe{
+  width: 100%;
+}
 /* :root {
   --max-width: 1100px;
   --border-radius: 12px;

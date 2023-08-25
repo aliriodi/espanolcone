@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import YouTube from 'react-youtube';
 
 
@@ -8,30 +8,14 @@ export default function youtubePopup() {
     const [playingVideo, setPlayingVideo] = useState(false)
     const [popUps, setPopUps] = useState([
       // Objetos de Pruebas
-      {time:3, message:"Alguien fue Rickroleado", reply:"", popUpShown: false},
-      {time:6, message:"Alguien fue super Rickroleado", reply:"", popUpShown: false},
-      {time:9, message:"Alguien fue HYPER Rickroleado3", reply:"", popUpShown: false}
+      {time:3, title:"Completa la frase", message:"Frase 1", reply:"", popUpShown: false},
+      {time:6, title:"Completa la frase", message:"Frase 2", reply:"", popUpShown: false},
+      {time:9, title:"Completa la frase", message:"Frase 3", reply:"", popUpShown: false}
     ]);
     const [currentPopUp, setcurrentPopUp] = useState(popUps[0])
     const [showPopup, setShowPopup] = useState(false);
-  
-    //#region Handlers
-    const handlePlayerReady = (event) => {
-        setPlayer(event.target);
-
-        // Ordenar los PopUps por el tiempo en orden ascendente
-        setPopUps(popUps.sort((a, b) => a.time - b.time));
-
-        nextPopUp()
-    };
-
-    const handlePlayerStateChange = (event) => {
-      console.log("Change")
-      if (event.data === 1) setPlayingVideo(true)
-      if (event.data === 2) setPlayingVideo(false)
-      if (!showPopup) nextPopUp()
-    };
-    //#endregion
+    const popupRef = useRef(null);
+    const iframeRef = useRef(null);
     
     // Contador
     let interval;  
@@ -41,7 +25,40 @@ export default function youtubePopup() {
           setVideoTime(currentTime);
       }
     }, 1000);
-            
+  
+    //#region Handlers
+    async function handlePlayerReady(event) {
+        // Obtiene el Player
+        setPlayer(event.target);
+
+        // Obtiene el elemento Player
+        // const iframeDocument = document.querySelector("#widget4");
+        // const playerElement = iframeDocument?.querySelector('.html5-video-player');
+        // console.log(iframeDocument?.children)
+        // if (playerElement && popupRef.current) {
+        //   player.appendChild(popupRef.current);
+        // }
+
+        // const iframe = iframeRef.current;
+        // const iframeDocument = iframe.contentDocument || iframe.contentWindow;
+
+        
+        const iframe = await iframeRef.current.internalPlayer.getIframe();
+        // console.log(iframe?.contentWindow.document)
+        
+        // Ordenar los PopUps por el tiempo en orden ascendente
+        setPopUps(popUps.sort((a, b) => a.time - b.time));
+
+        nextPopUp()
+    };
+
+    const handlePlayerStateChange = (event) => {
+      if (event.data === 1) setPlayingVideo(true)
+      if (event.data === 2) setPlayingVideo(false)
+      if (!showPopup) nextPopUp()
+    };
+    //#endregion
+    
     //#region PopUp
     const closePopup = () => {
       player.playVideo();
@@ -64,34 +81,50 @@ export default function youtubePopup() {
       setShowPopup(true)
     }
     //#endregion
-
+    
+    // Opciones de Youtube
     const opts = {
         playerVars: {
-        autoplay: 0, // Desactivar la reproducción automática
-        modestbranding: 1, // Ocultar el logotipo de YouTube
-        rel: 0, // Evitar videos relacionados al final
+          rel: 0, // Evitar videos relacionados al final
+          autoplay: 0, // Desactivar la reproducción automática
+          modestbranding: 1, // Ocultar el logotipo de YouTube
       }
     }
 
     return (
-      <div className='mx-auto my-auto w-1/2 h-1/2'>
+      <div className='mx-auto my-auto h-1/2 relative' style={{width:"640px", marginTop:"100px"}}>
         <YouTube
-          videoId="dQw4w9WgXcQ"         
+        ref={iframeRef}
+          opts={opts}
+          videoId="UeVy4QOUBy8"         
           onReady={handlePlayerReady}
           onStateChange={handlePlayerStateChange}
-          opts={opts}
-          style={{
-            margin: 'auto', // Establecer el margen a cero
-          }}
-        >
-          <span
-          style={{width:"100vh", height:"100vh", background: "#000"}}>HOLA</span>
-        </YouTube>
-        {showPopup && (
-          <div className="popup">
-            <p>{currentPopUp.message}</p>
-            <button onClick={closePopup}>Cerrar</button>
+          className='youtube'
+        />
+
+        {/*  Hijo de html5-video-player  */}
+        {showPopup && (          
+        <div ref={popupRef} className="popup w-full h-full absolute top-0 left-0 flex justify-center items-center text-center" style={{background:"#000a"}}>
+          <div className="p-2 bg-white" style={{borderRadius:"8px", minWidth: "40%"}}>
+
+            {/* Titulo */}
+            <h3 className='' style={{fontWeight:"700", marginBottom: "20px", fontSize:"21px"}}>
+            {currentPopUp.title}
+            </h3>
+
+            {/* Texto */}
+            <div className='text-center'>
+              <p>{currentPopUp.message}</p>
+              <input type='text' style={{border:"2px #aaa solid", borderRadius:"8px"}}></input>
+            </div>
+
+            {/* Boton */}
+            <button 
+              onClick={closePopup} 
+              className="mt-5 bg-primary text-white" 
+              style={{marginBottom: "20px", borderRadius: "5px", padding: "10px 22px 10px 22px"}}>Continuar</button>
           </div>
+      </div>
         )}
       </div>
     );
