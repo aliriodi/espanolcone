@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import YouTube from 'react-youtube';
 
 
-export default function youtubePopup() {
+export default function useYoutubePopup() {
     const [player, setPlayer] = useState(null);
     const [videoTime, setVideoTime] = useState(0);
     const [playingVideo, setPlayingVideo] = useState(false)
