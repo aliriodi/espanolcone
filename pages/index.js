@@ -14,10 +14,21 @@ import { getuser , getuseremail} from "../redux/ECEActions";
 import Layout from '../components/Layout';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
+import {useSession} from 'next-auth/react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  // /api/auth/signin
+  // /api/auth/signout
+  // https://us02web.zoom.us/j/4427876024
+  // binance NE  ->  181702029
+
+  // import {useSession} from 'next-auth/react'
+  
+  // useSseion()
+  const {data: session} = useSession();
+  console.log(session)
   const dispatch = useDispatch();
   const handleClick = () => {
     // go to the home
