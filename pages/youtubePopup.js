@@ -2,7 +2,7 @@ import React from 'react';
 import Youtubet from '../components/youtubePopup/youtubePopup'
 
 
-export default function useYoutubePopup() {
+export default function YoutubePopup() {
 
     return (
       <div className='mx-auto my-auto h-1/2 relative' style={{width:"640px", marginTop:"100px"}}>
