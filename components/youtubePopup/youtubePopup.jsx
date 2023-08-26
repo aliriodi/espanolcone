@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import YouTube from 'react-youtube';
 
 
-export default function useYoutubePopup(props) {
+export default function YoutubePopup(props) {
     const [player, setPlayer] = useState(null);
     const [videoTime, setVideoTime] = useState(0);
     const [playingVideo, setPlayingVideo] = useState(false)
