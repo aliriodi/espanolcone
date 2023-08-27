@@ -15,8 +15,11 @@ export default function YoutubePopup(props) {
     ]*/
     const [currentPopUp, setcurrentPopUp] = useState(props.popups[0])
     const [showPopup, setShowPopup] = useState(false);
-    //variable del input para capturarse cuando onClick button
+    //variable del INPUT para capturarse cuando onClick button
     const [inputValue, setInputValue] = useState("");
+    //variable del SELECT para capturarse cuando onClick button
+    const [selectedOption, setSelectedOption] = useState(null);
+
     const popupRef = useRef(null);
     const iframeRef = useRef(null);
     
@@ -37,36 +40,7 @@ export default function YoutubePopup(props) {
         // Obtiene el Player
        
         setPlayer(event.target);
-//        const iframe = await iframeRef.current.internalPlayer.getIframe();
-  
-       // Agrega estilos para ocultar el botón de pantalla completa
-  // Accede al botón de pantalla completa dentro del iframe y ocúltalo
 
-
-  /*
-  const style = document.createElement("style");
-  style.innerHTML = `
-    .ytp-fullscreen-button {
-      display: none !important;
-    }
-  `;
-  iframe?.contentDocument?.head.appendChild(style);
-*/
-        // Obtiene el elemento Player
-        // const iframeDocument = document.querySelector("#widget4");
-        // const playerElement = iframeDocument?.querySelector('.html5-video-player');
-        // console.log(iframeDocument?.children)
-        // if (playerElement && popupRef.current) {
-        //   player.appendChild(popupRef.current);
-        // }
-
-        // const iframe = iframeRef.current;
-        // const iframeDocument = iframe.contentDocument || iframe.contentWindow;
-
-        
-       // const iframe = await iframeRef.current.internalPlayer.getIframe();
-        // console.log(iframe?.contentWindow.document)
-        
         // Ordenar los PopUps por el tiempo en orden ascendente
         setPopUps(popUps.sort((a, b) => a.time - b.time));
 
@@ -78,17 +52,28 @@ export default function YoutubePopup(props) {
       if (event.data === 2) setPlayingVideo(false)
       if (!showPopup) nextPopUp()
     };
+    //function para tomar Select
+    const handleOptionSelect = (option) => {
+      setSelectedOption(option);
+      //setShowPopup(false);
+    };
+
     //#endregion
     
     //#region PopUp
     const closePopup = () => {
       //mando por alert lo que se escribe
       //comprobacion de respuesta correcta
+      //  INPUT
       if(inputValue.toLowerCase()===currentPopUp.reply.toLowerCase())
-           {alert(inputValue+' es correcta')}
-      
-      else {alert(inputValue+ ' es incorrecto');}
-      
+            {alert(inputValue+' es correcta')}
+      else if(inputValue.toLowerCase()===currentPopUp.reply.toLowerCase()) 
+            {alert(inputValue+ ' es incorrecto');}
+      //  SELECT      
+      else if(selectedOption===currentPopUp.reply)
+            {alert(selectedOption+' ES correcta')}
+      else  {alert(selectedOption+' ES incorrecta')}
+
       setInputValue("");
       player.playVideo();
       setShowPopup(false);
@@ -134,7 +119,8 @@ export default function YoutubePopup(props) {
         />
 
         {/*  Hijo de html5-video-player  */}
-        {showPopup && (          
+        {showPopup && ( currentPopUp.type==='writer'?     
+        //INPUT    
         <div ref={popupRef} className="popup w-full h-full absolute top-0 left-0 flex justify-center items-center text-center" style={{background:"#000a"}}>
           <div className="p-2 bg-white" style={{borderRadius:"8px", minWidth: "40%"}}>
 
@@ -156,6 +142,29 @@ export default function YoutubePopup(props) {
               className="mt-5 bg-primary text-white" 
               style={{marginBottom: "20px", borderRadius: "5px", padding: "10px 22px 10px 22px"}}>Continuar</button>
           </div>
+      </div>
+        :  
+        //SELECT
+        <div ref={popupRef} className="popup w-full h-full absolute top-0 left-0 flex justify-center items-center text-center" style={{background:"#000a"}}>
+        <div className="p-2 bg-white" style={{borderRadius:"8px", minWidth: "40%"}}>
+
+          {/* Titulo */}
+          <h3 className='' style={{fontWeight:"700", marginBottom: "20px", fontSize:"21px"}}>
+          {currentPopUp.title}
+          </h3>
+
+             {/* Opciones del selector */}
+             <select value={selectedOption} onChange={(e) => handleOptionSelect(e.target.value)}>
+             { currentPopUp.options ? currentPopUp.options.map(
+                                    opt=> <option value={opt}>{opt}</option>) :null}
+             </select>
+
+
+        <button 
+        onClick={closePopup} 
+        className="mt-5 bg-primary text-white" 
+        style={{marginBottom: "20px", borderRadius: "5px", padding: "10px 22px 10px 22px"}}>Continuar</button> 
+      </div>
       </div>
         )}
       </div>

@@ -10,9 +10,11 @@ export default function YoutubePopup() {
          <Youtubet videoId={'UeVy4QOUBy8'} 
                    popups={[
                     // Objetos de Pruebas
-                    {time:3, title:"Completa la frase, hola", message:"Frase 1", reply:"hola", popUpShown: false},
-                    {time:6, title:"Completa la frase, chao", message:"Frase 2", reply:"chao", popUpShown: false},
-                    {time:9, title:"Completa la frase, bien", message:"Frase 3", reply:"bien", popUpShown: false}
+                    {time:6, title:"Tipo Input Completa la frase, hola", message:"Frase 1", reply:"hola", type:"writer",popUpShown: false},
+                    {time:9, title:"Tipo Input Completa la frase, chao", message:"Frase 2", reply:"chao", type:"writer",popUpShown: false},
+                    {time:12, title:"Tipo Input Completa la frase, bien", message:"Frase 3", reply:"bien", type:"writer",popUpShown: false},
+                    {time:3, title:"Tipo select Completa la frase, bien", message:"Frase 4", reply:"otra opcion", 
+                                           type:"select",options:['hola','chao','otra opcion'],popUpShown: false},
                   ]} />
         
       </div>
