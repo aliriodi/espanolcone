@@ -15,6 +15,7 @@ export default function YoutubePopup(props) {
     ]*/
     const [currentPopUp, setcurrentPopUp] = useState(props.popups[0])
     const [showPopup, setShowPopup] = useState(false);
+    const [showPopup2, setShowPopup2] = useState(false);
     //variable del INPUT para capturarse cuando onClick button
     const [inputValue, setInputValue] = useState("");
     //variable del SELECT para capturarse cuando onClick button
@@ -81,6 +82,7 @@ export default function YoutubePopup(props) {
       setInputValue("");
       player.playVideo();
       setShowPopup(false);
+      setShowPopup2(false);
       nextPopUp();
     };
     
@@ -121,13 +123,25 @@ export default function YoutubePopup(props) {
           onStateChange={handlePlayerStateChange}
           className='youtube'
         />
+        {/*Boton para activar la ACTIVIDAD*/}
+        
+        {showPopup?
+        <div className="popup w-full h-full absolute top-0 left-0 flex justify-center items-center text-center" >
+        <button 
+            onClick={() => {showPopup?setShowPopup(false):null; setShowPopup2(true)}} 
+            className="mt-5 bg-primary text-white text-center cursor-pointer"
+            style={{marginBottom: "20px", borderRadius: "5px", padding: "10px 22px 10px 22px"}}>
+            Actividad <span role="img" aria-label="Hand Emoji">👋</span>
+           </button></div>:null}
+           
 
         {/*  Hijo de html5-video-player  */}
-        {showPopup && ( currentPopUp.type==='writer'?     
-        //INPUT    
+        {showPopup2 && ( currentPopUp.type==='writer'?     
+        //INPUT
+            
         <div ref={popupRef} className="popup w-full h-full absolute top-0 left-0 flex justify-center items-center text-center" style={{background:"#000a"}}>
-          <div className="p-2 bg-white" style={{borderRadius:"8px", minWidth: "40%"}}>
-
+         <div className="p-2 bg-white" style={{borderRadius:"8px", minWidth: "40%"}}>
+           
             {/* Titulo */}
             <h3 className='' style={{fontWeight:"700", marginBottom: "20px", fontSize:"21px"}}>
             {currentPopUp.title}
@@ -156,7 +170,9 @@ export default function YoutubePopup(props) {
           <h3 className='' style={{fontWeight:"700", marginBottom: "20px", fontSize:"21px"}}>
           {currentPopUp.title}
           </h3>
-        
+        {/* Botón para mostrar el popup */}
+          
+
              {/* Opciones del selector */}
              { currentPopUp.options ? currentPopUp.options.map(opt => <label  key={opt} style={{  paddingLeft: currentPopUp.paddingLeft }}>
                  <input type="radio" className="checkoption" value={opt} checked={selectedOption === opt} onChange={(e) => handleCheckboxChange(e, opt)}/>
