@@ -14,7 +14,7 @@ export default function YoutubePopup() {
                     {time:9, title:"Tipo Input Completa la frase, chao", message:"Frase 2", reply:"chao", type:"writer",popUpShown: false},
                     {time:12, title:"Tipo Input Completa la frase, bien", message:"Frase 3", reply:"bien", type:"writer",popUpShown: false},
                     {time:3, title:"Tipo select Completa la frase, otra opcion", message:"Frase 4", reply:"otra opcion", 
-                                           type:"select",options:['hola','chao','otra opcion'],popUpShown: false},
+                                           type:"checkbox",options:['hola','chao','otra opcion'], paddingLeft:'38%',popUpShown: false},
                   ]} />
         
       </div>
