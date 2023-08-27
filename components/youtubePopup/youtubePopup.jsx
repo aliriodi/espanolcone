@@ -68,7 +68,12 @@ export default function YoutubePopup(props) {
     //#region PopUp
     const closePopup = () => {
       //mando por alert lo que se escribe
-      alert(inputValue);
+      //comprobacion de respuesta correcta
+      if(inputValue.toLowerCase()===currentPopUp.reply.toLowerCase())
+           {alert(inputValue+' es correcta')}
+      
+      else {alert(inputValue+ ' es incorrecto');}
+      
       setInputValue("");
       player.playVideo();
       setShowPopup(false);
