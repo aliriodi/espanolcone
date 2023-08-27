@@ -155,7 +155,7 @@ export default function YoutubePopup(props) {
 
              {/* Opciones del selector */}
              <select value={selectedOption} onChange={(e) => handleOptionSelect(e.target.value)}>
-             { currentPopUp.options ? currentPopUp.options.map(opt => <option value={opt}>{opt}</option>) :null}
+             { currentPopUp.options ? currentPopUp.options.map(opt => <option key={opt} value={opt}>{opt}</option>) :null}
              </select>
 
 
