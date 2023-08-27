@@ -57,7 +57,11 @@ export default function YoutubePopup(props) {
       setSelectedOption(option);
       //setShowPopup(false);
     };
-
+    const handleCheckboxChange = (event, option) => {
+      const isChecked = event.target.checked;
+      setSelectedOption(option);
+      // Realiza las acciones necesarias con la opción seleccionada
+    };
     //#endregion
     
     //#region PopUp
@@ -145,25 +149,32 @@ export default function YoutubePopup(props) {
       </div>
         :  
         //SELECT
-        <div ref={popupRef} className="popup w-full h-full absolute top-0 left-0 flex justify-center items-center text-center" style={{background:"#000a"}}>
+        <div ref={popupRef} className="popup w-full h-full absolute top-0 left-0 flex justify-center items-center " style={{background:"#000a"}}>
         <div className="p-2 bg-white" style={{borderRadius:"8px", minWidth: "40%"}}>
 
           {/* Titulo */}
           <h3 className='' style={{fontWeight:"700", marginBottom: "20px", fontSize:"21px"}}>
           {currentPopUp.title}
           </h3>
-
+        
              {/* Opciones del selector */}
-             <select value={selectedOption} onChange={(e) => handleOptionSelect(e.target.value)}>
-             { currentPopUp.options ? currentPopUp.options.map(opt => <option key={opt} value={opt}>{opt}</option>) :null}
-             </select>
+             { currentPopUp.options ? currentPopUp.options.map(opt => <label  key={opt} style={{  paddingLeft: currentPopUp.paddingLeft }}>
+                 <input type="radio" className="checkoption" value={opt} checked={selectedOption === opt} onChange={(e) => handleCheckboxChange(e, opt)}/>
+                 <span className="radio-indicator"></span> {opt} <br></br>
+              </label>):null }
+              {/* <select value={selectedOption} onChange={(e) => handleOptionSelect(e.target.value)}>
+             { currentPopUp.options ? currentPopUp.options.map(opt => 
+             
+             <option key={opt} value={opt}>{opt}</option>) :null}
+             </select> */}
 
-
+       <div className="text-center" >
         <button 
         onClick={closePopup} 
-        className="mt-5 bg-primary text-white" 
+        type="submit"
+        className="mt-5 bg-primary text-white " 
         style={{marginBottom: "20px", borderRadius: "5px", padding: "10px 22px 10px 22px"}}>Continuar</button> 
-      </div>
+      </div></div>
       </div>
         )}
       </div>
