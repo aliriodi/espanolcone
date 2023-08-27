@@ -6,7 +6,7 @@
 *{
   /* No Me Mates era la unica forma ;-; */
   font-family: 'Montserrat', sans-serif;
-  color: #6e6b7b
+  /* color: #6e6b7b */
 }
 
 .text-shadow {
@@ -15,6 +15,10 @@
 
 .youtube iframe{
   width: 100%;
+}
+
+.icon-white{
+  color:#fff!important;
 }
 /* :root {
   --max-width: 1100px;

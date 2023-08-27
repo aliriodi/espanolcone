@@ -14,8 +14,10 @@ import { getuser , getuseremail} from "../redux/ECEActions";
 import Layout from '../components/Layout';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
-import {useSession} from 'next-auth/react'
+import { useSession, signIn } from 'next-auth/react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useState } from 'react';
+import { AiOutlineGoogle } from 'react-icons/ai'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -33,7 +35,10 @@ export default function Home() {
   const handleClick = () => {
     // go to the home
     window.location.href = '/home';
-  };
+  };  
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
 
   //Probando redux
   useEffect(() => { dispatch(getuser()); }, [dispatch]);
@@ -51,6 +56,17 @@ export default function Home() {
     options: { suppressHydrationWarning: true },
   })
 
+  // Next Auth
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const result = await signIn('credentials', {
+      // redirect: true,
+      email,
+      password,
+    })
+    alert("AAAAAAAAAAAAAHhhhhhhhhh")
+  }
+
   return (
     <>
       <Head>
@@ -58,7 +74,7 @@ export default function Home() {
         <meta name="landing" content="welcome" />
       </Head>
       <Layout>
-        <div className='w-full h-screen flex'>
+        <div className='w-full h-screen flex' style={{color:'#6e6b7b'}}>
           {/* Fondo */}
           <div className="loging-fondo bg-primary flex justify-evenly items-center flex-col h-screen w-full relative z-40">
             <Image src={Logo} style={{ width: '200px' }} alt='Logo' className='z-40' />
@@ -94,7 +110,7 @@ export default function Home() {
               {t("p2")}
             </p>
 
-            <form action="">
+            <form action="" onSubmit={handleSubmit}>
 
               {/* Campo Email */}
               <div className="flex flex-col" style={{ margin: '25px 0' }}>
@@ -105,7 +121,11 @@ export default function Home() {
                   className='p-2 rounded-md border border-gray-clear'
                   type="text"
                   id="email"
-                  placeholder={userL.email} />
+                  placeholder='johndoe@gmail.com'
+                  required={true}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  />
               </div>
 
               {/* Campo Contraseña */}
@@ -118,8 +138,9 @@ export default function Home() {
                   className='p-2 rounded-md border border-gray-clear'
                   type="text"
                   id="password"
-                  placeholder={userL.email}
-                  value={undefined} />
+                  value={password}
+                  required={true}
+                  onChange={(e) => setPassword(e.target.value)}/>
                 <p>{t("p6")}</p>
               </div>
  
@@ -128,19 +149,19 @@ export default function Home() {
               <label htmlFor="remember">{t("p7")}</label>
 
               {/* Ingresar */}
-              {/* <input
+              <input
               style={{padding:'10px', margin:'20px 0', borderRadius:'8px'}}
               className="w-full bg-primary text-white cursor-pointer"
               type="submit"
-              value="Ingresar"/> */}
+              value="Ingresar"/>
 
-              <button
+              {/* <button
                 style={{ padding: '10px', margin: '20px 0', borderRadius: '8px' }}
                 className="w-full bg-primary text-white cursor-pointer"
                 // type="submit"
                 value="Ingresar">
                 <Link href="/home">{t("b1")}</Link>
-              </button>
+              </button> */}
 
               {/* Crear Cuenta */}
               <div className="flex justify-around">
@@ -160,18 +181,21 @@ export default function Home() {
 
               {/* Crear Cuenta con Redes Sociales */}
               <div className="flex justify-center">
-                <a
+                <span
+                  onClick={()=>signIn('google')}
+                  style={{ margin: '0 9px', borderRadius: '8px' }}
+                  className='bg-primary h-8 w-8'
+                  href="#">
+                    <AiOutlineGoogle className='text-white cursor-pointer icon-white' size={32}/>
+                  </span>
+                {/* <a
                   style={{ margin: '0 9px', borderRadius: '8px' }}
                   className='bg-primary h-8 w-8'
                   href="#"></a>
                 <a
                   style={{ margin: '0 9px', borderRadius: '8px' }}
                   className='bg-primary h-8 w-8'
-                  href="#"></a>
-                <a
-                  style={{ margin: '0 9px', borderRadius: '8px' }}
-                  className='bg-primary h-8 w-8'
-                  href="#"></a>
+                  href="#"></a> */}
               </div>
             </form>
             <Image src={Vector3} alt='Vector3' className='z-20 absolute right-0 bottom-0 w-40' />
