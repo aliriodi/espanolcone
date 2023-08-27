@@ -35,8 +35,23 @@ export default function YoutubePopup(props) {
     //#region Handlers
     async function handlePlayerReady(event) {
         // Obtiene el Player
+       
         setPlayer(event.target);
+//        const iframe = await iframeRef.current.internalPlayer.getIframe();
+  
+       // Agrega estilos para ocultar el botón de pantalla completa
+  // Accede al botón de pantalla completa dentro del iframe y ocúltalo
 
+
+  /*
+  const style = document.createElement("style");
+  style.innerHTML = `
+    .ytp-fullscreen-button {
+      display: none !important;
+    }
+  `;
+  iframe?.contentDocument?.head.appendChild(style);
+*/
         // Obtiene el elemento Player
         // const iframeDocument = document.querySelector("#widget4");
         // const playerElement = iframeDocument?.querySelector('.html5-video-player');
@@ -49,7 +64,7 @@ export default function YoutubePopup(props) {
         // const iframeDocument = iframe.contentDocument || iframe.contentWindow;
 
         
-        const iframe = await iframeRef.current.internalPlayer.getIframe();
+       // const iframe = await iframeRef.current.internalPlayer.getIframe();
         // console.log(iframe?.contentWindow.document)
         
         // Ordenar los PopUps por el tiempo en orden ascendente
@@ -96,19 +111,21 @@ export default function YoutubePopup(props) {
     }
     //#endregion
     
+   
     // Opciones de Youtube
-    const opts = {
+    const opts = { 
         playerVars: {
           rel: 0, // Evitar videos relacionados al final
           autoplay: 0, // Desactivar la reproducción automática
           modestbranding: 1, // Ocultar el logotipo de YouTube
+          fs:0, // Oculto el boton de maximizar video fs FullScreen
       }
     }
 
     return (
       <div className='mx-auto my-auto h-1/2 relative' style={{width:"640px", marginTop:"100px"}}>
         <YouTube
-        ref={iframeRef}
+          ref={iframeRef}
           opts={opts}
           videoId={props.videoId}        
           onReady={handlePlayerReady}
