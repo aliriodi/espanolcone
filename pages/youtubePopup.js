@@ -10,11 +10,11 @@ export default function YoutubePopup() {
          <Youtubet videoId={'UeVy4QOUBy8'} 
                    popups={[
                     // Objetos de Pruebas
-                    {time:6, title:"Tipo Input Completa la frase, hola", message:"Frase 1", reply:"hola", type:"writer",popUpShown: false},
-                    {time:9, title:"Tipo Input Completa la frase, chao", message:"Frase 2", reply:"chao", type:"writer",popUpShown: false},
-                    {time:12, title:"Tipo Input Completa la frase, bien", message:"Frase 3", reply:"bien", type:"writer",popUpShown: false},
-                    {time:3, title:"Tipo select Completa la frase, otra opcion", message:"Frase 4", reply:"otra opcion", 
-                                           type:"checkbox",options:['hola','chao','otra opcion'], paddingLeft:'38%',popUpShown: false},
+                    {time:12, title:"Tipo Input Que tipo de golpe hizo Andy?, Derecha", message:"Indique su respuesta", reply:"derecha", type:"writer",popUpShown: false},
+                    {time:9, title:"Tipo Input Que tipo de golpe va a ejecutar Andy?, Reves", message:"Pienselo bien", reply:"chao", type:"writer",popUpShown: false},
+                    {time:6, title:"Tipo Input Que deporte estan jugando?, Tenis", message:"EL deporte es", reply:"tenis" , type:"writer",popUpShown: false},
+                    {time:3, title:"Tipo select Que accion hizo el jugador", message:"Actividad 1", reply:"Sacar", 
+                                           type:"checkbox",options:['Sacar','bolea','derecha'], paddingLeft:'38%',popUpShown: false},
                   ]} />
         
       </div>

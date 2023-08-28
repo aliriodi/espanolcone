@@ -52,6 +52,7 @@ export default function YoutubePopup(props) {
       if (event.data === 1) setPlayingVideo(true)
       if (event.data === 2) setPlayingVideo(false)
       if (!showPopup) nextPopUp()
+      if(player) setShowPopup(false);
     };
     //function para tomar Select
     const handleOptionSelect = (option) => {
@@ -72,7 +73,7 @@ export default function YoutubePopup(props) {
       //  INPUT
       if(inputValue.toLowerCase()===currentPopUp.reply.toLowerCase())
             {alert(inputValue+' es correcta')}
-      else if(inputValue.toLowerCase()===currentPopUp.reply.toLowerCase()) 
+      else if(inputValue&&inputValue.toLowerCase()!==currentPopUp.reply.toLowerCase()) 
             {alert(inputValue+ ' es incorrecto');}
       //  SELECT      
       else if(selectedOption===currentPopUp.reply)
@@ -126,7 +127,7 @@ export default function YoutubePopup(props) {
         {/*Boton para activar la ACTIVIDAD*/}
         
         {showPopup?
-        <div className="popup w-full h-full absolute top-0 left-0 flex justify-center items-center text-center" >
+        <div className="popup  absolute top-0 left-0 flex justify-center items-center text-center"  style={{zIndex:0, width:'60%', height:'90%'}}>
         <button 
             onClick={() => {showPopup?setShowPopup(false):null; setShowPopup2(true)}} 
             className="mt-5 bg-primary text-white text-center cursor-pointer"
