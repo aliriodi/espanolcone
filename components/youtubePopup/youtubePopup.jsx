@@ -73,7 +73,7 @@ export default function YoutubePopup(props) {
       //  INPUT
       if(inputValue.toLowerCase()===currentPopUp.reply.toLowerCase())
             {alert(inputValue+' es correcta')}
-      else if(inputValue.toLowerCase()===currentPopUp.reply.toLowerCase()) 
+      else if(inputValue&&inputValue.toLowerCase()!==currentPopUp.reply.toLowerCase()) 
             {alert(inputValue+ ' es incorrecto');}
       //  SELECT      
       else if(selectedOption===currentPopUp.reply)
