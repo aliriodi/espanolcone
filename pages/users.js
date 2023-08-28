@@ -47,11 +47,14 @@ export default function Users() {
   return (
     <>
       {isLoading ? (
-        <Spinner />
+        <div className="flex h-screen justify-center items-center">
+          <Spinner />
+        </div>
       ) : (
         <>
           <div className='flex flex-row mx-5 my-10'>
             <div className='px-5'>users</div>
+
             <button
               onClick={handleClickLogin}
               type='submit'
