@@ -13,7 +13,7 @@ export default function YoutubePopup() {
                     {time:12, title:"Tipo Input Que tipo de golpe hizo Andy?, Derecha", message:"Indique su respuesta", reply:"derecha", type:"writer",popUpShown: false},
                     {time:9, title:"Tipo Input Que tipo de golpe va a ejecutar Andy?, Reves", message:"Pienselo bien", reply:"chao", type:"writer",popUpShown: false},
                     {time:6, title:"Tipo Input Que deporte estan jugando?, Tenis", message:"EL deporte es", reply:"tenis" , type:"writer",popUpShown: false},
-                    {time:3, title:"Tipo select Que accion hizo el jugador", message:"Actividad 1", reply:"Sacar", 
+                    {time:3, title:"Tipo select Que accion hizo el jugador, Sacar", message:"Actividad 1", reply:"Sacar", 
                                            type:"checkbox",options:['Sacar','bolea','derecha'], paddingLeft:'38%',popUpShown: false},
                   ]} />
         
