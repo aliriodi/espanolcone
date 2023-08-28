@@ -46,6 +46,7 @@ export default function Home() {
         <title>Español con E | Bienvenidos</title>
         <meta name="landing" content="welcome" />
       </Head>
+
       <Layout>
         <div className='w-full h-screen flex'>
           {/* Fondo */}
