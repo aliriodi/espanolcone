@@ -14,7 +14,7 @@ import { getuser , getuseremail} from "../redux/ECEActions";
 import Layout from '../components/Layout';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
-import { useSession, signIn } from 'next-auth/react'
+import { useSession, signIn, signOut } from 'next-auth/react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useState } from 'react';
 import { AiOutlineGoogle } from 'react-icons/ai'
@@ -64,7 +64,6 @@ export default function Home() {
       email,
       password,
     })
-    alert("AAAAAAAAAAAAAHhhhhhhhhh")
   }
 
   return (
@@ -156,14 +155,6 @@ export default function Home() {
               type="submit"
               value="Ingresar"/>
 
-              {/* <button
-                style={{ padding: '10px', margin: '20px 0', borderRadius: '8px' }}
-                className="w-full bg-primary text-white cursor-pointer"
-                // type="submit"
-                value="Ingresar">
-                <Link href="/home">{t("b1")}</Link>
-              </button> */}
-
               {/* Crear Cuenta */}
               <div className="flex justify-around">
                 <p>{t("p8")}</p>
@@ -183,17 +174,18 @@ export default function Home() {
               {/* Crear Cuenta con Redes Sociales */}
               <div className="flex justify-center">
                 <span
-                  onClick={()=>signIn('google')}
+                  onClick={()=>signIn('google',{ callbackUrl: '/home' })}
                   style={{ margin: '0 9px', borderRadius: '8px' }}
                   className='bg-primary h-8 w-8'
                   href="#">
                     <AiOutlineGoogle className='text-white cursor-pointer icon-white' size={32}/>
                   </span>
-                {/* <a
+                {/* <span
+                  onClick={()=>signOut('google',{ callbackUrl: '/' })}
                   style={{ margin: '0 9px', borderRadius: '8px' }}
                   className='bg-primary h-8 w-8'
-                  href="#"></a>
-                <a
+                  href="#"></span> */}
+                {/* <a
                   style={{ margin: '0 9px', borderRadius: '8px' }}
                   className='bg-primary h-8 w-8'
                   href="#"></a> */}
