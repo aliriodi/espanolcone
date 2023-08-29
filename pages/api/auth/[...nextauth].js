@@ -31,7 +31,6 @@ export default NextAuth({
   ],
   callbacks: {
     async signIn({ account, profile }) {
-
       // Usuario registrado con Google
       if (account.provider === "google") {
         const newUser = {
@@ -50,9 +49,11 @@ export default NextAuth({
       }
       return true 
     },
-    async redirect({ url, baseUrl }) {
-      return '/home'
-    },
+    async session({ session, user, token }) {
+      //  Define lo que va a devolver session.user
+        if (session.user) session.user = await getUser(session.user.email)
+        return session
+    }
   }
 });
 
@@ -64,6 +65,19 @@ async function signInUser(user){
     const existingUser = await Users.findOne({ email: user.email });
 
     if (!existingUser) await Users.create(user)
+  }
+  catch(e){
+    console.log(e)
+  }
+}
+
+async function getUser(email){
+  try{
+    await dbConnect()
+    
+    const user = await Users.findOne({ email: email });
+
+    return user
   }
   catch(e){
     console.log(e)
