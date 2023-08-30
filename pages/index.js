@@ -79,7 +79,6 @@ export default function Home() {
     } else {
       setEmailError(false)
       setPasswordError(false)
-      alert("Done")
       // window.location.href('/home');
     }
   }
