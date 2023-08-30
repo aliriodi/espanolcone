@@ -15,9 +15,18 @@ export default NextAuth({
         password: { label: "Password", type: "password", placeholder: "***********"}
       },
       async authorize(credentials, req) {
-        const newUser = { email: credentials.email, password: credentials.password };
-        signInUser(newUser);
-        return newUser;
+        try{
+          const userFound = await getUser(credentials.email);
+          if(!userFound) throw new Error("incorrect email");
+
+          const passwordMatch = userFound.password == credentials.password;
+          if(!passwordMatch) throw new Error("incorrect password");
+  
+          return userFound;
+        }
+        catch(error){
+          throw error;
+        }
       }
     }),
     GoogleProvider({

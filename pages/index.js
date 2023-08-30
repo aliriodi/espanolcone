@@ -18,6 +18,7 @@ import { useSession, signIn, signOut } from 'next-auth/react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useState } from 'react';
 import { AiOutlineGoogle } from 'react-icons/ai'
+import { redirect } from 'next/dist/server/api-utils';
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -38,6 +39,8 @@ export default function Home() {
   };  
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [emailError, setEmailError]= useState(false)
+  const [passwordError, setPasswordError]= useState(false)
 
 
   //Probando redux
@@ -59,11 +62,26 @@ export default function Home() {
   // Next Auth
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const result = await signIn('credentials', {
-      // redirect: true,
+
+    const response = await signIn('credentials', {
       email,
       password,
-    })
+      redirect: false,
+    });
+    
+    // Comprueba que la contraseña y email sean validos 
+    if (response.error) {
+      if(response.error == "incorrect email")setEmailError(true)
+      if(response.error == "incorrect password"){
+        setEmailError(false)
+        setPasswordError(true)
+      }
+    } else {
+      setEmailError(false)
+      setPasswordError(false)
+      alert("Done")
+      // window.location.href('/home');
+    }
   }
 
   return (
@@ -115,17 +133,21 @@ export default function Home() {
               {/* Campo Email */}
               <div className="flex flex-col" style={{ margin: '25px 0' }}>
                 <div style={{ margin: '8px 0' }}>
-                  <label htmlFor="email">{t("p3")}</label>
+                  <label htmlFor="email">{t("errorEmail")}</label>
                 </div>
                 <input
-                  className='p-2 rounded-md border border-gray-clear'
-                  type="text"
+                  className={`p-2 rounded-md border focus-visible:outline-none ${emailError ? "border-danger" :"border-gray-clear"}`}
+                  type="email"
                   id="email"
                   placeholder='johndoe@gmail.com'
-                  required={true}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   />
+                  
+                  {/* Error de contraseña */}
+                  {emailError && (
+                    <p className='text-danger'>{t("errorEmail")}</p>
+                  )}
               </div>
 
               {/* Campo Contraseña */}
@@ -135,13 +157,16 @@ export default function Home() {
                   <a href="#" className='text-success'>{t("p5")}</a>
                 </div>
                 <input
-                  className='p-2 rounded-md border border-gray-clear'
+                  className={`p-2 rounded-md border focus-visible:outline-none ${passwordError ? "border-danger" :"border-gray-clear"}`}
                   type="text"
                   id="password"
                   value={password}
-                  required={true}
                   onChange={(e) => setPassword(e.target.value)}/>
-                <p>{t("p6")}</p>
+
+                  {/* Error de contraseña */}
+                  {passwordError && (
+                    <p className='text-danger'>{t("errorPassaword")}</p>
+                  )}
               </div>
  
               {/* Recordar Contraseña */}
