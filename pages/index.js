@@ -182,7 +182,7 @@ export default function Home() {
               {/* Crear Cuenta */}
               <div className="flex justify-around">
                 <p>{t("p8")}</p>
-                <a href="/home" className='text-primary'>{t("p9")}</a>
+                <a href="/register" className='text-primary'>{t("p9")}</a>
               </div>
 
               <div className="w-full flex justify-center items-center relative">
