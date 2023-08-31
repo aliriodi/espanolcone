@@ -29,8 +29,9 @@ export default function Home() {
   // import {useSession} from 'next-auth/react'
   
   // useSseion()
-  const {data: session} = useSession();
+  const {data: session,status} = useSession();
   console.log(session)
+  console.log(status)
   const dispatch = useDispatch();
   const handleClick = () => {
     // go to the home
@@ -66,6 +67,9 @@ export default function Home() {
     })
     alert("AAAAAAAAAAAAAHhhhhhhhhh")
   }
+
+  
+
 
   return (
     <>
