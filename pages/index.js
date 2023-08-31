@@ -14,10 +14,11 @@ import { getuser , getuseremail} from "../redux/ECEActions";
 import Layout from '../components/Layout';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
-import { useSession, signIn } from 'next-auth/react'
+import { useSession, signIn, signOut } from 'next-auth/react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useState } from 'react';
 import { AiOutlineGoogle } from 'react-icons/ai'
+import { redirect } from 'next/dist/server/api-utils';
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -39,6 +40,8 @@ export default function Home() {
   };  
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [emailError, setEmailError]= useState(false)
+  const [passwordError, setPasswordError]= useState(false)
 
 
   //Probando redux
@@ -60,12 +63,25 @@ export default function Home() {
   // Next Auth
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const result = await signIn('credentials', {
-      // redirect: true,
+
+    const response = await signIn('credentials', {
       email,
       password,
-    })
-    alert("AAAAAAAAAAAAAHhhhhhhhhh")
+      redirect: false,
+    });
+    
+    // Comprueba que la contraseña y email sean validos 
+    if (response.error) {
+      if(response.error == "incorrect email")setEmailError(true)
+      if(response.error == "incorrect password"){
+        setEmailError(false)
+        setPasswordError(true)
+      }
+    } else {
+      setEmailError(false)
+      setPasswordError(false)
+      window.location.href='/home';
+    }
   }
 
   
@@ -77,6 +93,7 @@ export default function Home() {
         <title>Español con E | Bienvenidos</title>
         <meta name="landing" content="welcome" />
       </Head>
+
       <Layout>
         <div className='w-full h-screen flex' style={{color:'#6e6b7b'}}>
           {/* Fondo */}
@@ -119,17 +136,21 @@ export default function Home() {
               {/* Campo Email */}
               <div className="flex flex-col" style={{ margin: '25px 0' }}>
                 <div style={{ margin: '8px 0' }}>
-                  <label htmlFor="email">{t("p3")}</label>
+                  <label htmlFor="email">{t("errorEmail")}</label>
                 </div>
                 <input
-                  className='p-2 rounded-md border border-gray-clear'
-                  type="text"
+                  className={`p-2 rounded-md border focus-visible:outline-none ${emailError ? "border-danger" :"border-gray-clear"}`}
+                  type="email"
                   id="email"
                   placeholder='johndoe@gmail.com'
-                  required={true}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   />
+                  
+                  {/* Error de contraseña */}
+                  {emailError && (
+                    <p className='text-danger'>{t("errorEmail")}</p>
+                  )}
               </div>
 
               {/* Campo Contraseña */}
@@ -139,13 +160,16 @@ export default function Home() {
                   <a href="#" className='text-success'>{t("p5")}</a>
                 </div>
                 <input
-                  className='p-2 rounded-md border border-gray-clear'
+                  className={`p-2 rounded-md border focus-visible:outline-none ${passwordError ? "border-danger" :"border-gray-clear"}`}
                   type="text"
                   id="password"
                   value={password}
-                  required={true}
                   onChange={(e) => setPassword(e.target.value)}/>
-                <p>{t("p6")}</p>
+
+                  {/* Error de contraseña */}
+                  {passwordError && (
+                    <p className='text-danger'>{t("errorPassaword")}</p>
+                  )}
               </div>
  
               {/* Recordar Contraseña */}
@@ -159,18 +183,10 @@ export default function Home() {
               type="submit"
               value="Ingresar"/>
 
-              {/* <button
-                style={{ padding: '10px', margin: '20px 0', borderRadius: '8px' }}
-                className="w-full bg-primary text-white cursor-pointer"
-                // type="submit"
-                value="Ingresar">
-                <Link href="/home">{t("b1")}</Link>
-              </button> */}
-
               {/* Crear Cuenta */}
               <div className="flex justify-around">
                 <p>{t("p8")}</p>
-                <a href="#" className='text-primary'>{t("p9")}</a>
+                <a href="/register" className='text-primary'>{t("p9")}</a>
               </div>
 
               <div className="w-full flex justify-center items-center relative">
@@ -183,20 +199,21 @@ export default function Home() {
                 ></span>
               </div>
 
-              {/* Crear Cuenta con Redes Sociales */}
+              {/* Cuenta con Redes Sociales */}
               <div className="flex justify-center">
                 <span
-                  onClick={()=>signIn('google')}
+                  onClick={()=>signIn('google',{ callbackUrl: '/home' })}
                   style={{ margin: '0 9px', borderRadius: '8px' }}
                   className='bg-primary h-8 w-8'
                   href="#">
                     <AiOutlineGoogle className='text-white cursor-pointer icon-white' size={32}/>
                   </span>
-                {/* <a
+                {/* <span
+                  onClick={()=>signOut('google',{ callbackUrl: '/' })}
                   style={{ margin: '0 9px', borderRadius: '8px' }}
                   className='bg-primary h-8 w-8'
-                  href="#"></a>
-                <a
+                  href="#"></span> */}
+                {/* <a
                   style={{ margin: '0 9px', borderRadius: '8px' }}
                   className='bg-primary h-8 w-8'
                   href="#"></a> */}

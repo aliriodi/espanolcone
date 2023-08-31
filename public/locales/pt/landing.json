@@ -12,5 +12,7 @@
   "p7": "Lembre-se de mim",
   "b1": "Entrar",
   "p8": "Ainda não tem uma conta?",
-  "p9": "Crie uma nova"
+  "p9": "Crie uma nova",
+  "errorEmail":"Email incorreta",
+  "errorPassaword":"Senha incorreta"
 }

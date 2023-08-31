@@ -30,7 +30,7 @@ export default function Home() {
             onClick={handleClickLogin}
             type='submit'
             className='bg-blue-500 text-white px-5 py-2 rounded mr-5'>
-            Go Landing
+            Go Home
           </button>
           <button
             onClick={handleClickUsers}

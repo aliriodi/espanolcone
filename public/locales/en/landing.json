@@ -12,5 +12,7 @@
   "p7":"Remember me",
   "b1":"Log in",
   "p8":"Don't have an account yet?",
-  "p9":"Create a new one"
+  "p9":"Create a new one",
+  "errorEmail":"Incorrect email",
+  "errorPassaword":"Incorrect password"
 }
