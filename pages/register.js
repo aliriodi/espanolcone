@@ -69,8 +69,8 @@ export default function Register() {
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
     // Haciendo validaciones
-    if(newUser.name == ""){
-      console.log(newUser.name == "")
+    if(newUser.first_name == ""){
+      console.log(newUser.first_name == "")
       errors.name=true
       isValid = false
     }
