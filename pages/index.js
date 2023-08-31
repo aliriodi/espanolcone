@@ -34,7 +34,6 @@ export default function Home() {
   const {data: session,status} = useSession();
   console.log(session)
   console.log(status)
- 
   const dispatch = useDispatch();
   const handleClick = () => {
     // go to the home
@@ -49,12 +48,7 @@ export default function Home() {
   //Probando redux
   useEffect(() => { dispatch(getuser());
   }, [dispatch]);
-  useEffect(() => { 
-    if(status==='authenticated'){ window.location.href = '/home'}
-    if(status==='unauthenticated'){window.location.href = '/'}
-  }, [dispatch]);
-
-
+  
   const { userL } = useSelector((state) => state.datos);
 
   const { locale, locales, push } = useRouter()
