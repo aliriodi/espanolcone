@@ -79,7 +79,7 @@ export default function Home() {
     } else {
       setEmailError(false)
       setPasswordError(false)
-      // window.location.href('/home');
+      window.location.href='/home';
     }
   }
 
@@ -182,7 +182,7 @@ export default function Home() {
               {/* Crear Cuenta */}
               <div className="flex justify-around">
                 <p>{t("p8")}</p>
-                <a href="#" className='text-primary'>{t("p9")}</a>
+                <a href="/home" className='text-primary'>{t("p9")}</a>
               </div>
 
               <div className="w-full flex justify-center items-center relative">
@@ -195,7 +195,7 @@ export default function Home() {
                 ></span>
               </div>
 
-              {/* Crear Cuenta con Redes Sociales */}
+              {/* Cuenta con Redes Sociales */}
               <div className="flex justify-center">
                 <span
                   onClick={()=>signIn('google',{ callbackUrl: '/home' })}

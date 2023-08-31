@@ -22,6 +22,8 @@ module.exports = {
 
         danger:'#e73b3c',
         danger_hover:'#F34F54',
+        danger_disable: '#E73B3CA6',
+        danger_clean: '#E73B3C1F',
 
         warning:'#ff7438',
         warning_hover:'#FC824D',
@@ -39,7 +41,7 @@ module.exports = {
 
         white: '#fff',
 
-        violet_dark:'#5e5873',
+        violet_dark:'#6E6B7B',
       },
     },
   },

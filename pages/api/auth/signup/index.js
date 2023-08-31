@@ -16,7 +16,7 @@ export default async function POST(req, res){
         // Verifica si el correo electrónico ya existe en la base de datos
         const existingUser = await Users.findOne({ email });
         if (existingUser) {
-          return res.status(400).json({ message: 'Email already exists' });
+          return res.status(409).json({ message: 'Email already exists' });
         }
     
         // Crea el nuevo usuario
