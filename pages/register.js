@@ -15,7 +15,11 @@ import { signIn } from 'next-auth/react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useState } from 'react';
 import axios from 'axios';
-import { faL } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+
+// faChevronRight
+
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Register() {
@@ -167,16 +171,19 @@ export default function Register() {
             <form action="" onSubmit={handleSubmit}>
 
                 {/* Campos */}
-                <div className='flex flex-wrap justify-between relative'>
+                <div className='flex justify-between relative'>
+
+                  {/* Campo de la Izquierda */}
+                  <div className='w-full pr-5'>
                     {/* Campo Nombre */}
-                    <div className="flex flex-col" style={{ margin: '10px 0', minWidth:'45%', flexGrow:1}}>
+                    <div className="flex flex-col" style={{ marginTop: '18px', width:'100%', flexGrow:1}}>
                         
                         <div style={{ margin: '8px 0' }}>
                             <label htmlFor="name">Nombre</label>
                         </div>
 
                         <input
-                          className={`p-2 rounded-md border focus-visible:outline-none ${errorsForm.name ? "border-danger" :"border-gray-clear"}`}
+                          className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.name ? "border-danger" :"border-gray-clear"}`}
                           type="text"
                           id="name"
                           placeholder='John'
@@ -190,15 +197,62 @@ export default function Register() {
                         )}
                     </div>
 
+                    {/* Campo Pais */}
+                    <div className="flex flex-col" style={{ marginTop: '18px' , width:'100%', flexGrow:1}}>
+
+                        <div className="flex justify-between" style={{ margin: '8px 0' }}>
+                            <label htmlFor="country">País</label>
+                        </div>
+
+                        <input
+                          className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.country ? "border-danger" :"border-gray-clear"}`}
+                          type="text"
+                          id="country"
+                          placeholder='Venezuela'
+                          value={newUser.country}
+                          onChange={(e) => setNewUser({...newUser, country: e.target.value})}
+                        />
+
+                        {/* Error de Pais */}
+                        {errorsForm.country && (
+                            <p className='text-danger'>Introdusca un pais</p>
+                        )}
+                    </div>
+                    
+                    {/* Campo Confirma Contraseña */}
+                    <div className="flex flex-col" style={{ marginTop: '18px' , width:'100%', flexGrow:1}}>
+                        <div className="flex justify-between" style={{ margin: '8px 0' }}>
+                            <label htmlFor="confirm_password">Contraseña</label>
+                        </div>
+                        
+                        <input
+                          className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.confirm_password ? "border-danger" :"border-gray-clear"}`}
+                          type="password"
+                          id="confirm_password"
+                          placeholder='Re-type passwoard'
+                          value={newUser.confirm_password}
+                          onChange={(e) => setNewUser({...newUser, confirm_password: e.target.value})}
+                        />
+                         
+                        {/* Error de Contraseña */}
+                        {errorsForm.confirm_password && (
+                            <p className='text-danger flex'>Debe ser igual a la contraseña previamente introducida</p>
+                        )}
+                    </div>   
+                  </div>
+
+                  {/* Campo de la Derecha */}
+                  <div className='w-full pl-5'>
+                    
                     {/* Campo Apellido */}
-                    <div className="flex flex-col" style={{ margin: '10px 0', minWidth:'45%', flexGrow:1}}>
+                    <div className="flex flex-col" style={{ marginTop: '18px', width:'100%', flexGrow:1}}>
 
                         <div className="flex justify-between" style={{ margin: '8px 0' }}>
                             <label htmlFor="last_name">Apellido</label>
                         </div>
 
                         <input
-                          className={`p-2 rounded-md border focus-visible:outline-none ${errorsForm.last_name ? "border-danger" :"border-gray-clear"}`}
+                          className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.last_name ? "border-danger" :"border-gray-clear"}`}
                           type="text"
                           id="last_name"
                           placeholder='Doe'
@@ -212,37 +266,15 @@ export default function Register() {
                         )}
                     </div>
 
-                    {/* Campo Pais */}
-                    <div className="flex flex-col" style={{ margin: '10px 0' , minWidth:'45%', flexGrow:1}}>
-
-                        <div className="flex justify-between" style={{ margin: '8px 0' }}>
-                            <label htmlFor="country">País</label>
-                        </div>
-
-                        <input
-                          className={`p-2 rounded-md border focus-visible:outline-none ${errorsForm.country ? "border-danger" :"border-gray-clear"}`}
-                          type="text"
-                          id="country"
-                          placeholder='Venezuela'
-                          value={newUser.country}
-                          onChange={(e) => setNewUser({...newUser, country: e.target.value})}
-                        />
-
-                        {/* Error de Pais */}
-                        {errorsForm.country && (
-                            <p className='text-danger'>Introdusca un pais</p>
-                        )}
-                    </div>
-
                     {/* Campo Email */}
-                    <div className="flex flex-col" style={{ margin: '10px 0' , minWidth:'45%', flexGrow:1}}>
+                    <div className="flex flex-col" style={{ marginTop: '18px' , width:'100%', flexGrow:1}}>
 
                         <div className="flex justify-between" style={{ margin: '8px 0' }}>
                             <label htmlFor="email">Email</label>
                         </div>
 
                         <input
-                          className={`p-2 rounded-md border focus-visible:outline-none ${errorsForm.email ? "border-danger" :"border-gray-clear"}`}
+                          className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.email ? "border-danger" :"border-gray-clear"}`}
                           type="text"
                           id="email"
                           placeholder='johndoe@gmail.com'
@@ -257,14 +289,14 @@ export default function Register() {
                     </div>
                     
                     {/* Campo Contraseña */}
-                    <div className="flex flex-col" style={{ margin: '10px 0' , minWidth:'45%', flexGrow:1}}>
+                    <div className="flex flex-col" style={{ marginTop: '18px' , width:'100%', flexGrow:1}}>
                       
                         <div className="flex justify-between" style={{ margin: '8px 0' }}>
                             <label htmlFor="password">Contraseña</label>
                         </div>
 
                         <input
-                          className={`p-2 rounded-md border focus-visible:outline-none ${errorsForm.password ? "border-danger" :"border-gray-clear"}`}
+                          className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.password ? "border-danger" :"border-gray-clear"}`}
                           type="password"
                           id="password"
                           placeholder='Passwoard'
@@ -277,42 +309,40 @@ export default function Register() {
                             <p className='text-danger'>Debe contener al menos 8 caracteres</p>
                         )}
                     </div>
+                  </div>
 
-                    {/* Campo Confirma Contraseña */}
-                    <div className="flex flex-col" style={{ margin: '10px 0' , minWidth:'45%', flexGrow:1}}>
-
-                        <div className="flex justify-between" style={{ margin: '8px 0' }}>
-                            <label htmlFor="confirm_password">Contraseña</label>
-                        </div>
-                        
-                        <input
-                          className={`p-2 rounded-md border focus-visible:outline-none ${errorsForm.confirm_password ? "border-danger" :"border-gray-clear"}`}
-                          type="password"
-                          id="confirm_password"
-                          placeholder='Re-type passwoard'
-                          value={newUser.confirm_password}
-                          onChange={(e) => setNewUser({...newUser, confirm_password: e.target.value})}
-                        />
-                         
-                        {/* Error de Contraseña */}
-                        {errorsForm.confirm_password && (
-                            <p className='text-danger flex'>Debe ser igual a la contraseña previamente introducida</p>
-                        )}
-                    </div>                    
                 </div>
 
 
               {/* Recordar Contraseña */}
-              <input type="checkbox" id="remember" className='mr-1' />
-              <label htmlFor="remember">{t("p7")}</label>
+              <div className='my-6 flex' style={{alignItems:"center"}}>  
+                <input type="checkbox" id="remember" className=' checkbox' />
+                <label htmlFor="remember" className='ml-3'>{t("p7")}</label>
+              </div>
 
 
-              {/* Ingresar */}
-              <input
-              style={{padding:'10px', margin:'20px 0', borderRadius:'8px'}}
-              className="w-full bg-primary text-white cursor-pointer"
-              type="submit"
-              value="Ingresar"/>
+              {/* Botones */}
+              <div className='flex justify-between'>
+
+                {/* Anterior */}
+                <button
+                type="button"
+                onClick={()=>window.history.back()}
+                className="px-8 py-2 btn-primary-border"
+                >
+                  <FontAwesomeIcon icon={faChevronLeft} className='mr-2'/>
+                  Anterior
+                </button>
+
+                {/* Siguiente */}
+                <button
+                className="px-8 py-2 btn-primary"
+                type="submit"
+                >
+                  Siguiente
+                  <FontAwesomeIcon icon={faChevronRight} className='ml-2'/>
+                </button>
+              </div>
 
             </form>
             <Image src={Vector3} alt='Vector3' className='z-20 absolute right-0 bottom-0 w-40' />
