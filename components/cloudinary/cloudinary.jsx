@@ -47,7 +47,7 @@ export default function CloudinaryUploader (props) {
         <p>{languageR.cloudinary.loading}</p>
       ) : (
         imageURL && (
-          <Image cloudName="tu_nombre_de_cloudinary" width={props.width}  publicId={imageURL}>
+          <Image cloudName="tu_nombre_de_cloudinary" width={props.width}  publicId={imageURL} alt='cloudinary'>
             <Transformation width="300px"  crop="scale" />
           </Image>
         )
