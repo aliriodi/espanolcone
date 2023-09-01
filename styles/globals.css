@@ -8,6 +8,17 @@
   font-family: 'Montserrat', sans-serif;
   /* color: #6e6b7b */
 }
+:root{
+  --primary: #3cbbd6;
+  --primary_hover:#4ED5F2;
+  --primary_blur:#3CBBD661;
+  --primary-border_hover_bg:#3CBBD60A;
+  --primary-border_active_bg:#3CBBD633;
+  
+  --white:#fff;
+  --gray_clear: #e1e0e6;
+  --gray: #D8D6DE;
+}
 
 .text-shadow {
   text-shadow: 0 4px 10px #000a;
@@ -20,6 +31,78 @@
 .icon-white{
   color:#fff!important;
 }
+
+/* Checkbox */
+.checkbox {
+  appearance: none;
+  cursor: pointer;
+  margin: 0;
+  font: inherit;
+  color: var(--gray);
+  width: 1.15em;
+  height: 1.15em;
+  border:2px solid var(--gray);
+  border-radius: 0.15em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  place-content: center;
+  transition: 0.10s;
+}
+
+.checkbox:checked {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.checkbox:checked::before {
+  content: "";
+  z-index: 10;
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(1);
+  transform-origin: bottom left;
+  transition: 120ms transform ease-in-out;
+  background-color: var(--white);
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+/* Boton Primary Fill */
+.btn-primary {
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  background-color: var(--primary);
+  border-radius: 7px;
+  color: white; 
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary_hover);
+  box-shadow: 0px 4px 14px 0px var(--primary_blur);
+}
+/* Boton Primary Border */
+.btn-primary-border {
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  border: 1px solid var(--primary);
+  border-radius: 7px;
+  color: var(--primary); 
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+
+.btn-primary-border:hover {
+  background-color: var(--primary-border_hover_bg);
+}
+
+.btn-primary-border:active {
+  background-color: var(--primary-border_active_bg);
+}
+
 /* :root {
   --max-width: 1100px;
   --border-radius: 12px;
