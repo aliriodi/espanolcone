@@ -326,6 +326,7 @@ export default function Register() {
 
                 {/* Anterior */}
                 <button
+                type="button"
                 onClick={()=>window.history.back()}
                 className="px-8 py-2 btn-primary-border"
                 >
