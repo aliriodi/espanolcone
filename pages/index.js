@@ -18,7 +18,8 @@ import { useSession, signIn, signOut } from 'next-auth/react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useState } from 'react';
 import { AiOutlineGoogle } from 'react-icons/ai'
-import { redirect } from 'next/dist/server/api-utils';
+//import { redirect } from 'next/dist/server/api-utils';
+//import { redirect } from 'next/navigation';
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -30,8 +31,9 @@ export default function Home() {
   // import {useSession} from 'next-auth/react'
   
   // useSseion()
-  const {data: session} = useSession();
+  const {data: session,status} = useSession();
   console.log(session)
+  console.log(status)
   const dispatch = useDispatch();
   const handleClick = () => {
     // go to the home
@@ -44,8 +46,9 @@ export default function Home() {
 
 
   //Probando redux
-  useEffect(() => { dispatch(getuser()); }, [dispatch]);
-
+  useEffect(() => { dispatch(getuser());
+  }, [dispatch]);
+  
   const { userL } = useSelector((state) => state.datos);
 
   const { locale, locales, push } = useRouter()
@@ -82,6 +85,9 @@ export default function Home() {
       window.location.href='/home';
     }
   }
+
+  
+
 
   return (
     <>
