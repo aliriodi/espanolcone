@@ -19,7 +19,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useState } from 'react';
 import { AiOutlineGoogle } from 'react-icons/ai'
 //import { redirect } from 'next/dist/server/api-utils';
-import { redirect } from 'next/navigation';
+//import { redirect } from 'next/navigation';
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
