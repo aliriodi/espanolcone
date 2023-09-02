@@ -9,7 +9,7 @@ export default async function handler(req, res) {
 // console.log(req.body)
   try {
     const mailOptions = {
-      from: 'espanolconeacademy@gmail.com', // Cambia esto a tu dirección de correo electrónico
+      from: 'espanolconeacademy@aliriodi.com', // Cambia esto a tu dirección de correo electrónico
       to:  to,
       subject: subject,
       text: text

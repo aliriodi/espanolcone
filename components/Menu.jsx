@@ -88,6 +88,7 @@ import Logo from '../public/imgs/logo-primary.png';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faHouse } from '@fortawesome/free-solid-svg-icons';
+import SignOutBtn from './signOut/SignOutBtn';
 
 const Menu = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -140,13 +141,17 @@ const Menu = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/home">
+                                <Link href="/Home">
                                     <div className="flex item-center mr-20 self-center">
                                         <FontAwesomeIcon icon={faHouse} className="mr-2" />
                                         <p>Logros</p>
                                     </div>
                                 </Link>
                             </li>
+                            <li>
+                              <SignOutBtn />
+                            </li>
+                            
                         </ul>
                     </div>
                 )}
