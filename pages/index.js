@@ -207,7 +207,7 @@ export default function Home() {
               {/* Cuenta con Redes Sociales */}
               <div className="flex justify-center">
                 <span
-                  onClick={()=>signIn('google',{ callbackUrl: 'inicio/home' })}
+                  onClick={()=>signIn('google',{ callbackUrl: '/inicio/home' })}
                   style={{ margin: '0 9px', borderRadius: '8px', background: "#DB3236", padding: '7px'}}
                   className='relative'
                   href="#">
