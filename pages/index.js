@@ -19,6 +19,8 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useState } from 'react';
 import { AiOutlineGoogle } from 'react-icons/ai'
 import { redirect } from 'next/dist/server/api-utils';
+import { dropShadow } from '@cloudinary/url-gen/actions/effect';
+import { color } from '@cloudinary/url-gen/qualifiers/background';
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -35,7 +37,7 @@ export default function Home() {
   const dispatch = useDispatch();
   const handleClick = () => {
     // go to the home
-    window.location.href = '/home';
+    window.location.href = 'inicio/home';
   };  
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -79,7 +81,7 @@ export default function Home() {
     } else {
       setEmailError(false)
       setPasswordError(false)
-      window.location.href='/home';
+      window.location.href='inicio/home';
     }
   }
 
@@ -94,7 +96,7 @@ export default function Home() {
         <div className='w-full h-screen flex' style={{color:'#6e6b7b'}}>
           {/* Fondo */}
           <div className="loging-fondo bg-primary flex justify-evenly items-center flex-col h-screen w-full relative z-40">
-            <Image src={Logo} style={{ width: '200px' }} alt='Logo' className='z-40' />
+            <Image src={Logo} style={{ width: '200px'}} alt='Logo' className='z-40' />
             <div className="loging-fondo_text z-40">
               <p className="text-white text-5xl font-semibold mb-4 text-center text-shadow">{t("img1")}</p>
               <p className="text-white text-5xl font-semibold mb-4 text-center text-shadow">{t("img2")}</p>
@@ -102,7 +104,7 @@ export default function Home() {
             </div>
             <p className="end-text text-white border-b-2 border-warning text-shadow z-40">{t("img4")}</p>
 
-            <Image src={Vector1} alt='Vector1' className='z-20 absolute left-0 top-0 w-80' />
+            <Image src={Vector1} alt='Vector1' className='z-20 absolute left-0 top-0 w-80 filter vector-shadow'/>
             <Image src={Vector2} alt='Vector2' className='z-20 absolute right-0 bottom-0 w-80' />
             <Image src={Background} alt='Background' className='absolute w-full h-full z-10' />
           </div>
@@ -169,13 +171,15 @@ export default function Home() {
               </div>
  
               {/* Recordar Contraseña */}
-              <input type="checkbox" id="remember" className='mr-1' />
-              <label htmlFor="remember">{t("p7")}</label>
+              <div className='flex items-center'>
+                <input type="checkbox" id="remember" className='checkbox' />
+                <label htmlFor="remember" className='ml-2'>{t("p7")}</label>
+              </div>
 
               {/* Ingresar */}
               <input
-              style={{padding:'10px', margin:'20px 0', borderRadius:'8px'}}
-              className="w-full bg-primary text-white cursor-pointer"
+              style={{padding:'10px', margin:'20px 0'}}
+              className="w-full btn-primary"
               type="submit"
               value="Ingresar"/>
 
@@ -198,11 +202,11 @@ export default function Home() {
               {/* Cuenta con Redes Sociales */}
               <div className="flex justify-center">
                 <span
-                  onClick={()=>signIn('google',{ callbackUrl: '/home' })}
-                  style={{ margin: '0 9px', borderRadius: '8px' }}
-                  className='bg-primary h-8 w-8'
+                  onClick={()=>signIn('google',{ callbackUrl: 'inicio/home' })}
+                  style={{ margin: '0 9px', borderRadius: '8px', background: "#DB3236", padding: '7px'}}
+                  className='relative'
                   href="#">
-                    <AiOutlineGoogle className='text-white cursor-pointer icon-white' size={32}/>
+                    <AiOutlineGoogle className='text-white cursor-pointer icon-white ' style={{fontSize:'1.6em'}}/>
                   </span>
                 {/* <span
                   onClick={()=>signOut('google',{ callbackUrl: '/' })}

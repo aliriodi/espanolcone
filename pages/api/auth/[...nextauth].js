@@ -63,7 +63,10 @@ export default NextAuth({
         if (session.user) session.user = await getUser(session.user.email)
         return session
     }
-  }
+  },
+  pages: {
+    signIn: '/'
+  },
 });
 
 
