@@ -41,7 +41,7 @@ export default function Users() {
 
   const handleClickLogin = () => {
     // go to the login
-    window.location.href = '/home';
+    window.location.href = '/inicio/home';
   };
 
   return (
