@@ -8,7 +8,7 @@ export default function Home() {
 
   const handleClickLogin = () => {
     // go to the login
-    window.location.href = '/';
+    window.location.href = '/inicio/home';
   };
 
   const handleClickUsers = () => {
