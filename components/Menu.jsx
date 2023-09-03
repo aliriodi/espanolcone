@@ -120,12 +120,12 @@ const Menu = () => {
                 {isOpen && (
                     <div>
                         {/* Logo */}
-                        <Link href="/home">
+                        <Link href="inicio/home">
                             <Image src={Logo} className='mb-5 ml-8 mt-5' style={{ width: '108px' }} alt="logo" />
                         </Link>
                         <ul className="ml-auto ">
                             <li>
-                                <Link href="/home">
+                                <Link href="inicio/home">
                                     <div className="flex item-center mb-5 mr-20 self-center">
                                         <FontAwesomeIcon icon={faHouse} className="mr-2" />
                                         <p>Inicio</p>
@@ -133,7 +133,7 @@ const Menu = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/home">
+                                <Link href="inicio/home">
                                     <div className="flex item-center mb-5 mr-20 self-center">
                                         <FontAwesomeIcon icon={faHouse} className="mr-2" />
                                         <p>Clases</p>
@@ -141,7 +141,7 @@ const Menu = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/Home">
+                                <Link href="inicio/home">
                                     <div className="flex item-center mr-20 self-center">
                                         <FontAwesomeIcon icon={faHouse} className="mr-2" />
                                         <p>Logros</p>
