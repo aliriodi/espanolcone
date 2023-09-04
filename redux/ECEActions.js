@@ -1,6 +1,6 @@
 import {
     getUserS,
-    
+    showClass
   } from "./ECESlice";
   
   export const getuser = () => async (dispatch) => {
@@ -8,6 +8,12 @@ import {
       .then((response) => response.json())
       .then((json) => dispatch(getUserS(json)))
       .catch((error) => console.log(error));
+  };
+
+  export const setshowClass = (show) => (dispatch)=>   {
+    
+    console.log(show)
+     dispatch(showClass(show))
   };
   
   export const getuseremail = (email,password) => async (dispatch) => {

@@ -1,12 +1,13 @@
 import Link from 'next/link'
-import React from 'react'
+import React from 'react';
+import { useSelector } from 'react-redux';
 import Menu from '../../components/Menu';
-
+import Class from '../../components/Class/Class';
 
 export default function Home() {
 
-
-  const handleClickLogin = () => {
+  const {showClass} = useSelector((state) => state.datos);
+    const handleClickLogin = () => {
     // go to the login
     window.location.href = '/inicio/home';
   };
@@ -38,6 +39,7 @@ export default function Home() {
             className='bg-blue-500 text-white px-5 py-2 rounded'>
             Go Users
           </button>
+          {showClass && <Class />}
         </div>
       </main>
     </>

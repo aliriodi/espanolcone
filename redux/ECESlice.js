@@ -4,6 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState= {
     languages:['br','en','sp'],
     language: 'br',
+    showClass: false,
     plan:'plan1',
     userL: {
       name: "User",
@@ -20,7 +21,9 @@ const initialState= {
     reducers: {
       getUserS: (state,action) => {
         state.userL = action.payload},
-     },
+      showClass: (state,action)=> {
+        state.showClass = action.payload},
+      },
   })
-  export const { getUserS } = datosSlice.actions;
+  export const { getUserS ,showClass} = datosSlice.actions;
   export default datosSlice.reducer;

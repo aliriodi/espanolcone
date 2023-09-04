@@ -83,15 +83,29 @@
 // }
 
 import React, { useState, useEffect, useRef } from 'react';
+import { useSelector ,useDispatch} from 'react-redux';
 import Image from 'next/image';
 import Logo from '../public/imgs/logo-primary.png';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight, faHouse } from '@fortawesome/free-solid-svg-icons';
 import SignOutBtn from './signOut/SignOutBtn';
+import {setshowClass} from '../redux/ECEActions';
 
 const Menu = () => {
+    const dispatch = useDispatch();
     const [isOpen, setIsOpen] = useState(false);
+    console.log(useSelector((state) => state.datos).showClass)
+    useSelector((state) => state.datos).showClass
+    const [showClass, setShowClass] = useState(useSelector((state) => state.datos).showClass);
+   
+  const showHideClass = () => {
+    //Para Redux
+  dispatch( setshowClass(!showClass))
+    //Para el componente
+    setShowClass(!showClass);
+    console.log(showClass)
+  };
     const menuRef = useRef(null);
 
     useEffect(() => {
@@ -120,7 +134,7 @@ const Menu = () => {
                 {isOpen && (
                     <div>
                         {/* Logo */}
-                        <Link href="/inicio/home">
+                        <Link href="/inicio/home" >
                             <Image src={Logo} className='mb-5 ml-8 mt-5' style={{ width: '108px' }} alt="logo" />
                         </Link>
                         <ul className="ml-auto ">
@@ -133,11 +147,12 @@ const Menu = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/inicio/home">
+                                <Link href="/inicio/home" >
                                     <div className="flex item-center mb-5 mr-20 self-center">
                                         <FontAwesomeIcon icon={faHouse} className="mr-2" />
-                                        <p>Clases</p>
+                                        <a  onClick={(e) => { e.preventDefault(); showHideClass(); }}>Clases</a>                                      
                                     </div>
+
                                 </Link>
                             </li>
                             <li>
