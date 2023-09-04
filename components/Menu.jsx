@@ -87,7 +87,7 @@ import Image from 'next/image';
 import Logo from '../public/imgs/logo-primary.png';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight, faHouse } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faAngleRight, faHouse } from '@fortawesome/free-solid-svg-icons';
 import SignOutBtn from './signOut/SignOutBtn';
 
 const Menu = () => {
@@ -160,7 +160,7 @@ const Menu = () => {
                     className="p-2 rounded-md border border-gray-clear flex item-center my-5"
                     onClick={() => setIsOpen(!isOpen)}
                 >
-                    <FontAwesomeIcon icon={faAngleRight} />
+                   {isOpen? <FontAwesomeIcon icon={faAngleLeft}/>: <FontAwesomeIcon icon={faAngleRight}  />}
                 </button>
             </nav>
         </div>

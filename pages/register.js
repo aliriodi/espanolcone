@@ -121,7 +121,6 @@ export default function Register() {
         <title>Español con E | Registro</title>
         <meta name="landing" content="welcome" />
       </Head>
-
       <Layout>
         <div className='w-full h-full flex' style={{color:'#6e6b7b'}}>
           {/* Fondo */}
@@ -222,16 +221,16 @@ export default function Register() {
                     {/* Campo Confirma Contraseña */}
                     <div className="flex flex-col" style={{ marginTop: '18px' , width:'100%', flexGrow:1}}>
                         <div className="flex justify-between" style={{ margin: '8px 0' }}>
-                            <label htmlFor="confirm_password">Contraseña</label>
+                            <label htmlFor="password">Contraseña</label>
                         </div>
                         
                         <input
-                          className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.confirm_password ? "border-danger" :"border-gray-clear"}`}
+                          className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.password ? "border-danger" :"border-gray-clear"}`}
                           type="password"
-                          id="confirm_password"
-                          placeholder='Re-type passwoard'
-                          value={newUser.confirm_password}
-                          onChange={(e) => setNewUser({...newUser, confirm_password: e.target.value})}
+                          id="password"
+                          placeholder='Password'
+                          value={newUser.password}
+                          onChange={(e) => setNewUser({...newUser, password: e.target.value})}
                         />
                          
                         {/* Error de Contraseña */}
@@ -284,7 +283,7 @@ export default function Register() {
                           
                         {/* Error de Email */}
                         {errorsForm.email && (
-                            <p className='text-danger'>Introdusca un email</p>
+                            <p className='text-danger'>Introduzca un email</p>
                         )}
                     </div>
                     
@@ -292,16 +291,16 @@ export default function Register() {
                     <div className="flex flex-col" style={{ marginTop: '18px' , width:'100%', flexGrow:1}}>
                       
                         <div className="flex justify-between" style={{ margin: '8px 0' }}>
-                            <label htmlFor="password">Contraseña</label>
+                            <label htmlFor="confirm_password">Contraseña</label>
                         </div>
 
                         <input
                           className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.password ? "border-danger" :"border-gray-clear"}`}
                           type="password"
-                          id="password"
-                          placeholder='Passwoard'
-                          value={newUser.password}
-                          onChange={(e) => setNewUser({...newUser, password: e.target.value})}
+                          id="confirm_password"
+                          placeholder='Re-type password'
+                          value={newUser.confirm_password}
+                          onChange={(e) => setNewUser({...newUser, confirm_password: e.target.value})}
                           />
                           
                         {/* Error de Contraseña */}
