@@ -104,7 +104,7 @@ const Menu = () => {
   dispatch( setshowClass(!showClass))
     //Para el componente
     setShowClass(!showClass);
-    console.log(showClass)
+    
   };
     const menuRef = useRef(null);
 

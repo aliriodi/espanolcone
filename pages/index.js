@@ -28,6 +28,8 @@ export default function Home() {
   // /api/auth/signout
   // https://us02web.zoom.us/j/4427876024
   // binance NE  ->  181702029
+  // binance Hans -> 165410471
+  // binance Alirio -> 120083470
 
   // import {useSession} from 'next-auth/react'
   
