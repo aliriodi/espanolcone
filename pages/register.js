@@ -11,7 +11,7 @@ import Vector3 from '../public/imgs/vector-3.png'
 import Layout from '../components/Layout';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
-import { signIn } from 'next-auth/react'
+import { signIn, useSession } from 'next-auth/react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useState } from 'react';
 import axios from 'axios';
@@ -43,6 +43,7 @@ export default function Register() {
     existing_user:false
   })
 
+  const {data: session, status} = useSession();
 
   //Probando redux
 
@@ -56,6 +57,10 @@ export default function Register() {
   })
 
   // Next Auth
+  useEffect(()=>{
+    if(status == "authenticated")window.location.href='inicio/home';
+  },[status])
+
   const handleSubmit = async (e) => {
 
     e.preventDefault()
@@ -291,7 +296,7 @@ export default function Register() {
                     <div className="flex flex-col" style={{ marginTop: '18px' , width:'100%', flexGrow:1}}>
                       
                         <div className="flex justify-between" style={{ margin: '8px 0' }}>
-                            <label htmlFor="confirm_password">Contraseña</label>
+                            <label htmlFor="confirm_password">Confirma tu contraseña</label>
                         </div>
 
                         <input
