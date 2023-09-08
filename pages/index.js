@@ -26,8 +26,11 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   // /api/auth/signin
   // /api/auth/signout
-  // https://us02web.zoom.us/j/4427876024
+  // https://us02web.zoom.us/j/4427876024  govtech
   // binance NE  ->  181702029
+  // binance Hans -> 165410471
+  // binance Alirio -> 120083470
+  // binance Eucaris -> 105904746 
 
   // import {useSession} from 'next-auth/react'
   
