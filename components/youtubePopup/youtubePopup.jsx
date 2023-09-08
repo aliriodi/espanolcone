@@ -13,6 +13,10 @@ export default function YoutubePopup(props) {
       {time:6, title:"Completa la frase", message:"Frase 2", reply:"", popUpShown: false},
       {time:9, title:"Completa la frase", message:"Frase 3", reply:"", popUpShown: false}
     ]*/
+    // Declaro las cantidad de ok maximos
+    const maxAcert = props.popups.length;
+    // Declaro las cantidad de ok
+    const [acert,setAcert]=useState(0) 
     const [currentPopUp, setcurrentPopUp] = useState(props.popups[0])
     const [showPopup, setShowPopup] = useState(false);
     const [showPopup2, setShowPopup2] = useState(false);
@@ -65,20 +69,38 @@ export default function YoutubePopup(props) {
       // Realiza las acciones necesarias con la opción seleccionada
     };
     //#endregion
-    
+    function rendeerizerstar(acert){alert(acert+" / "+maxAcert)
+                                    setAcert(acert)}
     //#region PopUp
     const closePopup = () => {
       //mando por alert lo que se escribe
       //comprobacion de respuesta correcta
       //  INPUT
       if(inputValue.toLowerCase()===currentPopUp.reply.toLowerCase())
-            {alert(inputValue+' es correcta')}
+            { 
+              rendeerizerstar(acert+1)   
+              //alert(inputValue+' es correcta');
+             setSelectedOption(null)
+            }
+
       else if(inputValue&&inputValue.toLowerCase()!==currentPopUp.reply.toLowerCase()) 
-            {alert(inputValue+ ' es incorrecto');}
+            {
+              alert(acert+' / '+maxAcert)
+             
+              //alert(inputValue+ ' es incorrecto');
+             setSelectedOption(null)}
       //  SELECT      
       else if(selectedOption===currentPopUp.reply)
-            {alert(selectedOption+' ES correcta')}
-      else  {alert(selectedOption+' ES incorrecta')}
+            { 
+            
+              rendeerizerstar(acert+1)
+              
+             //alert(selectedOption+' ES correcta');
+             setSelectedOption(null)
+            }
+      else  { alert(acert+' / '+maxAcert)
+             // alert(selectedOption+' ES incorrecta');
+              setSelectedOption(null)}
 
       setInputValue("");
       player.playVideo();
@@ -115,7 +137,7 @@ export default function YoutubePopup(props) {
     }
 
     return (
-      <div className='mx-auto my-auto h-1/2 relative' style={{width:"640px", marginTop:"100px"}}>
+      <div className='mx-auto my-auto h-1/2 relative' style={{width:"640px", marginTop:"10px"}}>
         <YouTube
           ref={iframeRef}
           opts={opts}
