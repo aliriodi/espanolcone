@@ -70,18 +70,15 @@ export default function YoutubePopup(props) {
     };
     //#endregion
     let aux=popUps;
-    function rendeerizerstar(){ aux = aux.map((item) => {
+    
+    function rendeerizerstar(){ 
+                                 aux = aux.map((item) => {
                                    if (item.time === currentPopUp.time) {
-                                    return currentPopUp; // Retorna el objeto nuevo en lugar del objeto actual
+                                       return currentPopUp; // Retorna el objeto nuevo en lugar del objeto actual
                                        }
+                                    
                                         return item; // Mantiene los otros objetos sin cambios
-                                                   });
-                                    setAcert(aux.reduce((accumulator, popup) => accumulator + popup.value, 0))
-                                  
-                                    alert(acert+' / ' +maxAcert)
-                                    
-                                    
-                                  }
+                                                   });    }
     //#region PopUp
     const closePopup = () => {
       //mando por alert lo que se escribe
@@ -90,8 +87,9 @@ export default function YoutubePopup(props) {
       if(inputValue.toLowerCase()===currentPopUp.reply.toLowerCase())
             { setcurrentPopUp(currentPopUp.value=1)
               //para sumar cuantos aciertos tiene el popups array 
-              setAcert(popUps.reduce((accumulator, popup) => accumulator + popup.value, 0))
+              setAcert(aux.reduce((accumulator, popup) => accumulator + popup.value, 0))
               rendeerizerstar()   
+              alert(acert+' / ' +maxAcert)
               //alert(inputValue+' es correcta');
              setSelectedOption(null)
             }
@@ -99,23 +97,35 @@ export default function YoutubePopup(props) {
       else if(inputValue&&inputValue.toLowerCase()!==currentPopUp.reply.toLowerCase()) 
             { setcurrentPopUp(currentPopUp.value=0)
               //alert(acert+' / '+maxAcert)
-              rendeerizerstar(acert)
+               //para sumar cuantos aciertos tiene el popups array 
+               setAcert(aux.reduce((accumulator, popup) => accumulator + popup.value, 0))
+              rendeerizerstar()
               //alert(inputValue+ ' es incorrecto');
-             setSelectedOption(null)}
+             setSelectedOption(null)
+         //    alert(acert+' / ' +maxAcert)
+        }
       //  SELECT      
       else if(selectedOption===currentPopUp.reply)
             { 
               setcurrentPopUp(currentPopUp.value=1)
+              setAcert(aux.reduce((accumulator, popup) => accumulator + popup.value, 0))
               rendeerizerstar()
-              
-             //alert(selectedOption+' ES correcta');
+              //alert(selectedOption+' ES correcta');
              setSelectedOption(null)
+             
+           //  alert(acert+' / ' +maxAcert)
+           
             }
       else  { setcurrentPopUp(currentPopUp.value=0)
+         //para sumar cuantos aciertos tiene el popups array 
+         setAcert(aux.reduce((accumulator, popup) => accumulator + popup.value, 0))
                 rendeerizerstar()   
               // alert(acert+' / '+maxAcert)
              // alert(selectedOption+' ES incorrecta');
-              setSelectedOption(null)}
+              setSelectedOption(null)
+              //El renderizado de las estrellas debe venir cuando 
+              //      alert(acert+' / ' +maxAcert)
+            }
 
       setInputValue("");
       player.playVideo();
@@ -164,6 +174,11 @@ export default function YoutubePopup(props) {
           onStateChange={handlePlayerStateChange}
           className='youtube'
         />
+        <div>
+        {aux.map(a=>a.value)}</div>
+        
+        <div>
+        {acert}</div>
         {/*Boton para activar la ACTIVIDAD*/}
         
         {showPopup?
