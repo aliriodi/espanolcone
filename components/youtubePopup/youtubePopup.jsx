@@ -180,7 +180,11 @@ export default function YoutubePopup(props) {
         <div>
         {acert}</div>
         {/*Boton para activar la ACTIVIDAD*/}
-        
+        <div class="progress">
+		<p>Javascript</p>
+			<progress  id="javascript" max={maxAcert} value={acert}></progress>
+			<span></span>
+		</div>
         {showPopup?
         <div className="popup  absolute top-0 left-0 flex justify-center items-center text-center"  style={{zIndex:0, width:'60%', height:'90%'}}>
         <button 
