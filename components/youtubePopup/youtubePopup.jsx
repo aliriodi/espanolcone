@@ -14,7 +14,7 @@ export default function YoutubePopup(props) {
       {time:9, title:"Completa la frase", message:"Frase 3", reply:"", popUpShown: false}
     ]*/
     // Declaro las cantidad de ok maximos
-    const maxAcert = props.popups.length;
+    const maxAcert = popUps.length;
     // Declaro las cantidad de ok
     const [acert,setAcert]=useState(0) 
     const [currentPopUp, setcurrentPopUp] = useState(props.popups[0])
@@ -69,36 +69,51 @@ export default function YoutubePopup(props) {
       // Realiza las acciones necesarias con la opción seleccionada
     };
     //#endregion
-    function rendeerizerstar(acert){alert(acert+" / "+maxAcert)
-                                    setAcert(acert)}
+    let aux=popUps;
+    function rendeerizerstar(){ aux = aux.map((item) => {
+                                   if (item.time === currentPopUp.time) {
+                                    return currentPopUp; // Retorna el objeto nuevo en lugar del objeto actual
+                                       }
+                                        return item; // Mantiene los otros objetos sin cambios
+                                                   });
+                                    setAcert(aux.reduce((accumulator, popup) => accumulator + popup.value, 0))
+                                  
+                                    alert(acert+' / ' +maxAcert)
+                                    
+                                    
+                                  }
     //#region PopUp
     const closePopup = () => {
       //mando por alert lo que se escribe
       //comprobacion de respuesta correcta
       //  INPUT
       if(inputValue.toLowerCase()===currentPopUp.reply.toLowerCase())
-            { 
-              rendeerizerstar(acert+1)   
+            { setcurrentPopUp(currentPopUp.value=1)
+              //para sumar cuantos aciertos tiene el popups array 
+              setAcert(popUps.reduce((accumulator, popup) => accumulator + popup.value, 0))
+              rendeerizerstar()   
               //alert(inputValue+' es correcta');
              setSelectedOption(null)
             }
 
       else if(inputValue&&inputValue.toLowerCase()!==currentPopUp.reply.toLowerCase()) 
-            {
-              alert(acert+' / '+maxAcert)
-             
+            { setcurrentPopUp(currentPopUp.value=0)
+              //alert(acert+' / '+maxAcert)
+              rendeerizerstar(acert)
               //alert(inputValue+ ' es incorrecto');
              setSelectedOption(null)}
       //  SELECT      
       else if(selectedOption===currentPopUp.reply)
             { 
-            
-              rendeerizerstar(acert+1)
+              setcurrentPopUp(currentPopUp.value=1)
+              rendeerizerstar()
               
              //alert(selectedOption+' ES correcta');
              setSelectedOption(null)
             }
-      else  { alert(acert+' / '+maxAcert)
+      else  { setcurrentPopUp(currentPopUp.value=0)
+                rendeerizerstar()   
+              // alert(acert+' / '+maxAcert)
              // alert(selectedOption+' ES incorrecta');
               setSelectedOption(null)}
 
@@ -138,6 +153,9 @@ export default function YoutubePopup(props) {
 
     return (
       <div className='mx-auto my-auto h-1/2 relative' style={{width:"640px", marginTop:"10px"}}>
+       {/* titulo de la actividad */}
+       <div> {props.titlep}</div>
+
         <YouTube
           ref={iframeRef}
           opts={opts}
