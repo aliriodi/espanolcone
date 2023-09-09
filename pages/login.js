@@ -6,8 +6,7 @@ import { Inter } from "next/font/google"
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import Logo from '../public/imgs/logo.png'
-import nextI18NextConfig from "../next-i18next.config";
-//import Background from '../public/imgs/logIn-background.png'
+import Background from '../public/imgs/logIn-background.png'
 import Vector1 from '../public/imgs/vector-1.png'
 import Vector2 from '../public/imgs/vector-2.png'
 import Vector3 from '../public/imgs/vector-3.png'
@@ -19,15 +18,30 @@ import { useSession, signIn, signOut } from 'next-auth/react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useState } from 'react';
 import { AiOutlineGoogle } from 'react-icons/ai'
-import NAVBAR from "../components/Navbar/Navbar"
-
+import { redirect } from 'next/dist/server/api-utils';
+import { dropShadow } from '@cloudinary/url-gen/actions/effect';
+import { color } from '@cloudinary/url-gen/qualifiers/background';
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-   const {data: session,status} = useSession();
+  // /api/auth/signin
+  // /api/auth/signout
+  // https://us02web.zoom.us/j/4427876024  govtech
+  // binance NE  ->  181702029
+  // binance Hans -> 165410471
+  // binance Alirio -> 120083470
+  // binance Eucaris -> 105904746 
+
+  // import {useSession} from 'next-auth/react'
+  
+  // useSseion()
+  const {data: session,status} = useSession();
   console.log(session)
   const dispatch = useDispatch();
-  
+  const handleClick = () => {
+    // go to the home
+    window.location.href = 'inicio/home';
+  };  
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [emailError, setEmailError]= useState(false)
@@ -43,7 +57,7 @@ export default function Home() {
   const { locale, locales, push } = useRouter()
   const handleClickLan = l => () => {
 
-    push('/', undefined, { locale: l })
+    push('/login', undefined, { locale: l })
 
   }
 
@@ -85,7 +99,6 @@ export default function Home() {
         <title>Español con E | Bienvenidos</title>
         <meta name="landing" content="welcome" />
       </Head>
-      <NAVBAR />
 
       <Layout>
         <div className='w-full h-screen flex' style={{color:'#6e6b7b'}}>
@@ -101,7 +114,7 @@ export default function Home() {
 
             <Image src={Vector1} alt='Vector1' className='z-20 absolute left-0 top-0 w-80 filter vector-shadow'/>
             <Image src={Vector2} alt='Vector2' className='z-20 absolute right-0 bottom-0 w-80' />
-        
+            <Image src={Background} alt='Background' className='absolute w-full h-full z-10' />
           </div>
 
           {/* Formulario */}
@@ -109,7 +122,6 @@ export default function Home() {
             className='bg-gray_light flex flex-col justify-center'
             style={{ fontWeight: '400', padding: '0 80px' }}>
             <div className=' px-3 flex flex-row items-end'>
-            
               {locales.map(l => (
                 <div key={l} className='px-2'>
                   <button onClick={handleClickLan(l)}>{l}</button>
@@ -227,7 +239,7 @@ export async function getStaticProps({ locale }) {
 
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['landing','navbar','common','menu'],nextI18NextConfig)),
+      ...(await serverSideTranslations(locale, ['landing','navbar'])),
     },
   }
 }
