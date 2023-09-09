@@ -3,6 +3,7 @@ import { store } from "../redux/store";
 import { Provider } from "react-redux";
 import { useSession, SessionProvider } from "next-auth/react";
 import { appWithTranslation } from 'next-i18next'
+import nextI18NextConfig from '../next-i18next.config';
 
 function App({ Component, pageProps }) {
 
@@ -14,4 +15,4 @@ function App({ Component, pageProps }) {
     </SessionProvider>)
 }
 
-export default appWithTranslation(App)
+export default appWithTranslation(App, nextI18NextConfig)
