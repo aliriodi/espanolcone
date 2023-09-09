@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Logo from '../../public/imgs/logo.png';
 import { Inter } from "next/font/google"
 import Select from 'react-select';
+import Link from 'next/link';
 
 import { useTranslation , withTranslation } from 'next-i18next';
 //import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -36,9 +37,9 @@ import { useRouter } from 'next/router';
         <nav className="navbar navbar-expand-md">
             {/* Logo */}
            
-            <a className="navbar-brand" href="/">
+            <Link className="navbar-brand" href="/">
                 <Image id='logo' className="logo" src={Logo} alt="logo" />
-            </a>
+            </Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#ece-menu">
                 {/* <AiOutlineMenu className="icon-header-menu"/> */}
                 {t('img12')}
