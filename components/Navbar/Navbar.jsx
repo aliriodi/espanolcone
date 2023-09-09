@@ -29,8 +29,7 @@ import { useRouter } from 'next/router';
   }
 
   const { t } = useTranslation('navbar')
-  console.log(t('img12'))
-  return (
+    return (
     <div className="main-header-area">
                   
     <div className="container-fluid">
