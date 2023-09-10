@@ -7,9 +7,10 @@
   }
   
   .navbar-logo {
+    margin-top: 29px;
     margin-left: 50px; /* Aumenta el margen izquierdo según tus preferencias */
-    border-radius: 10px; /* Ajusta el valor para el redondeo deseado */
-    border: 20px solid black; /* Borde de 2 píxeles de ancho de color negro */
+   /* border-radius: 10px; /* Ajusta el valor para el redondeo deseado */
+  /*  border: 20px solid black; /* Borde de 2 píxeles de ancho de color negro */
   }
 
 .nav .ul {
