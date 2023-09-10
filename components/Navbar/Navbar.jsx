@@ -31,8 +31,8 @@ import styles from '../../styles/navbar.module.css';
     control: (provided) => ({
       ...provided,
       backgroundColor:  'rgba(60, 187, 214, 0.2)',  // Cambiar el color de fondo a "inherit"
-      width: '120px', // Ancho específico
-      height: '46px', // Alto específico
+      width: '210px', // Ancho específico
+      height: '40px', // Alto específico
       borderRadius: '8px', // Curvatura de bordes
       borderColor: 'white',
       outline: 'none', // Remove the blue outline when focused
@@ -60,16 +60,16 @@ import styles from '../../styles/navbar.module.css';
     }),
     option: (provided) => ({
       ...provided,
-       color: 'white', // Cambiar el color del texto de las opciones a blanco
-       backgroundColor: 'rgba(60, 187, 214, 0.4)', // Cambiar el color de fondo de las opciones a "inherit"
+       color: 'black', // Cambiar el color del texto de las opciones a blanco
+       backgroundColor: 'white', // Cambiar el color de fondo de las opciones a "inherit"
        //backgroundColor: '#3CBBD6' 
        //backgroundColor: 'inherit'
       border: ' white',
-      width: '120px', // Ancho específico
-      height: '46px', // Alto específico
-      '&:hover': {backgroundColor: 'rgba(255, 255, 255, 0.7)',
-                  color: '#3CBBD6',
-                  borderRadius: '8px' },
+      width: '200px', // Ancho específico
+      height: '40px', // Alto específico
+      '&:hover': {backgroundColor: 'rgba(60, 187, 214, 0.4)',
+                  color: 'black',
+                  borderRadius: '0px' },
     }),
     menu: (provided) => ({
       ...provided,
@@ -97,10 +97,10 @@ import styles from '../../styles/navbar.module.css';
                       options={languages2}
                       onChange={handleOnChange}
                        formatOptionLabel={(languages2) => (
-                       <div className="country-option">
+                       <div className="country-option" style={{ display: 'flex', alignItems: 'center' }}>
                        <img src={languages2.image} alt="country-image" 
-                           style={{ width: '58%', height: 'auto' }}/>
-                       <span style={{padding: '0px 5px'}} >{languages2.label}</span>
+                           style={{ width: '18%', height: 'auto' }}/>
+                       <span style={{padding: '0px 6px'}} >{languages2.label}</span>
                        </div>
                     )} />
           </li>
