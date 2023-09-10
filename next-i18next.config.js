@@ -10,3 +10,4 @@ module.exports = {
   ns: ['landing', 'navbar', 'common', 'menu'],
  
 }
+

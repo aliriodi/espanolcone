@@ -1,0 +1,29 @@
+{
+    "card1Title":"Descubre el mindo del español",
+    "card1Text":"EXperimenta el idioma y la cultura en priemra persona",
+    "card1Button":"Ingresa a la app",
+
+    "card2":[{"title":"Conecta con tus intereses", "paragraph":"Integra el español en tu rutina diaria, en tus tiempos pasatiempos y aficiones"},
+             {"title":"Aprende haciedno", "paragraph":"Aumenta tu fluidez con proyectos, actividades y conversaciones con nativos"},
+             {"title":"Viaja y descubre la cultura", "paragraph":"Conoce paises hispanohablantes junto a profesores y guías turísticos"},
+             {"title":"Únete a nuestra comunidad", "paragraph":"Conversa sobre tus temas favoritos con profesores y estudiantes"}],
+
+    "card3Title":"Conoce Español con E",
+    "card3Text":"Aprender español no se trata solo de lecciones y gramática. Sumérgete en la cultura de los países hispanohablantes. Así, lograrás hablar con fluidez disfrutas de experiecnias únicas.",
+    "card3Button":"Descubre más",
+
+    "card4":[{"title":"Lo que ofrecemos","text":"Descbre los servicios que diseñamos especualmente para tu aprendizaje"},
+             {"title":"NUESTROS PROGRAMAS","text":"Explora nuestros programas y amplia tu perspectiva","paragraph":"Alcanza la fluidez en español con cursos adaptados a tu nivel y metas. Disfruta lecciones interactivas con profesores apasionados por la cultura y el idioma.",
+                                          "pargraph2":"Nuestros programas ofrecen:",
+                                           "list":["Cursos personalizados según tu nivel de español.",
+                                                   "Lecciones comunicativas y prácticas.",
+                                                   "Profesores certificados y nativos.",
+                                                   "Inmersión cultural en países hispanohablantes."]},
+             {"title":"CONOCE CÓRDOBA","text":"Descubre la belleza de Córdoba con nuestros paquetes de viajes","paragraph":"Descubre la cultura cordobesa mientras perfeccionas tu español. Experimenta una fusión de aprendizaje y turismo en esta hermosa provincia de Argentina.",
+                                            "pargraph2":"Tendrás la oportunidad de:",
+                                               "list":["Descubrir lugares emblemáticos a través de la inmersión en la cultura local.",
+                                                            "Contratar guías turísticos certificados.",
+                                                            "Disfrutar de eventos y actividades exclusivas propias de Español con E.",
+                                                            "Practicar el español con hablantes nativos y conocer nuevas personas."]}]
+
+}

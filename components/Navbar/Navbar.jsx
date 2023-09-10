@@ -1,22 +1,31 @@
-import React from 'react';
+import React,  { useState , useEffect} from 'react';
 import Image from 'next/image';
-import Logo from '../../public/imgs/logo.png';
-import { Inter } from "next/font/google"
 import Select from 'react-select';
 import Link from 'next/link';
 import { useTranslation , withTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import styles from '../../styles/navbar.module.css';
  function Navbar() {
-    const { locale, locales, push } = useRouter()
-  const handleClickLan = l => () => {
-    push('/', undefined, { locale: l })
+ 
+  
+  const { locale, locales, push } = useRouter()
+  function handleClickLan(l) {
+      push('/', undefined, { locale: l });
+  }
+  function handleOnChange(lang){
+    push('/', undefined, { locale: lang.value });
+    setLanguage(languages2.find(objeto => objeto.value === lang.value))                      
   }
 
   const { t } = useTranslation('navbar')
-  let languages2 = [{value:'br',label:'br', image:'bbr'},
-                    {value:'sp', label:'sp',image:'bsp'},
-                    {value:'en', label:'en',image:'ben'}]; 
+  //Me traigo las imagenes banderas de los Json 
+  ///public/locales/ idiomas que son lo mismo para los 3
+
+  const languages2 = [{value:'es', label:'ESPAÑOL',   image:t("flages")},
+                      {value:'en', label:'INGLÉS',    image:t("flagen")},
+                      {value:'pt', label:'PORTUGUÉS', image:t("flagpt")}];
+
+  const [language, setLanguage] = useState(languages2.find(objeto => objeto.value === locale));
   //estilos React-select
   const customStyles = {
     control: (provided) => ({
@@ -75,26 +84,31 @@ import styles from '../../styles/navbar.module.css';
         
         <div >
             <div >
-               <img className="navbar-logo" src="/ruta-de-la-imagen.png" alt="Logo" /> logo
+               <Image className={styles["navbar-logo"]} width={'100'} height={'100'} src={t("logo")} alt="Logo" /> 
             </div>
         </div>
 
         <ul className={styles["ul"]}>
-          <li className={styles["li"]}> <div className=' px-3 flex flex-row items-end'>
-              {locales.map(l => (
-                <div key={l} className='px-2'>
-                  <button onClick={handleClickLan(l)}>{l}</button>
-                </div>
-              ))}
-            </div>
-            </li>
+            <li className={styles["li"]}>
+                <Select 
+                      styles={customStyles}
+                      value={language}
+                      classNamePrefix="items-dropdown-obj"
+                      options={languages2}
+                      onChange={handleOnChange}
+                       formatOptionLabel={(languages2) => (
+                       <div className="country-option">
+                       <img src={languages2.image} alt="country-image" 
+                           style={{ width: '58%', height: 'auto' }}/>
+                       <span style={{padding: '0px 5px'}} >{languages2.label}</span>
+                       </div>
+                    )} />
+          </li>
           <li className={styles["li"]}><Link href="/">{t('BEGIN')}</Link></li>
           <li className={styles["li"]}><Link href="/">{t('ABOUTUS')}</Link></li>
           <li className={styles["li"]}><Link href="/">{t('TEAM')}</Link></li>
           <li className={styles["li"]}><Link href="/">{t('SIGNIN')}</Link></li>
         </ul>
-
-       
       </nav>
 
 
