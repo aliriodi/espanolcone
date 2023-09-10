@@ -1,0 +1,29 @@
+.nav {
+    display: flex;
+    align-items: center; /* Centra verticalmente los elementos en la barra de navegación */
+    height: 80px; /* Ajusta la altura según tus preferencias */
+    margin-left: 50px;
+    
+  }
+  
+  .navbar-logo {
+    margin-left: 50px; /* Aumenta el margen izquierdo según tus preferencias */
+    border-radius: 10px; /* Ajusta el valor para el redondeo deseado */
+    border: 20px solid black; /* Borde de 2 píxeles de ancho de color negro */
+  }
+
+.nav .ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav .li {
+    display: inline-block;
+    margin-right: 20px; /* Espacio entre los enlaces */
+  }
+  
+  .nav .a {
+    text-decoration: none;
+    color: #333; /* Color del texto de los enlaces */
+  }

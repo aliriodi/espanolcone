@@ -1,3 +1,11 @@
 {
-    "img12":"EXPLORA,"
+    "img12":"EXPLORA,",
+    "SPANISH":"ESPAÑOL",
+    "BRAZIL":"PORTUGUÉS",
+    "US":"INGLÉS",
+    "BEGIN":"HOME",
+    "ABOUTUS":"ABOUT US",
+    "TEAM":"TEAM",
+    "SIGNIN":"SIGN IN"
+    
 }

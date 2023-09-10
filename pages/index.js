@@ -80,14 +80,16 @@ export default function Home() {
   }
 
   return (
-    <>
+    <div>
       <Head>
         <title>Español con E | Bienvenidos</title>
         <meta name="landing" content="welcome" />
+    
       </Head>
       <NAVBAR />
-
+       
       <Layout>
+       
         <div className='w-full h-screen flex' style={{color:'#6e6b7b'}}>
           {/* Fondo */}
           <div className="loging-fondo bg-primary flex justify-evenly items-center flex-col h-screen w-full relative z-40">
@@ -219,7 +221,7 @@ export default function Home() {
           </div>
         </div>
       </Layout>
-    </>
+    </div>
   )
 }
 
