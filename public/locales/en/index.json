@@ -26,7 +26,24 @@
                                                             "Disfrutar de eventos y actividades exclusivas propias de Español con E.",
                                                             "Practicar el español con hablantes nativos y conocer nuevas personas."]}],
   
-     "card5":[
+   "card5":[{"title":"Conoce uestro equipo de expertos",
+              "p1":{ "image":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366482/images/team-photo-01_svprcr.png",
+                      "name":"Eucaris Rodriguez",
+                      "function":"Founder" },
+                "p2":{"image":"",
+                       "name":"",
+                       "function":"" },
+                "p3":{"image":"",
+                       "name":"",
+                       "function":"" },
+                 "p4":{"image":"",
+                       "name":"",
+                       "function":"" }
+                    }
+            ],
+
+
+     "card6":[
     {"title":"Don't take our word for it","sentence":"Read what our students have to say about their experience with us."},
     {"name":"Lisa J.","location":"Oklahoma City - Estados Unidos","paragraph":"Before studying with Espanol con E, I had an intermediate level of Spanish. However, since I have been studying with them, I feel my Spanish skills have remarkably improved.  As a physician, my goal was and is to be able to communicate with my Spanish speaking patients.  Thanks to Espanol con E, I am much more fluent and confident in my Spanish communication skills.  ¡Muchísimas gracias a Espanol con E!"},
     {"name":"Tom C.","location":"Houston - Estados Unidos","paragraph":"My experience with Español con E has been excelente!  The learning is targeted to meet the needs of each individual student.  There is always a focus on keeping it fun.  During my on-line session Eucaris is always cheerful, patient, and encouraging.  I've been studying Spanish as a personal interest for years, and this is the best class experience I have had.  I am able to utilize the skills in everyday life in Houston, TX and also during my time as a volunteer.  In addition, I think learning a second language is good exercise for the brain.  Te lo recomiendo mucho Español con E."},
