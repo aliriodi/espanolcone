@@ -13,6 +13,8 @@ module.exports = {
       colors: {
         primary: '#3cbbd6',
         primary_hover:'#4ED5F2',
+        primary_flat:'#3CBBD6',
+        primary_flat_hover:'#3CBBD61F',
 
         secondary:'#33bb99',
         secondary_hover:'#31DDB2',

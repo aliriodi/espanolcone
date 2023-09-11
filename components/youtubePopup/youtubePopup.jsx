@@ -1,5 +1,9 @@
 import React, { useState, useRef } from 'react';
 import YouTube from 'react-youtube';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Layout from '../Layout';
+import Head from 'next/head';
+// import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 
 export default function YoutubePopup(props) {
@@ -158,101 +162,146 @@ export default function YoutubePopup(props) {
           autoplay: 0, // Desactivar la reproducción automática
           modestbranding: 1, // Ocultar el logotipo de YouTube
           fs:0, // Oculto el boton de maximizar video fs FullScreen
+          color: "#000"
       }
     }
 
     return (
-      <div className='mx-auto my-auto h-1/2 relative' style={{width:"640px", marginTop:"10px"}}>
-       {/* titulo de la actividad */}
-       <div> {props.titlep}</div>
+      <>
+      <Head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+      </Head>
+      <Layout>
+        <div className='mx-auto my-auto h-1/2 relative' style={{width:"640px", marginTop:"10px"}}>
 
-        <YouTube
-          ref={iframeRef}
-          opts={opts}
-          videoId={props.videoId}        
-          onReady={handlePlayerReady}
-          onStateChange={handlePlayerStateChange}
-          className='youtube'
-        />
-        <div>
-        {aux.map(a=>a.value)}</div>
-        
-        <div>
-        {acert}</div>
-        {/*Boton para activar la ACTIVIDAD*/}
-        <div class="progress">
-		<p>Javascript</p>
-			<progress  id="javascript" max={maxAcert} value={acert}></progress>
-			<span></span>
-		</div>
-        {showPopup?
-        <div className="popup  absolute top-0 left-0 flex justify-center items-center text-center"  style={{zIndex:0, width:'60%', height:'90%'}}>
-        <button 
-            onClick={() => {showPopup?setShowPopup(false):null; setShowPopup2(true)}} 
-            className="mt-5 bg-primary text-white text-center cursor-pointer"
-            style={{marginBottom: "20px", borderRadius: "5px", padding: "10px 22px 10px 22px"}}>
-            Actividad <span role="img" aria-label="Hand Emoji">👋</span>
-           </button></div>:null}
-           
+          {/* Titulo de la Actividad */}
+          <h3>{props.titlep}</h3>
 
-        {/*  Hijo de html5-video-player  */}
-        {showPopup2 && ( currentPopUp.type==='writer'?     
-        //INPUT
+          {/* Video */}
+          <div className='relative'>
+            <YouTube
+              ref={iframeRef}
+              opts={opts}
+              videoId={props.videoId}        
+              onReady={handlePlayerReady}
+              onStateChange={handlePlayerStateChange}
+              className='youtube'
+            />
             
-        <div ref={popupRef} className="popup w-full h-full absolute top-0 left-0 flex justify-center items-center text-center" style={{background:"#000a"}}>
-         <div className="p-2 bg-white" style={{borderRadius:"8px", minWidth: "40%"}}>
-           
-            {/* Titulo */}
-            <h3 className='' style={{fontWeight:"700", marginBottom: "20px", fontSize:"21px"}}>
-            {currentPopUp.title}
-            </h3>
+            {showPopup?
+            <div className="popup  absolute top-0 left-0 flex justify-center items-center text-center"  style={{zIndex:0, width:'60%', height:'90%'}}>
+              <button 
+                onClick={() => {showPopup?setShowPopup(false):null; setShowPopup2(true)}} 
+                className="btn-primary"
+                style={{marginBottom: "20px", padding: "10px 22px 10px 22px"}}>
+                  Actividad
+                <span role="img" aria-label="Hand Emoji">👋</span>
+              </button>
+            </div>:null}
+              
+            {showPopup2 && ( currentPopUp.type==='writer'?     
 
-            {/* Texto */}
-            <div className='text-center'>
-              <p>{currentPopUp.message}</p>
-              <input type='text' style={{border:"2px #aaa solid", borderRadius:"8px"} } value={inputValue}
-            onChange={handleInputChange}></input>
+            //INPUT   
+            <div ref={popupRef} className="popup w-full h-full absolute top-0 left-0 flex justify-center items-center text-center" style={{background:"#000a"}}>
+              <div className="p-2 bg-white" style={{borderRadius:"8px", minWidth: "40%"}}>
+              
+                {/* Titulo */}
+                <h3 className='' style={{fontWeight:"700", marginBottom: "20px", fontSize:"21px"}}>
+                  {currentPopUp.title}
+                </h3>
+
+                {/* Texto */}
+                <div className='text-center'>
+                  <p>{currentPopUp.message}</p>
+                  <input
+                    type='text'
+                    style={{border:"2px #aaa solid", borderRadius:"8px"}}
+                    value={inputValue}
+                    onChange={handleInputChange}></input>
+                </div>
+
+                {/* Boton */}
+                <button 
+                  onClick={closePopup} 
+                  className="mt-5 btn-primary" 
+                  style={{marginBottom: "20px", padding: "10px 22px 10px 22px"}}>
+                    Continuar
+                </button>
+              </div>
             </div>
+            :  
+            //SELECT
+            <div ref={popupRef} className="popup w-full h-full absolute top-0 left-0 flex justify-center items-center " style={{background:"#000a"}}>
+              <div className="bg-white overflow-hidden" style={{borderRadius:"8px", minWidth: "40%"}}>
 
-            {/* Boton */}
-            <button 
-              onClick={closePopup} 
-              className="mt-5 bg-primary text-white" 
-              style={{marginBottom: "20px", borderRadius: "5px", padding: "10px 22px 10px 22px"}}>Continuar</button>
+                {/* Titulo */}
+                <h3 className='p-3' style={{fontWeight:"700",  fontSize:"21px"}}>
+                {currentPopUp.title}
+                </h3>
+                {/* Botón para mostrar el popup */}
+                
+
+                {/* Opciones del Selector */}
+                <ul className='flex flex-col justify-between px-2 my-4'>
+                  {currentPopUp.options &&
+                  currentPopUp.options.map(opt =>
+                    <li
+                    className='relative overflow-hidden flex items-center my-2 p-2 justify-center'
+                    style={{borderRadius: '7px'}}
+                    key={opt}
+                      >
+                      <input 
+                      type="radio"
+                      className="mr-2 checkbox-test"
+                      value={opt}
+                      id={opt}
+                      checked={selectedOption === opt}
+                      onChange={(e) => handleCheckboxChange(e, opt)}/>
+                      
+                      <label
+                      htmlFor={opt}
+                      className= {`${selectedOption === opt? 'text-white' : 'text-dark z-10'} z-10`}>
+                        {opt}
+                      </label>
+
+                    </li>)}
+                </ul>
+                {/* <select value={selectedOption} onChange={(e) => handleOptionSelect(e.target.value)}>
+                { currentPopUp.options ? currentPopUp.options.map(opt => 
+                
+                <option key={opt} value={opt}>{opt}</option>) :null}
+                </select> */}
+
+                {/* Boton */}
+                <div className="text-center p-2" >
+                  <button 
+                    onClick={closePopup} 
+                    type="submit"
+                    className="btn-primary w-full" 
+                    style={{ padding: "10px 22px 10px 22px"}}>
+                      Continuar
+                  </button> 
+                </div>
+
+              </div>
+            </div>
+            )}
           </div>
-      </div>
-        :  
-        //SELECT
-        <div ref={popupRef} className="popup w-full h-full absolute top-0 left-0 flex justify-center items-center " style={{background:"#000a"}}>
-        <div className="p-2 bg-white" style={{borderRadius:"8px", minWidth: "40%"}}>
 
-          {/* Titulo */}
-          <h3 className='' style={{fontWeight:"700", marginBottom: "20px", fontSize:"21px"}}>
-          {currentPopUp.title}
-          </h3>
-        {/* Botón para mostrar el popup */}
+          {/* Resultados de Respuestas */}
+          <div>{aux.map(a=>a.value)}</div>
+
+          <div>{acert}</div>
           
-
-             {/* Opciones del selector */}
-             { currentPopUp.options ? currentPopUp.options.map(opt => <label  key={opt} style={{  paddingLeft: currentPopUp.paddingLeft }}>
-                 <input type="radio" className="checkoption" value={opt} checked={selectedOption === opt} onChange={(e) => handleCheckboxChange(e, opt)}/>
-                 <span className="radio-indicator"></span> {opt} <br></br>
-              </label>):null }
-              {/* <select value={selectedOption} onChange={(e) => handleOptionSelect(e.target.value)}>
-             { currentPopUp.options ? currentPopUp.options.map(opt => 
-             
-             <option key={opt} value={opt}>{opt}</option>) :null}
-             </select> */}
-
-       <div className="text-center" >
-        <button 
-        onClick={closePopup} 
-        type="submit"
-        className="mt-5 bg-primary text-white " 
-        style={{marginBottom: "20px", borderRadius: "5px", padding: "10px 22px 10px 22px"}}>Continuar</button> 
-      </div></div>
-      </div>
-        )}
-      </div>
+          {/* Boton para activar la ACTIVIDAD */}
+          <div class="progress">
+            <i class="fa fa-star-o"></i>
+            <p>Javascript</p>
+              <progress  id="javascript" max={maxAcert} value={acert}></progress>
+              <span></span>
+          </div>
+        </div>
+      </Layout>
+      </>
     );
   };
