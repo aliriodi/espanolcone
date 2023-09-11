@@ -49,7 +49,7 @@ export default function Register() {
 
   const { locales, push } = useRouter()
   const handleClickLan = l => () => {
-    push('/', undefined, { locale: l })
+    push('', undefined, { locale: l })
   }
 
   const { t } = useTranslation('landing', {
