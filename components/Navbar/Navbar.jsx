@@ -5,9 +5,9 @@ import Link from 'next/link';
 import { useTranslation , withTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import styles from '../../styles/navbar.module.css';
+import { useRef } from 'react';
  function Navbar() {
- 
-  
+  const [showMenuLanguage, setShowMenuLanguage] = useState(false)
   const { locale, locales, push } = useRouter()
   function handleClickLan(l) {
       push('/', undefined, { locale: l });
@@ -26,11 +26,12 @@ import styles from '../../styles/navbar.module.css';
                       {value:'pt', label:'PORTUGUÉS', image:t("flagpt")}];
 
   const [language, setLanguage] = useState(languages2.find(objeto => objeto.value === locale));
-  //estilos React-select
+
+  // Estilos React-select
   const customStyles = {
     control: (provided) => ({
       ...provided,
-      backgroundColor:  'rgba(60, 187, 214, 0.2)',  // Cambiar el color de fondo a "inherit"
+      backgroundColor:  '#f00',  // Cambiar el color de fondo a "inherit"
       width: '210px', // Ancho específico
       height: '40px', // Alto específico
       borderRadius: '8px', // Curvatura de bordes
@@ -79,103 +80,152 @@ import styles from '../../styles/navbar.module.css';
       boxShadow: 'none', // Eliminar la sombra del menú desplegable
       borderRadius: '8px',
        }),
+
+
   };
+
+  //#region Menu De Idiomas
+  const menuLanguage = useRef(null);
+
+  function handleOnChangeLanguage(){
+    showMenuLanguage ? setShowMenuLanguage(false) : setShowMenuLanguage(true) 
+  }
+
+  // Detecta si se cliquea fuera del Menu 
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuLanguage.current && !menuLanguage.current.contains(event.target)) {
+        setShowMenuLanguage(false)
+      }
+    }
+
+    // Agregar un event listener al documento para detectar clics
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      // Remover el event listener al desmontar el componente
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+  //#endregion
+
     return (
-        <nav className={styles["nav"]}>
-        
-        <div >
-            <div >
-               <Image className={styles["navbar-logo"]} width={'100'} height={'100'} src={t("logo")} alt="Logo" /> 
-            </div>
+      <nav className={styles["navbar"]}>
+
+        {/* Logo */}
+        <a href='/'>
+          <Image className={styles["navbar-logo"]} width={'100'} height={'100'} src={t("logo")} alt="Español con E" /> 
+        </a>
+
+        <div className='flex'>
+          {/* Botones Baner */}
+          <ul className={styles["navbar-btns"]} style={{minWidth: '610px'}}>
+            <li className={styles["select-languages"]} onClick={handleOnChangeLanguage} ref={menuLanguage}>
+
+              {/* Icono */}
+              <img
+              src={language?.image}
+              alt={language?.label}
+              className={styles["select-languages_img"]}/>
+
+              {/* Label */}
+              <label
+              className={styles["select-languages_label"]}>
+                {language?.label}
+              </label>
+
+              {/* Menu Desplegable */}
+              {/* <ul className={`${styles['select-languages_menu']} ${showMenuLanguage && 'active'}`}> */}
+              <ul className={`${styles['select-languages_menu']} ${showMenuLanguage && styles['active']}`}>
+                {
+                  languages2.length > 0 &&
+                  languages2.map((language2)=>(
+                      <li
+                      onClick={()=>handleOnChange(language2)}
+                      value={language2}
+                      className={styles["select-languages_languages"]}
+                      key={language2.value}>
+                        {/* Icono */}
+                        <img
+                        src={language2.image}
+                        alt={language2.label}
+                        className={styles["select-languages_img"]}/>
+
+                        {/* Label */}
+                        <label style={{marginLeft: "8px"}}>
+                          {language2.label}
+                        </label>
+                      </li>
+                    )
+                  )
+                }
+              </ul>
+
+
+              
+              {/* <Select 
+                styles={customStyles}
+                value={locale}
+                classNamePrefix="items-dropdown-obj"
+                options={languages2}
+                onChange={handleOnChange}
+                formatOptionLabel={(languages2) => (
+                <div className="country-option">
+                  <img src={languages2.image} alt="country-image" 
+                      style={{ width: '58%', height: 'auto' }}/>
+                  <span style={{padding: '0px 5px'}} >{languages2.label}</span>
+                </div>
+                )} /> */}
+
+            </li>
+            <li>
+              <a>{t('BEGIN')}</a>
+            </li>
+            <li>
+              <a>{t('ABOUTUS')}</a>
+            </li>
+            <li>
+              <a>{t('TEAM')}</a>
+            </li>
+          </ul>
+          {/* Iniciar Secion */}
+          <a className={styles['btn-signUp']} href='/login'>{t('SIGNIN')}</a>
+
         </div>
 
-        <ul className={styles["ul"]}>
-            <li className={styles["li"]}>
-                <Select 
-                      styles={customStyles}
-                      value={language}
-                      classNamePrefix="items-dropdown-obj"
-                      options={languages2}
-                      onChange={handleOnChange}
-                       formatOptionLabel={(languages2) => (
-                       <div className="country-option" style={{ display: 'flex', alignItems: 'center' }}>
-                       <img src={languages2.image} alt="country-image" 
-                           style={{ width: '18%', height: 'auto' }}/>
-                       <span style={{padding: '0px 6px'}} >{languages2.label}</span>
-                       </div>
-                    )} />
-          </li>
-          <li className={styles["li"]}><Link href="/">{t('BEGIN')}</Link></li>
-          <li className={styles["li"]}><Link href="/">{t('ABOUTUS')}</Link></li>
-          <li className={styles["li"]}><Link href="/">{t('TEAM')}</Link></li>
-          <li className={styles["li"]}><Link href="/">{t('SIGNIN')}</Link></li>
-        </ul>
+
       </nav>
-
-
-//     <div className={styles['main-header-area']}>
-                  
-//     <div className={styles['container-fluid']}>
-//         <nav className={styles["navbar navbar-expand-md"]}>
-//             {/* Logo */}
-           
-//             <Link className={styles['navbar-brand']} href="/">
-//                 <Image id='logo' className={styles.logo} src={Logo} alt="logo" />
-//             </Link>
-//             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#ece-menu">
-//                 {/* <AiOutlineMenu className="icon-header-menu"/> */}
-//                 {t('img12')}
-//             </button>
-          
+      
+      //   <nav className={styles["nav"]}>
         
-//             <div className="collapse navbar-collapse" id="ece-menu">
-//                 {/* Header Items */}
-//               <ul className={styles["navbar-nav header-items ml-auto"]}>
-//                 <li className="nav-item">
-//                     <Link className="nav-link Home" href="/">{t('BEGIN')} </Link>
-//                     {/* <a className="nav-link Home" href="/">{languageR.HOME} </a>  */}
-//                 </li>
-//                      <li className="nav-item">
-//                          <a className="nav-link About Us" href="/about-us">
-//                          languageR.ABOUTUS
-//                         </a>
-//                    </li>
-//                 <li className="nav-item">
-//                         <a className="nav-link scroll Team" href='#team'>
-//                         {/* {languageR.TEAM} */}
-//                         </a>
-//                 </li>
-//                 <li className="nav-item">
-//                         {/* <a className="nav-link scroll Plans" href="#pricing"> {languageR.COSTS} </a> */}
-//                 </li>
-//                 <li className="nav-item">
-//                         {/* <a className="nav-link " href="/maintenance">{languageR.BLOG}</a> */}
-//                 </li>
-//                     <li className="nav-link">
-//                         {/* <a className="btn-nav Contact" href="/contact">{languageR.CONTACT}</a> */}
-//                     </li>
-//                     <li  className="nav-item" style={{paddingBotton:'10px'}}>
-// <Select 
-// styles={customStyles}
-// value={locale}
-// classNamePrefix="items-dropdown-obj"
-// options={languages2}
-// //onChange={handleOnChange}
-// formatOptionLabel={(languages2) => (
-// <div className="country-option">
-//   <img src={languages2.image} alt="country-image" 
-//        style={{ width: '58%', height: 'auto' }}/>
-//   <span style={{padding: '0px 5px'}} >{languages2.label}</span>
-// </div>
-// )} />
-                
-// </li> 
-                 
-//                 </ul>
-//             </div>
-//         </nav>
-//     </div>
-// </div>
+      //   <div >
+      //       <div >
+      //          <Image className={styles["navbar-logo"]} width={'100'} height={'100'} src={t("logo")} alt="Logo" /> 
+      //       </div>
+      //   </div>
+
+      //   <ul className={styles["ul"]}>
+      //       <li className={styles["li"]}>
+      //           <Select 
+      //                 styles={customStyles}
+      //                 value={language}
+      //                 classNamePrefix="items-dropdown-obj"
+      //                 options={languages2}
+      //                 onChange={handleOnChange}
+      //                  formatOptionLabel={(languages2) => (
+      //                  <div className="country-option" style={{ display: 'flex', alignItems: 'center' }}>
+      //                  <img src={languages2.image} alt="country-image" 
+      //                      style={{ width: '18%', height: 'auto' }}/>
+      //                  <span style={{padding: '0px 6px'}} >{languages2.label}</span>
+      //                  </div>
+      //               )} />
+      //     </li>
+      //     <li className={styles["li"]}><Link href="/">{t('BEGIN')}</Link></li>
+      //     <li className={styles["li"]}><Link href="/">{t('ABOUTUS')}</Link></li>
+      //     <li className={styles["li"]}><Link href="/">{t('TEAM')}</Link></li>
+      //     <li className={styles["li"]}><Link href="/">{t('SIGNIN')}</Link></li>
+      //   </ul>
+      // </nav>
   )
 }
 export default withTranslation(['navbar'])(Navbar);
