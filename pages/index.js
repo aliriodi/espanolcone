@@ -13,7 +13,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   
   const { locale, locales, push } = useRouter()
-  const { t } = useTranslation('landing' )
+  const { t } = useTranslation(['landing','navbar'] )
   
   return (
     <div>
@@ -25,7 +25,7 @@ export default function Home() {
       <NAVBAR />
 
       <Layout>
-       <div>{locale}  este es el home</div>
+       <div>{locale +'  '+ t("img1")} </div>
       </Layout>
     </div>
   )
