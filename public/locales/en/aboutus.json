@@ -1,0 +1,48 @@
+{
+    "aboutus":"About Us",
+    "card1":{ "img1":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366361/images/about_hzdyib.png",
+              "img2":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366540/images/vector-4_fjapgs.png",
+              "title1": "Disfruta aprendiendo español", 
+              "paragraph1":"Aprender un idioma es más que memorizar reglas gramaticales. Se trata de descubrir distintas culturas, conectar con otras personas y vivir nuevas experiencias.",
+              "paragraph2":" En eso consiste aprender un nuevo idioma. Es una aventura en la que te sumerges por completo en el mundo hispanohablante."},
+
+    "card2":{ "img1":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366404/images/banner-3_x1yvhd.png",
+    "img2":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366552/images/vector-5_sl49iy.png",
+    "colorimg2":"#F7F8FD",
+    "title1": "Aprende español con nosotros", 
+    "paragraph1":"Español con E es un proyecto diseñado para ayudarte a alcanzar tus objetivos de una manera entretenida y eficaz. Además de aprender el idioma, conocerás la cultura de los países hispanohablantes en persona.",
+    "paragraph2":"Los programas están adaptados y personalizados de acuerdo a tus necesidades y deseos, garantizando que el aprendizaje sea gratificante y atractivo."},
+
+    "card3":[{"title":["Objwtivo","Mision","Coompromiso"],
+              "paragraph":["Garantizar el aprendizaje del español de manera atractiva para todos las personas.",
+                           "Impulsar a los estudiantes hacia nuevos niveles de habilidad lingüística y comprensión cultural.",
+                           "Difundir la lengua y la cultura de los países hispanohablantes en todo el mundo."]}],
+    
+    "card4":{ "img1":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366389/images/banner-discord_gx3eqy.png",
+    "img2":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366559/images/vector-6_vio3qn.png",
+    "img3":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366401/images/ellipse-70_s1vmal.png",
+    "title1": "Forma parte de la comunidad", 
+    "paragraph1":"Forma parte de nuestra comunidad de 'viajeros' en nuestro servidor Discord y aprende español en compañía.",
+    "paragraph2":"Nunca estarás solo en este emocionante viaje de aprender un nuevo idioma y explorar culturas lejanas. Sendrás apoyo, ya sea en forma de guía, compañero o mapa.",
+     "title2":"Que encotrarás allí.",
+     "sentece":["Expresiones idiomáticas","Frases y refranes","Citas en español","Actividades para cada nivel","Clases mensuales de conversación en grupo"],
+     "paragraph3":"Como estudiante de Español con E, tendrás acceso completo.",
+    "button":"¡Únete a la comunidad!"},
+    
+    "cards5": [{ "img":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366462/images/promo_img_2_roiiaf.png", 
+                 "title": "Conecta con tus intereses", 
+                 "paragraph":"Integra el español en tu rutina diaria, en tus pasatiempos y aficiones"},
+               { "img":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366467/images/promo_img_3_cgi2d1.png", 
+                 "title": "Aprende haciendo", 
+                 "paragraph":"Aumenta tu fluidez con proyectos, actividades y conversaciones con nativos"},
+               { "img":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366472/images/promo_img_4_n9ttau.png", 
+                  "title": "Viaja y descubre la cultura", 
+                  "paragraph":"Conoce países hispanohablantes junto a profesores y guías turísticos"},
+               { "img":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366456/images/promo_img_1_fnggbr.png", 
+                  "title": "Únete a nuestra comunidad", 
+                  "paragraph":"Conversa sobre tus temas favoritos con profesores y estudiantes"}],
+        
+        "card6":{"paragraph":"Te damos la bienvenida a Español con E, donde el aprendizaje se convierte en una emocionante aventura.",
+                 "button":"Inicia sesión"}
+
+}

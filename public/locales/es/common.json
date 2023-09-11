@@ -1,0 +1,56 @@
+{   
+    "logo":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366258/images/logo_etoaae.png",
+    "flagArgentina":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694363904/images/ar_mwrbds.jpg",
+    "flagBrazil":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694363923/images/br_qj0a0o.jpg",
+    "flagSpain":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694363931/images/sp_tmnhok.jpg",
+    "flagUs":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694363928/images/en_pybv0j.jpg",
+
+    "backgroundLogin":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366285/images/logIn-background_ccgnt9.png",    
+
+    "clubBooks":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366374/images/banner-clubs-01_witzd7.png",
+    "clubTalking":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366384/images/banner-clubs-02_z2eek5.png",
+    
+    "phone":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694437853/images/Group_14.4_nzv8eu.png",
+    "discord":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366389/images/banner-discord_gx3eqy.png",
+    "cascade":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366393/images/banner-principal_pqirib.png",
+    "mountain":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366361/images/about_hzdyib.png",
+    "mountain2":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694437864/images/icons-06_ihevx7.png",
+
+    "peopleTalking":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694437860/images/icons-05_xkbram.png",
+    "peopleGuide":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366366/images/avatar-01_kbrrqd.png",   
+    "peopleMap":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366404/images/banner-3_x1yvhd.png",
+    "worldmap":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366573/images/start_free_nfl8tm.png",
+    "peopleLook":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366429/images/icon_desc_about_wxyaz9.png",
+    "peopleWalk":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366433/images/icon-profe-contact_seoqfp.png",
+    "peoplePhone":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366442/images/img-subscribe_doobmg.png",
+
+    "logoGreen":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366452/images/logo_uo9rtg.png",
+    "logoGreen2":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366262/images/logo-primary_qoagkg.png",
+    "logoWhite":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366258/images/logo_etoaae.png",
+
+    "promoDance":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366456/images/promo_img_1_fnggbr.png",
+    "promoDr":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366462/images/promo_img_2_roiiaf.png",
+    "promoSky":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366467/images/promo_img_3_cgi2d1.png",
+    "promoFlags":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366472/images/promo_img_4_n9ttau.png",
+    
+    "picture1":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366482/images/team-photo-01_svprcr.png",
+    "picture2":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366487/images/team-photo-02_ruhmc1.png",
+    "picture3":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366492/images/team-photo-03_qft36h.png",
+    "picture4":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366496/images/team-photo-04_napxfa.png",
+    "picture5":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366500/images/team-photo-05_lauult.png",
+    "picture6":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366504/images/team-photo-06_pz08qs.png",
+    "wave1":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366508/images/wave_gmx4wi.png",
+    
+    "vector0":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366266/images/vector-1_shozur.png",
+    "vector1":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366531/images/vector1_gkhzbw.png",
+    "vector2":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366401/images/ellipse-70_s1vmal.png",
+    "vector3":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366535/images/vector-3_xvl9ue.png",
+    "vector4":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366540/images/vector-4_fjapgs.png",
+    "vector5":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366552/images/vector-5_sl49iy.png",
+    "vector6":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366559/images/vector-6_vio3qn.png",
+    "vector7":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366274/images/vector-3_g1l2li.png",
+    "vector8":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366270/images/vector-2_zwkmma.png",
+    "vector9":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366422/images/favicon_amg27p.png",
+    "vector10":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366545/images/vector-2_dctmpl.png"    
+
+}

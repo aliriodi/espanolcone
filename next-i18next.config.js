@@ -5,9 +5,10 @@ module.exports = {
   i18n: {
     locales: ['es', 'en', 'pt'],
       defaultLocale: 'es',
+   
    //  namespaces: ['landing', 'navbar', 'common', 'menu'],
   },
-  ns: ['landing', 'navbar', 'common', 'menu'],
+      ns: ['landing', 'navbar', 'common', 'menu','aboutus'],  
  
 }
 

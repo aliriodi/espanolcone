@@ -13,14 +13,14 @@ import { useRef } from 'react';
       push('/', undefined, { locale: l });
   }
   function handleOnChange(lang){
-    push('/', undefined, { locale: lang.value });
+    push('', undefined, { locale: lang.value });
     setLanguage(languages2.find(objeto => objeto.value === lang.value))                      
   }
 
-  const { t } = useTranslation('navbar')
+  const { t } = useTranslation(['navbar','aboutus'])
   //Me traigo las imagenes banderas de los Json 
   ///public/locales/ idiomas que son lo mismo para los 3
-
+  
   const languages2 = [{value:'es', label:'ESPAÑOL',   image:t("flages")},
                       {value:'en', label:'INGLÉS',    image:t("flagen")},
                       {value:'pt', label:'PORTUGUÉS', image:t("flagpt")}];
@@ -228,4 +228,4 @@ import { useRef } from 'react';
       // </nav>
   )
 }
-export default withTranslation(['navbar'])(Navbar);
+export default withTranslation(['navbar','aboutus'])(Navbar);
