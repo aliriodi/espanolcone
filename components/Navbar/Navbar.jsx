@@ -113,9 +113,9 @@ import { useRef } from 'react';
       <nav className={styles["navbar"]}>
 
         {/* Logo */}
-        <a href='/'>
+        <Link href='/'>
           <Image className={styles["navbar-logo"]} width={'100'} height={'100'} src={t("logo")} alt="Español con E" /> 
-        </a>
+        </Link>
 
         <div className='flex'>
           {/* Botones Baner */}
@@ -179,17 +179,17 @@ import { useRef } from 'react';
 
             </li>
             <li>
-              <a>{t('BEGIN')}</a>
+              <Link href={"/#"}>{t('BEGIN')}</Link>
             </li>
             <li>
-              <a>{t('ABOUTUS')}</a>
+              <Link href={"/#"}>{t('ABOUTUS')}</Link>
             </li>
             <li>
-              <a>{t('TEAM')}</a>
+              <Link href={"/#"}>{t('TEAM')}</Link>
             </li>
           </ul>
           {/* Iniciar Secion */}
-          <a className={styles['btn-signUp']} href='/login'>{t('SIGNIN')}</a>
+          <Link className={styles['btn-signUp']} href='/login'>{t('SIGNIN')}</Link>
 
         </div>
 
