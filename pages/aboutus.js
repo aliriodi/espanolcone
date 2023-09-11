@@ -4,23 +4,17 @@ import Navbar from '../components/Navbar/Navbar';
 import nextI18NextConfig from "../next-i18next.config";
 import { useTranslation , withTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-
    function Aboutus() {
      const { t } = useTranslation('aboutus')
-  
   return (
     <div>
         <Head>
         <title>Español con E | Bienvenidos</title>
         <meta name="landing" content="welcome" />
         </Head>
-
         <Navbar /> 
-      
         <div>{t('aboutus')}</div>
-   
              <p>aboutus</p>
-       
   </div>
   )
 }
