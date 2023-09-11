@@ -37,11 +37,11 @@ import styles from '../../styles/navbar.module.css';
       borderColor: 'white',
       outline: 'none', // Remove the blue outline when focused
      
-      borderWidth: '2px', // Cambiar el grosor del borde a 2px
+    //  borderWidth: '2px', // Cambiar el grosor del borde a 2px
       boxShadow:  '0 0 0 0px white' , // Utilizar box-shadow en lugar de outline al enfocar
       '&:hover': {
         backgroundColor: 'rgba(60, 187, 214, 0.4)',
-        color:'red',
+     
         },
    
       //border-radius: 6px,
@@ -51,7 +51,7 @@ import styles from '../../styles/navbar.module.css';
       singleValue: (provided,state) => ({
       ...provided,
       color: 'white', // Change the color of the default value text to white
-     
+      
       backgroundColor: 'rgba(60, 187, 214, 0.0)',
       '&:hover': {
             color: '#3CBBD6',  // Cambiar el color del borde al pasar el cursor sobre el componente
@@ -64,8 +64,9 @@ import styles from '../../styles/navbar.module.css';
        backgroundColor: 'white', // Cambiar el color de fondo de las opciones a "inherit"
        //backgroundColor: '#3CBBD6' 
        //backgroundColor: 'inherit'
-      border: ' white',
-      width: '200px', // Ancho específico
+
+      border: 'white',
+      width: '207px', // Ancho específico
       height: '40px', // Alto específico
       '&:hover': {backgroundColor: 'rgba(60, 187, 214, 0.4)',
                   color: 'black',
@@ -74,9 +75,9 @@ import styles from '../../styles/navbar.module.css';
     menu: (provided) => ({
       ...provided,
       backgroundColor: 'rgba(60, 187, 214, 0.0)', // Change the background color of the menu to translucent
-      border: '2px solid white', // Eliminar el borde del menú desplegable
+    //  border: '2px solid white', // Eliminar el borde del menú desplegable
       boxShadow: 'none', // Eliminar la sombra del menú desplegable
-      
+      borderRadius: '8px',
        }),
   };
     return (
