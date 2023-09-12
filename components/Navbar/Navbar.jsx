@@ -6,7 +6,10 @@ import { useTranslation , withTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import styles from '../../styles/navbar.module.css';
 import { useRef } from 'react';
- function Navbar() {
+import LogoGradient from '../../public/imgs/Logo-gradient.png'
+ function Navbar(props) {
+  const [lightNavBar, setLightNavBar] = useState(false);
+  const { light } = props;
   const [showMenuLanguage, setShowMenuLanguage] = useState(false)
   const { locale, locales, push } = useRouter()
   function handleClickLan(l) {
@@ -27,6 +30,11 @@ import { useRef } from 'react';
 
   const [language, setLanguage] = useState(languages2.find(objeto => objeto.value === locale));
 
+  // Cambio de color del NavBar 
+  useEffect(()=>{
+    setLightNavBar(light)
+  },[light])
+  
   // Estilos React-select
   const customStyles = {
     control: (provided) => ({
@@ -89,6 +97,7 @@ import { useRef } from 'react';
 
   function handleOnChangeLanguage(){
     showMenuLanguage ? setShowMenuLanguage(false) : setShowMenuLanguage(true) 
+    console.log(lightNavBar)
   }
 
   // Detecta si se cliquea fuera del Menu 
@@ -110,11 +119,11 @@ import { useRef } from 'react';
   //#endregion
 
     return (
-      <nav className={styles["navbar"]}>
+      <nav className={`${styles["navbar"]} ${lightNavBar && styles["light"]}`}>
 
         {/* Logo */}
         <Link href='/'>
-          <Image className={styles["navbar-logo"]} width={'100'} height={'100'} src={t("logo")} alt="Español con E" /> 
+          <Image className={styles["navbar-logo"]} width={'100'} height={'100'} src={lightNavBar ? LogoGradient : t("logo")} alt="Español con E" /> 
         </Link>
 
         <div className='flex'>

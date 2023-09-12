@@ -84,9 +84,37 @@
   border-radius: 6px;
   padding: 7px 28px;
   color: var(--white);
-  transition: .15s;
+  transition: .3s;
 }
 .btn-signUp:hover{
   background-color: var(--white);
   color: var(--primary);
+}
+
+/* /// Nav Bar Blanco /// */
+.navbar.light{
+  background-color: var(--white);
+}
+
+.navbar.light .navbar-logo {
+  filter: none;
+}
+
+.navbar.light .navbar-btns{
+  text-shadow: none;
+  color: #262626;
+}
+
+/* Boton de Registro con Gradiente */
+.navbar.light  .btn-signUp{
+  margin-left: 2em;
+  background: linear-gradient(white, white) padding-box, linear-gradient(93.64deg, var(--primary) 5.46%, var(--secondary_hover) 94.15%) border-box;
+  border-radius: 6px;
+  border: 3px solid transparent;
+  color: #262626;
+}
+
+.navbar.light .btn-signUp:hover{
+  background: linear-gradient(#0000, #0000) padding-box, linear-gradient(93.64deg, var(--primary) 5.46%, var(--secondary_hover) 94.15%)border-box;
+  color: var(--white);
 }

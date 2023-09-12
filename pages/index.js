@@ -22,7 +22,7 @@ export default function Home() {
         <meta name="landing" content="welcome" />
       </Head>
 
-      <NAVBAR />
+      <NAVBAR/>
 
       <Layout>
        <div>{locale +'  '+ t("img1")} </div>
