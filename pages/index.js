@@ -7,13 +7,13 @@ import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import NAVBAR from "../components/Navbar/Navbar"
-mport Four from '../components/landingComponents/Four';
+import Four from '../components/landingComponents/Four';
 import Conoce from '../components/landingComponents/Conoce';
 import Ofrece from './../components/landingComponents/Ofrece';
 import Experts from '../components/landingComponents/Experts';
 import Image from 'next/image';
 import Testimonials from '../components/landingComponents/Testimonials';
-import Footer from "../components/Footer/Footer"
+import Footer from "../components/Footer/Footer";
 
 
 const inter = Inter({ subsets: ['latin'] })
