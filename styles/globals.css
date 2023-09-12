@@ -9,6 +9,7 @@
   /* color: #6e6b7b */
 }
 :root{
+  /* Primary */
   --primary: #3cbbd6;
   --primary_hover:#4ED5F2;
   --primary_blur:#3CBBD661;
@@ -16,8 +17,12 @@
   --primary-border_active_bg:#3CBBD633;
   --primary_flat:#3CBBD6;
   --primary_flat_hover:#3CBBD61F;
-  
+
+  /* Secondary */
+  --secondary_hover: #33BB99;
+
   --white:#fff;
+
   --gray: #D8D6DE;
   --gray_title:#6E6B7B;
   --gray_clear: #e1e0e6;
