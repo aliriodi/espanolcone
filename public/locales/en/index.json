@@ -1,53 +1,107 @@
 {
-    "card1Title":"ENDescubre el mindo del español",
-    "card1Text":"ENEXperimenta el idioma y la cultura en priemra persona",
-    "card1Button":"ENIngresa a la app",
-
-    "card2":[{"title":"ENConecta con tus intereses", "paragraph":"ENIntegra el español en tu rutina diaria, en tus tiempos pasatiempos y aficiones"},
-             {"title":"ENAprende haciedno", "paragraph":"ENAumenta tu fluidez con proyectos, actividades y conversaciones con nativos"},
-             {"title":"ENViaja y descubre la cultura", "paragraph":"ENConoce paises hispanohablantes junto a profesores y guías turísticos"},
-             {"title":"ENÚnete a nuestra comunidad", "paragraph":"ENConversa sobre tus temas favoritos con profesores y estudiantes"}],
-
-    "card3Title":"ENConoce Español con E",
-    "card3Text":"ENAprender español no se trata solo de lecciones y gramática. Sumérgete en la cultura de los países hispanohablantes. Así, lograrás hablar con fluidez disfrutas de experiecnias únicas.",
-    "card3Button":"ENDescubre más",
-
-    "card4":[{"title":"ENLo que ofrecemos","text":"Descbre los servicios que diseñamos especualmente para tu aprendizaje"},
-             {"title":"ENNUESTROS PROGRAMAS","text":"Explora nuestros programas y amplia tu perspectiva","paragraph":"Alcanza la fluidez en español con cursos adaptados a tu nivel y metas. Disfruta lecciones interactivas con profesores apasionados por la cultura y el idioma.",
-                                          "pargraph2":"Nuestros programas ofrecen:",
-                                           "list":["Cursos personalizados según tu nivel de español.",
-                                                   "Lecciones comunicativas y prácticas.",
-                                                   "Profesores certificados y nativos.",
-                                                   "Inmersión cultural en países hispanohablantes."]},
-             {"title":"ENCONOCE CÓRDOBA","text":"Descubre la belleza de Córdoba con nuestros paquetes de viajes","paragraph":"Descubre la cultura cordobesa mientras perfeccionas tu español. Experimenta una fusión de aprendizaje y turismo en esta hermosa provincia de Argentina.",
-                                            "pargraph2":"Tendrás la oportunidad de:",
-                                               "list":["Descubrir lugares emblemáticos a través de la inmersión en la cultura local.",
-                                                            "Contratar guías turísticos certificados.",
-                                                            "Disfrutar de eventos y actividades exclusivas propias de Español con E.",
-                                                            "Practicar el español con hablantes nativos y conocer nuevas personas."]}],
-  
-   "card5":[{"title":"Conoce uestro equipo de expertos",
-              "p1":{ "image":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366482/images/team-photo-01_svprcr.png",
-                      "name":"Eucaris Rodriguez",
-                      "function":"Founder" },
-                "p2":{"image":"",
-                       "name":"",
-                       "function":"" },
-                "p3":{"image":"",
-                       "name":"",
-                       "function":"" },
-                 "p4":{"image":"",
-                       "name":"",
-                       "function":"" }
-                    }
-            ],
-
-
-     "card6":[
-    {"title":"Don't take our word for it","sentence":"Read what our students have to say about their experience with us."},
-    {"name":"Lisa J.","location":"Oklahoma City - Estados Unidos","paragraph":"Before studying with Espanol con E, I had an intermediate level of Spanish. However, since I have been studying with them, I feel my Spanish skills have remarkably improved.  As a physician, my goal was and is to be able to communicate with my Spanish speaking patients.  Thanks to Espanol con E, I am much more fluent and confident in my Spanish communication skills.  ¡Muchísimas gracias a Espanol con E!"},
-    {"name":"Tom C.","location":"Houston - Estados Unidos","paragraph":"My experience with Español con E has been excelente!  The learning is targeted to meet the needs of each individual student.  There is always a focus on keeping it fun.  During my on-line session Eucaris is always cheerful, patient, and encouraging.  I've been studying Spanish as a personal interest for years, and this is the best class experience I have had.  I am able to utilize the skills in everyday life in Houston, TX and also during my time as a volunteer.  In addition, I think learning a second language is good exercise for the brain.  Te lo recomiendo mucho Español con E."},
-    {"name":"Kayla D.","location":"Florida - Estados Unidos","paragraph":"My daughters and I have been studying Spanish with Eucaris for more than two years now, and we have all improved so much. I think we've stuck with our studies this long because Eucaris offers lessons that consider our individual interests and language needs. She has pushed me to work toward goals to use my Spanish skills in my job, and she supports me in reaching those goals through relevant activities, assignments, and feedback. Español with E is helping my family become truly bilingual!"},
-    {"name":"Dave B.","location":"Oklahoma City - Estados Unidos","paragraph":"It has been almost two years that I have been learning Spanish with Español Con E (Señora Rodríguez). I had some basic knowledge of Spanish, however ever since I started with Español con E my Spanish skills have incredibly improved. It has been a long time dream of mine to be able to speak, and write Spanish. I can honestly say that it has been a wonderful experience. At times very challenging, but we’ve worked through it all with her patience, professionalism, honesty, and most of all her sincerity. I have the outmost respect for her and her organization.Thank you."}
-  ]
+       "card1Title": "ENDescubre el mindo del español",
+       "card1Text": "ENEXperimenta el idioma y la cultura en priemra persona",
+       "card1Button": "ENIngresa a la app",
+       "card2": [
+              {
+                     "title": "ENConecta con tus intereses",
+                     "paragraph": "ENIntegra el español en tu rutina diaria, en tus tiempos pasatiempos y aficiones"
+              },
+              {
+                     "title": "ENAprende haciedno",
+                     "paragraph": "ENAumenta tu fluidez con proyectos, actividades y conversaciones con nativos"
+              },
+              {
+                     "title": "ENViaja y descubre la cultura",
+                     "paragraph": "ENConoce paises hispanohablantes junto a profesores y guías turísticos"
+              },
+              {
+                     "title": "ENÚnete a nuestra comunidad",
+                     "paragraph": "ENConversa sobre tus temas favoritos con profesores y estudiantes"
+              }
+       ],
+       "card3Title": "ENConoce Español con E",
+       "card3Text": "ENAprender español no se trata solo de lecciones y gramática. Sumérgete en la cultura de los países hispanohablantes. Así, lograrás hablar con fluidez disfrutas de experiecnias únicas.",
+       "card3Button": "ENDescubre más",
+       "card4": [
+              {
+                     "title": "ENLo que ofrecemos",
+                     "text": "Descbre los servicios que diseñamos especualmente para tu aprendizaje"
+              },
+              {
+                     "title": "ENNUESTROS PROGRAMAS",
+                     "text": "Explora nuestros programas y amplia tu perspectiva",
+                     "paragraph": "Alcanza la fluidez en español con cursos adaptados a tu nivel y metas. Disfruta lecciones interactivas con profesores apasionados por la cultura y el idioma.",
+                     "pargraph2": "Nuestros programas ofrecen:",
+                     "list": [
+                            "Cursos personalizados según tu nivel de español.",
+                            "Lecciones comunicativas y prácticas.",
+                            "Profesores certificados y nativos.",
+                            "Inmersión cultural en países hispanohablantes."
+                     ]
+              },
+              {
+                     "title": "ENCONOCE CÓRDOBA",
+                     "text": "Descubre la belleza de Córdoba con nuestros paquetes de viajes",
+                     "paragraph": "Descubre la cultura cordobesa mientras perfeccionas tu español. Experimenta una fusión de aprendizaje y turismo en esta hermosa provincia de Argentina.",
+                     "pargraph2": "Tendrás la oportunidad de:",
+                     "list": [
+                            "Descubrir lugares emblemáticos a través de la inmersión en la cultura local.",
+                            "Contratar guías turísticos certificados.",
+                            "Disfrutar de eventos y actividades exclusivas propias de Español con E.",
+                            "Practicar el español con hablantes nativos y conocer nuevas personas."
+                     ]
+              }
+       ],
+       "card5": [
+              {
+                     "title": "Conoce nuestro equipo de expertos",
+                     "p1": {
+                            "image": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366482/images/team-photo-01_svprcr.png",
+                            "name": "Eucaris Rodriguez",
+                            "function": "Founder"
+                     },
+                     "p2": {
+                            "image": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366487/images/team-photo-02_ruhmc1.png",
+                            "name": "Roiber Avendaño",
+                            "function": "UX/UI Designer"
+                     },
+                     "p3": {
+                            "image": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366492/images/team-photo-03_qft36h.png",
+                            "name": "Ariana Hernandez",
+                            "function": "Content & UX Writer"
+                     },
+                     "p4": {
+                            "image": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366496/images/team-photo-04_napxfa.png",
+                            "name": "Manuel Meneses",
+                            "function": "Web Developer"
+                     }
+              }
+       ],
+       "card6": [
+              {
+                     "title": "Don't take our word for it",
+                     "sentence": "Read what our students have to say about their experience with us."
+              },
+              {
+                     "name": "Lisa J.",
+                     "location": "Oklahoma City - Estados Unidos",
+                     "paragraph": "Before studying with Espanol con E, I had an intermediate level of Spanish. However, since I have been studying with them, I feel my Spanish skills have remarkably improved.  As a physician, my goal was and is to be able to communicate with my Spanish speaking patients.  Thanks to Espanol con E, I am much more fluent and confident in my Spanish communication skills.  ¡Muchísimas gracias a Espanol con E!"
+              },
+              {
+                     "name": "Tom C.",
+                     "location": "Houston - Estados Unidos",
+                     "paragraph": "My experience with Español con E has been excelente!  The learning is targeted to meet the needs of each individual student.  There is always a focus on keeping it fun.  During my on-line session Eucaris is always cheerful, patient, and encouraging.  I've been studying Spanish as a personal interest for years, and this is the best class experience I have had.  I am able to utilize the skills in everyday life in Houston, TX and also during my time as a volunteer.  In addition, I think learning a second language is good exercise for the brain.  Te lo recomiendo mucho Español con E."
+              },
+              {
+                     "name": "Kayla D.",
+                     "location": "Florida - Estados Unidos",
+                     "paragraph": "My daughters and I have been studying Spanish with Eucaris for more than two years now, and we have all improved so much. I think we've stuck with our studies this long because Eucaris offers lessons that consider our individual interests and language needs. She has pushed me to work toward goals to use my Spanish skills in my job, and she supports me in reaching those goals through relevant activities, assignments, and feedback. Español with E is helping my family become truly bilingual!"
+              },
+              {
+                     "name": "Dave B.",
+                     "location": "Oklahoma City - Estados Unidos",
+                     "paragraph": "It has been almost two years that I have been learning Spanish with Español Con E (Señora Rodríguez). I had some basic knowledge of Spanish, however ever since I started with Español con E my Spanish skills have incredibly improved. It has been a long time dream of mine to be able to speak, and write Spanish. I can honestly say that it has been a wonderful experience. At times very challenging, but we’ve worked through it all with her patience, professionalism, honesty, and most of all her sincerity. I have the outmost respect for her and her organization.Thank you."
+              }
+       ]
 }
