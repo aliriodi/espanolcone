@@ -120,7 +120,7 @@ import { useRef } from 'react';
 
     return (
       <nav className={`${styles["navbar"]} ${lightNavBar && styles["light"]}`}>
-
+   
         {/* Logo */}
         <Link href='/'>
           <Image

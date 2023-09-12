@@ -1,48 +1,76 @@
 {
-    "aboutus":"About Us",
-    "card1":{ "img1":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366361/images/about_hzdyib.png",
-              "img2":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366540/images/vector-4_fjapgs.png",
-              "title1": "Disfruta aprendiendo español", 
-              "paragraph1":"Aprender un idioma es más que memorizar reglas gramaticales. Se trata de descubrir distintas culturas, conectar con otras personas y vivir nuevas experiencias.",
-              "paragraph2":" En eso consiste aprender un nuevo idioma. Es una aventura en la que te sumerges por completo en el mundo hispanohablante."},
-
-    "card2":{ "img1":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366404/images/banner-3_x1yvhd.png",
-    "img2":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366552/images/vector-5_sl49iy.png",
-    "colorimg2":"#F7F8FD",
-    "title1": "Aprende español con nosotros", 
-    "paragraph1":"Español con E es un proyecto diseñado para ayudarte a alcanzar tus objetivos de una manera entretenida y eficaz. Además de aprender el idioma, conocerás la cultura de los países hispanohablantes en persona.",
-    "paragraph2":"Los programas están adaptados y personalizados de acuerdo a tus necesidades y deseos, garantizando que el aprendizaje sea gratificante y atractivo."},
-
-    "card3":[{"title":["Objwtivo","Mision","Coompromiso"],
-              "paragraph":["Garantizar el aprendizaje del español de manera atractiva para todos las personas.",
-                           "Impulsar a los estudiantes hacia nuevos niveles de habilidad lingüística y comprensión cultural.",
-                           "Difundir la lengua y la cultura de los países hispanohablantes en todo el mundo."]}],
-    
-    "card4":{ "img1":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366389/images/banner-discord_gx3eqy.png",
-    "img2":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366559/images/vector-6_vio3qn.png",
-    "img3":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366401/images/ellipse-70_s1vmal.png",
-    "title1": "Forma parte de la comunidad", 
-    "paragraph1":"Forma parte de nuestra comunidad de 'viajeros' en nuestro servidor Discord y aprende español en compañía.",
-    "paragraph2":"Nunca estarás solo en este emocionante viaje de aprender un nuevo idioma y explorar culturas lejanas. Sendrás apoyo, ya sea en forma de guía, compañero o mapa.",
-     "title2":"Que encotrarás allí.",
-     "sentece":["Expresiones idiomáticas","Frases y refranes","Citas en español","Actividades para cada nivel","Clases mensuales de conversación en grupo"],
-     "paragraph3":"Como estudiante de Español con E, tendrás acceso completo.",
-    "button":"¡Únete a la comunidad!"},
-    
-    "cards5": [{ "img":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366462/images/promo_img_2_roiiaf.png", 
-                 "title": "Conecta con tus intereses", 
-                 "paragraph":"Integra el español en tu rutina diaria, en tus pasatiempos y aficiones"},
-               { "img":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366467/images/promo_img_3_cgi2d1.png", 
-                 "title": "Aprende haciendo", 
-                 "paragraph":"Aumenta tu fluidez con proyectos, actividades y conversaciones con nativos"},
-               { "img":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366472/images/promo_img_4_n9ttau.png", 
-                  "title": "Viaja y descubre la cultura", 
-                  "paragraph":"Conoce países hispanohablantes junto a profesores y guías turísticos"},
-               { "img":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366456/images/promo_img_1_fnggbr.png", 
-                  "title": "Únete a nuestra comunidad", 
-                  "paragraph":"Conversa sobre tus temas favoritos con profesores y estudiantes"}],
-        
-        "card6":{"paragraph":"Te damos la bienvenida a Español con E, donde el aprendizaje se convierte en una emocionante aventura.",
-                 "button":"Inicia sesión"}
-
+  "aboutus": "About Us",
+  "card1": {
+    "img1": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366361/images/about_hzdyib.png",
+    "img2": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366540/images/vector-4_fjapgs.png",
+    "title1": "Enjoy learning Spanish",
+    "paragraph1": "Learning a language is more than memorizing grammar rules. It's about discovering different cultures, connecting with other people and living new experiences.",
+    "paragraph2": "That's what learning a new language is all about. It is an adventure in which you completely immerse yourself in the Spanish-speaking world."
+  },
+  "card2": {
+    "img1": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366404/images/banner-3_x1yvhd.png",
+    "img2": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366552/images/vector-5_sl49iy.png",
+    "colorimg2": "#F7F8FD",
+    "title1": "Learn Spanish with us",
+    "paragraph1": "Spanish with E is a project designed to help you achieve your goals in an entertaining and effective way. In addition to learning the language, you will get to know the culture of Spanish-speaking countries in person.",
+    "paragraph2": "Programs are adapted and personalized according to your needs and desires, ensuring that learning is rewarding and engaging."
+  },
+  "card3": [
+    {
+      "title": [
+        "Goal",
+        "Mission",
+        "Commitment"
+      ],
+      "paragraph": [
+        "Guarantee learning Spanish in an attractive way for all people.",
+        "Push students to new levels of language ability and cultural understanding.",
+        "Spread the language and culture of Spanish-speaking countries around the world."
+      ]
+    }
+  ],
+  "card4": {
+    "img1": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366389/images/banner-discord_gx3eqy.png",
+    "img2": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366559/images/vector-6_vio3qn.png",
+    "img3": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366401/images/ellipse-70_s1vmal.png",
+    "title1": "Be part of the community",
+    "paragraph1": "Be part of our community of 'travelers' on our Discord server and learn Spanish in company.",
+    "paragraph2": "You will never be alone on this exciting journey of learning a new language and exploring distant cultures. You will provide support, whether in the form of a guide, companion or map.",
+    "title2": "What will you find there?",
+    "sentece": [
+      "Idiomatic expressions",
+      "Phrases and sayings",
+      "Quotes in Spanish",
+      "Activities for each level",
+      "Monthly group conversation classes"
+    ],
+    "paragraph3": "As a Spanish with E student, you will have full access.",
+    "button": "Join the community!"
+  },
+  "cards5": [
+    {
+      "img": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366462/images/promo_img_2_roiiaf.png",
+      "title": "Connect with your interests",
+      "paragraph": "Integrate Spanish into your daily routine, into your hobbies and hobbies"
+    },
+    {
+      "img": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366467/images/promo_img_3_cgi2d1.png",
+      "title": "Learn by doing",
+      "paragraph": "Increase your fluency with projects, activities and conversations with native speakers"
+    },
+    {
+      "img": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366472/images/promo_img_4_n9ttau.png",
+      "title": "Travel and discover culture",
+      "paragraph": "Get to know Spanish-speaking countries with teachers and tourist guides"
+    },
+    {
+      "img": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366456/images/promo_img_1_fnggbr.png",
+      "title": "Join our community",
+      "paragraph": "Talk about your favorite topics with teachers and students"
+    }
+  ],
+  "card6": {
+    "paragraph": "We welcome you to Español con E, where learning becomes an exciting adventure.",
+    "button": "Log in"
+  }
 }
