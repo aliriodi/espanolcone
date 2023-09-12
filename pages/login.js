@@ -36,7 +36,7 @@ export default function Home() {
   
   // useSseion()
   const {data: session,status} = useSession();
-  console.log(session)
+ // console.log(session)
   const dispatch = useDispatch();
   const handleClick = () => {
     // go to the home
@@ -122,11 +122,11 @@ export default function Home() {
             className='bg-gray_light flex flex-col justify-center'
             style={{ fontWeight: '400', padding: '0 80px' }}>
             <div className=' px-3 flex flex-row items-end'>
-              {locales.map(l => (
+              {/* {locales.map(l => (
                 <div key={l} className='px-2'>
                   <button onClick={handleClickLan(l)}>{l}</button>
                 </div>
-              ))}
+              ))} */}
             </div>
             <h3
               className='font-semibold text-violet_dark'
