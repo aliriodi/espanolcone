@@ -1,5 +1,6 @@
 
 .navbar {
+  z-index: index 10;
   display: flex;
   align-items: center; /* Centra verticalmente los elementos en la barra de navegación */
   justify-content: space-between;

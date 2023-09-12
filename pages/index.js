@@ -14,14 +14,14 @@ import Experts from '../components/landingComponents/Experts';
 import Image from 'next/image';
 import Testimonials from '../components/landingComponents/Testimonials';
 import Footer from "../components/Footer/Footer";
-
+import pelota from '../styles/pelota.module.css';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
 
   const { locale, locales, push } = useRouter()
-  const { t } = useTranslation(['landing', 'navbar'])
+  const { t } = useTranslation(['landing', 'navbar','index'])
 
   return (
     <>
@@ -29,34 +29,37 @@ export default function Home() {
         <title>Español con E | Bienvenidos</title>
         <meta name="landing" content="welcome" />
       </Head>
-
       <Layout>
-        <div className='rounded-full w-[2600px] h-[2600px] mt-[-1800px] ml-[-650px] absolute bg-primary' />
-        <NAVBAR className="" />
-        {/* //todo alienar esto bien */}
-        <div class="flex items-center justify-center relative z-20">
-          <div class="w-1/2 flex flex-col">
-            {/* <h1>{locale + '  ' + t("img1")}</h1> */}
-            <div className='my-10 mx-40 text-6xl text-white'>
-              Descubre el mundo del español
-            </div>
-            <div className='my-10 mx-20 text-3xl text-white'>
-              Experimenta el idioma y la cultura en primera persona
-            </div>
-          </div>
+        <div className={pelota["pelota"]}>
+          <div className={pelota["navbar"]}>
+            {/* <div className='rounded-full w-[2600px] h-[2600px] mt-[-1800px] ml-[-650px] absolute bg-primary' /> */}
+            <NAVBAR className={pelota["navbar"]}  />
+            {/* //todo alienar esto bien */}
+            <div className="flex items-center justify-center relative "  style={{ zIndex: -0 }}>
+              <div className="w-1/2 flex flex-col" >
+                {/* <h1>{locale + '  ' + t("img1")}</h1> */}
+                <div className='my-10 mx-40 text-6xl text-white'>
+                 {t("index:card1Title")}
+                </div>
+                <div className='my-10 mx-20 text-3xl text-white '>
+                  {t("index:card1Text")}
+                </div>
+              </div>
 
-          <div class="w-1/2">
-            <div className='h-[600px] flex justify-center items-end'>
-              {/* <div className='mt-[50px] mr-40 bg-slate-500 flex items-center justify-center rounded-full w-[500px] h-[500px]'> */}
-              {/* <h1 className='text-white '>poner imagen 1 aqui</h1> */}
-              {/* "cascade":"", */}
-              <Image
-                src="https://res.cloudinary.com/dfddh08q8/image/upload/v1694366393/images/banner-principal_pqirib.png"
-                alt="Teléfono"
-                width={600}
-                height={300}
-                className='mr-[200px]'
-              />
+              <div className="w-1/2">
+                <div className='h-[600px] flex justify-center items-end'>
+                  {/* <div className='mt-[50px] mr-40 bg-slate-500 flex items-center justify-center rounded-full w-[500px] h-[500px]'> */}
+                  {/* <h1 className='text-white '>poner imagen 1 aqui</h1> */}
+                  {/* "cascade":"", */}
+                  <Image
+                    src="https://res.cloudinary.com/dfddh08q8/image/upload/v1694366393/images/banner-principal_pqirib.png"
+                    alt="Teléfono"
+                    width={600}
+                    height={300}
+                    className='mr-[200px]'
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -67,7 +70,7 @@ export default function Home() {
         <Testimonials />
       </Layout>
 
-      <Footer/>
+      <Footer />
     </>
   )
 }
@@ -76,7 +79,7 @@ export async function getStaticProps({ locale }) {
 
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['landing', 'navbar', 'common', 'menu', 'aboutus'], nextI18NextConfig)),
+      ...(await serverSideTranslations(locale, ['landing', 'navbar', 'common', 'menu', 'aboutus','index'], nextI18NextConfig)),
     },
   }
 }

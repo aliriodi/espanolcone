@@ -4,12 +4,12 @@
     "flagpt":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694363923/images/br_qj0a0o.jpg",
     "flagen":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694363928/images/en_pybv0j.jpg",
     "img12":"EXPLORA,",
-    "SP":"ESPAÑOL",
-    "BR":"PORTUGUÉS",
-    "US":"INGLÉS",
-    "BEGIN":"INÍCIO",
+    "SP": "ESPAÑOL  ",
+    "BR": "PORTUGUÉS",
+    "US": "INGLÉS   ",
+    "BEGIN":  "INÍCIO",
     "ABOUTUS":"SOBRE NÓS",
-    "TEAM":"EQUIPE",
-    "SIGNIN":"Entrar",
+    "TEAM":   "EQUIPE",
+    "SIGNIN": "Entrar",
     "aboutus1":"test3"
 }
