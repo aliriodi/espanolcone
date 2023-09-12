@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import NAVBAR from "../components/Navbar/Navbar"
+import Footer from "../components/Footer/Footer"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +17,7 @@ export default function Home() {
   const { t } = useTranslation(['landing','navbar'] )
   
   return (
-    <div>
+    <>
       <Head>
         <title>Español con E | Bienvenidos</title>
         <meta name="landing" content="welcome" />
@@ -27,7 +28,9 @@ export default function Home() {
       <Layout>
        <div>{locale +'  '+ t("img1")} </div>
       </Layout>
-    </div>
+
+      <Footer/>
+    </>
   )
 }
 

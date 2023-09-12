@@ -1,0 +1,120 @@
+.footer{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    /* background-color: var(--primary);   */
+    height: auto;
+    bottom: 0;  
+}
+/* 
+.footer:before{
+    content: '';
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius:50% 50% 0 0 /100% 100% 0 0 ;
+    background-color: var(--primary);
+    transform: scaleX(-1.5);
+} */
+
+/* Bienvenida */
+.footer-welcome{
+    z-index: 10;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-welcome:before{
+    content: '';
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius:50% 50% 0 0 /100% 100% 0 0 ;
+    background-color: var(--primary);
+    transform: scaleX(-1.5);
+}
+
+.footer-welcome_item{
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    max-width: 700px;
+    padding: 30px 0;
+    margin: 30px 0;
+}
+
+.footer-welcome_item .logo{
+    width: 111px;
+    margin: 19.75px 0;
+}
+
+.footer-welcome_item p{
+    text-align: center;
+    font-size: 22px;
+    /* font-size: 1.36em; */
+    font-weight: 500;
+    color: var(--white);
+    margin: 19.75px 0;
+}
+
+.footer-welcome_item .btn-signUp{
+    background-color: var(--white);
+    border: 3px solid var(--white);
+    border-radius: 6px;
+    padding: 7px 40px;
+    color: var(--primary);
+    font-size: 20px;
+    font-weight: 500;
+    margin: 19.75px 0;
+    box-shadow: 0px 2px 8px 0px #00000040;
+    transition: .3s;
+}
+
+
+/* Social */
+.footer-social{
+    display: flex;
+    justify-content: space-between;
+    padding: 69px 204px;
+    background-color: var(--primary);
+    border-top: 1px var(--white) solid;
+}
+.footer-social .social{
+    display: flex;
+}
+
+.footer-social .social .icon{
+    display: flex;
+    border-radius: 100%;
+    text-align: center;
+    height: 2em;
+    width: 2em;
+    /* height: 32px;
+    width: 32px; */
+    color: var(--white);
+    justify-content: center;
+    align-items: center;
+    background-color: #444445;
+    margin: 0 16px;
+}
+
+
+/* Copyright */
+.footer-social .copyright{
+    display: flex;
+}
+
+.footer-social .copyright p{
+    font-weight: 600;
+    color: var(--white);
+    margin-left: 10px;
+}
+
