@@ -123,7 +123,11 @@ import { useRef } from 'react';
 
         {/* Logo */}
         <Link href='/'>
-          <Image className={styles["navbar-logo"]} width={'100'} height={'100'} src={lightNavBar ? LogoGradient : t("logo")} alt="Español con E" /> 
+          <Image
+          className={styles["navbar-logo"]} 
+          width={'100'} 
+          height={'100'} 
+          src={lightNavBar ? "https://res.cloudinary.com/dfddh08q8/image/upload/v1694520319/images/logo-gradient_ssl8cl.png" : t("logo")} alt="Español con E" /> 
         </Link>
 
         <div className='flex'>
