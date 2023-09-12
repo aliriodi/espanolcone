@@ -1,0 +1,13 @@
+{
+    "page1":{"img1":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366262/images/logo-primary_qoagkg.png",
+             "title":"EXTRANJEROS EN CÓRDOBA",
+             "level":"NIVEL A2"},
+    "page2":{"yotube":"https://youtu.be/Vphr9AAcGCI", "id":"Vphr9AAcGCI"},
+    "page3":{"title1":"Texto número 1","title2":"Los nuevos cordobese",
+              "paragraph1":"Estas personas viven en Córdoba por diferentes motivos. Lee los textos y enfoca tu atención en las palabras resaltadas en color <span style={{color:'orange'}}>naranja. </span>",
+              "paragraph2":"Él <span style={{color:'orange'}}>se llama</span> David, <span style={{color:'orange'}}>es</span> estadounidense, hace más de 10 años que vive en Córdoba, <span style={{color:'orange'}}>se siente</span> muy bien viviendo allí y no <span style={{color:'orange'}}>piensa</span> volver a su país. “<span style={{ textDecoration: 'underline' }}>Me gusta</span> la vida aquí:  la gente, la comida, el clima, el mate …”. <span style={{color:'orange'}}>Es</span> el director de una academia de idiomas y <span style={{color:'orange'}}>trabaja</span> muchas horas al día. Los fines de semana <span style={{color:'orange'}}>conduce</span> su auto para visitar diferentes partes de Córdoba, le gusta recorrer la provincia. <span style={{color:'orange'}}>Está</span> casado con una cordobesa, así que  <span style={{color:'orange'}}>domina</span> bastante bien el español porque <span style={{color:'orange'}}>habla</span> español en casa. Sin embargo, David dice: “<span style={{color:'orange'}}>reconozco</span> que aún <span style={{color:'orange'}}>tengo</span> problemas con la lengua. Mi principal problema <span style={{color:'orange'}}>es</span> que después de 10 años, todavía <span style={{color:'orange'}}>confundo</span> los tiempos del pasado”",
+              "image":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694535859/images/davidpic_ob5ukd.png",
+              "name":"David Brown",
+              "location":"Estadounidense"}
+                        
+}

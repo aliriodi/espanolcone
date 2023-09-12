@@ -95,15 +95,15 @@
     display: flex;
     border-radius: 100%;
     text-align: center;
-    height: 2em;
-    width: 2em;
+    height: 3em;
+    width: 3em;
     /* height: 32px;
-    width: 32px; */
+    width: 32px;  */
     color: var(--white);
     justify-content: center;
     align-items: center;
     background-color: #444445;
-    margin: 0 16px;
+    margin: 0 8px;
 }
 
 
