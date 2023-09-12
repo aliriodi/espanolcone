@@ -1,0 +1,31 @@
+
+ 
+ .pelota {
+    
+    /* position: relative; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+} 
+ .pelota1 { 
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+   /* background-color: var(--primary);     */
+    height: auto;
+    bottom: 0;   
+} 
+ 
+
+.pelota:before{
+    content: '';
+    position:absolute;
+    bottom: 30px;
+    left: -330px;
+    height: 120%;
+    width: 120%;
+    border-radius: 0% 0% 50% 50% /0% 0% 80% 80% ;
+    background-color: var(--primary);
+    transform: scaleX(-1.0);
+} 
