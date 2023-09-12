@@ -6,8 +6,8 @@ import Layout from '../components/Layout';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import NAVBAR from "../components/Navbar/Navbar"
-import Footer from "../components/Footer/Footer"
+import NAVBAR from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
 
 const inter = Inter({ subsets: ['latin'] })
 
