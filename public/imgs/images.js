@@ -2,22 +2,23 @@ export const images = [
 
   {
     name: "Conecta con tus intereses",
-    image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366456/images/promo_img_1_fnggbr.png",
+    image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366456/images/promo_img_2_roiiaf.png",
     text: "Integra el español en tu rutina diaria, en tus pasatiempos y aficiones"
   },
   {
     name: "Aprende haciendo",
-    image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366462/images/promo_img_2_roiiaf.png",
+    image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366462/images/promo_img_3_cgi2d1.png",
     text: "Aumenta tu fluidez con proyectos, actividades y conversaciones con nativos"
   },
   {
     name: "Viaja y decubre la cultura",
-    image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366467/images/promo_img_3_cgi2d1.png",
+
+    image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366472/images/promo_img_4_n9ttau.png",
     text: "Conoce países hispanohablantes junto a profesores y guías turísticos"
   },
   {
     name: "Únete a nuestra comunidad",
-    image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366472/images/promo_img_4_n9ttau.png",
+    image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366467/images/promo_img_1_fnggbr.png",
     text: "Conversa sobre tus temas favoritos con profesores y estudiantes"
   }
 
