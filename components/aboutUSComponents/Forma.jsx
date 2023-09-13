@@ -1,9 +1,10 @@
-import Image from 'next/image'
-import React from 'react'
+import Image from 'next/image';
+import React from 'react';
 import { useTranslation } from 'next-i18next';
-
+import { useRouter } from 'next/router';
 export default function Forma() {
-  const { t } = useTranslation('aboutus')
+  const { t } = useTranslation('aboutus');
+  const router = useRouter();
   return (
     <>
       <div className=' flex items-center justify-center flex-col'>
@@ -31,12 +32,15 @@ export default function Forma() {
                 <li>{t("card4.sentece.3")}</li>
                 <li>{t("card4.sentece.4")}</li>
               </ul>
+             
               <button
                 type="button"
                 className="w-full text-white bg-[#A97EEE] font-bold rounded-md text-sm px-10 py-2.5 mr-2 mb-2 focus:outline-none active:bg-white active:text-[#A97EEE] "
+                onClick={()=> window.open('https://discord.com/invite/QeC9mCShnm', '_blank', 'noopener, noreferrer')}
               >
                {t("card4.button")}
               </button>
+              {/* </Link> */}
             </div>
           </div>
 
