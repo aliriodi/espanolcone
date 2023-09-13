@@ -2,11 +2,13 @@
 import React from 'react';
 import Slider from "react-slick";
 import Image from 'next/image';
+import { useTranslation } from 'next-i18next';
 import { experts } from '../../public/imgs/images.js';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 export default function Experts() {
+  const { t } = useTranslation('index')
   const settings = {
     dots: true,
     infinite: true,
@@ -17,7 +19,7 @@ export default function Experts() {
 
   return (
     <div>
-      <p className='flex items-center justify-center text-4xl'>Nuestro Equipo</p>
+      <p className='flex items-center justify-center text-4xl'>{t("card5.0.title")}</p>
       <div className='mt-5'>
         <Slider {...settings}>
           {experts.map((image, index) => (
