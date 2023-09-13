@@ -61,7 +61,7 @@ function Aboutus() {
         <Three />
         <Forma />
         <FourAbout />
-        <div id="TEAM"> <ExpertsAbout /></div>
+        <div id="TEAM"> <ExpertsAbout /> </div>
         <Footer />
       </Layout>
     </>

@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useTranslation } from 'next-i18next';
 
 const TestimonialsSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-
+  const { t } = useTranslation('index');
   const settings = {
     dots: true,
     infinite: true,
@@ -23,15 +24,15 @@ const TestimonialsSlider = () => {
         {/* Titulo */}
         <div className='flex justify-center items-center flex-col mb-6 text-[#5E6063]'>
           <h2 className='flex justify-center items-center my-5' style={{fontSize:'30px', color: '#323030'}}>
-            Don&apos;t take our word for it
-          </h2>
+            {t("card6.0.title")}
+           </h2>
 
           <span className='bg-secondary flex' style={{height:'2px', width:'80.8px'}}></span>
         </div>
 
         <p className='mb-12 text-center'>
-            Read what our students have to say about their experience with us.
-        </p>
+           {t("card6.0.sentence")}
+         </p>
 
         <div className="overflow-hidden" style={{ marginBottom: "-6px" }}>
           <Slider {...settings}>
@@ -54,8 +55,6 @@ const TestimonialsSlider = () => {
     </>
   );
 };
-
-
 
 
 const testimonials = [
