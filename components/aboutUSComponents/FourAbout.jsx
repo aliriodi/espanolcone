@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import React from 'react'
-import { images } from '../../public/imgs/images.js';
 import { useTranslation } from 'next-i18next';
 
 export default function Four() {
