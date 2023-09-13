@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import React from 'react'
-
+import { useTranslation } from 'next-i18next';
 export default function Aprende() {
+  const { t } = useTranslation('aboutus')
   return (
     <div className='h-[800px] flex items-center justify-center flex-col'>
       <div className="flex items-center justify-center">
@@ -18,14 +19,13 @@ export default function Aprende() {
         <div className="w-1/2 flex flex-col" >
           <div className='flex flex-col items-center justify-center mx-[250px]'>
             <h1 className='text-4xl mb-[100px]'>
-              Aprende español con
-              nosotros
+            {t("card2.title1")}
             </h1>
             <p className='mb-[50px]'>
-              Español con E es un proyecto diseñado para ayudarte a alcanzar tus objetivos de una manera entretenida y eficaz. Además de aprender el idioma, conocerás la cultura de los países hispanohablantes en persona.
+            {t("card2.paragraph1")}
             </p>
             <p>
-              Los programas están adaptados y personalizados de acuerdo a tus necesidades y deseos, garantizando que el aprendizaje sea gratificante y atractivo.
+            {t("card2.paragraph2")}
             </p>
           </div>
         </div>

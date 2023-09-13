@@ -74,8 +74,8 @@ export async function getStaticProps({ locale }) {
 
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['landing', 'navbar', 'common', 'menu', 'aboutus'], nextI18NextConfig)),
+      ...(await serverSideTranslations(locale, ['landing', 'navbar', 'common', 'menu', 'aboutus','index'], nextI18NextConfig)),
     },
   }
 }
-export default withTranslation(['aboutus'])(Aboutus);
+export default withTranslation(['aboutus','index'])(Aboutus);
