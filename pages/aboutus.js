@@ -34,15 +34,15 @@ function Aboutus() {
         <p>aboutus</p> */}
         <Navbar />
         <div className='h-[800px] flex items-center justify-center flex-col'>
-          <h1 className='flex items-center justify-center mb-[150px] text-6xl'> Sobre Nosotros</h1>
+          <h1 className='flex items-center justify-center mb-[150px] text-6xl'> {t("aboutus")}</h1>
           <div className="flex items-center justify-center">
 
             <div className="w-1/2 flex flex-col" >
               <div className='flex flex-col items-center justify-center mx-[250px]'>
-                <h1 className='text-4xl mb-[100px]'>Disfruta aprendiendo español</h1>
-                <p className='mb-[50px]'>Aprender un idioma es más que memorizar reglas gramaticales. Se trata de descubrir distintas culturas, conectar con otras personas y vivir nuevas experiencias.
+                <h1 className='text-4xl mb-[100px]'>{t("card1.title1")}</h1>
+                <p className='mb-[50px]'>{t("card1.paragraph1")}
                 </p>
-                <p>En eso consiste aprender un nuevo idioma. Es una aventura en la que te sumerges por completo en el mundo hispanohablante.</p>
+                <p>{t("card1.paragraph2")}</p>
               </div>
             </div>
 

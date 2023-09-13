@@ -1,7 +1,13 @@
 import Image from 'next/image'
 import React from 'react'
 
-export default function Three() {
+//import nextI18NextConfig from "../../next-i18next.config";
+//import { useTranslation , withTranslation} from 'next-i18next';
+//import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
+ export default function Three() {
+  //function Three() {
+  //const { t } = useTranslation('aboutus')
   return (
     <>
       <div className=' h-auto mb-[10em]'>
@@ -17,7 +23,7 @@ export default function Three() {
             >
               {/* <!-- Agrega aquí el código SVG de tu elección --> */}
             </svg>
-            <h2 className="text-xl font-semibold text-white">Objetivo</h2>
+            <h2 className="text-xl font-semibold text-white">{/*t("")*/}+Objetivo</h2>
           </div>
           <div className="bg-primary p-4 text-center relative">
             <svg
@@ -70,5 +76,14 @@ export default function Three() {
     </>
   )
 }
+// export async function getStaticProps({ locale }) {
 
+//   return {
+//     props: {
+//       ...(await serverSideTranslations(locale, ['landing', 'navbar', 'common', 'menu', 'aboutus','index'], nextI18NextConfig)),
+//     },
+//   }
+// }
+
+// export default withTranslation(['aboutus'])(Three);
 
