@@ -35,15 +35,16 @@ export default function Home() {
             {/* <div className='rounded-full w-[2600px] h-[2600px] mt-[-1800px] ml-[-650px] absolute bg-primary' /> */}
             <NAVBAR className={pelota["navbar"]}  />
             {/* //todo alienar esto bien */}
-            <div className="flex items-center justify-center relative "  style={{ zIndex: -0 }}>
-              <div className="w-1/2 flex flex-col" >
+            <div className="flex items-center  relative border"  style={{ zIndex: -0 }}>
+              <div className="w-1/2  mx-40 flex flex-col border" >
                 {/* <h1>{locale + '  ' + t("img1")}</h1> */}
-                <div className='my-10 mx-40 text-6xl text-white'>
+                <div className='my-10 mx-20 text-6xl text-white border'>
                  {t("index:card1Title")}
                 </div>
-                <div className='my-10 mx-20 text-3xl text-white '>
+                <div className='my-10 mx-20 text-3xl text-white border'>
                   {t("index:card1Text")}
                 </div>
+                
               </div>
 
               <div className="w-1/2">
