@@ -8,7 +8,7 @@ module.exports = {
    
    //  namespaces: ['landing', 'navbar', 'common', 'menu'],
   },
-      ns: ['landing', 'navbar', 'common', 'menu','aboutus','index'],  
+      ns: ['landing', 'navbar', 'common', 'menu','aboutus','index','footer'],  
  
 }
 
