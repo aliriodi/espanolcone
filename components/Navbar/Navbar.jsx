@@ -6,7 +6,7 @@ import { useTranslation, withTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import styles from '../../styles/navbar.module.css';
 import { useRef } from 'react';
-//import LogoGradient from '../../public/imgs/Logo-gradient.png'
+
 function Navbar(props) {
   const [lightNavBar, setLightNavBar] = useState(false);
   const { light } = props;
@@ -200,7 +200,7 @@ function Navbar(props) {
             <Link href={"/aboutus"}>{t('ABOUTUS')}</Link>
           </li>
           <li>
-            <Link href={"/#"}>{t('TEAM')}</Link>
+            <Link href={"#TEAM"}>{t('TEAM')}</Link>
           </li>
         </ul>
         {/* Iniciar Secion */}
