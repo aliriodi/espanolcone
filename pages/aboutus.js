@@ -60,10 +60,10 @@ function Aboutus() {
         <Aprende />
         <Three />
         <Forma />
+        <FourAbout />
+        <ExpertsAbout />
+        <Footer />
       </Layout>
-      <FourAbout />
-      <ExpertsAbout />
-      <Footer />
     </>
   )
 }
