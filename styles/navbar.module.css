@@ -33,6 +33,7 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  z-index: 10;
 }
 
 .select-languages_img{
@@ -85,6 +86,7 @@
   border-radius: 6px;
   padding: 7px 28px;
   color: var(--white);
+  z-index: 10;
   transition: .3s;
 }
 .btn-signUp:hover{
