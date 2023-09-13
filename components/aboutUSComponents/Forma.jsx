@@ -1,10 +1,8 @@
 import Image from 'next/image';
 import React from 'react';
 import { useTranslation } from 'next-i18next';
-import { useRouter } from 'next/router';
 export default function Forma() {
   const { t } = useTranslation('aboutus');
-  const router = useRouter();
   return (
     <>
       <div className=' flex items-center justify-center flex-col'>
