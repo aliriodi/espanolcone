@@ -47,5 +47,28 @@ export const experts = [
     image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366496/images/team-photo-04_napxfa.png",
     namePerson: "Manuel Meneses",
     job: "Web Developer"
+  },
+  {
+    name: "picture5",
+    image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366482/images/team-photo-01_svprcr.png",
+    namePerson: "Eucaris Rodríguez",
+    job: "Founder"
+  },
+  {
+    name: "picture6", image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366487/images/team-photo-02_ruhmc1.png",
+    namePerson: "Roiber Avendaño",
+    job: "UX/UI Designer"
+  },
+  {
+    name: "picture7",
+    image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366492/images/team-photo-03_qft36h.png",
+    namePerson: "Ariana Hernandez",
+    job: "Content & UX Writer"
+  },
+  {
+    name: "picture8",
+    image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366496/images/team-photo-04_napxfa.png",
+    namePerson: "Manuel Meneses",
+    job: "Web Developer"
   }
 ]

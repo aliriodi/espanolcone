@@ -5,7 +5,7 @@ import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
 
 export default function Footer() {
-    const { t } = useTranslation(['navbar','aboutus'])
+    const { t } = useTranslation(['navbar','aboutus','footer'])
 
     return(
         <>
@@ -24,10 +24,10 @@ export default function Footer() {
                     src={t("logo")}
                     />
                     <p>
-                        Te damos la bienvenida a Español con E, donde el aprendizaje se convierte en una emocionante aventura.
+                        {t("footer:title")}
                     </p>
                     <Link className={styles['btn-signUp']} href={"/LogIn"}>
-                        Inicia sesión
+                       {t("footer:button")}
                     </Link>
                 </div>
             </div>

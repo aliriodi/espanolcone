@@ -1,8 +1,16 @@
 import Image from 'next/image'
 import React from 'react'
-import { images } from '../../public/imgs/images.js';
+import { useTranslation } from 'next-i18next';
 
 export default function Four() {
+  const { t } = useTranslation('aboutus')
+  let images=[
+              {name: (t("cards5.0.title")),image:(t("cards5.0.img")),text:(t("cards5.0.paragraph"))},
+              {name: (t("cards5.1.title")),image:(t("cards5.1.img")),text:(t("cards5.1.paragraph"))},
+              {name: (t("cards5.2.title")),image:(t("cards5.2.img")),text:(t("cards5.2.paragraph"))},
+              {name: (t("cards5.3.title")),image:(t("cards5.3.img")),text:(t("cards5.3.paragraph"))}
+               ];
+  
   return (
     <div className='grid grid-cols-4 gap-4 mt-[250px] mb-[250px]'>
       {images.map((image, index) => (
@@ -14,6 +22,7 @@ export default function Four() {
           </div>
         </div>
       ))}
+    
     </div>
   )
 }

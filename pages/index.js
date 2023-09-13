@@ -35,6 +35,7 @@ export default function Home() {
             {/* <div className='rounded-full w-[2600px] h-[2600px] mt-[-1800px] ml-[-650px] absolute bg-primary' /> */}
             <NAVBAR className={pelota["navbar"]} />
             {/* //todo alienar esto bien */}
+
             <div className="flex items-center justify-center relative " style={{ zIndex: -0 }}>
 
               <div className="w-1/2 flex flex-col " >
@@ -54,7 +55,9 @@ export default function Home() {
                     Ingresa a la app
                   </button>
 
+
                 </div>
+                
               </div>
 
               <div className="w-1/2">
@@ -90,7 +93,7 @@ export async function getStaticProps({ locale }) {
 
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['landing', 'navbar', 'common', 'menu', 'aboutus', 'index'], nextI18NextConfig)),
+      ...(await serverSideTranslations(locale, ['landing', 'navbar', 'common', 'menu', 'aboutus', 'index','footer'], nextI18NextConfig)),
     },
   }
 }
