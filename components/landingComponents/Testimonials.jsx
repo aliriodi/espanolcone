@@ -22,19 +22,22 @@ const TestimonialsSlider = () => {
       <div className='h-[1000px]'>
         <div className=' flex flex-col justify-center items-center'>
           <h1 className='m-10'>Don&apos;t take our word for it</h1>
-          <p>Read what our students have to say about their experience with us.</p>
+          <p className='mb-12'>
+            Read what our students have to say about their experience with us.
+          </p>
         </div>
         <div className="overflow-hidden" style={{ marginBottom: "-6px" }}>
           <Slider {...settings}>
             {testimonials.map((testimonial, index) => (
               <div
                 key={testimonial.id}
-                className="w-screen min-h-[200px] md:min-h-[400px] relative cursor-pointer bg-red-500 mx-[40px]"
+                className="w-screen min-h-[300px] md:min-h-[500px] relative cursor-pointer "
                 onClick={() => setCurrentSlide(index)}
               >
-                <div className="text-black absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center p-2 text-lg font-semibold">
-                  &quot;{testimonial.text}&quot;
-                  <p className="text-sm mt-2">- {testimonial.author}</p>
+                <div className="text-black absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center p-2 text-lg font-semibold ">
+                  <p className="mt-2 text-2xl mb-1">- {testimonial.author}</p>
+                  <p className='text-md mb-8'>{testimonial.place}</p>
+                  <p>&quot;{testimonial.text}&quot;</p>
                 </div>
               </div>
             ))}
@@ -51,26 +54,29 @@ const TestimonialsSlider = () => {
 const testimonials = [
   {
     id: 1,
-    text: "Excelente servicio al cliente, siempre dispuestos a ayudar.",
-    author: "Juan Pérez",
+    text: "My experience with Español con E has been excelente!  The learning is targeted to meet the needs of each individual student.  There is always a focus on keeping it fun.  During my on-line session Eucaris is always cheerful, patient, and encouraging.  I've been studying Spanish as a personal interest for years, and this is the best class experience I have had.  I am able to utilize the skills in everyday life in Houston, TX and also during my time as a volunteer.  In addition, I think learning a second language is good exercise for the brain.  Te lo recomiendo mucho Español con E.",
+    place: " Houston – Estados Unidos",
+    author: "Tom C."
   },
   {
     id: 2,
-    text: "Los productos son de alta calidad y a precios muy competitivos.",
-    author: "María González",
+    text: "My daughters and I have been studying Spanish with Eucaris for more than two years now, and we have all improved so much. I think we've stuck with our studies this long because Eucaris offers lessons that consider our individual interests and language needs. She has pushed me to work toward goals to use my Spanish skills in my job, and she supports me in reaching those goals through relevant activities, assignments, and feedback. Español with E is helping my family become truly bilingual!",
+    place: " Florida – Estados Unidos",
+    author: "Kayla D."
   },
   {
     id: 3,
-    text: "La entrega fue rápida y el producto llegó en perfecto estado.",
-    author: "Luis Rodríguez",
+    text: "It has been almost two years that I have been learning Spanish with Español Con E (Señora Rodríguez). I had some basic knowledge of Spanish, however ever since I started with Español con E my Spanish skills have incredibly improved. It has been a long time dream of mine to be able to speak, and write Spanish. I can honestly say that it has been a wonderful experience. At times very challenging, but we’ve worked through it all with her patience, professionalism, honesty, and most of all her sincerity. I have the outmost respect for her and her organization.Thank you.",
+    place: "Oklahoma City – Estados Unidos",
+    author: "Dave B."
   },
   {
     id: 4,
-    text: "Recomiendo esta empresa a todos mis amigos y familiares.",
-    author: "Ana Martínez",
+    text: "Before studying with Espanol con E, I had an intermediate level of Spanish. However, since I have been studying with them, I feel my Spanish skills have remarkably improved.  As a physician, my goal was and is to be able to communicate with my Spanish speaking patients.  Thanks to Espanol con E, I am much more fluent and confident in my Spanish communication skills.  ¡Muchísimas gracias a Espanol con E!",
+    place: "Oklahoma City – Estados Unidos",
+    author: "Lisa J.",
   },
 ];
-
 
 
 export default TestimonialsSlider;

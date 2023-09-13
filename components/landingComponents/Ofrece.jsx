@@ -18,7 +18,7 @@ export default function Ofrece() {
           <div className="bg-white shadow-lg rounded-lg p-4 mx-[200px] h-[800px]  ">
 
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-gray-200 p-4 flex justify-center items-center">
+              <div className="p-4 flex justify-center items-center">
                 <Image
                   src="https://res.cloudinary.com/dfddh08q8/image/upload/v1694437860/images/icons-05_xkbram.png"
                   alt="Personas"
@@ -26,7 +26,7 @@ export default function Ofrece() {
                   height={200}
                 />
               </div>
-              <div className="bg-gray-200 p-4">
+              <div className="p-4">
                 <h2 className="text-lg font-semibold my-4">
                   NUESTROS PROGRAMAS
                 </h2>
@@ -63,7 +63,7 @@ export default function Ofrece() {
           <div className="bg-white shadow-lg rounded-lg p-4 mx-[150px]">
 
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-gray-200 p-4 flex justify-center items-center">
+              <div className="p-4 flex justify-center items-center">
                 <Image
                   src="https://res.cloudinary.com/dfddh08q8/image/upload/v1694437864/images/icons-06_ihevx7.png"
                   alt="montaña"
@@ -71,7 +71,7 @@ export default function Ofrece() {
                   height={200}
                 />
               </div>
-              <div className="bg-gray-200 p-4">
+              <div className="p-4">
                 <h2 className="text-xl font-semibold my-4">
                   CONOCE CÓRDOBA
                 </h2>

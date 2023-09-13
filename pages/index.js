@@ -21,7 +21,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
 
   const { locale, locales, push } = useRouter()
-  const { t } = useTranslation(['landing', 'navbar','index'])
+  const { t } = useTranslation(['landing', 'navbar', 'index'])
 
   return (
     <>
@@ -33,16 +33,29 @@ export default function Home() {
         <div className={pelota["pelota"]}>
           <div className={pelota["navbar"]}>
             {/* <div className='rounded-full w-[2600px] h-[2600px] mt-[-1800px] ml-[-650px] absolute bg-primary' /> */}
-            <NAVBAR className={pelota["navbar"]}  />
+            <NAVBAR className={pelota["navbar"]} />
             {/* //todo alienar esto bien */}
-            <div className="flex items-center  relative border"  style={{ zIndex: -0 }}>
-              <div className="w-1/2  mx-40 flex flex-col border" >
-                {/* <h1>{locale + '  ' + t("img1")}</h1> */}
-                <div className='my-10 mx-20 text-6xl text-white border'>
-                 {t("index:card1Title")}
-                </div>
-                <div className='my-10 mx-20 text-3xl text-white border'>
-                  {t("index:card1Text")}
+
+            <div className="flex items-center justify-center relative " style={{ zIndex: -0 }}>
+
+              <div className="w-1/2 flex flex-col " >
+
+                <div className='mx-[10em] flex items-start  flex-col'>
+                  <div className='my-10  text-6xl text-white font-bold'>
+                    {t("index:card1Title")}
+                  </div>
+                  <div className='my-10  text-3xl text-white '>
+                    {t("index:card1Text")}
+                  </div>
+
+                  <button
+                    type="button"
+                    className="text-primary bg-white  font-bold rounded-md text-sm px-5 py-2.5  mb-2 active:bg-primary active:text-white focus:outline-none "
+                  >
+                    Ingresa a la app
+                  </button>
+
+
                 </div>
                 
               </div>
@@ -80,7 +93,7 @@ export async function getStaticProps({ locale }) {
 
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['landing', 'navbar', 'common', 'menu', 'aboutus','index'], nextI18NextConfig)),
+      ...(await serverSideTranslations(locale, ['landing', 'navbar', 'common', 'menu', 'aboutus', 'index'], nextI18NextConfig)),
     },
   }
 }

@@ -8,18 +8,7 @@ import { useTranslation } from 'next-i18next';
   const { t } = useTranslation('aboutus')
   return (
     <>
-      {/* <div className="grid grid-cols-3  ">
-        <div className="bg-primary p-4 text-center">
-          <h2 className="text-xl font-semibold">Objetivo</h2>
-        </div>
-        <div className="bg-primary p-4 text-center">
-          <h2 className="text-xl font-semibold">Misión</h2>
-        </div>
-        <div className="bg-primary p-4 text-center">
-          <h2 className="text-xl font-semibold">Compromiso</h2>
-        </div>
-      </div> */}
-      <div className=' h-[600px]'>
+      <div className=' h-auto mb-[10em]'>
 
         <div className="grid grid-cols-3">
           <div className="bg-primary p-4 text-center relative">
