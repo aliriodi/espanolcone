@@ -16,7 +16,15 @@ export default function Experts() {
 
   return (
     <div>
-      <p className='flex items-center justify-center text-4xl'>Nuestro Equipo</p>
+      {/* Titulo */}
+      <div className='flex justify-center items-center flex-col'>
+        <h2 className='flex justify-center items-center my-5' style={{fontSize:'30px', color: '#323030'}}>
+          Nuestro Equipo
+        </h2>
+
+        <span className='bg-secondary flex' style={{height:'2px', width:'80.8px'}}></span>
+      </div>
+
       <div className='mt-5'>
         <Slider {...settings}>
           {experts.map((image, index) => (

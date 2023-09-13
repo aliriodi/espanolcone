@@ -41,17 +41,18 @@ export default function Home() {
               <div className="w-1/2 flex flex-col " >
 
                 <div className='mx-[10em] flex items-start  flex-col'>
-                  <div className='my-10  text-6xl text-white font-bold'>
+                  <div className='my-10  text-6xl text-white font-bold' style={{fontSize:'56px', textShadow: '0px 1px 2px #00000040'}}>
                     {t("index:card1Title")}
                   </div>
-                  <div className='my-10  text-3xl text-white '>
+                  <div className='my-10  text-3xl text-white font-semibold' style={{ textShadow: '0px 1px 2px #00000040'}}>
                     {t("index:card1Text")}
                   </div>
 
+                  {/* Iniciar secion */}
                   <button
                     type="button"
-                    className="text-primary bg-white  font-bold rounded-md text-sm px-5 py-2.5  mb-2 active:bg-primary active:text-white focus:outline-none "
-                  >
+                    className="text-primary bg-white font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2 active:bg-primary active:text-white focus:outline-none"
+                    style={{fontSize:'20px',padding: '18px 28px', boxShadow: '0px 2px 8px 0px #00000040'}}          >
                     Ingresa a la app
                   </button>
 

@@ -19,13 +19,20 @@ const TestimonialsSlider = () => {
 
   return (
     <>
-      <div className='h-[1000px]'>
-        <div className=' flex flex-col justify-center items-center'>
-          <h1 className='m-10'>Don&apos;t take our word for it</h1>
-          <p className='mb-12'>
-            Read what our students have to say about their experience with us.
-          </p>
+      <div className='h-[1000px] mt-[100px]'>
+        {/* Titulo */}
+        <div className='flex justify-center items-center flex-col mb-6 text-[#5E6063]'>
+          <h2 className='flex justify-center items-center my-5' style={{fontSize:'30px', color: '#323030'}}>
+            Don&apos;t take our word for it
+          </h2>
+
+          <span className='bg-secondary flex' style={{height:'2px', width:'80.8px'}}></span>
         </div>
+
+        <p className='mb-12 text-center'>
+            Read what our students have to say about their experience with us.
+        </p>
+
         <div className="overflow-hidden" style={{ marginBottom: "-6px" }}>
           <Slider {...settings}>
             {testimonials.map((testimonial, index) => (
@@ -36,8 +43,8 @@ const TestimonialsSlider = () => {
               >
                 <div className="text-black absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center p-2 text-lg font-semibold ">
                   <p className="mt-2 text-2xl mb-1">- {testimonial.author}</p>
-                  <p className='text-md mb-8'>{testimonial.place}</p>
-                  <p>&quot;{testimonial.text}&quot;</p>
+                  <p className='text-md mb-8 text-[#5E6063] font-medium'>{testimonial.place}</p>
+                  <p className='text-[#5E6063] font-medium'>&quot;{testimonial.text}&quot;</p>
                 </div>
               </div>
             ))}
