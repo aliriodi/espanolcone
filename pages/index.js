@@ -53,7 +53,7 @@ export default function Home() {
                     type="button"
                     className="text-primary bg-white font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2 active:bg-primary active:text-white focus:outline-none"
                     style={{ fontSize: '20px', padding: '18px 28px', boxShadow: '0px 2px 8px 0px #00000040' }}          >
-                    Ingresa a la app
+                    {t("index:card1Button")}
                   </button>
 
 
