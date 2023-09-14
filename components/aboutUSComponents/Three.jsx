@@ -8,67 +8,94 @@ import { useTranslation } from 'next-i18next';
   const { t } = useTranslation('aboutus')
   return (
     <>
-      <div className=' h-auto mb-[10em]'>
+      <section className='bg-white relative pb-[203px]'>
 
-        <div className="grid grid-cols-3">
-          <div className="bg-primary p-4 text-center relative">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-8 h-8 mx-auto mb-2 text-white"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              {/* <!-- Agrega aquí el código SVG de tu elección --> */}
-            </svg>
-            <h2 className="text-xl font-semibold text-white">{t("card3.0.title.0")}</h2>
-          </div>
-          <div className="bg-primary p-4 text-center relative">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-8 h-8 mx-auto mb-2 text-white"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              {/* <!-- Agrega aquí el código SVG de tu elección --> */}
-            </svg>
-            <h2 className="text-xl font-semibold text-white">{t("card3.0.title.1")}</h2>
-          </div>
-          <div className="bg-primary p-4 text-center relative">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-8 h-8 mx-auto mb-2 text-white"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              {/* <!-- Agrega aquí el código SVG de tu elección --> */}
-            </svg>
-            <h2 className="text-xl font-semibold text-white">{t("card3.0.title.2")}</h2>
-          </div>
-        </div>
-        <div className="grid grid-cols-3 bg-[#dadbdf]">
-          <div className=" py-4 mx-[220px] text-center ">
-            <p>{t("card3.0.paragraph.0")}</p>
-          </div>
-          <div className=" py-4 mx-[220px] text-center">
-            <p>{t("card3.0.paragraph.1")}</p>
-          </div>
-          <div className=" py-4 mx-[220px] text-center">
-            <p>{t("card3.0.paragraph.2")}</p>
-            <div className=' flex items-center justify-end mt-[50px] z-20'>
+        {/* Titulos */}
+        <div className="flex justify-evenly  bg-primary_light py-[29px]">
+
+          {/* Objetivo */}
+          <div className="w-[240px] text-center relative flex flex-col items-start">
+            
+            {/* Icono */}
+            <div className='w-[32px] h-[32px] inline-block rounded-full relative' style={{border: '1px #fff solid'}}>
               <Image
-                src="https://res.cloudinary.com/dfddh08q8/image/upload/v1694366429/images/icon_desc_about_wxyaz9.png"
-                alt="Teléfono"
-                width={150}
-                height={300}
+              src='https://res.cloudinary.com/dfddh08q8/image/upload/v1694715401/images/imagen_2023-09-14_151642568_btjevx.png'
+              width={15}
+              height={15}
+              // layout="fill"
+              className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
               />
             </div>
+
+            {/* Titulo */}
+            <h2 className="mt-[6px] font-medium text-white text-left" style={{fontSize:'36px'}}>{t("card3.0.title.0")}</h2>
+
+          </div>
+
+          {/* Mision */}
+          <div className="w-[240px] text-center relative flex flex-col items-start">
+            
+            {/* Icono */}
+            <div className='w-[32px] h-[32px] inline-block rounded-full relative' style={{border: '1px #fff solid'}}>
+              <Image
+              src='https://res.cloudinary.com/dfddh08q8/image/upload/v1694717223/images/imagen_2023-09-14_154704800_velmqf.png'
+              width={15}
+              height={15}
+              // layout="fill"
+              className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
+              />
+            </div>
+
+            {/* Titulo */}
+            <h2 className="mt-[6px] font-medium text-white text-left" style={{fontSize:'36px'}}>{t("card3.0.title.1")}</h2>
+          </div>
+
+          {/* Compromiso */}
+          <div className="w-[240px] text-center relative flex flex-col items-start">
+            
+            {/* Icono */}
+            <div className='w-[32px] h-[32px] inline-block rounded-full relative' style={{border: '1px #fff solid'}}>
+              <Image
+              src='https://res.cloudinary.com/dfddh08q8/image/upload/v1694717360/images/imagen_2023-09-14_154921728_yvkn6e.png'
+              width={15}
+              height={15}
+              // layout="fill"
+              className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
+              />
+            </div>
+
+            {/* Titulo */}
+            <h2 className="mt-[6px] font-medium text-white text-left" style={{fontSize:'36px'}}>{t("card3.0.title.2")}</h2>
+          </div>
+
+        </div>
+
+        {/* Texto */}
+        <div className="flex justify-evenly bg-[#F6F7FF] py-[62px] relative">
+
+          {/* Objetivo Texto */}
+            <p className='w-[240px] text-left font-medium text-[#5F5A5A]' style={{fontSize: '20px'}}>{t("card3.0.paragraph.0")}</p>
+
+          {/* Mision Texto */}
+            <p className='w-[240px] text-left font-medium text-[#5F5A5A]' style={{fontSize: '20px'}}>{t("card3.0.paragraph.1")}</p>
+
+          {/* Compromis Texto */}
+            <p className='w-[240px] text-left font-medium text-[#5F5A5A]' style={{fontSize: '20px'}}>{t("card3.0.paragraph.2")}</p>
+
+          {/* Imagen */}
+          <div className='inline-block absolute right-[15%] top-[200px]'>
+            <Image
+              src="https://res.cloudinary.com/dfddh08q8/image/upload/v1694366429/images/icon_desc_about_wxyaz9.png"
+              alt="Teléfono"
+              width={161}
+              height={271}
+              className=' w-[161px] h-[271px]'
+            />
           </div>
         </div>
 
-      </div>
+
+      </section>
     </>
   )
 }

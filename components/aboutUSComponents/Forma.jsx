@@ -5,15 +5,13 @@ export default function Forma() {
   const { t } = useTranslation('aboutus');
   return (
     <>
-      <div className=' flex items-center justify-center flex-col'>
+      <section className='flex items-center justify-center'>
 
-        <div className="flex items-center justify-center">
+          <div className="w-[532px] flex flex-col" >
 
-          <div className="w-1/2 flex flex-col" >
+            <div className='flex flex-col items-center justify-center'>
 
-            <div className='flex flex-col items-center justify-center mx-[250px]'>
-
-              <h2 className='text-4xl mb-[100px]'>
+              <h2 className='subtitle mb-[100px]'>
                 {t("card4.title1")}
               </h2>
 
@@ -28,7 +26,7 @@ export default function Forma() {
               <h3 className='text-xl mb-[20px]'>
                {t("card4.title2")}
               </h3>
-              
+
               <ul className="list-disc pl-4 mb-5">
                 <li>{t("card4.sentece.0")}</li>
                 <li>{t("card4.sentece.1")}</li>
@@ -57,8 +55,7 @@ export default function Forma() {
               className='mr-[200px]'
             />
           </div>
-        </div>
-      </div>
+      </section>
     </>
   )
 }

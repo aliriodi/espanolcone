@@ -13,7 +13,6 @@ import Three from '../components/aboutUSComponents/Three';
 import Forma from '../components/aboutUSComponents/Forma';
 import FourAbout from '../components/aboutUSComponents/FourAbout'
 import ExpertsAbout from '../components/aboutUSComponents/ExpertsAbout'
-import Ellipse1 from '../public/imgs/ellipse-1.png'
 import { dropShadow } from '@cloudinary/url-gen/actions/effect';
 
 
@@ -31,7 +30,7 @@ function Aboutus() {
       </Head>
 
 
-      <Layout>
+      <Layout className='bg-white'>
         <Navbar light={true}/>
         <section className='flex items-center justify-center flex-col bg-white px-[170px] min-h-screen py-[187px] '>
           
@@ -72,10 +71,10 @@ function Aboutus() {
 
           {/* Ellipse */}
           <Image
-          className='absolute z-0 right-0 w-[33vw]'
+          className='absolute z-0 right-0 w-[33vw] h-[80vh]'
           width={600}
           height={300}
-          src={Ellipse1}
+          src='https://res.cloudinary.com/dfddh08q8/image/upload/v1694366401/images/ellipse-70_s1vmal.png'
           />
         </section>
         <Aprende />
