@@ -13,6 +13,8 @@ import Three from '../components/aboutUSComponents/Three';
 import Forma from '../components/aboutUSComponents/Forma';
 import FourAbout from '../components/aboutUSComponents/FourAbout'
 import ExpertsAbout from '../components/aboutUSComponents/ExpertsAbout'
+import Ellipse1 from '../public/imgs/ellipse-1.png'
+import { dropShadow } from '@cloudinary/url-gen/actions/effect';
 
 
 
@@ -30,33 +32,52 @@ function Aboutus() {
 
 
       <Layout>
-        {/* <div>{t('aboutus')}</div>
-        <p>aboutus</p> */}
-        <Navbar />
-        <div className='h-[800px] flex items-center justify-center flex-col'>
-          <h1 className='flex items-center justify-center mb-[150px] text-6xl'> {t("aboutus")}</h1>
-          <div className="flex items-center justify-center">
+        <Navbar light={true}/>
+        <section className='flex items-center justify-center flex-col bg-white px-[170px] min-h-screen py-[187px] '>
+          
+          {/* Titulo */}
+          <h1 className='underlined-title mb-[111px] z-10'> {t("aboutus")}</h1>
 
-            <div className="w-1/2 flex flex-col" >
-              <div className='flex flex-col items-center justify-center mx-[250px]'>
-                <h1 className='text-4xl mb-[100px]'>{t("card1.title1")}</h1>
-                <p className='mb-[50px]'>{t("card1.paragraph1")}
-                </p>
-                <p>{t("card1.paragraph2")}</p>
+          <div className="flex items-center justify-center z-10">
+
+            {/* Contenido */}
+            <div className="w-[532px] flex flex-col mr-[25px]" >
+
+              {/* Subtitulo */}
+              <h2 className='subtitle'>{t("card1.title1")}</h2>
+
+              {/* Texto */}
+              <div className='mt-10'>
+
+                <p className='text-header mb-[50px]'>{t("card1.paragraph1")}</p>
+                <p className='text-header '>{t("card1.paragraph2")}</p>
+
               </div>
+              
             </div>
 
-            <div className="w-1/2 flex items-center justify-center">
+            {/* Imagen */}
+            <div className="w-1/2 flex items-center justify-center ml-[25px]">
               <Image
                 src="https://res.cloudinary.com/dfddh08q8/image/upload/v1694366361/images/about_hzdyib.png"
                 alt="Teléfono"
                 width={600}
                 height={300}
-                className='mr-[200px]'
+                style={{filter: 'dropShadow(0px 4px 43px #00000026)'}}
+                className=''
               />
             </div>
+
           </div>
-        </div>
+
+          {/* Ellipse */}
+          <Image
+          className='absolute z-0 right-0 w-[33vw]'
+          width={600}
+          height={300}
+          src={Ellipse1}
+          />
+        </section>
         <Aprende />
         <Three />
         <Forma />

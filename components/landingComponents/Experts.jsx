@@ -26,13 +26,9 @@ export default function Experts() {
   return (
     <div>
       {/* Titulo */}
-      <div className='flex justify-center items-center flex-col'>
-        <h2 className='flex justify-center items-center my-5' style={{fontSize:'30px', color: '#323030'}}>
-          {t("card5.0.title1")}
-         </h2>
-
-        <span className='bg-secondary flex' style={{height:'2px', width:'80.8px'}}></span>
-      </div>
+      <h2 className='underlined-subtitle'>
+        {t("card5.0.title1")}
+        </h2>
 
       <div className='mt-5'>
         <Slider {...settings}>

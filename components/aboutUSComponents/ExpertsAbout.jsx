@@ -10,17 +10,18 @@ import "slick-carousel/slick/slick-theme.css";
 export default function Experts() {
   const { t } = useTranslation('index')
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
+    arrows: false,
   };
 
   return (
     <div>
       <p className='flex items-center justify-center text-4xl'>{t("card5.0.title")}</p>
-      <div className='mt-5'>
+      <div className='mt-5 w-[100%] relative'>
         <Slider {...settings}>
           {experts.map((image, index) => (
             <div key={index} className='px-2'>
