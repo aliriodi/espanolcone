@@ -61,25 +61,25 @@ const testimonials = [
   {
     id: 1,
     text: "My experience with Español con E has been excelente!  The learning is targeted to meet the needs of each individual student.  There is always a focus on keeping it fun.  During my on-line session Eucaris is always cheerful, patient, and encouraging.  I've been studying Spanish as a personal interest for years, and this is the best class experience I have had.  I am able to utilize the skills in everyday life in Houston, TX and also during my time as a volunteer.  In addition, I think learning a second language is good exercise for the brain.  Te lo recomiendo mucho Español con E.",
-    place: " Houston – Estados Unidos",
+    place: " Houston - Estados Unidos",
     author: "Tom C."
   },
   {
     id: 2,
     text: "My daughters and I have been studying Spanish with Eucaris for more than two years now, and we have all improved so much. I think we've stuck with our studies this long because Eucaris offers lessons that consider our individual interests and language needs. She has pushed me to work toward goals to use my Spanish skills in my job, and she supports me in reaching those goals through relevant activities, assignments, and feedback. Español with E is helping my family become truly bilingual!",
-    place: " Florida – Estados Unidos",
+    place: " Florida - Estados Unidos",
     author: "Kayla D."
   },
   {
     id: 3,
     text: "It has been almost two years that I have been learning Spanish with Español Con E (Señora Rodríguez). I had some basic knowledge of Spanish, however ever since I started with Español con E my Spanish skills have incredibly improved. It has been a long time dream of mine to be able to speak, and write Spanish. I can honestly say that it has been a wonderful experience. At times very challenging, but we’ve worked through it all with her patience, professionalism, honesty, and most of all her sincerity. I have the outmost respect for her and her organization.Thank you.",
-    place: "Oklahoma City – Estados Unidos",
+    place: "Oklahoma City - Estados Unidos",
     author: "Dave B."
   },
   {
     id: 4,
     text: "Before studying with Espanol con E, I had an intermediate level of Spanish. However, since I have been studying with them, I feel my Spanish skills have remarkably improved.  As a physician, my goal was and is to be able to communicate with my Spanish speaking patients.  Thanks to Espanol con E, I am much more fluent and confident in my Spanish communication skills.  ¡Muchísimas gracias a Espanol con E!",
-    place: "Oklahoma City – Estados Unidos",
+    place: "Oklahoma City - Estados Unidos",
     author: "Lisa J.",
   },
 ];
