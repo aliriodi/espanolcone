@@ -5,56 +5,76 @@ export default function Forma() {
   const { t } = useTranslation('aboutus');
   return (
     <>
-      <section className='flex items-center justify-center'>
+      <section className='flex items-center justify-center px-[170px] py-[125px] relative'>
 
-          <div className="w-[532px] flex flex-col" >
+          {/* Contenido */}
+          <div className="w-[532px] flex flex-col z-10" >
 
-            <div className='flex flex-col items-center justify-center'>
+            <div className='flex flex-col items-start justify-center'>
 
-              <h2 className='subtitle mb-[100px]'>
+              {/* Titulo */}
+              <h2 className='subtitle mb-[34px]'>
                 {t("card4.title1")}
               </h2>
 
-              <p className='mb-[50px]'>
+              {/* Texto */}
+              <p className='mb-[22px] font-medium text-[#5F5A5A]' style={{lineHeight:'21.94px', fontSize:'18px'}}>
               {t("card4.paragraph1")}
               </p>
               
-              <p className='mb-[50px]'>
+              <p className='mb-[58px] font-medium text-[#5F5A5A]' style={{lineHeight:'21.94px', fontSize:'18px'}}>
               {t("card4.paragraph2")}
               </p>
 
-              <h3 className='text-xl mb-[20px]'>
+              
+              {/* Que encontraras */}
+              <h3 className='text-[#505050] mb-[30px]' style={{fontSize: '30px'}}> 
                {t("card4.title2")}
               </h3>
 
-              <ul className="list-disc pl-4 mb-5">
-                <li>{t("card4.sentece.0")}</li>
-                <li>{t("card4.sentece.1")}</li>
-                <li>{t("card4.sentece.2")}</li>
-                <li>{t("card4.sentece.3")}</li>
-                <li>{t("card4.sentece.4")}</li>
+              {/* Lista */}
+              <ul className="pl-4 mb-[26px] text-[#5F5A5A] font-medium list-none" style={{lineHeight: '29.05px', fontSize:'18px'}}>
+                <li><span className='font-bold mx-2'>.</span> {t("card4.sentece.0")}</li>
+                <li><span className='font-bold mx-2'>.</span> {t("card4.sentece.1")}</li>
+                <li><span className='font-bold mx-2'>.</span> {t("card4.sentece.2")}</li>
+                <li><span className='font-bold mx-2'>.</span> {t("card4.sentece.3")}</li>
+                <li><span className='font-bold mx-2'>.</span> {t("card4.sentece.4")}</li>
               </ul>
              
+              {/* Unirse */}
               <button
                 type="button"
-                className="w-full text-white bg-[#A97EEE] font-bold rounded-md text-sm px-10 py-2.5 mr-2 mb-2 focus:outline-none active:bg-white active:text-[#A97EEE] "
+                className="
+                  w-[326px] h-[48px] text-white bg-[#A97EEE] font-bold rounded-md transition-all
+                 hover:bg-success hover:h-[50px] hover:w-[328px] "
+                style={{textShadow: '0px 0.9133211970329285px 1.826642394065857px #00000040', boxShadow:'box-shadow: 0px 1px 2px #00000026'}}
                 onClick={()=> window.open('https://discord.com/invite/QeC9mCShnm', '_blank', 'noopener, noreferrer')}
               >
                {t("card4.button")}
               </button>
-              {/* </Link> */}
+              
             </div>
           </div>
 
+          {/* Imagen */}
           <div className="w-1/2 flex items-center justify-center">
             <Image
               src="https://res.cloudinary.com/dfddh08q8/image/upload/v1694366389/images/banner-discord_gx3eqy.png"
               alt="discord"
               width={800}
               height={400}
-              className='mr-[200px]'
+              style={{filter:'drop-shadow( 0px 4px 43px #00000026)'}}
             />
           </div>
+
+          {/* Ellipse */}
+          <Image
+          className='absolute z-0 left-[-50px] top-0'
+          style={{ transform: 'scaleX(-1)' }}
+          width={145}
+          height={296}
+          src='https://res.cloudinary.com/dfddh08q8/image/upload/v1694366401/images/ellipse-70_s1vmal.png'
+          />
       </section>
     </>
   )

@@ -12,17 +12,32 @@ export default function Four() {
                ];
   
   return (
-    <div className='grid grid-cols-4 gap-4 mt-[250px] mb-[250px]'>
+    <section className='flex justify-between px-[170px] pt-[125px] pb-[189px] relative'>
+
+      {/* Cartas */}
       {images.map((image, index) => (
-        <div key={index} className='col-span-1 my-10 mx-20 '>
+        <div key={index} className='flex flex-col items-center w-[193px]'>
+
+          {/* Imagen */}
           <Image alt={image.name} src={image.image} width={300} height={200} />
-          <h2 className='mx-5 flex justify-center items-center text-center font-bold mb-5 h-10'>{image.name}</h2>
-          <div className='mx-5 flex justify-center items-center text-center'>
-            <p className='flex justify-center items-center'>{image.text}</p>
-          </div>
+
+          {/* Titulo */}
+          <h4
+          className='flex items-center text-center font-bold text-[#3F3D3D] my-[19px]'
+          style={{fontSize: '22px', lineHeight: '26.82px'}}>
+            {image.name}
+          </h4>
+
+          {/* Texto */}
+          <p
+          className='flex justify-center items-center text-[#5F5A5A] font-medium text-center'
+          style={{lineHeight:'19.5px', fontSize:'16px'}}>
+            {image.text}
+          </p>
         </div>
       ))}
-    
-    </div>
+
+      <span className='absolute w-[108px] h-[108px] bg-success rounded-full left-[-41px] top-[45%]'></span>
+    </section>
   )
 }
