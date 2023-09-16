@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import { useTranslation } from 'next-i18next';
+import ellipse from '../../public/imgs/ellipse-2.png'
 export default function Aprende() {
   const { t } = useTranslation('aboutus')
   return (
@@ -33,7 +34,7 @@ export default function Aprende() {
       </div>
     </div> */}
     
-    <section className='flex items-center justify-center flex-col bg-white px-[170px] min-h-screen  '>
+    <section className='flex items-center justify-center flex-col bg-white px-[170px] min-h-screen  relative'>
       
           <div className="flex items-center justify-center z-10">
 
@@ -44,7 +45,7 @@ export default function Aprende() {
                 alt="Teléfono"
                 width={600}
                 height={300}
-                style={{filter: 'dropShadow(0px 4px 43px #00000026)'}}
+                style={{filter:'drop-shadow( 0px 4px 43px #00000026)'}}
                 className=''
               />
             </div>
@@ -64,8 +65,15 @@ export default function Aprende() {
               </div>
               
             </div>
-            
           </div>
+
+          {/* Ellipse */}
+          <Image
+          className='absolute left-0 bottom-0 z-0'
+          src={ellipse}
+          width={600}
+          height={600}
+          />
 
         </section>
     </>

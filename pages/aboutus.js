@@ -62,7 +62,7 @@ function Aboutus() {
                 alt="Teléfono"
                 width={600}
                 height={300}
-                style={{filter: 'dropShadow(0px 4px 43px #00000026)'}}
+                style={{filter:'drop-shadow( 0px 4px 43px #00000026)'}}
                 className=''
               />
             </div>
