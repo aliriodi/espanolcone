@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import React from 'react';
 import { useTranslation } from 'next-i18next';
+import Ellipse2 from '../../public/imgs/ellipse-3.png'
+
 export default function Forma() {
   const { t } = useTranslation('aboutus');
   return (
@@ -57,7 +59,7 @@ export default function Forma() {
           </div>
 
           {/* Imagen */}
-          <div className="w-1/2 flex items-center justify-center">
+          <div className="w-1/2 flex items-center justify-center z-10">
             <Image
               src="https://res.cloudinary.com/dfddh08q8/image/upload/v1694366389/images/banner-discord_gx3eqy.png"
               alt="discord"
@@ -74,6 +76,15 @@ export default function Forma() {
           width={145}
           height={296}
           src='https://res.cloudinary.com/dfddh08q8/image/upload/v1694366401/images/ellipse-70_s1vmal.png'
+          />
+
+          {/* Ellipse 2 */}
+          <Image
+          className='absolute z-0 right-0 min-h-screen w-1/2 top-[125px]'
+          // style={{ transform: 'scaleX(-1)' }}
+          width={1011}
+          height={690}
+          src={Ellipse2}
           />
       </section>
     </>

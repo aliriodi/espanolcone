@@ -30,7 +30,7 @@ function Aboutus() {
       </Head>
 
 
-      <Layout className='bg-white'>
+      <Layout className='bg-white relative overflow-x-hidden'>
         <Navbar light={true}/>
         <section className='flex items-center justify-center flex-col bg-white px-[170px] min-h-screen py-[187px] '>
           
@@ -83,6 +83,17 @@ function Aboutus() {
         <FourAbout />
         <div id="TEAM"> <ExpertsAbout /> </div>
         <Footer />
+
+        
+        {/* Ellipse Naranja */}
+        <span
+        className='rounded-full h-[157px] w-[157px] z-20 absolute right-[-75px] bottom-[703px] border-warning'
+        style={{border: '27px solid #ff7438'}}></span>
+
+        
+        {/* Ellipse Verde */}
+        <span
+        className='rounded-full h-[70px] w-[70px] z-20 absolute bottom-[746px] bg-secondary left-[15%]'></span>
       </Layout>
     </>
   )
