@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default function Class(props) {
-  
   //https://docs.google.com/presentation/d/10lxVnbNdlLZ6OlsXJTU9-uZ3GDJPz140/edit#slide=id.g27c3e69a393_0_0
 const a=  {
     type:"boxmove",
@@ -10,7 +9,7 @@ const a=  {
     "paragraph":["Los verbos resaltados en los textos están en presente.",
     "<span style={{ color: 'orange' }}>¿Sabes cuál es su infinitivo? </span>",
      "A continuación, te mostramos algunos verbos usados en los textos y opciones para seleccionar su forma infinitiva correcta. Arrastra el verbo correcto."],
-     "sentence":[{"text":"David <span style={{ color: 'orange' }}>trabaja</span> muchas horas al día. _________________",
+     "sentence":[{"text":"David <span style={{ color: orange }}>trabaja</span> muchas horas al día. _________________",
                        "option":"trabajar"},
                        {"text":"No <span style={{ color: 'orange' }}>piensa</span> volver a su país. ________________",
                       "option":"pensar"},
@@ -22,7 +21,9 @@ const a=  {
                 "option":"entender"},
                 {"text":"no <span style={{ color: 'orange' }}>Le cuesta</span> bastante la pronunciación. ______________________",
                 "option":"costar"}]
-}
+
+              }
+              
   return (
     <div>Class
       <p>Estas personas viven en Córdoba por diferentes motivos. Lee los textos y decide cuál de ellos vive mejor.</p>
@@ -31,13 +32,15 @@ const a=  {
       </p>
       {console.log(a)}
       <p>David <span style={{ color: 'orange' }}>trabaja</span> muchas horas al día. _________________</p>
- {a.sentence.map((a, index)=>
+ {a.sentence.map((b, index)=>
   <div key={index}>
   <p >
-  {a.text}
+  {b.text}
+
     </p>
   </div>
   )}
+
 
     </div>
   )
