@@ -42,6 +42,11 @@ export default function Forma() {
                 <li><span className='font-bold mx-2'>.</span> {t("card4.sentece.3")}</li>
                 <li><span className='font-bold mx-2'>.</span> {t("card4.sentece.4")}</li>
               </ul>
+
+              <p className='mb-[58px] font-medium text-[#5F5A5A]' style={{lineHeight:'21.94px', fontSize:'18px'}}>
+              {t("card4.paragraph3")}
+              </p>
+
              
               {/* Unirse */}
               <button
