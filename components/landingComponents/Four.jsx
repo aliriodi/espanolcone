@@ -11,16 +11,31 @@ export default function Four() {
                     {name:t("card2.3.title"),image:images[3].image,text:t("card2.3.paragraph")},];
 
   return (
-    <div className='grid grid-cols-4 gap-4 mt-[250px] mb-[250px]'>
+
+    <section className='flex justify-between mt-[90px] mb-[250px] px-[172px] relative'>
       {images2.map((image, index) => (
-        <div key={index} className='col-span-1 my-10 mx-20 '>
+
+        // Cart
+        <div key={index} className='col-span-1 w-[193px]'>
+
+          {/* Icono */}
           <Image alt={image.name} src={image.image} width={300} height={200} />
-          <h2 className='mx-5 flex justify-center items-center text-center font-bold mb-5 h-10'>{image.name}</h2>
-          <div className='mx-5 flex justify-center items-center'>
-            <p className='flex justify-center items-center text-center'>{image.text}</p>
-          </div>
+
+          {/* Titulo */}
+          <h2
+          className='flex justify-center items-center text-center font-bold mb-5 h-10 text-[#3F3D3D]'
+          style={{fontSize:'22px', lineHeight:"26.82px"}}>{image.name}</h2>
+
+          {/* Texto */}
+          <p
+          className='flex justify-center font-medium text-[#5F5A5A] items-center text-center'
+          style={{fontSize:'16px'}}>{image.text}</p>
         </div>
       ))}
-    </div>
+
+      {/* Bola Naranja */}
+      <span className='bg-warning h-[159px] w-[159px] absolute rounded-full left-[-100px] bottom-[-10%]'/>
+    </section>
+
   )
 }
