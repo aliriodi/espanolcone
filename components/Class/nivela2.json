@@ -1,20 +1,30 @@
 {
     "page1": {
         "type": "text",
-        "section": "0",
+        "section": [
+            "0",
+            "Portada"
+        ],
         "img1": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366262/images/logo-primary_qoagkg.png",
         "title": "EXTRANJEROS EN CÓRDOBA",
         "level": "NIVEL A2"
     },
     "page2": {
         "type": "video",
-        "section": "1",
+        "section": [
+            "1",
+            "Video Explicativo"
+        ],
         "yotube": "https://youtu.be/Vphr9AAcGCI",
-        "id": "Vphr9AAcGCI"
+        "id": "Vphr9AAcGCI",
+        "title": "¿Qué voy a aprender en esta unidad?"
     },
     "page3": {
         "type": "text",
-        "section": "2",
+        "section": [
+            "2",
+            "Elemento disparador / Tema"
+        ],
         "title1": "Texto número 1:",
         "title2": "Los nuevos cordobese",
         "paragraph1": "Estas personas viven en Córdoba por diferentes motivos. Lee los textos y enfoca tu atención en las palabras resaltadas en color <span style={{color:'orange'}}>naranja. </span>",
@@ -25,7 +35,10 @@
     },
     "page4": {
         "type": "text",
-        "section": "2",
+        "section": [
+            "2",
+            "Elemento disparador / Tema"
+        ],
         "title1": "Texto número 2:",
         "title2": "Los nuevos cordobese",
         "paragraph1": "Estas personas viven en Córdoba por diferentes motivos. Lee los textos y decide cuál de ellos vive mejor.",
@@ -34,25 +47,252 @@
         "name": "Bruna Da Silva",
         "location": "Brasileña"
     },
-    "page5":{
-        "type":"boxmove",
-        "section":"3",
-        "title1":"Actividad",
-        "paragraph":["Los verbos resaltados en los textos están en presente.",
-        "<span style={{ color: 'orange' }}>¿Sabes cuál es su infinitivo? </span>",
-         "A continuación, te mostramos algunos verbos usados en los textos y opciones para seleccionar su forma infinitiva correcta. Arrastra el verbo correcto."],
-         "sentence":[{"text":"David <span style={{ color: 'orange' }}>trabaja</span> muchas horas al día. _________________",
-                       "option":"trabajar"},
-                       {"text":"No <span style={{ color: 'orange' }}>piensa</span> volver a su país. ________________",
-                      "option":"pensar"},
-                      {"text":"<span style={{ color: 'orange' }}>Reconozco</span> que aún tengo problemas con la lengua. _____________________",
-                    "option":"reconocer"},
-                    {"text": "Bruna <span style={{ color: 'orange' }}>estudia</span> medicina en la UNC. __________________",
-                    "option":"estudiar"},
-                {"text":"Todavía no <span style={{ color: 'orange' }}>entiende</span> perfectamente el  español. __________________",
-                "option":"entender"},
-                {"text":"no <span style={{ color: 'orange' }}>Le cuesta</span> bastante la pronunciación. ______________________",
-                "option":"costar"}]
-        
+    "page5": {
+        "type": "boxmove",
+        "section": [
+            "3",
+            "Actividades PDF"
+        ],
+        "title": "Actividad",
+        "paragraph": [
+            "Los verbos resaltados en los textos están en presente.",
+            "<span style={{ color: 'orange' }}>¿Sabes cuál es su infinitivo? </span>",
+            "A continuación, te mostramos algunos verbos usados en los textos y opciones para seleccionar su forma infinitiva correcta. Arrastra el verbo correcto."
+        ],
+        "sentence": [
+            {
+                "text": "David <span style={{ color: 'orange' }}>trabaja</span> muchas horas al día. _________________",
+                "option": "trabajar"
+            },
+            {
+                "text": "No <span style={{ color: 'orange' }}>piensa</span> volver a su país. ________________",
+                "option": "pensar"
+            },
+            {
+                "text": "<span style={{ color: 'orange' }}>Reconozco</span> que aún tengo problemas con la lengua. _____________________",
+                "option": "reconocer"
+            },
+            {
+                "text": "Bruna <span style={{ color: 'orange' }}>estudia</span> medicina en la UNC. __________________",
+                "option": "estudiar"
+            },
+            {
+                "text": "Todavía no <span style={{ color: 'orange' }}>entiende</span> perfectamente el  español. __________________",
+                "option": "entender"
+            },
+            {
+                "text": "no <span style={{ color: 'orange' }}>Le cuesta</span> bastante la pronunciación. ______________________",
+                "option": "costar"
+            }
+        ]
+    },
+    "page6": {
+        "type": "selectsimple",
+        "section": [
+            "3",
+            "Actividades PDF"
+        ],
+        "title": "Actividad",
+        "paragraph": [
+            "A David y a Bruna les gusta mucho Córdoba.",
+            "¿Cuál de estas frases corresponde a Bruna y cuál corresponde a David?"
+        ]
+    },
+    "sentence": [
+        {
+            "text": "\"Me gusta la vida aquí:  la gente, la comida, el clima, el mate …\"",
+            "option": "David",
+            "options": [
+                "Bruna",
+                "David"
+            ]
+        },
+        {
+            "text": "Le gusta hablar y compartir con los nativos.",
+            "option": "Bruna",
+            "options": [
+                "Bruna",
+                "David"
+            ]
+        }
+    ],
+    "page7": {
+        "type": "video",
+        "section": [
+            "4",
+            "Gramática"
+        ],
+        "youtube": "https://youtu.be/bOAABReEdb8",
+        "id": "bOAABReEdb8",
+        "title": "Video explicativo"
+    },
+    "page8": {
+        "type": "slide",
+        "section": [
+            "5",
+            "Actividades interactivas"
+        ],
+        "title": "Actividades interactivas"
+    },
+    "page9": {
+        "type": "videoInteractivo",
+        "section": "5",
+        "youtube": "https://youtu.be/CguXO_5okCY",
+        "id": "CguXO_5okCY",
+        "titlep": "Video interativo",
+        "paragraph": "1. En el siguiente video completa las actividades seleccionando el verbo correcto.",
+        "popups": [
+            {
+                "time": 11,
+                "title": "Mi nombre _______ Daniela Masías.",
+                "reply": "es",
+                "message": " (soy/es/está) ",
+                "type": "checkbox",
+                "options": [
+                    "soy",
+                    "es",
+                    "está"
+                ],
+                "paddingLeft": "10%",
+                "popUpShown": false,
+                "value": 0
+            },
+            {
+                "time": 56,
+                "title": "Ella es Julia Coronatta y _______ 22 años.",
+                "message": "Pienselo bien",
+                "reply": "tiene",
+                "type": "checkbox",
+                "options": [
+                    "tiene",
+                    "lleva",
+                    "es"
+                ],
+                "paddingLeft": "10%",
+                "popUpShown": false,
+                "value": 0
+            },
+            {
+                "time": 83,
+                "title": "Ella ______ de Alemania.",
+                "message": "EL deporte es",
+                "reply": "es",
+                "type": "checkbox",
+                "options": [
+                    "tiene",
+                    "es",
+                    "esta"
+                ],
+                "paddingLeft": "10%",
+                "popUpShown": false,
+                "value": 0
+            },
+            {
+                "time": 116,
+                "title": "Yo _______ de Minneapolis Minesota.",
+                "message": "Actividad 1",
+                "reply": "vengo",
+                "type": "checkbox",
+                "options": [
+                    "vengo",
+                    "viene",
+                    "venir"
+                ],
+                "paddingLeft": "10%",
+                "popUpShown": false,
+                "value": 0
+            },
+            {
+                "time": 152,
+                "title": "Susana López viene de México, de una ciudad pequeña que _________ Zamora.",
+                "message": "Actividad 1",
+                "reply": "se llama",
+                "type": "checkbox",
+                "options": [
+                    "es",
+                    "se llama",
+                    "esta"
+                ],
+                "paddingLeft": "10%",
+                "popUpShown": false,
+                "value": 0
+            },
+            {
+                "time": 193,
+                "title": "Me _______ las ciudades pequeñas.",
+                "message": "Actividad 1",
+                "reply": "gustan",
+                "type": "checkbox",
+                "options": [
+                    "gusta",
+                    "gustar",
+                    "gustan"
+                ],
+                "paddingLeft": "10%",
+                "popUpShown": false,
+                "value": 0
+            },
+            {
+                "time": 218,
+                "title": "Córdoba _____ una provincia preciosa.",
+                "message": "Actividad 1",
+                "reply": "es",
+                "type": "checkbox",
+                "options": [
+                    "está",
+                    "son",
+                    "es"
+                ],
+                "paddingLeft": "10%",
+                "popUpShown": false,
+                "value": 0
+            }
+        ]
+    },
+    "page10": {
+        "type": "video",
+        "section": [
+            "5",
+            "Actividades interactivas"
+        ],
+        "youtube": "https://youtu.be/bOAABReEdb8",
+        "id": "bOAABReEdb8",
+        "title": "Actividades interactivas",
+        "paragraph": "2.  Mira el siguiente video y contesta las preguntas planteadas:"
+    },
+    "page11": {
+        "type": "selectsimple",
+        "section": [
+            "5",
+            "Actividades interactivas"
+        ],
+        "sentences": [
+            {
+                "question": "Los estudiantes que hablan en el video son de:",
+                "option": "Colombia, Brasil y México.",
+                "options": [
+                    "Perú, Colombia y Brasil.",
+                    "Colombia, Brasil y México.",
+                    "Brasil, Venezuela y Estado unidos."
+                ]
+            },
+            {
+                "question": "A los estudiantes les gusta:",
+                "option": "La gente y la comida.",
+                "options": [
+                    "La gente y la comida.",
+                    "El clima y los ríos.",
+                    "Las plazas y la comida."
+                ]
+            },
+            {
+                "question": "Todos los estudiantes del video estudian la misma carrera universitaria.",
+                "option": "Falso.",
+                "options": [
+                    "Verdadero.",
+                    "Falso."
+                ]
+            }
+        ]
     }
 }

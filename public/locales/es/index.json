@@ -1,11 +1,11 @@
 {
   "card1Title": "Descubre el mundo del español",
   "card1Text": "Experimenta el idioma y la cultura en priemra persona",
-  "card1Button": "Ingresa a la app",
+  "card1Button": "Regístrate ahora",
   "card2": [
     {
       "title": "Conecta con tus intereses",
-      "paragraph": "Integra el español en tu rutina diaria, en tus tiempos pasatiempos y aficiones"
+      "paragraph": "Integra el español en tu rutina diaria, en tus pasatiempos y aficiones"
     },
     {
       "title": "Aprende haciedno",
@@ -21,16 +21,16 @@
     }
   ],
   "card3Title": "Conoce Español con E",
-  "card3Text": "Aprender español no se trata solo de lecciones y gramática. Sumérgete en la cultura de los países hispanohablantes. Así, lograrás hablar con fluidez disfrutas de experiecnias únicas.",
+  "card3Text": "Aprender español no se trata solo de lecciones y gramática. Sumérgete en la cultura de los países hispanohablantes. Así, lograrás hablar con fluidez mientras disfrutas de experiencias únicas.",
   "card3Button": "Descubre más",
   "card4": [
     {
       "title": "Lo que ofrecemos",
-      "text": "Descbre los servicios que diseñamos especualmente para tu aprendizaje"
+      "text": "Descubre los servicios que diseñamos especialmente para tu aprendizaje"
     },
     {
       "title": "NUESTROS PROGRAMAS",
-      "text": "Explora nuestros programas y amplia tu perspectiva",
+      "text": "Explora nuestros programas y amplía tu perspectiva",
       "paragraph": "Alcanza la fluidez en español con cursos adaptados a tu nivel y metas. Disfruta lecciones interactivas con profesores apasionados por la cultura y el idioma.",
       "pargraph2": "Nuestros programas ofrecen:",
       "list": [
@@ -42,11 +42,11 @@
     },
     {
       "title": "CONOCE CÓRDOBA",
-      "text": "Descubre la belleza de Córdoba con nuestros paquetes de viajes",
+      "text": "Descubre la belleza de Córdoba con nuestras actividades presenciales",
       "paragraph": "Descubre la cultura cordobesa mientras perfeccionas tu español. Experimenta una fusión de aprendizaje y turismo en esta hermosa provincia de Argentina.",
       "paragraph2": "Tendrás la oportunidad de:",
       "list": [
-        "Descubrir lugares emblemáticos a través de la inmersión en la cultura local.",
+        "Descubrir lugares emblemáticos a través de la inmersión cultural.",
         "Contratar guías turísticos certificados.",
         "Disfrutar de eventos y actividades exclusivas propias de Español con E.",
         "Practicar el español con hablantes nativos y conocer nuevas personas."
@@ -82,8 +82,8 @@
   ],
   "card6": [
     {
-      "title": "Don't take our word for it",
-      "sentence": "Read what our students have to say about their experience with us."
+      "title": "No solo creas en nuestras palabras",
+      "sentence": "Lee lo que nuestros estudiantes tienen para decir acerca de su experiencia con nosotros."
     },
     {
       "name": "Lisa J.",
