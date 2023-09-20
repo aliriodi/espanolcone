@@ -32,8 +32,8 @@ const TestimonialsSlider = () => {
         </div>
 
         <p className='mb-12 text-center z-10'>
-           {t("card6.0.sentence")}
-         </p>
+          {t("card6.0.sentence")}
+        </p>
 
         <div className="overflow-hidden relative z-10" style={{ marginBottom: "-6px" }}>
           <Slider {...settings}>
