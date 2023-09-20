@@ -12,14 +12,17 @@ ReactGA,initialize(TRAKING_ID);
 function App({ Component, pageProps }) {
 
   return (
-    <SessionProvider session={pageProps.session}>
-      <Provider store={store}>
-        <Head>
-          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        </Head>
-        <Component {...pageProps} />
-      </Provider>
-    </SessionProvider>)
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      </Head>
+      <SessionProvider session={pageProps.session}>
+        <Provider store={store}>
+          <Component {...pageProps} />
+        </Provider>
+      </SessionProvider>
+    </>
+    )
 }
 
 export default appWithTranslation(App, nextI18NextConfig)
