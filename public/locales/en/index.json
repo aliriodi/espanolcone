@@ -1,33 +1,33 @@
 {
-       "card1Title": "ENDescubre el mindo del español",
-       "card1Text": "ENEXperimenta el idioma y la cultura en priemra persona",
-       "card1Button": "ENIngresa a la app",
+       "card1Title": "Discover the Spanish World",
+       "card1Text": "Immerse Yourself in the Language and Culture Firsthand",
+       "card1Button": "Sign Up Now",
        "card2": [
               {
-                     "title": "ENConecta con tus intereses",
-                     "paragraph": "ENIntegra el español en tu rutina diaria, en tus tiempos pasatiempos y aficiones"
+                     "title": "Connect with Your Interests",
+                     "paragraph": "Integrate Spanish into your daily routine, hobbies, and interests"
                      
               },
               {
-                     "title": "ENAprende haciedno",
-                     "paragraph": "ENAumenta tu fluidez con proyectos, actividades y conversaciones con nativos"
+                     "title": "Learn by Doing",
+                     "paragraph": "Boost your fluency through projects, activities, and conversations with native speakers"
               },
               {
-                     "title": "ENViaja y descubre la cultura",
-                     "paragraph": "ENConoce paises hispanohablantes junto a profesores y guías turísticos"
+                     "title": "Travel and Explore Culture",
+                     "paragraph": "Explore Spanish-speaking countries with our teachers and tour guides"
               },
               {
-                     "title": "ENÚnete a nuestra comunidad",
-                     "paragraph": "ENConversa sobre tus temas favoritos con profesores y estudiantes"
+                     "title": "Join Our Community",
+                     "paragraph": "Engage in conversations about your favorite topics with teachers and fellow students"
               }
        ],
-       "card3Title": "ENConoce Español con E",
-       "card3Text": "ENAprender español no se trata solo de lecciones y gramática. Sumérgete en la cultura de los países hispanohablantes. Así, lograrás hablar con fluidez disfrutas de experiecnias únicas.",
-       "card3Button": "ENDescubre más",
+       "card3Title": "Get to Know Español con E",
+       "card3Text": "Learning Spanish isn't just about lessons and grammar. Immerse yourself in the culture of Spanish-speaking countries. This way, you'll get fluency while enjoying unique experiences.",
+       "card3Button": "Learn More",
        "card4": [
               {
-                     "title": "ENLo que ofrecemos",
-                     "text": "Descbre los servicios que diseñamos especualmente para tu aprendizaje"
+                     "title": "What We Offer",
+                     "text": "Discover the services we've designed especially for you"
               },
               {
                      "title": "ENNUESTROS PROGRAMAS",
