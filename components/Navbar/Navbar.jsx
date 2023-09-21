@@ -8,10 +8,11 @@ import styles from '../../styles/navbar.module.css';
 import { useRef } from 'react';
 
 function Navbar(props) {
+  
   const [lightNavBar, setLightNavBar] = useState(false);
   const { light } = props;
   const [showMenuLanguage, setShowMenuLanguage] = useState(false)
-  const { locale, locales, push } = useRouter()
+  let { locale, locales, push } = useRouter()
   function handleClickLan(l) {
     push('/', undefined, { locale: l });
   }

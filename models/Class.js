@@ -10,7 +10,7 @@ const ClassSchema = new Schema(
       type: String,
     },
     sheets: {
-      type: Array,
+      type: [Object],
     }
   },
   {

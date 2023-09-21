@@ -5,27 +5,27 @@
     "img2": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366540/images/vector-4_fjapgs.png",
     "title1": "Enjoy learning Spanish",
     "paragraph1": "Learning a language is more than memorizing grammar rules. It's about discovering different cultures, connecting with other people and living new experiences.",
-    "paragraph2": "That's what learning a new language is all about. It is an adventure in which you completely immerse yourself in the Spanish-speaking world."
+    "paragraph2": "That's what learning Spanish is all about. It's an adventure where you dive headfirst into the Spanish-speaking world!"
   },
   "card2": {
     "img1": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366404/images/banner-3_x1yvhd.png",
     "img2": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366552/images/vector-5_sl49iy.png",
     "colorimg2": "#F7F8FD",
-    "title1": "Learn Spanish with us",
-    "paragraph1": "Spanish with E is a project designed to help you achieve your goals in an entertaining and effective way. In addition to learning the language, you will get to know the culture of Spanish-speaking countries in person.",
-    "paragraph2": "Programs are adapted and personalized according to your needs and desires, ensuring that learning is rewarding and engaging."
+    "title1": "Learn Spanish with Us",
+    "paragraph1": "With Español con E, learning Spanish becomes a unique adventure. We offer personalized programs that combine language learning with cultural immersion and exploration of new destinations. We collaborate closely with passionate and professional tour guides to provide you with an authentic and unforgettable experience.",
+    "paragraph2": "From language classes to exciting cultural adventures, we enrich your journey and bring you closer to the wonders of Spanish-speaking countries. Discover how learning Spanish can be an unforgettable experience with us!"
   },
   "card3": [
     {
       "title": [
-        "Goal",
+        "Objective",
         "Mission",
-        "Commitment"
+        "Vision Banner"
       ],
       "paragraph": [
-        "Guarantee learning Spanish in an attractive way for all people.",
-        "Push students to new levels of language ability and cultural understanding.",
-        "Spread the language and culture of Spanish-speaking countries around the world."
+        "Ensuring enjoyable learning of Spanish for everyone.",
+        " Propelling students towards new levels of language proficiency and cultural understanding.",
+        "Spreading the language and culture of Spanish-speaking countries worldwide."
       ]
     }
   ],
@@ -33,18 +33,18 @@
     "img1": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366389/images/banner-discord_gx3eqy.png",
     "img2": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366559/images/vector-6_vio3qn.png",
     "img3": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366401/images/ellipse-70_s1vmal.png",
-    "title1": "Be part of the community",
-    "paragraph1": "Be part of our community of 'travelers' on our Discord server and learn Spanish in company.",
-    "paragraph2": "You will never be alone on this exciting journey of learning a new language and exploring distant cultures. You will provide support, whether in the form of a guide, companion or map.",
+    "title1": "Become Part of Our Community",
+    "paragraph1": "Join our 'viajeros' community on our Discord server and learn Spanish in good company. You'll never be alone on this exciting journey of learning a new language and exploring distant cultures.",
+    "paragraph2": "You'll have support, whether it's in the form of a guide, a companion, or a map.",
     "title2": "What will you find there?",
     "sentece": [
       "Idiomatic expressions",
       "Phrases and sayings",
-      "Quotes in Spanish",
-      "Activities for each level",
+      "Spanish quotes",
+      "Activities for every level",
       "Monthly group conversation classes"
     ],
-    "paragraph3": "As a Spanish with E student, you will have full access.",
+    "paragraph3": "As a student of Español con E, you'll have full access.",
     "button": "Join the community!"
   },
   "cards5": [
