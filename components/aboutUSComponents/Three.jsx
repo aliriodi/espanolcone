@@ -8,7 +8,7 @@ import { useTranslation } from 'next-i18next';
   const { t } = useTranslation('aboutus')
   return (
     <>
-      <section className='bg-white relative pb-[203px]'>
+      <section className='bg-white relative pb-[203px] overflow-hidden'>
 
         {/* Titulos */}
         <div className="flex justify-evenly  bg-primary_light py-[29px]">
@@ -92,6 +92,9 @@ import { useTranslation } from 'next-i18next';
               className=' w-[161px] h-[271px]'
             />
           </div>
+
+          {/* Ellipse */}
+          <span className='absolute w-[50px] h-[50px] bg-warning rounded-full bottom-[50%] right-[-25px]'></span>
         </div>
 
 

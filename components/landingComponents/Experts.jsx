@@ -5,6 +5,12 @@ import { useTranslation } from 'next-i18next';
 import { experts } from '../../public/imgs/images.js';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { SwiperSlide, Swiper} from 'swiper/react';
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+
+import 'swiper/swiper-bundle.css';
+
+import 'swiper/css';
 
 export default function Experts() {
   const { t } = useTranslation('index');
@@ -24,27 +30,47 @@ export default function Experts() {
   };
 
   return (
-    <div>
+    <section className='px-[170px] py-[150px]'>
+
       {/* Titulo */}
       <h2 className='underlined-subtitle'>
         {t("card5.0.title1")}
         </h2>
 
-      <div className='mt-5'>
-        <Slider {...settings}>
-          {experts2.map((image, index) => (
-            <div key={index} className='px-2'>
-              <div className='my-10 mx-20'>
-                <Image alt={image.name} src={image.image} width={300} height={200} />
-                <div className='flex items-center justify-center flex-col'>
-                  <p className='text-xl font-semibold'>{image.namePerson}</p>
-                  <p>{image.job}</p>
-                </div>
-              </div>
+      {/* Carrucel */}
+      <div className='mt-[100px] w-[100%] relative'>
+        <Swiper 
+        slidesPerView={4}
+        loop={true}
+        autoplay={{
+          delay: 1500,
+          disableOnInteraction: false,
+        }}
+        modules={[Autoplay, Pagination, Navigation]}
+        >
+          
+          {experts.map((image, index) => (
+          <SwiperSlide key={index}>
+            <div key={index} className='relative flex flex-col items-center'>
+                {/* Imagen */}
+                <Image alt={image.name} src={image.image} width={162} height={162} />
+
+                {/* Nombre */}
+                <p className='text-center font-semibold mt-[15px] mb-[5px]'>{image.namePerson}</p>
+
+                {/* Trabajo */}
+                <p className='text-center'>{image.job}</p>
             </div>
+          </SwiperSlide>
+
           ))}
-        </Slider>
+        </Swiper>
       </div>
-    </div>
+
+      {/* Ellipse Violeta */}
+      <span
+      className='rounded-full h-[143px] w-[143px] z-20 absolute left-[-73px] border-success'
+      style={{border: '27px solid #8438ff'}}></span>
+    </section>
   );
 }

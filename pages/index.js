@@ -29,56 +29,78 @@ export default function Home() {
         <title>Español con E | Bienvenidos</title>
         <meta name="landing" content="welcome" />
       </Head>
-      <Layout>
-        <div className={pelota["pelota"]}>
-          <div className={pelota["navbar"]}>
-            {/* <div className='rounded-full w-[2600px] h-[2600px] mt-[-1800px] ml-[-650px] absolute bg-primary' /> */}
-            <NAVBAR className={pelota["navbar"]} />
-            {/* //todo alienar esto bien */}
+      <Layout className='bg-white'>
+        <NAVBAR className="bg-[transparent]"/>
 
-            <div className="flex items-center justify-center relative " style={{ zIndex: -0 }}>
+        {/* Encabezado */}
+        <header className="flex items-center justify-center relative overflow-hidden min-h-screen px-[170px]" style={{ zIndex: -0 }}>
+          
+          {/* Contenido */}
+          <div className="w-1/2 flex flex-col z-10 items-start mr-[20px]" >
 
-              <div className="w-1/2 flex flex-col " >
-
-                <div className='mx-[10em] flex items-start  flex-col'>
-                  <div className='my-10  text-6xl text-white font-bold' style={{ fontSize: '56px', textShadow: '0px 1px 2px #00000040' }}>
-                    {t("index:card1Title")}
-                  </div>
-                  <div className='my-10  text-3xl text-white font-semibold' style={{ textShadow: '0px 1px 2px #00000040' }}>
-                    {t("index:card1Text")}
-                  </div>
-
-                  {/* Iniciar secion */}
-                  <button
-                    type="button"
-                    className="text-primary bg-white font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2 active:bg-primary active:text-white focus:outline-none"
-                    style={{ fontSize: '20px', padding: '18px 28px', boxShadow: '0px 2px 8px 0px #00000040' }}         
-                    onClick={()=>push('/login')} >
-                    {t("index:card1Button")}
-                  </button>
-
-
-                </div>
-
+              {/* Titulo */}
+              <div className='mb-[20px]  text-6xl text-white font-bold' style={{ fontSize: '56px', textShadow: '0px 1px 2px #00000040', lineHeight:'68.26px'}}>
+                {t("index:card1Title")}
               </div>
 
-              <div className="w-1/2">
-                <div className='h-[600px] flex justify-center items-end'>
-                  {/* <div className='mt-[50px] mr-40 bg-slate-500 flex items-center justify-center rounded-full w-[500px] h-[500px]'> */}
-                  {/* <h1 className='text-white '>poner imagen 1 aqui</h1> */}
-                  {/* "cascade":"", */}
-                  <Image
-                    src="https://res.cloudinary.com/dfddh08q8/image/upload/v1694366393/images/banner-principal_pqirib.png"
-                    alt="Teléfono"
-                    width={600}
-                    height={300}
-                    className='mr-[200px]'
-                  />
-                </div>
+              {/* Texto */}
+              <div className='my-[20px] text-3xl text-white font-semibold' style={{fontSize:'36px', textShadow: '0px 1px 2px #00000040', lineHeight:'43.88px'}}>
+                {t("index:card1Text")}
               </div>
+
+              {/* Iniciar secion */}
+              <button
+                type="button"
+                className="text-primary bg-white font-medium rounded-md text-sm px-5 py-2.5 mr-2 mt-[20px]  active:bg-primary active:text-white focus:outline-none"
+                style={{ fontSize: '20px', padding: '18px 28px', boxShadow: '0px 2px 8px 0px #00000040' }}         
+                onClick={()=>push('/login')} >
+                {t("index:card1Button")}
+              </button>
+
+          </div>
+
+          {/* Imagen */}
+          <div className="w-1/2 z-10 ml-[20px]">
+            <div className=' justify-center items-end relative'>
+              {/* <div className='mt-[50px] mr-40 bg-slate-500 flex items-center justify-center rounded-full w-[500px] h-[500px]'> */}
+              {/* <h1 className='text-white '>poner imagen 1 aqui</h1> */}
+              {/* "cascade":"", */}
+              <Image
+                src="https://res.cloudinary.com/dfddh08q8/image/upload/v1694366393/images/banner-principal_pqirib.png"
+                alt="Teléfono"
+                width={600}
+                height={300}
+                style={{filter:'drop-shadow(0px 4px 43px #00000026)'}}
+                className='relative z-20'
+              />
+
+              {/* Nube */}
+              <Image
+                src="https://res.cloudinary.com/dfddh08q8/image/upload/v1695133390/images/imagen_2023-09-19_112311344_m8ivae.png"
+                width={121.85}
+                height={44.67} 
+                className='absolute top-[23px] z-20'
+              />
+
+              {/* Nube Tracera */}
+              <Image
+                src="https://res.cloudinary.com/dfddh08q8/image/upload/v1695133390/images/imagen_2023-09-19_112311344_m8ivae.png"
+                width={169}
+                height={62} 
+                className='absolute top-0 z-10 left-[196px]'
+                style={{transform:'scaleX(-1)'}}
+              />
+
+              {/* Sol */}
+              {/* <span className='absolute h-[38px] w-[38px] rounded-full bg-[#F3BE34] top-[79px] left-[85%] z-20'/> */}
             </div>
           </div>
-        </div>
+
+          {/* Pelota */}
+          <span className='absolute w-full h-full z- bg-[#4BCFEA] right-[10%]'  
+          style={{borderRadius:'0 0 50% 50% /0 0 100% 100% ', transform: "scaleX(-1.2)"}}/>
+        </header>
+
         <Four />
         <Conoce />
         <Ofrece />
@@ -88,7 +110,7 @@ export default function Home() {
         <Testimonials />
       </Layout>
 
-      <Footer />
+      <Footer className='bg-[#F6F7FF]' />
     </>
   )
 }

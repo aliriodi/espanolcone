@@ -1,7 +1,9 @@
 
 .navbar {
-  z-index: index 10;
+  z-index: 90;
   display: flex;
+  /* position: fixed; */
+  width: 100%;
   align-items: center; /* Centra verticalmente los elementos en la barra de navegación */
   justify-content: space-between;
   font-weight: 500;
@@ -27,6 +29,17 @@
   cursor: pointer;
 }
 
+/* Menu */
+.navbar-menu{
+  display: flex;
+  background-color: var(--primary);
+}
+
+.navbar-menu_btn{
+  display: none;
+  width: 24px;
+  color: var(--white);
+}
 
 /* Select Idiomas */
 .select-languages{
@@ -34,6 +47,11 @@
   align-items: center;
   cursor: pointer;
   z-index: 10;
+}
+.select-languages_button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .select-languages_img{
@@ -108,9 +126,17 @@
   color: #262626;
 }
 
+.navbar.light .navbar-menu{
+  background-color: var(--white);
+}
+
+.navbar.light .navbar-menu_btn{
+  color: var(--primary);
+}
+
 /* Boton de Registro con Gradiente */
 .navbar.light  .btn-signUp{
-  margin-left: 2em;
+  /* margin-left: 2em; */
   background: linear-gradient(white, white) padding-box, linear-gradient(93.64deg, var(--primary) 5.46%, var(--secondary_hover) 94.15%) border-box;
   border-radius: 6px;
   border: 3px solid transparent;
@@ -120,4 +146,79 @@
 .navbar.light .btn-signUp:hover{
   background: linear-gradient(#0000, #0000) padding-box, linear-gradient(93.64deg, var(--primary) 5.46%, var(--secondary_hover) 94.15%)border-box;
   color: var(--white);
+}
+
+/*/// Nav Bar al hacer Scroll ///*/
+.navbar.scroll{
+  top: -100%;
+  position: fixed;
+  opacity: 0;
+  transition: 0.5s;
+}
+.navbar.scroll.active{
+  opacity: 1;
+  top: 0;
+}
+
+/* /// Responsive /// */
+@media (max-width: 1050px) {
+  .navbar{
+    padding: 8px 22px;
+  }
+
+  .navbar-logo{
+    width: 50%;
+  }
+
+  /* Menu desplegable */
+  .navbar-menu{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    min-height: 50vh;
+    /* margin: ; */
+    top: 50px;
+    left: 100%;
+    width: 100%;
+    z-index: 50;
+    box-shadow: 0px 4px 6px 0px #0000001A;
+    transition: .3s;
+    z-index: 80;
+  } 
+
+  .navbar-menu.active{
+    left: 0;
+  }
+
+  .navbar-btns{
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .navbar-btns li{
+    padding: 20px 50px;
+  }
+
+  .navbar-menu_btn{
+    display: flex;
+  }
+
+  /* Selector de Idiomas */
+  .select-languages{
+    flex-direction: column;
+    display: none;
+  }
+
+  .select-languages_menu{
+    opacity: 1;
+    position: relative;
+  }  
+
+  /* Boton de Registro */
+  .btn-signUp{
+    margin: 0;
+    margin-bottom: 41px;
+  }
 }

@@ -36,6 +36,20 @@ body{
   min-height: 100vh;
 }
 
+/* Scroll Bar */
+::-webkit-scrollbar-track {
+  background-color: var(--primary-border_hover_bg); 
+}
+
+::-webkit-scrollbar {
+  width: 12px; 
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary); 
+  border-radius: 5px; 
+}
+
 #__next{
   /* puede generar problemas a futuro usar flex aca */
   min-height: 100vh;

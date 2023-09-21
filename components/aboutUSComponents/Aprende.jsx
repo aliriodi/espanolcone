@@ -39,7 +39,18 @@ export default function Aprende() {
           <div className="flex items-center justify-center z-10">
 
             {/* Imagen */}
-            <div className="w-1/2 flex items-center justify-center mr-[25px]">
+            <div className="w-1/2 flex items-center justify-center mr-[25px] relative">
+              
+              {/* Ellipse 1 */}
+              <span className='rounded-full h-[30px] w-[30px] bg-success z-20 absolute top-[50px] left-[50px]'></span>
+
+              {/* Ellipse 2 */}
+              <span className='rounded-full h-[41px] w-[41px] bg-secondary z-20 absolute top-[50%] right-0'></span>
+
+              {/* Ellipse 3 */}
+              <span className='rounded-full h-[17px] w-[17px] bg-warning z-20 absolute bottom-[50px]'></span>
+
+              {/* Imagen */}
               <Image
                 src="https://res.cloudinary.com/dfddh08q8/image/upload/v1694366404/images/banner-3_x1yvhd.png"
                 alt="Teléfono"
@@ -74,6 +85,11 @@ export default function Aprende() {
           width={600}
           height={600}
           />
+          
+          {/* Ellipse Con Borde */}
+          <span
+          className='rounded-full h-[149px] w-[149px] z-20 absolute left-[-75px] bottom-[50%] border-warning'
+          style={{border: '27px solid #ff7438'}}></span>
 
         </section>
     </>
