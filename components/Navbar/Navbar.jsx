@@ -189,7 +189,7 @@ function Navbar(props) {
           className={`${styles["navbar-btns"]}`}
           style={{ minWidth: '610px' }}>
 
-            <li className={styles["select-languages"]} onClick={handleOnChangeLanguage} ref={menuLanguage}>
+            <li className={styles["select-languages"]} onClick={handleOnChangeLanguage} ref={!scrollNavBar ? menuLanguage : null}>
 
               <div className={styles["select-languages_button"]}>
                 {/* Icono */}
@@ -253,7 +253,8 @@ function Navbar(props) {
         <button
         className={`${styles["navbar-menu_btn"]}`}
         onClick={handleOnChangeResponsive}
-        ref={menuResponsive}>
+        ref={!scrollNavBar ? menuResponsive : null}
+        >
           <FontAwesomeIcon icon={faBars} />
         </button>
 
@@ -279,7 +280,7 @@ function Navbar(props) {
         className={`${styles["navbar-btns"]}`}
         style={{ minWidth: '610px' }}>
 
-          <li className={styles["select-languages"]} onClick={handleOnChangeLanguage} ref={menuLanguage}>
+          <li className={styles["select-languages"]} onClick={handleOnChangeLanguage} ref={scrollNavBar ? menuLanguage : null}>
 
             <div className={styles["select-languages_button"]}>
               {/* Icono */}
@@ -343,7 +344,7 @@ function Navbar(props) {
       <button
       className={`${styles["navbar-menu_btn"]}`}
       onClick={handleOnChangeResponsive}
-      ref={menuResponsive}>
+      ref={scrollNavBar ? menuResponsive : null}>
         <FontAwesomeIcon icon={faBars} />
       </button>
 

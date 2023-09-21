@@ -38,6 +38,7 @@
 .navbar-menu_btn{
   display: none;
   width: 24px;
+  z-index: 100;
   color: var(--white);
 }
 
@@ -208,13 +209,21 @@
   /* Selector de Idiomas */
   .select-languages{
     flex-direction: column;
+    height: auto;
+    transition: 5s;
+    
+    /* Temporalmente */
     display: none;
   }
 
   .select-languages_menu{
     opacity: 1;
-    position: relative;
+    height: 0;
+    position: static;
   }  
+  .select-languages_menu.active{
+    height: auto;
+  }
 
   /* Boton de Registro */
   .btn-signUp{

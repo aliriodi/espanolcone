@@ -29,7 +29,7 @@ export default function Home() {
         <title>Español con E | Bienvenidos</title>
         <meta name="landing" content="welcome" />
       </Head>
-      <Layout className='bg-white'>
+      <Layout className='bg-white relative overflow-x-hidden'>
         <NAVBAR className="bg-[transparent]"/>
 
         {/* Encabezado */}
