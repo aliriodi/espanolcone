@@ -10,10 +10,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 function Navbar(props) {
+
   // Nav Bar Scoll
   const [scrollNavBar, setScrollNavBar] = useState(false);
 
   // Modo Oscuro/Claro
+
   const [lightNavBar, setLightNavBar] = useState(false);
   const { light } = props;
   
@@ -23,6 +25,7 @@ function Navbar(props) {
 
   //Traduccion
   const { locale, locales, push } = useRouter()
+
   function handleClickLan(l) {
     push('/', undefined, { locale: l });
   }
