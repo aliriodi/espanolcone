@@ -10,6 +10,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 function Navbar(props) {
+  // Nav Bar Scoll
+  const [scrollNavBar, setScrollNavBar] = useState(false);
+
   // Modo Oscuro/Claro
   const [lightNavBar, setLightNavBar] = useState(false);
   const { light } = props;
@@ -153,8 +156,111 @@ function Navbar(props) {
     };
   }, []);
   //#endregion
+
+  //#region Cambio de Nav Bar al hacer Scroll
+  useEffect(()=>{
+    function changeNavBarToScroll(){
+      if(window.scrollY >= 80)setScrollNavBar(true)
+      else setScrollNavBar(false)
+    }
+    window.addEventListener('scroll', changeNavBarToScroll)
+  }, [])
+  //#endregion
+  
   return (
-    <nav className={`${styles["navbar"]} ${lightNavBar && styles["light"]} `}>
+    <>
+      {/* Nav Bar */}
+      <nav className={`${styles["navbar"]} ${lightNavBar && styles["light"]}`}>
+
+        {/* Logo */}
+        <Link href='/'>
+          <Image
+            className={styles["navbar-logo"]}
+            width={'100'}
+            height={'100'}
+            src={lightNavBar ? "https://res.cloudinary.com/dfddh08q8/image/upload/v1694520319/images/logo-gradient_ssl8cl.png" : t("logo")} alt="Español con E" />
+        </Link>
+
+        {/* Menu */}
+        <div className={`${styles["navbar-menu"]} ${showMenuResponsive && styles['active']}`}>
+
+          {/* Botones Baner */}
+          <ul
+          className={`${styles["navbar-btns"]}`}
+          style={{ minWidth: '610px' }}>
+
+            <li className={styles["select-languages"]} onClick={handleOnChangeLanguage} ref={menuLanguage}>
+
+              <div className={styles["select-languages_button"]}>
+                {/* Icono */}
+                <img
+                  src={language?.image}
+                  alt={language?.label}
+                  className={styles["select-languages_img"]} />
+
+                {/* Label */}
+                <label
+                  className={styles["select-languages_label"]}>
+                  {language?.label}
+                </label>
+              </div>
+
+              {/* Menu Desplegable */}
+              <ul className={`${styles['select-languages_menu']} ${showMenuLanguage && styles['active']}`}>
+                {
+                  languages2.length > 0 &&
+                  languages2.map((language2) => (
+                    <li
+                      onClick={() => handleOnChange(language2)}
+                      value={language2}
+                      className={styles["select-languages_languages"]}
+                      key={language2.value}>
+                      {/* Icono */}
+                      <img
+                        src={language2.image}
+                        alt={language2.label}
+                        className={styles["select-languages_img"]} />
+
+                      {/* Label */}
+                      <label style={{ marginLeft: "8px" }}>
+                        {language2.label}
+                      </label>
+                    </li>
+                  )
+                  )
+                }
+              </ul>
+
+            </li>
+            <li>
+              <Link href={"/"}>{t('BEGIN')}</Link>
+            </li>
+            <li>
+              <Link href={"/aboutus"}>{t('ABOUTUS')}</Link>
+            </li>
+            <li>
+              <Link href={"#TEAM"}>{t('TEAM')}</Link>
+            </li>
+          </ul>
+
+          {/* Iniciar Secion */}
+          <Link className={styles['btn-signUp']} href='/login'>{t('SIGNIN')}</Link>
+
+
+        </div>
+
+        {/* Boton de Menu */}
+        <button
+        className={`${styles["navbar-menu_btn"]}`}
+        onClick={handleOnChangeResponsive}
+        ref={menuResponsive}>
+          <FontAwesomeIcon icon={faBars} />
+        </button>
+
+      </nav>
+
+      {/* Nav Bar Scroll */}
+      <nav className={`${styles["navbar"]} ${styles["scroll"]} ${!lightNavBar && styles["light"]} ${scrollNavBar && styles["active"]}`}>
 
       {/* Logo */}
       <Link href='/'>
@@ -162,7 +268,7 @@ function Navbar(props) {
           className={styles["navbar-logo"]}
           width={'100'}
           height={'100'}
-          src={lightNavBar ? "https://res.cloudinary.com/dfddh08q8/image/upload/v1694520319/images/logo-gradient_ssl8cl.png" : t("logo")} alt="Español con E" />
+          src={!lightNavBar ? "https://res.cloudinary.com/dfddh08q8/image/upload/v1694520319/images/logo-gradient_ssl8cl.png" : t("logo")} alt="Español con E" />
       </Link>
 
       {/* Menu */}
@@ -241,7 +347,8 @@ function Navbar(props) {
         <FontAwesomeIcon icon={faBars} />
       </button>
 
-    </nav>
+      </nav>
+    </>
   )
 }
 export default withTranslation(['navbar', 'aboutus'])(Navbar);
