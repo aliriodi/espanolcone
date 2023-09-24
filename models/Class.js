@@ -8,6 +8,7 @@ const ClassSchema = new Schema(
     // },
    name: {
       type: String,
+      unique: true,
     },
     sheets: {
       type: [Object],
