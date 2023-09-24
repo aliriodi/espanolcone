@@ -31,6 +31,9 @@ export default function Home() {
   // binance Hans -> 165410471
   // binance Alirio -> 120083470
   // binance Eucaris -> 105904746 
+  // binance Marie -> 784824318 Pay ID -> 784858334 
+  
+  // webrtc nextjs para video streamin no limitativo a usuarios
 
   // import {useSession} from 'next-auth/react'
   
