@@ -294,5 +294,146 @@
                 ]
             }
         ]
+    },
+    "page12": {
+        "type": "complete",
+        "section": [
+            "5",
+            "Actividades interactivas"
+        ],
+        "title": "Completa la historia de la familia Garcia con los verbos en paréntesis.",
+        "color": "white",
+        "title2": "¡Hola!",
+        "image": "https://res.cloudinary.com/dfddh08q8/image/upload/v1695571885/images/3_fjrubz.png",
+        "paragraph": [
+            [
+                "Me llamo Lucas y en la foto",
+                {
+                    "block": 10,
+                    "color": "orange"
+                },
+                "(salir) con mi esposa Romina y nuestras mascotas, Canela y Pancho. Nosotros",
+                {
+                    "block": 10,
+                    "color": "orange"
+                },
+                "(ser) cordobeses, y amamos los perros. Vivimos en las sierras de Córdoba porque",
+                {
+                    "block": 12,
+                    "color": "orange"
+                },
+                "(preferir) el interior de la provincia."
+            ],
+            [
+                "Todos los fines de semana, después de bañarme,",
+                {
+                    "block": 11,
+                    "color": "orange"
+                },
+                "(salir) a dar un paseo con mis perros. Mi esposa les",
+                {
+                    "block": 10,
+                    "color": "orange"
+                },
+                "(poner) la correa mientras yo",
+                {
+                    "block": 9,
+                    "color": "orange"
+                },
+                "(traer) sus galletitas y termos con agua. Cuando regresamos de pasear, yo me",
+                {
+                    "block": 10,
+                    "color": "orange"
+                },
+                "(poner) ropa limpia y",
+                {
+                    "block": 10,
+                    "color": "orange"
+                },
+                " (hacer) el desayuno. Antes de tomar una siesta, yo",
+                {
+                    "block": 14,
+                    "color": "orange"
+                },
+                " (disponer) un espacio para los perros en nuestro cuarto. Porque sino ellos",
+                {
+                    "block": 11,
+                    "color": "orange"
+                },
+                " (destruir) toda la casa mientras Romi y yo dormimos."
+            ]
+        ]
+    },
+    "page13": {
+        "type": [
+            "complete",
+            "selectsimple"
+        ],
+        "section": [
+            "5",
+            "Actividades interactivas"
+        ],
+        "title": "Completa la historia de la familia Garcia con los verbos en paréntesis.",
+        "color": "white",
+        "image": "https://res.cloudinary.com/dfddh08q8/image/upload/v1695571885/images/3_fjrubz.png",
+        "paragraph": [
+            [
+                "Yo",
+                {
+                    "block": 11,
+                    "color": "orange"
+                },
+                " (reconocer) que nuestros perros son muy importantes para nosotros y que tener un animal es una responsabilidad muy seria, por eso nosotros siempre les",
+                {
+                    "block": 11,
+                    "color": "orange"
+                },
+                " (ofrecer) todo lo mejor, porque nada",
+                {
+                    "block": 11,
+                    "color": "orange"
+                },
+                " (sustituir) el amor que ellos nos dan."
+            ],
+            [
+                {
+                    "block": 0,
+                    "color": "orange"
+                },
+                "Y tú, ¿tienes mascotas?, ¿cómo son?, ¿qué haces con ellas?",
+                {
+                    "block": 0,
+                    "color": "orange"
+                }
+            ],
+            [
+                "Después de leer, responde las siguientes preguntas sobre la familia García:"
+            ],
+            [
+                {
+                    "type": "selectsimple",
+                    "sentences": [
+                        {
+                            "question": "¿Con quién vive Lucas?",
+                            "option": "con su esposa.",
+                            "options": [
+                                "con su madre.",
+                                "con su esposa.",
+                                "con sus hijos."
+                            ]
+                        },
+                        {
+                            "question": "¿Cómo se llaman sus perros?",
+                            "option": "Canela y Pancho.",
+                            "options": [
+                                "Canela y Pancho.",
+                                "Lalo y Honey.",
+                                "Uma y Pancho."
+                            ]
+                        }
+                    ]
+                }
+            ]
+        ]
     }
 }
