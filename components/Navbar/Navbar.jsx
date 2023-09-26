@@ -264,7 +264,7 @@ function Navbar(props) {
       </nav>
 
       {/* Nav Bar Scroll */}
-      <nav className={`${styles["navbar"]} ${styles["scroll"]} ${!lightNavBar && styles["light"]} ${scrollNavBar && styles["active"]}`}>
+      <nav className={`${styles["navbar"]} ${styles["scroll"]} ${scrollNavBar && styles["active"]}`}>
 
       {/* Logo */}
       <Link href='/'>
@@ -272,7 +272,7 @@ function Navbar(props) {
           className={styles["navbar-logo"]}
           width={'100'}
           height={'100'}
-          src={!lightNavBar ? "https://res.cloudinary.com/dfddh08q8/image/upload/v1694520319/images/logo-gradient_ssl8cl.png" : t("logo")} alt="Español con E" />
+          src={lightNavBar ? "https://res.cloudinary.com/dfddh08q8/image/upload/v1694520319/images/logo-gradient_ssl8cl.png" : t("logo")} alt="Español con E" />
       </Link>
 
       {/* Menu */}

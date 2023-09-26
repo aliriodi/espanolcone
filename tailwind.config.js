@@ -46,6 +46,11 @@ module.exports = {
 
         violet_dark:'#6E6B7B',
       },
+      
+    },
+    screens: {
+      'lg': {'max':'1024px'},
+      'md': {'max': '767px'},
     },
   },
   plugins: [],

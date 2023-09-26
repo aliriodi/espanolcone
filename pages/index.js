@@ -33,18 +33,25 @@ export default function Home() {
         <NAVBAR className="bg-[transparent]"/>
 
         {/* Encabezado */}
-        <header className="flex items-center justify-center relative overflow-hidden min-h-screen px-[170px]" style={{ zIndex: -0 }}>
+        <header className="flex items-center justify-center relative overflow-hidden min-h-screen px-[170px]
+        md:px-[20px] md:flex-col"
+        style={{ zIndex: -0 }}>
           
           {/* Contenido */}
-          <div className="w-1/2 flex flex-col z-10 items-start mr-[20px]" >
+          <div className="w-1/2 flex flex-col z-10 items-start mr-[20px]
+          md:w-full md:mr-0" >
 
               {/* Titulo */}
-              <div className='mb-[20px]  text-6xl text-white font-bold' style={{ fontSize: '56px', textShadow: '0px 1px 2px #00000040', lineHeight:'68.26px'}}>
+              <div className='mb-[20px]  text-6xl text-white font-bold text-[56px] leading-[68.26px]
+              md:text-[35px] md:leading-normal md:mb-0'
+              style={{ textShadow: '0px 1px 2px #00000040'}}>
                 {t("index:card1Title")}
               </div>
 
               {/* Texto */}
-              <div className='my-[20px] text-3xl text-white font-semibold' style={{fontSize:'36px', textShadow: '0px 1px 2px #00000040', lineHeight:'43.88px'}}>
+              <div className='my-[20px] text-3xl text-white font-semibold text-[36px] leading-[43.88px]
+              md:text-[16px] md:leading-normal'
+              style={{ textShadow: '0px 1px 2px #00000040'}}>
                 {t("index:card1Text")}
               </div>
 
@@ -60,7 +67,8 @@ export default function Home() {
           </div>
 
           {/* Imagen */}
-          <div className="w-1/2 z-10 ml-[20px]">
+          <div className="w-1/2 z-10 ml-[20px]
+          md:w-full md:ml-0 md:mb-[90px] md:mt-[40px]">
             <div className=' justify-center items-end relative'>
               {/* <div className='mt-[50px] mr-40 bg-slate-500 flex items-center justify-center rounded-full w-[500px] h-[500px]'> */}
               {/* <h1 className='text-white '>poner imagen 1 aqui</h1> */}
@@ -71,7 +79,7 @@ export default function Home() {
                 width={600}
                 height={300}
                 style={{filter:'drop-shadow(0px 4px 43px #00000026)'}}
-                className='relative z-20'
+                className='relative z-20 min-w-[315.56px]'
               />
 
               {/* Nube */}
@@ -97,8 +105,9 @@ export default function Home() {
           </div>
 
           {/* Pelota */}
-          <span className='absolute w-full h-full z- bg-[#4BCFEA] right-[10%]'  
-          style={{borderRadius:'0 0 50% 50% /0 0 100% 100% ', transform: "scaleX(-1.2)"}}/>
+          <span className='absolute w-full h-full z- bg-[#4BCFEA] right-[10%] scale-x-[-1.2]
+          md:scale-x-[3] md:left-[-50%]'  
+          style={{borderRadius:'0 0 50% 50% /0 0 100% 100% '}}/>
         </header>
 
         <Four />

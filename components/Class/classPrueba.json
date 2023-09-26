@@ -1,0 +1,96 @@
+{
+    "pageText":{
+
+        "body":{
+
+            "header":{
+
+                "type":"default",
+
+                "titles":[
+                    {
+                        "text":"Texto que se va a ver Renderizado",
+                        "type":"default"
+                    }
+                ]
+
+            },
+
+            "content":[
+
+                {
+                    "type":"text",
+
+                    "titles":[
+                        {
+                            "text":"Texto que se va a ver Renderizado",
+                            "type":"default"
+                        }
+                    ],
+
+                    "paragraphs":[
+                        {
+                            "text":"Texto que se va a ver Renderizado",
+                            "type":"default"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+
+    "activityAutocomplete":{
+        "body":{
+
+            "header":{
+
+                "type":"default",
+
+                "titles":[
+                    {
+                        "text":"Texto que se va a ver Renderizado",
+                        "type":"default"
+                    }
+                ]
+
+            },
+
+            "content":[
+
+                {
+                    "type":"activity_autocomplete",
+
+                    "titles":[
+                        {
+                            "text":"Texto que se va a ver Renderizado",
+                            "type":"default"
+                        }
+                    ],
+
+                    "paragraphs":[
+                        {
+                            "text":"Texto que se va a ver Renderizado",
+                            "type":"default"
+                        }
+                    ],
+
+                    "activity":[
+                        {
+                            "content":"<p>Este es un <input type='text'/> con formato HTML  <input type='text'/></p>",
+
+                            "responses":[
+                                "respuesta1",
+                                "respuesta2"
+                            ],
+
+                            "responses_received":[
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
