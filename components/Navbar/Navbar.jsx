@@ -196,10 +196,11 @@ function Navbar(props) {
 
               <div className={styles["select-languages_button"]}>
                 {/* Icono */}
-                <img
+                <Image
                   src={language?.image}
                   alt={language?.label}
-                  className={styles["select-languages_img"]} />
+                  className={styles["select-languages_img"]} 
+                  />
 
                 {/* Label */}
                 <label

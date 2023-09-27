@@ -98,6 +98,7 @@ export default function Home() {
                 height={62} 
                 className='absolute top-0 z-10 left-[196px]'
                 style={{transform:'scaleX(-1)'}}
+                alt='montanitas'
               />
 
               {/* Sol */}

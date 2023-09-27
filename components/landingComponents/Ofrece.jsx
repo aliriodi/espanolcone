@@ -88,6 +88,7 @@ export default function Ofrece() {
                   width={12.38}
                   height={12.38}
                   src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
+                  alt='check'
                   />
                 </span>
 
@@ -100,6 +101,7 @@ export default function Ofrece() {
                   width={12.38}
                   height={12.38}
                   src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
+                  alt='check'
                   />
                 </span>
 
@@ -112,6 +114,7 @@ export default function Ofrece() {
                   width={12.38}
                   height={12.38}
                   src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
+                  alt='check'
                   />
                 </span>
 
@@ -124,6 +127,7 @@ export default function Ofrece() {
                   width={12.38}
                   height={12.38}
                   src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
+                  alt='check'
                   />
                 </span>
 
@@ -189,6 +193,7 @@ export default function Ofrece() {
                   width={12.38}
                   height={12.38}
                   src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
+                  alt='check'
                   />
                 </span>
                 <p style={{ maxWidth: '353px' }}>
@@ -202,6 +207,7 @@ export default function Ofrece() {
                   width={12.38}
                   height={12.38}
                   src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
+                  alt='check'
                   />
                 </span>
                 <p style={{ maxWidth: '353px' }}>
@@ -215,6 +221,7 @@ export default function Ofrece() {
                   width={12.38}
                   height={12.38}
                   src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
+                  alt='check'
                   />
                 </span>
                 <p style={{ maxWidth: '353px' }}>
@@ -228,6 +235,7 @@ export default function Ofrece() {
                   width={12.38}
                   height={12.38}
                   src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
+                  alt='check'
                   />
                 </span>
                 <p className='break-normal' style={{ maxWidth: '353px' }}>
