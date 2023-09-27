@@ -59,7 +59,7 @@ export default function Four() {
           {images2.map((image, index) => (
 
           // Cart
-          <SwiperSlide className=''>
+          <SwiperSlide key={index+1} className=''>
             <div key={index} className='flex flex-col items-center'>
 
               {/* Icono */}
