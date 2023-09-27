@@ -59,6 +59,7 @@ const TestimonialsSlider = () => {
         height={628}
         width={1440}
         className='bottom-0 absolute w-full z-0'
+        alt='curva marron'
         />
 
         

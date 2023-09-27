@@ -24,6 +24,7 @@ import { useTranslation } from 'next-i18next';
               height={15}
               // layout="fill"
               className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
+              alt='estrella'
               />
             </div>
 
@@ -41,6 +42,7 @@ import { useTranslation } from 'next-i18next';
               src='https://res.cloudinary.com/dfddh08q8/image/upload/v1694717223/images/imagen_2023-09-14_154704800_velmqf.png'
               width={15}
               height={15}
+              alt='cohete'
               // layout="fill"
               className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
               />
@@ -59,6 +61,7 @@ import { useTranslation } from 'next-i18next';
               src='https://res.cloudinary.com/dfddh08q8/image/upload/v1694717360/images/imagen_2023-09-14_154921728_yvkn6e.png'
               width={15}
               height={15}
+              alt='manitas'
               // layout="fill"
               className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
               />
