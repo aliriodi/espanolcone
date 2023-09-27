@@ -2,7 +2,11 @@ import React ,  { useEffect, useState }from 'react'
 
 export default function Class(props) {
   const [data, setData] = useState(null);
-
+  
+  const [i, setI] = useState(0);
+  const [length,setL]= useState(1);
+  
+  
   // Fetch data when the component mounts
   useEffect(() => {
     fetch('/api/class/get')
@@ -10,6 +14,7 @@ export default function Class(props) {
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
+        
         return response.json();
       })
       .then((response) => {
@@ -21,8 +26,17 @@ export default function Class(props) {
       });
   }, []);
 
-
-
+  function Forward(i){
+    if(data){
+      if(data){if(data.sheets){if(data.sheets.length) setL(data.sheets.length)}}
+    if(i<data.sheets.length-1) setI(++i)}
+    
+  }
+  function Back(i){
+    if(data){
+      if(data){if(data.sheets){if(data.sheets.length) setL(data.sheets.length)}}
+    if(i>0) setI(--i)}
+  }
 
   //https://docs.google.com/presentation/d/10lxVnbNdlLZ6OlsXJTU9-uZ3GDJPz140/edit#slide=id.g27c3e69a393_0_0
 const a=  {
@@ -52,12 +66,32 @@ const a=  {
               
   return (
     <div>Class
-      <h1>Esto es React escrito</h1>
+     
+<h1>Esto es traido de Mongodb</h1>
+<div><button style={{'background-color': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={()=>Back(i)}> Back </button>
+     <span style={{'margin-left': '16px'}}>{i+1}/{length}</span> 
+     <button style={{'margin-left': '16px','background-color': '#4CCFEB','border': '4px solid #007bff'}} onClick={()=>Forward(i)}>Forward</button>
+</div>
+
+<div></div>
+{
+data&&data.sheets[i].data?
+data.sheets[i].data.map((c, index)=> 
+  <div key={index}  >
+  <p dangerouslySetInnerHTML={{ __html: c.value }}>
+ 
+
+    </p>
+   </div>  ):<h2>aun cargando datos</h2>
+}
+
+<div style={{'padding':'20px'}}></div>
+ <h1>Esto es React escrito</h1>
       <p>Estas personas viven en Córdoba por diferentes motivos. Lee los textos y decide cuál de ellos vive mejor.</p>
       <p>
         Ella <span style={{ color: 'orange' }}>se llama</span> Bruna, <span style={{ color: 'orange' }}>es</span> brasileña, <span style={{ color: 'orange' }}>tiene </span> 27 años y hace tres que vive en Córdoba Capital. <span style={{ color: 'orange' }}>Es</span> estudiante, <span style={{ color: 'orange' }}>estudia</span> medicina en la Universidad Nacional de Córdoba (UNC) por las tardes y <span style={{ color: 'orange' }}>tiene</span> las mañanas libres. Normalmente <span style={{ color: 'orange' }}>se levanta</span> temprano, <span style={{ color: 'orange' }}>se baña</span>, <span style={{ color: 'orange' }}>se viste</span>, <span style={{ color: 'orange' }}>se maquilla</span> y <span style={{ color: 'orange' }}>desayuna</span> en una cafetería. “<span style={{ color: 'orange' }}>Salgo</span> todas las mañanas, <span style={{ color: 'orange' }}>voy</span> a la universidad para estudiar en la biblioteca, y por las noches <span style={{ color: 'orange' }}>tomo</span> clases de español, <span style={{ color: 'orange' }}>veo</span> televisión y <span style={{ color: 'orange' }}>leo</span>”. Todavía no <span style={{ color: 'orange' }}>entiende</span> perfectamente el  español, <span style={{ color: 'orange' }}>le cuesta</span> bastante la pronunciación pero le gusta hablar y compartir con los nativos. <span style={{ color: 'orange' }}>Se siente</span> feliz en Córdoba, no <span style={{ color: 'orange' }}>quiere</span> volver a Brasil, por ahora.
       </p>
-      {/* {console.log(b)} */}
+     {console.log(b)} 
       <p>David <span style={{ color: 'orange' }}>trabaja</span> muchas horas al día. _________________</p>
       <p></p>
       <h1>Esto es json</h1>
@@ -72,18 +106,6 @@ const a=  {
 
 {
 console.log(data)}
-<h1>Esto es traido de Mongodb</h1>
-{
-data?
-data.sheets[2].data.map((c, index)=> 
-  <div key={index}  >
-  <p dangerouslySetInnerHTML={{ __html: c.value }}>
- 
-
-    </p>
-   </div>  ):null
-}
-
     </div>
   )
 }

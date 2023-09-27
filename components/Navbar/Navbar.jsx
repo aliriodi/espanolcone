@@ -219,7 +219,7 @@ function Navbar(props) {
                       className={styles["select-languages_languages"]}
                       key={language2.value}>
                       {/* Icono */}
-                      <img
+                      <Image
                         src={language2.image}
                         alt={language2.label}
                         className={styles["select-languages_img"]} />
@@ -287,7 +287,7 @@ function Navbar(props) {
 
             <div className={styles["select-languages_button"]}>
               {/* Icono */}
-              <img
+              <Image
                 src={language?.image}
                 alt={language?.label}
                 className={styles["select-languages_img"]} />
@@ -310,7 +310,7 @@ function Navbar(props) {
                     className={styles["select-languages_languages"]}
                     key={language2.value}>
                     {/* Icono */}
-                    <img
+                    <Image
                       src={language2.image}
                       alt={language2.label}
                       className={styles["select-languages_img"]} />

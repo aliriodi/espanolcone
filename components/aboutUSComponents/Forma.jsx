@@ -81,6 +81,7 @@ export default function Forma() {
           width={145}
           height={296}
           src='https://res.cloudinary.com/dfddh08q8/image/upload/v1694366401/images/ellipse-70_s1vmal.png'
+          alt='curva izquierda'
           />
 
           {/* Ellipse 2 */}
@@ -90,6 +91,7 @@ export default function Forma() {
           width={1011}
           height={690}
           src={Ellipse2}
+          alt='ELLIPSE2'
           />
       </section>
     </>
