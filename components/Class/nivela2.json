@@ -233,7 +233,12 @@
             "5",
             "Actividades interactivas"
         ],
-        "title": "Actividades interactivas"
+        "template":"template1",
+        "data":[
+            {"type":"title",
+             "value":"<span style='color:orange;'>Actividades interactivas</span>",
+            "className":"className"}
+        ]
     },
     "page9": {
         "type": "videoInteractivo",
@@ -241,9 +246,26 @@
             5,
             "Actividades interactivas"
         ],
-        "youtube": "https://youtu.be/CguXO_5okCY",
+        "template":"template1",
+        "data":[{
+            "type":"title",
+            "value":"<span style='color:orange;'>Video interativo</span>",
+            "className":"className"
+        },{
+            "type":"text",
+            "value":"1. En el siguiente video completa las actividades seleccionando el verbo correcto.",
+            "className":"className"
+        },
+
+
+        
+        {"type":"s",
         "id": "CguXO_5okCY",
-        "titlep": "Video interativo",
+        "value":"",
+        "className":"className"}
+    ],
+        "youtube": "https://youtu.be/CguXO_5okCY",
+        "titlep": "",
         "paragraph": "1. En el siguiente video completa las actividades seleccionando el verbo correcto.",
         "popups": [
             {
