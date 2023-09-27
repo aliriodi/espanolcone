@@ -200,6 +200,8 @@ function Navbar(props) {
                   src={language?.image}
                   alt={language?.label}
                   className={styles["select-languages_img"]} 
+                  width={25}
+                  height={17}
                   />
 
                 {/* Label */}
@@ -221,6 +223,8 @@ function Navbar(props) {
                       key={language2.value}>
                       {/* Icono */}
                       <Image
+                        width={25}
+                        height={17}
                         src={language2.image}
                         alt={language2.label}
                         className={styles["select-languages_img"]} />
@@ -265,7 +269,7 @@ function Navbar(props) {
       </nav>
 
       {/* Nav Bar Scroll */}
-      <nav className={`${styles["navbar"]} ${styles["scroll"]} ${scrollNavBar && styles["active"]}`}>
+      <nav className={`${styles["navbar"]} ${lightNavBar && styles["light"]} ${styles["scroll"]} ${scrollNavBar && styles["active"]}`}>
 
       {/* Logo */}
       <Link href='/'>
@@ -289,6 +293,8 @@ function Navbar(props) {
             <div className={styles["select-languages_button"]}>
               {/* Icono */}
               <Image
+                width={25}
+                height={17}
                 src={language?.image}
                 alt={language?.label}
                 className={styles["select-languages_img"]} />
@@ -312,6 +318,8 @@ function Navbar(props) {
                     key={language2.value}>
                     {/* Icono */}
                     <Image
+                      width={25}
+                      height={17}
                       src={language2.image}
                       alt={language2.label}
                       className={styles["select-languages_img"]} />

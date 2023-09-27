@@ -11,7 +11,7 @@ export default function ActivityCarousel(){
                 {
                     position:{top:"50%", left:"50%"},
                     type: "autocomplete",
-                    content: "<p>Este es un <input type='text'/> con formato HTML  <input type='text'/></p>",
+                    content: "<p>Este es un <input type='text' style='border:none, border_bottom: 2px solid black'/> con formato HTML  <input type='text'/></p>",
                     answers:["pepe", "juan"]
                 },
                 {
