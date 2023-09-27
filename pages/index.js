@@ -121,7 +121,7 @@ export default function Home() {
         <Testimonials />
       </Layout>
 
-      <Footer className='bg-[#F6F7FF]' />
+      <Footer className='bg-[#F5F6FCCC]' />
     </>
   )
 }

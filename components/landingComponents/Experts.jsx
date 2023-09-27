@@ -30,7 +30,8 @@ export default function Experts() {
   };
 
   return (
-    <section className='px-[170px] py-[150px]'>
+    <section className='px-[170px] py-[150px]
+    md:px-[20px]'>
 
       {/* Titulo */}
       <h2 className='underlined-subtitle'>
@@ -38,9 +39,42 @@ export default function Experts() {
         </h2>
 
       {/* Carrucel */}
-      <div className='mt-[100px] w-[100%] relative'>
+      <div className='mt-[100px] w-[100%] relative
+      md:hidden'>
         <Swiper 
         slidesPerView={4}
+        loop={true}
+        autoplay={{
+          delay: 1500,
+          disableOnInteraction: false,
+        }}
+        modules={[Autoplay, Pagination, Navigation]}
+        >
+          
+          {experts.map((image, index) => (
+          <SwiperSlide key={index}>
+            <div key={index} className='relative flex flex-col items-center'>
+                {/* Imagen */}
+                <Image alt={image.name} src={image.image} width={162} height={162} />
+
+                {/* Nombre */}
+                <p className='text-center font-semibold mt-[15px] mb-[5px]'>{image.namePerson}</p>
+
+                {/* Trabajo */}
+                <p className='text-center'>{image.job}</p>
+            </div>
+          </SwiperSlide>
+
+          ))}
+        </Swiper>
+      </div>
+
+      
+      {/* Carrucel Responsive*/}
+      <div className='mt-[100px] w-[100%] hidden
+      md:block'>
+        <Swiper 
+        slidesPerView={1}
         loop={true}
         autoplay={{
           delay: 1500,

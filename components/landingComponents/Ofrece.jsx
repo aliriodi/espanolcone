@@ -7,14 +7,15 @@ export default function Ofrece() {
 
   return (
     <>
-      <section className='h-auto bg-[#F6F7FF] mb-[100px] pb-[126px] pt-[187px]'>
+      <section className='h-auto bg-[#F6F7FF] mb-[100px] pb-[126px] pt-[187px] relative
+      md:px-[20px]'>
 
         {/* Titulo */}
         <div className=' mb-[50px] flex flex-col justify-center items-center'>
 
           {/* Titulo */}
           <div className='flex justify-center items-center flex-col'>
-            <h2 className='flex justify-center items-center my-5' style={{ fontSize: '30px', color: '#323030' }}>
+            <h2 className='underlined-title' style={{ fontSize: '30px', color: '#323030' }}>
               {t("card4.0.title")}
             </h2>
 
@@ -22,24 +23,29 @@ export default function Ofrece() {
           </div>
 
           {/* Subtitulo */}
-          <p className='flex justify-center items-center my-5 text-center font-medium' style={{ fontSize: '18px', color: '#5E6063', maxWidth: '535px' }}>
+          <p className='flex justify-center items-center my-[36px] text-center font-medium' style={{ fontSize: '18px', color: '#5E6063', maxWidth: '535px' }}>
             {t("card4.0.text")} 
           </p>
         </div>
 
 
-        <div className="flex justify-center">
+        <div className="flex justify-center 
+        md:flex-col md:items-center">
 
           {/* Nuestros Programas */}
           <div
-            className="bg-white shadow-lg rounded-lg "
-            style={{ width: "500px", minHeight: '646px', marginRight: '19px', padding: '66px 33px', boxShadow: '0px 4px 26px #00000040' }}>
+            className="bg-white shadow-lg rounded-lg  w-[500px] h-min-[646px] mr-[19px] py-[66px] px-[33px]
+            md:mx-0 md:w-full md:px-[16px] md:mb-[19px]"
+            style={{boxShadow: '0px 4px 26px #00000040' }}>
 
             {/* Encabezado */}
-            <div className="flex items-center" style={{ borderBottom: '1px #DEDEDE solid', paddingBottom: '1.2em' }}>
+            <div className="flex items-center
+            md:flex-col"
+            style={{ borderBottom: '1px #DEDEDE solid', paddingBottom: '1.2em' }}>
 
               {/* Imagen */}
-              <div className=" flex justify-center items-center p-1">
+              <div className=" flex justify-center items-center p-1
+              md:max-w-[400px] md:mx-[60px]">
                 <Image
                   src="https://res.cloudinary.com/dfddh08q8/image/upload/v1694437860/images/icons-05_xkbram.png"
                   alt="Personas"
@@ -49,17 +55,21 @@ export default function Ofrece() {
               </div>
 
               {/* Titulo */}
-              <div style={{ minWidth: '260px', marginLeft: '10px' }}>
+              <div
+              
+              style={{ minWidth: '260px', marginLeft: '10px' }}>
 
                 <h2
-                  className="font-semibold"
+                  className="font-semibold
+                  md:text-center"
                   style={{ fontSize: '20px' }}
                 >
                   {t("card4.1.title")}
                 </h2>
 
                 <p
-                  className='font-medium'
+                  className='font-medium
+                  md:text-center'
                   style={{ color: '#6E6B7B', marginTop: '10px', fontSize: '16px' }}>
                   {t("card4.1.text")}
                                   
@@ -70,7 +80,8 @@ export default function Ofrece() {
             </div>
 
             {/* Contenido */}
-            <div className='flex justify-center flex-col pb-3 mt-8 text-violet_dark items-start px-6'>
+            <div className='flex justify-center flex-col pb-3 mt-8 text-violet_dark items-start px-6
+            md:px-0'>
 
               <p className='flex justify-center items-start text-left' >
                 {t("card4.1.paragraph")}
@@ -81,59 +92,79 @@ export default function Ofrece() {
                </p>
 
 
-              {/* Lista */}
-              <p className='flex justify-center items-start text-left mb-5'>
-                <span className='flex justify-center items-center bg-primary rounded-full mr-2' style={{ width: '18px', height: '18px' }}>
-                  <Image
-                  width={12.38}
-                  height={12.38}
-                  src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
-                  alt='check'
-                  />
-                </span>
+              
+                          {/* Lista */}
+              <div className='flex justify-center items-start text-left mb-5'>
+                <div className="md:w-[38px]">
+                  <span className='flex justify-center items-center bg-primary rounded-full mr-2' style={{ width: '18px', height: '18px' }}>
+                    <Image
+                    width={12.38}
+                    height={12.38}
+                    src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
+                    alt='check'
+                    />
+                  </span>
+                </div>
+                <p className='flex justify-center items-start text-left mb-5'>
 
-                {t("card4.1.list.0")}
-              </p>
+                  {t("card4.1.list.0")}
+                </p>
+              </div>
 
-              <p className='flex justify-center items-start text-left mb-5'>
-                <span className='flex justify-center items-center bg-primary rounded-full mr-2' style={{ width: '18px', height: '18px' }}>
-                  <Image
-                  width={12.38}
-                  height={12.38}
-                  src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
-                  alt='check'
-                  />
-                </span>
+              
+              <div className='flex justify-center items-start text-left mb-5'>
+                <div className="md:w-[38px]">
+                  <span className='flex justify-center items-center bg-primary rounded-full mr-2' style={{ width: '18px', height: '18px' }}>
+                    <Image
+                    width={12.38}
+                    height={12.38}
+                    src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
+                    alt='check'
+                    />
+                  </span>
+                </div>
+                <p className='flex justify-center items-start text-left mb-5'>
 
-                {t("card4.1.list.1")}
-              </p>
+                  {t("card4.1.list.1")}
+                </p>
+              </div>
 
-              <p className='flex justify-center items-start text-left mb-5'>
-                <span className='flex justify-center items-center bg-primary rounded-full mr-2' style={{ width: '18px', height: '18px' }}>
-                  <Image
-                  width={12.38}
-                  height={12.38}
-                  src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
-                  alt='check'
-                  />
-                </span>
+              
+              <div className='flex justify-center items-start text-left mb-5'>
+                <div className="md:w-[38px]">
+                  <span className='flex justify-center items-center bg-primary rounded-full mr-2' style={{ width: '18px', height: '18px' }}>
+                    <Image
+                    width={12.38}
+                    height={12.38}
+                    src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
+                    alt='check'
+                    />
+                  </span>
+                </div>
+                <p className='flex justify-center items-start text-left mb-5'>
 
-                {t("card4.1.list.2")}
-              </p>
+                  {t("card4.1.list.2")}
+                </p>
+              </div>
 
-              <p className='flex justify-center items-start text-left'>
-                <span className='flex justify-center items-center bg-primary rounded-full mr-2' style={{ width: '18px', height: '18px' }}>
-                  <Image
-                  width={12.38}
-                  height={12.38}
-                  src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
-                  alt='check'
-                  />
-                </span>
+              
+              <div className='flex justify-center items-start text-left mb-5'>
+                <div className="md:w-[38px]">
+                  <span className='flex justify-center items-center bg-primary rounded-full mr-2' style={{ width: '18px', height: '18px' }}>
+                    <Image
+                    width={12.38}
+                    height={12.38}
+                    src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
+                    alt='check'
+                    />
+                  </span>
+                </div>
+                <p className='flex justify-center items-start text-left'>
 
-                {t("card4.1.list.3")}
+                  {t("card4.1.list.3")}
+                </p>
+              </div>
 
-              </p>
 
             </div>
 
@@ -141,33 +172,42 @@ export default function Ofrece() {
 
           {/* Conoce Cordoba */}
           <div
-            className="bg-white rounded-lg"
-            style={{ width: "500px", minHeight: '646px', marginLeft: '19px', padding: '66px 33px', boxShadow: '0px 4px 26px #00000040' }}>
+            className="bg-white rounded-lg w-[500px] h-min-[646px] ml-[19px] py-[66px] px-[33px] relative
+            md:mx-0 md:w-full md:px-[16px] md:mt-[19px]"
+            style={{boxShadow: '0px 4px 26px #00000040' }}>
 
             {/* Encabezado */}
-            <div className="flex items-center" style={{ borderBottom: '1px #DEDEDE solid', paddingBottom: '1.7em' }}>
+            <div className="flex items-center
+            md:flex-col"
+            style={{ borderBottom: '1px #DEDEDE solid', paddingBottom: '1.7em' }}>
 
               {/* Imagen */}
-              <div className="flex justify-center items-center p-1" style={{ height: '101px' }}>
+              <div className="flex justify-center items-center p-1 relative
+              md:max-w-[400px] md:w-full">
                 <Image
+                className='md:mx-[60px] '
                   src="https://res.cloudinary.com/dfddh08q8/image/upload/v1694437864/images/icons-06_ihevx7.png"
                   alt="montaña"
-                  width={300}
-                  height={100}
+                  width={400}
+                  height={200}
                 />
               </div>
 
               {/* Titulo */}
-              <div style={{ minWidth: '260px', marginLeft: '10px' }}>
+              <div
+              
+              style={{ minWidth: '260px', marginLeft: '10px' }}>
                 <h2
-                  className="font-semibold"
+                  className="font-semibold
+                  md:text-center"
                   style={{ fontSize: '20px' }}
                 >
                   {t("card4.2.title")}
                   
                 </h2>
                 <p
-                  className='font-medium'
+                  className='font-medium
+                  md:text-center'
                   style={{ color: '#6E6B7B', marginTop: '10px', fontSize: '16px' }}>
                   {t("card4.2.text")}
                   
@@ -188,56 +228,65 @@ export default function Ofrece() {
 
               {/* Lista */}
               <div className='flex justify-center items-start text-left mb-5'>
-                <span className='flex justify-center items-center bg-primary rounded-full mr-2' style={{ width: '18px', height: '18px' }}>
-                  <Image
-                  width={12.38}
-                  height={12.38}
-                  src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
-                  alt='check'
-                  />
-                </span>
+                <div className='w-[38px]'>
+                  <span className='flex justify-center items-center bg-primary rounded-full mr-2' style={{ width: '18px', height: '18px' }}>
+                    <Image
+                    width={12.38}
+                    height={12.38}
+                    src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
+                    alt='check'
+                    />
+                  </span>
+                </div>
                 <p style={{ maxWidth: '353px' }}>
                 {t("card4.2.list.0")}
                 </p>
               </div>
 
+
               <div className='flex justify-center items-start text-left mb-5'>
-                <span className='flex justify-center items-center bg-primary rounded-full mr-2' style={{ width: '18px', height: '18px' }}>
-                  <Image
-                  width={12.38}
-                  height={12.38}
-                  src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
-                  alt='check'
-                  />
-                </span>
+                <div className='w-[38px]'>
+                  <span className='flex justify-center items-center bg-primary rounded-full mr-2' style={{ width: '18px', height: '18px' }}>
+                    <Image
+                    width={12.38}
+                    height={12.38}
+                    src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
+                    alt='check'
+                    />
+                  </span>
+                </div>
                 <p style={{ maxWidth: '353px' }}>
                 {t("card4.2.list.1")}
                 </p>
               </div>
 
               <div className='flex justify-center items-start text-left mb-5'>
-                <span className='flex justify-center items-center bg-primary rounded-full mr-2' style={{ width: '18px', height: '18px' }}>
-                  <Image
-                  width={12.38}
-                  height={12.38}
-                  src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
-                  alt='check'
-                  />
-                </span>
+                <div className='w-[38px]'>
+                  <span className='flex justify-center items-center bg-primary rounded-full mr-2' style={{ width: '18px', height: '18px' }}>
+                    <Image
+                    width={12.38}
+                    height={12.38}
+                    src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
+                    alt='check'
+                    />
+                  </span>
+                </div>
                 <p style={{ maxWidth: '353px' }}>
                 {t("card4.2.list.2")}
                 </p>
               </div>
 
               <div className='flex justify-center items-start text-left mb-5'>
-                <span className='flex justify-center items-center bg-primary rounded-full mr-2' style={{ width: '18px', height: '18px' }}>
-                  <Image
-                  width={12.38}
-                  height={12.38}
-                  src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
-                  alt='check'
-                  />
-                </span>
+                <div className='w-[38px]'>
+                  <span className='flex justify-center items-center bg-primary rounded-full mr-2' style={{ width: '18px', height: '18px' }}>
+                    <Image
+                    width={12.38}
+                    height={12.38}
+                    src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
+                    alt='check'
+                    />
+                  </span>
+                </div>
                 <p className='break-normal' style={{ maxWidth: '353px' }}>
                 {t("card4.2.list.3")}
                 </p>

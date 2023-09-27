@@ -50,7 +50,7 @@ module.exports = {
     },
     screens: {
       'lg': {'max':'1024px'},
-      'md': {'max': '767px'},
+      'md': {'max': '768px'},
     },
   },
   plugins: [],

@@ -11,9 +11,11 @@ export default function Conoce() {
 
   return (
     <>
-      <section className='grid grid-cols-10 gap-4 h-[600px] px-[173px] bg-primary'>
+      <section className='grid grid-cols-10 gap-4 h-[600px] px-[173px] bg-primary
+      md:px-[20px]'>
 
-        <div className='col-span-7 mt-[100px] text-white min-w-[644px]  mr-[117px]'>
+        <div className='col-span-7 mt-[100px] text-white min-w-[644px]  mr-[117px]
+        md:min-w-full md:mr-0 md:col-span-10'>
 
           {/* Titulo */}
           <h2 className='flex justify-start text-4xl text-white font-bold ' style={{textShadow: '0px 1px 2px #00000040'}}>
@@ -21,8 +23,9 @@ export default function Conoce() {
           </h2>
 
           {/* Texto */}
-          <p className='mt-[40px] mb-[120px] flex justify-start text-xl font-semibold'
-          style={{textShadow: '0px 1px 2px #00000040', fontSize:'20px'}}>
+          <p className='mt-[40px] mb-[120px] flex justify-start text-xl font-semibold
+          md:my-[32px] md:text-[16px] md:drop-shadow-[0px_1px_2px_#00000040]'
+          style={{textShadow: '0px 1px 2px #00000040'}}>
           {t("card3Text")}
           </p>
 
@@ -38,7 +41,9 @@ export default function Conoce() {
 
         </div>
 
-        <div className='col-span-3 flex justify-start items-end'>
+        {/* Imagen Celular */}
+        <div className='col-span-3 flex justify-start items-end
+        lg:hidden'>
           <Image
             src="https://res.cloudinary.com/dfddh08q8/image/upload/v1694437853/images/Group_14.4_nzv8eu.png"
             alt="Teléfono"

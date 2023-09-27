@@ -118,3 +118,24 @@
     margin-left: 10px;
 }
 
+
+@media (max-width: 1050px) {
+    .footer-welcome:before{
+        transform: scaleX(2);
+    }
+
+    .footer-welcome_item .logo{
+        width: 80px;
+    }
+
+    .footer-social{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 69px 0;
+    }
+
+    .footer-social .copyright{
+        margin-bottom: 36px;
+    }
+}
