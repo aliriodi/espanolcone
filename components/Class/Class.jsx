@@ -2,6 +2,7 @@ import React ,  { useEffect, useState }from 'react'
 
 export default function Class(props) {
   const [data, setData] = useState(null);
+  const[section,setSetcion]=useState('Inicial')
   
   const [i, setI] = useState(0);
   const [length,setL]= useState(1);
@@ -19,6 +20,7 @@ export default function Class(props) {
       })
       .then((response) => {
         setData(response.class1[2]);
+        
       })
       .catch((error) => {
         // Handle any errors
@@ -76,12 +78,22 @@ const a=  {
 <div></div>
 {
 data&&data.sheets[i].data?
+
 data.sheets[i].data.map((c, index)=> 
+  
   <div key={index}  >
+  
   <p dangerouslySetInnerHTML={{ __html: c.value }}>
  
 
     </p>
+    {c&&c.options?
+    <ul>
+    {c.options.map(option=>
+      <li key={option}>
+        {option}
+      </li>)}</ul>:null}
+    
    </div>  ):<h2>aun cargando datos</h2>
 }
 

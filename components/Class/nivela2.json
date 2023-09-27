@@ -33,15 +33,15 @@
         ],
         "template": "template1",
         "data": [
-            {
-                "type": "video-youtuve",
-                "value": "https://youtu.be/Vphr9AAcGCI",
-                "id": "Vphr9AAcGCI",
+                       {
+                "type": "title",
+                "value": "¿Qué voy a aprender en esta unidad?",
                 "className": "className"
             },
             {
-                "type": "title",
-                "value": "¿Qué voy a aprender en esta unidad?",
+                "type": "video-youtuve",
+                "value": "Vphr9AAcGCI",
+                "youtuve":"https://youtu.be/Vphr9AAcGCI",
                 "className": "className"
             }
         ]
@@ -141,34 +141,34 @@
               "value": "Los verbos resaltados en los textos están en presente.",
              "className":"className"},
              {"type":"paragraph",
-              "value":"<span style={{ color: 'orange' }}>¿Sabes cuál es su infinitivo? </span>",
+              "value":"<span style= 'color: orange;'>¿Sabes cuál es su infinitivo? </span>",
              "className":"className"},
              {"type":"paragraph",
               "value":"A continuación, te mostramos algunos verbos usados en los textos y opciones para seleccionar su forma infinitiva correcta. Arrastra el verbo correcto.",
              "className":"className"},
              {"type":"sentence-box",
-              "value":"David <span style={{ color: 'orange' }}>trabaja</span> muchas horas al día. _________________",
+              "value":"David <span style= 'color: orange;'>trabaja</span> muchas horas al día. _________________",
               "option": "trabajar",
              "className":"className"},
              {"type":"sentence-box",
-             "value":"No <span style={{ color: 'orange' }}>piensa</span> volver a su país. ________________",
+             "value":"No <span style= 'color: orange;'>piensa</span> volver a su país. ________________",
              "option":"pensar",
             "className":"className"},
              {"type":"sentence-box",
-              "value":"<span style={{ color: 'orange' }}>Reconozco</span> que aún tengo problemas con la lengua. _____________________",
+              "value":"<span style= 'color: orange;'>Reconozco</span> que aún tengo problemas con la lengua. _____________________",
               "option":"reconocer",
              "className":"className"},
              {"type":"sentence-box",
-              "value":"Bruna <span style={{ color: 'orange' }}>estudia</span> medicina en la UNC. __________________",
+              "value":"Bruna <span style= 'color: orange;'>estudia</span> medicina en la UNC. __________________",
               "option":"estudiar",
              "className":"className"},
              {"type":"sentence-box",
-             "value":"Todavía no <span style={{ color: 'orange' }}>entiende</span> perfectamente el  español. __________________",
+             "value":"Todavía no <span style= 'color: orange;'>entiende</span> perfectamente el  español. __________________",
              "option":"entender",
             "className":"className"},
             {"type":"sentence-box",
-             "value":"no <span style={{ color: 'orange' }}>Le cuesta</span> bastante la pronunciación. ______________________",
-             "option":"",
+             "value":"no <span style= 'color: orange;'>Le cuesta</span> bastante la pronunciación. ______________________",
+             "option":"costar",
             "className":"className"},
             {"type":"options-box",
             "value":["pensar","costar","trabajar","entender","reconocer","estudiar"],
@@ -182,39 +182,50 @@
             3,
             "Actividades PDF"
         ],
-        "title": "Actividad",
-        "paragraph": [
-            "A David y a Bruna les gusta mucho Córdoba.",
-            "¿Cuál de estas frases corresponde a Bruna y cuál corresponde a David?"
+        "template":"template1",
+        "data":[
+            {"type":"title",
+             "value":"Actividad",
+            "className":"className"},
+            {"type":"paragraph",
+             "value":"A David y a Bruna <span style='text-decoration: underline;'> les gusta</span> mucho Córdoba.",
+            "className":"className"},
+            {"type":"paragraph",
+             "value":"¿Cuál de estas frases corresponde a Bruna y cuál corresponde a David?",
+            "className":"className"},
+            {"type":"selectsimple",
+             "value":"1.\"Me gusta la vida aquí:  la gente, la comida, el clima, el mate …\"",
+             "option":"David",
+             "options":["Bruna","David"],
+            "className":"className"},
+            {"type":"selectsimple",
+            "value":"2. Le gusta hablar y compartir con los nativos.",
+            "option":"Bruna",
+             "options":["Bruna","David"],
+           "className":"className"}
         ]
+     
     },
-    "sentence": [
-        {
-            "text": "\"Me gusta la vida aquí:  la gente, la comida, el clima, el mate …\"",
-            "option": "David",
-            "options": [
-                "Bruna",
-                "David"
-            ]
-        },
-        {
-            "text": "Le gusta hablar y compartir con los nativos.",
-            "option": "Bruna",
-            "options": [
-                "Bruna",
-                "David"
-            ]
-        }
-    ],
+    
     "page7": {
         "type": "video",
         "section": [
             4,
             "Gramática"
         ],
-        "youtube": "https://youtu.be/bOAABReEdb8",
-        "id": "bOAABReEdb8",
-        "title": "Video explicativo"
+        "template":"template2",
+        "data":[
+            {   "type":"title",
+            "value": "<span style='color:orange;'>Video explicativo</span>",
+            "className":"className"
+        },
+            { "type":"video",
+              "value":"bOAABReEdb8",
+              "youtuve":"https://youtu.be/bOAABReEdb8",
+              "className":"className"}
+           
+        ]        
+        
     },
     "page8": {
         "type": "slide",
