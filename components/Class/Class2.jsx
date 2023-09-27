@@ -52,15 +52,12 @@ const a=  {
               
   return (
     <div>Class
-      <h1>Esto es React escrito</h1>
       <p>Estas personas viven en Córdoba por diferentes motivos. Lee los textos y decide cuál de ellos vive mejor.</p>
       <p>
         Ella <span style={{ color: 'orange' }}>se llama</span> Bruna, <span style={{ color: 'orange' }}>es</span> brasileña, <span style={{ color: 'orange' }}>tiene </span> 27 años y hace tres que vive en Córdoba Capital. <span style={{ color: 'orange' }}>Es</span> estudiante, <span style={{ color: 'orange' }}>estudia</span> medicina en la Universidad Nacional de Córdoba (UNC) por las tardes y <span style={{ color: 'orange' }}>tiene</span> las mañanas libres. Normalmente <span style={{ color: 'orange' }}>se levanta</span> temprano, <span style={{ color: 'orange' }}>se baña</span>, <span style={{ color: 'orange' }}>se viste</span>, <span style={{ color: 'orange' }}>se maquilla</span> y <span style={{ color: 'orange' }}>desayuna</span> en una cafetería. “<span style={{ color: 'orange' }}>Salgo</span> todas las mañanas, <span style={{ color: 'orange' }}>voy</span> a la universidad para estudiar en la biblioteca, y por las noches <span style={{ color: 'orange' }}>tomo</span> clases de español, <span style={{ color: 'orange' }}>veo</span> televisión y <span style={{ color: 'orange' }}>leo</span>”. Todavía no <span style={{ color: 'orange' }}>entiende</span> perfectamente el  español, <span style={{ color: 'orange' }}>le cuesta</span> bastante la pronunciación pero le gusta hablar y compartir con los nativos. <span style={{ color: 'orange' }}>Se siente</span> feliz en Córdoba, no <span style={{ color: 'orange' }}>quiere</span> volver a Brasil, por ahora.
       </p>
       {/* {console.log(b)} */}
       <p>David <span style={{ color: 'orange' }}>trabaja</span> muchas horas al día. _________________</p>
-      <p></p>
-      <h1>Esto es json</h1>
  {b.page3.data.map((c, index)=> 
   <div key={index}  >
   <p dangerouslySetInnerHTML={{ __html: c.value }}>
@@ -72,7 +69,6 @@ const a=  {
 
 {
 console.log(data)}
-<h1>Esto es traido de Mongodb</h1>
 {
 data?
 data.sheets[2].data.map((c, index)=> 

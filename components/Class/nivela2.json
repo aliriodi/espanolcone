@@ -2,94 +2,184 @@
     "page1": {
         "type": "text",
         "section": [
-            "0",
+            0,
             "Portada"
         ],
-        "img1": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366262/images/logo-primary_qoagkg.png",
-        "title": "EXTRANJEROS EN CÓRDOBA",
-        "level": "NIVEL A2"
+        "template": "template0",
+        "data": [
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366262/images/logo-primary_qoagkg.png",
+                "alt":"EspañolconE",
+                "className": "className"
+            },
+            {
+                "type": "title",
+                "value": "EXTRANJEROS EN CÓRDOBA",
+                "className": "className"
+            },
+            {
+                "type": "level",
+                "value": "NIVEL A2",
+                "className": "className"
+            }
+        ]
     },
     "page2": {
         "type": "video",
         "section": [
-            "1",
+            1,
             "Video Explicativo"
         ],
-        "yotube": "https://youtu.be/Vphr9AAcGCI",
-        "id": "Vphr9AAcGCI",
-        "title": "¿Qué voy a aprender en esta unidad?"
+        "template": "template1",
+        "data": [
+            {
+                "type": "video-youtuve",
+                "value": "https://youtu.be/Vphr9AAcGCI",
+                "id": "Vphr9AAcGCI",
+                "className": "className"
+            },
+            {
+                "type": "title",
+                "value": "¿Qué voy a aprender en esta unidad?",
+                "className": "className"
+            }
+        ]
     },
     "page3": {
         "type": "text",
         "section": [
-            "2",
+            2,
             "Elemento disparador / Tema"
         ],
-        "title1": "Texto número 1:",
-        "title2": "Los nuevos cordobese",
-        "paragraph1": "Estas personas viven en Córdoba por diferentes motivos. Lee los textos y enfoca tu atención en las palabras resaltadas en color <span style={{color:'orange'}}>naranja. </span>",
-        "paragraph2": "Él <span style={{color:'orange'}}>se llama</span> David, <span style={{color:'orange'}}>es</span> estadounidense, hace más de 10 años que vive en Córdoba, <span style={{color:'orange'}}>se siente</span> muy bien viviendo allí y no <span style={{color:'orange'}}>piensa</span> volver a su país. “<span style={{ textDecoration: 'underline' }}>Me gusta</span> la vida aquí:  la gente, la comida, el clima, el mate …”. <span style={{color:'orange'}}>Es</span> el director de una academia de idiomas y <span style={{color:'orange'}}>trabaja</span> muchas horas al día. Los fines de semana <span style={{color:'orange'}}>conduce</span> su auto para visitar diferentes partes de Córdoba, le gusta recorrer la provincia. <span style={{color:'orange'}}>Está</span> casado con una cordobesa, así que  <span style={{color:'orange'}}>domina</span> bastante bien el español porque <span style={{color:'orange'}}>habla</span> español en casa. Sin embargo, David dice: “<span style={{color:'orange'}}>reconozco</span> que aún <span style={{color:'orange'}}>tengo</span> problemas con la lengua. Mi principal problema <span style={{color:'orange'}}>es</span> que después de 10 años, todavía <span style={{color:'orange'}}>confundo</span> los tiempos del pasado”",
-        "image": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694535859/images/davidpic_ob5ukd.png",
-        "name": "David Brown",
-        "location": "Estadounidense"
+        "template": "template2",
+        "data":[
+            {"type":"title",
+             "value":"Texto número 1:",
+            "className":"className"},
+            {"type":"title",
+            "value":"Los nuevos cordobeses",
+            "className":"className"},
+            {"type":"paragraph",
+            "value":"Estas personas viven en Córdoba por diferentes motivos. Lee los textos y enfoca tu atención en las palabras resaltadas en color <span style= 'color: orange;' >naranja. </span>",
+            "className":"className"
+            },
+            {"type":"paragraph",
+            "value":"Él  <span style= 'color: orange;' >se llama</span> David, <span style= 'color: orange;' >es</span> estadounidense, hace más de 10 años que vive en Córdoba, <span style= 'color: orange;' >se siente</span> muy bien viviendo allí y no <span style= 'color: orange;' >piensa</span> volver a su país. “<span style=' textDecoration: underline;'>Me gusta</span> la vida aquí:  la gente, la comida, el clima, el mate …”. <span style= 'color: orange;' >Es</span> el director de una academia de idiomas y <span style= 'color: orange;' >trabaja</span> muchas horas al día. Los fines de semana <span style= 'color: orange;' >conduce</span> su auto para visitar diferentes partes de Córdoba, le gusta recorrer la provincia. <span style= 'color: orange;' >Está</span> casado con una cordobesa, así que  <span style= 'color: orange;' >domina</span> bastante bien el español porque <span style= 'color: orange;' >habla</span> español en casa. Sin embargo, David dice: “<span style= 'color: orange;' >reconozco</span> que aún <span style= 'color: orange;' >tengo</span> problemas con la lengua. Mi principal problema <span style= 'color: orange;' >es</span> que después de 10 años, todavía <span style= 'color: orange;' >confundo</span> los tiempos del pasado”",
+            "className":"className"
+            },
+            {"type":"image",
+             "value":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694535859/images/davidpic_ob5ukd.png",
+            "alt":"David Brown"},
+            {"type":"text",
+             "value":"David Brown",
+            "className":"className"},
+            {
+                "type":"text",
+                "value":"Estadounidense",
+                "className":"className"
+            }
+
+        ]                
+        
     },
     "page4": {
         "type": "text",
         "section": [
-            "2",
+            2,
             "Elemento disparador / Tema"
         ],
-        "title1": "Texto número 2:",
-        "title2": "Los nuevos cordobese",
-        "paragraph1": "Estas personas viven en Córdoba por diferentes motivos. Lee los textos y decide cuál de ellos vive mejor.",
-        "paragraph2": " Ella <span style={{ color: 'orange' }}>se llama</span> Bruna, <span style={{ color: 'orange' }}>es</span> brasileña, <span style={{ color: 'orange' }}>tiene </span> 27 años y hace tres que vive en Córdoba Capital. <span style={{ color: 'orange' }}>Es</span> estudiante, <span style={{ color: 'orange' }}>estudia</span> medicina en la Universidad Nacional de Córdoba (UNC) por las tardes y <span style={{ color: 'orange' }}>tiene</span> las mañanas libres. Normalmente <span style={{ color: 'orange' }}>se levanta</span> temprano, <span style={{ color: 'orange' }}>se baña</span>, <span style={{ color: 'orange' }}>se viste</span>, <span style={{ color: 'orange' }}>se maquilla</span> y <span style={{ color: 'orange' }}>desayuna</span> en una cafetería. “<span style={{ color: 'orange' }}>Salgo</span> todas las mañanas, <span style={{ color: 'orange' }}>voy</span> a la universidad para estudiar en la biblioteca, y por las noches <span style={{ color: 'orange' }}>tomo</span> clases de español, <span style={{ color: 'orange' }}>veo</span> televisión y <span style={{ color: 'orange' }}>leo</span>”. Todavía no <span style={{ color: 'orange' }}>entiende</span> perfectamente el  español, <span style={{ color: 'orange' }}>le cuesta</span> bastante la pronunciación pero le gusta hablar y compartir con los nativos. <span style={{ color: 'orange' }}>Se siente</span> feliz en Córdoba, no <span style={{ color: 'orange' }}>quiere</span> volver a Brasil, por ahora.",
-        "image": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694765455/images/bruna_kb7jcg.jpg",
-        "name": "Bruna Da Silva",
-        "location": "Brasileña"
+        "template":"template2",
+        "data":[{
+            "type":"title",
+            "value":"Texto número 2:",
+            "className":"className"
+        },
+        {
+            "type":"title",
+            "value":"Los nuevos cordobeses",
+            "className":"className"
+        },
+        {
+            "type":"paragraph",
+            "value":"Estas personas viven en Córdoba por diferentes motivos. Lee los textos y decide cuál de ellos vive mejor.",
+            "className":"className"
+        },
+        {
+            "type":"paragraph",
+            "value":"Ella<span style= 'color: orange;' >se llama</span> Bruna, <span style= 'color: orange;' >es</span> brasileña, <span style= 'color: orange;' >tiene </span> 27 años y hace tres que vive en Córdoba Capital. <span style= 'color: orange;' >Es</span> estudiante, <span style= 'color: orange;' >estudia</span> medicina en la Universidad Nacional de Córdoba (UNC) por las tardes y <span style= 'color: orange;' >tiene</span> las mañanas libres. Normalmente <span style= 'color: orange;' >se levanta</span> temprano, <span style= 'color: orange;' >se baña</span>, <span style= 'color: orange;' >se viste</span>, <span style= 'color: orange;' >se maquilla</span> y <span style= 'color: orange;' >desayuna</span> en una cafetería. “<span style= 'color: orange;' >Salgo</span> todas las mañanas, <span style= 'color: orange;' >voy</span> a la universidad para estudiar en la biblioteca, y por las noches <span style= 'color: orange;' >tomo</span> clases de español, <span style= 'color: orange;' >veo</span> televisión y <span style= 'color: orange;' >leo</span>”. Todavía no <span style= 'color: orange;' >entiende</span> perfectamente el  español, <span style= 'color: orange;' >le cuesta</span> bastante la pronunciación pero le gusta hablar y compartir con los nativos. <span style= 'color: orange;' >Se siente</span> feliz en Córdoba, no <span style= 'color: orange;' >quiere</span> volver a Brasil, por ahora.",
+            "className":"className"
+        },
+        {
+            "type":"image",
+            "value":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694765455/images/bruna_kb7jcg.jpg",
+            "alt":"Bruna Da Silva",
+            "className":"className"
+        },
+        {
+            "type":"text",
+            "value":"Bruna Da Silva",
+            "className":"className"
+        },
+        {
+            "type":"text",
+            "value":"Brasileña",
+            "className":"className"
+        }
+    ]
     },
     "page5": {
         "type": "boxmove",
         "section": [
-            "3",
+            3,
             "Actividades PDF"
         ],
+        "template":"template1",
         "title": "Actividad",
-        "paragraph": [
-            "Los verbos resaltados en los textos están en presente.",
-            "<span style={{ color: 'orange' }}>¿Sabes cuál es su infinitivo? </span>",
-            "A continuación, te mostramos algunos verbos usados en los textos y opciones para seleccionar su forma infinitiva correcta. Arrastra el verbo correcto."
-        ],
-        "sentence": [
-            {
-                "text": "David <span style={{ color: 'orange' }}>trabaja</span> muchas horas al día. _________________",
-                "option": "trabajar"
-            },
-            {
-                "text": "No <span style={{ color: 'orange' }}>piensa</span> volver a su país. ________________",
-                "option": "pensar"
-            },
-            {
-                "text": "<span style={{ color: 'orange' }}>Reconozco</span> que aún tengo problemas con la lengua. _____________________",
-                "option": "reconocer"
-            },
-            {
-                "text": "Bruna <span style={{ color: 'orange' }}>estudia</span> medicina en la UNC. __________________",
-                "option": "estudiar"
-            },
-            {
-                "text": "Todavía no <span style={{ color: 'orange' }}>entiende</span> perfectamente el  español. __________________",
-                "option": "entender"
-            },
-            {
-                "text": "no <span style={{ color: 'orange' }}>Le cuesta</span> bastante la pronunciación. ______________________",
-                "option": "costar"
-            }
-        ]
+        "data":[
+            {"type":"paragraph",
+              "value": "Los verbos resaltados en los textos están en presente.",
+             "className":"className"},
+             {"type":"paragraph",
+              "value":"<span style={{ color: 'orange' }}>¿Sabes cuál es su infinitivo? </span>",
+             "className":"className"},
+             {"type":"paragraph",
+              "value":"A continuación, te mostramos algunos verbos usados en los textos y opciones para seleccionar su forma infinitiva correcta. Arrastra el verbo correcto.",
+             "className":"className"},
+             {"type":"sentence-box",
+              "value":"David <span style={{ color: 'orange' }}>trabaja</span> muchas horas al día. _________________",
+              "option": "trabajar",
+             "className":"className"},
+             {"type":"sentence-box",
+             "value":"No <span style={{ color: 'orange' }}>piensa</span> volver a su país. ________________",
+             "option":"pensar",
+            "className":"className"},
+             {"type":"sentence-box",
+              "value":"<span style={{ color: 'orange' }}>Reconozco</span> que aún tengo problemas con la lengua. _____________________",
+              "option":"reconocer",
+             "className":"className"},
+             {"type":"sentence-box",
+              "value":"Bruna <span style={{ color: 'orange' }}>estudia</span> medicina en la UNC. __________________",
+              "option":"estudiar",
+             "className":"className"},
+             {"type":"sentence-box",
+             "value":"Todavía no <span style={{ color: 'orange' }}>entiende</span> perfectamente el  español. __________________",
+             "option":"entender",
+            "className":"className"},
+            {"type":"sentence-box",
+             "value":"no <span style={{ color: 'orange' }}>Le cuesta</span> bastante la pronunciación. ______________________",
+             "option":"",
+            "className":"className"},
+            {"type":"options-box",
+            "value":["pensar","costar","trabajar","entender","reconocer","estudiar"],
+            "className":"className"}
+              ]       
     },
+
     "page6": {
         "type": "selectsimple",
         "section": [
-            "3",
+            3,
             "Actividades PDF"
         ],
         "title": "Actividad",
@@ -119,7 +209,7 @@
     "page7": {
         "type": "video",
         "section": [
-            "4",
+            4,
             "Gramática"
         ],
         "youtube": "https://youtu.be/bOAABReEdb8",
@@ -136,7 +226,10 @@
     },
     "page9": {
         "type": "videoInteractivo",
-        "section": "5",
+        "section": [
+            5,
+            "Actividades interactivas"
+        ],
         "youtube": "https://youtu.be/CguXO_5okCY",
         "id": "CguXO_5okCY",
         "titlep": "Video interativo",
@@ -252,7 +345,7 @@
     "page10": {
         "type": "video",
         "section": [
-            "5",
+            5,
             "Actividades interactivas"
         ],
         "youtube": "https://youtu.be/bOAABReEdb8",
@@ -263,7 +356,7 @@
     "page11": {
         "type": "selectsimple",
         "section": [
-            "5",
+            5,
             "Actividades interactivas"
         ],
         "sentences": [
@@ -298,7 +391,7 @@
     "page12": {
         "type": "complete",
         "section": [
-            "5",
+            5,
             "Actividades interactivas"
         ],
         "title": "Completa la historia de la familia Garcia con los verbos en paréntesis.",
@@ -370,7 +463,7 @@
             "selectsimple"
         ],
         "section": [
-            "5",
+            5,
             "Actividades interactivas"
         ],
         "title": "Completa la historia de la familia Garcia con los verbos en paréntesis.",
@@ -434,6 +527,144 @@
                     ]
                 }
             ]
+        ]
+    },
+    "page14": {
+        "title": "Reto propuesto",
+        "section": [
+            6,
+            "Retos"
+        ],
+        "color": "orange"
+    },
+    "page15": {
+        "paragraph": "Fíjate en las cosas que ha hecho Naomi desde el año 2005 hasta la actualidad y completa la primera parte de la actividad. Luego, completa las frases. hablando de ti, redacta un texto añadiendo lo que haces normalmente, lo que te gusta,  por qué quieres aprender español, etc. Se lo enviarás a tu profesor (a) por email y luego de su devolución o feedback lo expondrás en clases.",
+        "section": [
+            6,
+            "Retos"
+        ],
+        "image": "https://res.cloudinary.com/dfddh08q8/image/upload/v1695578432/images/4_svg8uq.png",
+        "popups": [
+            [
+                {
+                    "color": "orange",
+                    "value": 2005
+                },
+                {
+                    "color": "black",
+                    "value": "Inicia sus clases de español en Buenos Aires"
+                }
+            ],
+            [
+                {
+                    "color": "orange",
+                    "value": 2008
+                },
+                {
+                    "color": "black",
+                    "value": "se muda de Buenos Aires a Córdoba"
+                }
+            ],
+            [
+                {
+                    "color": "orange",
+                    "value": 2020
+                },
+                {
+                    "color": "black",
+                    "value": "empieza a trabajar en una academia."
+                }
+            ],
+            [
+                {
+                    "color": "black",
+                    "value": "ACTUALIDAD"
+                }
+            ]
+        ],
+        "sentences": [
+            [
+                {
+                    "color": "black",
+                    "value": "Estudia español "
+                },
+                {
+                    "color": "orange",
+                    "value": "desde"
+                },
+                {
+                    "block": 11,
+                    "color": "black"
+                }
+            ],
+            [
+                {
+                    "color": "orange",
+                    "value": "Hace "
+                },
+                {
+                    "block": 11,
+                    "color": "black"
+                },
+                {
+                    "color": "black",
+                    "value": "años"
+                },
+                {
+                    "color": "orange",
+                    "value": " que "
+                },
+                {
+                    "color": "black",
+                    "value": "vive en Córdoba"
+                }
+            ]
+        ],
+        "paragraph1": "Ahora completa las frases hablando de ti.",
+        "sentences1": [
+            [
+                {
+                    "color": "black",
+                    "value": "Vivo en "
+                },
+                {
+                    "block": 11,
+                    "color": "black"
+                },
+                {
+                    "color": "orange",
+                    "value": " desde "
+                },
+                {
+                    "block": 11,
+                    "color": "black"
+                },
+                {
+                    "color": "black",
+                    "value": "."
+                }
+            ],
+            [
+                {
+                    "color": "black",
+                    "value": "Estudio español "
+                },
+                {
+                    "color": "orange",
+                    "value": " desde hace"
+                },
+                {
+                    "block": 11,
+                    "color": "black"
+                },
+                {
+                    "color": "black",
+                    "value": "."
+                }
+            ],
+            [],
+            [],
+            []
         ]
     }
 }

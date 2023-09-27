@@ -12,7 +12,7 @@ import {
 
   export const setshowClass = (show) => (dispatch)=>   {
     
-    console.log(show)
+   // console.log(show)
      dispatch(showClass(show))
   };
   
