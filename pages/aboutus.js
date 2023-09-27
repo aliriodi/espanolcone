@@ -75,6 +75,7 @@ function Aboutus() {
           width={600}
           height={300}
           src='https://res.cloudinary.com/dfddh08q8/image/upload/v1694366401/images/ellipse-70_s1vmal.png'
+          alt='curva a la izquierda'
           />
         </section>
         <Aprende />

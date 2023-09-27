@@ -58,6 +58,7 @@ export default function Aprende() {
                 height={300}
                 style={{filter:'drop-shadow( 0px 4px 43px #00000026)'}}
                 className=''
+                
               />
             </div>
 
@@ -84,6 +85,7 @@ export default function Aprende() {
           src={ellipse}
           width={600}
           height={600}
+          alt='ellipse'
           />
           
           {/* Ellipse Con Borde */}

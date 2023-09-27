@@ -88,6 +88,7 @@ export default function Home() {
                 width={121.85}
                 height={44.67} 
                 className='absolute top-[23px] z-20'
+                alt='montanas'
               />
 
               {/* Nube Tracera */}
