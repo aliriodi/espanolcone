@@ -227,7 +227,8 @@ function Navbar(props) {
                         height={17}
                         src={language2.image}
                         alt={language2.label}
-                        className={styles["select-languages_img"]} />
+                        className={styles["select-languages_img"]} 
+                        style={{ width: '108px',height:'auto' }}/>
 
                       {/* Label */}
                       <label style={{ marginLeft: "8px" }}>
@@ -297,7 +298,7 @@ function Navbar(props) {
                 height={17}
                 src={language?.image}
                 alt={language?.label}
-                className={styles["select-languages_img"]} />
+                className={styles["select-languages_img"]}/>
 
               {/* Label */}
               <label
@@ -322,7 +323,7 @@ function Navbar(props) {
                       height={17}
                       src={language2.image}
                       alt={language2.label}
-                      className={styles["select-languages_img"]} />
+                      className={styles["select-languages_img"]}/>
 
                     {/* Label */}
                     <label style={{ marginLeft: "8px" }}>
