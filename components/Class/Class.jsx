@@ -90,7 +90,7 @@ data.sheets[i].data.map((c, index)=>
     {c&&c.options?
     <ul>
     {c.options.map(option=>
-      <li>
+      <li key={option}>
         {option}
       </li>)}</ul>:null}
     
