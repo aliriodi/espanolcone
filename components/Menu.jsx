@@ -95,7 +95,7 @@ import {setshowClass} from '../redux/ECEActions';
 const Menu = () => {
     const dispatch = useDispatch();
     const [isOpen, setIsOpen] = useState(false);
-    console.log(useSelector((state) => state.datos).showClass)
+ //   console.log(useSelector((state) => state.datos).showClass)
     useSelector((state) => state.datos).showClass
     const [showClass, setShowClass] = useState(useSelector((state) => state.datos).showClass);
    

@@ -21,11 +21,11 @@ export default async function getAllClass(req, res) {
 
 
 
-    console.log('CREATING DOCUMENT');
+    console.log('TAKING CLASS');
 
     const class1 = await Class.find().exec();
 
-    console.log('CREATED DOCUMENT');
+    console.log('CLASS TAKEN');
 
     res.json({ class1 })
 
