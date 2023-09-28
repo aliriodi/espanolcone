@@ -46,7 +46,8 @@ export default function Four() {
 
       
       {/* Carrucel del Responsive */}
-      <section className='flex justify-center mt-[90px] mb-[250px] px-[20px] relative'>
+      <section className='justify-center mt-[90px] mb-[250px] px-[20px] relative hidden
+      md:flex'>
         <Swiper 
         slidesPerView={1}
         loop={true}
@@ -81,7 +82,7 @@ export default function Four() {
 
         
         {/* Bola Naranja */}
-        <span className='bg-warning h-[79px] w-[79px] absolute rounded-full left-[-50px] bottom-[-10%]'/>
+        <span className='bg-warning h-[79px] w-[79px] absolute rounded-full left-[-50px] bottom-[-20%]'/>
       </section>
     </>
 

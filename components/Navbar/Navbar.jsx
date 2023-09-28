@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 import styles from '../../styles/navbar.module.css';
 import { useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
 
 function Navbar(props) {
 
@@ -144,9 +144,13 @@ function Navbar(props) {
   // Detecta si se cliquea fuera del Menu 
   useEffect(() => {
     function handleClickOutsideResponsive(event) {
-      if (menuResponsive.current && !menuResponsive.current.contains(event.target)) {
+      if (menuResponsive.current &&
+          !menuResponsive.current.contains(event.target)&&
+          !menuLanguage.current.contains(event.target)) {
         setShowMenuResponsive(false)
-        console.log(showMenuResponsive)
+        console.log("ref ",menuLanguage.current)
+        console.log("contain ",menuLanguage.current.contains(event.target))
+        console.log("current ",event.target)
       }
     }
 
@@ -175,97 +179,98 @@ function Navbar(props) {
       {/* Nav Bar */}
       <nav className={`${styles["navbar"]} ${lightNavBar && styles["light"]}`}>
 
-        {/* Logo */}
-        <Link href='/'>
-          <Image
-            className={styles["navbar-logo"]}
-            width={'100'}
-            height={'100'}
-            src={lightNavBar ? "https://res.cloudinary.com/dfddh08q8/image/upload/v1694520319/images/logo-gradient_ssl8cl.png" : t("logo")} alt="Español con E" />
-        </Link>
+      {/* Logo */}
+      <Link href='/'>
+        <Image
+          className={styles["navbar-logo"]}
+          width={'100'}
+          height={'100'}
+          src={lightNavBar ? "https://res.cloudinary.com/dfddh08q8/image/upload/v1694520319/images/logo-gradient_ssl8cl.png" : t("logo")} alt="Español con E" />
+      </Link>
 
-        {/* Menu */}
-        <div className={`${styles["navbar-menu"]} ${showMenuResponsive && styles['active']}`}>
+      {/* Menu */}
+      <div className={`${styles["navbar-menu"]} ${showMenuResponsive && styles['active']}`}>
 
-          {/* Botones Baner */}
-          <ul
-          className={`${styles["navbar-btns"]}`}
-          style={{ minWidth: '610px' }}>
+        {/* Botones Baner */}
+        <ul
+        className={`${styles["navbar-btns"]}`}
+        style={{ minWidth: '610px' }}>
 
-            <li className={styles["select-languages"]} onClick={handleOnChangeLanguage} ref={!scrollNavBar ? menuLanguage : null}>
+          <li className={styles["select-languages"]} onClick={handleOnChangeLanguage} ref={scrollNavBar ? menuLanguage : null}>
 
-              <div className={styles["select-languages_button"]}>
-                {/* Icono */}
-                <Image
-                  src={language?.image}
-                  alt={language?.label}
-                  className={styles["select-languages_img"]} 
-                  width={25}
-                  height={17}
-                  />
+            <div className={styles["select-languages_button"]}>
+              {/* Icono */}
+              <Image
+                width={25}
+                height={17}
+                src={language?.image}
+                alt={language?.label}
+                className={styles["select-languages_img"]}/>
 
-                {/* Label */}
-                <label
-                  className={styles["select-languages_label"]}>
-                  {language?.label}
-                </label>
-              </div>
+              {/* Label */}
+              <label
+                className={styles["select-languages_label"]}>
+                {language?.label}
+              </label>
 
-              {/* Menu Desplegable */}
-              <ul className={`${styles['select-languages_menu']} ${showMenuLanguage && styles['active']}`}>
-                {
-                  languages2.length > 0 &&
-                  languages2.map((language2) => (
-                    <li
-                      onClick={() => handleOnChange(language2)}
-                      value={language2}
-                      className={styles["select-languages_languages"]}
-                      key={language2.value}>
-                      {/* Icono */}
-                      <Image
-                        width={25}
-                        height={17}
-                        src={language2.image}
-                        alt={language2.label}
-                        className={styles["select-languages_img"]} 
-                        style={{ width: '108px',height:'auto' }}/>
-
-                      {/* Label */}
-                      <label style={{ marginLeft: "8px" }}>
-                        {language2.label}
-                      </label>
-                    </li>
-                  )
-                  )
-                }
-              </ul>
-
-            </li>
-            <li>
-              <Link href={"/"}>{t('BEGIN')}</Link>
-            </li>
-            <li>
-              <Link href={"/aboutus"}>{t('ABOUTUS')}</Link>
-            </li>
-            <li>
-              <Link href={"#TEAM"}>{t('TEAM')}</Link>
-            </li>
-          </ul>
-
-          {/* Iniciar Secion */}
-          <Link className={styles['btn-signUp']} href='/login'>{t('SIGNIN')}</Link>
+              {/* Flecha del Responsive */}
+              <FontAwesomeIcon icon={showMenuLanguage? faCaretUp : faCaretDown} className={styles["select-languages_icon"]}/>
+            </div>
 
 
-        </div>
+            {/* Menu Desplegable */}
+            <ul className={`${styles['select-languages_menu']} ${showMenuLanguage && styles['active']}`}>
+              {
+                languages2.length > 0 &&
+                languages2.map((language2) => (
+                  <li
+                    onClick={() => handleOnChange(language2)}
+                    value={language2}
+                    className={styles["select-languages_languages"]}
+                    key={language2.value}>
+                    {/* Icono */}
+                    <Image
+                      width={25}
+                      height={17}
+                      src={language2.image}
+                      alt={language2.label}
+                      className={styles["select-languages_img"]}/>
 
-        {/* Boton de Menu */}
-        <button
-        className={`${styles["navbar-menu_btn"]}`}
-        onClick={handleOnChangeResponsive}
-        ref={!scrollNavBar ? menuResponsive : null}
-        >
-          <FontAwesomeIcon icon={faBars} />
-        </button>
+                    {/* Label */}
+                    <label style={{ marginLeft: "8px" }}>
+                      {language2.label}
+                    </label>
+                  </li>
+                )
+                )
+              }
+            </ul>
+
+          </li>
+          <li>
+            <Link href={"/"}>{t('BEGIN')}</Link>
+          </li>
+          <li>
+            <Link href={"/aboutus"}>{t('ABOUTUS')}</Link>
+          </li>
+          <li>
+            <Link href={"#TEAM"}>{t('TEAM')}</Link>
+          </li>
+        </ul>
+
+        {/* Iniciar Secion */}
+        <Link className={styles['btn-signUp']} href='/login'>{t('SIGNIN')}</Link>
+
+
+      </div>
+
+      {/* Boton de Menu */}
+      <button
+      className={`${styles["navbar-menu_btn"]}`}
+      onClick={handleOnChangeResponsive}
+      ref={scrollNavBar ? menuResponsive : null}>
+        <FontAwesomeIcon icon={faBars} />
+      </button>
 
       </nav>
 
@@ -305,6 +310,9 @@ function Navbar(props) {
                 className={styles["select-languages_label"]}>
                 {language?.label}
               </label>
+
+              {/* Flecha del Responsive */}
+              <FontAwesomeIcon icon={showMenuLanguage? faCaretUp : faCaretDown} className={styles["select-languages_icon"]}/>
             </div>
 
             {/* Menu Desplegable */}

@@ -24,10 +24,15 @@
 
   --white:#fff;
 
+  /* Gray */
   --gray: #D8D6DE;
   --gray_title:#6E6B7B;
   --gray_clear: #e1e0e6;
 
+  /* Light */
+  --light:#A4ACB9;
+  --light_transpatent:#A4ACB91F;
+  /* Dark */
   --dark: #3B3C3D;
   --dark_flat_hover:#3B3C3D1F;
 }
@@ -244,12 +249,35 @@ h3{
   background-color: var(--primary)!important; /* Cambia el color aquí a tu preferencia */
 }
 
+@media (max-width: 768px) {
+
+  /* Titulos */
+  .underlined-title{
+    font-size: 30px;
+    line-height: 36.57px;
+  }
+
+  /* Subtitulos */
+  .subtitle{
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 31.69px;
+  }
+
+  .underlined-subtitle{
+    font-size: 26px;
+    line-height: 31.69px;
+  }
+
+  /* Texto */
+  .text-header{
+    font-size: 16px;
+    line-height: 19.5px;
+  }
+}
 
 @media (max-width: 1050px) {
-  .subtitle{
-    color: #323030;
-    font-weight: 500;
-  }
+  
 }
 /* :root {
   --max-width: 1100px;

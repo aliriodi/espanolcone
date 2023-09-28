@@ -32,7 +32,7 @@ function Aboutus() {
 
       <Layout className='bg-white relative overflow-x-hidden'>
         <Navbar light={true}/>
-        <section className='flex items-center justify-center flex-col bg-white px-[170px] min-h-screen py-[187px]
+        <section className='flex items-center justify-center flex-col bg-white px-[170px] min-h-screen py-[187px] relative
         md:px-[20px]'>
           
           {/* Titulo */}
@@ -59,7 +59,8 @@ function Aboutus() {
             </div>
 
             {/* Imagen */}
-            <div className="w-1/2 flex items-center justify-center ml-[25px]">
+            <div className="w-1/2 flex items-center justify-center ml-[25px]
+            md:w-auto md:ml-0 md:mt-[48px]">
               <Image
                 src="https://res.cloudinary.com/dfddh08q8/image/upload/v1694366361/images/about_hzdyib.png"
                 alt="Teléfono"
@@ -74,7 +75,8 @@ function Aboutus() {
 
           {/* Ellipse */}
           <Image
-          className='absolute z-0 right-0 w-[33vw] h-[80vh]'
+          className='absolute z-0 right-0 w-[33vw] h-[80vh]
+          md:w-1/2 md:bottom-20 md:h-auto'
           width={600}
           height={300}
           src='https://res.cloudinary.com/dfddh08q8/image/upload/v1694366401/images/ellipse-70_s1vmal.png'
@@ -91,13 +93,14 @@ function Aboutus() {
         
         {/* Ellipse Naranja */}
         <span
-        className='rounded-full h-[157px] w-[157px] z-20 absolute right-[-75px] bottom-[703px] border-warning'
+        className='rounded-full h-[157px] w-[157px] z-20 absolute right-[-75px] bottom-[803px] border-warning'
         style={{border: '27px solid #ff7438'}}></span>
 
         
         {/* Ellipse Verde */}
         <span
-        className='rounded-full h-[70px] w-[70px] z-20 absolute bottom-[746px] bg-secondary left-[15%]'></span>
+        className='rounded-full h-[70px] w-[70px] z-20 absolute bottom-[746px] bg-secondary left-[15%]
+        md:hidden'></span>
       </Layout>
     </>
   )

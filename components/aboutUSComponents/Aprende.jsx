@@ -34,21 +34,27 @@ export default function Aprende() {
       </div>
     </div> */}
     
-    <section className='flex items-center justify-center flex-col bg-white px-[170px] min-h-screen  relative'>
+    <section className='flex items-center justify-center flex-col bg-white px-[170px] min-h-screen  relative
+    md:p-[20px]'>
       
-          <div className="flex items-center justify-center z-10">
+          <div className="flex items-center justify-center z-10
+          md:flex-col-reverse">
 
             {/* Imagen */}
-            <div className="w-1/2 flex items-center justify-center mr-[25px] relative">
+            <div className="w-1/2 flex items-center justify-center mr-[25px] relative
+            md:w-full md:mr-0">
               
               {/* Ellipse 1 */}
-              <span className='rounded-full h-[30px] w-[30px] bg-success z-20 absolute top-[50px] left-[50px]'></span>
+              <span className='rounded-full h-[30px] w-[30px] bg-success z-20 absolute top-[50px] left-[50px]
+              md:w-[17.31px] md:h-[17.31px] md:top-[25px] md:left-[25px]'></span>
 
               {/* Ellipse 2 */}
-              <span className='rounded-full h-[41px] w-[41px] bg-secondary z-20 absolute top-[50%] right-0'></span>
+              <span className='rounded-full h-[41px] w-[41px] bg-secondary z-20 absolute top-[50%] right-0
+              md:w-[24.47px] md:h-[24.47px]'></span>
 
               {/* Ellipse 3 */}
-              <span className='rounded-full h-[17px] w-[17px] bg-warning z-20 absolute bottom-[50px]'></span>
+              <span className='rounded-full h-[17px] w-[17px] bg-warning z-20 absolute bottom-[50px]
+              md:w-[10.15px] md:h-[10.15px] md:bottom-0'></span>
 
               {/* Imagen */}
               <Image
@@ -63,7 +69,8 @@ export default function Aprende() {
             </div>
 
             {/* Contenido */}
-            <div className="w-[532px] flex flex-col ml-[25px]" >
+            <div className="w-[532px] flex flex-col ml-[25px]
+            md:w-full" >
 
               {/* Subtitulo */}
               <h2 className='subtitle'>{t("card2.title1")}</h2>
@@ -90,8 +97,16 @@ export default function Aprende() {
           
           {/* Ellipse Con Borde */}
           <span
-          className='rounded-full h-[149px] w-[149px] z-20 absolute left-[-75px] bottom-[50%] border-warning'
+          className='rounded-full h-[149px] w-[149px] z-20 absolute left-[-75px] bottom-[50%] border-warning
+          md:hidden'
           style={{border: '27px solid #ff7438'}}></span>
+
+          
+          {/* Ellipse Responsive */}
+          <span
+          className='hidden rounded-full z-20 absolute w-[26px] h-[26px] left-[-13px] bottom-[27%] border-none bg-warning
+          md:block'
+          ></span>
 
         </section>
     </>

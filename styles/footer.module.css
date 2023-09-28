@@ -121,7 +121,7 @@
 
 @media (max-width: 1050px) {
     .footer-welcome:before{
-        transform: scaleX(2);
+        transform: scaleX(3);
     }
 
     .footer-welcome_item .logo{

@@ -97,6 +97,11 @@
   color: var(--white);
 }
 
+.select-languages_icon{
+  width: 15px;
+  margin-left: 15px;
+  display: none;
+}
 
 /* Boton de Registro */
 .btn-signUp{
@@ -134,7 +139,9 @@
 .navbar.light .navbar-menu_btn{
   color: var(--primary);
 }
-
+.navbar.light  .select-languages_icon{
+  color: #262626;
+}
 /* Boton de Registro con Gradiente */
 .navbar.light  .btn-signUp{
   /* margin-left: 2em; */
@@ -212,18 +219,28 @@
     flex-direction: column;
     height: auto;
     transition: 5s;
-    
-    /* Temporalmente */
-    display: none;
   }
-
   .select-languages_menu{
     opacity: 1;
+    box-shadow: none;
     height: 0;
     position: static;
+    transition: 3s;
   }  
   .select-languages_menu.active{
     height: auto;
+  }
+  .select-languages_icon{
+    display: block;
+  }
+  
+  /* Selector de Idiomas Light */
+  .navbar.light .select-languages_menu{
+    background-color: var(--primary);
+  }
+  
+  .navbar.light .select-languages_menu li{
+    color: var(--white);
   }
 
   /* Boton de Registro */
