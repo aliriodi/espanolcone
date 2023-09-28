@@ -8,7 +8,7 @@ import Class from '../../../models/Class'
 //  * @param {import('next').NextApiResponse}  res 
 //  */
 
-
+//prueba
 export default async function getAllClass(req, res) {
 
   try {
@@ -19,16 +19,16 @@ export default async function getAllClass(req, res) {
     await dbConnect()
 
     console.log('CONNECTED TO MONGO DB');
-    
+
     //console.log(req.query)
 
     console.log('CREATING DOCUMENT');
     const class1 = await Class.findOne({ name: req.query.name }).exec();
-    
+
     //console.log(users.password)
     console.log('CREATED DOCUMENT');
-       res.json({ class1 })
-      } catch (error) {
+    res.json({ class1 })
+  } catch (error) {
     console.log(error);
     res.json({ error })
   }
