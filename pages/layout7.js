@@ -1,6 +1,7 @@
 import React from 'react';
 
-const VideoComponent = () => {
+export default function layout7() {
+
   return (
     <div className="h-screen w-full flex flex-col justify-center items-center">
       <div className="h-[20%] w-full bg-white flex items-center justify-center">
@@ -12,13 +13,10 @@ const VideoComponent = () => {
           height="720" // Altura del video aumentada
           src="https://www.youtube.com/embed/dQw4w9WgXcQ"
           title="Dummy Video"
-          frameBorder="0"
           allowFullScreen
         ></iframe>
       </div>
     </div>
   );
 };
-
-export default VideoComponent;
 

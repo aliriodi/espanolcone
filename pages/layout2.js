@@ -3,8 +3,8 @@ import React from 'react';
 import morado1 from '../public/imgs/morado1.png';
 import blanco1 from '../public/imgs/blanco1.png';
 
+export default function layout2() {
 
-const RectangleComponent = () => {
   return (
     <div className="h-screen w-full flex flex-col justify-center items-center">
       <div className="h-[35%] w-full bg-primary flex items-start justify-between z-10">
@@ -19,4 +19,3 @@ const RectangleComponent = () => {
   );
 };
 
-export default RectangleComponent;
