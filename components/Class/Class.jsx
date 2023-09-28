@@ -69,7 +69,7 @@ const a=  {
   return (
     <div>Class
      
-<h1>Esto es traido de Mongodb</h1>
+<h1>Esto es traido de la Base de Datos</h1>
 <div><button style={{'background-color': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={()=>Back(i)}> Back </button>
      <span style={{'margin-left': '16px'}}>{i+1}/{length}</span> 
      <button style={{'margin-left': '16px','background-color': '#4CCFEB','border': '4px solid #007bff'}} onClick={()=>Forward(i)}>Forward</button>
@@ -82,11 +82,12 @@ data&&data.sheets[i].data?
 data.sheets[i].data.map((c, index)=> 
   
   <div key={index}  >
-  
-  <p dangerouslySetInnerHTML={{ __html: c.value }}>
+  {/* PARA RENDERIZAR MEJOR  */}
+ 
+  <p dangerouslySetInnerHTML={{ __html: c.value }}></p>
  
 
-    </p>
+  
     {c&&c.options?
     <ul>
     {c.options.map(option=>
@@ -97,7 +98,7 @@ data.sheets[i].data.map((c, index)=>
    </div>  ):<h2>aun cargando datos</h2>
 }
 
-<div style={{'padding':'20px'}}></div>
+{/* <div style={{'padding':'20px'}}></div>
  <h1>Esto es React escrito</h1>
       <p>Estas personas viven en Córdoba por diferentes motivos. Lee los textos y decide cuál de ellos vive mejor.</p>
       <p>
@@ -117,7 +118,7 @@ data.sheets[i].data.map((c, index)=>
   )}
 
 {
-console.log(data)}
+console.log(data)} */}
     </div>
   )
 }
