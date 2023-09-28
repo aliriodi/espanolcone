@@ -32,15 +32,18 @@ function Aboutus() {
 
       <Layout className='bg-white relative overflow-x-hidden'>
         <Navbar light={true}/>
-        <section className='flex items-center justify-center flex-col bg-white px-[170px] min-h-screen py-[187px] '>
+        <section className='flex items-center justify-center flex-col bg-white px-[170px] min-h-screen py-[187px]
+        md:px-[20px]'>
           
           {/* Titulo */}
           <h1 className='underlined-title mb-[111px] z-10'> {t("aboutus")}</h1>
 
-          <div className="flex items-center justify-center z-10">
+          <div className="flex items-center justify-center z-10
+          md:flex-col">
 
             {/* Contenido */}
-            <div className="w-[532px] flex flex-col mr-[25px]" >
+            <div className="w-[532px] flex flex-col mr-[25px]
+            md:w-auto md:m-0" >
 
               {/* Subtitulo */}
               <h2 className='subtitle'>{t("card1.title1")}</h2>

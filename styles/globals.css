@@ -80,6 +80,7 @@ h3{
 .underlined-title{
   text-align: center;
   display: flex;
+  line-height: 55.62px;
   justify-content: center;
   align-items: center;
   font-size: 45.62px;
@@ -96,7 +97,7 @@ h3{
 
 /* Subtitulos */
 .subtitle{
-  text-align: center;
+  /* text-align: center; */
   color: #505050;
   font-weight: 600;
   font-size: 40px;
@@ -243,6 +244,13 @@ h3{
   background-color: var(--primary)!important; /* Cambia el color aquí a tu preferencia */
 }
 
+
+@media (max-width: 1050px) {
+  .subtitle{
+    color: #323030;
+    font-weight: 500;
+  }
+}
 /* :root {
   --max-width: 1100px;
   --border-radius: 12px;
