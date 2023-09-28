@@ -1,4 +1,6 @@
-import React ,  { useEffect, useState }from 'react'
+import React ,  { useEffect, useState ,useRef}from 'react';
+import Image from 'next/image';
+import YouTube from 'react-youtube';
 
 export default function Class(props) {
   const [data, setData] = useState(null);
@@ -7,7 +9,17 @@ export default function Class(props) {
   const [i, setI] = useState(0);
   const [length,setL]= useState(1);
   
-  
+    // Opciones de Youtube
+    const iframeRef = useRef(null);
+    const opts = { 
+      playerVars: {
+        rel: 0, // Evitar videos relacionados al final
+        autoplay: 0, // Desactivar la reproducción automática
+        modestbranding: 1, // Ocultar el logotipo de YouTube
+        fs:0, // Oculto el boton de maximizar video fs FullScreen
+        color: "#000"
+    }
+  }
   // Fetch data when the component mounts
   useEffect(() => {
     fetch('/api/class/get')
@@ -83,7 +95,17 @@ data.sheets[i].data.map((c, index)=>
   
   <div key={index}  >
   {/* PARA RENDERIZAR MEJOR  */}
- 
+  {c.type==='level'? <p dangerouslySetInnerHTML={{ __html: c.value }}></p>:null}
+  {c.type==='image'? <Image width='100' height='100' src={c.value} alt={c.alt}/>:null}
+  {c.type==='title'? <p dangerouslySetInnerHTML={{ __html: c.value }}></p>:null}
+  {c.type==='video-youtube'? <YouTube
+              ref={iframeRef}
+              opts={opts}
+              videoId={c.value}        
+            //  onReady={handlePlayerReady}
+           //   onStateChange={handlePlayerStateChange}
+             // className='youtube'
+            />:null}
   <p dangerouslySetInnerHTML={{ __html: c.value }}></p>
  
 

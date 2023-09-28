@@ -871,7 +871,7 @@
         "type": "complete",
         "section": [
             7,
-            "Actividades interactivas"
+            "Test"
         ],
         "template": "template1",
         "data": [
@@ -964,5 +964,185 @@
                 "className": "className"
             }
         ]
-    }
+    },
+    "page18": {
+        "type": "complete",
+        "template": "template1",
+        "section": [
+            7,
+            "Test"
+        ],
+        "data": [
+            {
+                "type": "title",
+                "value": "Completa los espacios en blanco con el verbo conjugado en presente",
+                "className": "className"
+            },
+           
+            {
+                "type": "complete-li",
+                "value": [
+                    "<span style='color:#4CCFEB;'> 1.</span>Yo siempre me",
+                    {
+                        "block": 7,
+                        "color": "orange",
+                        "option": "caigo"
+                    },
+                    "cuando uso tacones altos. (caer)"
+                ]
+            },
+            {
+                "type": "complete-li",
+                "value": [
+                    "<span style='color:#4CCFEB;'> 2.</span> Yo",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "conduzco"
+                    },
+                    "mi auto para recorrer Córdoba. (conducir)                    "
+                ]
+            },
+            {
+                "type": "complete-li",
+                "value": [
+                    "<span style='color:#4CCFEB;'> 3.</span> Yo no",
+                    {
+                        "block": 12,
+                        "color": "orange",
+                        "option": "conozco"
+                    },
+                    "a nadie en este país. (conocer)"
+                ],
+                "className": "className"
+            },
+            {
+                "type": "complete-li",
+                "value": [
+                    "<span style='color:#4CCFEB;'> 4.</span> Yo ",
+                    {
+                        "block": 6,
+                        "color": "orange",
+                        "option": "hago"
+                    },
+                    "mi desayuno todas las mañanas. (hacer)"
+                ],
+                "className": "className"
+            },
+            {
+                "type": "complete-li",
+                "value": [
+                    "<span style='color:#4CCFEB;'> 5.</span> Yo no me ",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "parezco"
+                    },
+                    "nada a mis padres. (parecer)"
+                ],
+                "className": "className"
+            }
+        ]
+    },
+    "page19": {
+        "type": "complete",
+        "template": "template1",
+        "section": [
+            7,
+            "Test"
+        ],
+        "data": [
+            {
+                "type": "title",
+                "value": "Completa los espacios en blanco con el verbo conjugado en presente",
+                "className": "className"
+            },
+           
+            {
+                "type": "complete-li",
+                "value": [
+                    "<span style='color:#4CCFEB;'> 6.</span>Yo ",
+                    {
+                        "block": 7,
+                        "color": "orange",
+                        "option": "pongo"
+                    },
+                    "todas mis cosas en el escritorio. (poner)"
+                ]
+            },
+            {
+                "type": "complete-li",
+                "value": [
+                    "<span style='color:#4CCFEB;'> 7.</span> Los viernes yo",
+                    {
+                        "block": 7,
+                        "color": "orange",
+                        "option": "salgo"
+                    },
+                    "con mis amigos al boliche. (salir)"
+                ]
+            },
+            {
+                "type": "complete-li",
+                "value": [
+                    "<span style='color:#4CCFEB;'> 8.</span> Yo ",
+                    {
+                        "block": 8,
+                        "color": "orange",
+                        "option": "traigo"
+                    },
+                    "el pastel. (traer)"
+                ],
+                "className": "className"
+            },
+            {
+                "type": "complete-li",
+                "value": [
+                    "<span style='color:#4CCFEB;'> 9.</span> Yo ",
+                    {
+                        "block": 9,
+                        "color": "orange",
+                        "option": "recaigo"
+                    },
+                    "en el mal hábito de fumar. (recaer)"
+                ],
+                "className": "className"
+            },
+            {
+                "type": "complete-li",
+                "value": [
+                    "<span style='color:#4CCFEB;'> 10.</span> Yo ",
+                    {
+                        "block": 13,
+                        "color": "orange",
+                        "option": "sobresalgo"
+                    },
+                    "siempre en las clases. (sobresalir)"
+                ],
+                "className": "className"
+            }
+        ]
+    },
+
+    "page20": {
+        "type": "text",
+        "section": [
+            0,
+            "Portada"
+        ],
+        "template": "template0",
+        "data": [
+                        {
+                "type": "title",
+                "value": "NOS VEMOS EN LA PRÓXIMA CLASE",
+                "className": "className"
+            },
+            {
+                "type": "title",
+                "value": "¡Gracias por tu atención!",
+                "className": "className"
+            }
+        ]
+  
+}
 }
