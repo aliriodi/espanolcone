@@ -18,19 +18,19 @@ export default function layout3() {
       <div className="w-[80%] h-full bg-white absolute top-0 right-0 flex flex-col items-center"></div>
       <div className="w-[20%] h-full bg-primary absolute top-0 left-0 ">
         <div className='w-full h-full top-0 right-0 flex flex-col items-center '>
-          <div className='text-black text-3xl font-bold pt-[200px] pb-[50px] px-3'>hola 1</div>
+          <div className='text-black text-3xl font-bold pt-[200px] pb-[50px] px-3'>Lorem ipsum dolor sit amet,</div>
           <div className='text-white text-3xl font-bold py-12 px-3'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
         </div>
       </div>
 
-      <div className="  absolute top-0 right-0 flex flex-col items-center justify-between px-8">
+      <div className="  absolute top-0 right-0 flex flex-col  justify-between px-8 mt-[100px]">
         <div className=" mx-[400px] mt-8 mb-5 text-2xl font-bold ">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius, velit eu accumsan ullamcorper, elit quam vehicula orci, sed vulputate urna erat eu ante. nec finibus risus felis ut arcu. Vivamus non nulla in nulla feugiat vestibulum. Nunc nec dui ac justo convallis posuere.
         </div>
         <div className="mx-[400px] text-2xl font-bold mb-5">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius, velit eu accumsan ullamcorper, elit quam vehicula orci, sed vulputate urna erat eu ante. Nullam non metus vel sapien vestibulum consequat. Fusce nec tincidunt lectus, nec ullamcorper neque. Nulla facilisi. Sed eget dui vel elit egestas bibendum id vel neque. Cras rhoncus, tortor nec auctor laoreet, turpis quam dignissim ante, nec finibus risus felis ut arcu. Vivamus non nulla in nulla feugiat vestibulum. Nunc nec dui ac justo convallis posuere.
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center mt-[80px]">
           <Image alt="sr" src={dummysr} />
           <div className="mt-1 font-bold text-lg">titulo imagen</div>
           <div className="mt-1 text-sm">texto imagen</div>
