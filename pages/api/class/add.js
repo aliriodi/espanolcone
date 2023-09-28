@@ -20,7 +20,7 @@ export default async function addClass(req, res) {
     console.log('CONNECTED TO MONGO DB');
 
     console.log('CREATING DOCUMENT');
-    console.log(req.body)
+   // console.log(req.body)
     const class1 = await Class.create(req.body)
 
     console.log('CREATED DOCUMENT', class1);

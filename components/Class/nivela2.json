@@ -10,7 +10,7 @@
             {
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366262/images/logo-primary_qoagkg.png",
-                "alt":"EspañolconE",
+                "alt": "EspañolconE",
                 "className": "className"
             },
             {
@@ -33,15 +33,15 @@
         ],
         "template": "template1",
         "data": [
-                       {
+            {
                 "type": "title",
                 "value": "¿Qué voy a aprender en esta unidad?",
                 "className": "className"
             },
             {
-                "type": "video-youtuve",
+                "type": "video-youtube",
                 "value": "Vphr9AAcGCI",
-                "youtuve":"https://youtu.be/Vphr9AAcGCI",
+                "youtuve": "https://youtu.be/Vphr9AAcGCI",
                 "className": "className"
             }
         ]
@@ -53,35 +53,43 @@
             "Elemento disparador / Tema"
         ],
         "template": "template2",
-        "data":[
-            {"type":"title",
-             "value":"Texto número 1:",
-            "className":"className"},
-            {"type":"title",
-            "value":"Los nuevos cordobeses",
-            "className":"className"},
-            {"type":"paragraph",
-            "value":"Estas personas viven en Córdoba por diferentes motivos. Lee los textos y enfoca tu atención en las palabras resaltadas en color <span style= 'color: orange;' >naranja. </span>",
-            "className":"className"
-            },
-            {"type":"paragraph",
-            "value":"Él  <span style= 'color: orange;' >se llama</span> David, <span style= 'color: orange;' >es</span> estadounidense, hace más de 10 años que vive en Córdoba, <span style= 'color: orange;' >se siente</span> muy bien viviendo allí y no <span style= 'color: orange;' >piensa</span> volver a su país. “<span style=' textDecoration: underline;'>Me gusta</span> la vida aquí:  la gente, la comida, el clima, el mate …”. <span style= 'color: orange;' >Es</span> el director de una academia de idiomas y <span style= 'color: orange;' >trabaja</span> muchas horas al día. Los fines de semana <span style= 'color: orange;' >conduce</span> su auto para visitar diferentes partes de Córdoba, le gusta recorrer la provincia. <span style= 'color: orange;' >Está</span> casado con una cordobesa, así que  <span style= 'color: orange;' >domina</span> bastante bien el español porque <span style= 'color: orange;' >habla</span> español en casa. Sin embargo, David dice: “<span style= 'color: orange;' >reconozco</span> que aún <span style= 'color: orange;' >tengo</span> problemas con la lengua. Mi principal problema <span style= 'color: orange;' >es</span> que después de 10 años, todavía <span style= 'color: orange;' >confundo</span> los tiempos del pasado”",
-            "className":"className"
-            },
-            {"type":"image",
-             "value":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694535859/images/davidpic_ob5ukd.png",
-            "alt":"David Brown"},
-            {"type":"text",
-             "value":"David Brown",
-            "className":"className"},
+        "data": [
             {
-                "type":"text",
-                "value":"Estadounidense",
-                "className":"className"
+                "type": "title",
+                "value": "Texto número 1:",
+                "className": "className"
+            },
+            {
+                "type": "title",
+                "value": "Los nuevos cordobeses",
+                "className": "className"
+            },
+            {
+                "type": "paragraph",
+                "value": "Estas personas viven en Córdoba por diferentes motivos. Lee los textos y enfoca tu atención en las palabras resaltadas en color <span style= 'color: orange;' >naranja. </span>",
+                "className": "className"
+            },
+            {
+                "type": "paragraph",
+                "value": "Él  <span style= 'color: orange;' >se llama</span> David, <span style= 'color: orange;' >es</span> estadounidense, hace más de 10 años que vive en Córdoba, <span style= 'color: orange;' >se siente</span> muy bien viviendo allí y no <span style= 'color: orange;' >piensa</span> volver a su país. “<span style=' textDecoration: underline;'>Me gusta</span> la vida aquí:  la gente, la comida, el clima, el mate …”. <span style= 'color: orange;' >Es</span> el director de una academia de idiomas y <span style= 'color: orange;' >trabaja</span> muchas horas al día. Los fines de semana <span style= 'color: orange;' >conduce</span> su auto para visitar diferentes partes de Córdoba, le gusta recorrer la provincia. <span style= 'color: orange;' >Está</span> casado con una cordobesa, así que  <span style= 'color: orange;' >domina</span> bastante bien el español porque <span style= 'color: orange;' >habla</span> español en casa. Sin embargo, David dice: “<span style= 'color: orange;' >reconozco</span> que aún <span style= 'color: orange;' >tengo</span> problemas con la lengua. Mi principal problema <span style= 'color: orange;' >es</span> que después de 10 años, todavía <span style= 'color: orange;' >confundo</span> los tiempos del pasado”",
+                "className": "className"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694535859/images/davidpic_ob5ukd.png",
+                "alt": "David Brown"
+            },
+            {
+                "type": "text",
+                "value": "David Brown",
+                "className": "className"
+            },
+            {
+                "type": "text",
+                "value": "Estadounidense",
+                "className": "className"
             }
-
-        ]                
-        
+        ]
     },
     "page4": {
         "type": "text",
@@ -89,44 +97,45 @@
             2,
             "Elemento disparador / Tema"
         ],
-        "template":"template2",
-        "data":[{
-            "type":"title",
-            "value":"Texto número 2:",
-            "className":"className"
-        },
-        {
-            "type":"title",
-            "value":"Los nuevos cordobeses",
-            "className":"className"
-        },
-        {
-            "type":"paragraph",
-            "value":"Estas personas viven en Córdoba por diferentes motivos. Lee los textos y decide cuál de ellos vive mejor.",
-            "className":"className"
-        },
-        {
-            "type":"paragraph",
-            "value":"Ella <span style= 'color: orange;' >se llama</span> Bruna, <span style= 'color: orange;' >es</span> brasileña, <span style= 'color: orange;' >tiene </span> 27 años y hace tres que vive en Córdoba Capital. <span style= 'color: orange;' >Es</span> estudiante, <span style= 'color: orange;' >estudia</span> medicina en la Universidad Nacional de Córdoba (UNC) por las tardes y <span style= 'color: orange;' >tiene</span> las mañanas libres. Normalmente <span style= 'color: orange;' >se levanta</span> temprano, <span style= 'color: orange;' >se baña</span>, <span style= 'color: orange;' >se viste</span>, <span style= 'color: orange;' >se maquilla</span> y <span style= 'color: orange;' >desayuna</span> en una cafetería. “<span style= 'color: orange;' >Salgo</span> todas las mañanas, <span style= 'color: orange;' >voy</span> a la universidad para estudiar en la biblioteca, y por las noches <span style= 'color: orange;' >tomo</span> clases de español, <span style= 'color: orange;' >veo</span> televisión y <span style= 'color: orange;' >leo</span>”. Todavía no <span style= 'color: orange;' >entiende</span> perfectamente el  español, <span style= 'color: orange;' >le cuesta</span> bastante la pronunciación pero le gusta hablar y compartir con los nativos. <span style= 'color: orange;' >Se siente</span> feliz en Córdoba, no <span style= 'color: orange;' >quiere</span> volver a Brasil, por ahora.",
-            "className":"className"
-        },
-        {
-            "type":"image",
-            "value":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694765455/images/bruna_kb7jcg.jpg",
-            "alt":"Bruna Da Silva",
-            "className":"className"
-        },
-        {
-            "type":"text",
-            "value":"Bruna Da Silva",
-            "className":"className"
-        },
-        {
-            "type":"text",
-            "value":"Brasileña",
-            "className":"className"
-        }
-    ]
+        "template": "template2",
+        "data": [
+            {
+                "type": "title",
+                "value": "Texto número 2:",
+                "className": "className"
+            },
+            {
+                "type": "title",
+                "value": "Los nuevos cordobeses",
+                "className": "className"
+            },
+            {
+                "type": "paragraph",
+                "value": "Estas personas viven en Córdoba por diferentes motivos. Lee los textos y decide cuál de ellos vive mejor.",
+                "className": "className"
+            },
+            {
+                "type": "paragraph",
+                "value": "Ella <span style= 'color: orange;' >se llama</span> Bruna, <span style= 'color: orange;' >es</span> brasileña, <span style= 'color: orange;' >tiene </span> 27 años y hace tres que vive en Córdoba Capital. <span style= 'color: orange;' >Es</span> estudiante, <span style= 'color: orange;' >estudia</span> medicina en la Universidad Nacional de Córdoba (UNC) por las tardes y <span style= 'color: orange;' >tiene</span> las mañanas libres. Normalmente <span style= 'color: orange;' >se levanta</span> temprano, <span style= 'color: orange;' >se baña</span>, <span style= 'color: orange;' >se viste</span>, <span style= 'color: orange;' >se maquilla</span> y <span style= 'color: orange;' >desayuna</span> en una cafetería. “<span style= 'color: orange;' >Salgo</span> todas las mañanas, <span style= 'color: orange;' >voy</span> a la universidad para estudiar en la biblioteca, y por las noches <span style= 'color: orange;' >tomo</span> clases de español, <span style= 'color: orange;' >veo</span> televisión y <span style= 'color: orange;' >leo</span>”. Todavía no <span style= 'color: orange;' >entiende</span> perfectamente el  español, <span style= 'color: orange;' >le cuesta</span> bastante la pronunciación pero le gusta hablar y compartir con los nativos. <span style= 'color: orange;' >Se siente</span> feliz en Córdoba, no <span style= 'color: orange;' >quiere</span> volver a Brasil, por ahora.",
+                "className": "className"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694765455/images/bruna_kb7jcg.jpg",
+                "alt": "Bruna Da Silva",
+                "className": "className"
+            },
+            {
+                "type": "text",
+                "value": "Bruna Da Silva",
+                "className": "className"
+            },
+            {
+                "type": "text",
+                "value": "Brasileña",
+                "className": "className"
+            }
+        ]
     },
     "page5": {
         "type": "boxmove",
@@ -134,98 +143,139 @@
             3,
             "Actividades PDF"
         ],
-        "template":"template1",
+        "template": "template1",
         "title": "Actividad",
-        "data":[
-            {"type":"paragraph",
-              "value": "Los verbos resaltados en los textos están en presente.",
-             "className":"className"},
-             {"type":"paragraph",
-              "value":"<span style= 'color: orange;'>¿Sabes cuál es su infinitivo? </span>",
-             "className":"className"},
-             {"type":"paragraph",
-              "value":"A continuación, te mostramos algunos verbos usados en los textos y opciones para seleccionar su forma infinitiva correcta. Arrastra el verbo correcto.",
-             "className":"className"},
-             {"type":"sentence-box",
-              "value":"David <span style= 'color: orange;'>trabaja</span> muchas horas al día. _________________",
-              "option": "trabajar",
-             "className":"className"},
-             {"type":"sentence-box",
-             "value":"No <span style= 'color: orange;'>piensa</span> volver a su país. ________________",
-             "option":"pensar",
-            "className":"className"},
-             {"type":"sentence-box",
-              "value":"<span style= 'color: orange;'>Reconozco</span> que aún tengo problemas con la lengua. _____________________",
-              "option":"reconocer",
-             "className":"className"},
-             {"type":"sentence-box",
-              "value":"Bruna <span style= 'color: orange;'>estudia</span> medicina en la UNC. __________________",
-              "option":"estudiar",
-             "className":"className"},
-             {"type":"sentence-box",
-             "value":"Todavía no <span style= 'color: orange;'>entiende</span> perfectamente el  español. __________________",
-             "option":"entender",
-            "className":"className"},
-            {"type":"sentence-box",
-             "value":"no <span style= 'color: orange;'>Le cuesta</span> bastante la pronunciación. ______________________",
-             "option":"costar",
-            "className":"className"},
-            {"type":"options-box",
-            "value":["pensar","costar","trabajar","entender","reconocer","estudiar"],
-            "className":"className"}
-              ]       
+        "data": [
+            {
+                "type": "paragraph",
+                "value": "Los verbos resaltados en los textos están en presente.",
+                "className": "className"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style= 'color: orange;'>¿Sabes cuál es su infinitivo? </span>",
+                "className": "className"
+            },
+            {
+                "type": "paragraph",
+                "value": "A continuación, te mostramos algunos verbos usados en los textos y opciones para seleccionar su forma infinitiva correcta. Arrastra el verbo correcto.",
+                "className": "className"
+            },
+            {
+                "type": "sentence-box",
+                "value": "David <span style= 'color: orange;'>trabaja</span> muchas horas al día. _________________",
+                "option": "trabajar",
+                "className": "className"
+            },
+            {
+                "type": "sentence-box",
+                "value": "No <span style= 'color: orange;'>piensa</span> volver a su país. ________________",
+                "option": "pensar",
+                "className": "className"
+            },
+            {
+                "type": "sentence-box",
+                "value": "<span style= 'color: orange;'>Reconozco</span> que aún tengo problemas con la lengua. _____________________",
+                "option": "reconocer",
+                "className": "className"
+            },
+            {
+                "type": "sentence-box",
+                "value": "Bruna <span style= 'color: orange;'>estudia</span> medicina en la UNC. __________________",
+                "option": "estudiar",
+                "className": "className"
+            },
+            {
+                "type": "sentence-box",
+                "value": "Todavía no <span style= 'color: orange;'>entiende</span> perfectamente el  español. __________________",
+                "option": "entender",
+                "className": "className"
+            },
+            {
+                "type": "sentence-box",
+                "value": "no <span style= 'color: orange;'>Le cuesta</span> bastante la pronunciación. ______________________",
+                "option": "costar",
+                "className": "className"
+            },
+            {
+                "type": "options-box",
+                "value": [
+                    "pensar",
+                    "costar",
+                    "trabajar",
+                    "entender",
+                    "reconocer",
+                    "estudiar"
+                ],
+                "className": "className"
+            }
+        ]
     },
-
     "page6": {
         "type": "selectsimple",
         "section": [
             3,
             "Actividades PDF"
         ],
-        "template":"template1",
-        "data":[
-            {"type":"title",
-             "value":"Actividad",
-            "className":"className"},
-            {"type":"paragraph",
-             "value":"A David y a Bruna <span style='text-decoration: underline;'> les gusta</span> mucho Córdoba.",
-            "className":"className"},
-            {"type":"paragraph",
-             "value":"¿Cuál de estas frases corresponde a Bruna y cuál corresponde a David?",
-            "className":"className"},
-            {"type":"selectsimple",
-             "value":"1.\"Me gusta la vida aquí:  la gente, la comida, el clima, el mate …\"",
-             "option":"David",
-             "options":["Bruna","David"],
-            "className":"className"},
-            {"type":"selectsimple",
-            "value":"2. Le gusta hablar y compartir con los nativos.",
-            "option":"Bruna",
-             "options":["Bruna","David"],
-           "className":"className"}
+        "template": "template1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Actividad",
+                "className": "className"
+            },
+            {
+                "type": "paragraph",
+                "value": "A David y a Bruna <span style='text-decoration: underline;'> les gusta</span> mucho Córdoba.",
+                "className": "className"
+            },
+            {
+                "type": "paragraph",
+                "value": "¿Cuál de estas frases corresponde a Bruna y cuál corresponde a David?",
+                "className": "className"
+            },
+            {
+                "type": "selectsimple",
+                "value": "1.\"Me gusta la vida aquí:  la gente, la comida, el clima, el mate …\"",
+                "option": "David",
+                "options": [
+                    "Bruna",
+                    "David"
+                ],
+                "className": "className"
+            },
+            {
+                "type": "selectsimple",
+                "value": "2. Le gusta hablar y compartir con los nativos.",
+                "option": "Bruna",
+                "options": [
+                    "Bruna",
+                    "David"
+                ],
+                "className": "className"
+            }
         ]
-     
     },
-    
     "page7": {
         "type": "video",
         "section": [
             4,
             "Gramática"
         ],
-        "template":"template2",
-        "data":[
-            {   "type":"title",
-            "value": "<span style='color:orange;'>Video explicativo</span>",
-            "className":"className"
-        },
-            { "type":"video",
-              "value":"bOAABReEdb8",
-              "youtuve":"https://youtu.be/bOAABReEdb8",
-              "className":"className"}
-           
-        ]        
-        
+        "template": "template2",
+        "data": [
+            {
+                "type": "title",
+                "value": "<span style='color:orange;'>Video explicativo</span>",
+                "className": "className"
+            },
+            {
+                "type": "video",
+                "value": "bOAABReEdb8",
+                "youtuve": "https://youtu.be/bOAABReEdb8",
+                "className": "className"
+            }
+        ]
     },
     "page8": {
         "type": "slide",
@@ -233,11 +283,13 @@
             "5",
             "Actividades interactivas"
         ],
-        "template":"template1",
-        "data":[
-            {"type":"title",
-             "value":"<span style='color:orange;'>Actividades interactivas</span>",
-            "className":"className"}
+        "template": "template1",
+        "data": [
+            {
+                "type": "title",
+                "value": "<span style='color:orange;'>Actividades interactivas</span>",
+                "className": "className"
+            }
         ]
     },
     "page9": {
@@ -246,132 +298,131 @@
             5,
             "Actividades interactivas"
         ],
-        "template":"template1",
-        "data":[{
-            "type":"title",
-            "value":"<span style='color:orange;'>Video interativo</span>",
-            "className":"className"
-        },{
-            "type":"text",
-            "value":"1. En el siguiente video completa las actividades seleccionando el verbo correcto.",
-            "className":"className"
-        },
-
-
-        
-        {"type":"s",
-        "id": "CguXO_5okCY",
-        "value":"",
-        "className":"className"}
-    ],
-        "youtube": "https://youtu.be/CguXO_5okCY",
-        "titlep": "",
-        "paragraph": "1. En el siguiente video completa las actividades seleccionando el verbo correcto.",
-        "popups": [
+        "template": "template1",
+        "data": [
             {
-                "time": 11,
-                "title": "Mi nombre _______ Daniela Masías.",
-                "reply": "es",
-                "message": " (soy/es/está) ",
-                "type": "checkbox",
-                "options": [
-                    "soy",
-                    "es",
-                    "está"
-                ],
-                "paddingLeft": "10%",
-                "popUpShown": false,
-                "value": 0
+                "type": "title",
+                "value": "<span style='color:orange;'>Video interativo</span>",
+                "className": "className"
             },
             {
-                "time": 56,
-                "title": "Ella es Julia Coronatta y _______ 22 años.",
-                "message": "Pienselo bien",
-                "reply": "tiene",
-                "type": "checkbox",
-                "options": [
-                    "tiene",
-                    "lleva",
-                    "es"
-                ],
-                "paddingLeft": "10%",
-                "popUpShown": false,
-                "value": 0
+                "type": "text",
+                "value": "1. En el siguiente video completa las actividades seleccionando el verbo correcto.",
+                "className": "className"
             },
             {
-                "time": 83,
-                "title": "Ella ______ de Alemania.",
-                "message": "EL deporte es",
-                "reply": "es",
-                "type": "checkbox",
-                "options": [
-                    "tiene",
-                    "es",
-                    "esta"
+                "type": "videoi-youtube",
+                "id": "CguXO_5okCY",
+                "value": "CguXO_5okCY",
+                "youtube": "https://youtu.be/CguXO_5okCY",
+                "popups": [
+                    {
+                        "time": 11,
+                        "title": "Mi nombre _______ Daniela Masías.",
+                        "reply": "es",
+                        "message": " (soy/es/está) ",
+                        "type": "checkbox",
+                        "options": [
+                            "soy",
+                            "es",
+                            "está"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value": 0
+                    },
+                    {
+                        "time": 56,
+                        "title": "Ella es Julia Coronatta y _______ 22 años.",
+                        "message": "Pienselo bien",
+                        "reply": "tiene",
+                        "type": "checkbox",
+                        "options": [
+                            "tiene",
+                            "lleva",
+                            "es"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value": 0
+                    },
+                    {
+                        "time": 83,
+                        "title": "Ella ______ de Alemania.",
+                        "message": "EL deporte es",
+                        "reply": "es",
+                        "type": "checkbox",
+                        "options": [
+                            "tiene",
+                            "es",
+                            "esta"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value": 0
+                    },
+                    {
+                        "time": 116,
+                        "title": "Yo _______ de Minneapolis Minesota.",
+                        "message": "Actividad 1",
+                        "reply": "vengo",
+                        "type": "checkbox",
+                        "options": [
+                            "vengo",
+                            "viene",
+                            "venir"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value": 0
+                    },
+                    {
+                        "time": 152,
+                        "title": "Susana López viene de México, de una ciudad pequeña que _________ Zamora.",
+                        "message": "Actividad 1",
+                        "reply": "se llama",
+                        "type": "checkbox",
+                        "options": [
+                            "es",
+                            "se llama",
+                            "esta"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value": 0
+                    },
+                    {
+                        "time": 193,
+                        "title": "Me _______ las ciudades pequeñas.",
+                        "message": "Actividad 1",
+                        "reply": "gustan",
+                        "type": "checkbox",
+                        "options": [
+                            "gusta",
+                            "gustar",
+                            "gustan"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value": 0
+                    },
+                    {
+                        "time": 218,
+                        "title": "Córdoba _____ una provincia preciosa.",
+                        "message": "Actividad 1",
+                        "reply": "es",
+                        "type": "checkbox",
+                        "options": [
+                            "está",
+                            "son",
+                            "es"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value": 0
+                    }
                 ],
-                "paddingLeft": "10%",
-                "popUpShown": false,
-                "value": 0
-            },
-            {
-                "time": 116,
-                "title": "Yo _______ de Minneapolis Minesota.",
-                "message": "Actividad 1",
-                "reply": "vengo",
-                "type": "checkbox",
-                "options": [
-                    "vengo",
-                    "viene",
-                    "venir"
-                ],
-                "paddingLeft": "10%",
-                "popUpShown": false,
-                "value": 0
-            },
-            {
-                "time": 152,
-                "title": "Susana López viene de México, de una ciudad pequeña que _________ Zamora.",
-                "message": "Actividad 1",
-                "reply": "se llama",
-                "type": "checkbox",
-                "options": [
-                    "es",
-                    "se llama",
-                    "esta"
-                ],
-                "paddingLeft": "10%",
-                "popUpShown": false,
-                "value": 0
-            },
-            {
-                "time": 193,
-                "title": "Me _______ las ciudades pequeñas.",
-                "message": "Actividad 1",
-                "reply": "gustan",
-                "type": "checkbox",
-                "options": [
-                    "gusta",
-                    "gustar",
-                    "gustan"
-                ],
-                "paddingLeft": "10%",
-                "popUpShown": false,
-                "value": 0
-            },
-            {
-                "time": 218,
-                "title": "Córdoba _____ una provincia preciosa.",
-                "message": "Actividad 1",
-                "reply": "es",
-                "type": "checkbox",
-                "options": [
-                    "está",
-                    "son",
-                    "es"
-                ],
-                "paddingLeft": "10%",
-                "popUpShown": false,
-                "value": 0
+                "className": "className"
             }
         ]
     },
@@ -381,10 +432,25 @@
             5,
             "Actividades interactivas"
         ],
-        "youtube": "https://youtu.be/bOAABReEdb8",
-        "id": "bOAABReEdb8",
-        "title": "Actividades interactivas",
-        "paragraph": "2.  Mira el siguiente video y contesta las preguntas planteadas:"
+        "template": "template1",
+        "data": [
+            {
+                "type": "title",
+                "value": "<span style='color:orange;'>Video interativo</span>",
+                "className": "className"
+            },
+            {
+                "type": "paragraph",
+                "value": "2.  Mira el siguiente video y contesta las preguntas planteadas:",
+                "className": "className"
+            },
+            {
+                "type": "video-youtube",
+                "value": "bOAABReEdb8",
+                "className": "className",
+                "youtube": "https://youtu.be/bOAABReEdb8"
+            }
+        ]
     },
     "page11": {
         "type": "selectsimple",
@@ -392,32 +458,39 @@
             5,
             "Actividades interactivas"
         ],
-        "sentences": [
+        "template": "template2",
+        "data": [
             {
-                "question": "Los estudiantes que hablan en el video son de:",
+                "type": "selectsimple",
+                "value": " <strong> <span style= 'color: #4CCFEB;'>1. </span> Los estudiantes que hablan en el video son de:</strong>",
                 "option": "Colombia, Brasil y México.",
                 "options": [
                     "Perú, Colombia y Brasil.",
                     "Colombia, Brasil y México.",
                     "Brasil, Venezuela y Estado unidos."
-                ]
+                ],
+                "className": "className"
             },
             {
-                "question": "A los estudiantes les gusta:",
+                "type": "selectsimple",
+                "value": "<strong> <span style= 'color: #4CCFEB;'>2. </span> A los estudiantes les gusta:</strong>",
                 "option": "La gente y la comida.",
                 "options": [
                     "La gente y la comida.",
                     "El clima y los ríos.",
                     "Las plazas y la comida."
-                ]
+                ],
+                "className": "className"
             },
             {
-                "question": "Todos los estudiantes del video estudian la misma carrera universitaria.",
+                "type": "selectsimple",
+                "value": "<strong> <span style= 'color: #4CCFEB;'>3. </span>  Todos los estudiantes del video estudian la misma carrera universitaria.</strong>",
                 "option": "Falso.",
                 "options": [
                     "Verdadero.",
                     "Falso."
-                ]
+                ],
+                "className": "className"
             }
         ]
     },
@@ -427,277 +500,469 @@
             5,
             "Actividades interactivas"
         ],
-        "title": "Completa la historia de la familia Garcia con los verbos en paréntesis.",
-        "color": "white",
-        "title2": "¡Hola!",
-        "image": "https://res.cloudinary.com/dfddh08q8/image/upload/v1695571885/images/3_fjrubz.png",
-        "paragraph": [
-            [
-                "Me llamo Lucas y en la foto",
-                {
-                    "block": 10,
-                    "color": "orange"
-                },
-                "(salir) con mi esposa Romina y nuestras mascotas, Canela y Pancho. Nosotros",
-                {
-                    "block": 10,
-                    "color": "orange"
-                },
-                "(ser) cordobeses, y amamos los perros. Vivimos en las sierras de Córdoba porque",
-                {
-                    "block": 12,
-                    "color": "orange"
-                },
-                "(preferir) el interior de la provincia."
-            ],
-            [
-                "Todos los fines de semana, después de bañarme,",
-                {
-                    "block": 11,
-                    "color": "orange"
-                },
-                "(salir) a dar un paseo con mis perros. Mi esposa les",
-                {
-                    "block": 10,
-                    "color": "orange"
-                },
-                "(poner) la correa mientras yo",
-                {
-                    "block": 9,
-                    "color": "orange"
-                },
-                "(traer) sus galletitas y termos con agua. Cuando regresamos de pasear, yo me",
-                {
-                    "block": 10,
-                    "color": "orange"
-                },
-                "(poner) ropa limpia y",
-                {
-                    "block": 10,
-                    "color": "orange"
-                },
-                " (hacer) el desayuno. Antes de tomar una siesta, yo",
-                {
-                    "block": 14,
-                    "color": "orange"
-                },
-                " (disponer) un espacio para los perros en nuestro cuarto. Porque sino ellos",
-                {
-                    "block": 11,
-                    "color": "orange"
-                },
-                " (destruir) toda la casa mientras Romi y yo dormimos."
-            ]
+        "template": "template2",
+        "data": [
+            {
+                "type": "title",
+                "value": "Completa la historia de la familia Garcia con los verbos en paréntesis.",
+                "className": "className"
+            },
+            {
+                "type": "paragraph",
+                "value": "¡Hola!",
+                "className": "className"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "Me llamo Lucas y en la foto",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "saldre"
+                    },
+                    "(salir) con mi esposa Romina y nuestras mascotas, Canela y Pancho. Nosotros",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "somos"
+                    },
+                    "(ser) cordobeses, y amamos los perros. Vivimos en las sierras de Córdoba porque",
+                    {
+                        "block": 12,
+                        "color": "orange",
+                        "option": "preferimos"
+                    },
+                    "(preferir) el interior de la provincia."
+                ],
+                "className": "className"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "Todos los fines de semana, después de bañarme,",
+                    {
+                        "block": 11,
+                        "color": "orange",
+                        "option": "salimos"
+                    },
+                    "(salir) a dar un paseo con mis perros. Mi esposa les",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "pone"
+                    },
+                    "(poner) la correa mientras yo",
+                    {
+                        "block": 9,
+                        "color": "orange",
+                        "option": "traigo"
+                    },
+                    "(traer) sus galletitas y termos con agua. Cuando regresamos de pasear, yo me",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "pongo"
+                    },
+                    "(poner) ropa limpia y",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "hago"
+                    },
+                    " (hacer) el desayuno. Antes de tomar una siesta, yo",
+                    {
+                        "block": 14,
+                        "color": "orange",
+                        "option": "dispongo"
+                    },
+                    " (disponer) un espacio para los perros en nuestro cuarto. Porque sino ellos",
+                    {
+                        "block": 11,
+                        "color": "orange",
+                        "option": "destruyen"
+                    },
+                    " (destruir) toda la casa mientras Romi y yo dormimos."
+                ]
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1695571885/images/3_fjrubz.png",
+                "className": "className"
+            }
         ]
     },
     "page13": {
-        "type": [
-            "complete",
-            "selectsimple"
-        ],
+        "type": "complete",
         "section": [
             5,
             "Actividades interactivas"
         ],
-        "title": "Completa la historia de la familia Garcia con los verbos en paréntesis.",
-        "color": "white",
-        "image": "https://res.cloudinary.com/dfddh08q8/image/upload/v1695571885/images/3_fjrubz.png",
-        "paragraph": [
-            [
-                "Yo",
-                {
-                    "block": 11,
-                    "color": "orange"
-                },
-                " (reconocer) que nuestros perros son muy importantes para nosotros y que tener un animal es una responsabilidad muy seria, por eso nosotros siempre les",
-                {
-                    "block": 11,
-                    "color": "orange"
-                },
-                " (ofrecer) todo lo mejor, porque nada",
-                {
-                    "block": 11,
-                    "color": "orange"
-                },
-                " (sustituir) el amor que ellos nos dan."
-            ],
-            [
-                {
-                    "block": 0,
-                    "color": "orange"
-                },
-                "Y tú, ¿tienes mascotas?, ¿cómo son?, ¿qué haces con ellas?",
-                {
-                    "block": 0,
-                    "color": "orange"
-                }
-            ],
-            [
-                "Después de leer, responde las siguientes preguntas sobre la familia García:"
-            ],
-            [
-                {
-                    "type": "selectsimple",
-                    "sentences": [
-                        {
-                            "question": "¿Con quién vive Lucas?",
-                            "option": "con su esposa.",
-                            "options": [
-                                "con su madre.",
-                                "con su esposa.",
-                                "con sus hijos."
-                            ]
-                        },
-                        {
-                            "question": "¿Cómo se llaman sus perros?",
-                            "option": "Canela y Pancho.",
-                            "options": [
-                                "Canela y Pancho.",
-                                "Lalo y Honey.",
-                                "Uma y Pancho."
-                            ]
-                        }
-                    ]
-                }
-            ]
+        "template": "template1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Completa la historia de la familia Garcia con los verbos en paréntesis.",
+                "className": "className"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "Yo",
+                    {
+                        "block": 11,
+                        "color": "orange",
+                        "option": "reconozco"
+                    },
+                    " (reconocer) que nuestros perros son muy importantes para nosotros y que tener un animal es una responsabilidad muy seria, por eso nosotros siempre les",
+                    {
+                        "block": 11,
+                        "color": "orange",
+                        "option": "ofrecemos"
+                    },
+                    " (ofrecer) todo lo mejor, porque nada",
+                    {
+                        "block": 11,
+                        "color": "orange",
+                        "option": "sustiuira"
+                    },
+                    " (sustituir) el amor que ellos nos dan."
+                ],
+                "className": "className"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style= 'color: orange;'>Y tú, ¿tienes mascotas?, ¿cómo son?, ¿qué haces con ellas?</span>",
+                "className": "className"
+            },
+            {
+                "type": "paragraph",
+                "value": "Después de leer, responde las siguientes preguntas sobre la familia García:",
+                "className": "className"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<strong> <span style= 'color: #4CCFEB;'>1. </span> ¿Con quién vive Lucas?</strong>",
+                "option": "con su esposa.",
+                "options": [
+                    "con su madre.",
+                    "con su esposa.",
+                    "con sus hijos."
+                ],
+                "className": "className"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<strong> <span style= 'color: #4CCFEB;'>2. </span> ¿Cómo se llaman sus perros?</strong>",
+                "option": "Canela y Pancho.",
+                "options": [
+                    "Canela y Pancho.",
+                    "Lalo y Honey.",
+                    "Uma y Pancho."
+                ],
+                "className": "className"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1695571885/images/3_fjrubz.png",
+                "className": "className"
+            }
         ]
     },
     "page14": {
-        "title": "Reto propuesto",
+        "type": "slide",
+        "template": "template1",
         "section": [
             6,
             "Retos"
         ],
-        "color": "orange"
+        "data": [
+            {
+                "type": "title",
+                "value": "<h1><span style= 'color: orange;'>Reto propuesto</span></h1>",
+                "className": "className"
+            }
+        ]
     },
     "page15": {
-        "paragraph": "Fíjate en las cosas que ha hecho Naomi desde el año 2005 hasta la actualidad y completa la primera parte de la actividad. Luego, completa las frases. hablando de ti, redacta un texto añadiendo lo que haces normalmente, lo que te gusta,  por qué quieres aprender español, etc. Se lo enviarás a tu profesor (a) por email y luego de su devolución o feedback lo expondrás en clases.",
+        "type": "complete",
+        "template": "template1",
         "section": [
             6,
             "Retos"
         ],
-        "image": "https://res.cloudinary.com/dfddh08q8/image/upload/v1695578432/images/4_svg8uq.png",
-        "popups": [
-            [
-                {
-                    "color": "orange",
-                    "value": 2005
-                },
-                {
-                    "color": "black",
-                    "value": "Inicia sus clases de español en Buenos Aires"
-                }
-            ],
-            [
-                {
-                    "color": "orange",
-                    "value": 2008
-                },
-                {
-                    "color": "black",
-                    "value": "se muda de Buenos Aires a Córdoba"
-                }
-            ],
-            [
-                {
-                    "color": "orange",
-                    "value": 2020
-                },
-                {
-                    "color": "black",
-                    "value": "empieza a trabajar en una academia."
-                }
-            ],
-            [
-                {
-                    "color": "black",
-                    "value": "ACTUALIDAD"
-                }
-            ]
+        "data": [
+            {
+                "type": "paragraph",
+                "value": "1. Fíjate en las cosas que ha hecho Naomi desde el año 2005 hasta la actualidad y completa la primera parte de la actividad. Luego, completa las frases. hablando de ti, redacta un texto añadiendo lo que haces normalmente, lo que te gusta,  por qué quieres aprender español, etc. Se lo enviarás a tu profesor (a) por email y luego de su devolución o feedback lo expondrás en clases.",
+                "className": "className"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1695578432/images/4_svg8uq.png",
+                "className": "className"
+            },
+            {
+                "type": "popup",
+                "value": "<span style= 'color: orange;'>2005</span> Inicia sus clases de español en Buenos Aires ",
+                "className": "className"
+            },
+            {
+                "type": "popup",
+                "value": "<span style= 'color: orange;'>2008</span> se muda de Buenos Aires a Córdoba",
+                "className": "className"
+            },
+            {
+                "type": "popup",
+                "value": "<span style= 'color: orange;'>2020</span> empieza a trabajar en una academia.",
+                "className": "className"
+            },
+            {
+                "type": "text",
+                "value": "ACTUALIDAD",
+                "className": "className"
+            },
+            {
+                "type": "complete-li",
+                "value": [
+                    "Estudia español <span style='color:orange;'> desde </span>",
+                    {
+                        "block": 6,
+                        "color": "orange",
+                        "option": "2005"
+                    },
+                    "."
+                ]
+            },
+            {
+                "type": "complete-li",
+                "value": [
+                    "<span style='color:orange;'> Hace </span>",
+                    {
+                        "block": 5,
+                        "color": "orange",
+                        "option": "15"
+                    },
+                    "años <span style='color:orange;'>que </span> vive en Córdoba."
+                ]
+            },
+            {
+                "type": "complete-li",
+                "value": [
+                    "<span style='color:orange;'> Trabaja </span> en una academia <span style='color:orange;'>desde hace </span>",
+                    {
+                        "block": 5,
+                        "color": "orange",
+                        "option": "3"
+                    },
+                    "años."
+                ],
+                "className": "className"
+            },
+            {
+                "type": "paragraph",
+                "value": "Ahora completa las frases hablando de ti.",
+                "className": "className"
+            },
+            {
+                "type": "complete-li-personal",
+                "value": [
+                    "Vivo en",
+                    {
+                        "block": 5,
+                        "color": "orange",
+                        "option": ""
+                    },
+                    "<span style='color:orange;'> desde </span>",
+                    {
+                        "block": 5,
+                        "color": "orange",
+                        "option": ""
+                    }
+                ],
+                "className": "className"
+            },
+            {
+                "type": "complete-li-personal",
+                "value": [
+                    "<span style='color:orange;'> Hace </span>",
+                    {
+                        "block": 5,
+                        "color": "orange",
+                        "option": ""
+                    },
+                    "<span style='color:orange;'> que </span> trabajo en",
+                    {
+                        "block": 5,
+                        "color": "orange",
+                        "option": ""
+                    }
+                ],
+                "className": "className"
+            },
+            {
+                "type": "complete-li-personal",
+                "value": [
+                    "<span style='color:orange;'> Desde </span>",
+                    {
+                        "block": 15,
+                        "color": "orange",
+                        "option": ""
+                    }
+                ],
+                "className": "className"
+            },
+            {
+                "type": "complete-li-personal",
+                "value": [
+                    "<span style='color:orange;'> Hace </span>",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": ""
+                    },
+                    "<span style='color:orange;'> que </span> ",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": ""
+                    }
+                ],
+                "className": "className"
+            }
+        ]
+    },
+    "page16": {
+        "type": "complete",
+        "template": "template1",
+        "section": [
+            7,
+            "Test"
         ],
-        "sentences": [
-            [
-                {
-                    "color": "black",
-                    "value": "Estudia español "
-                },
-                {
-                    "color": "orange",
-                    "value": "desde"
-                },
-                {
-                    "block": 11,
-                    "color": "black"
-                }
-            ],
-            [
-                {
-                    "color": "orange",
-                    "value": "Hace "
-                },
-                {
-                    "block": 11,
-                    "color": "black"
-                },
-                {
-                    "color": "black",
-                    "value": "años"
-                },
-                {
-                    "color": "orange",
-                    "value": " que "
-                },
-                {
-                    "color": "black",
-                    "value": "vive en Córdoba"
-                }
-            ]
+        "data": [
+            {
+                "type": "title",
+                "value": "<span style:'color:orange;'>Evaluación unidad 1</span>",
+                "className": "className"
+            },
+            {
+                "type": "paragraph",
+                "value": "La siguiente evaluación contiene 20 espacios en blanco los cuales debes completar con el verbo conjugado en presente.",
+                "className": "className"
+            },
+            {
+                "type": "paragraph",
+                "value": "Cada verbo que conjugues correctamente vale 01 punto.",
+                "className": "className"
+            },
+            {
+                "type": "paragraph",
+                "value": "Para aprobar la evaluación y pasar a la siguiente unidad debes obtener un mínimo de 18 puntos.",
+                "className": "className"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style='color:orange'>¡Adelante y buena suerte!</span>",
+                "className": "className"
+            }
+        ]
+    },
+    "page17": {
+        "type": "complete",
+        "section": [
+            7,
+            "Actividades interactivas"
         ],
-        "paragraph1": "Ahora completa las frases hablando de ti.",
-        "sentences1": [
-            [
-                {
-                    "color": "black",
-                    "value": "Vivo en "
-                },
-                {
-                    "block": 11,
-                    "color": "black"
-                },
-                {
-                    "color": "orange",
-                    "value": " desde "
-                },
-                {
-                    "block": 11,
-                    "color": "black"
-                },
-                {
-                    "color": "black",
-                    "value": "."
-                }
-            ],
-            [
-                {
-                    "color": "black",
-                    "value": "Estudio español "
-                },
-                {
-                    "color": "orange",
-                    "value": " desde hace"
-                },
-                {
-                    "block": 11,
-                    "color": "black"
-                },
-                {
-                    "color": "black",
-                    "value": "."
-                }
-            ],
-            [],
-            [],
-            []
+        "template": "template1",
+        "data": [
+            {
+                "type": "title",
+                "value": "<strong>Completa los espacios en blanco con el verbo conjugado en presente </strong>",
+                "className": "className"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "Él",
+                    {
+                        "block": 4,
+                        "color": "orange",
+                        "option": "es"
+                    },
+                    " (ser) Gérard Dubois,",
+                    {
+                        "block": 6,
+                        "color": "orange",
+                        "option": "está"
+                    },
+                    " (estar) en Córdoba para hacer un intercambio estudiantil por seis meses, ",
+                    {
+                        "block": 6,
+                        "color": "orange",
+                        "option": "tiene"
+                    },
+                    " tener) una beca para hacer un Máster en música y",
+                    {
+                        "block": 6,
+                        "color": "orange",
+                        "option": "vive"
+                    },
+                    "(vivir) en Villa María desde enero del año pasado. Villa María, es una ciudad del centro de la provincia de Córdoba.",
+                    {
+                        "block": 6,
+                        "color": "orange",
+                        "option": "Va"
+                    },
+                    "(ir) a clases por la tarde, así que",
+                    {
+                        "block": 6,
+                        "color": "orange",
+                        "option": "duerme"
+                    },
+                    "(dormir) hasta tarde. Le gusta pasear por la ciudad “Cada día ",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "descubro"
+                    },
+                    "(descubrir) un rincón nuevo. Los fines de semana",
+                    {
+                        "block": 7,
+                        "color": "orange",
+                        "option": "salgo"
+                    },
+                    "(salir) por la noche con mis amigos, la gente aquí es muy simpática”. Cuando le ",
+                    {
+                        "block": 13,
+                        "color": "orange",
+                        "option": "preguntamos"
+                    },
+                    " (preguntar) si quiere quedarse en Córdoba responde: “aún no lo sé, pero la verdad es que me gusta mucho la vida aquí, así que",
+                    {
+                        "block": 7,
+                        "color": "orange",
+                        "option": "puede"
+                    },
+                    "(poder) ser…”."
+                ],
+                "className": "className"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1695909637/images/17_hapr7w.jpg",
+                "className": "className",
+                "alt": "Gerard Dubois"
+            },
+            {
+                "type": "text",
+                "value": "<strong>Gérard Dubois</strong>",
+                "className": "className"
+            },
+            {
+                "type": "text",
+                "value": "Francés",
+                "className": "className"
+            }
         ]
     }
 }
