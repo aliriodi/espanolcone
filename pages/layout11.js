@@ -25,19 +25,39 @@ export default function layout3() {
 
       <div className="  absolute top-0 right-0 flex flex-col  justify-between px-8 ">
         <div className=" mx-[400px] mt-8 mb-5 text-2xl font-bold ">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius, velit eu accumsan ullamcorper, elit quam vehicula orci, sed vulputate urna erat eu ante. nec finibus risus felis ut arcu. Vivamus non nulla in nulla feugiat vestibulum. Nunc nec dui ac justo convallis posuere.
+          Los estudiantes que hablan en el video son de:
         </div>
-        <div className="mx-[400px] text-2xl font-bold mb-5">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius, velit eu accumsan ullamcorper, elit quam vehicula orci, sed vulputate urna erat eu ante. Nullam non metus vel sapien vestibulum consequat. Fusce nec tincidunt lectus, nec ullamcorper neque. Nulla facilisi. Sed eget dui vel elit egestas bibendum id vel neque. Cras rhoncus, tortor nec auctor laoreet, turpis quam dignissim ante, nec finibus risus felis ut arcu. Vivamus non nulla in nulla feugiat vestibulum. Nunc nec dui ac justo convallis posuere.
+        <div className="mx-[400px] text-2xl font-bold mb-5 hover:text-orange-500">
+          a. Perú, Colombia y Brazil
         </div>
-        <div className="flex flex-col items-center">
-          <Image alt="sr" src={dummysr} />
-          <div className="mt-1 font-bold text-lg">titulo imagen</div>
-          <div className="mt-1 text-sm">texto imagen</div>
+        <div className="mx-[400px] text-2xl font-bold mb-5 hover:text-orange-500">
+          b. Colombia, Brazil y México
+        </div>
+        <div className="mx-[400px] text-2xl font-bold mb-5 hover:text-orange-500">
+          c. Brazil, Venezuela y Estados Unidos
+        </div>
+        <div className=" mx-[400px] mt-8 mb-5 text-2xl font-bold ">
+          A los estudiantes les gusta:
+        </div>
+        <div className="mx-[400px] text-2xl font-bold mb-5 hover:text-orange-500">
+          a. La gente y la comida.
+        </div>
+        <div className="mx-[400px] text-2xl font-bold mb-5 hover:text-orange-500">
+          b. El clima y los rios.
+        </div>
+        <div className="mx-[400px] text-2xl font-bold mb-5 hover:text-orange-500">
+          c. Las plazas y la comida
+        </div>
+        <div className=" mx-[400px] mt-8 mb-5 text-2xl font-bold ">
+          Todos los estudiantes del video estudian la misma carrera universitaria.
+        </div>
+        <div className="mx-[400px] text-2xl font-bold mb-5 hover:text-orange-500">
+          a. Verdadero
+        </div>
+        <div className="mx-[400px] text-2xl font-bold mb-5 hover:text-orange-500">
+          b. Falso
         </div>
       </div>
-
-
     </div>
   );
 };

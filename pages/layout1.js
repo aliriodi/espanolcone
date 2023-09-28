@@ -26,7 +26,7 @@ export default function layout1() {
         TITULO DE LA CLASE AQUI!!
       </div>
       <div className="text-white text-left text-4xl pb-20 relative z-10 ml-[20px] mt-auto">
-        NIVEL A2
+        hola alirio
       </div>
     </div>
   );
