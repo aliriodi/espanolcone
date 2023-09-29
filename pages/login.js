@@ -10,6 +10,7 @@ import Background from '../public/imgs/logIn-background.png'
 import Vector1 from '../public/imgs/vector-1.png'
 import Vector2 from '../public/imgs/vector-2.png'
 import Vector3 from '../public/imgs/vector-3.png'
+import Vector4 from '../public/imgs/vector-4.png'
 import { getuser , getuseremail} from "../redux/ECEActions";
 import Layout from '../components/Layout';
 import { useRouter } from 'next/router';
@@ -104,9 +105,10 @@ export default function Home() {
       </Head>
 
       <Layout>
-        <div className='w-full h-screen flex' style={{color:'#6e6b7b'}}>
+        <div className='w-full h-screen flex overflow-hidden'
+        style={{color:'#6e6b7b'}}>
           {/* Fondo */}
-          <div className="loging-fondo bg-primary flex justify-evenly items-center flex-col h-screen w-full relative z-40">
+          <div className="loging-fondo bg-primary flex justify-evenly items-center flex-col h-screen w-full relative z-40 md:hidden">
             <Image src={Logo} style={{ width: '200px'}} alt='Logo' className='z-40' />
             <div className="loging-fondo_text z-40">
               <p className="text-white text-5xl font-semibold mb-4 text-center text-shadow">{t("img1")}</p>
@@ -122,25 +124,30 @@ export default function Home() {
 
           {/* Formulario */}
           <div
-            className='bg-gray_light flex flex-col justify-center'
-            style={{ fontWeight: '400', padding: '0 80px' }}>
-            <div className=' px-3 flex flex-row items-end'>
-              {/* {locales.map(l => (
-                <div key={l} className='px-2'>
-                  <button onClick={handleClickLan(l)}>{l}</button>
-                </div>
-              ))} */}
-            </div>
+            className='bg-gray_light flex flex-col justify-center w-full px-[80px]
+            md:px-[25px]'
+            style={{ fontWeight: '400' }}>
+
+            {/* Vector 4 */}
+            <Image src={Vector4} className='hidden absolute top-0  right-0 z-0 w-[95%]
+            md:block'/>
+
+            <div className=' px-3 flex flex-row items-end'></div>
+
+            {/* Titulo */}
             <h3
-              className='font-semibold text-violet_dark'
-              style={{ fontSize: '28px', width: '430px', marginBottom: '8px' }}>
+              className='font-semibold text-title_color text-[24px] w-[430px]
+              md:w-[100%] z-10'
+              style={{ marginBottom: '8px' }}>
               {t("p1")}
             </h3>
-            <p>
+
+            {/* Texto */}
+            <p className='z-10'>
               {t("p2")}
             </p>
 
-            <form action="" onSubmit={handleSubmit}>
+            <form action="" onSubmit={handleSubmit} className='z-10'>
 
               {/* Campo Email */}
               <div className="flex flex-col" style={{ margin: '25px 0' }}>
@@ -219,15 +226,6 @@ export default function Home() {
                   href="#">
                     <AiOutlineGoogle className='text-white cursor-pointer icon-white ' style={{fontSize:'1.6em'}}/>
                   </span>
-                {/* <span
-                  onClick={()=>signOut('google',{ callbackUrl: '/' })}
-                  style={{ margin: '0 9px', borderRadius: '8px' }}
-                  className='bg-primary h-8 w-8'
-                  href="#"></span> */}
-                {/* <a
-                  style={{ margin: '0 9px', borderRadius: '8px' }}
-                  className='bg-primary h-8 w-8'
-                  href="#"></a> */}
               </div>
             </form>
             <Image src={Vector3} alt='Vector3' className='z-20 absolute right-0 bottom-0 w-40' />

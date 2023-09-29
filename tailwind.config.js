@@ -45,6 +45,8 @@ module.exports = {
         white: '#fff',
 
         violet_dark:'#6E6B7B',
+
+        title_color:'#5E5873',
       },
       
     },
