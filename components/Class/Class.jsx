@@ -1,7 +1,7 @@
 import React ,  { useEffect, useState ,useRef}from 'react';
 import Image from 'next/image';
 import YouTube from 'react-youtube';
-
+import YOUTUVEPOPUP from '../youtubePopup/youtubePopup';
 export default function Class(props) {
   const [data, setData] = useState(null);
   const[section,setSetcion]=useState('Inicial')
@@ -14,7 +14,7 @@ export default function Class(props) {
     const opts = { 
       playerVars: {
         rel: 0, // Evitar videos relacionados al final
-        autoplay: 0, // Desactivar la reproducción automática
+        autoplay: 1, // Desactivar la reproducción automática
         modestbranding: 1, // Ocultar el logotipo de YouTube
         fs:0, // Oculto el boton de maximizar video fs FullScreen
         color: "#000"
@@ -98,17 +98,9 @@ data.sheets[i].data.map((c, index)=>
   {c.type==='level'? <p dangerouslySetInnerHTML={{ __html: c.value }}></p>:null}
   {c.type==='image'? <Image width='100' height='100' src={c.value} alt={c.alt}/>:null}
   {c.type==='title'? <p dangerouslySetInnerHTML={{ __html: c.value }}></p>:null}
-  {c.type==='video-youtube'? <YouTube
-              ref={iframeRef}
-              opts={opts}
-              videoId={c.value}        
-            //  onReady={handlePlayerReady}
-           //   onStateChange={handlePlayerStateChange}
-             // className='youtube'
-            />:null}
+  {c.type==='video-youtube'? <YouTube ref={iframeRef} opts={opts} videoId={c.value} className='youtube' />:null}
+  {c.type==='videoi-youtube'? <YOUTUVEPOPUP titlep={null} popups={c.popups} videoId={c.value} className='youtube' />:null}
   <p dangerouslySetInnerHTML={{ __html: c.value }}></p>
- 
-
   
     {c&&c.options?
     <ul>
