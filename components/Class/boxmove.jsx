@@ -11,7 +11,7 @@ export default function boxmove(props) {
   return (
     <div >
          {b.map(out=>
-         <div className={styles["item"]}>
+         <div key={out} className={styles["item"]}>
          <Rnd >{out}</Rnd></div>
          )}
   
