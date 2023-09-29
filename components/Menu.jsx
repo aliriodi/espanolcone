@@ -65,7 +65,7 @@ const Menu = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/inicio/home" >
+                                    <Link href="/courses/homeCourses" >
                                         <div className="flex items-center justify-start mb-5 self-center ">
                                             <FontAwesomeIcon icon={faLaptop} className="mr-[10px]" />
 
@@ -75,7 +75,7 @@ const Menu = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/inicio/home" >
+                                    <Link href="/teachers/homeTeachers" >
                                         <div className="flex items-center justify-start mb-5 self-center ">
                                             <FontAwesomeIcon icon={faChalkboardUser} className="mr-[10px]" />
                                             <i class="fa-duotone "></i>
@@ -85,10 +85,10 @@ const Menu = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/inicio/home">
+                                    <Link href="/tourGuides/homeTourGuides">
                                         <div className="flex items-center justify-start mb-5 self-center ">
                                             <FontAwesomeIcon icon={faPersonHiking} className=" mr-[10px]" />
-                                            .                                            <p>Guías turisticos</p>
+                                            <p>Guías turisticos</p>
                                         </div>
                                     </Link>
                                 </li>
