@@ -1,7 +1,9 @@
 import React ,  { useEffect, useState ,useRef}from 'react';
 import Image from 'next/image';
+import styles from '../../styles/boxmove.module.css';
 import YouTube from 'react-youtube';
 import YOUTUVEPOPUP from '../youtubePopup/youtubePopup';
+import BOXMOMVE from './boxmove'
 export default function Class(props) {
   const [data, setData] = useState(null);
   const[section,setSetcion]=useState('Inicial')
@@ -80,7 +82,7 @@ const a=  {
               
   return (
     <div>Class
-     
+    
 <h1>Esto es traido de la Base de Datos</h1>
 <div><button style={{'background-color': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={()=>Back(i)}> Back </button>
      <span style={{'margin-left': '16px'}}>{i+1}/{length}</span> 
@@ -100,9 +102,13 @@ data.sheets[i].data.map((c, index)=>
   {c.type==='title'? <p dangerouslySetInnerHTML={{ __html: c.value }}></p>:null}
   {c.type==='video-youtube'? <YouTube ref={iframeRef} opts={opts} videoId={c.value} className='youtube' />:null}
   {c.type==='videoi-youtube'? <YOUTUVEPOPUP titlep={null} popups={c.popups} videoId={c.value} className='youtube' />:null}
+  <div className={styles['box']}>
+    {c.type==='options-box'? c.value.map(option=><><BOXMOMVE option={option.value} id={option.id}/></>):null}
+    </div>
   <p dangerouslySetInnerHTML={{ __html: c.value }}></p>
   
     {c&&c.options?
+     
     <ul>
     {c.options.map(option=>
       <li key={option}>
