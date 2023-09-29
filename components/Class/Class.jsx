@@ -103,7 +103,8 @@ data.sheets[i].data.map((c, index)=>
   {c.type==='video-youtube'? <YouTube ref={iframeRef} opts={opts} videoId={c.value} className='youtube' />:null}
   {c.type==='videoi-youtube'? <YOUTUVEPOPUP titlep={null} popups={c.popups} videoId={c.value} className='youtube' />:null}
   <div className={styles['box']}>
-    {c.type==='options-box'? c.value.map(option=><><BOXMOMVE option={option.value} id={option.id}/></>):null}
+    {c.type==='options-box'? <BOXMOMVE  options={c.value} />
+                              :null}
     </div>
   <p dangerouslySetInnerHTML={{ __html: c.value }}></p>
   
