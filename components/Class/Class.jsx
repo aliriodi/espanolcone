@@ -84,9 +84,9 @@ const a=  {
     <div>Class
     
 <h1>Esto es traido de la Base de Datos</h1>
-<div><button style={{'background-color': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={()=>Back(i)}> Back </button>
-     <span style={{'margin-left': '16px'}}>{i+1}/{length}</span> 
-     <button style={{'margin-left': '16px','background-color': '#4CCFEB','border': '4px solid #007bff'}} onClick={()=>Forward(i)}>Forward</button>
+<div><button style={{'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={()=>Back(i)}> Back </button>
+     <span style={{'marginLeft': '16px'}}>{i+1}/{length}</span> 
+     <button style={{'marginLeft': '16px','backgroundColor': '#4CCFEB','border': '4px solid #007bff'}} onClick={()=>Forward(i)}>Forward</button>
 </div>
 
 <div></div>

@@ -150,7 +150,7 @@ const Menu = () => {
                                 <Link href="/inicio/home" >
                                     <div className="flex item-center mb-5 mr-20 self-center">
                                         <FontAwesomeIcon icon={faHouse} className="mr-2" />
-                                        <a  onClick={(e) => { e.preventDefault(); showHideClass(); }}>Clases</a>                                      
+                                        <span  onClick={(e) => { e.preventDefault(); showHideClass(); }}>Clases</span>                                      
                                     </div>
 
                                 </Link>
