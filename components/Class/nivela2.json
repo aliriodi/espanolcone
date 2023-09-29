@@ -200,12 +200,12 @@
             {
                 "type": "options-box",
                 "value": [
-                    "pensar",
-                    "costar",
-                    "trabajar",
-                    "entender",
-                    "reconocer",
-                    "estudiar"
+                    {"value":"pensar","id":"value1"},
+                    {"value":"costar","id":"value2"},
+                    {"value":"trabajar","id":"value3"},
+                    {"value":"entender","id":"value4"},
+                    {"value":"reconocer","id":"value5"},
+                    {"value":"estudiar","id":"value6"}
                 ],
                 "className": "className"
             }
