@@ -20,6 +20,7 @@ export default function Boxmove(props) {
                         display:'flex',
                         alignItems: 'center', // Centra verticalmente
                         justifyContent: 'center', // Centra horizontalmente
+                        borderRadius: '8px', // Agrega el radio de borde que desees
                     }}
                 >{props.option.value}</Rnd></div>
             }
