@@ -42,7 +42,7 @@ export default function Class(props) {
         return response.json();
       })
       .then((response) => {
-        const a=3;
+        const a=props.id;
         setData(response.class1[a]);
         setL(response.class1[a].sheets.length)
 
@@ -96,7 +96,7 @@ export default function Class(props) {
               {c.type === 'level' ? <p dangerouslySetInnerHTML={{ __html: c.value }}></p> : null}
               {c.type === 'image' ? <Image width='100' height='100' src={c.value} alt={c.alt} /> : null}
               {c.type === 'title' ? <p dangerouslySetInnerHTML={{ __html: c.value }}></p> : null}
-              {c.type === 'video-youtube' ? <YouTube ref={iframeRef} opts={opts} videoId={c.value} className='youtube' /> : null}
+              {c.type === 'video-youtube' ? <YouTube ref={iframeRef} opts={opts} videoId={c.value} className='youtube'style={{ maxWidth: '400px', width: '100%' }} /> : null}
               {c.type === 'videoi-youtube' ? <YOUTUVEPOPUP titlep={null} popups={c.popups} videoId={c.value} className='youtube' /> : null}
               <div className={styles['box']}>
 
