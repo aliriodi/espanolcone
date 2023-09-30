@@ -6,6 +6,7 @@ import YouTube from 'react-youtube';
 import YOUTUVEPOPUP from '../youtubePopup/youtubePopup';
 import BOXMOMVE from './boxmove'
 export default function Class(props) {
+  
   const [data, setData] = useState(null);
 
   const [i, setI] = useState(0);
