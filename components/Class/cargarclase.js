@@ -4,7 +4,7 @@ async function imprimir()
 {//console.log(clase)
 let nuevaclase=[];
 //cargo las nuevas clases las primeras 11 paginas
-for(i=1;i<21;i++){
+for(i=1;i<11;i++){
 //mapeo el objeto de clases por numero de paginas 
 //es un OBJETO
     nuevaclase.push(clase['page'+i])

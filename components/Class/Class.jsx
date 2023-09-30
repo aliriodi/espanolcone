@@ -42,7 +42,7 @@ export default function Class(props) {
         return response.json();
       })
       .then((response) => {
-        const a=3;
+        const a=props.id;
         setData(response.class1[a]);
         setL(response.class1[a].sheets.length)
 
