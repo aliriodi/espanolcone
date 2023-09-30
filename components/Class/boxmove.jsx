@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styles from '../../styles/boxmove.module.css'
 import { Rnd } from "react-rnd";
 //https://geekflare.com/es/best-drag-and-drop-react-libraries/
-export default function boxmove(props) {
+export default function Boxmove(props) {
     //levo el array de objetos con [{value,id}] a un array de valores b = [option1,option2,...]
     // const b  = props.options.map(option=>option.value) 
     const [state, setState] = useState({ x: props.option.x, y: props.option.y })
