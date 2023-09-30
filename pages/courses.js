@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
+import Class from '../components/Class/Class'
 import Menu from '../components/Menu'
 import Link from 'next/link'
 import { faAngleLeft, faAngleRight, faHouse, faPersonHiking, faChalkboardUser, faLaptop, faAddressCard } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Class from '../components/Class/Class'
-
 
 export default function Courses() {
   const [mostrarComponenteA, setMostrarComponenteA] = useState(false)
@@ -37,8 +36,8 @@ export default function Courses() {
         {/* <a onClick={(e) => { e.preventDefault(); showHideClass(); }}>Curso */}
         <div onClick={toggleComponenteA}
           className="flex items-center justify-start mb-5 self-center ">
-          <FontAwesomeIcon icon={faChalkboardUser} className="mr-[10px]" />
-          <i class="fa-duotone "></i>
+          <FontAwesomeIcon className="mr-[10px]" icon={faChalkboardUser}  />
+          <i className="fa-duotone "></i>
           <p>clase 1</p>
 
 
@@ -48,9 +47,9 @@ export default function Courses() {
 
         <div
           onClick={toggleComponenteB}
-          className="flex items-center justify-start mb-5 self-center ">
-          <FontAwesomeIcon icon={faChalkboardUser} className="mr-[10px]" />
-          <i class="fa-duotone "></i>
+          className="flex items-center justify-start mb-5 self-center  ">
+          <FontAwesomeIcon className="mr-[10px]" icon={faChalkboardUser}  />
+          <i className="fa-duotone "></i>
           <p>clase2</p>
         </div>
         {mostrarComponenteB && <Class id={1} />}
@@ -60,8 +59,8 @@ export default function Courses() {
         <div
           onClick={toggleComponenteC}
           className="flex items-center justify-start mb-5 self-center ">
-          <FontAwesomeIcon icon={faChalkboardUser} className="mr-[10px]" />
-          <i class="fa-duotone "></i>
+          <FontAwesomeIcon className="mr-[10px]" icon={faChalkboardUser}  />
+          <i className="fa-duotone fa-chalkboard-user"></i>
           <p>clase 3</p>
 
         </div>
