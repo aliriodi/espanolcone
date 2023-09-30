@@ -1,5 +1,6 @@
 
 import Image from 'next/image';
+import Spinner from '../Spinner';
 import styles from '../../styles/boxmove.module.css';
 import YouTube from 'react-youtube';
 import YOUTUVEPOPUP from '../youtubePopup/youtubePopup';
@@ -41,7 +42,7 @@ export default function Class(props) {
         return response.json();
       })
       .then((response) => {
-        const a=props.id;
+        const a=3;
         setData(response.class1[a]);
         setL(response.class1[a].sheets.length)
 
