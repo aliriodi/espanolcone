@@ -1,4 +1,4 @@
-
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Spinner from '../Spinner';
 import styles from '../../styles/boxmove.module.css';
