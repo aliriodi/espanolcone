@@ -26,7 +26,7 @@ export default function Home() {
       <Menu />
       <main className='ml-9 p-5 flex flex-col h-screen'>
         <div className='pb-5'>home</div>
-        <div className='mx-5'>
+        <div className={'mx-52'}>
           <button
             onClick={handleClickLogin}
             type='submit'
@@ -39,6 +39,7 @@ export default function Home() {
             className='bg-blue-500 text-white px-5 py-2 rounded'>
             Go Users
           </button>
+          
           {showClass && <Class />}
         </div>
       </main>
