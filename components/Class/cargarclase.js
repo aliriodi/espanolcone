@@ -4,7 +4,7 @@ async function imprimir()
 {//console.log(clase)
 let nuevaclase=[];
 //cargo las nuevas clases las primeras 11 paginas
-for(i=1;i<21;i++){
+for(i=1;i<19;i++){
 //mapeo el objeto de clases por numero de paginas 
 //es un OBJETO
     nuevaclase.push(clase['page'+i])
@@ -21,7 +21,7 @@ console.log(nuevaclase.length)
                  headers: {
                             'Content-Type': 'application/json'  // 'Content-Type': 'application/x-www-form-urlencoded',
                           },
-                 body: JSON.stringify({name:'nivela1',sheets:nuevaclase}) //mando por el body la nueva clase
+                 body: JSON.stringify({name:'nivela24',sheets:nuevaclase}) //mando por el body la nueva clase
              }
               )
 
