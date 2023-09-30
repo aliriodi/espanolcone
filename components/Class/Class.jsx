@@ -1,12 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react';
-import Spinner from '../Spinner';
+import React, { useState ,useRef,useEffect } from 'react';
 import Image from 'next/image';
+import Spinner from '../Spinner';
 import styles from '../../styles/boxmove.module.css';
 import YouTube from 'react-youtube';
 import YOUTUVEPOPUP from '../youtubePopup/youtubePopup';
 import BOXMOMVE from './boxmove'
 export default function Class(props) {
   const [data, setData] = useState(null);
+
   const [i, setI] = useState(0);
   const [length, setL] = useState(1);
   //posicion del cursor
@@ -17,6 +18,7 @@ export default function Class(props) {
   // });
 
  
+
 
   // Opciones de Youtube
   const iframeRef = useRef(null);
@@ -36,12 +38,14 @@ export default function Class(props) {
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
+
         return response.json();
       })
       .then((response) => {
         const a=3;
         setData(response.class1[a]);
         setL(response.class1[a].sheets.length)
+
       })
       .catch((error) => {
         // Handle any errors
@@ -49,7 +53,9 @@ export default function Class(props) {
       });
   }, []);
 
+
   //como son n sheets avanzo con el boton de forward
+
   function Forward(i) {
     if (data) {
       if (data) { if (data.sheets) { if (data.sheets.length) setL(data.sheets.length) } }
@@ -57,7 +63,9 @@ export default function Class(props) {
     }
 
   }
+
   //como son n sheets retrocedo con el boton de forward
+
   function Back(i) {
     if (data) {
       if (data) { if (data.sheets) { if (data.sheets.length) setL(data.sheets.length) } }
@@ -65,6 +73,7 @@ export default function Class(props) {
     }
   }
   //https://docs.google.com/presentation/d/10lxVnbNdlLZ6OlsXJTU9-uZ3GDJPz140/edit#slide=id.g27c3e69a393_0_0
+
   //https://www.figma.com/file/JZZzrLkQhTDEuUPkAsacuB/ECE-%2F-Prototipos?type=design&node-id=403-9008&mode=design&t=RIjgbE4EDSxOXwZ9-0
 
   return (
@@ -79,6 +88,7 @@ export default function Class(props) {
       {
         data && data.sheets[i].data ?
 
+
           data.sheets[i].data.map((c, index) =>
 
             <div key={index}  >
@@ -89,16 +99,19 @@ export default function Class(props) {
               {c.type === 'video-youtube' ? <YouTube ref={iframeRef} opts={opts} videoId={c.value} className='youtube'style={{ maxWidth: '400px', width: '100%' }} /> : null}
               {c.type === 'videoi-youtube' ? <YOUTUVEPOPUP titlep={null} popups={c.popups} videoId={c.value} className='youtube' /> : null}
               <div className={styles['box']}>
+
                 {c.type === 'options-box' ? c.value.map(value => <BOXMOMVE key={value.y} option={value} onBoxPlacement={(boxPosition) => handleBoxPlacement(boxPosition)} />)
                   : null}
               </div>
               {c.type === 'paragraph' ? <p dangerouslySetInnerHTML={{ __html: c.value }}></p> : null}
               {c.type === 'sentence-box' ? <p dangerouslySetInnerHTML={{ __html: c.value }}></p> : null}
               {c.type === 'selectsimple' ? <div><p dangerouslySetInnerHTML={{ __html: c.value }}></p>
+
                 <ul>
                   {c.options.map(option =>
                     <li key={option}>
                       {option}
+
                     </li>)}</ul> </div> : null}
               {c.type === 'text' ? <p dangerouslySetInnerHTML={{ __html: c.value }}></p> : null}
               {/* En la siguiente linea falta destructurar el objeto como input form */}
@@ -107,6 +120,7 @@ export default function Class(props) {
               {c.type === 'complete-li' ? <p dangerouslySetInnerHTML={{ __html: c.value }}></p> : null}
               {c.type === 'popup' ? <p dangerouslySetInnerHTML={{ __html: c.value }}></p> : null}
               {/* <p dangerouslySetInnerHTML={{ __html: c.value }}></p> */}
+
 
 
 
