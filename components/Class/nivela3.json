@@ -15,7 +15,7 @@
             },
             {
                 "type": "title",
-                "value": "EXTRANJEROS EN CÓRDOBA",
+                "value": "¡Hola! ¿Qué tal?                ",
                 "className": "className"
             },
             {
@@ -26,7 +26,7 @@
         ]
     },
     "page2": {
-        "type": "video",
+        "type": "text",
         "section": [
             1,
             "Video Explicativo"
@@ -35,15 +35,30 @@
         "data": [
             {
                 "type": "title",
-                "value": "¿Qué voy a aprender en esta unidad?",
+                "value": "Lee estas conversaciones",
                 "className": "className"
             },
-            {
-                "type": "video-youtube",
-                "value": "Vphr9AAcGCI",
-                "youtuve": "https://youtu.be/Vphr9AAcGCI",
+            { 
+                "type": "popup",
+                "value": "<div style='background-color:blue; width: 400px; height: 210px;'><p>* ¡Hola Susi! ¿Qué tal?</p><p> _ Bien, muy bien. ¿Y tú? ¿Cómo estás?</p><p> _ Muy bien también. </p><p>¡Hace tanto tiempo que no te veía! </p><p>*  Sí, por lo menos un año…¿no?</p><p> _ ¡Más!, creo… </p><p style='text-align: center;'><strong>( 1 )</strong></p></div>",
                 "className": "className"
-            }
+            },
+            { 
+                "type": "popup",
+                "value": "<div style='background-color:green; width: 400px; height: 280px;'><p>* Uy, Andrés ¡cuánto tiempo sin verte!</p><p> ¿Cómo va todo?</p><p> _ Bien, bien, no me puedo quejar. </p><p>¿Y tú cómo estás? </p><p>*  Pues llevándola… </p><p>_ ¿Y la familia? ¿Todos en casa, bien? </p><p>* Todos bien, gracias.</p><p> _ ¡Qué chévere!, me alegra </p><p style='text-align: center;'><strong>( 2 )</strong></p></div>",
+                "className": "className"
+            },
+            { 
+                "type": "popup",
+                "value": "<div style='background-color:orange; width: 400px; height: 200px;'><p>* Bueno, me voy… </p><p>_ Listo, pues nos llamamos, ¿no? </p><p>*  Sí, listo, te llamo.</p><p> _ ¡Hasta luego! </p><p>* ¡Nos vemos! </p><p style='text-align: center;'><strong>(3)</trong></p></div>",
+                "className": "className"
+            }    ,
+            { 
+                "type": "popup",
+                "value": "<div style='background-color:purple; width: 400px; height: 300px;'><p>* Bueno, me tengo que ir, </p><p>tengo que hacer el almuerzo, </p><p>no lo he hecho aún… </p><p>Me alegro mucho de verla… </p><p>_ Sí, yo también. Bueno, adiós.</p><p> ¡Y saludos a su familia! </p><p> * Igualmente. ¡Le mando un abrazo muy</p><p> fuerte a su hija!</p><p> _  Con gusto. </p><p>¡Adiós!  </p><p>* ¡Chao!, hasta luego. Cuidese. </p> <p style='text-align: center;'><strong> ( 4 ) </strong></p></div>",
+                "className": "className"
+            }    
+            
         ]
     },
     "page3": {
@@ -56,39 +71,45 @@
         "data": [
             {
                 "type": "title",
-                "value": "Texto número 1:",
+                "value": "Actividad:",
                 "className": "className"
             },
             {
                 "type": "title",
-                "value": "Los nuevos cordobeses",
+                "value": "Ahora, mira estas fotografías e indícale a tu profesora a cuáles conversaciones corresponden cada una.",
                 "className": "className"
             },
             {
                 "type": "paragraph",
-                "value": "Estas personas viven en Córdoba por diferentes motivos. Lee los textos y enfoca tu atención en las palabras resaltadas en color <span style= 'color: orange;' >naranja. </span>",
-                "className": "className"
-            },
-            {
-                "type": "paragraph",
-                "value": "Él  <span style= 'color: orange;' >se llama</span> David, <span style= 'color: orange;' >es</span> estadounidense, hace más de 10 años que vive en Córdoba, <span style= 'color: orange;' >se siente</span> muy bien viviendo allí y no <span style= 'color: orange;' >piensa</span> volver a su país. “<span style=' textDecoration: underline;'>Me gusta</span> la vida aquí:  la gente, la comida, el clima, el mate …”. <span style= 'color: orange;' >Es</span> el director de una academia de idiomas y <span style= 'color: orange;' >trabaja</span> muchas horas al día. Los fines de semana <span style= 'color: orange;' >conduce</span> su auto para visitar diferentes partes de Córdoba, le gusta recorrer la provincia. <span style= 'color: orange;' >Está</span> casado con una cordobesa, así que  <span style= 'color: orange;' >domina</span> bastante bien el español porque <span style= 'color: orange;' >habla</span> español en casa. Sin embargo, David dice: “<span style= 'color: orange;' >reconozco</span> que aún <span style= 'color: orange;' >tengo</span> problemas con la lengua. Mi principal problema <span style= 'color: orange;' >es</span> que después de 10 años, todavía <span style= 'color: orange;' >confundo</span> los tiempos del pasado”",
+                "value": "Relaciona cada número con una letra.",
                 "className": "className"
             },
             {
                 "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694535859/images/davidpic_ob5ukd.png",
-                "alt": "David Brown"
-            },
-            {
-                "type": "text",
-                "value": "David Brown",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696027120/images/A_owqm4x.png",
+                "alt":"a",
                 "className": "className"
             },
             {
-                "type": "text",
-                "value": "Estadounidense",
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696027128/images/b_wy0je0.png",
+                "alt": "b",
+                "className": "className"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696027242/images/c_gfhjq4.png",
+                "alt":"c",
+                "className": "className"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696027274/images/d_mmcssp.png",
+                "alt":"d",
                 "className": "className"
             }
+        
+
         ]
     },
     "page4": {
@@ -200,12 +221,12 @@
             {
                 "type": "options-box",
                 "value": [
-                    {"value":"pensar","id":"value1","x":600,"y":-140,"width":80,"height":22},
-                    {"value":"costar","id":"value2","x":600,"y":-115,"width":80,"height":22},
-                    {"value":"trabajar","id":"value3","x":600,"y":-90,"width":80,"height":22},
-                    {"value":"entender","id":"value4","x":600,"y":-65,"width":80,"height":22},
-                    {"value":"reconocer","id":"value5","x":600,"y":-40,"width":80,"height":22},
-                    {"value":"estudiar","id":"value6","x":600,"y":-15,"width":80,"height":22}
+                    {"value":"pensar","id":"value1"},
+                    {"value":"costar","id":"value2"},
+                    {"value":"trabajar","id":"value3"},
+                    {"value":"entender","id":"value4"},
+                    {"value":"reconocer","id":"value5"},
+                    {"value":"estudiar","id":"value6"}
                 ],
                 "className": "className"
             }
@@ -1043,106 +1064,7 @@
                 "className": "className"
             }
         ]
-    },
-    "page19": {
-        "type": "complete",
-        "template": "template1",
-        "section": [
-            7,
-            "Test"
-        ],
-        "data": [
-            {
-                "type": "title",
-                "value": "Completa los espacios en blanco con el verbo conjugado en presente",
-                "className": "className"
-            },
-           
-            {
-                "type": "complete-li",
-                "value": [
-                    "<span style='color:#4CCFEB;'> 6.</span>Yo ",
-                    {
-                        "block": 7,
-                        "color": "orange",
-                        "option": "pongo"
-                    },
-                    "todas mis cosas en el escritorio. (poner)"
-                ]
-            },
-            {
-                "type": "complete-li",
-                "value": [
-                    "<span style='color:#4CCFEB;'> 7.</span> Los viernes yo",
-                    {
-                        "block": 7,
-                        "color": "orange",
-                        "option": "salgo"
-                    },
-                    "con mis amigos al boliche. (salir)"
-                ]
-            },
-            {
-                "type": "complete-li",
-                "value": [
-                    "<span style='color:#4CCFEB;'> 8.</span> Yo ",
-                    {
-                        "block": 8,
-                        "color": "orange",
-                        "option": "traigo"
-                    },
-                    "el pastel. (traer)"
-                ],
-                "className": "className"
-            },
-            {
-                "type": "complete-li",
-                "value": [
-                    "<span style='color:#4CCFEB;'> 9.</span> Yo ",
-                    {
-                        "block": 9,
-                        "color": "orange",
-                        "option": "recaigo"
-                    },
-                    "en el mal hábito de fumar. (recaer)"
-                ],
-                "className": "className"
-            },
-            {
-                "type": "complete-li",
-                "value": [
-                    "<span style='color:#4CCFEB;'> 10.</span> Yo ",
-                    {
-                        "block": 13,
-                        "color": "orange",
-                        "option": "sobresalgo"
-                    },
-                    "siempre en las clases. (sobresalir)"
-                ],
-                "className": "className"
-            }
-        ]
-    },
+    }
+    
 
-    "page20": {
-        "type": "text",
-        "section": [
-            0,
-            "Portada"
-        ],
-        "template": "template0",
-        "data": [
-                        {
-                "type": "title",
-                "value": "NOS VEMOS EN LA PRÓXIMA CLASE",
-                "className": "className"
-            },
-            {
-                "type": "title",
-                "value": "¡Gracias por tu atención!",
-                "className": "className"
-            }
-        ]
-  
-}
 }

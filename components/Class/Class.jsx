@@ -1,4 +1,5 @@
-import React ,  { useEffect, useState ,useRef}from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import Spinner from '../Spinner';
 import Image from 'next/image';
 import styles from '../../styles/boxmove.module.css';
 import YouTube from 'react-youtube';
@@ -6,20 +7,38 @@ import YOUTUVEPOPUP from '../youtubePopup/youtubePopup';
 import BOXMOMVE from './boxmove'
 export default function Class(props) {
   const [data, setData] = useState(null);
-  const[section,setSetcion]=useState('Inicial')
-  
   const [i, setI] = useState(0);
-  const [length,setL]= useState(1);
-  
-    // Opciones de Youtube
-    const iframeRef = useRef(null);
-    const opts = { 
-      playerVars: {
-        rel: 0, // Evitar videos relacionados al final
-        autoplay: 1, // Desactivar la reproducción automática
-        modestbranding: 1, // Ocultar el logotipo de YouTube
-        fs:0, // Oculto el boton de maximizar video fs FullScreen
-        color: "#000"
+  const [length, setL] = useState(1);
+//posicion del cursor
+// document.addEventListener("mousemove", function(event) {
+//   const x = event.clientX;
+//   const y = event.clientY;
+//   console.log(`Posición del cursor: X=${x}, Y=${y}`);
+// });
+
+//Posicion de la CAJA
+const handleBoxPlacement = (boxPosition, sector) => {
+  // Verificar si la caja está en el sector apropiado
+  if (
+    boxPosition.x >= sector.x &&
+    boxPosition.x + boxPosition.width <= sector.x + sector.width &&
+    boxPosition.y >= sector.y &&
+    boxPosition.y + boxPosition.height <= sector.y + sector.height
+  ) {
+    // La caja está en el sector apropiado, puedes tomar acciones aquí
+    console.log(`La caja está en el sector ${sector.id}`);
+  }
+};
+
+// Opciones de Youtube
+  const iframeRef = useRef(null);
+  const opts = {
+    playerVars: {
+      rel: 0, // Evitar videos relacionados al final
+      autoplay: 1, // Desactivar la reproducción automática
+      modestbranding: 1, // Ocultar el logotipo de YouTube
+      fs: 0, // Oculto el boton de maximizar video fs FullScreen
+      color: "#000"
     }
   }
   // Fetch data when the component mounts
@@ -29,12 +48,10 @@ export default function Class(props) {
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-        
         return response.json();
       })
       .then((response) => {
-        setData(response.class1[2]);
-        
+        setData(response.class1[3]);
       })
       .catch((error) => {
         // Handle any errors
@@ -42,103 +59,62 @@ export default function Class(props) {
       });
   }, []);
 
-  function Forward(i){
-    if(data){
-      if(data){if(data.sheets){if(data.sheets.length) setL(data.sheets.length)}}
-    if(i<data.sheets.length-1) setI(++i)}
-    
-  }
-  function Back(i){
-    if(data){
-      if(data){if(data.sheets){if(data.sheets.length) setL(data.sheets.length)}}
-    if(i>0) setI(--i)}
-  }
+  //como son n sheets avanzo con el boton de forward
+  function Forward(i) {
+    if (data) {
+      if (data) { if (data.sheets) { if (data.sheets.length) setL(data.sheets.length) } }
+      if (i < data.sheets.length - 1) setI(++i)
+    }
 
+  }
+  //como son n sheets retrocedo con el boton de forward
+  function Back(i) {
+    if (data) {
+      if (data) { if (data.sheets) { if (data.sheets.length) setL(data.sheets.length) } }
+      if (i > 0) setI(--i)
+    }
+  }
   //https://docs.google.com/presentation/d/10lxVnbNdlLZ6OlsXJTU9-uZ3GDJPz140/edit#slide=id.g27c3e69a393_0_0
-const a=  {
-    type:"boxmove",
-    section:"3",
-    "title1":"Actividad",
-    "paragraph":["Los verbos resaltados en los textos están en presente.",
-    "<span style={{ color: 'orange' }}>¿Sabes cuál es su infinitivo? </span>",
-     "A continuación, te mostramos algunos verbos usados en los textos y opciones para seleccionar su forma infinitiva correcta. Arrastra el verbo correcto."],
-     "sentence":[{"text":"David <span style= 'color: orange;' >trabaja</span> muchas horas al día. _________________",
-                       "option":"trabajar"},
-                       {"text":"No <span style= 'color: orange;' >piensa</span> volver a su país. ________________",
-                      "option":"pensar"},
-                      {"text":"<span style= 'color: orange;' >Reconozco</span> que aún tengo problemas con la lengua. _____________________",
-                    "option":"reconocer"},
-                    {"text": "Bruna <span style= 'color: orange;' >estudia</span> medicina en la UNC. __________________",
-                    "option":"estudiar"},
-                {"text":"Todavía no <span style= 'color: orange;' >entiende</span> perfectamente el  español. __________________",
-                "option":"entender"},
-                {"text":"no <span class={color:'orange'}>Le cuesta</span> bastante la pronunciación. ______________________",
-                "option":"costar"}]
 
-              };
-              const b = require("./nivela2.json");
-           //   console.log(b)
-        
-              
+
   return (
     <div>Class
-    
-<h1>Esto es traido de la Base de Datos</h1>
-<div><button style={{'background-color': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={()=>Back(i)}> Back </button>
-     <span style={{'margin-left': '16px'}}>{i+1}/{length}</span> 
-     <button style={{'margin-left': '16px','background-color': '#4CCFEB','border': '4px solid #007bff'}} onClick={()=>Forward(i)}>Forward</button>
-</div>
 
-<div></div>
-{
-data&&data.sheets[i].data?
+      <h1>Esto es traido de la Base de Datos</h1>
+      <div><button style={{ 'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={() => Back(i)}> Back </button>
+        <span style={{ 'marginLeft': '16px' }}>{i + 1}/{length}</span>
+        <button style={{ 'marginLeft': '16px', 'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={() => Forward(i)}>Forward</button>
+      </div>
+      <div></div>
+      {
+        data && data.sheets[i].data ?
 
-data.sheets[i].data.map((c, index)=> 
-  
-  <div key={index}  >
-  {/* PARA RENDERIZAR MEJOR  */}
-  {c.type==='level'? <p dangerouslySetInnerHTML={{ __html: c.value }}></p>:null}
-  {c.type==='image'? <Image width='100' height='100' src={c.value} alt={c.alt}/>:null}
-  {c.type==='title'? <p dangerouslySetInnerHTML={{ __html: c.value }}></p>:null}
-  {c.type==='video-youtube'? <YouTube ref={iframeRef} opts={opts} videoId={c.value} className='youtube' />:null}
-  {c.type==='videoi-youtube'? <YOUTUVEPOPUP titlep={null} popups={c.popups} videoId={c.value} className='youtube' />:null}
-  <div className={styles['box']}>
-    {c.type==='options-box'? c.value.map(option=><><BOXMOMVE option={option.value} id={option.id}/></>):null}
-    </div>
-  <p dangerouslySetInnerHTML={{ __html: c.value }}></p>
-  
-    {c&&c.options?
-     
-    <ul>
-    {c.options.map(option=>
-      <li key={option}>
-        {option}
-      </li>)}</ul>:null}
-    
-   </div>  ):<h2>aun cargando datos</h2>
-}
+          data.sheets[i].data.map((c, index) =>
 
-{/* <div style={{'padding':'20px'}}></div>
- <h1>Esto es React escrito</h1>
-      <p>Estas personas viven en Córdoba por diferentes motivos. Lee los textos y decide cuál de ellos vive mejor.</p>
-      <p>
-        Ella <span style={{ color: 'orange' }}>se llama</span> Bruna, <span style={{ color: 'orange' }}>es</span> brasileña, <span style={{ color: 'orange' }}>tiene </span> 27 años y hace tres que vive en Córdoba Capital. <span style={{ color: 'orange' }}>Es</span> estudiante, <span style={{ color: 'orange' }}>estudia</span> medicina en la Universidad Nacional de Córdoba (UNC) por las tardes y <span style={{ color: 'orange' }}>tiene</span> las mañanas libres. Normalmente <span style={{ color: 'orange' }}>se levanta</span> temprano, <span style={{ color: 'orange' }}>se baña</span>, <span style={{ color: 'orange' }}>se viste</span>, <span style={{ color: 'orange' }}>se maquilla</span> y <span style={{ color: 'orange' }}>desayuna</span> en una cafetería. “<span style={{ color: 'orange' }}>Salgo</span> todas las mañanas, <span style={{ color: 'orange' }}>voy</span> a la universidad para estudiar en la biblioteca, y por las noches <span style={{ color: 'orange' }}>tomo</span> clases de español, <span style={{ color: 'orange' }}>veo</span> televisión y <span style={{ color: 'orange' }}>leo</span>”. Todavía no <span style={{ color: 'orange' }}>entiende</span> perfectamente el  español, <span style={{ color: 'orange' }}>le cuesta</span> bastante la pronunciación pero le gusta hablar y compartir con los nativos. <span style={{ color: 'orange' }}>Se siente</span> feliz en Córdoba, no <span style={{ color: 'orange' }}>quiere</span> volver a Brasil, por ahora.
-      </p>
-     {console.log(b)} 
-      <p>David <span style={{ color: 'orange' }}>trabaja</span> muchas horas al día. _________________</p>
-      <p></p>
-      <h1>Esto es json</h1>
- {b.page3.data.map((c, index)=> 
-  <div key={index}  >
-  <p dangerouslySetInnerHTML={{ __html: c.value }}>
- 
+            <div key={index}  >
+              {/* PARA RENDERIZAR MEJOR  */}
+              {c.type === 'level' ? <p dangerouslySetInnerHTML={{ __html: c.value }}></p> : null}
+              {c.type === 'image' ? <Image width='100' height='100' src={c.value} alt={c.alt} /> : null}
+              {c.type === 'title' ? <p dangerouslySetInnerHTML={{ __html: c.value }}></p> : null}
+              {c.type === 'video-youtube' ? <YouTube ref={iframeRef} opts={opts} videoId={c.value} className='youtube' /> : null}
+              {c.type === 'videoi-youtube' ? <YOUTUVEPOPUP titlep={null} popups={c.popups} videoId={c.value} className='youtube' /> : null}
+              <div className={styles['box']}>
+                {c.type === 'options-box' ? c.value.map(value => <BOXMOMVE key={value.y} option={value}  onBoxPlacement={(boxPosition) => handleBoxPlacement(boxPosition, sector)}/>)
+                  : null}
+              </div>
 
-    </p>
-  </div>
-  )}
+              <p dangerouslySetInnerHTML={{ __html: c.value }}></p>
 
-{
-console.log(data)} */}
+              {c && c.options ?
+
+                <ul>
+                  {c.options.map(option =>
+                    <li key={option}>
+                      {option}
+                    </li>)}</ul> : null}
+
+            </div>) : <div style={{ paddingRight: '1000px' }}> <Spinner /></div>
+      }
     </div>
   )
 }
