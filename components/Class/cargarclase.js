@@ -1,5 +1,5 @@
 //import clase from "./nivela2.json"
-const clase = require("./nivela2.json");
+const clase = require("./nivela3.json");
 async function imprimir()
 {//console.log(clase)
 let nuevaclase=[];
@@ -21,7 +21,7 @@ console.log(nuevaclase.length)
                  headers: {
                             'Content-Type': 'application/json'  // 'Content-Type': 'application/x-www-form-urlencoded',
                           },
-                 body: JSON.stringify({name:'nivela24',sheets:nuevaclase}) //mando por el body la nueva clase
+                 body: JSON.stringify({name:'nivela242',sheets:nuevaclase}) //mando por el body la nueva clase
              }
               )
 

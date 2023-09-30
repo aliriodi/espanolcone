@@ -165,7 +165,7 @@ export default function Register() {
             <div className='hidden absolute top-0  right-0 z-0 w-[100%] drop-shadow-[1px_4px_15px_#00000073]
               md:block'>
               {/* Vector 4 */}
-              <Image src={Vector4} className=''/>
+              <Image alt='vector 4' src={Vector4} className=''/>
 
               {/* Logo  */}
               <div className='w-full h-full absolute top-0 flex items-center justify-center'>
