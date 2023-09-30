@@ -193,7 +193,7 @@
             },
             {
                 "type": "sentence-box",
-                "value": "no <span style= 'color: orange;'>Le cuesta</span> bastante la pronunciación. ______________________",
+                "value": "<span style= 'color: orange;'>Le cuesta</span> bastante la pronunciación. ______________________",
                 "option": "costar",
                 "className": "className"
             },

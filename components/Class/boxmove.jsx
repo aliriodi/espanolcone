@@ -15,7 +15,13 @@ export default function Boxmove(props) {
                     size={{ width: props.option.width, height: props.option.height }}
                     position={{ x: state.x, y: state.y }}
                     onDragStop={(e, d) => { setState({ x: d.x, y: d.y }) }}
+                    onDrag={(e, d) => { 
+                        // Este evento se dispara continuamente mientras se arrastra
+                        console.log('Nueva posición durante el arrastre:', { x: d.x, y: d.y , valor:props.option.value});
+                     //   setState({ x: d.x, y: d.y });
+                      }}
                     style={{
+                        zIndex: 1000,
                         backgroundColor: '#4CCFEB',
                         display:'flex',
                         alignItems: 'center', // Centra verticalmente
