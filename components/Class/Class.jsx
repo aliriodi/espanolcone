@@ -15,7 +15,22 @@ export default function Class(props) {
 //   const y = event.clientY;
 //   console.log(`Posición del cursor: X=${x}, Y=${y}`);
 // });
-  // Opciones de Youtube
+
+//Posicion de la CAJA
+const handleBoxPlacement = (boxPosition, sector) => {
+  // Verificar si la caja está en el sector apropiado
+  if (
+    boxPosition.x >= sector.x &&
+    boxPosition.x + boxPosition.width <= sector.x + sector.width &&
+    boxPosition.y >= sector.y &&
+    boxPosition.y + boxPosition.height <= sector.y + sector.height
+  ) {
+    // La caja está en el sector apropiado, puedes tomar acciones aquí
+    console.log(`La caja está en el sector ${sector.id}`);
+  }
+};
+
+// Opciones de Youtube
   const iframeRef = useRef(null);
   const opts = {
     playerVars: {
@@ -84,7 +99,7 @@ export default function Class(props) {
               {c.type === 'video-youtube' ? <YouTube ref={iframeRef} opts={opts} videoId={c.value} className='youtube' /> : null}
               {c.type === 'videoi-youtube' ? <YOUTUVEPOPUP titlep={null} popups={c.popups} videoId={c.value} className='youtube' /> : null}
               <div className={styles['box']}>
-                {c.type === 'options-box' ? c.value.map(value => <BOXMOMVE key={value.y} option={value} />)
+                {c.type === 'options-box' ? c.value.map(value => <BOXMOMVE key={value.y} option={value}  onBoxPlacement={(boxPosition) => handleBoxPlacement(boxPosition, sector)}/>)
                   : null}
               </div>
 
