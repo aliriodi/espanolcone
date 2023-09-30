@@ -21,7 +21,7 @@ console.log(nuevaclase.length)
                  headers: {
                             'Content-Type': 'application/json'  // 'Content-Type': 'application/x-www-form-urlencoded',
                           },
-                 body: JSON.stringify({name:'nivela1',sheets:nuevaclase}) //mando por el body la nueva clase
+                 body: JSON.stringify({name:'nivela22',sheets:nuevaclase}) //mando por el body la nueva clase
              }
               )
 

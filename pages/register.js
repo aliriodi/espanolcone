@@ -8,6 +8,7 @@ import Background from '../public/imgs/logIn-background.png'
 import Vector1 from '../public/imgs/vector-1.png'
 import Vector2 from '../public/imgs/vector-2.png'
 import Vector3 from '../public/imgs/vector-3.png'
+import Vector4 from '../public/imgs/vector-4.png'
 import Layout from '../components/Layout';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
@@ -127,9 +128,11 @@ export default function Register() {
         <meta name="landing" content="welcome" />
       </Head>
       <Layout>
-        <div className='w-full h-full flex' style={{color:'#6e6b7b'}}>
+        <div className='w-full h-full flex relative
+        md:overflow-hidden'
+        style={{color:'#6e6b7b'}}>
           {/* Fondo */}
-          <div className="loging-fondo bg-primary flex justify-evenly items-center flex-col h-screen w-full relative z-40">
+          <div className="loging-fondo bg-primary flex justify-evenly items-center flex-col h-screen w-full relative z-40 md:hidden">
             <Image src={Logo} style={{ width: '200px' }} alt='Logo' className='z-40' />
             <div className="loging-fondo_text z-40">
               <p className="text-white text-5xl font-semibold mb-4 text-center text-shadow">{t("img1")}</p>
@@ -145,8 +148,10 @@ export default function Register() {
 
           {/* Formulario */}
           <div
-            className='bg-gray_light flex flex-col justify-center'
-            style={{ fontWeight: '400', padding: '0 80px', minWidth:'60%'}}>
+            className='bg-gray_light flex flex-col justify-center px-[80px] min-w-[60%]
+            md:px-[25px] md:w-[100%] md:py-[200px]'
+            style={{ fontWeight: '400'}}>
+
             <div className=' px-3 flex flex-row items-end'>
               {locales.map(l => (
                 <div key={l} className='px-2'>
@@ -154,12 +159,30 @@ export default function Register() {
                 </div>
               ))}
             </div>
+
+            
+            {/* Logo Responsive */}
+            <div className='hidden absolute top-0  right-0 z-0 w-[100%] drop-shadow-[1px_4px_15px_#00000073]
+              md:block'>
+              {/* Vector 4 */}
+              <Image alt='vector 4' src={Vector4} className=''/>
+
+              {/* Logo  */}
+              <div className='w-full h-full absolute top-0 flex items-center justify-center'>
+                <Image src={Logo} alt='Logo' className='z-40 w-[95.04px] mx-auto flex'/>
+              </div>
+            </div>
+
+            {/* Titulo */}
             <h3
-              className='font-semibold text-violet_dark'
-              style={{ fontSize: '24px', width: '430px', marginBottom: '8px' }}>
+              className='font-semibold text-violet_dark text-[24px]
+              md:text-[21px]'
+              style={{ width: '430px', marginBottom: '8px' }}>
               Información de la cuenta
             </h3>
-            <p>
+
+            {/* Texto */}
+            <p className='md:text-[14px]'>
                 Ingresa los detalles de tu usuario y contraseña
             </p>
 
@@ -175,19 +198,23 @@ export default function Register() {
             <form action="" onSubmit={handleSubmit}>
 
                 {/* Campos */}
-                <div className='flex justify-between relative'>
+                <div className='flex justify-between relative
+                md:flex-col'>
 
                   {/* Campo de la Izquierda */}
-                  <div className='w-full pr-5'>
+                  <div className='w-full pr-5 md:p-0'>
                     {/* Campo Nombre */}
-                    <div className="flex flex-col" style={{ marginTop: '18px', width:'100%', flexGrow:1}}>
+                    <div className="flex flex-col mt-[18px]
+                    md:mt-[10px]"
+                    style={{ width:'100%', flexGrow:1}}>
                         
                         <div style={{ margin: '8px 0' }}>
-                            <label htmlFor="name">Nombre</label>
+                            <label htmlFor="name" className="md:text-[12px]">Nombre</label>
                         </div>
 
                         <input
-                          className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.name ? "border-danger" :"border-gray-clear"}`}
+                          className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.name ? "border-danger" :"border-gray-clear"}
+                          md:text-[12px]`}
                           type="text"
                           id="name"
                           placeholder='John'
@@ -202,14 +229,17 @@ export default function Register() {
                     </div>
 
                     {/* Campo Pais */}
-                    <div className="flex flex-col" style={{ marginTop: '18px' , width:'100%', flexGrow:1}}>
+                    <div className="flex flex-col mt-[18px]
+                    md:mt-[10px]"
+                    style={{ width:'100%', flexGrow:1}}>
 
                         <div className="flex justify-between" style={{ margin: '8px 0' }}>
-                            <label htmlFor="country">País</label>
+                            <label htmlFor="country" className="md:text-[12px]">País</label>
                         </div>
 
                         <input
-                          className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.country ? "border-danger" :"border-gray-clear"}`}
+                          className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.country ? "border-danger" :"border-gray-clear"}
+                          md:text-[12px]`}
                           type="text"
                           id="country"
                           placeholder='Venezuela'
@@ -224,13 +254,16 @@ export default function Register() {
                     </div>
                     
                     {/* Campo Confirma Contraseña */}
-                    <div className="flex flex-col" style={{ marginTop: '18px' , width:'100%', flexGrow:1}}>
+                    <div className="flex flex-col mt-[18px]
+                    md:mt-[10px]"
+                    style={{ width:'100%', flexGrow:1}}>
                         <div className="flex justify-between" style={{ margin: '8px 0' }}>
-                            <label htmlFor="password">Contraseña</label>
+                            <label htmlFor="password" className="md:text-[12px]">Contraseña</label>
                         </div>
                         
                         <input
-                          className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.password ? "border-danger" :"border-gray-clear"}`}
+                          className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.password ? "border-danger" :"border-gray-clear"}
+                          md:text-[12px]`}
                           type="password"
                           id="password"
                           placeholder='Password'
@@ -246,17 +279,20 @@ export default function Register() {
                   </div>
 
                   {/* Campo de la Derecha */}
-                  <div className='w-full pl-5'>
+                  <div className='w-full pl-5 md:p-0'>
                     
                     {/* Campo Apellido */}
-                    <div className="flex flex-col" style={{ marginTop: '18px', width:'100%', flexGrow:1}}>
+                    <div className="flex flex-col mt-[18px]
+                    md:mt-[10px]"
+                    style={{ width:'100%', flexGrow:1}}>
 
                         <div className="flex justify-between" style={{ margin: '8px 0' }}>
-                            <label htmlFor="last_name">Apellido</label>
+                            <label htmlFor="last_name" className='md:text-[12px]'>Apellido</label>
                         </div>
 
                         <input
-                          className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.last_name ? "border-danger" :"border-gray-clear"}`}
+                          className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.last_name ? "border-danger" :"border-gray-clear"}
+                          md:text-[12px]`}
                           type="text"
                           id="last_name"
                           placeholder='Doe'
@@ -266,19 +302,22 @@ export default function Register() {
 
                         {/* Error de Apellido */}
                         {errorsForm.last_name && (
-                            <p className='text-danger'>Introdusca un apellido</p>
+                            <p className='text-danger md:text-[12px]'>Introdusca un apellido</p>
                         )}
                     </div>
 
                     {/* Campo Email */}
-                    <div className="flex flex-col" style={{ marginTop: '18px' , width:'100%', flexGrow:1}}>
+                    <div className="flex flex-col mt-[18px]
+                    md:mt-[10px]"
+                    style={{ width:'100%', flexGrow:1}}>
 
                         <div className="flex justify-between" style={{ margin: '8px 0' }}>
-                            <label htmlFor="email">Email</label>
+                            <label htmlFor="email" className='md:text-[12px]'>Email</label>
                         </div>
 
                         <input
-                          className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.email ? "border-danger" :"border-gray-clear"}`}
+                          className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.email ? "border-danger" :"border-gray-clear"}
+                          md:text-[12px]`}
                           type="text"
                           id="email"
                           placeholder='johndoe@gmail.com'
@@ -288,19 +327,22 @@ export default function Register() {
                           
                         {/* Error de Email */}
                         {errorsForm.email && (
-                            <p className='text-danger'>Introduzca un email</p>
+                            <p className='text-danger md:text-[12px]'>Introduzca un email</p>
                         )}
                     </div>
                     
                     {/* Campo Contraseña */}
-                    <div className="flex flex-col" style={{ marginTop: '18px' , width:'100%', flexGrow:1}}>
+                    <div className="flex flex-col mt-[18px]
+                    md:mt-[10px]"
+                    style={{ width:'100%', flexGrow:1}}>
                       
                         <div className="flex justify-between" style={{ margin: '8px 0' }}>
-                            <label htmlFor="confirm_password">Confirma tu contraseña</label>
+                            <label htmlFor="confirm_password" className='md:text-[12px]'>Confirma tu contraseña</label>
                         </div>
 
                         <input
-                          className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.password ? "border-danger" :"border-gray-clear"}`}
+                          className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.password ? "border-danger" :"border-gray-clear"}
+                          md:text-[12px]`}
                           type="password"
                           id="confirm_password"
                           placeholder='Re-type password'
@@ -310,7 +352,7 @@ export default function Register() {
                           
                         {/* Error de Contraseña */}
                         {errorsForm.password && (
-                            <p className='text-danger'>Debe contener al menos 8 caracteres</p>
+                            <p className='text-danger md:text-[12px]'>Debe contener al menos 8 caracteres</p>
                         )}
                     </div>
                   </div>
@@ -321,7 +363,8 @@ export default function Register() {
               {/* Recordar Contraseña */}
               <div className='my-6 flex' style={{alignItems:"center"}}>  
                 <input type="checkbox" id="remember" className=' checkbox' />
-                <label htmlFor="remember" className='ml-3'>{t("p7")}</label>
+                <label htmlFor="remember" className='ml-3 md:text-[14px]'>{t("p7")}</label>
+                
               </div>
 
 
@@ -332,7 +375,8 @@ export default function Register() {
                 <button
                 type="button"
                 onClick={()=>window.history.back()}
-                className="px-8 py-2 btn-primary-border"
+                className="px-8 py-2 btn-primary-border
+                md:text-[14px]"
                 >
                   <FontAwesomeIcon icon={faChevronLeft} className='mr-2'/>
                   Anterior
@@ -340,7 +384,8 @@ export default function Register() {
 
                 {/* Siguiente */}
                 <button
-                className="px-8 py-2 btn-primary"
+                className="px-8 py-2 btn-primary
+                md:text-[14px]"
                 type="submit"
                 >
                   Siguiente
@@ -349,8 +394,11 @@ export default function Register() {
               </div>
 
             </form>
-            <Image src={Vector3} alt='Vector3' className='z-20 absolute right-0 bottom-0 w-40' />
           </div>
+
+          {/* Vector 3 */}
+          <Image src={Vector3} alt='Vector3' className='z-20 absolute right-0 bottom-0 w-40
+          md:w-[8em]' />
         </div>
       </Layout>
     </>

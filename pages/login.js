@@ -10,6 +10,7 @@ import Background from '../public/imgs/logIn-background.png'
 import Vector1 from '../public/imgs/vector-1.png'
 import Vector2 from '../public/imgs/vector-2.png'
 import Vector3 from '../public/imgs/vector-3.png'
+import Vector4 from '../public/imgs/vector-4.png'
 import { getuser , getuseremail} from "../redux/ECEActions";
 import Layout from '../components/Layout';
 import { useRouter } from 'next/router';
@@ -104,9 +105,10 @@ export default function Home() {
       </Head>
 
       <Layout>
-        <div className='w-full h-screen flex' style={{color:'#6e6b7b'}}>
+        <div className='w-full h-screen flex overflow-hidden relative'
+        style={{color:'#6e6b7b'}}>
           {/* Fondo */}
-          <div className="loging-fondo bg-primary flex justify-evenly items-center flex-col h-screen w-full relative z-40">
+          <div className="loging-fondo bg-primary flex justify-evenly items-center flex-col h-screen w-full relative z-40 md:hidden">
             <Image src={Logo} style={{ width: '200px'}} alt='Logo' className='z-40' />
             <div className="loging-fondo_text z-40">
               <p className="text-white text-5xl font-semibold mb-4 text-center text-shadow">{t("img1")}</p>
@@ -122,33 +124,50 @@ export default function Home() {
 
           {/* Formulario */}
           <div
-            className='bg-gray_light flex flex-col justify-center'
-            style={{ fontWeight: '400', padding: '0 80px' }}>
-            <div className=' px-3 flex flex-row items-end'>
-              {/* {locales.map(l => (
-                <div key={l} className='px-2'>
-                  <button onClick={handleClickLan(l)}>{l}</button>
-                </div>
-              ))} */}
+            className='bg-gray_light flex flex-col justify-center px-[80px]
+            md:px-[25px] md:w-full'
+            style={{ fontWeight: '400' }}>
+
+            {/* Logo Responsive */}
+            <div className='hidden absolute top-0  right-0 z-0 w-[100%] drop-shadow-[1px_4px_15px_#00000073]
+              md:block'>
+              {/* Vector 4 */}
+              <Image alt='vector4' src={Vector4} className=''/>
+
+              {/* Logo  */}
+              <div className='w-full h-full absolute top-0 flex items-center justify-center'>
+                <Image src={Logo} alt='Logo' className='z-40 w-[95.04px] mx-auto flex'/>
+              </div>
             </div>
+
+            {/* Titulo */}
             <h3
-              className='font-semibold text-violet_dark'
-              style={{ fontSize: '28px', width: '430px', marginBottom: '8px' }}>
+              className='font-semibold text-title_color text-[24px] w-[430px] z-10
+              md:w-[100%] md:mt-[100px]'
+              style={{ marginBottom: '8px' }}>
               {t("p1")}
             </h3>
-            <p>
+
+            {/* Texto */}
+            <p className='z-10 
+            md:text-[14px]'>
               {t("p2")}
             </p>
 
-            <form action="" onSubmit={handleSubmit}>
+            <form action="" onSubmit={handleSubmit} className='z-10'>
 
               {/* Campo Email */}
-              <div className="flex flex-col" style={{ margin: '25px 0' }}>
-                <div style={{ margin: '8px 0' }}>
-                  <label htmlFor="email">{t("errorEmail")}</label>
+              <div className="flex flex-col my-[25px]
+              md:my-[19px]">
+
+                <div className=' mb-[8px]
+                md:mb-[2px]'>
+                  <label className='md:text-[12px]' htmlFor="email">{t("p3")}</label>
                 </div>
+
                 <input
-                  className={`p-2 rounded-md border focus-visible:outline-none ${emailError ? "border-danger" :"border-gray-clear"}`}
+                  className={`p-2 rounded-md border focus-visible:outline-none ${emailError ? "border-danger" :"border-gray-clear"}
+                  md:text-[12px]`}
                   type="email"
                   id="email"
                   placeholder='johndoe@gmail.com'
@@ -158,18 +177,23 @@ export default function Home() {
                   
                   {/* Error de contraseña */}
                   {emailError && (
-                    <p className='text-danger'>{t("errorEmail")}</p>
+                    <p className='text-danger md:text-[12px]'>{t("errorEmail")}</p>
                   )}
               </div>
 
               {/* Campo Contraseña */}
-              <div className="flex flex-col" style={{ margin: '25px 0' }}>
-                <div className="flex justify-between" style={{ margin: '8px 0' }}>
-                  <label htmlFor="password">{t("p4")}</label>
-                  <a href="#" className='text-success'>{t("p5")}</a>
+              <div className="flex flex-col my-[25px]
+              md:my-[19px]">
+
+                <div className="flex justify-between mb-[8px]
+                md:mb-[2px]">
+                  <label className='md:text-[12px]' htmlFor="password">{t("p4")}</label>
+                  <a href="#" className='text-success md:text-[12px]'>{t("p5")}</a>
                 </div>
+
                 <input
-                  className={`p-2 rounded-md border focus-visible:outline-none ${passwordError ? "border-danger" :"border-gray-clear"}`}
+                  className={`p-2 rounded-md border focus-visible:outline-none ${passwordError ? "border-danger" :"border-gray-clear"}
+                  md:text-[12px]`}
                   type="text"
                   id="password"
                   value={password}
@@ -177,27 +201,27 @@ export default function Home() {
 
                   {/* Error de contraseña */}
                   {passwordError && (
-                    <p className='text-danger'>{t("errorPassaword")}</p>
+                    <p className='text-danger md:text-[12px]'>{t("errorPassaword")}</p>
                   )}
               </div>
  
               {/* Recordar Contraseña */}
               <div className='flex items-center'>
                 <input type="checkbox" id="remember" className='checkbox' />
-                <label htmlFor="remember" className='ml-2'>{t("p7")}</label>
+                <label htmlFor="remember" className='ml-2 md:text-[14px]'>{t("p7")}</label>
               </div>
 
               {/* Ingresar */}
               <input
               style={{padding:'10px', margin:'20px 0'}}
-              className="w-full btn-primary"
+              className="w-full btn-primary md:text-[14px]"
               type="submit"
               value="Ingresar"/>
 
               {/* Crear Cuenta */}
               <div className="flex justify-around">
-                <p>{t("p8")}</p>
-                <Link href="/register" className='text-primary'>{t("p9")}</Link>
+                <p className='md:text-[14px]'>{t("p8")}</p>
+                <Link href="/register" className='text-primary md:text-[14px]'>{t("p9")}</Link>
               </div>
 
               <div className="w-full flex justify-center items-center relative">
@@ -219,18 +243,12 @@ export default function Home() {
                   href="#">
                     <AiOutlineGoogle className='text-white cursor-pointer icon-white ' style={{fontSize:'1.6em'}}/>
                   </span>
-                {/* <span
-                  onClick={()=>signOut('google',{ callbackUrl: '/' })}
-                  style={{ margin: '0 9px', borderRadius: '8px' }}
-                  className='bg-primary h-8 w-8'
-                  href="#"></span> */}
-                {/* <a
-                  style={{ margin: '0 9px', borderRadius: '8px' }}
-                  className='bg-primary h-8 w-8'
-                  href="#"></a> */}
               </div>
             </form>
-            <Image src={Vector3} alt='Vector3' className='z-20 absolute right-0 bottom-0 w-40' />
+
+            {/* Vector 3 */}
+            <Image src={Vector3} alt='Vector3' className='z-20 absolute right-0 bottom-0 w-40
+            md:w-[8em]' />
           </div>
         </div>
       </Layout>

@@ -67,9 +67,10 @@ const Menu = () => {
                                 <li>
                                     <Link href="/courses" >
                                         <div className="flex items-center justify-start mb-5 self-center ">
-                                            <FontAwesomeIcon icon={faLaptop} className="mr-[10px]" />
+
                                             Curso
                                             {/* <a onClick={(e) => { e.preventDefault(); showHideClass(); }}>Curso</a> */}
+
                                         </div>
 
                                     </Link>
@@ -78,7 +79,7 @@ const Menu = () => {
                                     <Link href="/teachers" >
                                         <div className="flex items-center justify-start mb-5 self-center ">
                                             <FontAwesomeIcon icon={faChalkboardUser} className="mr-[10px]" />
-                                            <i class="fa-duotone "></i>
+                                            <i className="fa-duotone "></i>
                                             <p>Profesores</p>
                                         </div>
 
