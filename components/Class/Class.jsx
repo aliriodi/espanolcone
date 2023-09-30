@@ -39,7 +39,7 @@ export default function Class(props) {
         return response.json();
       })
       .then((response) => {
-        const a=2;
+        const a=3;
         setData(response.class1[a]);
         setL(response.class1[a].sheets.length)
       })
@@ -65,7 +65,7 @@ export default function Class(props) {
     }
   }
   //https://docs.google.com/presentation/d/10lxVnbNdlLZ6OlsXJTU9-uZ3GDJPz140/edit#slide=id.g27c3e69a393_0_0
-
+  //https://www.figma.com/file/JZZzrLkQhTDEuUPkAsacuB/ECE-%2F-Prototipos?type=design&node-id=403-9008&mode=design&t=RIjgbE4EDSxOXwZ9-0
 
   return (
     <div>Class

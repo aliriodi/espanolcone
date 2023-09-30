@@ -200,12 +200,12 @@
             {
                 "type": "options-box",
                 "value": [
-                    {"value":"pensar","id":"value1","x":600,"y":-140,"width":80,"height":22},
-                    {"value":"costar","id":"value2","x":600,"y":-115,"width":80,"height":22},
-                    {"value":"trabajar","id":"value3","x":600,"y":-90,"width":80,"height":22},
-                    {"value":"entender","id":"value4","x":600,"y":-65,"width":80,"height":22},
-                    {"value":"reconocer","id":"value5","x":600,"y":-40,"width":80,"height":22},
-                    {"value":"estudiar","id":"value6","x":600,"y":-15,"width":80,"height":22}
+                    {"value":"pensar","id":"value1","x":600,"y":-140,"xmin":194,"xmax":266,"ymin":-125,"ymax":-115,"width":80,"height":22},
+                    {"value":"costar","id":"value2","x":600,"y":-115,"xmin":285,"xmax":410,"ymin":-32,"ymax":-20,"width":80,"height":22},
+                    {"value":"trabajar","id":"value3","x":600,"y":-90,"xmin":248,"xmax":339,"ymin":-150,"ymax":-142,"width":80,"height":22},
+                    {"value":"entender","id":"value4","x":600,"y":-65,"xmin":335,"xmax":432,"ymin":-56,"ymax":-49,"width":80,"height":22},
+                    {"value":"reconocer","id":"value5","x":600,"y":-40,"xmin":363,"xmax":491,"ymin":-104,"ymax":-96,"width":80,"height":22},
+                    {"value":"estudiar","id":"value6","x":600,"y":-15,"xmin":250,"xmax":340,"ymin":-78,"ymax":-72,"width":80,"height":22}
                 ],
                 "className": "className"
             }
