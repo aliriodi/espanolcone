@@ -65,17 +65,17 @@ const Menu = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/courses/homeCourses" >
+                                    <Link href="/courses" >
                                         <div className="flex items-center justify-start mb-5 self-center ">
                                             <FontAwesomeIcon icon={faLaptop} className="mr-[10px]" />
-
-                                            <a onClick={(e) => { e.preventDefault(); showHideClass(); }}>Curso</a>
+                                            Curso
+                                            {/* <a onClick={(e) => { e.preventDefault(); showHideClass(); }}>Curso</a> */}
                                         </div>
 
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/teachers/homeTeachers" >
+                                    <Link href="/teachers" >
                                         <div className="flex items-center justify-start mb-5 self-center ">
                                             <FontAwesomeIcon icon={faChalkboardUser} className="mr-[10px]" />
                                             <i class="fa-duotone "></i>
@@ -85,7 +85,7 @@ const Menu = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/tourGuides/homeTourGuides">
+                                    <Link href="/tourGuides">
                                         <div className="flex items-center justify-start mb-5 self-center ">
                                             <FontAwesomeIcon icon={faPersonHiking} className=" mr-[10px]" />
                                             <p>Guías turisticos</p>
