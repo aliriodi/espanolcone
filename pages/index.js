@@ -21,7 +21,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
 
   const { locale, locales, push } = useRouter()
-  const { t } = useTranslation(['landing', 'navbar', 'index'])
+  const { t } = useTranslation(['landing', 'navbar', 'index','register'])
 
   return (
     <>
@@ -130,7 +130,7 @@ export async function getStaticProps({ locale }) {
 
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['landing', 'navbar', 'common', 'menu', 'aboutus', 'index', 'footer'], nextI18NextConfig)),
+      ...(await serverSideTranslations(locale, ['landing', 'navbar', 'common', 'menu', 'aboutus', 'index', 'footer','register'], nextI18NextConfig)),
     },
   }
 }

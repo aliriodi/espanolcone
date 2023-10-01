@@ -12,12 +12,15 @@ import Vector4 from '../public/imgs/vector-4.png'
 import Layout from '../components/Layout';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
+import nextI18NextConfig from "../next-i18next.config";
 import { signIn, useSession } from 'next-auth/react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useState } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+//para el idioma
+
 
 // faChevronRight
 
@@ -48,14 +51,15 @@ export default function Register() {
 
   //Probando redux
 
-  const { locales, push } = useRouter()
-  const handleClickLan = l => () => {
-    push('', undefined, { locale: l })
-  }
+  // const { locales, push } = useRouter()
+  // const handleClickLan = l => () => {
+  //   push('', undefined, { locale: l })
+  // }
+  const { t } = useTranslation('register');   
 
-  const { t } = useTranslation('landing', {
-    options: { suppressHydrationWarning: true },
-  })
+  // const { t } = useTranslation('landing', {
+  //   options: { suppressHydrationWarning: true },
+  // })
 
   // Next Auth
   useEffect(()=>{
@@ -152,13 +156,13 @@ export default function Register() {
             md:px-[25px] md:w-[100%] md:py-[200px]'
             style={{ fontWeight: '400'}}>
 
-            <div className=' px-3 flex flex-row items-end'>
+            {/* <div className=' px-3 flex flex-row items-end'>
               {locales.map(l => (
                 <div key={l} className='px-2'>
                   <button onClick={handleClickLan(l)}>{l}</button>
                 </div>
               ))}
-            </div>
+            </div> */}
 
             
             {/* Logo Responsive */}
@@ -178,19 +182,19 @@ export default function Register() {
               className='font-semibold text-violet_dark text-[24px]
               md:text-[21px]'
               style={{ width: '430px', marginBottom: '8px' }}>
-              Información de la cuenta
+              {t("title1")}
             </h3>
 
             {/* Texto */}
             <p className='md:text-[14px]'>
-                Ingresa los detalles de tu usuario y contraseña
+            {t("title2")}
             </p>
 
             {/* Error de Usuario ya exitente */}
             {
               errorsForm.existing_user && (
                 <p className='text-danger p-3 bg-danger_clean' style={{borderRadius:'4px'}}>
-                  Ya existe un usuario con ese email 
+                   {t("warninguser")}
                 </p>
               )
             }
@@ -209,7 +213,7 @@ export default function Register() {
                     style={{ width:'100%', flexGrow:1}}>
                         
                         <div style={{ margin: '8px 0' }}>
-                            <label htmlFor="name" className="md:text-[12px]">Nombre</label>
+                            <label htmlFor="name" className="md:text-[12px]">{t("name")}</label>
                         </div>
 
                         <input
@@ -224,7 +228,7 @@ export default function Register() {
                         
                         {/* Error de Nombre */}
                         {errorsForm.name && (
-                            <p className='text-danger'>Introdusca un nombre</p>
+                            <p className='text-danger'>{t("warningname")}</p>
                         )}
                     </div>
 
@@ -249,7 +253,7 @@ export default function Register() {
 
                         {/* Error de Pais */}
                         {errorsForm.country && (
-                            <p className='text-danger'>Introdusca un pais</p>
+                            <p className='text-danger'>{t("warningCountry")}</p>
                         )}
                     </div>
                     
@@ -258,7 +262,7 @@ export default function Register() {
                     md:mt-[10px]"
                     style={{ width:'100%', flexGrow:1}}>
                         <div className="flex justify-between" style={{ margin: '8px 0' }}>
-                            <label htmlFor="password" className="md:text-[12px]">Contraseña</label>
+                            <label htmlFor="password" className="md:text-[12px]">{t("password")}</label>
                         </div>
                         
                         <input
@@ -273,7 +277,7 @@ export default function Register() {
                          
                         {/* Error de Contraseña */}
                         {errorsForm.confirm_password && (
-                            <p className='text-danger flex'>Debe ser igual a la contraseña previamente introducida</p>
+                            <p className='text-danger flex'>{t("warningPass")}</p>
                         )}
                     </div>   
                   </div>
@@ -287,7 +291,7 @@ export default function Register() {
                     style={{ width:'100%', flexGrow:1}}>
 
                         <div className="flex justify-between" style={{ margin: '8px 0' }}>
-                            <label htmlFor="last_name" className='md:text-[12px]'>Apellido</label>
+                            <label htmlFor="last_name" className='md:text-[12px]'>{t("password")}</label>
                         </div>
 
                         <input
@@ -302,7 +306,7 @@ export default function Register() {
 
                         {/* Error de Apellido */}
                         {errorsForm.last_name && (
-                            <p className='text-danger md:text-[12px]'>Introdusca un apellido</p>
+                            <p className='text-danger md:text-[12px]'>{t("warningLastname")}</p>
                         )}
                     </div>
 
@@ -312,7 +316,7 @@ export default function Register() {
                     style={{ width:'100%', flexGrow:1}}>
 
                         <div className="flex justify-between" style={{ margin: '8px 0' }}>
-                            <label htmlFor="email" className='md:text-[12px]'>Email</label>
+                            <label htmlFor="email" className='md:text-[12px]'>{t("email")}</label>
                         </div>
 
                         <input
@@ -327,7 +331,7 @@ export default function Register() {
                           
                         {/* Error de Email */}
                         {errorsForm.email && (
-                            <p className='text-danger md:text-[12px]'>Introduzca un email</p>
+                            <p className='text-danger md:text-[12px]'>{t("warningEmail")}</p>
                         )}
                     </div>
                     
@@ -337,7 +341,7 @@ export default function Register() {
                     style={{ width:'100%', flexGrow:1}}>
                       
                         <div className="flex justify-between" style={{ margin: '8px 0' }}>
-                            <label htmlFor="confirm_password" className='md:text-[12px]'>Confirma tu contraseña</label>
+                            <label htmlFor="confirm_password" className='md:text-[12px]'>{t("confirmPaswword")}</label>
                         </div>
 
                         <input
@@ -352,7 +356,7 @@ export default function Register() {
                           
                         {/* Error de Contraseña */}
                         {errorsForm.password && (
-                            <p className='text-danger md:text-[12px]'>Debe contener al menos 8 caracteres</p>
+                            <p className='text-danger md:text-[12px]'>{t("warningPassw")}</p>
                         )}
                     </div>
                   </div>
@@ -363,7 +367,7 @@ export default function Register() {
               {/* Recordar Contraseña */}
               <div className='my-6 flex' style={{alignItems:"center"}}>  
                 <input type="checkbox" id="remember" className=' checkbox' />
-                <label htmlFor="remember" className='ml-3 md:text-[14px]'>{t("p7")}</label>
+                <label htmlFor="remember" className='ml-3 md:text-[14px]'>{t("remember")}</label>
                 
               </div>
 
@@ -379,7 +383,7 @@ export default function Register() {
                 md:text-[14px]"
                 >
                   <FontAwesomeIcon icon={faChevronLeft} className='mr-2'/>
-                  Anterior
+                  {t("backButton")}
                 </button>
 
                 {/* Siguiente */}
@@ -388,7 +392,7 @@ export default function Register() {
                 md:text-[14px]"
                 type="submit"
                 >
-                  Siguiente
+                  {t("forwardButton")}
                   <FontAwesomeIcon icon={faChevronRight} className='ml-2'/>
                 </button>
               </div>
@@ -409,7 +413,7 @@ export async function getStaticProps({ locale }) {
 
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['landing'])),
+      ...(await serverSideTranslations(locale, ['landing', 'navbar', 'common', 'menu', 'aboutus', 'index', 'footer','register'], nextI18NextConfig)),
     },
   }
 }
