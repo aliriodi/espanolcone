@@ -248,18 +248,18 @@ function Navbar(props) {
 
           </li>
           <li>
-            <Link href={"/"}>{t('BEGIN')}</Link>
+            <Link href={"/"}>{t('BEGIN').toUpperCase()}</Link>
           </li>
           <li>
-            <Link href={"/aboutus"}>{t('ABOUTUS')}</Link>
+            <Link href={"/aboutus"}>{t('ABOUTUS').toUpperCase()}</Link>
           </li>
           <li>
-            <Link href={"#TEAM"}>{t('TEAM')}</Link>
+            <Link href={"#TEAM"}>{t('TEAM').toUpperCase()}</Link>
           </li>
         </ul>
 
         {/* Iniciar Secion */}
-        <Link className={styles['btn-signUp']} href='/login'>{t('SIGNIN')}</Link>
+        <Link className={styles['btn-signUp']} href='/login'>{t('SIGNIN').toUpperCase()}</Link>
 
 
       </div>
@@ -345,18 +345,18 @@ function Navbar(props) {
 
           </li>
           <li>
-            <Link href={"/"}>{t('BEGIN')}</Link>
+            <Link href={"/"}>{t('BEGIN').toUpperCase()}</Link>
           </li>
           <li>
-            <Link href={"/aboutus"}>{t('ABOUTUS')}</Link>
+            <Link href={"/aboutus"}>{t('ABOUTUS').toUpperCase()}</Link>
           </li>
           <li>
-            <Link href={"#TEAM"}>{t('TEAM')}</Link>
+            <Link href={"#TEAM"}>{t('TEAM').toUpperCase()}</Link>
           </li>
         </ul>
 
         {/* Iniciar Secion */}
-        <Link className={styles['btn-signUp']} href='/login'>{t('SIGNIN')}</Link>
+        <Link className={styles['btn-signUp']} href='/login'>{t('SIGNIN').toUpperCase()}</Link>
 
 
       </div>
