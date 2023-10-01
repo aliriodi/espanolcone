@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import {classid} from '../redux/ECEActions' 
 import Image from 'next/image';
 import Logo from '../public/imgs/logo-primary.png';
 import Link from 'next/link';
@@ -7,6 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight, faHouse, faPersonHiking, faChalkboardUser, faLaptop, faAddressCard } from '@fortawesome/free-solid-svg-icons';
 import SignOutBtn from './signOut/SignOutBtn';
 import { setshowClass } from '../redux/ECEActions';
+import Class from '../components/Class/Class'
+import Courses from '../pages/courses'
 
 const Menu = () => {
     const dispatch = useDispatch();
@@ -14,7 +17,27 @@ const Menu = () => {
     //   console.log(useSelector((state) => state.datos).showClass)
     useSelector((state) => state.datos).showClass
     const [showClass, setShowClass] = useState(useSelector((state) => state.datos).showClass);
+    const [mostrarComponenteA, setMostrarComponenteA] = useState(false)
+  const toggleComponenteA = () => {
+    setMostrarComponenteA(!mostrarComponenteA);
+    setMostrarComponenteB(false);
+    setMostrarComponenteC(false);
+    // <Link href={'/courses'}/>;
+    // <Courses id="1"/>
 
+  };
+  const [mostrarComponenteB, setMostrarComponenteB] = useState(false)
+  const toggleComponenteB = () => {
+    setMostrarComponenteB(!mostrarComponenteB);
+    setMostrarComponenteA(false);
+    setMostrarComponenteC(false);
+  };
+  const [mostrarComponenteC, setMostrarComponenteC] = useState(false)
+  const toggleComponenteC = () => {
+    setMostrarComponenteC(!mostrarComponenteC);
+    setMostrarComponenteB(false);
+    setMostrarComponenteA(false);
+  };
     const showHideClass = () => {
         //Para Redux
         dispatch(setshowClass(!showClass))
@@ -40,6 +63,13 @@ const Menu = () => {
         };
     }, []);
 
+    const [isOpenDropdown, setIsOpenDropdown] = useState(false);
+
+    const toggleDropdown = () => {
+        setIsOpenDropdown(!isOpenDropdown);
+    };
+
+
     return (
         <div className="bg-white fixed px-1 py-1 h-screen" ref={menuRef}>
             {/* Opciones */}
@@ -64,16 +94,59 @@ const Menu = () => {
                                         </div>
                                     </Link>
                                 </li>
-                                <li>
-                                    <Link href="/courses" >
-                                        <div className="flex items-center justify-start mb-5 self-center ">
 
+                                <li>
+                                    {/* <Link href="/courses" > */}
+                                    <div className="flex items-center justify-start mb-5 self-center " onClick={toggleDropdown}>
+                                        <FontAwesomeIcon className="mr-[10px]" icon={faLaptop} />
                                             Curso
                                             {/* <a onClick={(e) => { e.preventDefault(); showHideClass(); }}>Curso</a> */}
+                                            {/* {alert(isOpenDropdown)} */}
+                                    {isOpenDropdown && (
+                                        <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                            <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                                                <div className="px-4 py-2" role="menuitem">
+                                                        <div onClick={()=>dispatch(classid('0'))}
+                                                            className="flex items-center justify-start mb-5 self-center ">
+                                                            <FontAwesomeIcon className="mr-[10px]" icon={faChalkboardUser} />
+                                                            <i className="fa-duotone "></i>
+                                                            <Link href={'/courses'} > 
+                                                            <p>clase 1</p>
+                                                                </Link>
+                                                        </div>
+                                                        {/* <div>  {mostrarComponenteA && <Class id={0} />}</div> */}
+                                                </div>
+                                                <div className="px-4 py-2" role="menuitem">
+                                                        <div
+                                                            onClick={()=>dispatch(classid('1'))}
+                                                            className="flex items-center justify-start mb-5 self-center  ">
+                                                            <FontAwesomeIcon className="mr-[10px]" icon={faChalkboardUser} />
+                                                            <i className="fa-duotone "></i>
+                                                            <Link href={'/courses'} >
+                                                            <p>clase2</p>
+                                                                </Link> 
+                                                                      </div>
+                                                        {/* {mostrarComponenteB && <Class id={1} />} */}
+                                                </div>
+                                                <div className="px-4 py-2" role="menuitem">
+                                                        <div
+                                                           onClick={()=>dispatch(classid('2'))}
+                                                            className="flex items-center justify-start mb-5 self-center ">
+                                                            <FontAwesomeIcon className="mr-[10px]" icon={faChalkboardUser} />
+                                                            <i className="fa-duotone fa-chalkboard-user"></i>
+                                                            <Link href={'/courses'} >
+                                                            <p>clase 3</p>
+                                                                </Link> 
 
+
+                                                        </div>
+                                                        {/* {mostrarComponenteC && <Class id={2} />} */}
+                                    {/* </Link> */}
+                                                </div>
+                                            </div>
                                         </div>
-
-                                    </Link>
+                                    )}
+                                        </div>
                                 </li>
                                 <li>
                                     <Link href="/teachers" >

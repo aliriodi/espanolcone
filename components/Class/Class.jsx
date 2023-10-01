@@ -11,14 +11,6 @@ export default function Class(props) {
 
   const [i, setI] = useState(0);
   const [length, setL] = useState(1);
-  //posicion del cursor
-  // document.addEventListener("mousemove", function(event) {
-  //   const x = event.clientX;
-  //   const y = event.clientY;
-  //   console.log(`Posición del cursor: X=${x}, Y=${y}`);
-  // });
-
- 
 
 
   // Opciones de Youtube
@@ -44,6 +36,8 @@ export default function Class(props) {
       })
       .then((response) => {
         const a=props.id;
+        setI(0)
+       // alert(typeof(response.class1))
         setData(response.class1[a]);
         setL(response.class1[a].sheets.length)
 
@@ -52,7 +46,7 @@ export default function Class(props) {
         // Handle any errors
         console.error('Fetch error:', error);
       });
-  }, []);
+  }, [props.id]);
 
 
   //como son n sheets avanzo con el boton de forward
@@ -78,7 +72,8 @@ export default function Class(props) {
   //https://www.figma.com/file/JZZzrLkQhTDEuUPkAsacuB/ECE-%2F-Prototipos?type=design&node-id=403-9008&mode=design&t=RIjgbE4EDSxOXwZ9-0
 
   return (
-    <div>Class
+    <div>Class+{props.id}
+    {console.log(props.id)}
 
       <h1>Esto es traido de la Base de Datos</h1>
       <div><button style={{ 'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={() => Back(i)}> Back </button>
@@ -100,8 +95,7 @@ export default function Class(props) {
                 src={data.sheets[i].template}
                 alt="Background Image"
                 layout="fill"
-                //width={120}
-                //height={100}
+             
                 objectFit="cover"
                 objectPosition="center"
                 style={{zIndex: -10}}
@@ -140,7 +134,7 @@ export default function Class(props) {
 
 
             </div>) 
-            // </Image>
+          
             : <div style={{ paddingRight: '1000px' }}> <Spinner /></div>
       }
     </div>
