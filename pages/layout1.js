@@ -7,7 +7,7 @@ export default function layout1() {
   return (
     <div className="min-h-screen flex flex-col relative">
       <Image
-        src={inicio}
+        src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1696113984/images/1_qywc8c.png"}
         alt="Background Image"
         layout="fill"
         objectFit="cover"
