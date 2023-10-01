@@ -89,12 +89,26 @@ export default function Class(props) {
       {
         data && data.sheets[i].data ?
 
-
+          
+          
           data.sheets[i].data.map((c, index) =>
 
             <div key={index}  >
+              
               {/* PARA RENDERIZAR MEJOR  */}
+             {data.sheets[i].template?<Image
+                src={data.sheets[i].template}
+                alt="Background Image"
+                layout="fill"
+                //width={120}
+                //height={100}
+                objectFit="cover"
+                objectPosition="center"
+                style={{zIndex: -10}}
+                className="z-10"
+              />:null} 
               {c.type === 'level' ? <p dangerouslySetInnerHTML={{ __html: c.value }}></p> : null}
+              
               {c.type === 'image' ? <Image width='100' height='100' src={c.value} alt={c.alt} /> : null}
               {c.type === 'title' ? <p dangerouslySetInnerHTML={{ __html: c.value }}></p> : null}
               {c.type === 'video-youtube' ? <YouTube ref={iframeRef} opts={opts} videoId={c.value} className='youtube'style={{ maxWidth: '400px', width: '100%' }} /> : null}
@@ -125,7 +139,9 @@ export default function Class(props) {
 
 
 
-            </div>) : <div style={{ paddingRight: '1000px' }}> <Spinner /></div>
+            </div>) 
+            // </Image>
+            : <div style={{ paddingRight: '1000px' }}> <Spinner /></div>
       }
     </div>
   )
