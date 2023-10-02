@@ -58,7 +58,7 @@ import { Rnd } from "react-rnd";
 
 export default function Boxmove(props) {
   const [state, setState] = useState({ x: props.option.x, y: props.option.y });
-  const [boxShadowcolor, setBoxShadowcolor] = useState('0px 0px 10px yellow');
+  const [boxShadowcolor, setBoxShadowcolor] = useState('0px 0px 20px yellow');
 
   // Las coordenadas del lugar correcto donde quieres incrustar la caja
   const correctPosition = { x: (props.option.xmin+props.option.xmax)/2, y: (props.option.ymin+props.option.ymax)/2 };
@@ -74,11 +74,11 @@ export default function Boxmove(props) {
       // Si la caja está lo suficientemente cerca, ajusta la posición al lugar correcto
       setState(correctPosition);
 
-      setBoxShadowcolor('0px 0px 10px green');
+      setBoxShadowcolor('0px 0px 20px green');
     } else {
       // Si la caja se aleja del lugar correcto, mantén la posición actual
       //setState({ x: d.x, y: d.y });
-      setBoxShadowcolor('0px 0px 10px red');
+      setBoxShadowcolor('0px 0px 20px red');
     }
   };
 
