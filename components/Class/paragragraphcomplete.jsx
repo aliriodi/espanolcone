@@ -44,7 +44,7 @@ export default function Paragragraphcomplete(props) {
            
              />
         </span>
-     : <span dangerouslySetInnerHTML={{ __html: value }}></span> 
+     : <span key={index} dangerouslySetInnerHTML={{ __html: value }}></span> 
      )))
 }
     </div>  )
