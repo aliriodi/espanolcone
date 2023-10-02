@@ -702,7 +702,8 @@
             {
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1695578432/images/4_svg8uq.png",
-                "className": "className"
+                "className": "className",
+                "alt":"chica de lentes"
             },
             {
                 "type": "popup",

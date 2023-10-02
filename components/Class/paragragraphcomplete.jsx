@@ -27,7 +27,7 @@ export default function paragragraphcomplete(props) {
    props.data.value.map(((value, index) => (
     typeof(value)==='object'?
         <span key={index} style={{paddingRight: '5px',paddingLeft: '5px'}}>
-         <input
+         <input key={index}
             type="text"
             style={{
                 background: 'transparent',
