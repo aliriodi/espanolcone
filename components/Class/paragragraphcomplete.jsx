@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import style from '../../styles/paragragraphcomplete.module.css'
 
-export default function paragragraphcomplete(props) {
+export default function Paragragraphcomplete(props) {
     const [inputValues, setInputValues] = useState(() => (
         props.data.value.map(value => {
           if(typeof(value) === 'object')  {
@@ -20,7 +20,7 @@ export default function paragragraphcomplete(props) {
       };
   return (
     <div>
-{console.log((props))}
+
 
 {/* <p dangerouslySetInnerHTML={{ __html: props.data.value }}></p> */}
 {   
