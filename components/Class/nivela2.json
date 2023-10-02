@@ -517,13 +517,13 @@
                 "value": [
                     "Me llamo Lucas y en la foto",
                     {
-                        "block": 10,
+                        "block": 8,
                         "color": "orange",
                         "option": "saldre"
                     },
                     "(salir) con mi esposa Romina y nuestras mascotas, Canela y Pancho. Nosotros",
                     {
-                        "block": 10,
+                        "block": 7,
                         "color": "orange",
                         "option": "somos"
                     },
@@ -542,37 +542,37 @@
                 "value": [
                     "Todos los fines de semana, después de bañarme,",
                     {
-                        "block": 11,
+                        "block": 9,
                         "color": "orange",
                         "option": "salimos"
                     },
                     "(salir) a dar un paseo con mis perros. Mi esposa les",
                     {
-                        "block": 10,
+                        "block": 6,
                         "color": "orange",
                         "option": "pone"
                     },
                     "(poner) la correa mientras yo",
                     {
-                        "block": 9,
+                        "block": 8,
                         "color": "orange",
                         "option": "traigo"
                     },
                     "(traer) sus galletitas y termos con agua. Cuando regresamos de pasear, yo me",
                     {
-                        "block": 10,
+                        "block": 6,
                         "color": "orange",
                         "option": "pongo"
                     },
                     "(poner) ropa limpia y",
                     {
-                        "block": 10,
+                        "block": 6,
                         "color": "orange",
                         "option": "hago"
                     },
                     " (hacer) el desayuno. Antes de tomar una siesta, yo",
                     {
-                        "block": 14,
+                        "block": 8,
                         "color": "orange",
                         "option": "dispongo"
                     },
@@ -588,7 +588,8 @@
             {
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1695571885/images/3_fjrubz.png",
-                "className": "className"
+                "className": "className",
+                "alt":"matrimonio"
             }
         ]
     },
@@ -665,7 +666,8 @@
             {
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1695571885/images/3_fjrubz.png",
-                "className": "className"
+                "className": "className",
+                "alt":"matrionio"
             }
         ]
     },

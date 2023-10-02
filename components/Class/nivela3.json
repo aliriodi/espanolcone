@@ -609,7 +609,8 @@
             {
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1695571885/images/3_fjrubz.png",
-                "className": "className"
+                "className": "className",
+                "alt":"matrimonio"
             }
         ]
     },
@@ -686,7 +687,8 @@
             {
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1695571885/images/3_fjrubz.png",
-                "className": "className"
+                "className": "className",
+                "alt":"matrimonio"
             }
         ]
     },
