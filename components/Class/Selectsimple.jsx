@@ -31,7 +31,7 @@ export default function Selectsimple(props) {
                 <p dangerouslySetInnerHTML={{ __html: props.data.value }}></p>
                 
                 {props.data.options ? props.data.options.map(option =>
-                    <p><label>
+                    <p  key={option}><label>
                         <input type="radio"
                             key={option}
                             value={option}
