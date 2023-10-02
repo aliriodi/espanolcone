@@ -83,7 +83,8 @@ export default function Class(props) {
   //https://www.figma.com/file/JZZzrLkQhTDEuUPkAsacuB/ECE-%2F-Prototipos?type=design&node-id=403-9008&mode=design&t=RIjgbE4EDSxOXwZ9-0
 
   return (
-    <div>Class+{props.id}
+    <div>
+      Class+{props.id}
     
 
       <h1>Esto es traido de la Base de Datos</h1>
@@ -126,11 +127,11 @@ export default function Class(props) {
               {c.type === 'paragraph' ? <p dangerouslySetInnerHTML={{ __html: c.value }}></p> : null}
               {c.type === 'sentence-box' ? <p dangerouslySetInnerHTML={{ __html: c.value }}></p> : null}
               {c.type === 'selectsimple' ? 
-              // <div><p dangerouslySetInnerHTML={{ __html: c.value }}></p></div>
+            
               <SELECTSIMPLE data={c}/>
               :null}
 
-              
+          {/* <div><p dangerouslySetInnerHTML={{ __html: c.value }}></p></div>   */}
                     
 
                     
