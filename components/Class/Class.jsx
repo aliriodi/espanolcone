@@ -108,21 +108,22 @@ export default function Class(props) {
               />:null} 
               {c.type === 'level' ? <p dangerouslySetInnerHTML={{ __html: c.value }}></p> : null}
               
-              {c.type === 'image' ? <Image width='100' height='100' src={c.value} alt={c.alt} /> : null}
-              {c.type === 'title' ? <p dangerouslySetInnerHTML={{ __html: c.value }}></p> : null}
-              {c.type === 'video-youtube' ? <YouTube ref={iframeRef} opts={opts} videoId={c.value} className='youtube'style={{ maxWidth: '400px', width: '100%' }} /> : null}
-              {c.type === 'videoi-youtube' ? <YOUTUVEPOPUP titlep={null} popups={c.popups} videoId={c.value} className='youtube' /> : null}
+              {c.type === 'image' ? <div className='className'><Image width='100' height='100' src={c.value} alt={c.alt} /> </div>: null}
+              {c.type === 'title' ? <div className='className'><p dangerouslySetInnerHTML={{ __html: c.value }}></p></div> : null}
+              {c.type === 'video-youtube' ?<div className='className'> <YouTube ref={iframeRef} opts={opts} videoId={c.value} className='youtube'style={{ maxWidth: '400px', width: '100%' }} /> </div>: null}
+              {c.type === 'videoi-youtube' ? <div className='className'><YOUTUVEPOPUP titlep={null} popups={c.popups} videoId={c.value} className='youtube' /></div> : null}
               <div className={styles['box']}>
+              <div className='className'>
                 {c.type === 'options-box' ? c.value.map(value => <BOXMOMVE key={value.y} option={value} onBoxPlacement={(boxPosition) => handleBoxPlacement(boxPosition)} />): null}
-              </div>
-              {c.type === 'paragraph' ? <p dangerouslySetInnerHTML={{ __html: c.value }}></p> : null}
-              {c.type === 'sentence-box' ? <p dangerouslySetInnerHTML={{ __html: c.value }}></p> : null}
-              {c.type === 'selectsimple' ?  <SELECTSIMPLE key={c.option} data={c}/> :null}
-              {c.type === 'text' ? <p dangerouslySetInnerHTML={{ __html: c.value }}></p> : null}
+              </div></div>
+              {c.type === 'paragraph' ? <div className='className'><p dangerouslySetInnerHTML={{ __html: c.value }}></p> </div>: null}
+              {c.type === 'sentence-box' ? <div className='className'><p dangerouslySetInnerHTML={{ __html: c.value }}></p> </div>: null}
+              {c.type === 'selectsimple' ? <div className='className'> <SELECTSIMPLE key={c.option} data={c}/> </div>:null}
+              {c.type === 'text' ? <div className='className'><p dangerouslySetInnerHTML={{ __html: c.value }}></p> </div>: null}
               {/* En la siguiente linea falta destructurar el objeto como input form */}
-              {c.type === 'paragraph-complete' ? <>{c.type}<PARAGGRAPHCOMPLETE data={c}/></> : null}
-              {c.type === 'complete-li' ? <p dangerouslySetInnerHTML={{ __html: c.value }}></p> : null}
-              {c.type === 'popup' ? <p dangerouslySetInnerHTML={{ __html: c.value }}></p> : null}
+              {c.type === 'paragraph-complete' ? <div className='className'><PARAGGRAPHCOMPLETE data={c}/></div> : null}
+              {c.type === 'complete-li' ? <div className='className'><p dangerouslySetInnerHTML={{ __html: c.value }}></p></div> : null}
+              {c.type === 'popup' ?<div className='className'> <p dangerouslySetInnerHTML={{ __html: c.value }}></p></div> : null}
               {/* <p dangerouslySetInnerHTML={{ __html: c.value }}></p> */}
             </div>) 
             : <div style={{ paddingRight: '1000px' }}> <Spinner /></div>
