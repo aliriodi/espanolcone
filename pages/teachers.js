@@ -7,7 +7,7 @@ export default function teachers() {
   return (
     <>
       <Menu />
-      <div className='ml-[80px]'>
+      <div className='ml-[80px] w-full flex flex-wrap'>
 
         <TeachersCard />
 
