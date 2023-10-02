@@ -31,14 +31,15 @@ export default function Selectsimple(props) {
                 <p dangerouslySetInnerHTML={{ __html: props.data.value }}></p>
                 
                 {props.data.options ? props.data.options.map(option =>
-                    <p  key={option}><label>
+                    <p  key={option}  ><label>
                         <input type="radio"
                             key={option}
                             value={option}
                             checked={selectedOption === option}
                             onChange={handleOptionChange}
+                            
                         />
-                        {option}
+                        <span  style={{paddingLeft: '5px'}}>{option}</span>
                         {selectedOption && (
                             <span>
                           {/* Para renderizar culito */}

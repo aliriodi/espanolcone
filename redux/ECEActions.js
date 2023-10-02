@@ -17,8 +17,8 @@ import {
      dispatch(showClass(show))
   };
   export const classid = (id) => (dispatch)=>   {
-     console.log('entre a redux')
-     console.log(id)
+    // console.log('entre a redux')
+    // console.log(id)
       dispatch(classId(id))
    };
   
