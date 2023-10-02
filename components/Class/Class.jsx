@@ -4,11 +4,13 @@ import Spinner from '../Spinner';
 import styles from '../../styles/boxmove.module.css';
 import YouTube from 'react-youtube';
 import YOUTUVEPOPUP from '../youtubePopup/youtubePopup';
-import BOXMOMVE from './boxmove'
+import BOXMOMVE from './boxmove';
+import SELECTSIMPLE from './Selectsimple';
+
 export default function Class(props) {
   
   const [data, setData] = useState(null);
-
+  
   const [i, setI] = useState(0);
   const [length, setL] = useState(1);
 
@@ -50,6 +52,7 @@ export default function Class(props) {
         console.error('Fetch error:', error);
       });
   }, [props.id]);
+  
 
 
   //como son n sheets avanzo con el boton de forward
@@ -70,13 +73,19 @@ export default function Class(props) {
       if (i > 0) setI(--i)
     }
   }
+
+  //funcion generadora de estados OPTIONS cuando es un select simple
+  
+  
+
   //https://docs.google.com/presentation/d/10lxVnbNdlLZ6OlsXJTU9-uZ3GDJPz140/edit#slide=id.g27c3e69a393_0_0
 
   //https://www.figma.com/file/JZZzrLkQhTDEuUPkAsacuB/ECE-%2F-Prototipos?type=design&node-id=403-9008&mode=design&t=RIjgbE4EDSxOXwZ9-0
 
   return (
-    <div>Class+{props.id}
-    {console.log(props.id)}
+    <div>
+      Class+{props.id}
+    
 
       <h1>Esto es traido de la Base de Datos</h1>
       <div><button style={{ 'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={() => Back(i)}> Back </button>
@@ -85,14 +94,14 @@ export default function Class(props) {
       </div>
       <div></div>
       {
-        data && data.sheets[i].data ?
+        data &&data.sheets[i].data ?
 
           
           
           data.sheets[i].data.map((c, index) =>
-
-            <div key={index}  >
-              
+          
+            <div className={c.className} key={index}  >
+              {/* {console.log(index,i,c.className)} */}
               {/* PARA RENDERIZAR MEJOR  */}
              {data.sheets[i].template?<Image
                 src={data.sheets[i].template}
@@ -117,14 +126,16 @@ export default function Class(props) {
               </div>
               {c.type === 'paragraph' ? <p dangerouslySetInnerHTML={{ __html: c.value }}></p> : null}
               {c.type === 'sentence-box' ? <p dangerouslySetInnerHTML={{ __html: c.value }}></p> : null}
-              {c.type === 'selectsimple' ? <div><p dangerouslySetInnerHTML={{ __html: c.value }}></p>
+              {c.type === 'selectsimple' ? 
+             
+              <SELECTSIMPLE key={c.option} data={c}/>
+             
+              :null}
 
-                <ul>
-                  {c.options.map(option =>
-                    <li key={option}>
-                      {option}
+          {/* <div><p dangerouslySetInnerHTML={{ __html: c.value }}></p></div>   */}
+                    
 
-                    </li>)}</ul> </div> : null}
+                    
               {c.type === 'text' ? <p dangerouslySetInnerHTML={{ __html: c.value }}></p> : null}
               {/* En la siguiente linea falta destructurar el objeto como input form */}
               {c.type === 'paragraph-complete' ? <p dangerouslySetInnerHTML={{ __html: c.value }}></p> : null}
