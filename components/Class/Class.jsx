@@ -128,7 +128,7 @@ export default function Class(props) {
               {c.type === 'sentence-box' ? <p dangerouslySetInnerHTML={{ __html: c.value }}></p> : null}
               {c.type === 'selectsimple' ? 
             
-              <SELECTSIMPLE data={c}/>
+              <SELECTSIMPLE key={c.option} data={c}/>
               :null}
 
           {/* <div><p dangerouslySetInnerHTML={{ __html: c.value }}></p></div>   */}
