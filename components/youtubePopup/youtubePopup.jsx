@@ -5,7 +5,7 @@ import Layout from '../Layout';
 import Head from 'next/head';
 import SuccessPopUp from './successPopUp';
 import FailedPopUp from './failedPopUp';
-// import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { useSpring, animated } from 'react-spring';
 
 
 export default function YoutubePopup(props) {
@@ -33,6 +33,7 @@ export default function YoutubePopup(props) {
     const [showPopup2, setShowPopup2] = useState(false);
     const [showSuccessPopUp, setShowSuccessPopUp] = useState(false);
     const [showFailedPopUp, setShowFailedPopUp] = useState(false);
+    const [showProgressPopUp, setShowProgressPopUp] = useState(false);
 
     //variable del INPUT para capturarse cuando onClick button
     const [inputValue, setInputValue] = useState("");
@@ -90,7 +91,7 @@ export default function YoutubePopup(props) {
     }
 
     const handleShowSuccessPopUp = (show)=>{
-      player.playVideo();
+      progressPopup();
 
       // Una vez cerrado el popUp se actualiza currentPopUp
       nextPopUp()
@@ -99,8 +100,8 @@ export default function YoutubePopup(props) {
       setShowSuccessPopUp(show)
     }
 
-    const handleShowFailedPopUp = (show)=>{     
-      player.playVideo();
+    const handleShowFailedPopUp = (show)=>{   
+      progressPopup();  
 
       // Una vez cerrado el popUp se actualiza currentPopUp
       nextPopUp()
@@ -185,28 +186,42 @@ export default function YoutubePopup(props) {
       // Check Boxs
       if(selectedOption === currentPopUp.reply){
         result = 1;
+
+        // Se crea un array de PopUps auxiliar
+        const updatedPopUps = [...popUps];
+
+        // Encuentra el índice del PopUp
+        const indexToUpdate = updatedPopUps.findIndex((popUp) => popUp.time === currentPopUp.time);
+
+        // Verifica si se encuentra el PopUp
+        if (indexToUpdate !== -1) {
+          // Actualiza el PopUp específico en el array copiado.
+          updatedPopUps[indexToUpdate] = {
+            ...updatedPopUps[indexToUpdate],
+            value: 1, // Actualiza el valor 
+          };
+
+          // Actualiza el estado con el nuevo array que contiene el objeto actualizado.
+          setPopUps(updatedPopUps);
+        }
+
         setcurrentPopUp({...currentPopUp, value:1})
-        setAcert(aux.reduce((accumulator, popup) => accumulator + popup.value, 0))
+
         setSelectedOption(null)
       }
       else{
-        setAcert(aux.reduce((accumulator, popup) => accumulator + popup.value, 0))
         setSelectedOption(null)
         result = 0;
       }
 
       rendeerizerstar()
 
-      setAcert(result)
       resultPopUp(result)
 
       setInputValue("");
-      // player.playVideo();
       setShowPopup(false);
       setShowPopup2(false);
     };
-
-    // useEffect(()=>console.log("currentPopUp",currentPopUp),[currentPopUp])
 
     const resultPopUp = (result) =>{
       // Esta funcion muestra el resultado del popUp anterior 
@@ -220,12 +235,24 @@ export default function YoutubePopup(props) {
         setShowFailedPopUp(true)
         setShowSuccessPopUp(false)
       }
-    
-      // nextPopUp();
     }
 
     const progressPopup = () =>{
+      // Esta funcion se encarga de calcular la cantidad de aciertos 
+      let totalAcerts = 0;      
+      popUps.map((popUp)=>{
+        console.log("valor", popUp.value)
+        totalAcerts = totalAcerts + popUp.value;
+      })
+      setAcert(totalAcerts)
 
+      setShowProgressPopUp(true)
+    }
+
+    const closeProgressPopup = ()=>{
+      setStartAnimation(false)
+      setShowProgressPopUp(false)
+      player.playVideo();
     }
 
     const prevPopUp = () =>{
@@ -247,17 +274,10 @@ export default function YoutubePopup(props) {
     }
 
     // Comprueba si se tiene que mostrar el PopUp
-    if(Math.floor(videoTime) == currentPopUp.time && !showPopup ){
+    if(Math.floor(videoTime) == currentPopUp.time && !showPopup && currentPopUp.value != 1){
       player.pauseVideo()
       setShowPopup(true)
     }
-
-    // useEffect(()=>{
-    //   if(Math.floor(videoTime) == currentPopUp.time && !showPopup ){
-    //     player.pauseVideo()
-    //     setShowPopup(true)
-    //   }
-    // },[videoTime, currentPopUp])
     //#endregion
     
    
@@ -271,6 +291,50 @@ export default function YoutubePopup(props) {
           color: "#000"
       }
     }
+
+    const [startAnimation, setStartAnimation] = useState(false)
+    const progressValue = (acert / maxAcert) * 100;
+    
+    // Animacion de Progress
+    const progressAnimation = useSpring({
+      width: `${progressValue}%`, // Define la propiedad que deseas animar
+      from: { width: '0%' }, // Valor inicial
+      config: { duration: 200 }, // Duración de la animación en milisegundos
+      onRest: () => {
+        // Esta función se ejecutará cuando la animación haya terminado
+        setStartAnimation(true);
+      }
+    });
+
+    // Animacion Estrella
+    const startRotationAnimation = useSpring({
+      from: {
+        rotate: 0, // Grados de rotación inicial
+      },
+      to: async (next) => {
+        if (startAnimation) {
+
+          await next({ rotate: 50 }); 
+          await next({ rotate: -50 }); 
+          
+          await next({ rotate: 30 }); 
+          await next({ rotate: -30 }); 
+
+          await next({ rotate: 10 }); 
+          await next({ rotate: -10 });           
+          
+          await next({ rotate: 2 }); 
+          await next({ rotate: -2 });
+          
+          await next({ rotate: 0 });   
+
+          await new Promise((resolve) => setTimeout(resolve, 500)); 
+
+          closeProgressPopup();
+        }
+      },
+      config: { duration: 100 }, // Configuración de animación,
+    });
 
     return (
       <>
@@ -354,7 +418,7 @@ export default function YoutubePopup(props) {
 
               //SELECT
               <div ref={popupRef} className="popup w-full h-full absolute top-0 left-0 flex justify-center items-center " style={{background:"#000a"}}>
-                <div className="bg-white overflow-hidden" style={{borderRadius:"8px", minWidth: "40%"}}>
+                <div className="bg-white overflow-hidden m-3" style={{borderRadius:"8px", minWidth: "40%"}}>
 
                   {/* Titulo */}
                   <h3 className='p-3' style={{fontWeight:"700",  fontSize:"21px"}}>
@@ -408,20 +472,65 @@ export default function YoutubePopup(props) {
               </div>
               )
             }
+
+            
+            {/* Progress PopUp */}
+            {
+              showProgressPopUp && (
+              <div ref={popupRef} className="popup w-full h-full absolute top-0 left-0 flex justify-center items-center text-center" style={{background:"#000a"}}>
+
+                <div className="p-2 bg-white" style={{borderRadius:"8px", minWidth: "70%"}}>
+                
+                  {/* Titulo */}
+                  <h3 className='' style={{fontWeight:"700", fontSize:"21px"}}>
+                    Bien Hecho
+                  </h3>
+                  
+                  <div className='flex items-center'>
+                    {/* Barra de progreso */}
+                    <div className='w-[100%] bg-primary_flat_hover rounded-full h-[14px] relative'>
+                      <animated.div
+                        className="progress-bar bg-primary rounded-full h-[14px]"
+                        style={{
+                          width: progressAnimation.width,
+                          // backgroundColor: '#ccc', // Color de fondo de la barra de progreso
+                        }}
+                      ></animated.div>
+                    </div>
+
+                    {/* Estrella */}
+                    <animated.div
+                      style={{
+                        display: 'inline-block',
+                        transform: startRotationAnimation.rotate.interpolate((rotate) => `rotate(${rotate}deg)`),
+                      }}
+                    >
+                      <i className="fa fa-star-o w-full text-info text-[40px]"></i>
+                    </animated.div>
+                  </div>
+                  
+                </div>
+              </div>
+              )
+            }
           </div>
 
           {/* Resultados de Respuestas */}
-          <div>{aux.map(a=>a.value)}</div>
+          {/* <div>{aux.map(a=>a.value)}</div>
 
-          <div>{acert}</div>
-          
+          <div>{acert}</div> */}
+
           {/* Boton para activar la ACTIVIDAD */}
-          <div className="progress">
+          {/* <div className="progress">
             <i className="fa fa-star-o"></i>
             <p>Javascript</p>
-              <progress  id="javascript" max={maxAcert} value={acert}></progress>
+              <progress
+              className='duration-500 ease-in-out'
+              id="javascript"
+              max={maxAcert}
+              value={acert}></progress>
               <span></span>
-          </div>
+          </div> */}
         </div>
       </Layout>
       </>
