@@ -101,7 +101,7 @@ export default function YoutubePopup(props) {
     }
 
     const handleShowFailedPopUp = (show)=>{   
-      progressPopup();  
+      player.playVideo() 
 
       // Una vez cerrado el popUp se actualiza currentPopUp
       nextPopUp()

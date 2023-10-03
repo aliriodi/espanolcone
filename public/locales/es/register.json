@@ -18,5 +18,9 @@
     "warningEmail":"Introduzca un email",
     "warningEmail1":"Introduzca un email válido",
     "warningPassw":"Introduzca un password de al menos 8 caracteres",
-    "warningPass":"Debe ser igual a la contraseña previamente introducida"
+    "warningPass":"Debe ser igual a la contraseña previamente introducida",
+    "img1":"EXPLORA,",
+    "img2":"EXPERIMENTA,",
+    "img3":"EMOCIÓNATE",
+    "img4":"¡Disfruta el viaje!"
 }
