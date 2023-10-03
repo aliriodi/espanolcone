@@ -1,0 +1,45 @@
+ .Portadaimg {
+    position: absolute; /* Asegúrate de que la imagen tenga una posición */
+     z-index: -1;
+    padding-top: 1%; 
+    transform: scale(1.8) translate(24%, 50%);
+    
+}  
+
+ .Portadatil {
+    transform: translateX(120%);
+    font-size: 400%;
+    width: 40%;
+    padding-top: 4%;
+    color: white;
+    font-weight: 730;
+}
+
+.Portadalev {
+    font-size: 140%;
+    width: 40%;
+    padding-top: 19%;
+    color: white;
+    font-weight: 700;
+}
+.p1title{
+   display:flex;
+    align-items: center; /* Center vertically */
+    justify-content: center;
+    padding-top: 2%;
+    color: #FF7438;
+    
+    font-weight: 800;
+    font-size: 210%;
+    
+ } 
+
+.youtuve-p1{
+    position: relative; /* Asegúrate de que la imagen tenga una posición */
+     margin-left: 33%;
+    padding-top: 8.5%;
+    width: 32%;
+    justify-content: center;
+    
+    transform: scale(1) 
+}  
