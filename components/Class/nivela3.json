@@ -11,17 +11,17 @@
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366262/images/logo-primary_qoagkg.png",
                 "alt": "EspañolconE",
-                "className": "className"
+                "className": "Portadaimg"
             },
             {
                 "type": "title",
                 "value": "¡Hola! ¿Qué tal?                ",
-                "className": "className"
+                "className": "Portadatil"
             },
             {
                 "type": "level",
                 "value": "NIVEL A2",
-                "className": "className"
+                "className": "Portadalev"
             }
         ]
     },
@@ -458,12 +458,12 @@
             {
                 "type": "title",
                 "value": "<span style='color:orange;'>Video interativo</span>",
-                "className": "className"
+                "className":"Portadaimg"
             },
             {
                 "type": "paragraph",
                 "value": "2.  Mira el siguiente video y contesta las preguntas planteadas:",
-                "className": "className"
+                "className":  "Portadatil"
             },
             {
                 "type": "video-youtube",
