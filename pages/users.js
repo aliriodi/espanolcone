@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Spinner from '../components/Spinner';
-
+//https://www.figma.com/file/JZZzrLkQhTDEuUPkAsacuB/ECE-%2F-Prototipos?type=design&node-id=403-9008&mode=design&t=RIjgbE4EDSxOXwZ9-0
 const getUsers = async () => {
   try {
     // const res = await fetch("http://localhost:3000/api/users/get", 

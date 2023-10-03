@@ -416,8 +416,8 @@ export default function YoutubePopup(props) {
           <div>{acert}</div>
           
           {/* Boton para activar la ACTIVIDAD */}
-          <div class="progress">
-            <i class="fa fa-star-o"></i>
+          <div className="progress">
+            <i className="fa fa-star-o"></i>
             <p>Javascript</p>
               <progress  id="javascript" max={maxAcert} value={acert}></progress>
               <span></span>

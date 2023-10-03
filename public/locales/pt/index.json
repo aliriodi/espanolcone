@@ -1,62 +1,62 @@
 {
-  "card1Title": "PTDescubre el mindo del español",
-  "card1Text": "PTEXperimenta el idioma y la cultura en priemra persona",
-  "card1Button": "PTIngresa a la app",
+  "card1Title": "Descubra o mundo do espanhol",
+  "card1Text": "Experimente o idioma e a cultura em primeira pessoa",
+  "card1Button": "Inscreva-se agora",
   "card2": [
     {
-      "title": "PTConecta con tus intereses",
-      "paragraph": "Integra el español en tu rutina diaria, en tus tiempos pasatiempos y aficiones"
+      "title": "Conecte-se aos seus interesses",
+      "paragraph": "Integre o espanhol na sua rotina diária, nos seus hobbies e paixões"
     },
     {
-      "title": "PTAprende haciedno",
-      "paragraph": "Aumenta tu fluidez con proyectos, actividades y conversaciones con nativos"
+      "title": "Aprenda fazendo",
+      "paragraph": "Aumente a sua fluência com projetos, atividades e conversas com nativos"
     },
     {
-      "title": "PTViaja y descubre la cultura",
-      "paragraph": "Conoce paises hispanohablantes junto a profesores y guías turísticos"
+      "title": "Viaje e descubra a cultura",
+      "paragraph": "Conheça países de língua espanhola com professores e guias turísticos"
     },
     {
-      "title": "PTÚnete a nuestra comunidad",
-      "paragraph": "Conversa sobre tus temas favoritos con profesores y estudiantes"
+      "title": "Junte-se à nossa comunidade",
+      "paragraph": "Converse sobre seus tópicos favoritos com professores e estudantes"
     }
   ],
-  "card3Title": "PTConoce Español con E",
-  "card3Text": "PTAprender español no se trata solo de lecciones y gramática. Sumérgete en la cultura de los países hispanohablantes. Así, lograrás hablar con fluidez disfrutas de experiecnias únicas.",
-  "card3Button": "PTDescubre más",
+  "card3Title": "Conheça o Español con E",
+  "card3Text": "Aprender espanhol não se trata apenas de lições e gramática. Mergulhe na cultura dos países de língua espanhola. Dessa forma, você conseguirá falar fluentemente enquanto desfruta de experiências únicas.",
+  "card3Button": "Saiba mais",
   "card4": [
     {
-      "title": "PTLo que ofrecemos",
-      "text": "Descbre los servicios que diseñamos especualmente para tu aprendizaje"
+     "title": "O Que Oferecemos",
+      "text": "Descubra os serviços que projetamos especialmente para a sua aprendizagem"
     },
     {
-      "title": "PTNUESTROS PROGRAMAS",
-      "text": "Explora nuestros programas y amplia tu perspectiva",
-      "paragraph": "Alcanza la fluidez en español con cursos adaptados a tu nivel y metas. Disfruta lecciones interactivas con profesores apasionados por la cultura y el idioma.",
-      "pargraph2": "Nuestros programas ofrecen:",
+      "title": "NOSSOS PROGRAMAS",
+      "text": "Explore nossos programas e amplie sua perspectiva",
+      "paragraph": "Alcance a fluência em espanhol com cursos adaptados ao seu nível e objetivos. Desfrute de aulas interativas com professores apaixonados pela cultura e pelo idioma.",
+      "pargraph2": "Nossos programas oferecem:",
       "list": [
-        "Cursos personalizados según tu nivel de español.",
-        "Lecciones comunicativas y prácticas.",
-        "Profesores certificados y nativos.",
-        "Inmersión cultural en países hispanohablantes."
+        "Cursos personalizados de acordo com o seu nível de espanhol.",
+        "Aulas comunicativas e práticas.",
+        "Professores certificados e nativos.",
+        "Imersão cultural em países de língua espanhola."
       ]
     },
     {
-      "title": "PTCONOCE CÓRDOBA",
-      "text": "Descubre la belleza de Córdoba con nuestros paquetes de viajes",
-      "paragraph": "Descubre la cultura cordobesa mientras perfeccionas tu español. Experimenta una fusión de aprendizaje y turismo en esta hermosa provincia de Argentina.",
-      "pargraph2": "Tendrás la oportunidad de:",
+      "title": "DESCUBRA CÓRDOBA",
+      "text": "Explore a beleza de Córdoba com nossas atividades presenciais",
+      "paragraph": "Descubra a cultura de Córdoba enquanto aprimora seu espanhol. Experimente uma fusão de aprendizado e turismo nesta bela província da Argentina.",
+      "pargraph2": "Você terá a oportunidade de:",
       "list": [
-        "Descubrir lugares emblemáticos a través de la inmersión en la cultura local.",
-        "Contratar guías turísticos certificados.",
-        "Disfrutar de eventos y actividades exclusivas propias de Español con E.",
-        "Practicar el español con hablantes nativos y conocer nuevas personas."
+        "Descobrir locais emblemáticos por meio da imersão na cultura local.",
+        "Contratar guias turísticos certificados.",
+        "Desfrutar de eventos e atividades exclusivas do Español con E.",
+        "Praticar espanhol com falantes nativos e conhecer novas pessoas."
       ]
     }
   ],
   "card5": [
     {
-      "title": "PT Conoce nuestro equipo de expertos",
-      "title1": "PT Nuestro Equipo",
+      "title": "Conheça nossos especialistas",
+      "title1": "Nossa equipe",
       "p1": {
         "image": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366482/images/team-photo-01_svprcr.png",
         "name": "Eucaris Rodriguez",
@@ -81,8 +81,8 @@
   ],
   "card6": [
     {
-      "title": "Don't take our word for it",
-      "sentence": "Read what our students have to say about their experience with us."
+      "title": "Não confie apenas em nossas palavras",
+      "sentence": "Leia o que nossos alunos têm a dizer sobre sua experiência conosco."
     },
     {
       "name": "Lisa J.",

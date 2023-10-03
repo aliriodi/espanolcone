@@ -1,0 +1,22 @@
+{
+    "title1":"Información de la cuenta",
+    "title2":"Ingresa los detalles de tu usuario y contraseña",
+    "name":"Nombre",
+    "lastname":"Apellido",
+    "country":"País",
+    "placeholderCountry":"Brasil",
+    "email":"Email",
+    "password":"Contraseña",
+    "confirmPaswword":"Confirma tu contraseña",
+    "remember":"Remember",
+    "backButton":"Back",
+    "forwardButton":"Next",
+    "warningUser":"Ya existe un usuario con ese email",
+    "warningName":"Introduzca un nombre",
+    "warningLastname":"Introduzca un apellido",
+    "warningCountry":"Introduzca un pais",
+    "warningEmail":"Introduzca un email",
+    "warningEmail1":"Introduzca un email válido",
+    "warningPassw":"Introduzca un password de al menos 8 caracteres",
+    "warningPass":"Debe ser igual a la contraseña previamente introducida"
+}

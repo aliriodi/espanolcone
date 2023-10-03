@@ -1,6 +1,7 @@
 import {
     getUserS,
-    showClass
+    showClass,
+    classId
   } from "./ECESlice";
   
   export const getuser = () => async (dispatch) => {
@@ -15,6 +16,11 @@ import {
    // console.log(show)
      dispatch(showClass(show))
   };
+  export const classid = (id) => (dispatch)=>   {
+    // console.log('entre a redux')
+    // console.log(id)
+      dispatch(classId(id))
+   };
   
   export const getuseremail = (email,password) => async (dispatch) => {
     await fetch("/api/users/getid?email="+email+"&&password="+password)

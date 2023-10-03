@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 //Condicion inicial de variables Store
 const initialState= {
     languages:['br','en','sp'],
+    classid:'0',
     language: 'br',
     showClass: false,
     plan:'plan1',
@@ -23,7 +24,11 @@ const initialState= {
         state.userL = action.payload},
       showClass: (state,action)=> {
         state.showClass = action.payload},
+        classId: (state,action)=> {
+          state.classid = action.payload},
       },
-  })
-  export const { getUserS ,showClass} = datosSlice.actions;
+     
+      }
+  )
+  export const { getUserS ,showClass,classId} = datosSlice.actions;
   export default datosSlice.reducer;

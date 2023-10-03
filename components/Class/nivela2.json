@@ -5,7 +5,7 @@
             0,
             "Portada"
         ],
-        "template": "template0",
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696113984/images/1_qywc8c.png",
         "data": [
             {
                 "type": "image",
@@ -31,7 +31,7 @@
             1,
             "Video Explicativo"
         ],
-        "template": "template1",
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
         "data": [
             {
                 "type": "title",
@@ -52,7 +52,7 @@
             2,
             "Elemento disparador / Tema"
         ],
-        "template": "template2",
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
         "data": [
             {
                 "type": "title",
@@ -97,7 +97,7 @@
             2,
             "Elemento disparador / Tema"
         ],
-        "template": "template2",
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
         "data": [
             {
                 "type": "title",
@@ -143,7 +143,7 @@
             3,
             "Actividades PDF"
         ],
-        "template": "template1",
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
         "title": "Actividad",
         "data": [
             {
@@ -200,12 +200,12 @@
             {
                 "type": "options-box",
                 "value": [
-                    {"value":"pensar","id":"value1","x":600,"y":-140,"width":80,"height":22},
-                    {"value":"costar","id":"value2","x":600,"y":-115,"width":80,"height":22},
-                    {"value":"trabajar","id":"value3","x":600,"y":-90,"width":80,"height":22},
-                    {"value":"entender","id":"value4","x":600,"y":-65,"width":80,"height":22},
-                    {"value":"reconocer","id":"value5","x":600,"y":-40,"width":80,"height":22},
-                    {"value":"estudiar","id":"value6","x":600,"y":-15,"width":80,"height":22}
+                    {"value":"pensar","id":"value1","x":600,"y":-140,"xmin":194,"xmax":266,"ymin":-125,"ymax":-115,"width":80,"height":22},
+                    {"value":"costar","id":"value2","x":600,"y":-115,"xmin":285,"xmax":410,"ymin":-32,"ymax":-20,"width":80,"height":22},
+                    {"value":"trabajar","id":"value3","x":600,"y":-90,"xmin":248,"xmax":339,"ymin":-150,"ymax":-142,"width":80,"height":22},
+                    {"value":"entender","id":"value4","x":600,"y":-65,"xmin":335,"xmax":432,"ymin":-56,"ymax":-49,"width":80,"height":22},
+                    {"value":"reconocer","id":"value5","x":600,"y":-40,"xmin":363,"xmax":491,"ymin":-104,"ymax":-96,"width":80,"height":22},
+                    {"value":"estudiar","id":"value6","x":600,"y":-15,"xmin":250,"xmax":340,"ymin":-78,"ymax":-72,"width":80,"height":22}
                 ],
                 "className": "className"
             }
@@ -217,7 +217,7 @@
             3,
             "Actividades PDF"
         ],
-        "template": "template1",
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
         "data": [
             {
                 "type": "title",
@@ -262,7 +262,7 @@
             4,
             "Gramática"
         ],
-        "template": "template2",
+        "template": null,
         "data": [
             {
                 "type": "title",
@@ -283,7 +283,7 @@
             "5",
             "Actividades interactivas"
         ],
-        "template": "template1",
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
         "data": [
             {
                 "type": "title",
@@ -298,7 +298,7 @@
             5,
             "Actividades interactivas"
         ],
-        "template": "template1",
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
         "data": [
             {
                 "type": "title",
@@ -432,7 +432,7 @@
             5,
             "Actividades interactivas"
         ],
-        "template": "template1",
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
         "data": [
             {
                 "type": "title",
@@ -446,9 +446,9 @@
             },
             {
                 "type": "video-youtube",
-                "value": "bOAABReEdb8",
+                "value": "W7lXI3wG9zE",
                 "className": "className",
-                "youtube": "https://youtu.be/bOAABReEdb8"
+                "youtube": "https://youtu.be/W7lXI3wG9zE"
             }
         ]
     },
@@ -458,7 +458,7 @@
             5,
             "Actividades interactivas"
         ],
-        "template": "template2",
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
         "data": [
             {
                 "type": "selectsimple",
@@ -500,7 +500,7 @@
             5,
             "Actividades interactivas"
         ],
-        "template": "template2",
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
         "data": [
             {
                 "type": "title",
@@ -517,13 +517,13 @@
                 "value": [
                     "Me llamo Lucas y en la foto",
                     {
-                        "block": 10,
+                        "block": 8,
                         "color": "orange",
                         "option": "saldre"
                     },
                     "(salir) con mi esposa Romina y nuestras mascotas, Canela y Pancho. Nosotros",
                     {
-                        "block": 10,
+                        "block": 7,
                         "color": "orange",
                         "option": "somos"
                     },
@@ -542,37 +542,37 @@
                 "value": [
                     "Todos los fines de semana, después de bañarme,",
                     {
-                        "block": 11,
+                        "block": 9,
                         "color": "orange",
                         "option": "salimos"
                     },
                     "(salir) a dar un paseo con mis perros. Mi esposa les",
                     {
-                        "block": 10,
+                        "block": 6,
                         "color": "orange",
                         "option": "pone"
                     },
                     "(poner) la correa mientras yo",
                     {
-                        "block": 9,
+                        "block": 8,
                         "color": "orange",
                         "option": "traigo"
                     },
                     "(traer) sus galletitas y termos con agua. Cuando regresamos de pasear, yo me",
                     {
-                        "block": 10,
+                        "block": 6,
                         "color": "orange",
                         "option": "pongo"
                     },
                     "(poner) ropa limpia y",
                     {
-                        "block": 10,
+                        "block": 6,
                         "color": "orange",
                         "option": "hago"
                     },
                     " (hacer) el desayuno. Antes de tomar una siesta, yo",
                     {
-                        "block": 14,
+                        "block": 8,
                         "color": "orange",
                         "option": "dispongo"
                     },
@@ -588,7 +588,8 @@
             {
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1695571885/images/3_fjrubz.png",
-                "className": "className"
+                "className": "className",
+                "alt":"matrimonio"
             }
         ]
     },
@@ -598,7 +599,7 @@
             5,
             "Actividades interactivas"
         ],
-        "template": "template1",
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
         "data": [
             {
                 "type": "title",
@@ -665,13 +666,14 @@
             {
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1695571885/images/3_fjrubz.png",
-                "className": "className"
+                "className": "className",
+                "alt":"matrionio"
             }
         ]
     },
     "page14": {
         "type": "slide",
-        "template": "template1",
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
         "section": [
             6,
             "Retos"
@@ -686,7 +688,7 @@
     },
     "page15": {
         "type": "complete",
-        "template": "template1",
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
         "section": [
             6,
             "Retos"
@@ -700,7 +702,8 @@
             {
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1695578432/images/4_svg8uq.png",
-                "className": "className"
+                "className": "className",
+                "alt":"chica de lentes"
             },
             {
                 "type": "popup",
@@ -834,7 +837,7 @@
     },
     "page16": {
         "type": "complete",
-        "template": "template1",
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
         "section": [
             7,
             "Test"
@@ -873,7 +876,7 @@
             7,
             "Test"
         ],
-        "template": "template1",
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
         "data": [
             {
                 "type": "title",
@@ -967,7 +970,7 @@
     },
     "page18": {
         "type": "complete",
-        "template": "template1",
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
         "section": [
             7,
             "Test"
@@ -1046,7 +1049,7 @@
     },
     "page19": {
         "type": "complete",
-        "template": "template1",
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
         "section": [
             7,
             "Test"
@@ -1130,7 +1133,7 @@
             0,
             "Portada"
         ],
-        "template": "template0",
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117479/images/4_skpl9k.png",
         "data": [
                         {
                 "type": "title",
