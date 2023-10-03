@@ -7,6 +7,7 @@ import YOUTUVEPOPUP from '../youtubePopup/youtubePopup';
 import BOXMOMVE from './boxmove';
 import SELECTSIMPLE from './Selectsimple';
 import PARAGGRAPHCOMPLETE from './paragragraphcomplete';
+import style from '../../styles/class.module.css'
 
 export default function Class(props) {
   //elemento a renderizar  
@@ -92,25 +93,25 @@ export default function Class(props) {
 
                     
           data.sheets[i].data.map((c, index) =>
-            
-            <div className={c.className} key={index}  >
+            <>
+         
               {/* {console.log(index,i,c.className)} */}
               {/* PARA RENDERIZAR MEJOR  */}
              {data.sheets[i].template?<Image
                 src={data.sheets[i].template}
                 alt="Background Image"
                 layout="fill"
-             
                 objectFit="cover"
                 objectPosition="center"
                 style={{zIndex: -10}}
                 className="z-10"
               />:null} 
+              <div className={style[c.className]} key={index}  >
               {c.type === 'level' ? <p dangerouslySetInnerHTML={{ __html: c.value }}></p> : null}
               
               {c.type === 'image' ? <div className='className'><Image width='100' height='100' src={c.value} alt={c.alt} /> </div>: null}
               {c.type === 'title' ? <div className='className'><p dangerouslySetInnerHTML={{ __html: c.value }}></p></div> : null}
-              {c.type === 'video-youtube' ?<div className='className'> <YouTube ref={iframeRef} opts={opts} videoId={c.value} className='youtube'style={{ maxWidth: '400px', width: '100%' }} /> </div>: null}
+              {c.type === 'video-youtube' ?<div className='youtube'> <YouTube ref={iframeRef} opts={opts} videoId={c.value} className='youtube'style={{ maxWidth: '400px', width: '100%' }} /> </div>: null}
               {c.type === 'videoi-youtube' ? <div className='className'><YOUTUVEPOPUP titlep={null} popups={c.popups} videoId={c.value} className='youtube' /></div> : null}
               <div className={styles['box']}>
               <div className='className'>
@@ -125,7 +126,7 @@ export default function Class(props) {
               {c.type === 'complete-li' ? <div className='className'><p dangerouslySetInnerHTML={{ __html: c.value }}></p></div> : null}
               {c.type === 'popup' ?<div className='className'> <p dangerouslySetInnerHTML={{ __html: c.value }}></p></div> : null}
               {/* <p dangerouslySetInnerHTML={{ __html: c.value }}></p> */}
-            </div>) 
+            </div></>) 
             : <div style={{ paddingRight: '1000px' }}> <Spinner /></div>
       }
     </div>

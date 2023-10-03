@@ -1,0 +1,13 @@
+ .container{
+
+}
+.container0{
+    position: relative; /* Asegúrate de que la imagen tenga una posición */
+    z-index: 2; 
+    
+ }
+.container1{
+    
+    z-index: 1;
+    
+}
