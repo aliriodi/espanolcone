@@ -11,17 +11,17 @@
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366262/images/logo-primary_qoagkg.png",
                 "alt": "EspañolconE",
-                "className": "className"
+                "className": "Portadaimg"
             },
             {
                 "type": "title",
                 "value": "EXTRANJEROS EN CÓRDOBA",
-                "className": "className"
+                "className": "Portadatil"
             },
             {
                 "type": "level",
                 "value": "NIVEL A2",
-                "className": "className"
+                "className": "Portadalev"
             }
         ]
     },
@@ -36,13 +36,13 @@
             {
                 "type": "title",
                 "value": "¿Qué voy a aprender en esta unidad?",
-                "className": "className"
+                "className": "p1title"
             },
             {
                 "type": "video-youtube",
                 "value": "Vphr9AAcGCI",
                 "youtuve": "https://youtu.be/Vphr9AAcGCI",
-                "className": "className"
+                "className": "youtuve-p1"
             }
         ]
     },
