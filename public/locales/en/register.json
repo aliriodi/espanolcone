@@ -3,7 +3,7 @@
     "title2":"Ingresa los detalles de tu usuario y contraseña",
     "name":"Nombre",
     "lastname":"Apellido",
-    "country":"País",
+    "country":"Country",
     "placeholderCountry":"Brasil",
     "email":"Email",
     "password":"Contraseña",
