@@ -14,14 +14,19 @@ export default function SuccessPopUp(props){
         setshowPopUp(false)
     }
 
+    console.log(session)
+
     return(
         <>
             {showPopUp &&
             (<div className="w-full h-full bg-[#000a] absolute top-0 left-0 flex justify-center items-center">
                 <div className="p-2 bg-white min-w-[40%] rounded-[8px] flex flex-col items-center">
                     {/* Felicitaciones */}
-                    <h3 className="">¡Felicitaciones  Luis !</h3>
-
+                    {session ?
+                    <h3 className="">¡Felicitaciones {session.user.first_name}!</h3>
+                    :
+                    <h3 className="">¡Felicitaciones!</h3>
+                    }
                     {/* Texto */}
                     <p className="text-[#6E6B7B] my-3">Realizaste la actividad con éxito</p>
 

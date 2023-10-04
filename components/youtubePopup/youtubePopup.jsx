@@ -328,7 +328,7 @@ export default function YoutubePopup(props) {
           
           await next({ rotate: 0 });   
 
-          await new Promise((resolve) => setTimeout(resolve, 500)); 
+          await new Promise((resolve) => setTimeout(resolve, 100)); 
 
           closeProgressPopup();
         }
@@ -490,12 +490,14 @@ export default function YoutubePopup(props) {
                     {/* Barra de progreso */}
                     <div className='w-[100%] bg-primary_flat_hover rounded-full h-[14px] relative'>
                       <animated.div
-                        className="progress-bar bg-primary rounded-full h-[14px]"
+                        className="progress-bar bg-primary rounded-full h-[14px] flex justify-center items-center"
                         style={{
                           width: progressAnimation.width,
                           // backgroundColor: '#ccc', // Color de fondo de la barra de progreso
                         }}
-                      ></animated.div>
+                      >
+                        <p className='text-[12px] text-white'>{acert} / {maxAcert}</p>
+                      </animated.div>
                     </div>
 
                     {/* Estrella */}
@@ -505,7 +507,7 @@ export default function YoutubePopup(props) {
                         transform: startRotationAnimation.rotate.interpolate((rotate) => `rotate(${rotate}deg)`),
                       }}
                     >
-                      <i className="fa fa-star-o w-full text-info text-[40px]"></i>
+                      <i className={`${acert == maxAcert ? "fa fa-star" : "fa fa-star-o"} w-full text-info text-[40px]`}></i>
                     </animated.div>
                   </div>
                   
