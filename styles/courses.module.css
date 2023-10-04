@@ -1,5 +1,5 @@
  .container{
-
+z-index:0;
 }
 .container0{
     position: relative; /* Asegúrate de que la imagen tenga una posición */

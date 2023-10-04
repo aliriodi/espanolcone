@@ -35,6 +35,8 @@
   /* Dark */
   --dark: #3B3C3D;
   --dark_flat_hover:#3B3C3D1F;
+  /* Orange*/
+  --orange: #FF7438;
 }
 
 body{

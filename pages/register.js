@@ -274,7 +274,7 @@ export default function Register() {
                           value={newUser.password}
                           onChange={(e) => setNewUser({...newUser, password: e.target.value})}
                         />
-                         
+                         <span class="toggle-password" onclick="togglePasswordVisibility()"></span>
                         {/* Error de Contraseña */}
                         {errorsForm.confirm_password && (
                             <p className='text-danger flex'>{t("warningPass")}</p>
