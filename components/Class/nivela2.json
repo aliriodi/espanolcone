@@ -781,7 +781,8 @@
                         "block": 5,
                         "color": "orange",
                         "option": ""
-                    }
+                    },
+                    "."
                 ],
                 "className": "className"
             },

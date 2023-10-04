@@ -1,0 +1,16 @@
+/* Estilos para el ícono de ojo */
+.toggle-password {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    margin-left: -25px; /* Ajusta el margen según tu diseño */
+  }
+  
+  .toggle-password::before {
+    content: '\f070'; /* Código Unicode del ícono del ojo abierto */
+    font-family: FontAwesome; /* Puedes usar una fuente de iconos como FontAwesome */
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
