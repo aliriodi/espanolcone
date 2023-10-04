@@ -123,7 +123,7 @@ export default function Class(props) {
               {c.type === 'text' ? <div className='className'><p dangerouslySetInnerHTML={{ __html: c.value }}></p> </div>: null}
               {/* En la siguiente linea falta destructurar el objeto como input form */}
               {c.type === 'paragraph-complete' ? <div className='className'><PARAGGRAPHCOMPLETE data={c}/></div> : null}
-              {c.type === 'complete-li' ? <div className='className'><PARAGGRAPHCOMPLETE data={c}/></div> :  null}
+              {c.type === 'complete-li' ? <div className='className'><PARAGGRAPHCOMPLETE data={c}/> </div> :  null}
               {c.type === 'popup' ?<div className='className'> <p dangerouslySetInnerHTML={{ __html: c.value }}></p></div> : null}
               {/* <p dangerouslySetInnerHTML={{ __html: c.value }}></p> */}
             </div></>) 
