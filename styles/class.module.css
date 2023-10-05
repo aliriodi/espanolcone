@@ -104,6 +104,15 @@
     margin-top: 40px;
     text-align: justify;
 }
+.paragraph3{
+    font-weight: 700;
+    font-size: 140%;
+    width:62%;
+    /* border:solid  3px red; */
+    margin-left: 50px;
+    margin-top: 6px;
+    text-align: justify;
+}
 .imagedownright{
     font-weight: 800;
     font-size: 150%;
@@ -133,3 +142,19 @@
     text-align: center;
 
 }
+.centerRightWhite{
+    font-weight: 800;
+    font-size: 230%;
+    color:white;
+    /* border:solid  3px red; */
+    margin-top: 65px;
+    text-align: center;
+ }
+ .titleBlack{
+    font-weight: 800;
+    font-size: 160%;
+    width:70%;
+    /* border:solid  3px red; */
+    margin-left: 20px;
+    margin-top: 180px;
+ }
