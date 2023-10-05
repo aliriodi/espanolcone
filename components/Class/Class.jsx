@@ -20,12 +20,13 @@ export default function Class(props) {
 
   // Opciones de Youtube
   const iframeRef = useRef(null);
+
   const opts = {
     playerVars: {
       rel: 0, // Evitar videos relacionados al final
       autoplay: 1, // Desactivar la reproducción automática
       modestbranding: 1, // Ocultar el logotipo de YouTube
-      fs: 0, // Oculto el boton de maximizar video fs FullScreen
+      fs: 1, // Oculto el boton de maximizar video fs FullScreen
       color: "#000"
     }
   }
@@ -95,7 +96,7 @@ export default function Class(props) {
           data.sheets[i].data.map((c, index) =>
             <>
          
-              {/* {console.log(index,i,c.className)} */}
+              {console.log(index,i,c.className)}
               {/* PARA RENDERIZAR MEJOR  */}
              {data.sheets[i].template?<Image
                 src={data.sheets[i].template}
