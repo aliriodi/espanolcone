@@ -18,7 +18,8 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useState } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { faChevronRight, faChevronLeft, faEye } from '@fortawesome/free-solid-svg-icons';
+
 //para el idioma
 
 
@@ -48,6 +49,9 @@ export default function Register() {
   })
 
   const {data: session, status} = useSession();
+
+  const [showConfirmPassword, setShowConfirmPassword]= useState(false)
+  const [showPassword, setShowPassword]= useState(false)
 
   //Probando redux
 
@@ -265,15 +269,23 @@ export default function Register() {
                             <label htmlFor="password" className="md:text-[12px]">{t("password")}</label>
                         </div>
                         
-                        <input
-                          className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.password ? "border-danger" :"border-gray-clear"}
-                          md:text-[12px]`}
-                          type="password"
-                          id="password"
-                          placeholder='Password'
-                          value={newUser.password}
-                          onChange={(e) => setNewUser({...newUser, password: e.target.value})}
-                        />
+                        <div className='relative'>
+                          <input
+                            className={`p-2 rounded-md border focus-visible:outline-none ${errorsForm.password ? "border-danger" :"border-gray-clear w-full"}
+                            md:text-[12px]`}
+                            type={showConfirmPassword ? "text" : "password"}
+                            id="password"
+                            value={newUser.password}
+                            onChange={(e) => setNewUser({...newUser, password: e.target.value})}/>
+                            
+                            {/* Ojo */}
+                            <FontAwesomeIcon 
+                            onClick={()=> showConfirmPassword ? setShowConfirmPassword(false) : setShowConfirmPassword(true)}
+                            className={`${showConfirmPassword ? "text-dark" : "text-dark_flat_hover"} absolute  top-1/2 transform -translate-y-1/2 right-0 mr-[13px] cursor-pointer
+                            `}
+                            icon={faEye}/>
+                        </div>
+                        
                          <span class="toggle-password" onclick="togglePasswordVisibility()"></span>
                         {/* Error de Contraseña */}
                         {errorsForm.confirm_password && (
@@ -344,7 +356,23 @@ export default function Register() {
                             <label htmlFor="confirm_password" className='md:text-[12px]'>{t("confirmPaswword")}</label>
                         </div>
 
-                        <input
+                        <div className='relative'>
+                          <input
+                            className={`p-2 rounded-md border focus-visible:outline-none ${errorsForm.password ? "border-danger" :"border-gray-clear w-full"}
+                            md:text-[12px]`}
+                            type={showPassword ? "text" : "password"}
+                            id="password"
+                            value={newUser.confirm_password}
+                            onChange={(e) => setNewUser({...newUser, confirm_password: e.target.value})}/>
+                            
+                            {/* Ojo */}
+                            <FontAwesomeIcon 
+                            onClick={()=> showPassword ? setShowPassword(false) : setShowPassword(true)}
+                            className={`${showPassword ? "text-dark" : "text-dark_flat_hover"} absolute  top-1/2 transform -translate-y-1/2 right-0 mr-[13px] cursor-pointer`}
+                            icon={faEye}/>
+                        </div>
+
+                        {/* <input
                           className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.password ? "border-danger" :"border-gray-clear"}
                           md:text-[12px]`}
                           type="password"
@@ -352,7 +380,7 @@ export default function Register() {
                           placeholder='Re-type password'
                           value={newUser.confirm_password}
                           onChange={(e) => setNewUser({...newUser, confirm_password: e.target.value})}
-                          />
+                          /> */}
                           
                         {/* Error de Contraseña */}
                         {errorsForm.password && (

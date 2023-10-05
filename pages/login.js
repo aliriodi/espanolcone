@@ -22,6 +22,9 @@ import { AiOutlineGoogle } from 'react-icons/ai'
 import { redirect } from 'next/dist/server/api-utils';
 import { dropShadow } from '@cloudinary/url-gen/actions/effect';
 import { color } from '@cloudinary/url-gen/qualifiers/background';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
+
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -50,6 +53,7 @@ export default function Home() {
   const [password, setPassword] = useState('')
   const [emailError, setEmailError]= useState(false)
   const [passwordError, setPasswordError]= useState(false)
+  const [showPassword, setShowPassword]= useState(false)
 
 
   //Probando redux
@@ -191,18 +195,28 @@ export default function Home() {
                   <a href="#" className='text-success md:text-[12px]'>{t("p5")}</a>
                 </div>
 
-                <input
-                  className={`p-2 rounded-md border focus-visible:outline-none ${passwordError ? "border-danger" :"border-gray-clear"}
-                  md:text-[12px]`}
-                  type="text"
-                  id="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}/>
+                <div className='relative'>
+                  <input
+                    className={`p-2 rounded-md border focus-visible:outline-none ${passwordError ? "border-danger" :"border-gray-clear w-full"}
+                    md:text-[12px]`}
+                    type={showPassword ? "text" : "password"}
+                    id="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}/>
+                    
+                    {/* Ojo */}
+                    <FontAwesomeIcon 
+                    onClick={()=> showPassword ? setShowPassword(false) : setShowPassword(true)}
+                    className={`${showPassword ? "text-dark" : "text-dark_flat_hover"} absolute  top-1/2 transform -translate-y-1/2 right-0 mr-[13px] cursor-pointer
+                    `}
+                    icon={faEye}/>
+                </div>
 
-                  {/* Error de contraseña */}
-                  {passwordError && (
-                    <p className='text-danger md:text-[12px]'>{t("errorPassaword")}</p>
-                  )}
+
+                {/* Error de contraseña */}
+                {passwordError && (
+                  <p className='text-danger md:text-[12px]'>{t("errorPassaword")}</p>
+                )}
               </div>
  
               {/* Recordar Contraseña */}

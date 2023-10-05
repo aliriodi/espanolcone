@@ -36,6 +36,7 @@ module.exports = {
 
         dark:'#3b3c3d',
         dark_hover:'#4E4F50',
+        dark_flat_hover:'#3B3C3D1F',
 
         light:'#A4ACB9',
 
