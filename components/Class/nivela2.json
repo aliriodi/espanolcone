@@ -57,37 +57,38 @@
             {
                 "type": "title",
                 "value": "Texto número 1:",
-                "className": "className"
+                "className": "titleleft-black"
             },
             {
                 "type": "title",
                 "value": "Los nuevos cordobeses",
-                "className": "className"
+                "className": "titleleft-white"
             },
             {
                 "type": "paragraph",
                 "value": "Estas personas viven en Córdoba por diferentes motivos. Lee los textos y enfoca tu atención en las palabras resaltadas en color <span style= 'color: orange;' >naranja. </span>",
-                "className": "className"
+                "className": "titleright-black"
             },
             {
                 "type": "paragraph",
-                "value": "Él  <span style= 'color: orange;' >se llama</span> David, <span style= 'color: orange;' >es</span> estadounidense, hace más de 10 años que vive en Córdoba, <span style= 'color: orange;' >se siente</span> muy bien viviendo allí y no <span style= 'color: orange;' >piensa</span> volver a su país. “<span style=' textDecoration: underline;'>Me gusta</span> la vida aquí:  la gente, la comida, el clima, el mate …”. <span style= 'color: orange;' >Es</span> el director de una academia de idiomas y <span style= 'color: orange;' >trabaja</span> muchas horas al día. Los fines de semana <span style= 'color: orange;' >conduce</span> su auto para visitar diferentes partes de Córdoba, le gusta recorrer la provincia. <span style= 'color: orange;' >Está</span> casado con una cordobesa, así que  <span style= 'color: orange;' >domina</span> bastante bien el español porque <span style= 'color: orange;' >habla</span> español en casa. Sin embargo, David dice: “<span style= 'color: orange;' >reconozco</span> que aún <span style= 'color: orange;' >tengo</span> problemas con la lengua. Mi principal problema <span style= 'color: orange;' >es</span> que después de 10 años, todavía <span style= 'color: orange;' >confundo</span> los tiempos del pasado”",
-                "className": "className"
+                "value": "Él  <span style= 'color: orange;' >se llama</span> David, <span style= 'color: orange;' >es</span> estadounidense, hace más de 10 años que vive en Córdoba, <span style= 'color: orange;' >se siente</span> muy bien viviendo allí y no <span style= 'color: orange;' >piensa</span> volver a su país. “<span style=' textDecoration: underline;'>Me gusta</span> la vida aquí:  la gente, la comida, el clima, el mate …”. <span style= 'color: orange;' >Es</span> el director de una academia de idiomas y <span style= 'color: orange;' >trabaja</span> muchas horas al día. Los fines de semana <span style= 'color: orange;' >conduce</span> su auto para visitar diferentes partes de Córdoba, le gusta recorrer la provincia. <span style= 'color: orange;' >Está</span> casado con una cordobesa, así que  <span style= 'color: orange;' >domina</span> bastante bien el español porque <span style= 'color: orange;' >habla</span> español en casa. Sin embargo, David dice: “<span style= 'color: orange;' >reconozco</span> que aún <span style= 'color: orange;' >tengo</span> problemas con la lengua. Mi principal problema <span style= 'color: orange;' >es</span> que después de 10 años, todavía <span style= 'color: orange;' >confundo</span> los tiempos del pasado”.",
+                "className": "paragraph1"
             },
             {
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694535859/images/davidpic_ob5ukd.png",
-                "alt": "David Brown"
+                "alt": "David Brown",
+                "className":"imagedownright"
             },
             {
                 "type": "text",
                 "value": "David Brown",
-                "className": "className"
+                "className": "name"
             },
             {
                 "type": "text",
                 "value": "Estadounidense",
-                "className": "className"
+                "className": "citydown"
             }
         ]
     },
@@ -102,38 +103,38 @@
             {
                 "type": "title",
                 "value": "Texto número 2:",
-                "className": "className"
+                "className": "titleleft-black"
             },
             {
                 "type": "title",
                 "value": "Los nuevos cordobeses",
-                "className": "className"
+                "className": "titleleft-white"
             },
             {
                 "type": "paragraph",
                 "value": "Estas personas viven en Córdoba por diferentes motivos. Lee los textos y decide cuál de ellos vive mejor.",
-                "className": "className"
+                "className": "titleright-black"
             },
             {
                 "type": "paragraph",
                 "value": "Ella <span style= 'color: orange;' >se llama</span> Bruna, <span style= 'color: orange;' >es</span> brasileña, <span style= 'color: orange;' >tiene </span> 27 años y hace tres que vive en Córdoba Capital. <span style= 'color: orange;' >Es</span> estudiante, <span style= 'color: orange;' >estudia</span> medicina en la Universidad Nacional de Córdoba (UNC) por las tardes y <span style= 'color: orange;' >tiene</span> las mañanas libres. Normalmente <span style= 'color: orange;' >se levanta</span> temprano, <span style= 'color: orange;' >se baña</span>, <span style= 'color: orange;' >se viste</span>, <span style= 'color: orange;' >se maquilla</span> y <span style= 'color: orange;' >desayuna</span> en una cafetería. “<span style= 'color: orange;' >Salgo</span> todas las mañanas, <span style= 'color: orange;' >voy</span> a la universidad para estudiar en la biblioteca, y por las noches <span style= 'color: orange;' >tomo</span> clases de español, <span style= 'color: orange;' >veo</span> televisión y <span style= 'color: orange;' >leo</span>”. Todavía no <span style= 'color: orange;' >entiende</span> perfectamente el  español, <span style= 'color: orange;' >le cuesta</span> bastante la pronunciación pero le gusta hablar y compartir con los nativos. <span style= 'color: orange;' >Se siente</span> feliz en Córdoba, no <span style= 'color: orange;' >quiere</span> volver a Brasil, por ahora.",
-                "className": "className"
+                "className": "paragraph1"
             },
             {
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694765455/images/bruna_kb7jcg.jpg",
                 "alt": "Bruna Da Silva",
-                "className": "className"
+                "className":"imagedownright"
             },
             {
                 "type": "text",
                 "value": "Bruna Da Silva",
-                "className": "className"
+                "className": "name"
             },
             {
                 "type": "text",
                 "value": "Brasileña",
-                "className": "className"
+                "className": "citydown"
             }
         ]
     },

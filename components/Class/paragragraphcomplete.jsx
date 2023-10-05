@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import style from '../../styles/paragragraphcomplete.module.css'
 
 export default function Paragragraphcomplete(props) {
+  
     const [inputValues, setInputValues] = useState(() => (
         props.data.value.map(value => {
           if(typeof(value) === 'object')  {
@@ -17,13 +18,14 @@ export default function Paragragraphcomplete(props) {
         newInputValues[index] = newValue;
         // Update the state
         setInputValues(newInputValues);
+       
       };
   return (
     <div>
-
+ {console.log(inputValues)}
 
 {/* <p dangerouslySetInnerHTML={{ __html: props.data.value }}></p> */}
-{   
+{  
    props.data.value.map(((value, index) => (
     typeof(value)==='object'?
         <span key={index} style={{paddingRight: '5px',paddingLeft: '5px'}}>
