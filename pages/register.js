@@ -151,7 +151,7 @@ export default function Register() {
 
             <Image src={Vector1} alt='Vector1' className='z-20 absolute left-0 top-0 w-80' />
             <Image src={Vector2} alt='Vector2' className='z-20 absolute right-0 bottom-0 w-80' />
-            <Image src={Background} alt='Background' className='absolute w-full h-full z-10' />
+            <Image src={Background} alt='Background' className='absolute w-full h-full z-10' priority={true}/>
           </div>
 
           {/* Formulario */}
@@ -281,8 +281,7 @@ export default function Register() {
                             {/* Ojo */}
                             <FontAwesomeIcon 
                             onClick={()=> showConfirmPassword ? setShowConfirmPassword(false) : setShowConfirmPassword(true)}
-                            className={`${showConfirmPassword ? "text-dark" : "text-dark_flat_hover"} absolute  top-1/2 transform -translate-y-1/2 right-0 mr-[13px] cursor-pointer
-                            `}
+                            className={`${showConfirmPassword ? "text-dark" : "text-dark_flat_hover"} absolute  top-1/2 transform -translate-y-1/2 right-0 mr-[13px] cursor-pointer max-w-[16px]`}
                             icon={faEye}/>
                         </div>
                         
@@ -368,7 +367,7 @@ export default function Register() {
                             {/* Ojo */}
                             <FontAwesomeIcon 
                             onClick={()=> showPassword ? setShowPassword(false) : setShowPassword(true)}
-                            className={`${showPassword ? "text-dark" : "text-dark_flat_hover"} absolute  top-1/2 transform -translate-y-1/2 right-0 mr-[13px] cursor-pointer`}
+                            className={`${showPassword ? "text-dark" : "text-dark_flat_hover"} absolute  top-1/2 transform -translate-y-1/2 right-0 mr-[13px] cursor-pointer max-w-[16px]`}
                             icon={faEye}/>
                         </div>
                           
