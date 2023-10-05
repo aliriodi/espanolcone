@@ -23,7 +23,7 @@ export default function Paragragraphcomplete(props) {
       };
   return (
     <div>
- {console.log(inputValues)}
+ {/* {console.log(inputValues)} */}
 
 {/* <p dangerouslySetInnerHTML={{ __html: props.data.value }}></p> */}
 {  

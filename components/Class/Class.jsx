@@ -96,7 +96,7 @@ export default function Class(props) {
           data.sheets[i].data.map((c, index) =>
             <>
          
-              {console.log(index,i,c.className)}
+              {/* {console.log(index,i,c.className)} */}
               {/* PARA RENDERIZAR MEJOR  */}
              {data.sheets[i].template?<Image
                 src={data.sheets[i].template}
