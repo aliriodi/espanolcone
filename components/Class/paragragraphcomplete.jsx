@@ -6,7 +6,7 @@ export default function Paragragraphcomplete(props) {
     const [inputValues, setInputValues] = useState(() => (
         props.data.value.map(value => {
           if(typeof(value) === 'object')  {
-                                           return {option:value.option,
+                                           return {option:value.option.toLowerCase(),
                                                    answer:null}}
 })
       ));
@@ -23,7 +23,7 @@ export default function Paragragraphcomplete(props) {
       };
   return (
     <div>
- {/* {console.log(inputValues)} */}
+ {console.log(inputValues)}
 
 {/* <p dangerouslySetInnerHTML={{ __html: props.data.value }}></p> */}
 {  
@@ -36,7 +36,7 @@ export default function Paragragraphcomplete(props) {
                 background: 'transparent',
                // border: '2px solid orange', // Set the border color to orange
                border: inputValues[index]['answer']===null||inputValues[index]['answer']===""?'2px solid orange':
-                       inputValues[index]['answer']===inputValues[index]['option']?'2px solid green'
+                       inputValues[index]['answer'].toLowerCase()===inputValues[index]['option']?'2px solid green'
                                                                           :'2px solid red',
                 borderRadius: '5px', // Optional: Add rounded corners
                 textAlign: 'center',
