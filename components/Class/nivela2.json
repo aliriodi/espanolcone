@@ -148,55 +148,60 @@
         "title": "Actividad",
         "data": [
             {
+                "type": "title",
+                "value": "Actividad",
+                "className": "centerRightWhite"
+            },
+            {
                 "type": "paragraph",
                 "value": "Los verbos resaltados en los textos están en presente.",
-                "className": "className"
+                "className": "titleBlack"
             },
             {
                 "type": "paragraph",
                 "value": "<span style= 'color: orange;'>¿Sabes cuál es su infinitivo? </span>",
-                "className": "className"
+                "className": "paragraph3"
             },
             {
                 "type": "paragraph",
                 "value": "A continuación, te mostramos algunos verbos usados en los textos y opciones para seleccionar su forma infinitiva correcta. Arrastra el verbo correcto.",
-                "className": "className"
+                "className": "paragraph3"
             },
             {
                 "type": "sentence-box",
                 "value": "David <span style= 'color: orange;'>trabaja</span> muchas horas al día. _________________",
                 "option": "trabajar",
-                "className": "className"
+                "className": "paragraph3"
             },
             {
                 "type": "sentence-box",
                 "value": "No <span style= 'color: orange;'>piensa</span> volver a su país. ________________",
                 "option": "pensar",
-                "className": "className"
+                "className": "paragraph3"
             },
             {
                 "type": "sentence-box",
                 "value": "<span style= 'color: orange;'>Reconozco</span> que aún tengo problemas con la lengua. _____________________",
                 "option": "reconocer",
-                "className": "className"
+                "className": "paragraph3"
             },
             {
                 "type": "sentence-box",
                 "value": "Bruna <span style= 'color: orange;'>estudia</span> medicina en la UNC. __________________",
                 "option": "estudiar",
-                "className": "className"
+                "className": "paragraph3"
             },
             {
                 "type": "sentence-box",
                 "value": "Todavía no <span style= 'color: orange;'>entiende</span> perfectamente el  español. __________________",
                 "option": "entender",
-                "className": "className"
+                "className": "paragraph3"
             },
             {
                 "type": "sentence-box",
                 "value": "<span style= 'color: orange;'>Le cuesta</span> bastante la pronunciación. ______________________",
                 "option": "costar",
-                "className": "className"
+                "className": "paragraph3"
             },
             {
                 "type": "options-box",
@@ -208,7 +213,7 @@
                     {"value":"reconocer","id":"value5","x":600,"y":-40,"xmin":363,"xmax":491,"ymin":-104,"ymax":-96,"width":80,"height":22},
                     {"value":"estudiar","id":"value6","x":600,"y":-15,"xmin":250,"xmax":340,"ymin":-78,"ymax":-72,"width":80,"height":22}
                 ],
-                "className": "className"
+                "className": "paragraph3"
             }
         ]
     },

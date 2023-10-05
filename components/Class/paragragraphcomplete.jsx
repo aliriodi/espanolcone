@@ -23,7 +23,7 @@ export default function Paragragraphcomplete(props) {
       };
   return (
     <div>
- {console.log(inputValues)}
+ {/* {console.log(inputValues)} */}
 
 {/* <p dangerouslySetInnerHTML={{ __html: props.data.value }}></p> */}
 {  
@@ -41,7 +41,7 @@ export default function Paragragraphcomplete(props) {
                 borderRadius: '5px', // Optional: Add rounded corners
                 textAlign: 'center',
                 outline: 'none', // Remove the blue outline
-                transition: 'box-shadow 0.3s'
+              
               }}
             className={inputValues[index]['answer']===null?style["hover-input"]:
                                                    inputValues[index]['answer']===inputValues[index]['option']?style["hover-input-ok"]
