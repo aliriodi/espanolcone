@@ -286,7 +286,7 @@ export default function Register() {
                             icon={faEye}/>
                         </div>
                         
-                         <span class="toggle-password" onclick="togglePasswordVisibility()"></span>
+                         <span className="toggle-password"></span>
                         {/* Error de Contraseña */}
                         {errorsForm.confirm_password && (
                             <p className='text-danger flex'>{t("warningPass")}</p>
@@ -361,7 +361,7 @@ export default function Register() {
                             className={`p-2 rounded-md border focus-visible:outline-none ${errorsForm.password ? "border-danger" :"border-gray-clear w-full"}
                             md:text-[12px]`}
                             type={showPassword ? "text" : "password"}
-                            id="password"
+                            id="confirm_password"
                             value={newUser.confirm_password}
                             onChange={(e) => setNewUser({...newUser, confirm_password: e.target.value})}/>
                             
@@ -371,16 +371,6 @@ export default function Register() {
                             className={`${showPassword ? "text-dark" : "text-dark_flat_hover"} absolute  top-1/2 transform -translate-y-1/2 right-0 mr-[13px] cursor-pointer`}
                             icon={faEye}/>
                         </div>
-
-                        {/* <input
-                          className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.password ? "border-danger" :"border-gray-clear"}
-                          md:text-[12px]`}
-                          type="password"
-                          id="confirm_password"
-                          placeholder='Re-type password'
-                          value={newUser.confirm_password}
-                          onChange={(e) => setNewUser({...newUser, confirm_password: e.target.value})}
-                          /> */}
                           
                         {/* Error de Contraseña */}
                         {errorsForm.password && (
