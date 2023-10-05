@@ -263,18 +263,18 @@
             4,
             "Gramática"
         ],
-        "template": null,
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
         "data": [
             {
                 "type": "title",
                 "value": "<span style='color:orange;'>Video explicativo</span>",
-                "className": "className"
+                "className": "p1title"
             },
             {
                 "type": "video-youtube",
                 "value": "bOAABReEdb8",
                 "youtuve": "https://youtu.be/bOAABReEdb8",
-                "className": "className"
+                "className": "youtuve-p1"
             }
         ]
     },
@@ -438,7 +438,7 @@
             {
                 "type": "title",
                 "value": "<span style='color:orange;'>Video interativo</span>",
-                "className": "className"
+                "className": "p1title"
             },
             {
                 "type": "paragraph",
@@ -448,7 +448,7 @@
             {
                 "type": "video-youtube",
                 "value": "W7lXI3wG9zE",
-                "className": "className",
+                "className": "youtuve-p1",
                 "youtube": "https://youtu.be/W7lXI3wG9zE"
             }
         ]
@@ -506,12 +506,12 @@
             {
                 "type": "title",
                 "value": "Completa la historia de la familia Garcia con los verbos en paréntesis.",
-                "className": "className"
+                "className": "titleright-black2"
             },
             {
                 "type": "paragraph",
                 "value": "¡Hola!",
-                "className": "className"
+                "className": "paragraph2"
             },
             {
                 "type": "paragraph-complete",
@@ -536,7 +536,7 @@
                     },
                     "(preferir) el interior de la provincia."
                 ],
-                "className": "className"
+                "className": "paragraph2"
             },
             {
                 "type": "paragraph-complete",
@@ -584,12 +584,12 @@
                         "option": "destruyen"
                     },
                     " (destruir) toda la casa mientras Romi y yo dormimos."
-                ]
+                ],"className":"paragraph2"
             },
             {
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1695571885/images/3_fjrubz.png",
-                "className": "className",
+                "className": "imagedownright",
                 "alt":"matrimonio"
             }
         ]

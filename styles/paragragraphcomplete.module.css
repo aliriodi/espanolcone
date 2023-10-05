@@ -1,3 +1,9 @@
 .hover-input:hover {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); 
   }
+.hover-input-ok:hover {
+    box-shadow: 0 0 15px rgba(82, 200, 122, 0.3); 
+  }
+.hover-input-wrong:hover {
+    box-shadow: 0 0 15px rgba(231, 8, 19, 0.3); 
+  }

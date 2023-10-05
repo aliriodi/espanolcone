@@ -14,7 +14,7 @@ export default function SuccessPopUp(props){
         setshowPopUp(false)
     }
 
-    console.log(session)
+    //console.log(session)
 
     return(
         <>
