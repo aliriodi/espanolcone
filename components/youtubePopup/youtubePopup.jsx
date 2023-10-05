@@ -241,7 +241,7 @@ export default function YoutubePopup(props) {
       // Esta funcion se encarga de calcular la cantidad de aciertos 
       let totalAcerts = 0;      
       popUps.map((popUp)=>{
-        console.log("valor", popUp.value)
+     //   console.log("valor", popUp.value)
         totalAcerts = totalAcerts + popUp.value;
       })
       setAcert(totalAcerts)
