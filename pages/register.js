@@ -242,7 +242,7 @@ export default function Register() {
                     style={{ width:'100%', flexGrow:1}}>
 
                         <div className="flex justify-between" style={{ margin: '8px 0' }}>
-                            <label htmlFor="country" className="md:text-[12px]">País</label>
+                            <label htmlFor="country" className="md:text-[12px]">{t("country")}</label>
                         </div>
 
                         <input
@@ -250,7 +250,7 @@ export default function Register() {
                           md:text-[12px]`}
                           type="text"
                           id="country"
-                          placeholder='Venezuela'
+                          placeholder='U.S.A.'
                           value={newUser.country}
                           onChange={(e) => setNewUser({...newUser, country: e.target.value})}
                         />
