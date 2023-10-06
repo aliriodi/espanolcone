@@ -28,8 +28,8 @@
     "page2": {
         "type": "video",
         "section": [
-            1,
-            "Video Explicativo"
+            0,
+            "Portada"
         ],
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
         "data": [
@@ -49,7 +49,7 @@
     "page3": {
         "type": "text",
         "section": [
-            2,
+            1,
             "Elemento disparador / Tema"
         ],
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
@@ -95,7 +95,7 @@
     "page4": {
         "type": "text",
         "section": [
-            2,
+            1,
             "Elemento disparador / Tema"
         ],
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
@@ -141,7 +141,7 @@
     "page5": {
         "type": "boxmove",
         "section": [
-            3,
+            1,
             "Actividades PDF"
         ],
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
@@ -220,7 +220,7 @@
     "page6": {
         "type": "selectsimple",
         "section": [
-            3,
+            1,
             "Actividades PDF"
         ],
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
@@ -265,7 +265,7 @@
     "page7": {
         "type": "video",
         "section": [
-            4,
+            2,
             "Gramática"
         ],
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
@@ -286,7 +286,7 @@
     "page8": {
         "type": "slide",
         "section": [
-            "5",
+            "3",
             "Actividades interactivas"
         ],
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
@@ -301,7 +301,7 @@
     "page9": {
         "type": "videoInteractivo",
         "section": [
-            5,
+            "3",
             "Actividades interactivas"
         ],
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
@@ -435,7 +435,7 @@
     "page10": {
         "type": "video",
         "section": [
-            5,
+            3,
             "Actividades interactivas"
         ],
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
@@ -461,7 +461,7 @@
     "page11": {
         "type": "selectsimple",
         "section": [
-            5,
+            3,
             "Actividades interactivas"
         ],
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
@@ -503,7 +503,7 @@
     "page12": {
         "type": "complete",
         "section": [
-            5,
+            3,
             "Actividades interactivas"
         ],
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
@@ -602,7 +602,7 @@
     "page13": {
         "type": "complete",
         "section": [
-            5,
+            3,
             "Actividades interactivas"
         ],
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
@@ -681,7 +681,7 @@
         "type": "slide",
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
         "section": [
-            6,
+            4,
             "Retos"
         ],
         "data": [
@@ -696,7 +696,7 @@
         "type": "complete",
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
         "section": [
-            6,
+            4,
             "Retos"
         ],
         "data": [
@@ -846,7 +846,7 @@
         "type": "complete",
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
         "section": [
-            7,
+            5,
             "Test"
         ],
         "data": [
@@ -880,7 +880,7 @@
     "page17": {
         "type": "complete",
         "section": [
-            7,
+            5,
             "Test"
         ],
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
@@ -979,7 +979,7 @@
         "type": "complete",
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
         "section": [
-            7,
+            5,
             "Test"
         ],
         "data": [
@@ -1058,7 +1058,7 @@
         "type": "complete",
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
         "section": [
-            7,
+            5,
             "Test"
         ],
         "data": [
@@ -1137,7 +1137,7 @@
     "page20": {
         "type": "text",
         "section": [
-            0,
+            5,
             "Portada"
         ],
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117479/images/4_skpl9k.png",
