@@ -76,7 +76,12 @@
         "image": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366496/images/team-photo-04_napxfa.png",
         "name": "Manuel Meneses",
         "function": "Web Developer"
-      }
+      },
+      "p5": {
+        "image": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696617466/images/Nahuel_zcuysp.png",
+        "name": "Nahuel Escujuri",
+        "function": "Web Developer"
+ }
     }
   ],
   "card6": [

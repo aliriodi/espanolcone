@@ -37,40 +37,54 @@ export const experts = [
     namePerson: "Roiber Avendaño",
     job: "UX/UI Designer"
   },
+
   {
     name: "picture3",
-    image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366492/images/team-photo-03_qft36h.png",
-    namePerson: "Ariana Hernandez",
-    job: "Content & UX Writer"
+    image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1696624364/images/Alirio_llwj0p.png",
+    namePerson: "Alirio Diaz",
+    job: "Cofounder Technical"
   },
   {
     name: "picture4",
-    image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366496/images/team-photo-04_napxfa.png",
-    namePerson: "Manuel Meneses",
+    image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1696617466/images/Nahuel_zcuysp.png",
+    namePerson: "Nahuel Escujuri",
     job: "Web Developer"
   },
   {
     name: "picture5",
+    image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1696623565/images/Marie_lzckbq.png",
+    namePerson: "Mariela Romero",
+    job: "UX/UI designer"
+  },
+  {
+    name: "picture6",
     image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366482/images/team-photo-01_svprcr.png",
     namePerson: "Eucaris Rodríguez",
     job: "Founder"
   },
   {
-    name: "picture6", image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366487/images/team-photo-02_ruhmc1.png",
+    name: "picture7", image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366487/images/team-photo-02_ruhmc1.png",
     namePerson: "Roiber Avendaño",
     job: "UX/UI Designer"
   },
-  {
-    name: "picture7",
-    image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366492/images/team-photo-03_qft36h.png",
-    namePerson: "Ariana Hernandez",
-    job: "Content & UX Writer"
-  },
+
   {
     name: "picture8",
-    image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366496/images/team-photo-04_napxfa.png",
-    namePerson: "Manuel Meneses",
+    image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1696624364/images/Alirio_llwj0p.png",
+    namePerson: "Alirio Diaz",
+    job: "Cofounder Technical"
+  },
+  {
+    name: "picture9",
+    image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1696617466/images/Nahuel_zcuysp.png",
+    namePerson: "Nahuel Escujuri",
     job: "Web Developer"
+  },
+  {
+    name: "picture10",
+    image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1696623565/images/Marie_lzckbq.png",
+    namePerson: "Mariela Romero",
+    job: "UX/UI designer"
   }
 ]
 
@@ -122,5 +136,11 @@ export const cardsTeachers = [
     image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366496/images/team-photo-04_napxfa.png",
     namePerson: "Manuel Meneses",
     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-  }
+  },
+  {
+    name: "picture9",
+    image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366496/images/team-photo-04_napxfa.png",
+    namePerson: "Nahuel Escujury",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  },
 ]

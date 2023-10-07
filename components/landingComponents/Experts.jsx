@@ -18,7 +18,8 @@ export default function Experts() {
                    {name:t("card5.0.p1.name"),image:experts[0].image,job:t("card5.0.p1.function"),namePerson:t("card5.0.p1.name")},
                    {name:t("card5.0.p2.name"),image:experts[1].image,job:t("card5.0.p2.function"),namePerson:t("card5.0.p2.name")},
                    {name:t("card5.0.p3.name"),image:experts[2].image,job:t("card5.0.p3.function"),namePerson:t("card5.0.p3.name")},
-                   {name:t("card5.0.p4.name"),image:experts[3].image,job:t("card5.0.p4.function"),namePerson:t("card5.0.p4.name")}
+                   {name:t("card5.0.p4.name"),image:experts[3].image,job:t("card5.0.p4.function"),namePerson:t("card5.0.p4.name")},
+                   {name:t("card5.0.p5.name"),image:experts[4].image,job:t("card5.0.p5.function"),namePerson:t("card5.0.p5.name")}
                   ];
 
   const settings = {
