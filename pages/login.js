@@ -112,8 +112,10 @@ export default function Home() {
         <div className='w-full h-screen flex overflow-hidden relative'
         style={{color:'#6e6b7b'}}>
           {/* Fondo */}
-          <div className="loging-fondo bg-primary flex justify-evenly items-center flex-col h-screen w-full relative z-40 md:hidden">
-            <Image src={Logo} style={{ width: '200px'}} alt='Logo' className='z-40' />
+          <div
+          className="loging-fondo  flex justify-evenly items-center flex-col h-screen w-full relative z-40 md:hidden"
+          style={{background: 'radial-gradient(57.61% 52.49% at 42.81% 47.51%, #3CBBD6 0%, #05839D 100%)'}}>
+            <Image src={Logo} style={{width: '200px'}} alt='Logo' className='z-40' />
             <div className="loging-fondo_text z-40">
               <p className="text-white text-5xl font-semibold mb-4 text-center text-shadow">{t("img1")}</p>
               <p className="text-white text-5xl font-semibold mb-4 text-center text-shadow">{t("img2")}</p>
@@ -121,8 +123,8 @@ export default function Home() {
             </div>
             <p className="end-text text-white border-b-2 border-warning text-shadow z-40">{t("img4")}</p>
 
-            <Image src={Vector1} alt='Vector1' className='z-20 absolute left-0 top-0 w-80 filter vector-shadow'/>
-            <Image src={Vector2} alt='Vector2' className='z-20 absolute right-0 bottom-0 w-80' />
+            {/* <Image src={Vector1} alt='Vector1' className='z-20 absolute left-0 top-0 w-80 filter vector-shadow'/>
+            <Image src={Vector2} alt='Vector2' className='z-20 absolute right-0 bottom-0 w-80' /> */}
             <Image src={Background} alt='Background' className='absolute w-full h-full z-10' priority={true}/>
           </div>
 

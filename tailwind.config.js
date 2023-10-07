@@ -22,6 +22,7 @@ module.exports = {
 
         success:'#8438ff',
         success_hover:'#9156F0',
+        success_light:'#8438FF1F',
 
         danger:'#e73b3c',
         danger_hover:'#F34F54',
