@@ -22,6 +22,12 @@
   --secondary: #33bb99;
   --secondary_hover: #33BB99;
 
+  /* Success */
+  --success: #8438FF;
+  --success_hover:#9156F0;
+  --success_blur:#8438FFA6;
+
+  /* White */
   --white:#fff;
 
   /* Gray */
@@ -224,6 +230,7 @@ h3{
   background-color: var(--primary_hover);
   box-shadow: 0px 4px 14px 0px var(--primary_blur);
 }
+
 /* Boton Primary Border */
 .btn-primary-border {
   display: flex; 
@@ -242,6 +249,23 @@ h3{
 
 .btn-primary-border:active {
   background-color: var(--primary-border_active_bg);
+}
+
+/* Boton Success Fill */
+.btn-success {
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  background-color: var(--success);
+  border-radius: 7px;
+  color: white; 
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+
+.btn-success:hover {
+  background-color: var(--success_hover);
+  box-shadow: 0px 4px 14px 0px var(--success_blur);
 }
 
 /* Youtube */
