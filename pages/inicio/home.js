@@ -172,7 +172,9 @@ export default function Home() {
             <Image
             width={72.8}
             height={132.75}
-            src={'https://res.cloudinary.com/dfddh08q8/image/upload/v1696689725/images/imagen_2023-10-07_114206546_teiy3v.png'}/>
+            src={'https://res.cloudinary.com/dfddh08q8/image/upload/v1696689725/images/imagen_2023-10-07_114206546_teiy3v.png'}
+            alt='guia turistica'
+            />
           </div>
         </div>
         
