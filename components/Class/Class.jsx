@@ -116,10 +116,10 @@ export default function Class(props) {
               {c.type === 'videoi-youtube' ? <div className='className'><YOUTUVEPOPUP titlep={null} popups={c.popups} videoId={c.value} className='youtube' /></div> : null}
               <div className={styles['box']}>
               <div className='className'>
-                {c.type === 'options-box' ? c.value.map(value => <BOXMOMVE key={value.y} option={value} onBoxPlacement={(boxPosition) => handleBoxPlacement(boxPosition)} />): null}
+                {c.type === 'options-box' ? c.value.map(value => <BOXMOMVE key={value.y} option={value} id={c.id} onBoxPlacement={(boxPosition) => handleBoxPlacement(boxPosition)} />): null}
               </div></div>
               {c.type === 'paragraph' ? <div className='className'><p dangerouslySetInnerHTML={{ __html: c.value }}></p> </div>: null}
-              {c.type === 'sentence-box' ? <div id={c.option} className='className'><p dangerouslySetInnerHTML={{ __html: c.value }}></p> </div>: null}
+              {c.type === 'sentence-box' ? <div className='className'><p dangerouslySetInnerHTML={{ __html: c.value }}></p> </div>: null}
               {c.type === 'selectsimple' ? <div className='className'> <SELECTSIMPLE key={c.option} data={c}/> </div>:null}
               {c.type === 'text' ? <div className='className'><p dangerouslySetInnerHTML={{ __html: c.value }}></p> </div>: null}
               {/* En la siguiente linea falta destructurar el objeto como input form */}
