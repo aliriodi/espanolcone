@@ -62,6 +62,80 @@ export default function Boxmove(props) {
 
   // Las coordenadas del lugar correcto donde quieres incrustar la caja
   const correctPosition = { x: (props.option.xmin+props.option.xmax)/2, y: (props.option.ymin+props.option.ymax)/2 };
+  const sol = document.querySelector("#"+props.option.value)
+  const sol1 = document.querySelector("#"+props.option.value+1)
+  if (sol && sol1) {
+    const solRect = sol.getBoundingClientRect();
+    const sol1Rect = sol1.getBoundingClientRect();
+    sol1.addEventListener("mouseup", function () {
+      // Obtenemos las coordenadas absolutas de los elementos "sol" y "sol1"
+      const solTop = sol.offsetTop;
+      const solLeft = sol.offsetLeft;
+      const sol1Top = sol1.offsetTop;
+      const sol1Left = sol1.offsetLeft;
+  
+      // Calculamos la diferencia entre las coordenadas absolutas de "sol1" y "sol"
+      const topDifference = sol1Rect.y - solTop;
+      const leftDifference = sol1Left.x - solLeft;
+       console.log(solRect)
+       console.log(sol1Rect)
+      console.log("Posición absoluta de sol:", solTop, solLeft);
+      console.log("Posición absoluta de sol1:", sol1Top, sol1Left);
+  
+      if (
+        topDifference >= 0 &&
+        leftDifference >= 0 &&
+        topDifference + sol1.clientHeight <= sol.clientHeight &&
+        leftDifference + sol1.clientWidth <= sol.clientWidth
+      ) {
+        console.log("sol1 está dentro de sol.");
+        setBoxShadowcolor('0px 0px 20px green');
+      } else {
+        console.log("sol1 no está dentro de sol.");
+        setBoxShadowcolor('0px 0px 20px red');
+      }
+    });
+  }
+  
+// if (sol && sol1) {
+//   sol1.addEventListener("mouseup", function () {
+//     // Obtenemos las coordenadas y dimensiones del elemento "sol"
+//     const solRect = sol.getBoundingClientRect();
+
+//     // Obtenemos las coordenadas del elemento "sol1" relativas a su elemento padre (en este caso, "sol")
+//     const sol1Rect = sol1.getBoundingClientRect();
+
+//     // Comparamos las coordenadas para verificar si "sol1" está contenido dentro de "sol"
+//     if (
+//       sol1Rect.top >= solRect.top &&
+//       sol1Rect.bottom <= solRect.bottom &&
+//       sol1Rect.left >= solRect.left &&
+//       sol1Rect.right <= solRect.right
+//     ) {
+//       console.log("sol1 está dentro de sol.");
+//       console.log("Posición relativa de sol1 dentro de sol:");
+//       console.log("Top: " + (sol1Rect.top - solRect.top));
+//       console.log("Left: " + (sol1Rect.left - solRect.left));
+//       setBoxShadowcolor('0px 0px 20px green');
+//     } else {
+//       console.log("sol1 no está dentro de sol.");
+//       setBoxShadowcolor('0px 0px 20px red');
+//     }
+//   });
+// }
+
+  
+  //   if(sol){ 
+   
+  // sol1.addEventListener("mouseup", function() {
+  //  //console.log(sol1.id.substring(0, sol1.id.length - 1))
+  //  // Esta función se ejecutará cuando se haga clic en el elemento con id="sol"
+  //   if(sol.id===sol1.id.substring(0, sol1.id.length - 1)){
+  //     //console.log(sol1)
+  //     console.log(sol.id)
+  //     console.log(sol1.id)
+  //   console.log("Se hizo clic en el elemento "+props.option.value);}
+  // });}
 
   const handleDrag = (e, d) => {
     // Calcula la distancia entre la caja y el lugar correcto
@@ -69,23 +143,26 @@ export default function Boxmove(props) {
 
     // Establece un umbral de distancia para determinar cuándo se debe incrustar la caja
     const threshold = 40;
-    if(180<d.x&&d.x<600&&-158<d.y&&d.y<-12){setState({x:d.x,y:d.y})}else{setState({ x: props.option.x, y: props.option.y })}
-    if (distance < threshold) {
-      // Si la caja está lo suficientemente cerca, ajusta la posición al lugar correcto
-      setState(correctPosition);
+    // if(180<d.x&&d.x<600&&-158<d.y&&d.y<-12){setState({x:d.x,y:d.y})}else{setState({ x: props.option.x, y: props.option.y })}
+    setState({x:d.x,y:d.y})
+    // if (distance < threshold) {
+    //   // Si la caja está lo suficientemente cerca, ajusta la posición al lugar correcto
+    //   setState(correctPosition);
 
-      setBoxShadowcolor('0px 0px 20px green');
-    } else {
-      // Si la caja se aleja del lugar correcto, mantén la posición actual
-      //setState({ x: d.x, y: d.y });
-      setBoxShadowcolor('0px 0px 20px red');
-    }
+    //   setBoxShadowcolor('0px 0px 20px green');
+    // } else {
+    //   // Si la caja se aleja del lugar correcto, mantén la posición actual
+    //   //setState({ x: d.x, y: d.y });
+    //   setBoxShadowcolor('0px 0px 20px red');
+    // }
   };
+ 
 
   return (
     <div>
       <div key={props.option.id} className={styles[props.option.id]}>
         <Rnd
+          id={props.option.value+1}
           size={{ width: props.option.width, height: props.option.height }}
           position={state}
           onDragStop={handleDrag}
