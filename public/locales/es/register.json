@@ -12,7 +12,7 @@
     "backButton":"Anterior",
     "forwardButton":"Siguiente",
     "warningUser":"Ya existe un usuario con ese email",
-    "warningName":"Introduzca un nombre",
+    "warningname":"Introduzca un nombre",
     "warningLastname":"Introduzca un apellido",
     "warningCountry":"Introduzca un pais",
     "warningEmail":"Introduzca un email",
