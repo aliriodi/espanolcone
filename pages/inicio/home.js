@@ -192,7 +192,9 @@ export default function Home() {
                   className='bottom-0' 
                   src={'https://res.cloudinary.com/dfddh08q8/image/upload/v1696693939/images/imagen_2023-10-07_125219786_rzuokc.png'}
                   width={200}
-                  height={138}/>
+                  height={138}
+                  alt='phoneboy'
+                  />
 
                   <h3 className='text-white text-[24px] font-bold flex items-center justify-center w-[175px] text-center'>
                     Profesores  en español
@@ -236,7 +238,9 @@ export default function Home() {
                   className='bottom-0' 
                 src={'https://res.cloudinary.com/dfddh08q8/image/upload/v1696695258/images/imagen_2023-10-07_131418939_o1i6xa.png'}
                 width={200}
-                height={158}/>
+                height={158}
+                alt='girl tourist'
+                />
 
                 <h3 className='text-white text-[24px] font-bold flex items-center justify-center w-[175px] text-center'>
                 Guías Turísticos
