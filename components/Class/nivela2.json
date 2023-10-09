@@ -169,31 +169,31 @@
             },
             {
                 "type": "sentence-box",
-                "value": "David <span style= 'color: orange;'>trabaja</span> muchas horas al día. <span id='trabajar'>_________________</span>",
+                "value": "David <span style= 'color: orange;'>trabaja</span> muchas horas al día. <span id='trabajar'  style= 'color: orange'>_________________</span>",
                 "option": "trabajar",
                 "className": "paragraph3"
             },
             {
                 "type": "sentence-box",
-                "value": "No <span style= 'color: orange;'>piensa</span> volver a su país. <span id='pensar'>________________</span>",
+                "value": "No <span style= 'color: orange;'>piensa</span> volver a su país. <span id='pensar'  style= 'color: orange'>________________</span>",
                 "option": "pensar",
                 "className": "paragraph3"
             },
             {
                 "type": "sentence-box",
-                "value": "<span style= 'color: orange;'>Reconozco</span> que aún tengo problemas con la lengua. <span id='reconocer'>_____________________</span>",
+                "value": "<span style= 'color: orange;'>Reconozco</span> que aún tengo problemas con la lengua. <span id='reconocer'  style= 'color: orange'>_____________________</span>",
                 "option": "reconocer",
                 "className": "paragraph3"
             },
             {
                 "type": "sentence-box",
-                "value": "Bruna <span style= 'color: orange;'>estudia</span> medicina en la UNC. <span id='estudiar'>__________________</span>",
+                "value": "Bruna <span style= 'color: orange;'>estudia</span> medicina en la UNC. <span id='estudiar'  style= 'color: orange'>__________________</span>",
                 "option": "estudiar",
                 "className": "paragraph3"
             },
             {
                 "type": "sentence-box",
-                "value": "Todavía no <span style= 'color: orange;'>entiende</span> perfectamente el  español.<span id='entender'> __________________</span>",
+                "value": "Todavía no <span style= 'color: orange;'>entiende</span> perfectamente el  español.<span id='entender'  style= 'color: orange'> __________________</span>",
                 "option": "entender",
                 "className": "paragraph3"
             },
@@ -206,12 +206,12 @@
             {
                 "type": "options-box",
                 "value": [
-                    {"value":"pensar","id":"value1","x":600,"y":-140,"xmin":194,"xmax":266,"ymin":-125,"ymax":-115,"width":130,"height":22},
-                    {"value":"costar","id":"value2","x":600,"y":-115,"xmin":285,"xmax":410,"ymin":-32,"ymax":-20,"width":130,"height":22},
-                    {"value":"trabajar","id":"value3","x":600,"y":-90,"xmin":248,"xmax":339,"ymin":-150,"ymax":-142,"width":130,"height":22},
-                    {"value":"entender","id":"value4","x":600,"y":-65,"xmin":335,"xmax":432,"ymin":-56,"ymax":-49,"width":130,"height":22},
-                    {"value":"reconocer","id":"value5","x":600,"y":-40,"xmin":363,"xmax":491,"ymin":-104,"ymax":-96,"width":130,"height":22},
-                    {"value":"estudiar","id":"value6","x":600,"y":-15,"xmin":250,"xmax":340,"ymin":-78,"ymax":-72,"width":130,"height":22}
+                    {"value":"pensar","id":"value1","x":850,"y":-220,"xmin":194,"xmax":266,"ymin":-125,"ymax":-115,"width":130,"height":22},
+                    {"value":"costar","id":"value2","x":850,"y":-185,"xmin":285,"xmax":410,"ymin":-32,"ymax":-20,"width":130,"height":22},
+                    {"value":"trabajar","id":"value3","x":850,"y":-150,"xmin":248,"xmax":339,"ymin":-150,"ymax":-142,"width":130,"height":22},
+                    {"value":"entender","id":"value4","x":850,"y":-115,"xmin":335,"xmax":432,"ymin":-56,"ymax":-49,"width":130,"height":22},
+                    {"value":"reconocer","id":"value5","x":850,"y":-80,"xmin":363,"xmax":491,"ymin":-104,"ymax":-96,"width":130,"height":22},
+                    {"value":"estudiar","id":"value6","x":850,"y":-45,"xmin":250,"xmax":340,"ymin":-78,"ymax":-72,"width":130,"height":22}
                 ],
                 "className": "paragraph3"
             }
