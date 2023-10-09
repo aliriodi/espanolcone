@@ -91,7 +91,7 @@ h3{
   font-size: 21px;
 }
 .className{
-     border:solid  1px red;
+     border: none; /*solid  1px white;*/
 }
 /* Titulo Subrayado */
 .underlined-title{
