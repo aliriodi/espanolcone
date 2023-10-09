@@ -63,71 +63,73 @@ export default function Boxmove(props) {
   // Las coordenadas del lugar correcto donde quieres incrustar la caja
   const correctPosition = { x: (props.option.xmin+props.option.xmax)/2, y: (props.option.ymin+props.option.ymax)/2 };
   const sol = document.querySelector("#"+props.option.value)
-  const sol1 = document.querySelector("#"+props.option.value+1)
-  if (sol && sol1) {
+
+  // console.log(props.option.id)
+  // console.log(props.option.value)
+  const sol1 = document.querySelector("#"+props.option.id)
+  // if (sol && sol1) {
+  //   const solRect = sol.getBoundingClientRect();
+  //   const sol1Rect = sol1.getBoundingClientRect();
+  //   sol1.addEventListener("mouseup", function () {
+  //     Obtenemos las coordenadas absolutas de los elementos "sol" y "sol1"
+  //     const solTop = sol.offsetTop;
+  //     const solLeft = sol.offsetLeft;
+  //     const sol1Top = sol1.offsetTop;
+  //     const sol1Left = sol1.offsetLeft;
+  
+  //     Calculamos la diferencia entre las coordenadas absolutas de "sol1" y "sol"
+  //     const topDifference = sol1Rect.y - solTop;
+  //     const leftDifference = sol1Left.x - solLeft;
+  //      console.log(solRect)
+  //      console.log(sol1Rect)
+  //     console.log("Posición absoluta de sol:", solTop, solLeft);
+  //     console.log("Posición absoluta de sol1:", sol1Top, sol1Left);
+  
+  //     if (
+  //       topDifference >= 0 &&
+  //       leftDifference >= 0 &&
+  //       topDifference + sol1.clientHeight <= sol.clientHeight &&
+  //       leftDifference + sol1.clientWidth <= sol.clientWidth
+  //     ) {
+  //       console.log("sol1 está dentro de sol.");
+  //       setBoxShadowcolor('0px 0px 20px green');
+  //     } else {
+  //       console.log("sol1 no está dentro de sol.");
+  //       setBoxShadowcolor('0px 0px 20px red');
+  //     }
+  //   });
+  // }
+  
+if (sol && sol1) {
+  sol1.addEventListener("mouseup", function () {
+    // Obtenemos las coordenadas y dimensiones del elemento "sol"
     const solRect = sol.getBoundingClientRect();
+
+    // Obtenemos las coordenadas del elemento "sol1" relativas a su elemento padre (en este caso, "sol")
     const sol1Rect = sol1.getBoundingClientRect();
-    sol1.addEventListener("mouseup", function () {
-      // Obtenemos las coordenadas absolutas de los elementos "sol" y "sol1"
-      const solTop = sol.offsetTop;
-      const solLeft = sol.offsetLeft;
-      const sol1Top = sol1.offsetTop;
-      const sol1Left = sol1.offsetLeft;
-  
-      // Calculamos la diferencia entre las coordenadas absolutas de "sol1" y "sol"
-      const topDifference = sol1Rect.y - solTop;
-      const leftDifference = sol1Left.x - solLeft;
-       console.log(solRect)
-       console.log(sol1Rect)
-      console.log("Posición absoluta de sol:", solTop, solLeft);
-      console.log("Posición absoluta de sol1:", sol1Top, sol1Left);
-  
-      if (
-        topDifference >= 0 &&
-        leftDifference >= 0 &&
-        topDifference + sol1.clientHeight <= sol.clientHeight &&
-        leftDifference + sol1.clientWidth <= sol.clientWidth
-      ) {
-        console.log("sol1 está dentro de sol.");
-        setBoxShadowcolor('0px 0px 20px green');
-      } else {
-        console.log("sol1 no está dentro de sol.");
-        setBoxShadowcolor('0px 0px 20px red');
-      }
-    });
-  }
-  
-// if (sol && sol1) {
-//   sol1.addEventListener("mouseup", function () {
-//     // Obtenemos las coordenadas y dimensiones del elemento "sol"
-//     const solRect = sol.getBoundingClientRect();
-
-//     // Obtenemos las coordenadas del elemento "sol1" relativas a su elemento padre (en este caso, "sol")
-//     const sol1Rect = sol1.getBoundingClientRect();
-
-//     // Comparamos las coordenadas para verificar si "sol1" está contenido dentro de "sol"
-//     if (
-//       sol1Rect.top >= solRect.top &&
-//       sol1Rect.bottom <= solRect.bottom &&
-//       sol1Rect.left >= solRect.left &&
-//       sol1Rect.right <= solRect.right
-//     ) {
-//       console.log("sol1 está dentro de sol.");
-//       console.log("Posición relativa de sol1 dentro de sol:");
-//       console.log("Top: " + (sol1Rect.top - solRect.top));
-//       console.log("Left: " + (sol1Rect.left - solRect.left));
-//       setBoxShadowcolor('0px 0px 20px green');
-//     } else {
-//       console.log("sol1 no está dentro de sol.");
-//       setBoxShadowcolor('0px 0px 20px red');
-//     }
-//   });
-// }
+      // Comparamos las coordenadas para verificar si "sol1" está contenido dentro de "sol"
+    if (
+      sol1Rect.top +10>= solRect.top &&
+      sol1Rect.bottom-10 <= solRect.bottom &&
+      sol1Rect.left >= solRect.left &&
+      sol1Rect.right <= solRect.right
+    ) {
+      // console.log("sol1 está dentro de sol.");
+      // console.log("Posición relativa de sol1 dentro de sol:");
+      // console.log("Top: " + (sol1Rect.top - solRect.top));
+      // console.log("Left: " + (sol1Rect.left - solRect.left));
+      setBoxShadowcolor('0px 0px 20px green');
+    } else {
+      console.log("sol1 no está dentro de sol.");
+      setBoxShadowcolor('0px 0px 20px red');
+    }
+  });
+}
 
   
-  //   if(sol){ 
+    // if(sol&&sol1){ 
    
-  // sol1.addEventListener("mouseup", function() {
+  // sol.addEventListener("mouseup", function() {
   //  //console.log(sol1.id.substring(0, sol1.id.length - 1))
   //  // Esta función se ejecutará cuando se haga clic en el elemento con id="sol"
   //   if(sol.id===sol1.id.substring(0, sol1.id.length - 1)){
@@ -135,7 +137,8 @@ export default function Boxmove(props) {
   //     console.log(sol.id)
   //     console.log(sol1.id)
   //   console.log("Se hizo clic en el elemento "+props.option.value);}
-  // });}
+  // });
+// }
 
   const handleDrag = (e, d) => {
     // Calcula la distancia entre la caja y el lugar correcto
@@ -162,7 +165,7 @@ export default function Boxmove(props) {
     <div>
       <div key={props.option.id} className={styles[props.option.id]}>
         <Rnd
-          id={props.option.value+1}
+          id={props.option.id}
           size={{ width: props.option.width, height: props.option.height }}
           position={state}
           onDragStop={handleDrag}

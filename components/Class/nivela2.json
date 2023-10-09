@@ -169,37 +169,37 @@
             },
             {
                 "type": "sentence-box",
-                "value": "David <span style= 'color: orange;'>trabaja</span> muchas horas al día. _________________",
+                "value": "David <span style= 'color: orange;'>trabaja</span> muchas horas al día. <span id='trabajar'>_________________</span>",
                 "option": "trabajar",
                 "className": "paragraph3"
             },
             {
                 "type": "sentence-box",
-                "value": "No <span style= 'color: orange;'>piensa</span> volver a su país. ________________",
+                "value": "No <span style= 'color: orange;'>piensa</span> volver a su país. <span id='pensar'>________________</span>",
                 "option": "pensar",
                 "className": "paragraph3"
             },
             {
                 "type": "sentence-box",
-                "value": "<span style= 'color: orange;'>Reconozco</span> que aún tengo problemas con la lengua. _____________________",
+                "value": "<span style= 'color: orange;'>Reconozco</span> que aún tengo problemas con la lengua. <span id='reconocer'>_____________________</span>",
                 "option": "reconocer",
                 "className": "paragraph3"
             },
             {
                 "type": "sentence-box",
-                "value": "Bruna <span style= 'color: orange;'>estudia</span> medicina en la UNC. __________________",
+                "value": "Bruna <span style= 'color: orange;'>estudia</span> medicina en la UNC. <span id='estudiar'>__________________</span>",
                 "option": "estudiar",
                 "className": "paragraph3"
             },
             {
                 "type": "sentence-box",
-                "value": "Todavía no <span style= 'color: orange;'>entiende</span> perfectamente el  español. __________________",
+                "value": "Todavía no <span style= 'color: orange;'>entiende</span> perfectamente el  español.<span id='entender'> __________________</span>",
                 "option": "entender",
                 "className": "paragraph3"
             },
             {
                 "type": "sentence-box",
-                "value": "<span style= 'color: orange;'>Le cuesta</span> bastante la pronunciación. ______________________",
+                "value": "<span style= 'color: orange;'>Le cuesta</span> bastante la pronunciación. <span id='costar' style= 'color: orange'>______________________</span>",
                 "option": "costar",
                 "className": "paragraph3"
             },
