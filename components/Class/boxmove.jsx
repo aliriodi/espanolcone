@@ -69,7 +69,7 @@ export default function Boxmove(props) {
 
     // Establece un umbral de distancia para determinar cuándo se debe incrustar la caja
     const threshold = 40;
-    console.log('distance',distance)
+   // console.log('distance',distance)
     // if(180<d.x&&d.x<600&&-158<d.y&&d.y<-12){setState({x:d.x,y:d.y})}else{setState({ x: props.option.x, y: props.option.y })}
     setState({x:d.x,y:d.y})
     if (distance < threshold) {
