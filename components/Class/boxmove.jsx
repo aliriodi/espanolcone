@@ -16,18 +16,20 @@ export default function Boxmove(props) {
 
 
  if (sol && sol1) {
-  sol1.addEventListener("mouseup", function () {
+  
     // Obtenemos las coordenadas y dimensiones del elemento "sol"
-    const solRect = sol.getBoundingClientRect();
+    sol1.addEventListener("mouseup", function (event) { 
     
-    // Obtenemos las coordenadas del elemento "sol1" relativas a su elemento padre (en este caso, "sol")
-    const sol1Rect = sol1.getBoundingClientRect();
+      // Obtenemos las coordenadas del elemento "sol1" relativas a su elemento padre (en este caso, "sol")
+      const sol1Rect = sol1.getBoundingClientRect();
+  const solRect = sol.getBoundingClientRect();
+  
 
     if(cXmax<sol1Rect.left){setCXmaxe(sol1Rect.right)}
   //  console.log(typeof(sol1Rect.left),solRect.left)
     const correctPosition = { x: (0.5*sol1Rect.left+0.5*sol1Rect.right), y: (0.5*sol1Rect.top+0.5*sol1Rect.bottom) };
       // Comparamos las coordenadas para verificar si "sol1" está contenido dentro de "sol"
-    if (
+    if (event.button === 0 &&
       sol1Rect.top +10>= solRect.top &&
       sol1Rect.bottom-10 <= solRect.bottom &&
       sol1Rect.left >= solRect.left &&
@@ -41,11 +43,24 @@ export default function Boxmove(props) {
      
       setBoxShadowcolor('0px 0px 20px green');
     } else {
-      console.log("sol1 no está dentro de sol.");
-     // console.log(solRect.top)
-     // console.log(sol1Rect.top) 
+      //console.log("sol1 no está dentro de sol.");
+      //console.log(solRect.top)
+      //console.log(sol1Rect.top) 
       setBoxShadowcolor('0px 0px 20px red');
-    }
+      if (event.button === 0 && (
+        Math.abs(sol1Rect.top -solRect.top) >= 200 ||
+        sol1Rect.bottom-solRect.bottom <=-100  ||
+        sol1Rect.left -solRect.left >= 310 ||
+        sol1Rect.right-solRect.right <= -100)
+      ) {
+       // console.log('arriba',sol1Rect.top -solRect.top)
+       // console.log('abajo',sol1Rect.bottom-solRect.bottom)
+       // console.log('izquierda',sol1Rect.left -solRect.left)
+      //  console.log('derecha',sol1Rect.right-solRect.right)
+     setState({x: props.option.x, y: props.option.y})
+      }
+    };
+   
   });
 }
 

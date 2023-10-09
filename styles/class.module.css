@@ -104,12 +104,21 @@
     margin-top: 40px;
     text-align: justify;
 }
+
+.titleBlack{
+    font-weight: 800;
+    font-size: 160%;
+    width:70%;
+    /* border:solid  3px red; */
+    margin-left: 210px;
+    margin-top: 180px;
+ }
 .paragraph3{
     font-weight: 700;
     font-size: 140%;
     width:62%;
     /* border:solid  3px red; */
-    margin-left: 50px;
+    margin-left: 210px;
     margin-top: 6px;
     text-align: justify;
 }
@@ -149,12 +158,4 @@
     /* border:solid  3px red; */
     margin-top: 65px;
     text-align: center;
- }
- .titleBlack{
-    font-weight: 800;
-    font-size: 160%;
-    width:70%;
-    /* border:solid  3px red; */
-    margin-left: 20px;
-    margin-top: 180px;
  }
