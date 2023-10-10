@@ -22,11 +22,11 @@ export default async function getAllClass(req, res) {
 
     //console.log(req.query)
 
-    console.log('CREATING DOCUMENT');
-    const class1 = await Class.findOne({ name: req.query.name }).exec();
+    console.log('GETTING DOCUMENT');
+    const class1 = await Class.findOne({ id: req.query.id }).exec();
 
     //console.log(users.password)
-    console.log('CREATED DOCUMENT');
+    console.log('GOT DOCUMENT');
     res.json({ class1 })
   } catch (error) {
     console.log(error);
