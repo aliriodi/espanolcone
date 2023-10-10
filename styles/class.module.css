@@ -1,6 +1,7 @@
+
+
  .Portadaimg {
-   display:flex;
-    position: absolute; /* Asegúrate de que la imagen tenga una posición */
+     position: absolute; /* Asegúrate de que la imagen tenga una posición */
      z-index: -1;
     padding-top: 1%; 
     transform: scale(1.8) translate(24%, 50%);
@@ -19,7 +20,7 @@
 .Portadalev {
     display:flex;
     font-size: 140%;
-    width: 40%;
+    width: 30%;
     padding-top: 21%;
     color: white;
     font-weight: 700;
@@ -53,6 +54,7 @@
 }  
 .titleleft-black{
     font-weight: 900;
+  
     font-size: 180%;
     padding-top: 1%;
     width:20%;
@@ -159,3 +161,40 @@
     margin-top: 65px;
     text-align: center;
  }
+
+ @media (min-width: 1601px) and (max-width: 1681px ) {
+   
+ .Portadaimg {
+   transform: scale(1.8) ;
+}  
+
+.Portadatil {
+   transform: scale(1.1) ;
+}
+
+.Portadalev {
+    transform: scale(1.1) ;
+    }
+  }
+  
+  /* Estilo cuando el ancho de la pantalla es mayor que 768px */
+  @media (min-width: 1200px) and (max-width:1600px){
+   
+ .Portadaimg {
+   transform: scale(1.28);    
+}  
+
+.Portadatil {
+    transform: scale(0.8)    ;
+    /* border:solid  red; */
+    width: 70%;
+    margin-left: 420px;
+}
+
+.Portadalev {
+    transform: scale(0.8)   ;
+    margin-top: -50px;
+    margin-left:-30px;
+    /* border:solid  red; */
+}
+  }
