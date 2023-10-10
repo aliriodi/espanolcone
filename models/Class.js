@@ -6,10 +6,17 @@ const ClassSchema = new Schema(
     // id: {
     //   type: mongoose.Types.ObjectId,
     // },
-   name: {
+    
+    level: {
       type: String,
-      unique: true,
-    },
+      },
+    unit: {
+        type: String,
+       },
+   description: {
+      type: String,
+      unique:true
+     },
     sheets: {
       type: [Object],
     }

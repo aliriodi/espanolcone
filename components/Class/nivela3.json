@@ -1,10 +1,10 @@
 {
     "page1": {
         "type": "text",
-        "section": [
-            0,
-            "Portada"
-        ],
+        "section": {
+            "number":0,
+            "value":"Mis Metas"
+        },
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696113984/images/1_qywc8c.png",
         "data": [
             {
@@ -26,11 +26,11 @@
         ]
     },
     "page2": {
-        "type": "text",
-        "section": [
-            1,
-            "Video Explicativo"
-        ],
+        "type": "video",
+        "section": {
+            "number":0,
+            "value":"Mis Metas"
+        },
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
         "data": [
             {
@@ -63,10 +63,10 @@
     },
     "page3": {
         "type": "text",
-        "section": [
-            2,
-            "Elemento disparador / Tema"
-        ],
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
         "data": [
             {
@@ -114,10 +114,10 @@
     },
     "page4": {
         "type": "text",
-        "section": [
-            2,
-            "Elemento disparador / Tema"
-        ],
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
         "data": [
             {
@@ -160,10 +160,10 @@
     },
     "page5": {
         "type": "boxmove",
-        "section": [
-            3,
-            "Actividades PDF"
-        ],
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
         "title": "Actividad",
         "data": [
@@ -234,10 +234,10 @@
     },
     "page6": {
         "type": "selectsimple",
-        "section": [
-            3,
-            "Actividades PDF"
-        ],
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
         "data": [
             {
@@ -279,10 +279,10 @@
     },
     "page7": {
         "type": "video",
-        "section": [
-            4,
-            "Gramática"
-        ],
+        "section": {
+            "number`":2,
+            "value":"Aprendemos"
+        },
         "template": null,
         "data": [
             {
@@ -300,10 +300,10 @@
     },
     "page8": {
         "type": "slide",
-        "section": [
-            "5",
-            "Actividades interactivas"
-        ],
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
         "data": [
             {
@@ -315,10 +315,10 @@
     },
     "page9": {
         "type": "videoInteractivo",
-        "section": [
-            5,
-            "Actividades interactivas"
-        ],
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
         "data": [
             {
@@ -449,10 +449,10 @@
     },
     "page10": {
         "type": "video",
-        "section": [
-            5,
-            "Actividades interactivas"
-        ],
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
         "data": [
             {
@@ -475,10 +475,10 @@
     },
     "page11": {
         "type": "selectsimple",
-        "section": [
-            5,
-            "Actividades interactivas"
-        ],
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
         "data": [
             {
@@ -517,10 +517,10 @@
     },
     "page12": {
         "type": "complete",
-        "section": [
-            5,
-            "Actividades interactivas"
-        ],
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
         "data": [
             {
@@ -616,10 +616,10 @@
     },
     "page13": {
         "type": "complete",
-        "section": [
-            5,
-            "Actividades interactivas"
-        ],
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
         "data": [
             {
@@ -695,10 +695,10 @@
     "page14": {
         "type": "slide",
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
-        "section": [
-            6,
-            "Retos"
-        ],
+        "section": {
+            "number":4,
+            "value":"Mis retos"
+    },
         "data": [
             {
                 "type": "title",
@@ -710,10 +710,10 @@
     "page15": {
         "type": "complete",
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
-        "section": [
-            6,
-            "Retos"
-        ],
+        "section": {
+            "number":4,
+            "value":"Mis retos"
+    },
         "data": [
             {
                 "type": "paragraph",
@@ -858,10 +858,10 @@
     "page16": {
         "type": "complete",
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
-        "section": [
-            7,
-            "Test"
-        ],
+        "section": {
+            "number":5,
+            "value":"Evaluemos"
+        },
         "data": [
             {
                 "type": "title",
@@ -892,10 +892,10 @@
     },
     "page17": {
         "type": "complete",
-        "section": [
-            7,
-            "Test"
-        ],
+        "section": {
+            "number":5,
+            "value":"Evaluemos"
+        },
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
         "data": [
             {
@@ -991,10 +991,10 @@
     "page18": {
         "type": "complete",
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
-        "section": [
-            7,
-            "Test"
-        ],
+        "section": {
+            "number":5,
+            "value":"Evaluemos"
+        },
         "data": [
             {
                 "type": "title",
