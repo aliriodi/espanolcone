@@ -157,7 +157,7 @@ export default function Curso(){
                 currentLevel.modules.map((module)=>(
                     <Link
                     key={module.number}
-                    href={'/#'}
+                    href={'/inicio/unidad'}
                     className={`bg-white flex flex-col shadow-[0px_0px_4px_#00000040] rounded-[8px] py-[12px] justify-center min-w-[145px] items-center mx-[20px] mb-[50px] relative
                     transition-all hover:min-w-[160px]
                     ${!module.enable && "pointer-events-none opacity-50"}`}>
@@ -187,6 +187,7 @@ export default function Curso(){
                 
 
             </div>
+
         </section>
         </>
     )

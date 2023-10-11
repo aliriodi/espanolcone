@@ -60,7 +60,7 @@ export default function Unidad(){
             <div className=" mx-[20px] my-[32px] flex relative justify-between flex-wrap">
 
                 {/* Mis Metas */}
-                <Link href={'/#'} className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative">
+                <Link href={'/courses'} className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative">
                     
                         {/* Contenido */}
                         <div className="flex items-center">
@@ -87,7 +87,7 @@ export default function Unidad(){
                 </Link>
                 
                 {/* Comencemos */}
-                <Link href={'/#'} className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative">
+                <Link href={'/courses'} className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative">
                     
                         {/* Contenido */}
                         <div className="flex items-center">
@@ -114,7 +114,7 @@ export default function Unidad(){
                 </Link>
 
                 {/* Aprendemos */}
-                <Link href={'/#'} className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative">
+                <Link href={'/courses'} className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative">
                     
                         {/* Contenido */}
                         <div className="flex items-center">
@@ -141,7 +141,7 @@ export default function Unidad(){
                 </Link>
                 
                 {/* Practiquemos */}
-                <Link href={'/#'} className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative">
+                <Link href={'/courses'} className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative">
                     
                         {/* Contenido */}
                         <div className="flex items-center">
@@ -168,7 +168,7 @@ export default function Unidad(){
                 </Link>
                 
                 {/* Mis retos */}
-                <Link href={'/#'} className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative">
+                <Link href={'/courses'} className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative">
                     
                         {/* Contenido */}
                         <div className="flex items-center">
@@ -194,7 +194,7 @@ export default function Unidad(){
                 </Link>
                 
                 {/* Evaluemos */}
-                <Link href={'/#'} className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative">
+                <Link href={'/courses'} className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative">
                     
                         {/* Contenido */}
                         <div className="flex items-center">

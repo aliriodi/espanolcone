@@ -161,7 +161,7 @@ export default function Home() {
           <div className='w-full flex justify-end'>
             <Link
             className='btn-primary px-[70px] py-[9px] text-[14px] mt-[21px] shadow-[0px_5.410437107086182px_5.410437107086182px_#00000040]'
-            href={'/#'}
+            href={'./curso'}
             style={{display:'inline-block'}}>
             Ver más
             </Link>
@@ -275,26 +275,6 @@ export default function Home() {
 
         </div>
       </main>
-
-      {/* <main className='ml-9 p-5 flex flex-col h-screen'>
-        <div className='pb-5'>home</div>
-        <div className={'mx-52'}>
-          <button
-            onClick={handleClickLogin}
-            type='submit'
-            className='bg-blue-500 text-white px-5 py-2 rounded mr-5'>
-            Go Home
-          </button>
-          <button
-            onClick={handleClickUsers}
-            type='submit'
-            className='bg-blue-500 text-white px-5 py-2 rounded'>
-            Go Users
-          </button>
-          
-          {showClass && <Class />}
-        </div>
-      </main  > */}
     </>
   )
 }
