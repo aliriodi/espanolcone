@@ -47,7 +47,7 @@ export default function Home() {
             />
 
             {/* Titulo */}
-            {session ?
+            {session && session.user ?
               <h1 className="text-white text-[28px]">¡Hola {session.user.first_name}!</h1>
               :
               <h1 className="text-white text-[28px]">¡Hola!</h1>
