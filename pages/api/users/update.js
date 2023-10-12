@@ -11,10 +11,10 @@ import Users from '../../../models/Users'
 export default async function updateUsers(req, res) {
 
   try {
-    // const { first_name, last_name, email } = req.body;
+    //pasar por body 
     const { email, updates } = req.body; 
-    console.log('email',email)
-    console.log('updates',updates)
+  //  console.log('email',email)
+  //  console.log('updates',updates)
     console.log('CONNECTING TO MONGO DB');
 
     await dbConnect()
@@ -25,11 +25,11 @@ export default async function updateUsers(req, res) {
 
     const result = await Users.updateOne({email:email},{$set:updates })
 
-    console.log('UPDATED DOCUMENT', result);
+   // console.log('UPDATED DOCUMENT', result);
     
-    res.json({ message: 'Usuario actualizado con éxito' });
+   res.json({ message: 'Usuario actualizado con éxito' });
 
-  //  res.json({ result })
+ //  res.json({ result })
 
   } catch (error) {
     console.log(error);

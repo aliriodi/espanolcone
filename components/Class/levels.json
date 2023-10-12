@@ -1,0 +1,51 @@
+{
+    "class":[
+        {
+            "level":"A1",
+            "units":[
+                {
+                    "number":1,
+                    "unitID":"IDUnidad",
+                    "description": "prueba",
+                    "done":"false",
+                    "enable":"true"
+                },
+
+                {
+                    "number":2,
+                    "unitID":"IDUnidad",
+                    "description": "prueba",
+                    "done":"false",
+                    "enable":"true"
+                },
+
+                {
+                    "number":3,
+                    "unitID":"IDUnidad",
+                    "description": "prueba",
+                    "done":"false",
+                    "enable":"true"
+                },
+
+                {
+                    "number":4,
+                    "unitID":"IDUnidad",
+                    "description": "prueba",
+                    "done":"false",
+                    "enable":"true"
+                },
+
+                {
+                    "number":5,
+                    "unitID":"IDUnidad",
+                    "description": "prueba",
+                    "done":"false",
+                    "enable":"true"
+                }
+
+            ],
+            "done":"false",
+            "enable":"true"
+        }
+    ]
+}

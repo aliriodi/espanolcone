@@ -56,10 +56,17 @@ const UserSchema = new Schema(
       default: "user",
     },
     classes: {
-      type: [{id: String,
-              level: String,
-              unit: String ,
-              description:String}],
+      type: [{level: String,
+              units:[{
+                number:Number,
+                name:String,
+                unitID:String,
+                description: String,
+                done:Boolean,
+                enable:Boolean
+            }],
+              
+              }],
     },
     position: {
       type:{
