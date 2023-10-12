@@ -69,7 +69,7 @@ export default function Unidad(){
                                 <Image
                                     width={36}
                                     height={36}
-                                    src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1696962579/images/goals_rh7yve.png"}/>
+                                    src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1697119384/images/aprender-en-linea_7_cqjjwh.png"}/>
                             </span>
 
                             {/* Texto */}
@@ -150,7 +150,7 @@ export default function Unidad(){
                                 <Image
                                     width={36}
                                     height={36}
-                                    src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1696970483/images/brain_brpnn3.png"}/>
+                                    src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1697119720/images/hacer-clic_1_zr9rai.png"}/>
                             </span>
 
                             {/* Texto */}
@@ -174,9 +174,10 @@ export default function Unidad(){
                         <div className="flex items-center">
                             {/* Icono */}
                             <span className="bg-success rounded-full w-[60px] h-[60px] flex justify-center items-center">
-                                <FontAwesomeIcon
-                                className="text-white w-auto text-[36px]"
-                                icon={faPuzzlePiece}/>
+                                <Image
+                                    width={36}
+                                    height={36}
+                                    src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1697119604/images/aprobacion_2_tne492.png"}/>
                             </span>
 
                             {/* Texto */}
@@ -200,9 +201,10 @@ export default function Unidad(){
                         <div className="flex items-center">
                             {/* Icono */}
                             <span className="bg-success rounded-full w-[60px] h-[60px] flex justify-center items-center">
-                                <FontAwesomeIcon
-                                className="text-white w-auto text-[36px]"
-                                icon={faListCheck}/>
+                                <Image
+                                    width={36}
+                                    height={36}
+                                    src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1697119795/images/idea_1_sxrdhn.png"}/>
                             </span>
 
                             {/* Texto */}
