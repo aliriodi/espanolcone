@@ -56,7 +56,17 @@ const UserSchema = new Schema(
       default: "user",
     },
     classes: {
-      type: String,
+      type: [{id: String,
+              level: String,
+              unit: String ,
+              description:String}],
+    },
+    position: {
+      type:{
+            id:    String,
+            index:   Number,
+            maxpages: Number
+          },
     },
     guide: {
       type: String,
@@ -64,9 +74,7 @@ const UserSchema = new Schema(
     language: {
       type: String,
     },
-    plan: {
-      type: String,
-    },
+  
     plan: {
       name: {
         type: String
