@@ -1,0 +1,28 @@
+{
+    "className":["Portadaimg","Portadatil","level",
+                  "video","youtuve-p1","titleleft-black",
+                "titleleft-white","titleright-black","paragraph1",
+                "imagedownright","name","citydown","centerRightWhite","titleBlack",
+                "paragraph3","p1title","paragraph1","paragraph2","titleright-black2",
+                "className"],
+
+    "type":["text","image","title","Portadalev","p1title","video-youtube","paragraph",
+            "sentence-box","options-box","selectsimple","videoi-youtube",
+            "paragraph-complete","popup","complete-li","complete-li-personal"],
+    
+    "section":[{"index":0, "value":"Mis Metas"},
+               {"index":1, "value":"Comencemos"},  
+               {"index":2, "value":"Aprendemos"},
+               {"index":3, "value":"Practiquemos"},
+               {"index":4, "value":"Mis retos"},
+               {"index":5, "value":"Evaluemos"}
+        ],
+
+    "template":["https://res.cloudinary.com/dfddh08q8/image/upload/v1694366262/images/logo-primary_qoagkg.png",
+                    "https://res.cloudinary.com/dfddh08q8/image/upload/v1696113984/images/1_qywc8c.png",
+                    "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
+                    "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
+                    "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117479/images/4_skpl9k.png"
+                    ]
+            
+}
