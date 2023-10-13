@@ -3,7 +3,7 @@ import dbConnect from '../../../config/mongo'
 import Class from '../../../models/Class'
 
 
-export default async (req, res) => {
+export default async function Idclass(req, res) {
   const {
     query: { id },
     method,
