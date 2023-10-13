@@ -209,7 +209,7 @@ export default function Register() {
 
                 {/* Campos */}
                 <div className='flex justify-between relative
-                md:flex-col'>
+                md:flex-col md:hidden'>
 
                   {/* Campo de la Izquierda */}
                   <div className='w-full pr-5 md:p-0'>
@@ -273,7 +273,7 @@ export default function Register() {
                         
                         <div className='relative'>
                           <input
-                            className={`p-2 rounded-md border focus-visible:outline-none ${errorsForm.password ? "border-danger" :"border-gray-clear w-full"}
+                            className={`p-2 rounded-md border focus-visible:outline-none w-full ${errorsForm.password ? "border-danger" :"border-gray-clear"}
                             md:text-[12px]`}
                             type={showConfirmPassword ? "text" : "password"}
                             id="password"
@@ -359,7 +359,7 @@ export default function Register() {
 
                         <div className='relative'>
                           <input
-                            className={`p-2 rounded-md border focus-visible:outline-none ${errorsForm.password ? "border-danger" :"border-gray-clear w-full"}
+                            className={`p-2 rounded-md border focus-visible:outline-none w-full ${errorsForm.password ? "border-danger" :"border-gray-clear"}
                             md:text-[12px]`}
                             type={showPassword ? "text" : "password"}
                             id="confirm_password"
@@ -378,6 +378,177 @@ export default function Register() {
                             <p className='text-danger md:text-[12px]'>{t("warningPassw")}</p>
                         )}
                     </div>
+                  </div>
+
+                </div>
+
+                {/* Responsive Campos */}
+                <div className='justify-between relative hidden
+                md:flex-col md:flex'>
+
+                  {/* Campo de la Izquierda */}
+                  <div className='w-full pr-5 md:p-0'>
+                    {/* Campo Nombre */}
+                    <div className="flex flex-col mt-[18px]
+                    md:mt-[10px]"
+                    style={{ width:'100%', flexGrow:1}}>
+                        
+                        <div style={{ margin: '8px 0' }}>
+                            <label htmlFor="name" className="md:text-[12px]">{t("name")}</label>
+                        </div>
+
+                        <input
+                          className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.name ? "border-danger" :"border-gray-clear"}
+                          md:text-[12px]`}
+                          type="text"
+                          id="name"
+                          placeholder='John'
+                          value={newUser.first_name}
+                          onChange={(e) => setNewUser({...newUser, first_name: e.target.value})}
+                        />
+                        
+                        {/* Error de Nombre */}
+                        {errorsForm.name && (
+                            <p className='text-danger'>{t("warningname")}</p>
+                        )}
+                    </div>
+
+                    {/* Campo Pais */}
+                    <div className="flex flex-col mt-[18px]
+                    md:mt-[10px]"
+                    style={{ width:'100%', flexGrow:1}}>
+
+                        <div className="flex justify-between" style={{ margin: '8px 0' }}>
+                            <label htmlFor="country" className="md:text-[12px]">{t("country")}</label>
+                        </div>
+
+                        <input
+                          className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.country ? "border-danger" :"border-gray-clear"}
+                          md:text-[12px]`}
+                          type="text"
+                          id="country"
+                          placeholder='U.S.A.'
+                          value={newUser.country}
+                          onChange={(e) => setNewUser({...newUser, country: e.target.value})}
+                        />
+
+                        {/* Error de Pais */}
+                        {errorsForm.country && (
+                            <p className='text-danger'>{t("warningCountry")}</p>
+                        )}
+                    </div>
+                    
+                    {/* Campo Apellido */}
+                    <div className="flex flex-col mt-[18px]
+                    md:mt-[10px]"
+                    style={{ width:'100%', flexGrow:1}}>
+
+                        <div className="flex justify-between" style={{ margin: '8px 0' }}>
+                            <label htmlFor="last_name" className='md:text-[12px]'>{t("password")}</label>
+                        </div>
+
+                        <input
+                          className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.last_name ? "border-danger" :"border-gray-clear"}
+                          md:text-[12px]`}
+                          type="text"
+                          id="last_name"
+                          placeholder='Doe'
+                          value={newUser.last_name}
+                          onChange={(e) => setNewUser({...newUser, last_name: e.target.value})}
+                        />
+
+                        {/* Error de Apellido */}
+                        {errorsForm.last_name && (
+                            <p className='text-danger md:text-[12px]'>{t("warningLastname")}</p>
+                        )}
+                    </div>
+
+                    {/* Campo Email */}
+                    <div className="flex flex-col mt-[18px]
+                    md:mt-[10px]"
+                    style={{ width:'100%', flexGrow:1}}>
+
+                        <div className="flex justify-between" style={{ margin: '8px 0' }}>
+                            <label htmlFor="email" className='md:text-[12px]'>{t("email")}</label>
+                        </div>
+
+                        <input
+                          className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.email ? "border-danger" :"border-gray-clear"}
+                          md:text-[12px]`}
+                          type="text"
+                          id="email"
+                          placeholder='johndoe@gmail.com'
+                          value={newUser.email}
+                          onChange={(e) => setNewUser({...newUser, email: e.target.value})}
+                          />
+                          
+                        {/* Error de Email */}
+                        {errorsForm.email && (
+                            <p className='text-danger md:text-[12px]'>{t("warningEmail")}</p>
+                        )}
+                    </div>
+                    
+                    {/* Campo Contraseña */}
+                    <div className="flex flex-col mt-[18px]
+                    md:mt-[10px]"
+                    style={{ width:'100%', flexGrow:1}}>
+                      
+                        <div className="flex justify-between" style={{ margin: '8px 0' }}>
+                            <label htmlFor="confirm_password" className='md:text-[12px]'>{t("confirmPaswword")}</label>
+                        </div>
+
+                        <div className='relative'>
+                          <input
+                            className={`p-2 rounded-md border focus-visible:outline-none w-full ${errorsForm.password ? "border-danger" :"border-gray-clear"}
+                            md:text-[12px]`}
+                            type={showPassword ? "text" : "password"}
+                            id="confirm_password"
+                            value={newUser.confirm_password}
+                            onChange={(e) => setNewUser({...newUser, confirm_password: e.target.value})}/>
+                            
+                            {/* Ojo */}
+                            <FontAwesomeIcon 
+                            onClick={()=> showPassword ? setShowPassword(false) : setShowPassword(true)}
+                            className={`${showPassword ? "text-dark" : "text-dark_flat_hover"} absolute  top-1/2 transform -translate-y-1/2 right-0 mr-[13px] cursor-pointer max-w-[16px]`}
+                            icon={faEye}/>
+                        </div>
+                          
+                        {/* Error de Contraseña */}
+                        {errorsForm.password && (
+                            <p className='text-danger md:text-[12px]'>{t("warningPassw")}</p>
+                        )}
+                    </div>
+
+                    {/* Campo Confirma Contraseña */}
+                    <div className="flex flex-col mt-[18px]
+                    md:mt-[10px]"
+                    style={{ width:'100%', flexGrow:1}}>
+                        <div className="flex justify-between" style={{ margin: '8px 0' }}>
+                            <label htmlFor="password" className="md:text-[12px]">{t("password")}</label>
+                        </div>
+                        
+                        <div className='relative'>
+                          <input
+                            className={`p-2 rounded-md border focus-visible:outline-none w-full ${errorsForm.password ? "border-danger" :"border-gray-clear"}
+                            md:text-[12px]`}
+                            type={showConfirmPassword ? "text" : "password"}
+                            id="password"
+                            value={newUser.password}
+                            onChange={(e) => setNewUser({...newUser, password: e.target.value})}/>
+                            
+                            {/* Ojo */}
+                            <FontAwesomeIcon 
+                            onClick={()=> showConfirmPassword ? setShowConfirmPassword(false) : setShowConfirmPassword(true)}
+                            className={`${showConfirmPassword ? "text-dark" : "text-dark_flat_hover"} absolute  top-1/2 transform -translate-y-1/2 right-0 mr-[13px] cursor-pointer max-w-[16px]`}
+                            icon={faEye}/>
+                        </div>
+                        
+                         <span className="toggle-password"></span>
+                        {/* Error de Contraseña */}
+                        {errorsForm.confirm_password && (
+                            <p className='text-danger flex'>{t("warningPass")}</p>
+                        )}
+                    </div>   
                   </div>
 
                 </div>

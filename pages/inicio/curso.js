@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMedal, faBookOpen, faCheck, faListCheck } from '@fortawesome/free-solid-svg-icons';
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Menu from "../../components/Menu";
 import Select from 'react-select'
 
@@ -12,6 +12,88 @@ export default function Curso(){
     const {data: session,status} = useSession();
 
     // Niveles
+    // const [levels, setLevels] = useState([
+    //     { value: 'NivelA1', label: 'Nivel A1', modules:[
+    //         {
+    //             number:"1",
+    //             done:true,
+    //             enable:true
+    //         },
+    //         {
+    //             number:"2",
+    //             done:true,
+    //             enable:true
+    //         },
+    //         {
+    //             number:"3",
+    //             done:true,
+    //             enable:true
+    //         },
+    //         {
+    //             number:"4",
+    //             done:false,
+    //             enable:true
+    //         },
+    //         {
+    //             number:"5",
+    //             done:false,
+    //             enable:false
+    //         },
+    //         {
+    //             number:"6",
+    //             done:false,
+    //             enable:false
+    //         },
+    //     ] },
+    //     { value: 'NivelA2', label: 'Nivel A2', modules:[
+    //         {
+    //             number:"1",
+    //             done:true,
+    //             enable:true
+    //         },
+    //         {
+    //             number:"2",
+    //             done:true,
+    //             enable:true
+    //         },
+    //         {
+    //             number:"3",
+    //             done:true,
+    //             enable:true
+    //         },
+    //         {
+    //             number:"4",
+    //             done:true,
+    //             enable:true
+    //         },
+    //         {
+    //             number:"5",
+    //             done:true,
+    //             enable:true
+    //         },
+    //     ] },
+    //     { value: 'NivelA3', label: 'Nivel A3', modules:[
+    //         {
+    //             number:"1",
+    //             done:true,
+    //             enable:true
+    //         },
+    //         {
+    //             number:"2",
+    //             done:true,
+    //             enable:true
+    //         },
+    //         {
+    //             number:"3",
+    //             done:true,
+    //             enable:true
+    //         },
+    //     ] }
+    // ])
+
+    // const [currentLevel, setCurrentLevel] = useState(levels[0])
+    
+    
     const [levels, setLevels] = useState([
         { value: 'NivelA1', label: 'Nivel A1', modules:[
             {
@@ -92,7 +174,24 @@ export default function Curso(){
     ])
 
     const [currentLevel, setCurrentLevel] = useState(levels[0])
-    
+
+    const [lastTestDone, setLastTestDone] = useState()
+
+
+    useEffect(()=>{
+        // Actualiza Niveles
+        let newLevels = [
+            
+        ]
+
+        // Actualiza Unidades
+        console.log(session.user.classes)
+
+        // Actualiza lastTestDone
+        console.log("lastTestDone ",session.user.position)
+    },[session])
+
+
     function handleChangeSelect(e){
         // console.log(e)
         setCurrentLevel(e)
