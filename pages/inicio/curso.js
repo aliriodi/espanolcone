@@ -6,195 +6,53 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import Menu from "../../components/Menu";
 import Select from 'react-select'
+import { classid } from '../../redux/ECEActions'
+import { useDispatch } from "react-redux";
 
 
 export default function Curso(){
     const {data: session,status} = useSession();
 
-    // Niveles
-    // const [levels, setLevels] = useState([
-    //     { value: 'NivelA1', label: 'Nivel A1', modules:[
-    //         {
-    //             number:"1",
-    //             done:true,
-    //             enable:true
-    //         },
-    //         {
-    //             number:"2",
-    //             done:true,
-    //             enable:true
-    //         },
-    //         {
-    //             number:"3",
-    //             done:true,
-    //             enable:true
-    //         },
-    //         {
-    //             number:"4",
-    //             done:false,
-    //             enable:true
-    //         },
-    //         {
-    //             number:"5",
-    //             done:false,
-    //             enable:false
-    //         },
-    //         {
-    //             number:"6",
-    //             done:false,
-    //             enable:false
-    //         },
-    //     ] },
-    //     { value: 'NivelA2', label: 'Nivel A2', modules:[
-    //         {
-    //             number:"1",
-    //             done:true,
-    //             enable:true
-    //         },
-    //         {
-    //             number:"2",
-    //             done:true,
-    //             enable:true
-    //         },
-    //         {
-    //             number:"3",
-    //             done:true,
-    //             enable:true
-    //         },
-    //         {
-    //             number:"4",
-    //             done:true,
-    //             enable:true
-    //         },
-    //         {
-    //             number:"5",
-    //             done:true,
-    //             enable:true
-    //         },
-    //     ] },
-    //     { value: 'NivelA3', label: 'Nivel A3', modules:[
-    //         {
-    //             number:"1",
-    //             done:true,
-    //             enable:true
-    //         },
-    //         {
-    //             number:"2",
-    //             done:true,
-    //             enable:true
-    //         },
-    //         {
-    //             number:"3",
-    //             done:true,
-    //             enable:true
-    //         },
-    //     ] }
-    // ])
+    const [levels, setLevels] = useState()
 
-    // const [currentLevel, setCurrentLevel] = useState(levels[0])
-    
-    
-    const [levels, setLevels] = useState([
-        { value: 'NivelA1', label: 'Nivel A1', modules:[
-            {
-                number:"1",
-                done:true,
-                enable:true
-            },
-            {
-                number:"2",
-                done:true,
-                enable:true
-            },
-            {
-                number:"3",
-                done:true,
-                enable:true
-            },
-            {
-                number:"4",
-                done:false,
-                enable:true
-            },
-            {
-                number:"5",
-                done:false,
-                enable:false
-            },
-            {
-                number:"6",
-                done:false,
-                enable:false
-            },
-        ] },
-        { value: 'NivelA2', label: 'Nivel A2', modules:[
-            {
-                number:"1",
-                done:true,
-                enable:true
-            },
-            {
-                number:"2",
-                done:true,
-                enable:true
-            },
-            {
-                number:"3",
-                done:true,
-                enable:true
-            },
-            {
-                number:"4",
-                done:true,
-                enable:true
-            },
-            {
-                number:"5",
-                done:true,
-                enable:true
-            },
-        ] },
-        { value: 'NivelA3', label: 'Nivel A3', modules:[
-            {
-                number:"1",
-                done:true,
-                enable:true
-            },
-            {
-                number:"2",
-                done:true,
-                enable:true
-            },
-            {
-                number:"3",
-                done:true,
-                enable:true
-            },
-        ] }
-    ])
-
-    const [currentLevel, setCurrentLevel] = useState(levels[0])
+    const [currentLevel, setCurrentLevel] = useState()
 
     const [lastTestDone, setLastTestDone] = useState()
 
+    const dispatch = useDispatch()
 
     useEffect(()=>{
         // Actualiza Niveles
-        let newLevels = [
-            
-        ]
-
-        // Actualiza Unidades
-        console.log(session.user.classes)
+        setLevels(session?.user.classes.map((level)=>
+                {
+                    return{
+                        value: level.level,
+                        label: level.level,
+                        modules: level.units
+                    }
+                }
+            )
+        )
 
         // Actualiza lastTestDone
-        console.log("lastTestDone ",session.user.position)
+        console.log("lastTestDone ",session?.user.position)
     },[session])
 
+    useEffect(()=>
+    {
+        // Actualiza Nivel Actual si no tiene un valor
+        if(!currentLevel && levels)setCurrentLevel(levels[0])
+
+        console.log(session)
+    },[levels])
 
     function handleChangeSelect(e){
-        // console.log(e)
         setCurrentLevel(e)
+    }
+
+    function handleUnit(e){
+        // e.preventDefault()
+        dispatch(classid("1"));
     }
 
     return(
@@ -243,18 +101,23 @@ export default function Curso(){
             <div className="bg-white rounded-[8.12px] flex items-center justify-between px-[40px] py-[10px] my-[24px] shadow-[0px_4.982935428619385px_29.897613525390625px_#0000000F] mx-[20px]">
                 {/* Text */}
                 <p className="text-[18px]">
-                    Estas en el {currentLevel.label}
+                    Estas en el {currentLevel?.label}
                 </p>
 
                 {/* Select */}
-                <Select options={levels} className="text-[18px] min-w-[230px]" onChange={handleChangeSelect}/>
+                <Select
+                value={currentLevel}
+                options={levels}
+                className="text-[18px] min-w-[230px]"
+                onChange={handleChangeSelect}/>
             </div>
 
             {/* Modulos */}
             <div className="w-full flex flex-wrap">
-                {currentLevel &&
-                currentLevel.modules.map((module)=>(
+                {currentLevel?.modules?.length > 0 &&
+                currentLevel?.modules.map((module)=>(
                     <Link
+                    onClick={handleUnit}
                     key={module.number}
                     href={'/inicio/unidad'}
                     className={`bg-white flex flex-col shadow-[0px_0px_4px_#00000040] rounded-[8px] py-[12px] justify-center min-w-[145px] items-center mx-[20px] mb-[50px] relative
