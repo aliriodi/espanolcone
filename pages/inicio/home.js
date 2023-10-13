@@ -12,7 +12,7 @@ import { faFlagCheckered } from '@fortawesome/free-solid-svg-icons';
 export default function Home() {
   
   const {data: session,status} = useSession();
-  console.log(session)
+  //console.log(session)
   const {showClass} = useSelector((state) => state.datos);
     const handleClickLogin = () => {
     // go to the login
