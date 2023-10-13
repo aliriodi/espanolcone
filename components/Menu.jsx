@@ -5,14 +5,16 @@ import Image from 'next/image';
 import Logo from '../public/imgs/logo-primary.png';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faAngleRight, faHouse, faPersonHiking, faChalkboardUser, faLaptop, faAddressCard } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faAngleRight, faHouse, faPersonHiking, faChalkboardUser, faLaptop, faAddressCard , faPen} from '@fortawesome/free-solid-svg-icons';
 import SignOutBtn from './signOut/SignOutBtn';
 import { setshowClass } from '../redux/ECEActions';
+import { useSession } from "next-auth/react";
 import Class from '../components/Class/Class'
 import Courses from '../pages/courses'
 
 const Menu = () => {
     const dispatch = useDispatch();
+    const {data: session,status} = useSession();
     const [isOpen, setIsOpen] = useState(false);
     //   console.log(useSelector((state) => state.datos).showClass)
     useSelector((state) => state.datos).showClass
@@ -158,6 +160,8 @@ const Menu = () => {
 
                                     </Link>
                                 </li>
+                               
+
                                 <li>
                                     <Link href="/tourGuides">
                                         <div className="flex items-center justify-start mb-5 self-center ">
@@ -166,6 +170,17 @@ const Menu = () => {
                                         </div>
                                     </Link>
                                 </li>
+                                {session && session.user && session.user.role.includes('admin')?
+                                <li>
+                                    <Link href="/inicio/cargarclase">
+                                        <div className="flex items-center justify-start mb-5 self-center ">
+                                            <FontAwesomeIcon icon={faPen} className=" mr-[10px]" />
+                                            <p>Cargar Clase</p>
+                                        </div>
+                                    </Link>
+                                </li>
+                                :null}
+
                             </ul>
                         </div>
                         <div>
