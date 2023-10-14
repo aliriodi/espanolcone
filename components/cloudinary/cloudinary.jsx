@@ -20,6 +20,9 @@ export default function CloudinaryUploader (props) {
         "https://api.cloudinary.com/v1_1/"+process.env.NEXT_PUBLIC_CLOUDINARY_NAME+"/image/upload",
         {
           method: "POST",
+          mode: 'cors',
+          cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+          credentials: 'same-origin', // include, *same-origin, omit
           body: formData
         }
       );
@@ -27,7 +30,7 @@ export default function CloudinaryUploader (props) {
       const data = await response.json();
       setImageURL(data.secure_url);
       //funcion para escribir en Base ded atos viene por props cuando se llame el componente
-      props.functionBD(data.secure_url);
+     // props.functionBD(data.secure_url);
       console.log(data)
       setLoading(false);
     } catch (error) {

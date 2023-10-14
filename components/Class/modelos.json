@@ -1,0 +1,90 @@
+{
+   
+   "image":{
+             "type":"Image",
+             "value":"",
+             "alt":"",
+             "className":"Portadaimg"
+   },
+   "title":{
+             "type":"Title",
+             "value":"",
+             "className":""
+   },
+   "level":{
+           "type":"Level",
+           "value":"NIVEL",
+           "className":"Portadalev"
+   },
+   "video-youtuve":{
+        "type":"Video-youtube",
+        "value":"ID",
+        "youtuve":"https://youtu.be/ID",
+        "className":"className"
+
+   },
+   "paragraph":{
+    "type":"Paragraph",
+    "value":"Estas personas viven en Córdoba por diferentes motivos. Lee los textos y enfoca tu atención en las palabras resaltadas en color <span style= 'color: orange;' >naranja. </span>",
+    "className":"titleright-black"
+
+   },
+   "text":   {
+    "type":"Text",
+    "value":"David Brown",
+    "className":"name"
+   },
+ "boxmove":{
+    "type":"Boxmove",
+    "type1":"sentence-box",
+    "value":"David <span style= 'color: orange;'>trabaja</span> muchas horas al día. <span id='trabajar'  style= 'color: orange'>_________________</span>",
+    "option":"trabajar",
+    "className":"paragraph3"
+
+ },
+   "option-box":{
+    "type":	"Options-box",
+    "number":1,
+    "value":[{"value":"valor1","id":"value1","x":850,"y":-220,"width":130,"height":22 }],
+    "className":"paragraph3",
+    "dy":-35,
+    "dx":0    
+   },
+   "selectsimple":{
+    "type":"Select Simple",
+    "value":"1. Me gusta la vida aquí:  la gente, la comida, el clima, el mate …",
+    "option":"David",
+    "options":["Bruna","David"],
+    "className":"className"
+   },
+   "videoi-youtube":{
+    "type":"videoi-youtube",
+    "id":"CguXO_5okCY",
+    "value":"CguXO_5okCY",
+    "youtube":"https://youtu.be/CguXO_5okCY",
+    "popups":[{"time":11,"title":"Mi nombre _______ Daniela Masías.","reply":"es","type":"checkbox","options":["soy","es","está"],"paddingLeft":"10%","popUpShown":false,"value":0}]
+   },
+   "paragraph-complete":{
+    "type":"paragraph-complete",
+    "value":["Me llamo Lucas y en la foto",{"block":8,"color":"orange","option":"salgo","help":"salir"}, " ....."],
+    "className":"paragraph2"
+   },
+   "complete-li":{
+    "type":"complete-li",
+    "value":[	"Estudia español <span style='color:orange;'> desde </span>",{
+        "block":6,"color":"orange","option":2005
+    },"."]
+
+   },
+   "complete-li-personal":{
+    "type":"complete-li-personal",
+    "value":[	"Estudia español <span style='color:orange;'> desde </span>",{
+        "block":6,"color":"orange","option":2005
+    },"."],
+    "":""
+
+   }
+
+
+
+}

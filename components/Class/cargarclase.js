@@ -1,10 +1,14 @@
 //import clase from "./nivela2.json"
 const clase = require("./nivela2.json");
 async function imprimir()
-{//console.log(clase)
+{
+  //console.log(clase)
 let nuevaclase=[];
+const numberOfPages = Object.keys(clase).length;
+console.log(numberOfPages)
+console.log(Object.keys(clase))
 //cargo las nuevas clases las primeras 11 paginas
-for(i=1;i<21;i++){
+for(i=1;i<numberOfPages;i++){
 //mapeo el objeto de clases por numero de paginas 
 //es un OBJETO
     nuevaclase.push(clase['page'+i])

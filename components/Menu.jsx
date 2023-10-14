@@ -108,7 +108,7 @@ const Menu = () => {
                                             <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                                                 <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                                                     <div className="px-4 py-2" role="menuitem">
-                                                        <div onClick={() => dispatch(classid('0'))}
+                                                        <div onClick={() => dispatch(classid('652550a40411e033932b2521'))}
                                                             className="flex items-center justify-start mb-5 self-center ">
                                                             <FontAwesomeIcon className="mr-[10px]" icon={faChalkboardUser} />
                                                             <i className="fa-duotone "></i>
@@ -120,7 +120,7 @@ const Menu = () => {
                                                     </div>
                                                     <div className="px-4 py-2" role="menuitem">
                                                         <div
-                                                            onClick={() => dispatch(classid('1'))}
+                                                            onClick={() => dispatch(classid("65285a70bb78bea94a6b1369"))}
                                                             className="flex items-center justify-start mb-5 self-center  ">
                                                             <FontAwesomeIcon className="mr-[10px]" icon={faChalkboardUser} />
                                                             <i className="fa-duotone "></i>
@@ -132,7 +132,7 @@ const Menu = () => {
                                                     </div>
                                                     <div className="px-4 py-2" role="menuitem">
                                                         <div
-                                                            onClick={() => dispatch(classid('2'))}
+                                                            onClick={() => dispatch(classid('65285a91bb78bea94a6b136d'))}
                                                             className="flex items-center justify-start mb-5 self-center ">
                                                             <FontAwesomeIcon className="mr-[10px]" icon={faChalkboardUser} />
                                                             <i className="fa-duotone fa-chalkboard-user"></i>
