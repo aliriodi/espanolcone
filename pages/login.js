@@ -199,7 +199,7 @@ export default function Home() {
 
                 <div className='relative'>
                   <input
-                    className={`p-2 rounded-md border focus-visible:outline-none ${passwordError ? "border-danger" :"border-gray-clear w-full"}
+                    className={`p-2 rounded-md border focus-visible:outline-none w-full ${passwordError ? "border-danger" :"border-gray-clear"}
                     md:text-[12px]`}
                     type={showPassword ? "text" : "password"}
                     id="password"
