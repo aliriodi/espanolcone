@@ -20,6 +20,7 @@ export default function CloudinaryUploader (props) {
         "https://api.cloudinary.com/v1_1/"+process.env.NEXT_PUBLIC_CLOUDINARY_NAME+"/image/upload",
         {
           method: "POST",
+          mode: 'cors',
           body: formData
         }
       );

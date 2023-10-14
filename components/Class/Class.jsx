@@ -46,6 +46,7 @@ export default function Class(props) {
         //Para colocar el indice de pagina en 0 porque nos paso que estabamos en la pagina 20
         //y cuando se llamaba otra clase con menos paginas quedaba en la pagina 20 y se rompia
         //el render aca garantizamos que al entrar a la promesa se va a 0 el index
+        
         setI(0)
        // alert(typeof(response.class1))
         setData(response.class1[a]);
