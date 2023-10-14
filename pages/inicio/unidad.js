@@ -67,6 +67,7 @@ export default function Unidad(){
                             {/* Icono */}
                             <span className="bg-success rounded-full w-[60px] h-[60px] flex justify-center items-center">
                                 <Image
+                                    alt=""
                                     width={36}
                                     height={36}
                                     src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1697119384/images/aprender-en-linea_7_cqjjwh.png"}/>
@@ -94,6 +95,7 @@ export default function Unidad(){
                             {/* Icono */}
                             <span className="bg-success rounded-full w-[60px] h-[60px] flex justify-center items-center">
                                 <Image
+                                    alt=""
                                     width={36}
                                     height={36}
                                     src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1696970606/images/book_kvtyqe.png"}/>
@@ -121,6 +123,7 @@ export default function Unidad(){
                             {/* Icono */}
                             <span className="bg-success rounded-full w-[60px] h-[60px] flex justify-center items-center">
                                 <Image
+                                    alt=""
                                 width={36}
                                 height={36}
                                 src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1696961818/images/head_ddujqx.png"}/>
@@ -148,6 +151,7 @@ export default function Unidad(){
                             {/* Icono */}
                             <span className="bg-success rounded-full w-[60px] h-[60px] flex justify-center items-center">
                                 <Image
+                                    alt=""
                                     width={36}
                                     height={36}
                                     src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1697119720/images/hacer-clic_1_zr9rai.png"}/>
@@ -175,6 +179,7 @@ export default function Unidad(){
                             {/* Icono */}
                             <span className="bg-success rounded-full w-[60px] h-[60px] flex justify-center items-center">
                                 <Image
+                                    alt=""
                                     width={36}
                                     height={36}
                                     src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1697119604/images/aprobacion_2_tne492.png"}/>
@@ -202,6 +207,7 @@ export default function Unidad(){
                             {/* Icono */}
                             <span className="bg-success rounded-full w-[60px] h-[60px] flex justify-center items-center">
                                 <Image
+                                    alt=""
                                     width={36}
                                     height={36}
                                     src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1697119795/images/idea_1_sxrdhn.png"}/>

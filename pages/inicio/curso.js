@@ -17,8 +17,6 @@ export default function Curso(){
 
     const [currentLevel, setCurrentLevel] = useState()
 
-    const [lastTestDone, setLastTestDone] = useState()
-
     const dispatch = useDispatch()
 
     useEffect(()=>{
@@ -33,52 +31,47 @@ export default function Curso(){
                 }
             )
         )
-
-        // Actualiza lastTestDone
-        console.log("lastTestDone ",session?.user.position)
     },[session])
 
     useEffect(()=>
     {
         // Actualiza Nivel Actual si no tiene un valor
         if(!currentLevel && levels)setCurrentLevel(levels[0])
-
-        console.log(session)
     },[levels])
 
     function handleChangeSelect(e){
         setCurrentLevel(e)
     }
 
-    function handleUnit(e){
-        // e.preventDefault()
-        dispatch(classid("1"));
-    }
-
     return(
         <>
         <Menu />
 
-        <section className="ml-[225px] relative py-[60px] px-[40px]">
+        <section className="ml-[225px] relative py-[60px] px-[40px] overflow-hidden
+        md:ml-0 md:px-[25px]">
             {/* Bienvenido */}
             <div
-            className='flex justify-center py-[30px] rounded-[8.12px] items-center flex-col relative mx-[20px]'
+            className='flex justify-center py-[30px] rounded-[8.12px] items-center flex-col relative mx-[20px]
+            md:mx-0'
             style={{background:'linear-gradient(38.12deg, #7834E4 40.17%, #0E98B6 122.83%)'}}>
                 {/* Icono */}
                 <FontAwesomeIcon
-                className='text-[28px] text-white p-[21px] bg-primary rounded-full mb-[28px] shadow-[0px_5.410437107086182px_5.410437107086182px_#00000040]'
+                className='text-[28px] text-white p-[21px] bg-primary rounded-full mb-[28px] shadow-[0px_5.410437107086182px_5.410437107086182px_#00000040] z-10'
                 icon={faMedal}
                 />
 
                 {/* Titulo */}
                 {session ?
-                <h1 className="text-white text-[28px]">Felicidades, {session.user.first_name}</h1>
+                <h1 className="text-white text-[28px]
+                md:text-[24px]">Felicidades, {session.user.first_name}</h1>
                 :
-                <h1 className="text-white text-[28px]">Felicidades</h1>
+                <h1 className="text-white text-[28px]
+                md:text-[24px]">Felicidades</h1>
                 }
 
                 {/* Texto */}
-                <p className='text-white text-[21px] mt-[21px]'>Has tenido un excelente progreso en tus clases y tu nivel de español.</p>
+                <p className='text-white text-[21px] mt-[21px] text-center
+                md:text-[14px]'>Has tenido un excelente progreso en tus clases y tu nivel de español.</p>
 
                 {/* Imagen de la Derecha */}
                 <Image
@@ -98,9 +91,11 @@ export default function Curso(){
             </div>
 
             {/* Selecionar Nivel */}
-            <div className="bg-white rounded-[8.12px] flex items-center justify-between px-[40px] py-[10px] my-[24px] shadow-[0px_4.982935428619385px_29.897613525390625px_#0000000F] mx-[20px]">
+            <div className="bg-white rounded-[8.12px] flex items-center justify-between px-[40px] py-[10px] my-[24px] shadow-[0px_4.982935428619385px_29.897613525390625px_#0000000F] mx-[20px]
+            md:mx-0 md:flex-col">
                 {/* Text */}
-                <p className="text-[18px]">
+                <p className="text-[18px]
+                md:mb-2">
                     Estas en el {currentLevel?.label}
                 </p>
 
@@ -108,7 +103,8 @@ export default function Curso(){
                 <Select
                 value={currentLevel}
                 options={levels}
-                className="text-[18px] min-w-[230px]"
+                className="text-[18px] min-w-[230px]
+                md:mt-2"
                 onChange={handleChangeSelect}/>
             </div>
 
@@ -117,29 +113,37 @@ export default function Curso(){
                 {currentLevel?.modules?.length > 0 &&
                 currentLevel?.modules.map((module)=>(
                     <Link
-                    onClick={handleUnit}
+                    onClick={()=>dispatch(classid(module.unitID))}
                     key={module.number}
                     href={'/inicio/unidad'}
                     className={`bg-white flex flex-col shadow-[0px_0px_4px_#00000040] rounded-[8px] py-[12px] justify-center min-w-[145px] items-center mx-[20px] mb-[50px] relative
                     transition-all hover:min-w-[160px]
-                    ${!module.enable && "pointer-events-none opacity-50"}`}>
+                    md:py-[8px] md:px-[10px] md:mb-[10px]
+                    ${!module.enable && "pointer-events-none opacity-50"}
+                    md:mx-0 md:w-full md:flex-row md:justify-evenly`}>
                         
                         {/* Icono */}
                         <FontAwesomeIcon
-                        className="text-white bg-success rounded-full w-auto text-[48px] p-[16px]"
+                        className="text-white bg-success rounded-full w-auto text-[48px] p-[16px]
+                        md:text-[24px] md:p-[8px]"
                         icon={faBookOpen}/>
 
-                        {/* Unidad */}
-                        <p className="text-[18px] mt-[16px] font-medium text-violet_dark">UNIDAD</p>
+                        <div className="flex flex-col items-center
+                        md:flex-row md:mx-auto">
+                            {/* Unidad */}
+                            <p className="text-[18px] mt-[16px] font-medium text-violet_dark
+                            md:mt-0 md:mr-3">UNIDAD</p>
 
-                        {/* Numero de Unidad */}
-                        <p className="text-[18px] font-bold text-violet_dark">{module.number}</p>
+                            {/* Numero de Unidad */}
+                            <p className="text-[18px] font-bold text-violet_dark">{module.number}</p>
+                        </div>
 
                         {/* Check */}
                         {
                         module.done &&
                             <FontAwesomeIcon
-                            className="absolute bg-secondary text-white top-1 right-1 rounded-full py-[6px] px-[7px] text-[20px]"
+                            className="absolute bg-secondary text-white right-1 rounded-full py-[6px] px-[7px] text-[20px]
+                            md:text-[15px]"
                             icon={faCheck}/>
                         }
 
