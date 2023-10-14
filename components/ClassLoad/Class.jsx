@@ -100,7 +100,6 @@ export default function Class(props) {
               {/* {console.log(index,i,c.className)} */}
               {/* PARA RENDERIZAR MEJOR  */}
              {data.sheets[i].template?<Image
-                key={index+1}
                 src={data.sheets[i].template}
                 alt="Background Image"
                 layout="fill"
