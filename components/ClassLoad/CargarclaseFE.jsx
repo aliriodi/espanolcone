@@ -1,6 +1,7 @@
 import React ,  { useState, useEffect }from 'react';
 import { useSession } from "next-auth/react";
-import Menu from "../Menu"
+import Menu from "../Menu";
+import ClassP from "./Classpreview";
 const modelos = require("./modelos.json");
 
 export default function CargarclaseFE() {
@@ -10,8 +11,8 @@ export default function CargarclaseFE() {
     page1: {
       type: "tipo1",
       section: { number: 0, value: "Mis Metas" },
-      templae:"",
-      data: [{type:"image",value:"https://res.cloudinary.c…/logo-primary_qoagkg.png",alt:"Espanol con E", className:"Portadaimg"}],
+      template:"https://res.cloudinary.com/dfddh08q8/image/upload/v1696113984/images/1_qywc8c.png",
+      data: [{type:"image",value:"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366262/images/logo-primary_qoagkg.png",alt:"Espanol con E", className:"Portadaimg"}],
     }    
   });
 
@@ -72,8 +73,8 @@ const jsonString = JSON.stringify(pages, null,  Object.keys(pages).length);
     page1: {
       type: "tipo1",
       section: { number: 0, value: "Mis Metas" },
-      templae:"",
-      data: [{type:"image",value:"https://res.cloudinary.c…/logo-primary_qoagkg.png",alt:"Espanol con E", className:"Portadaimg"}],
+      template:"https://res.cloudinary.com/dfddh08q8/image/upload/v1696113984/images/1_qywc8c.png",
+      data: [{type:"image",value:"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366262/images/logo-primary_qoagkg.png",alt:"Espanol con E", className:"Portadaimg"}],
     }    
   })
 }
@@ -94,7 +95,7 @@ const jsonString = JSON.stringify(pages, null,  Object.keys(pages).length);
                    <div>
                
 
-               {console.log(pages)}
+               {/* {console.log(pages)} */}
 
 
              {/* Boton para agregar pagina */}
@@ -106,7 +107,7 @@ const jsonString = JSON.stringify(pages, null,  Object.keys(pages).length);
                 }}
                 className= 'bg-primary text-white px-5 py-2 rounded mr-5'
                onClick={agregarPagina}>Agregar Página</button>
-
+{console.log(pages)}
              {/* Boton para cargar Pagina a BD    */}
              <button  style={{
                   
@@ -117,6 +118,13 @@ const jsonString = JSON.stringify(pages, null,  Object.keys(pages).length);
                 className= 'bg-primary text-white px-5 py-2 rounded mr-5'
                onClick={cargarpagina}>Cargar Clase a BD</button>
 
+               <div>
+              <ClassP class={{
+                           level:"Nivel A1",
+                            unit:"Unidad 6",
+                            description:'nivela2 del MVP con ejemplos de ppopppus2 1 2 3 4 5 6 7',
+                            sheets:pages}}/>
+               </div>
                    </div>
                 
                 
