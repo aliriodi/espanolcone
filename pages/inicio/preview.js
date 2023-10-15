@@ -2,6 +2,7 @@ import React ,{useEffect} from 'react';
 import { useSelector     } from 'react-redux'
 import Menu from "../../components/Menu";
 import PREVIEW from "../../components/ClassLoad/Classpreview";
+import Spinner from '../../components/Spinner';
 import style from "../../styles/courses.module.css"
 export default function preview() {
     const classpreview = useSelector((state) => state.datos.classpreview);
