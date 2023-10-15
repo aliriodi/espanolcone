@@ -228,17 +228,17 @@
             {
                 "type": "title",
                 "value": "Actividad",
-                "className": "className"
+                "className": "centerRightWhite"
             },
             {
                 "type": "paragraph",
-                "value": "A David y a Bruna <span style='text-decoration: underline;'> les gusta</span> mucho Córdoba.",
-                "className": "className"
+                "value": "A David y a Bruna <span style='text-decoration: underline; color:orange;'> les gusta</span> mucho Córdoba.",
+                "className": "titleBlack"
             },
             {
                 "type": "paragraph",
                 "value": "¿Cuál de estas frases corresponde a Bruna y cuál corresponde a David?",
-                "className": "className"
+                "className": "paragraph3"
             },
             {
                 "type": "selectsimple",
@@ -248,7 +248,7 @@
                     "Bruna",
                     "David"
                 ],
-                "className": "className"
+                "className": "paragraph3"
             },
             {
                 "type": "selectsimple",
@@ -258,7 +258,7 @@
                     "Bruna",
                     "David"
                 ],
-                "className": "className"
+                "className": "paragraph3"
             }
         ]
     },
@@ -294,7 +294,7 @@
             {
                 "type": "title",
                 "value": "<span style='color:orange;'>Actividades interactivas</span>",
-                "className": "className"
+                "className": "p1title"
             }
         ]
     },
@@ -309,12 +309,12 @@
             {
                 "type": "title",
                 "value": "<span style='color:orange;'>Video interativo</span>",
-                "className": "className"
+                "className": "p1title"
             },
             {
                 "type": "text",
                 "value": "1. En el siguiente video completa las actividades seleccionando el verbo correcto.",
-                "className": "className"
+                "className": "paragraph4"
             },
             {
                 "type": "videoi-youtube",
@@ -448,12 +448,12 @@
             {
                 "type": "paragraph",
                 "value": "2.  Mira el siguiente video y contesta las preguntas planteadas:",
-                "className": "className"
+                "className": "paragraph4"
             },
             {
                 "type": "video-youtube",
                 "value": "W7lXI3wG9zE",
-                "className": "youtuve-p1",
+                "className": "youtuve-p10",
                 "youtube": "https://youtu.be/W7lXI3wG9zE"
             }
         ]
@@ -475,7 +475,7 @@
                     "Colombia, Brasil y México.",
                     "Brasil, Venezuela y Estado unidos."
                 ],
-                "className": "className"
+                "className": "paragraph2"
             },
             {
                 "type": "selectsimple",
@@ -486,7 +486,7 @@
                     "El clima y los ríos.",
                     "Las plazas y la comida."
                 ],
-                "className": "className"
+                "className": "paragraph2"
             },
             {
                 "type": "selectsimple",
@@ -496,7 +496,7 @@
                     "Verdadero.",
                     "Falso."
                 ],
-                "className": "className"
+                "className": "paragraph2"
             }
         ]
     },
@@ -525,7 +525,7 @@
                     {
                         "block": 8,
                         "color": "orange",
-                        "option": "saldre"
+                        "option": "salgo"
                     },
                     "(salir) con mi esposa Romina y nuestras mascotas, Canela y Pancho. Nosotros",
                     {
@@ -610,7 +610,7 @@
             {
                 "type": "title",
                 "value": "Completa la historia de la familia Garcia con los verbos en paréntesis.",
-                "className": "className"
+                "className": "titleright-black2"
             },
             {
                 "type": "paragraph-complete",
@@ -635,17 +635,17 @@
                     },
                     " (sustituir) el amor que ellos nos dan."
                 ],
-                "className": "className"
+                "className": "paragraph5-p13"
             },
             {
                 "type": "paragraph",
                 "value": "<span style= 'color: orange;'>Y tú, ¿tienes mascotas?, ¿cómo son?, ¿qué haces con ellas?</span>",
-                "className": "className"
+                "className": "paragraph5-p13"
             },
             {
                 "type": "paragraph",
                 "value": "Después de leer, responde las siguientes preguntas sobre la familia García:",
-                "className": "className"
+                "className": "paragraph5-p13"
             },
             {
                 "type": "selectsimple",
@@ -656,7 +656,7 @@
                     "con su esposa.",
                     "con sus hijos."
                 ],
-                "className": "className"
+                "className": "paragraph5-p13"
             },
             {
                 "type": "selectsimple",
@@ -667,12 +667,12 @@
                     "Lalo y Honey.",
                     "Uma y Pancho."
                 ],
-                "className": "className"
+                "className": "paragraph5-p13"
             },
             {
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1695571885/images/3_fjrubz.png",
-                "className": "className",
+                "className": "imagedownright-p13",
                 "alt":"matrionio"
             }
         ]
@@ -687,8 +687,8 @@
         "data": [
             {
                 "type": "title",
-                "value": "<h1><span style= 'color: orange;'>Reto propuesto</span></h1>",
-                "className": "className"
+                "value": "<span style= 'color: orange;'>Reto propuesto</span>",
+                "className": "p1title"
             }
         ]
     },
@@ -703,62 +703,64 @@
             {
                 "type": "paragraph",
                 "value": "1. Fíjate en las cosas que ha hecho Naomi desde el año 2005 hasta la actualidad y completa la primera parte de la actividad. Luego, completa las frases. hablando de ti, redacta un texto añadiendo lo que haces normalmente, lo que te gusta,  por qué quieres aprender español, etc. Se lo enviarás a tu profesor (a) por email y luego de su devolución o feedback lo expondrás en clases.",
-                "className": "className"
+                "className": "paragraph2"
             },
             {
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1695578432/images/4_svg8uq.png",
-                "className": "className",
+                "className": "image-p15",
                 "alt":"chica de lentes"
             },
             {
                 "type": "popup",
                 "value": "<span style= 'color: orange;'>2005</span> Inicia sus clases de español en Buenos Aires ",
-                "className": "className"
+                "className": "popup1"
             },
             {
                 "type": "popup",
                 "value": "<span style= 'color: orange;'>2008</span> se muda de Buenos Aires a Córdoba",
-                "className": "className"
+                "className": "popup2"
             },
             {
                 "type": "popup",
                 "value": "<span style= 'color: orange;'>2020</span> empieza a trabajar en una academia.",
-                "className": "className"
+                "className": "popup3"
             },
             {
                 "type": "text",
                 "value": "ACTUALIDAD",
-                "className": "className"
+                "className": "titleleft-black-p15"
             },
             {
                 "type": "complete-li",
                 "value": [
-                    "Estudia español <span style='color:orange;'> desde </span>",
+                    "<span style='color:#4CCFEB;'>&bull;</span> Estudia español <span style='color:orange;'> desde </span>",
                     {
                         "block": 6,
                         "color": "orange",
                         "option": "2005"
                     },
                     "."
-                ]
+                ],
+                "className": "paragraph2-p15-1"
             },
             {
                 "type": "complete-li",
                 "value": [
-                    "<span style='color:orange;'> Hace </span>",
+                    "<span style='color:#4CCFEB;'>&bull;</span> <span style='color:orange;'> Hace </span>",
                     {
                         "block": 5,
                         "color": "orange",
                         "option": "15"
                     },
                     "años <span style='color:orange;'>que </span> vive en Córdoba."
-                ]
+                ],
+                "className": "paragraph2-p15"
             },
             {
                 "type": "complete-li",
                 "value": [
-                    "<span style='color:orange;'> Trabaja </span> en una academia <span style='color:orange;'>desde hace </span>",
+                    "<span style='color:#4CCFEB;'>&bull;</span>  <span style='color:orange;'> Trabaja </span> en una academia <span style='color:orange;'>desde hace </span>",
                     {
                         "block": 5,
                         "color": "orange",
@@ -766,17 +768,17 @@
                     },
                     "años."
                 ],
-                "className": "className"
+                "className": "paragraph2-p15"
             },
             {
                 "type": "paragraph",
                 "value": "Ahora completa las frases hablando de ti.",
-                "className": "className"
+                "className": "paragraph2-p15"
             },
             {
                 "type": "complete-li-personal",
                 "value": [
-                    "Vivo en",
+                    "<span style='color:#4CCFEB;'>&bull;</span> Vivo en",
                     {
                         "block": 5,
                         "color": "orange",
@@ -790,12 +792,12 @@
                     },
                     "."
                 ],
-                "className": "className"
+                "className": "paragraph2-p15"
             },
             {
                 "type": "complete-li-personal",
                 "value": [
-                    "<span style='color:orange;'> Hace </span>",
+                    "<span style='color:#4CCFEB;'>&bull;</span> <span style='color:orange;'> Hace </span>",
                     {
                         "block": 5,
                         "color": "orange",
@@ -808,24 +810,24 @@
                         "option": ""
                     }
                 ],
-                "className": "className"
+                "className": "paragraph2-p15"
             },
             {
                 "type": "complete-li-personal",
                 "value": [
-                    "<span style='color:orange;'> Desde </span>",
+                    "<span style='color:#4CCFEB;'>&bull;</span> <span style='color:orange;'> Desde </span>",
                     {
                         "block": 15,
                         "color": "orange",
                         "option": ""
                     }
                 ],
-                "className": "className"
+                "className": "paragraph2-p15"
             },
             {
                 "type": "complete-li-personal",
                 "value": [
-                    "<span style='color:orange;'> Hace </span>",
+                    "<span style='color:#4CCFEB;'>&bull;</span> <span style='color:orange;'> Hace </span>",
                     {
                         "block": 10,
                         "color": "orange",
@@ -838,7 +840,7 @@
                         "option": ""
                     }
                 ],
-                "className": "className"
+                "className": "paragraph2-p15"
             }
         ]
     },
