@@ -17,50 +17,57 @@ export default function Unidad(){
 
         <Menu />
 
-        <section className="ml-[225px] relative py-[60px] px-[40px] ">
+        <section className="ml-[225px] relative py-[60px] px-[40px]
+        md:ml-0 md:px-[20px]">
             
             {/* Bienvenido */}
             <div
-                className='flex justify-center py-[30px] rounded-[8.12px] items-center flex-col relative mx-[20px]'
-                style={{background:'linear-gradient(38.12deg, #7834E4 40.17%, #0E98B6 122.83%)'}}>
-                    {/* Icono */}
+            className='flex justify-center py-[30px] rounded-[8.12px] items-center flex-col relative mx-[20px]
+            md:mx-0'
+            style={{background:'linear-gradient(38.12deg, #7834E4 40.17%, #0E98B6 122.83%)'}}>
+                {/* Icono */}
                 <FontAwesomeIcon
-                className='text-[28px] text-white p-[21px] bg-primary rounded-full mb-[28px] shadow-[0px_5.410437107086182px_5.410437107086182px_#00000040]'
+                className='text-[28px] text-white p-[21px] bg-primary rounded-full mb-[28px] shadow-[0px_5.410437107086182px_5.410437107086182px_#00000040] z-10'
                 icon={faMedal}
                 />
 
-                    {/* Titulo */}
-                    {session ?
-                    <h1 className="text-white text-[28px]">Felicidades, {session.user.first_name}</h1>
-                    :
-                    <h1 className="text-white text-[28px]">Felicidades</h1>
-                    }
+                {/* Titulo */}
+                {session ?
+                <h1 className="text-white text-[28px]
+                md:text-[24px]">Felicidades, {session.user.first_name}</h1>
+                :
+                <h1 className="text-white text-[28px]
+                md:text-[24px]">Felicidades</h1>
+                }
 
-                    {/* Texto */}
-                    <p className='text-white text-[21px] mt-[21px]'>Has tenido un excelente progreso en tus clases y tu nivel de español.</p>
+                {/* Texto */}
+                <p className='text-white text-[21px] mt-[21px] text-center
+                md:text-[14px]'>Has tenido un excelente progreso en tus clases y tu nivel de español.</p>
 
-                    {/* Imagen de la Derecha */}
-                    <Image
-                    className="absolute top-0 right-0"
-                    width={178}
-                    height={75}
-                    alt=""
-                    src={'https://res.cloudinary.com/dfddh08q8/image/upload/v1696941677/images/imagen_2023-10-10_094118748_tgzx2o.png'}/>
+                {/* Imagen de la Derecha */}
+                <Image
+                className="absolute top-0 right-0"
+                width={178}
+                height={75}
+                alt=""
+                src={'https://res.cloudinary.com/dfddh08q8/image/upload/v1696941677/images/imagen_2023-10-10_094118748_tgzx2o.png'}/>
 
-                    {/* Imagen de la Izquierda */}
-                    <Image
-                    className="absolute top-0 left-0"
-                    width={178}
-                    height={75}
-                    alt=""
-                    src={'https://res.cloudinary.com/dfddh08q8/image/upload/v1696941779/images/imagen_2023-10-10_094259869_dhejox.png'}/>
+                {/* Imagen de la Izquierda */}
+                <Image
+                className="absolute top-0 left-0"
+                width={178}
+                height={75}
+                alt=""
+                src={'https://res.cloudinary.com/dfddh08q8/image/upload/v1696941779/images/imagen_2023-10-10_094259869_dhejox.png'}/>
             </div>
 
             {/* Unidades */}
-            <div className=" mx-[20px] my-[32px] flex relative justify-between flex-wrap">
+            <div className=" mx-[20px] my-[32px] flex relative justify-between flex-wrap
+            md:mx-0">
 
                 {/* Mis Metas */}
-                <Link href={'/courses'} className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative">
+                <Link href={'/courses'} className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
+                md:w-full">
                     
                         {/* Contenido */}
                         <div className="flex items-center">
@@ -74,7 +81,8 @@ export default function Unidad(){
                             </span>
 
                             {/* Texto */}
-                            <p className="ml-[32px] text-[24px] font-medium text-violet_dark">
+                            <p className="ml-[32px] text-[24px] font-medium text-violet_dark
+                            md:text-[16px]">
                                 Mis metas
                             </p>
                         </div>
@@ -88,7 +96,8 @@ export default function Unidad(){
                 </Link>
                 
                 {/* Comencemos */}
-                <Link href={'/courses'} className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative">
+                <Link href={'/courses'} className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
+                md:w-full">
                     
                         {/* Contenido */}
                         <div className="flex items-center">
@@ -102,7 +111,8 @@ export default function Unidad(){
                             </span>
 
                             {/* Texto */}
-                            <p className="ml-[32px] text-[24px] font-medium text-violet_dark">
+                            <p className="ml-[32px] text-[24px] font-medium text-violet_dark
+                            md:text-[16px]">
                                 Comencemos
                             </p>
                         </div>
@@ -116,7 +126,8 @@ export default function Unidad(){
                 </Link>
 
                 {/* Aprendemos */}
-                <Link href={'/courses'} className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative">
+                <Link href={'/courses'} className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
+                md:w-full">
                     
                         {/* Contenido */}
                         <div className="flex items-center">
@@ -130,7 +141,8 @@ export default function Unidad(){
                             </span>
 
                             {/* Texto */}
-                            <p className="ml-[32px] text-[24px] font-medium text-violet_dark">
+                            <p className="ml-[32px] text-[24px] font-medium text-violet_dark
+                            md:text-[16px]">
                                 Aprendemos
                             </p>
                         </div>
@@ -144,7 +156,8 @@ export default function Unidad(){
                 </Link>
                 
                 {/* Practiquemos */}
-                <Link href={'/courses'} className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative">
+                <Link href={'/courses'} className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
+                md:w-full">
                     
                         {/* Contenido */}
                         <div className="flex items-center">
@@ -158,7 +171,8 @@ export default function Unidad(){
                             </span>
 
                             {/* Texto */}
-                            <p className="ml-[32px] text-[24px] font-medium text-violet_dark">
+                            <p className="ml-[32px] text-[24px] font-medium text-violet_dark
+                            md:text-[16px]">
                                 Practiquemos
                             </p>
                         </div>
@@ -172,7 +186,8 @@ export default function Unidad(){
                 </Link>
                 
                 {/* Mis retos */}
-                <Link href={'/courses'} className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative">
+                <Link href={'/courses'} className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
+                md:w-full">
                     
                         {/* Contenido */}
                         <div className="flex items-center">
@@ -186,7 +201,8 @@ export default function Unidad(){
                             </span>
 
                             {/* Texto */}
-                            <p className="ml-[32px] text-[24px] font-medium text-violet_dark">
+                            <p className="ml-[32px] text-[24px] font-medium text-violet_dark
+                            md:text-[16px]">
                                 Mis retos
                             </p>
                         </div>
@@ -200,7 +216,8 @@ export default function Unidad(){
                 </Link>
                 
                 {/* Evaluemos */}
-                <Link href={'/courses'} className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative">
+                <Link href={'/courses'} className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
+                md:w-full">
                     
                         {/* Contenido */}
                         <div className="flex items-center">
@@ -214,7 +231,8 @@ export default function Unidad(){
                             </span>
 
                             {/* Texto */}
-                            <p className="ml-[32px] text-[24px] font-medium text-violet_dark">
+                            <p className="ml-[32px] text-[24px] font-medium text-violet_dark
+                            md:text-[16px]">
                                 Evaluemos
                             </p>
                         </div>

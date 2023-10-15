@@ -95,7 +95,7 @@ export default function Curso(){
             md:mx-0 md:flex-col">
                 {/* Text */}
                 <p className="text-[18px]
-                md:mb-2">
+                md:mb-2 md:text-[16px]">
                     Estas en el {currentLevel?.label}
                 </p>
 
@@ -104,7 +104,7 @@ export default function Curso(){
                 value={currentLevel}
                 options={levels}
                 className="text-[18px] min-w-[230px]
-                md:mt-2"
+                md:mt-2 md:text-[16px]"
                 onChange={handleChangeSelect}/>
             </div>
 
@@ -132,10 +132,11 @@ export default function Curso(){
                         md:flex-row md:mx-auto">
                             {/* Unidad */}
                             <p className="text-[18px] mt-[16px] font-medium text-violet_dark
-                            md:mt-0 md:mr-3">UNIDAD</p>
+                            md:mt-0 md:mr-3 md:text-[16px]">UNIDAD</p>
 
                             {/* Numero de Unidad */}
-                            <p className="text-[18px] font-bold text-violet_dark">{module.number}</p>
+                            <p className="text-[18px] font-bold text-violet_dark
+                            md:text-[16px]">{module.number}</p>
                         </div>
 
                         {/* Check */}
