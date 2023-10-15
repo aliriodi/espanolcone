@@ -32,35 +32,35 @@ export default function Class(props) {
   }
   // Fetch data when the component mounts 
   //me traigo todas las clases a futuro me traigo solo las del usuario en sesion
-  if(props.id){
+  
     
-  useEffect(() => {
-    fetch('/api/class/'+props.id)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
+  // useEffect(() => {
+  //   fetch('/api/class/'+props.id)
+  //     .then((response) => {
+  //       if (!response.ok) {
+  //         throw new Error('Network response was not ok');
+  //       }
 
-        return response.json();
-      })
-      .then((response) => {
-        //const a=props.id;
-        //Para colocar el indice de pagina en 0 porque nos paso que estabamos en la pagina 20
-        //y cuando se llamaba otra clase con menos paginas quedaba en la pagina 20 y se rompia
-        //el render aca garantizamos que al entrar a la promesa se va a 0 el index
+  //       return response.json();
+  //     })
+  //     .then((response) => {
+  //       //const a=props.id;
+  //       //Para colocar el indice de pagina en 0 porque nos paso que estabamos en la pagina 20
+  //       //y cuando se llamaba otra clase con menos paginas quedaba en la pagina 20 y se rompia
+  //       //el render aca garantizamos que al entrar a la promesa se va a 0 el index
         
-        setI(0)
-       // alert(typeof(response.class1))
-        setData(response.class1);
-        setL(response.class1.sheets.length)
+  //       setI(0)
+  //      // alert(typeof(response.class1))
+  //       setData(response.class1);
+  //       setL(response.class1.sheets.length)
 
-      })
-      .catch((error) => {
-        // Handle any errors
-        console.error('Fetch error:', error);
-      });
-  }, [props.id]);
-}
+  //     })
+  //     .catch((error) => {
+  //       // Handle any errors
+  //       console.error('Fetch error:', error);
+  //     });
+  // }, [props.id]);
+
 
 
  
