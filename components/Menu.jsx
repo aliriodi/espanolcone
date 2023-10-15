@@ -113,7 +113,7 @@ const Menu = () => {
                                                             <FontAwesomeIcon className="mr-[10px]" icon={faChalkboardUser} />
                                                             <i className="fa-duotone "></i>
                                                             <Link href={'/courses'} >
-                                                                <p>clase 1</p>
+                                                               <p>clase 1</p>
                                                             </Link>
                                                         </div>
                                                         {/* <div>  {mostrarComponenteA && <Class id={0} />}</div> */}
@@ -132,7 +132,7 @@ const Menu = () => {
                                                     </div>
                                                     <div className="px-4 py-2" role="menuitem">
                                                         <div
-                                                            onClick={() => dispatch(classid('65285a91bb78bea94a6b136d'))}
+                                                            onClick={() => dispatch(classid('652b19e63288483e7dec262f'))}
                                                             className="flex items-center justify-start mb-5 self-center ">
                                                             <FontAwesomeIcon className="mr-[10px]" icon={faChalkboardUser} />
                                                             <i className="fa-duotone fa-chalkboard-user"></i>

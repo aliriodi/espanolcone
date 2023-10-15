@@ -1,7 +1,8 @@
 import {
     getUserS,
     showClass,
-    classId
+    classId,
+    classPreviewS
   } from "./ECESlice";
   
   export const getuser = () => async (dispatch) => {
@@ -28,5 +29,11 @@ import {
       .then((json) => dispatch(getUserS(json)))
       .catch((error) => console.log(error));
   };
+
+  export const classpreviewA = (classp) => (dispatch) =>   {
+     console.log('entre a redux classpreview')
+    // console.log(id)
+      dispatch(classPreviewS(classp))
+   };
   
   

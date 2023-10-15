@@ -32,7 +32,9 @@ export default function Class(props) {
   }
   // Fetch data when the component mounts 
   //me traigo todas las clases a futuro me traigo solo las del usuario en sesion
-  useEffect(() => {if(props.id){
+  if(props.id){
+    
+  useEffect(() => {
     fetch('/api/class/'+props.id)
       .then((response) => {
         if (!response.ok) {
@@ -56,13 +58,33 @@ export default function Class(props) {
       .catch((error) => {
         // Handle any errors
         console.error('Fetch error:', error);
-      });}
-      if(props.class){
-        setI(0)
-        setData(props.class);
-        setL(props.class.sheets.length)
-      }
-  }, [props.id,props.class]);
+      });
+  }, [props.id]);
+}
+
+
+ 
+  useEffect(() => {
+    const nuevaclase=[]
+  const numberOfPages = Object.keys(props.class.sheets).length;
+console.log(numberOfPages)
+//console.log(Object.keys(clase))
+//cargo las nuevas clases las primeras 11 paginas
+
+for(let i=1;i<numberOfPages+1;i++){
+//mapeo el objeto de clases por numero de paginas 
+//es un OBJETO
+    console.log(props.class.sheets['page'+i])
+    nuevaclase.push(props.class.sheets['page'+i])
+
+}
+    setI(numberOfPages-1)
+    setData({sheets:nuevaclase})
+    setL(numberOfPages)
+    console.log(nuevaclase)
+    console.log(data)
+  
+  },[props.class])
   
 
   //PAGINATION
@@ -91,12 +113,14 @@ export default function Class(props) {
      <h2>Renderizando clase numero {props.id}</h2>
       <h1>Esto es traido de la Base de Datos</h1> */}
       <div><button style={{ 'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={() => Back(i)}> Back </button>
-        <span style={{ 'marginLeft': '16px' }}>{i + 1}/{length}</span>
+        <span style={{ 'marginLeft': '16px' }}>{i   +1}/{length}</span>
         <button style={{ 'marginLeft': '16px', 'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={() => Forward(i)}>Forward</button>
       </div>
-      <div></div>
+      <>
+     
+      </>
       {
-        data &&data.sheets[i].data ?
+        data &&data.sheets&&data.sheets[i].data ?
 
                     
           data.sheets[i].data.map((c, index) =>
