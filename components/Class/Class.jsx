@@ -47,7 +47,6 @@ export default function Class(props) {
         //y cuando se llamaba otra clase con menos paginas quedaba en la pagina 20 y se rompia
         //el render aca garantizamos que al entrar a la promesa se va a 0 el index
         
-        setI(0)
        // alert(typeof(response.class1))
         setData(response.class1);
         setL(response.class1.sheets.length)
@@ -59,6 +58,9 @@ export default function Class(props) {
       });
   }, [props.id]);
   
+  useEffect(()=>{
+    setI(props.page)
+  },[props.page])
 
   //PAGINATION
   //como son n sheets avanzo con el boton de forward

@@ -4,6 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState= {
     languages:['br','en','sp'],
     classid:'0',
+    classPage:1,
     language: 'br',
     showClass: false,
     plan:'plan1',
@@ -24,11 +25,14 @@ const initialState= {
         state.userL = action.payload},
       showClass: (state,action)=> {
         state.showClass = action.payload},
-        classId: (state,action)=> {
-          state.classid = action.payload},
+      classId: (state,action)=> {
+        state.classid = action.payload},
+      classPage: (state,action)=>{
+        state.classPage = action.payload
+      }
       },
      
       }
   )
-  export const { getUserS ,showClass,classId} = datosSlice.actions;
+  export const { getUserS ,showClass,classId, classPage} = datosSlice.actions;
   export default datosSlice.reducer;

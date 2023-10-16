@@ -8,11 +8,16 @@ import { useSpring, animated } from 'react-spring';
 import { useSession } from "next-auth/react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFlagCheckered } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch } from "react-redux";
+import { classid } from '../../redux/ECEActions'
 
 export default function Home() {
   
   const {data: session,status} = useSession();
-  //console.log(session)
+  
+  const dispatch = useDispatch()
+  console.log(session)
+
   const {showClass} = useSelector((state) => state.datos);
     const handleClickLogin = () => {
     // go to the login
@@ -149,9 +154,10 @@ export default function Home() {
           {/* Ir a curso */}
           <div className='w-full flex justify-end'>
             <Link
+            onClick={dispatch(classid(session?.user.position?.id))}
             className='btn-primary px-[70px] py-[9px] text-[14px] mt-[21px] shadow-[0px_5.410437107086182px_5.410437107086182px_#00000040]
             md:w-full md:mt-0 md:text-center'
-            href={'/#'}
+            href={'./unidad'}
             style={{display:'inline-block'}}>
             Ir al curso
             </Link>
