@@ -14,6 +14,7 @@ export default function Courses() {
 
 
   const id = useSelector((state) => state.datos.classid);
+  const page = useSelector((state) => state.datos.classPage);
 
   useEffect(() => {
 
@@ -28,7 +29,7 @@ export default function Courses() {
       <div className='ml-[80px] '>
         {id ? 
           <div className={style['container1']}>
-          <Class id={id}></Class></div> 
+          <Class id={id} page={page}></Class></div> 
           :
           <div classname='flex items-center justify-center h-screen'>
             <Spinner className="mx-auto my-auto" />

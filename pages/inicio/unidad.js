@@ -6,11 +6,31 @@ import Link from "next/link";
 import { useState } from "react";
 import Menu from "../../components/Menu";
 import Select from 'react-select'
+import { setClassPage } from '../../redux/ECEActions'
+import { useSelector,useDispatch } from "react-redux";
 
 
 export default function Unidad(){
     const {data: session,status} = useSession();
 
+    const dispatch = useDispatch();
+    
+    const classId = useSelector((state) => state.datos.classid);
+
+    async function setSection(section){
+        // Esta Funcion Busca la clase actual y asigna 
+        // la section correspondiente en el redux 
+
+        await fetch(`/api/class/${classId}`)
+        .then((response) => response.json())
+        .then((json) =>{
+            // foreach(sheet in json.class1.sheets){
+            //     console.log(sheet)
+            // }
+            console.log(json.class1.sheets)
+        })
+        .catch((error) => console.log(error));
+    }
 
     return(
         <>
@@ -66,7 +86,14 @@ export default function Unidad(){
             md:mx-0">
 
                 {/* Mis Metas */}
-                <Link href={'/courses'} className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
+                <Link
+                onClick={(e)=>{
+                    // e.preventDefault()
+                    setSection();
+                    dispatch(setClassPage(19))
+                }}
+                href={'/courses'}
+                className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
                 md:w-full">
                     
                         {/* Contenido */}
