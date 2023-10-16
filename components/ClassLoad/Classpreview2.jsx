@@ -4,9 +4,9 @@ import Spinner from '../Spinner';
 import styles from '../../styles/boxmove.module.css';
 import YouTube from 'react-youtube';
 import YOUTUVEPOPUP from '../youtubePopup/youtubePopup';
-import BOXMOMVE from './boxmove';
-import SELECTSIMPLE from './Selectsimple';
-import PARAGGRAPHCOMPLETE from './paragragraphcomplete';
+import BOXMOMVE from '../Class/boxmove';
+import SELECTSIMPLE from '../Class/Selectsimple';
+import PARAGGRAPHCOMPLETE from '../Class/paragragraphcomplete';
 import style from '../../styles/class.module.css'
 
 export default function Class(props) {
@@ -32,35 +32,60 @@ export default function Class(props) {
   }
   // Fetch data when the component mounts 
   //me traigo todas las clases a futuro me traigo solo las del usuario en sesion
-  useEffect(() => {
-    fetch('/api/class/'+props.id)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-
-        return response.json();
-      })
-      .then((response) => {
-        //const a=props.id;
-        //Para colocar el indice de pagina en 0 porque nos paso que estabamos en la pagina 20
-        //y cuando se llamaba otra clase con menos paginas quedaba en la pagina 20 y se rompia
-        //el render aca garantizamos que al entrar a la promesa se va a 0 el index
-        
-       // alert(typeof(response.class1))
-        setData(response.class1);
-        setL(response.class1.sheets.length)
-
-      })
-      .catch((error) => {
-        // Handle any errors
-        console.error('Fetch error:', error);
-      });
-  }, [props.id]);
   
-  useEffect(()=>{
-    setI(props.page)
-  },[props.page])
+    
+  // useEffect(() => {
+  //   fetch('/api/class/'+props.id)
+  //     .then((response) => {
+  //       if (!response.ok) {
+  //         throw new Error('Network response was not ok');
+  //       }
+
+  //       return response.json();
+  //     })
+  //     .then((response) => {
+  //       //const a=props.id;
+  //       //Para colocar el indice de pagina en 0 porque nos paso que estabamos en la pagina 20
+  //       //y cuando se llamaba otra clase con menos paginas quedaba en la pagina 20 y se rompia
+  //       //el render aca garantizamos que al entrar a la promesa se va a 0 el index
+        
+  //       setI(0)
+  //      // alert(typeof(response.class1))
+  //       setData(response.class1);
+  //       setL(response.class1.sheets.length)
+
+  //     })
+  //     .catch((error) => {
+  //       // Handle any errors
+  //       console.error('Fetch error:', error);
+  //     });
+  // }, [props.id]);
+
+
+
+ 
+  useEffect(() => {
+    const nuevaclase=[]
+  const numberOfPages = Object.keys(props.class.sheets).length;
+console.log(numberOfPages)
+//console.log(Object.keys(clase))
+//cargo las nuevas clases las primeras 11 paginas
+
+for(let i=1;i<numberOfPages+1;i++){
+//mapeo el objeto de clases por numero de paginas 
+//es un OBJETO
+    console.log(props.class.sheets['page'+i])
+    nuevaclase.push(props.class.sheets['page'+i])
+
+}
+    setI(numberOfPages-1)
+    setData({sheets:nuevaclase})
+    setL(numberOfPages)
+    console.log(nuevaclase)
+    console.log(data)
+  
+  },[props.class])
+  
 
   //PAGINATION
   //como son n sheets avanzo con el boton de forward
@@ -88,12 +113,14 @@ export default function Class(props) {
      <h2>Renderizando clase numero {props.id}</h2>
       <h1>Esto es traido de la Base de Datos</h1> */}
       <div><button style={{ 'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={() => Back(i)}> Back </button>
-        <span style={{ 'marginLeft': '16px' }}>{i + 1}/{length}</span>
+        <span style={{ 'marginLeft': '16px' }}>{i   +1}/{length}</span>
         <button style={{ 'marginLeft': '16px', 'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={() => Forward(i)}>Forward</button>
       </div>
-      <div></div>
+      <>
+     
+      </>
       {
-        data &&data.sheets[i].data ?
+        data &&data.sheets&&data.sheets[i].data ?
 
                     
           data.sheets[i].data.map((c, index) =>

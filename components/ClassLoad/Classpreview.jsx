@@ -4,9 +4,9 @@ import Spinner from '../Spinner';
 import styles from '../../styles/boxmove.module.css';
 import YouTube from 'react-youtube';
 import YOUTUVEPOPUP from '../youtubePopup/youtubePopup';
-import BOXMOMVE from './boxmove';
-import SELECTSIMPLE from './Selectsimple';
-import PARAGGRAPHCOMPLETE from './paragragraphcomplete';
+import BOXMOMVE from '../Class/boxmove';
+import SELECTSIMPLE from '../Class/Selectsimple';
+import PARAGGRAPHCOMPLETE from '../Class/paragragraphcomplete';
 import style from '../../styles/class.module.css'
 
 export default function Class(props) {
@@ -32,7 +32,7 @@ export default function Class(props) {
   }
   // Fetch data when the component mounts 
   //me traigo todas las clases a futuro me traigo solo las del usuario en sesion
-  useEffect(() => {
+  useEffect(() => {if(props.id){
     fetch('/api/class/'+props.id)
       .then((response) => {
         if (!response.ok) {
@@ -47,6 +47,7 @@ export default function Class(props) {
         //y cuando se llamaba otra clase con menos paginas quedaba en la pagina 20 y se rompia
         //el render aca garantizamos que al entrar a la promesa se va a 0 el index
         
+        setI(0)
        // alert(typeof(response.class1))
         setData(response.class1);
         setL(response.class1.sheets.length)
@@ -55,12 +56,14 @@ export default function Class(props) {
       .catch((error) => {
         // Handle any errors
         console.error('Fetch error:', error);
-      });
-  }, [props.id]);
+      });}
+      if(props.class){
+        setI(0)
+        setData(props.class);
+        setL(props.class.sheets.length)
+      }
+  }, [props.id,props.class]);
   
-  useEffect(()=>{
-    setI(props.page)
-  },[props.page])
 
   //PAGINATION
   //como son n sheets avanzo con el boton de forward
