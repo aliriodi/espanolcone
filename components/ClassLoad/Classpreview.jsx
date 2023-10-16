@@ -4,9 +4,9 @@ import Spinner from '../Spinner';
 import styles from '../../styles/boxmove.module.css';
 import YouTube from 'react-youtube';
 import YOUTUVEPOPUP from '../youtubePopup/youtubePopup';
-import BOXMOMVE from './boxmove';
-import SELECTSIMPLE from './Selectsimple';
-import PARAGGRAPHCOMPLETE from './paragragraphcomplete';
+import BOXMOMVE from '../Class/boxmove';
+import SELECTSIMPLE from '../Class/Selectsimple';
+import PARAGGRAPHCOMPLETE from '../Class/paragragraphcomplete';
 import style from '../../styles/class.module.css'
 
 export default function Class(props) {
@@ -32,7 +32,7 @@ export default function Class(props) {
   }
   // Fetch data when the component mounts 
   //me traigo todas las clases a futuro me traigo solo las del usuario en sesion
-  useEffect(() => {
+  useEffect(() => {if(props.id){
     fetch('/api/class/'+props.id)
       .then((response) => {
         if (!response.ok) {
@@ -56,8 +56,13 @@ export default function Class(props) {
       .catch((error) => {
         // Handle any errors
         console.error('Fetch error:', error);
-      });
-  }, [props.id]);
+      });}
+      if(props.class){
+        setI(0)
+        setData(props.class);
+        setL(props.class.sheets.length)
+      }
+  }, [props.id,props.class]);
   
 
   //PAGINATION

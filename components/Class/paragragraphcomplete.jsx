@@ -7,7 +7,7 @@ export default function Paragragraphcomplete(props) {
         props.data.value.map(value => {
           if(typeof(value) === 'object')  {
                                            return {option:value.option.toLowerCase(),
-                                                   answer:null}}
+                                                   answer:""}}
 })
       ));
     
