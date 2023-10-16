@@ -855,27 +855,27 @@
             {
                 "type": "title",
                 "value": "<span style:'color:orange;'>Evaluación unidad 1</span>",
-                "className": "className"
+                "className": "titleEvaluacion"
             },
             {
                 "type": "paragraph",
                 "value": "La siguiente evaluación contiene 20 espacios en blanco los cuales debes completar con el verbo conjugado en presente.",
-                "className": "className"
+                "className": "paragraph3-p16"
             },
             {
                 "type": "paragraph",
                 "value": "Cada verbo que conjugues correctamente vale 01 punto.",
-                "className": "className"
+                "className": "paragraph3"
             },
             {
                 "type": "paragraph",
                 "value": "Para aprobar la evaluación y pasar a la siguiente unidad debes obtener un mínimo de 18 puntos.",
-                "className": "className"
+                "className": "paragraph3"
             },
             {
                 "type": "paragraph",
                 "value": "<span style='color:orange'>¡Adelante y buena suerte!</span>",
-                "className": "className"
+                "className": "paragraph6"
             }
         ]
     },
@@ -890,7 +890,7 @@
             {
                 "type": "title",
                 "value": "<strong>Completa los espacios en blanco con el verbo conjugado en presente </strong>",
-                "className": "className"
+                "className": "titleright-black2"
             },
             {
                 "type": "paragraph-complete",
@@ -957,23 +957,23 @@
                     },
                     "(poder) ser…”."
                 ],
-                "className": "className"
+                "className": "paragraph2"
             },
             {
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1695909637/images/17_hapr7w.jpg",
-                "className": "className",
+                "className": "imagedownright",
                 "alt": "Gerard Dubois"
             },
             {
                 "type": "text",
                 "value": "<strong>Gérard Dubois</strong>",
-                "className": "className"
+                "className": "name"
             },
             {
                 "type": "text",
                 "value": "Francés",
-                "className": "className"
+                "className": "citydown"
             }
         ]
     },
@@ -988,20 +988,21 @@
             {
                 "type": "title",
                 "value": "Completa los espacios en blanco con el verbo conjugado en presente",
-                "className": "className"
+                "className": "titleright-black2"
             },
            
             {
                 "type": "complete-li",
                 "value": [
-                    "<span style='color:#4CCFEB;'> 1.</span>Yo siempre me",
+                    "<span style='color:#4CCFEB;'> 1.</span> Yo siempre me",
                     {
                         "block": 7,
                         "color": "orange",
                         "option": "caigo"
                     },
                     "cuando uso tacones altos. (caer)"
-                ]
+                ],
+                "className": "paragraph2"
             },
             {
                 "type": "complete-li",
@@ -1013,7 +1014,8 @@
                         "option": "conduzco"
                     },
                     "mi auto para recorrer Córdoba. (conducir)                    "
-                ]
+                ],
+                "className": "paragraph2"
             },
             {
                 "type": "complete-li",
@@ -1026,7 +1028,7 @@
                     },
                     "a nadie en este país. (conocer)"
                 ],
-                "className": "className"
+                "className": "paragraph2"
             },
             {
                 "type": "complete-li",
@@ -1039,7 +1041,7 @@
                     },
                     "mi desayuno todas las mañanas. (hacer)"
                 ],
-                "className": "className"
+                "className": "paragraph2"
             },
             {
                 "type": "complete-li",
@@ -1052,7 +1054,7 @@
                     },
                     "nada a mis padres. (parecer)"
                 ],
-                "className": "className"
+                "className": "paragraph2"
             }
         ]
     },
@@ -1067,20 +1069,21 @@
             {
                 "type": "title",
                 "value": "Completa los espacios en blanco con el verbo conjugado en presente",
-                "className": "className"
+                "className": "titleright-black2"
             },
            
             {
                 "type": "complete-li",
                 "value": [
-                    "<span style='color:#4CCFEB;'> 6.</span>Yo ",
+                    "<span style='color:#4CCFEB;'> 6.</span> Yo ",
                     {
                         "block": 7,
                         "color": "orange",
                         "option": "pongo"
                     },
                     "todas mis cosas en el escritorio. (poner)"
-                ]
+                ],
+                "className":"paragraph2"
             },
             {
                 "type": "complete-li",
@@ -1092,7 +1095,8 @@
                         "option": "salgo"
                     },
                     "con mis amigos al boliche. (salir)"
-                ]
+                ],
+                "className":"paragraph2"
             },
             {
                 "type": "complete-li",
@@ -1105,7 +1109,7 @@
                     },
                     "el pastel. (traer)"
                 ],
-                "className": "className"
+                "className": "paragraph2"
             },
             {
                 "type": "complete-li",
@@ -1118,7 +1122,7 @@
                     },
                     "en el mal hábito de fumar. (recaer)"
                 ],
-                "className": "className"
+                "className": "paragraph2"
             },
             {
                 "type": "complete-li",
@@ -1131,7 +1135,7 @@
                     },
                     "siempre en las clases. (sobresalir)"
                 ],
-                "className": "className"
+                "className": "paragraph2"
             }
         ]
     },
@@ -1147,13 +1151,20 @@
                         {
                 "type": "title",
                 "value": "NOS VEMOS EN LA PRÓXIMA CLASE",
-                "className": "className"
+                "className": "closeTitle"
             },
             {
                 "type": "title",
                 "value": "¡Gracias por tu atención!",
-                "className": "className"
+                "className": "closeTitle1"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366258/images/logo_etoaae.png",
+                "alt":"Español con E",
+                "className": "imageClose"
             }
+
         ]
   
 }

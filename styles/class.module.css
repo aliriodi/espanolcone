@@ -27,6 +27,23 @@
     color: white;
     font-weight: 700;
 }
+.closeTitle{
+    transform: translateX(50%);
+    font-size: 400%;
+    width: 40%;
+    padding-top: 5%;
+    color: white;
+    font-weight: 630;
+    text-align: center; 
+}
+.closeTitle1{
+    transform: translateX(50%);
+    font-size: 400%;
+    width: 40%;
+    padding-top: 4%;
+    font-weight: 730;
+    text-align: center; 
+}
 .p1title{
     display:flex;
     align-items: center; /* Center vertically */
@@ -38,6 +55,16 @@
     font-size: 210%;
     
  } 
+ .titleEvaluacion{
+    display:flex;
+    align-items: center; /* Center vertically */
+    justify-content: center;
+    padding-top: 6%;
+    color: var(--orange);
+     /* border:solid  3px red; */
+    font-weight: 800;
+    font-size: 210%;
+     }
 
 .youtuve-p1{
     /* display: flex; */
@@ -166,8 +193,8 @@
     font-size: 160%;
     width:70%;
     /* border:solid  3px red; */
-    margin-left: 210px;
-    margin-top: 180px;
+    margin-left:20%;
+    margin-top: 9%;
  }
 .paragraph3{
     font-weight: 700;
@@ -175,7 +202,17 @@
     width:62%;
     /* border:solid  3px red; */
     margin-left: 210px;
-    margin-top: 6px;
+    margin-left: 20%;
+    margin-top: 1%;
+    text-align: justify;
+}
+.paragraph3-p16{
+    font-weight: 700;
+    font-size: 140%;
+    width:62%;
+    /* border:solid  3px red; */
+    margin-left: 20%;
+    margin-top: 8%;
     text-align: justify;
 }
 /* pag 9 */
@@ -184,10 +221,30 @@
     font-size: 140%;
     width:62%;
     /* border:solid  3px red; */
-    margin-left: 280px;
-    margin-top: 80px;
+    margin-left: 20%;
+    margin-top: 7%;
     text-align: center;
 }
+.paragraph6{
+    font-weight: 800;
+    font-size: 140%;
+    width:62%;
+    margin-left: 20%;
+    margin-top: 4%;
+    text-align: center;
+
+    /* animar el div */
+      
+    animation: rotate 1s linear 1; 
+}
+@keyframes rotate {
+    0% {
+      transform: rotate(0deg); /* Inicio sin rotación */
+    }
+    100% {
+      transform: rotate(360deg); /* Final con una rotación completa (360 grados) */
+    }
+  }
 .imagedownright{
     font-weight: 800;
     font-size: 150%;
@@ -215,6 +272,15 @@
     /* border:solid  3px red; */
     margin-left: 35%;
     margin-top: 60px;
+    transform: scale(2)
+}
+.imageClose{
+    font-weight: 800;
+    font-size: 150%;
+    width:7%;
+    /* border:solid  3px red; */
+    margin-left: 78%;
+    margin-top: 5%;
     transform: scale(2)
 }
 .popup1{
