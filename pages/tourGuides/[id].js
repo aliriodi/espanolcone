@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { card } from './../../redux/ECEActions';
+import { cardsTouristDetail } from './../../redux/ECEActions';
 import Image from 'next/image';
 
 export default function TeacherDetailPage() {
 
 
-  const cardDetail = useSelector((state) => state.datos.cardDetail);
+  const cardDetail = useSelector((state) => state.datos.cardsTouristDetaill);
   const [isCardAvailable, setIsCardAvailable] = useState(false);
 
   useEffect(() => {
