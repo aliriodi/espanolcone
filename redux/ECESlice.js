@@ -37,6 +37,7 @@ const initialState = {
     }]
   },
   cards: [],
+  cardDetail: []
 };
 
 const datosSlice = createSlice({
@@ -58,8 +59,11 @@ const datosSlice = createSlice({
     setCards: (state, action) => {
       state.cards = action.payload;
     },
+    cardDetailS: (state, action) => {
+      state.cardDetail = action.payload;
+    },
   },
 });
-export const { getUserS, showClass, classId, classPreviewS, setCards } = datosSlice.actions;
+export const { getUserS, showClass, classId, classPreviewS, setCards, cardDetailS } = datosSlice.actions;
 export default datosSlice.reducer;
 

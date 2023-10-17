@@ -4,6 +4,7 @@ import {
   classId,
   classPreviewS,
   setCards,
+  cardDetailS
 } from "./ECESlice";
 
 export const getuser = () => async (dispatch) => {
@@ -43,14 +44,18 @@ export const fetchTeachers = () => async (dispatch) => {
     await import('../public/imgs/images').then((module) => {
       // Accede a la variable exportada del módulo
       const teachers = module.cardsTeachers;
-
-
       // Envía la acción setCards al reducer con los datos de profesores
       dispatch(setCards(teachers));
     });
   } catch (error) {
     console.error('Error al cargar los datos de profesores:', error);
   }
+};
+
+export const cardDetail = (card) => (dispatch) => {
+  console.log('cardDetailS')
+  // console.log(id)
+  dispatch(cardDetailS(card))
 };
 
 
