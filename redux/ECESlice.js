@@ -22,7 +22,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   languages: ['br', 'en', 'sp'],
   classid: '65285a70bb78bea94a6b1369',
-  classPage:1,
+  classPage: 1,
   language: 'br',
   showClass: false,
   plan: 'plan1',
@@ -57,31 +57,46 @@ const initialState = {
     }]
   },
   cards: [],
+  cardDetail: [],
+  cardsTourist: [],
+  cardsTouristDetail: []
 };
 
-  
 const datosSlice = createSlice({
   name: 'datos',
   initialState,
   reducers: {
-    getUserS: (state,action) => {
-      state.userL = action.payload},
-    showClass: (state,action)=> {
-      state.showClass = action.payload},
-    classId: (state,action)=> {
-      state.classid = action.payload},
-    classPreviewS: (state, action) => {
-            state.classpreview = action.payload;
-          },
-    setCards: (state, action) => {
-            state.cards = action.payload;
-          },
-    classPage: (state,action)=>{
-      state.classPage = action.payload
-    }
+    getUserS: (state, action) => {
+      state.userL = action.payload
     },
-   
-    }
-)
-export const { getUserS, showClass, classId, classPreviewS, setCards, classPage } = datosSlice.actions;
+    showClass: (state, action) => {
+      state.showClass = action.payload
+    },
+    classId: (state, action) => {
+      state.classid = action.payload
+    },
+    classPreviewS: (state, action) => {
+      state.classpreview = action.payload;
+    },
+    setCards: (state, action) => {
+      state.cards = action.payload;
+    },
+    classPage: (state, action) => {
+      state.classPage = action.payload
+    },
+    cardDetailS: (state, action) => {
+      state.cardDetail = action.payload;
+    },
+    setCardsTourist: (state, action) => {
+      state.cardsTourist = action.payload;
+    },
+    setCardsTouristDetail: (state, action) => {
+      state.cardsTouristDetail = action.payload;
+    },
+  },
+});
+
+export const { getUserS, showClass, classId, classPreviewS, setCards, cardDetailS, classPage, setCardsTourist, setCardsTouristDetail } = datosSlice.actions;
 export default datosSlice.reducer;
+
+

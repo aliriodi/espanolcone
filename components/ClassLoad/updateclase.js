@@ -8,7 +8,7 @@ const numberOfPages = Object.keys(clase).length;
 console.log(numberOfPages)
 console.log(Object.keys(clase))
 //cargo las nuevas clases las primeras 11 paginas
-for(i=15;i<numberOfPages+1;i++){
+for(i=1;i<numberOfPages+1;i++){
 //mapeo el objeto de clases por numero de paginas 
 //es un OBJETO
     nuevaclase.push(clase['page'+i])

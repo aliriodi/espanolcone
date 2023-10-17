@@ -59,7 +59,7 @@ export default function Class(props) {
   }, [props.id]);
   
   useEffect(()=>{
-    setI(props.page)
+    setI(props.page+15)
   },[props.page])
 
   //PAGINATION

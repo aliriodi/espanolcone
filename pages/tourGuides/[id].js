@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { cardDetail } from './../../redux/ECEActions';
+import { card } from './../../redux/ECEActions';
 import Image from 'next/image';
 
 export default function TeacherDetailPage() {
