@@ -39,7 +39,7 @@ const initialState = {
   cards: [],
   cardDetail: []
 };
-
+// prueba
 const datosSlice = createSlice({
   name: 'datos',
   initialState,

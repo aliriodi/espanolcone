@@ -233,7 +233,7 @@ export function TeachersCard() {
     }
     return stars;
   };
-
+  // prueba
   return (
     <>
       {/* Verifica si hay datos en cards, si no, muestra "Cargando" */}

@@ -58,4 +58,4 @@ export const cardDetail = (card) => (dispatch) => {
   dispatch(cardDetailS(card))
 };
 
-
+// prueba

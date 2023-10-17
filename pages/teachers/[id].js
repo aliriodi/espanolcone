@@ -18,7 +18,7 @@ export default function TeacherDetailPage() {
   if (!isCardAvailable) {
     return <div>Cargando...</div>;
   }
-
+  // pueba
   return (
     <>
       <div>hols</div>
