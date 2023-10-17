@@ -2,6 +2,7 @@ import {
   getUserS,
   showClass,
   classId,
+  classPage,
   classPreviewS,
   setCards,
   cardDetailS
@@ -24,7 +25,9 @@ export const classid = (id) => (dispatch) => {
   // console.log(id)
   dispatch(classId(id))
 };
-
+export const setClassPage = (page) => (dispatch)=>   {
+    dispatch(classPage(page))
+  }
 export const getuseremail = (email, password) => async (dispatch) => {
   await fetch("/api/users/getid?email=" + email + "&&password=" + password)
     .then((response) => response.json())
