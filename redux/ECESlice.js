@@ -57,9 +57,9 @@ const initialState = {
     }]
   },
   cards: [],
+  cardDetail: []
 };
 
-  
 const datosSlice = createSlice({
   name: 'datos',
   initialState,
@@ -80,8 +80,13 @@ const datosSlice = createSlice({
       state.classPage = action.payload
     }
     },
-   
-    }
-)
-export const { getUserS, showClass, classId, classPreviewS, setCards, classPage } = datosSlice.actions;
+
+    cardDetailS: (state, action) => {
+      state.cardDetail = action.payload;
+    },
+  },
+});
+export const { getUserS, showClass, classId, classPreviewS, setCards, cardDetailS,  classPage } = datosSlice.actions;
 export default datosSlice.reducer;
+
+

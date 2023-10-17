@@ -5,6 +5,7 @@ import {
   classPage,
   classPreviewS,
   setCards,
+  cardDetailS
 } from "./ECESlice";
 
 export const getuser = () => async (dispatch) => {
@@ -46,8 +47,6 @@ export const fetchTeachers = () => async (dispatch) => {
     await import('../public/imgs/images').then((module) => {
       // Accede a la variable exportada del módulo
       const teachers = module.cardsTeachers;
-
-
       // Envía la acción setCards al reducer con los datos de profesores
       dispatch(setCards(teachers));
     });
@@ -56,4 +55,10 @@ export const fetchTeachers = () => async (dispatch) => {
   }
 };
 
+export const cardDetail = (card) => (dispatch) => {
+  console.log('cardDetailS')
+  // console.log(id)
+  dispatch(cardDetailS(card))
+};
 
+// prueba

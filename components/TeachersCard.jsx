@@ -188,7 +188,7 @@ import { useRouter } from 'next/router';
 import Spinner from './Spinner';
 import { cardsTeachers } from '../public/imgs/images';
 import { useEffect } from 'react';
-import { fetchTeachers } from '../redux/ECEActions'
+import { cardDetail, fetchTeachers } from '../redux/ECEActions'
 
 
 export function TeachersCard() {
@@ -211,6 +211,7 @@ export function TeachersCard() {
   const cards = useSelector((state) => state.datos.cards);
 
   const handleButtonClick = (card) => {
+    dispatch(cardDetail(card))
     router.push(`/teachers/${card.id}`);
   };
 
@@ -232,7 +233,7 @@ export function TeachersCard() {
     }
     return stars;
   };
-
+  // prueba
   return (
     <>
       {/* Verifica si hay datos en cards, si no, muestra "Cargando" */}
