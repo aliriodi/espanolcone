@@ -17,8 +17,8 @@ export default function Courses() {
   const page = useSelector((state) => state.datos.classPage);
 
   useEffect(() => {
-
-  }, [dispatch]);
+    console.log(page)
+  }, [page]);
 
 
 

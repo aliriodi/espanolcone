@@ -12,7 +12,6 @@ export default async function POST(req, res){
         await dbConnect(); // Conecta con la base de datos
     
         const { first_name, last_name, email, password, rol, phone1, phone2, postcode, image, image2, aux, aux2 } = req.body;
-    
         // Verifica si el correo electrónico ya existe en la base de datos
         const existingUser = await Users.findOne({ email });
         if (existingUser) {
