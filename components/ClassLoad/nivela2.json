@@ -265,7 +265,7 @@
     "page7": {
         "type": "video",
         "section": {
-            "number`":2,
+            "number":2,
             "value":"Aprendemos"
         },
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",

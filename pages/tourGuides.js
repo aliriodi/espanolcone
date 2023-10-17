@@ -1,7 +1,7 @@
 import React from 'react'
 import Menu from '../components/Menu'
 import Image from 'next/image'
-import { TeachersCard } from '../components/TeachersCard'
+import  TourCard  from '../components/TourCard'
 import DatePi from './../components/DatePicker';
 
 export default function tourGuides() {
@@ -10,7 +10,7 @@ export default function tourGuides() {
       <Menu />
       <div className='ml-[80px] w-full flex flex-wrap'>
         {/* <DatePi /> */}
-        <TeachersCard />
+        <TourCard />
 
       </div>
     </>
