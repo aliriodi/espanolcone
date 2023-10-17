@@ -180,14 +180,13 @@
 // }
 
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StarSVG } from './../public/texts/svgConst';
 import Image from 'next/image';
 import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
 import Spinner from './Spinner';
 import { cardsTeachers } from '../public/imgs/images';
-import { useEffect } from 'react';
 import { cardDetail, fetchTeachers } from '../redux/ECEActions'
 
 
@@ -205,7 +204,7 @@ export function TeachersCard() {
   useEffect(() => {
     dispatch(fetchTeachers())
 
-  }, []);
+  }, [dispatch]);
 
   // Obtén la información de cards desde Redux
   const cards = useSelector((state) => state.datos.cards);

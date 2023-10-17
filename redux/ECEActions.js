@@ -5,7 +5,10 @@ import {
   classPage,
   classPreviewS,
   setCards,
-  cardDetailS
+  cardDetailS,
+  setCardsTourist,
+  setCardsTouristDetail
+
 } from "./ECESlice";
 
 export const getuser = () => async (dispatch) => {
@@ -25,9 +28,9 @@ export const classid = (id) => (dispatch) => {
   // console.log(id)
   dispatch(classId(id))
 };
-export const setClassPage = (page) => (dispatch)=>   {
-    dispatch(classPage(page))
-  }
+export const setClassPage = (page) => (dispatch) => {
+  dispatch(classPage(page))
+}
 export const getuseremail = (email, password) => async (dispatch) => {
   await fetch("/api/users/getid?email=" + email + "&&password=" + password)
     .then((response) => response.json())
@@ -61,4 +64,22 @@ export const cardDetail = (card) => (dispatch) => {
   dispatch(cardDetailS(card))
 };
 
-// prueba
+export const fetchTouristGuides = () => async (dispatch) => {
+  try {
+    // Importa los datos de profesores desde tu archivo local
+    await import('../public/imgs/images').then((module) => {
+      // Accede a la variable exportada del módulo
+      const teachers = module.guiaDeTurismo;
+      // Envía la acción setCards al reducer con los datos de guias
+      dispatch(setCardsTourist(tourist));
+    });
+  } catch (error) {
+    console.error('Error al cargar los datos de guias de turistas:', error);
+  }
+};
+
+export const CardsTouristDetail = (card) => (dispatch) => {
+  console.log('setCardsTouristDetail')
+  // console.log(id)
+  dispatch(setCardsTouristDetail(card))
+};
