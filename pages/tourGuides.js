@@ -1,7 +1,7 @@
 import React from 'react'
 import Menu from '../components/Menu'
 import Image from 'next/image'
-import  TourCard  from '../components/TourCard'
+import { TeachersCard } from '../components/TeachersCard'
 import DatePi from './../components/DatePicker';
 import { TourCard } from './../components/TourCard';
 
@@ -17,4 +17,3 @@ export default function tourGuides() {
     </>
   )
 }
-
