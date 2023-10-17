@@ -1,5 +1,5 @@
 //import clase from "./nivela2.json"
-const clase = require("./nivela2.json");
+const clase = require("./U1NB1.json");
 async function imprimir()
 {
   //console.log(clase)
@@ -25,10 +25,10 @@ console.log(nuevaclase.length)
                  headers: {
                             'Content-Type': 'application/json'  // 'Content-Type': 'application/x-www-form-urlencoded',
                           },
-                 body: JSON.stringify({_id:"65285a70bb78bea94a6b1369",
-                                      level:"Nivel A1",
-                                       unit:"Unidad 6",
-                                       description:'nivela2 del MVP con ejemplos de ppopppus2 1 2 3 4 5 6 alirio',
+                 body: JSON.stringify({_id:"652ee766bb2b3299779053b1",
+                                      // level:"Nivel A1",
+                                      //  unit:"Unidad 6",
+                                      //  description:'nivela2 del MVP con ejemplos de ppopppus2 1 2 3 4 5 6 alirio',
                                        sheets:nuevaclase})
                                        
                                        //mando por el body la nueva clase

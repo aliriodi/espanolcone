@@ -8,7 +8,7 @@ import { CardsTouristDetail, fetchTouristGuides } from './../redux/ECEActions';
 
 
 
-export function TourCard() {
+export default function TourCard() {
 
   const [selectedStars, setSelectedStars] = useState(0);
 

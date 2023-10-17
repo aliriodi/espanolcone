@@ -1,0 +1,475 @@
+{
+    "page1": {
+        "type": "text",
+        "section": {
+            "number":0,
+            "value":"Mis Metas"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697579417/images/template4_s2xy5m.png",
+        "data": [
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366258/images/logo_etoaae.png",
+                "alt":"Español con E",
+                "className": "image-p0"
+            },
+            {
+                "type": "title",
+                "value": "QUIERO CONOCER GENTE EN CÓRDOBA",
+                "className": "titleBlack2-p0"
+            },
+            {
+                "type": "title",
+                "value": "NIVEL B1",
+                "className": "TITLE-P0-BLACK"
+            }           
+              ]
+    },
+    "page2": {
+        "type": "video",
+        "section": {
+            "number":0,
+            "value":"Mis Metas"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697572404/images/u1p2nib1_ormtrk.png",
+        "data": [
+            {
+            }
+        ]
+    },
+    "page3": {
+        "type": "text",
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697572465/images/u1p3nib1_hee7jq.png",
+        "data": [
+            {
+                
+            }
+        ]
+    },
+    "page4": {
+        "type": "text",
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697572529/images/u1p4nib1_idfzkz.png",
+        "data": [
+            {
+            }
+        ]
+    },
+    "page5": {
+        "type": "boxmove",
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697572569/images/u1p5nib1_u5ji34.png",
+        "title": "Actividad",
+        "data": [
+            {
+            }
+        ]
+    },
+    "page6": {
+        "type": "selectsimple",
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
+        "data": [
+            {
+                "type": "title",
+                "value": "Actividad",
+                "className": "centerRightWhite"
+            },
+            {
+                "type": "paragraph",
+                "value": "A David y a Bruna <span style='text-decoration: underline; color:orange;'> les gusta</span> mucho Córdoba.",
+                "className": "titleBlack"
+            },
+            {
+                "type": "paragraph",
+                "value": "¿Cuál de estas frases corresponde a Bruna y cuál corresponde a David?",
+                "className": "paragraph3"
+            },
+            {
+                "type": "selectsimple",
+                "value": "1.\"Me gusta la vida aquí:  la gente, la comida, el clima, el mate …\"",
+                "option": "David",
+                "options": [
+                    "Bruna",
+                    "David"
+                ],
+                "className": "paragraph3"
+            },
+            {
+                "type": "selectsimple",
+                "value": "2. Le gusta hablar y compartir con los nativos.",
+                "option": "Bruna",
+                "options": [
+                    "Bruna",
+                    "David"
+                ],
+                "className": "paragraph3"
+            }
+        ]
+    },
+    "page7": {
+        "type": "video",
+        "section": {
+            "number":2,
+            "value":"Aprendemos"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
+        "data": [
+            {
+                "type": "title",
+                "value": "<span style='color:orange;'>Video explicativo</span>",
+                "className": "p1title"
+            },
+            {
+                "type": "video-youtube",
+                "value": "bOAABReEdb8",
+                "youtuve": "https://youtu.be/bOAABReEdb8",
+                "className": "youtuve-p1"
+            }
+        ]
+    },
+    "page8": {
+        "type": "slide",
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
+        "data": [
+            {
+                "type": "title",
+                "value": "<span style='color:orange;'>Actividades interactivas</span>",
+                "className": "p1title"
+            }
+        ]
+    },
+    "page9": {
+        "type": "videoInteractivo",
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
+        "data": [
+            {
+                "type": "title",
+                "value": "<span style='color:orange;'>Video interativo</span>",
+                "className": "p1title"
+            },
+            {
+                "type": "text",
+                "value": "1. En el siguiente video completa las actividades seleccionando el verbo correcto.",
+                "className": "paragraph4"
+            },
+            {
+                "type": "videoi-youtube",
+                "id": "CguXO_5okCY",
+                "value": "CguXO_5okCY",
+                "youtube": "https://youtu.be/CguXO_5okCY",
+                "popups": [
+                    {
+                        "time": 11,
+                        "title": "Mi nombre _______ Daniela Masías.",
+                        "reply": "es",
+                        "message": " (soy/es/está) ",
+                        "type": "checkbox",
+                        "options": [
+                            "soy",
+                            "es",
+                            "está"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value": 0
+                    },
+                    {
+                        "time": 56,
+                        "title": "Ella es Julia Coronatta y _______ 22 años.",
+                        "message": "Pienselo bien",
+                        "reply": "tiene",
+                        "type": "checkbox",
+                        "options": [
+                            "tiene",
+                            "lleva",
+                            "es"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value": 0
+                    },
+                    {
+                        "time": 83,
+                        "title": "Ella ______ de Alemania.",
+                        "message": "EL deporte es",
+                        "reply": "es",
+                        "type": "checkbox",
+                        "options": [
+                            "tiene",
+                            "es",
+                            "esta"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value": 0
+                    },
+                    {
+                        "time": 116,
+                        "title": "Yo _______ de Minneapolis Minesota.",
+                        "message": "Actividad 1",
+                        "reply": "vengo",
+                        "type": "checkbox",
+                        "options": [
+                            "vengo",
+                            "viene",
+                            "venir"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value": 0
+                    },
+                    {
+                        "time": 152,
+                        "title": "Susana López viene de México, de una ciudad pequeña que _________ Zamora.",
+                        "message": "Actividad 1",
+                        "reply": "se llama",
+                        "type": "checkbox",
+                        "options": [
+                            "es",
+                            "se llama",
+                            "esta"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value": 0
+                    },
+                    {
+                        "time": 193,
+                        "title": "Me _______ las ciudades pequeñas.",
+                        "message": "Actividad 1",
+                        "reply": "gustan",
+                        "type": "checkbox",
+                        "options": [
+                            "gusta",
+                            "gustar",
+                            "gustan"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value": 0
+                    },
+                    {
+                        "time": 218,
+                        "title": "Córdoba _____ una provincia preciosa.",
+                        "message": "Actividad 1",
+                        "reply": "es",
+                        "type": "checkbox",
+                        "options": [
+                            "está",
+                            "son",
+                            "es"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value": 0
+                    }
+                ],
+                "className": "className"
+            }
+        ]
+    },
+    "page10": {
+        "type": "video",
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
+        "data": [
+            {
+                "type": "title",
+                "value": "<span style='color:orange;'>Video interativo</span>",
+                "className": "p1title"
+            },
+            {
+                "type": "paragraph",
+                "value": "2.  Mira el siguiente video y contesta las preguntas planteadas:",
+                "className": "paragraph4"
+            },
+            {
+                "type": "video-youtube",
+                "value": "W7lXI3wG9zE",
+                "className": "youtuve-p10",
+                "youtube": "https://youtu.be/W7lXI3wG9zE"
+            }
+        ]
+    },
+    "page11": {
+        "type": "selectsimple",
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
+        "data": [
+            {
+                "type": "selectsimple",
+                "value": " <strong> <span style= 'color: #4CCFEB;'>1. </span> Los estudiantes que hablan en el video son de:</strong>",
+                "option": "Colombia, Brasil y México.",
+                "options": [
+                    "Perú, Colombia y Brasil.",
+                    "Colombia, Brasil y México.",
+                    "Brasil, Venezuela y Estado unidos."
+                ],
+                "className": "paragraph2"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<strong> <span style= 'color: #4CCFEB;'>2. </span> A los estudiantes les gusta:</strong>",
+                "option": "La gente y la comida.",
+                "options": [
+                    "La gente y la comida.",
+                    "El clima y los ríos.",
+                    "Las plazas y la comida."
+                ],
+                "className": "paragraph2"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<strong> <span style= 'color: #4CCFEB;'>3. </span>  Todos los estudiantes del video estudian la misma carrera universitaria.</strong>",
+                "option": "Falso.",
+                "options": [
+                    "Verdadero.",
+                    "Falso."
+                ],
+                "className": "paragraph2"
+            }
+        ]
+    },
+    "page12": {
+        "type": "complete",
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
+        "data": [
+            {
+                "type": "title",
+                "value": "Completa la historia de la familia Garcia con los verbos en paréntesis.",
+                "className": "titleright-black2"
+            },
+            {
+                "type": "paragraph",
+                "value": "¡Hola!",
+                "className": "paragraph2"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "Me llamo Lucas y en la foto",
+                    {
+                        "block": 8,
+                        "color": "orange",
+                        "option": "salgo"
+                    },
+                    "(salir) con mi esposa Romina y nuestras mascotas, Canela y Pancho. Nosotros",
+                    {
+                        "block": 7,
+                        "color": "orange",
+                        "option": "somos"
+                    },
+                    "(ser) cordobeses, y amamos los perros. Vivimos en las sierras de Córdoba porque",
+                    {
+                        "block": 12,
+                        "color": "orange",
+                        "option": "preferimos"
+                    },
+                    "(preferir) el interior de la provincia."
+                ],
+                "className": "paragraph2"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "Todos los fines de semana, después de bañarme,",
+                    {
+                        "block": 9,
+                        "color": "orange",
+                        "option": "salimos"
+                    },
+                    "(salir) a dar un paseo con mis perros. Mi esposa les",
+                    {
+                        "block": 6,
+                        "color": "orange",
+                        "option": "pone"
+                    },
+                    "(poner) la correa mientras yo",
+                    {
+                        "block": 8,
+                        "color": "orange",
+                        "option": "traigo"
+                    },
+                    "(traer) sus galletitas y termos con agua. Cuando regresamos de pasear, yo me",
+                    {
+                        "block": 6,
+                        "color": "orange",
+                        "option": "pongo"
+                    },
+                    "(poner) ropa limpia y",
+                    {
+                        "block": 6,
+                        "color": "orange",
+                        "option": "hago"
+                    },
+                    " (hacer) el desayuno. Antes de tomar una siesta, yo",
+                    {
+                        "block": 8,
+                        "color": "orange",
+                        "option": "dispongo"
+                    },
+                    " (disponer) un espacio para los perros en nuestro cuarto. Porque sino ellos",
+                    {
+                        "block": 11,
+                        "color": "orange",
+                        "option": "destruyen"
+                    },
+                    " (destruir) toda la casa mientras Romi y yo dormimos."
+                ],"className":"paragraph2"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1695571885/images/3_fjrubz.png",
+                "className": "imagedownright",
+                "alt":"matrimonio"
+            }
+        ]
+    },
+    "page13": {
+        "type": "complete",
+        "section": {
+            "number":5,
+            "value":"Mis retos"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697572892/images/u1p14nib1_oobxox.png",
+        "data": [
+            {
+                
+            }       ]
+    }
+    
+  
+
+}
