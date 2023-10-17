@@ -9,6 +9,12 @@
     transform: scale(1.8) translate(24%, 50%);
     
 }  
+.image-p0{
+    padding-top: 1%; 
+    
+    width:10%;
+    transform: scale(1.8) translate(27%, 38%);
+}
 
  .Portadatil {
     transform: translateX(120%);
@@ -139,8 +145,26 @@
     /* border:solid  3px red; */
     margin-left: 420px;
     /* margin-top: -200px; */
-    
 }
+.titleBlack2-p0{
+    font-weight: 900;
+    font-size: 230%;
+     width:40%;
+    /* border:solid  3px red; */
+    margin-left: 52%;
+     margin-top: 16%;   
+}
+.TITLE-P0-BLACK{
+    margin-top: 6%;   
+    margin-left: 78%;
+    font-size: 180%;
+    width: 12%;
+    padding-top: 4%;
+    font-weight: 730;
+    text-align: center; 
+    /* border:solid  3px red; */
+}
+
 .paragraph1{
     font-weight: 800;
     font-size: 150%;

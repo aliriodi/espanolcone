@@ -101,16 +101,17 @@ export default function Class(props) {
          
               {/* {console.log(index,i,c.className)} */}
               {/* PARA RENDERIZAR MEJOR  */}
-             {data.sheets[i].template?<Image
+             {data.sheets[i].template?
+             <div style={{width:80,heigth:40}}><Image
                 key={index+1}
                 src={data.sheets[i].template}
                 alt="Background Image"
-                layout="fill"
+                 layout="fill"
                 objectFit="cover"
                 objectPosition="center"
                 style={{zIndex: -10}}
                 className="z-10"
-              />:null} 
+              /></div>:null} 
               <div className={style[c.className]} key={index}  >
               {c.type === 'level' ? <p dangerouslySetInnerHTML={{ __html: c.value }}></p> : null}
               
