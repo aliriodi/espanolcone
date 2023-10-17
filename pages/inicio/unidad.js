@@ -95,10 +95,7 @@ export default function Unidad(){
 
                 {/* Mis Metas */}
                 <Link
-                onClick={(e)=>{
-                    e.preventDefault()
-                    setSection(0)
-                }}
+                onClick={(e)=>setSection(0)}
                 href={'/courses'}
                 className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
                 hover:bg-[#3331] transition-colors
