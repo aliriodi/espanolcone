@@ -24,10 +24,18 @@ export default function Unidad(){
         await fetch(`/api/class/${classId}`)
         .then((response) => response.json())
         .then((json) =>{
-            // foreach(sheet in json.class1.sheets){
-            //     console.log(sheet)
-            // }
+            let sheets = json.class1.sheets; 
+
             console.log(json.class1.sheets)
+            for(let i = 0;i < sheets.length; i++){
+                if(sheets[i].section.number == section){
+                    console.log("Index ",i)
+                    dispatch(setClassPage(i))
+                    break;
+                }
+                
+            }
+
         })
         .catch((error) => console.log(error));
     }
@@ -88,12 +96,12 @@ export default function Unidad(){
                 {/* Mis Metas */}
                 <Link
                 onClick={(e)=>{
-                    // e.preventDefault()
-                    setSection();
-                    dispatch(setClassPage(19))
+                    e.preventDefault()
+                    setSection(0)
                 }}
                 href={'/courses'}
                 className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
+                hover:bg-[#3331] transition-colors
                 md:w-full">
                     
                         {/* Contenido */}
@@ -115,15 +123,19 @@ export default function Unidad(){
                         </div>
 
                         {/* Check */}
-                        <span>
+                        {/* <span>
                             <FontAwesomeIcon
                             className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
                             icon={faCheck}/>
-                        </span>
+                        </span> */}
                 </Link>
                 
                 {/* Comencemos */}
-                <Link href={'/courses'} className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
+                <Link
+                onClick={()=>setSection(1)}
+                href={'/courses'}
+                className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
+                hover:bg-[#3331] transition-colors
                 md:w-full">
                     
                         {/* Contenido */}
@@ -145,15 +157,19 @@ export default function Unidad(){
                         </div>
 
                         {/* Check */}
-                        <span>
+                        {/* <span>
                             <FontAwesomeIcon
                             className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
                             icon={faCheck}/>
-                        </span>
+                        </span> */}
                 </Link>
 
                 {/* Aprendemos */}
-                <Link href={'/courses'} className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
+                <Link
+                onClick={()=>setSection(2)}
+                href={'/courses'}
+                className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
+                hover:bg-[#3331] transition-colors
                 md:w-full">
                     
                         {/* Contenido */}
@@ -175,15 +191,19 @@ export default function Unidad(){
                         </div>
 
                         {/* Check */}
-                        <span>
+                        {/* <span>
                             <FontAwesomeIcon
                             className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
                             icon={faCheck}/>
-                        </span>
+                        </span> */}
                 </Link>
                 
                 {/* Practiquemos */}
-                <Link href={'/courses'} className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
+                <Link
+                onClick={()=>setSection(3)}
+                href={'/courses'}
+                className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
+                hover:bg-[#3331] transition-colors
                 md:w-full">
                     
                         {/* Contenido */}
@@ -205,15 +225,19 @@ export default function Unidad(){
                         </div>
 
                         {/* Check */}
-                        <span>
+                        {/* <span>
                             <FontAwesomeIcon
                             className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
                             icon={faCheck}/>
-                        </span>
+                        </span> */}
                 </Link>
                 
                 {/* Mis retos */}
-                <Link href={'/courses'} className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
+                <Link
+                onClick={()=>setSection(4)}
+                href={'/courses'}
+                className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
+                hover:bg-[#3331] transition-colors
                 md:w-full">
                     
                         {/* Contenido */}
@@ -235,15 +259,19 @@ export default function Unidad(){
                         </div>
 
                         {/* Check */}
-                        <span>
+                        {/* <span>
                             <FontAwesomeIcon
                             className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
                             icon={faCheck}/>
-                        </span>
+                        </span> */}
                 </Link>
                 
                 {/* Evaluemos */}
-                <Link href={'/courses'} className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
+                <Link
+                onClick={()=>setSection(5)}
+                href={'/courses'}
+                className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
+                hover:bg-[#3331] transition-colors
                 md:w-full">
                     
                         {/* Contenido */}
@@ -265,11 +293,11 @@ export default function Unidad(){
                         </div>
 
                         {/* Check */}
-                        <span>
+                        {/* <span>
                             <FontAwesomeIcon
                             className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
                             icon={faCheck}/>
-                        </span>
+                        </span> */}
                 </Link>
 
             </div>

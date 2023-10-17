@@ -59,7 +59,7 @@ export default function Class(props) {
   }, [props.id]);
   
   useEffect(()=>{
-    setI(props.page+15)
+    setI(props.page)
   },[props.page])
 
   //PAGINATION
@@ -93,7 +93,7 @@ export default function Class(props) {
       </div>
       <div></div>
       {
-        data &&data.sheets[i].data ?
+        data &&data.sheets[i]?.data ?
 
                     
           data.sheets[i].data.map((c, index) =>
