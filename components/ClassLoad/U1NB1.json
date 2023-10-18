@@ -92,16 +92,36 @@
         ]
     },
     "page5": {
-        "type": "boxmove",
+        "type": "text",
         "section": {
             "number":1,
             "value":"Comencemos"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697572569/images/u1p5nib1_u5ji34.png",
-        "title": "Actividad",
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697582910/images/imagpag3_gh1wjd.png",
         "data": [
-            {
-            }
+            {"type": "title",
+            "value": "Vamos a conocer a Pablo Tamagnini",
+            "className": "leftWhite"
+            },
+            {"type":"image",
+            "value":"https://res.cloudinary.com/dfddh08q8/image/upload/v1697595089/images/Pablo_tk3jzw.png",
+           "alt":"Maria Teresa",
+        "className":"image-p5"},
+        {
+            "type": "paragraph",
+            "value": "Pablo Tamagnini es un cantante cordobés, muy <span style='color:var(--primary)'>extrovertido</span>, que vive en la capital de la provincia. Es un hombre <span style='color:var(--primary)'>amistoso</span>, forma parte de la banda de cuarteto La K’onga, junto a Diego y Nelson, sus amigos. <span style='color:orange'>Le encanta</span> cantar y es <span style='color:var(--primary)'>persistente</span> ya que estuvo muchos años buscando la estabilidad económica en su carrera, hasta que pudo consagrarse como cantante de cuarteto." ,
+            "className": "paragraph7"
+        },
+        {
+            "type": "paragraph",
+            "value": "<span style='color:orange'>Le gusta</span> <span style='text-decoration:underline;'> conectar con la gente en los bailes</span>, que es el nombre que tienen los recitales de este género musical. Es <span style='color:var(--primary)'>soñador</span> y <span style='color:orange'>le interesa</span> <span style='text-decoration:underline;'>llegar con su banda a muchos lugares del mundo</span>, no sólo dentro de Argentina o Latinoamérica." ,
+            "className": "paragraph8"
+        },
+        {
+            "type": "paragraph",
+            "value": "Lo que <span style='color:orange;'>no le gusta</span> de su trabajo es <span style='text-decoration:underline'>el sacrificio que implica estar lejos de familia, de sus amigos</span>. A pesar de perderse cumpleaños, casamientos, u otros momentos personales importantes por estar haciendo giras o bailes, es muy <span style='color:var(--primary);'>tenaz</span> porque <span style='color:orange;'>le encanta</span> <span style='text-decoration:underline;'>su trabajo</span> y lo disfruta mucho." ,
+            "className": "paragraph9"
+        }
         ]
     },
     "page6": {

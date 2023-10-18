@@ -23,6 +23,12 @@
     transform: scale(2) translate(63%, 30%);
 
 }
+.image-p5{
+        padding-top: 3%; 
+       
+    transform: scale(2.4) translate(61%, 26%);
+
+}
 
  .Portadatil {
     transform: translateX(120%);
@@ -242,7 +248,7 @@
 .paragraph9{
     font-weight: 600;
     font-size: 120%;
-    /* width:74%; */
+    width:93%;
     /* border:solid  3px red; */
     text-align: justify;
     margin-top: 1%;
