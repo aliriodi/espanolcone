@@ -49,7 +49,11 @@ const Menu = () => {
     };
     const menuRef = useRef(null);
 
+    const [currentPathName, setCurrentPathName] = useState("")
+
     useEffect(() => {
+        setCurrentPathName(window.location.pathname)
+
         function handleClickOutside(event) {
             if (menuRef.current && !menuRef.current.contains(event.target)) {
                 setIsOpen(false);
@@ -70,7 +74,7 @@ const Menu = () => {
     const toggleDropdown = () => {
         setIsOpenDropdown(!isOpenDropdown);
     };
-
+    
 
     return (
         // <div className="bg-white fixed px-1 py-1 h-screen" ref={menuRef}>
@@ -236,8 +240,9 @@ const Menu = () => {
                                 {/* Inicio */}
                                 <li>
                                     <Link
-                                    className="flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                    hover:bg-primary hover:text-white"
+                                    className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all    
+                                        ${currentPathName == '/inicio/home' && "bg-primary text-white"}
+                                    hover:bg-primary hover:text-white`}
                                     href="/inicio/home">
                                         <FontAwesomeIcon icon={faHouse} className="  mr-[10px]" />
                                         <p>Inicio</p>
@@ -295,8 +300,9 @@ const Menu = () => {
                                 {/* Curso */}
                                 <li>
                                     <Link
-                                    className="flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                    hover:bg-primary hover:text-white"
+                                    className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
+                                        ${currentPathName == '/inicio/curso' && "bg-primary text-white"}
+                                    hover:bg-primary hover:text-white`}
                                     href="/inicio/curso">
                                         <FontAwesomeIcon icon={faLaptop} className="  mr-[10px]" />
                                         <p>Curso</p>
@@ -306,8 +312,9 @@ const Menu = () => {
                                 {/* Profesores */}
                                 <li>
                                     <Link
-                                    className="flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                    hover:bg-primary hover:text-white"
+                                    className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
+                                        ${currentPathName == '/teachers' && "bg-primary text-white"}
+                                    hover:bg-primary hover:text-white`}
                                     href="/teachers" >
                                         <FontAwesomeIcon icon={faChalkboardUser} className="mr-[10px]" />
                                         <p>Profesores</p>
@@ -318,8 +325,9 @@ const Menu = () => {
                                 {/* Guías turisticos */}
                                 <li>
                                     <Link
-                                    className="flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                    hover:bg-primary hover:text-white"
+                                    className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
+                                        ${currentPathName == '/tourGuides' && "bg-primary text-white"}
+                                    hover:bg-primary hover:text-white`}
                                     href="/tourGuides">
                                         <FontAwesomeIcon icon={faPersonHiking} className=" mr-[10px]" />
                                         <p>Guías turisticos</p>
@@ -330,8 +338,9 @@ const Menu = () => {
                                 {session && session.user && session.user.role.includes('admin')?
                                 <li>
                                     <Link
-                                    className="flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                    hover:bg-primary hover:text-white"
+                                    className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
+                                        ${currentPathName == '/inicio/cargarclase' && "bg-primary text-white"}
+                                    hover:bg-primary hover:text-white`}
                                     href="/inicio/cargarclase">
                                         <FontAwesomeIcon icon={faPen} className=" mr-[10px]" />
                                         <p>Cargar Clase</p>
@@ -348,8 +357,9 @@ const Menu = () => {
                             {/* Mi Perfil */}
                             <div className="text-title_color">
                                 <Link
-                                className="flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                    hover:bg-primary hover:text-white"
+                                className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
+                                    ${currentPathName == '/' && "bg-primary text-w"}
+                                    hover:bg-primary hover:text-white`}
                                 href="/inicio/home">
                                     <FontAwesomeIcon icon={faAddressCard} className=" mr-[10px]" />
                                     <p>Mi Perfil</p>
