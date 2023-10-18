@@ -15,6 +15,14 @@
     width:10%;
     transform: scale(1.8) translate(27%, 38%);
 }
+/* Unidad 1 nivel B1 p4 */
+.image-p4{
+    padding-top: 3%; 
+    
+    
+    transform: scale(2) translate(63%, 30%);
+
+}
 
  .Portadatil {
     transform: translateX(120%);
@@ -211,7 +219,34 @@
     margin-top: 25px;
     text-align: justify;
 }
-
+/* unidad 1 nivel B1 p4 */
+.paragraph7{
+    font-weight: 600;
+    font-size: 120%;
+    width:74%;
+    /* border:solid  3px red; */
+    
+    margin-top: -1%;
+    text-align: justify;
+}
+/* unidad 1 nivel B1 p4 */
+.paragraph8{
+    font-weight: 600;
+    font-size: 120%;
+    width:74%;
+    /* border:solid  3px red; */
+    text-align: justify;
+    margin-top: 1%;
+}
+/* unidad 1 nivel B1 p4 */
+.paragraph9{
+    font-weight: 600;
+    font-size: 120%;
+    /* width:74%; */
+    /* border:solid  3px red; */
+    text-align: justify;
+    margin-top: 1%;
+}
 .titleBlack{
     font-weight: 800;
     font-size: 160%;
@@ -391,6 +426,19 @@
     margin-top: 65px;
     text-align: center;}
 
+    /* Unidad 1 NB1 p4 */
+
+    .leftWhite{
+        font-weight: 800;
+        font-size: 200%;
+        width:28%;
+        color:white;
+        /* border:solid  3px red; */
+        margin-top: 4%;
+        margin-left: 4%;
+        text-align: center;
+}
+
     .centerRight-blue-primary{
         color:var(--primary);
         margin-top: 25%;
@@ -411,6 +459,7 @@
     .table table {
         margin: 0 auto; /* Centra horizontalmente la tabla en el div */
       }
+
 
  @media (min-width: 1601px) and (max-width: 1681px ) {
    
