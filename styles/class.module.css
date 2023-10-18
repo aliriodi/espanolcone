@@ -160,18 +160,20 @@
     margin-left: 420px;
     /* margin-top: -200px; */
 }
+/* unidad 1 nivel b1 p1 */
 .titleBlack2-p0{
     font-weight: 900;
-    font-size: 230%;
+    font-size: 250%;
      width:40%;
     /* border:solid  3px red; */
-    margin-left: 52%;
+    margin-left: 50%;
      margin-top: 16%;   
 }
+/* unidad 1 nivel b1 p1 */
 .TITLE-P0-BLACK{
     margin-top: 6%;   
     margin-left: 78%;
-    font-size: 180%;
+    font-size: 200%;
     width: 12%;
     padding-top: 4%;
     font-weight: 730;
@@ -228,7 +230,7 @@
 /* unidad 1 nivel B1 p4 */
 .paragraph7{
     font-weight: 600;
-    font-size: 120%;
+    font-size: 130%;
     width:74%;
     /* border:solid  3px red; */
     
@@ -238,7 +240,7 @@
 /* unidad 1 nivel B1 p4 */
 .paragraph8{
     font-weight: 600;
-    font-size: 120%;
+    font-size: 130%;
     width:74%;
     /* border:solid  3px red; */
     text-align: justify;
@@ -247,7 +249,7 @@
 /* unidad 1 nivel B1 p4 */
 .paragraph9{
     font-weight: 600;
-    font-size: 120%;
+    font-size: 130%;
     width:93%;
     /* border:solid  3px red; */
     text-align: justify;
@@ -424,6 +426,7 @@
     margin-top: 65px;
     text-align: center;
  }
+ /* unidad 1 nivel B1 p2 */
  .centerRightWhite-2{  
     font-weight: 800;
     font-size: 300%;
@@ -433,11 +436,10 @@
     text-align: center;}
 
     /* Unidad 1 NB1 p4 */
-
     .leftWhite{
         font-weight: 800;
-        font-size: 200%;
-        width:28%;
+        font-size: 240%;
+        width:40%;
         color:white;
         /* border:solid  3px red; */
         margin-top: 4%;
@@ -452,8 +454,9 @@
         font-size: 400%;
         text-align: center;
     }
+    /* unidad 1 nivel B1 p2 */
     .table{
-        margin-top: 10%;
+        margin-top: 13%;
         margin-left: 5%;
         width:90%;
         display: flex;
