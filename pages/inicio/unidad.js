@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMedal, faBookOpen, faCheck, faListCheck, faPuzzlePiece } from '@fortawesome/free-solid-svg-icons';
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Menu from "../../components/Menu";
 import Select from 'react-select'
 import { setClassPage } from '../../redux/ECEActions'
@@ -12,6 +12,8 @@ import { useSelector,useDispatch } from "react-redux";
 
 export default function Unidad(){
     const {data: session,status} = useSession();
+
+    const [maxSessionReached, setMaxSessionReached] = useState(-1)
 
     const dispatch = useDispatch();
     
@@ -24,12 +26,12 @@ export default function Unidad(){
         await fetch(`/api/class/${classId}`)
         .then((response) => response.json())
         .then((json) =>{
+
             let sheets = json.class1.sheets; 
 
-            console.log(json.class1.sheets)
             for(let i = 0;i < sheets.length; i++){
+
                 if(sheets[i].section.number == section){
-                    console.log("Index ",i)
                     dispatch(setClassPage(i))
                     break;
                 }
@@ -40,12 +42,48 @@ export default function Unidad(){
         .catch((error) => console.log(error));
     }
 
+    useEffect(()=>{
+        // En este useEffect se va a comprobar hasta que seccion esta realizada
+
+        // Primero se comprueba si la ultima clase realizada es igual a la ultima que hizo el usuario
+        // en caso de ser asi a maxSessionReached se le asigna hasta que seccion llego el usuario
+        if(session?.user?.position.id == classId){
+            console.log("clase actual ",session?.user)
+            fetch(`/api/class/${classId}`)
+            .then((response) => response.json())
+            .then((json) =>{ 
+            setMaxSessionReached(json.class1.sheets[(session?.user?.position?.index - 1)]?.section?.number)
+            return;
+        })
+        .catch((error) => console.log(error));
+        }
+
+        // De lo contrario se busca en el resto de clases comprobando el valor de la propiedad done
+        else{
+            let currentClasses = [];
+            let currentClass;
+            
+            for(let i = 0; session?.user?.classes.length > i; i++){
+                // Se ponen todas las clases en un mismo array 
+                currentClasses = [...currentClasses, ...session?.user?.classes[i]?.units]
+            }
+            
+            currentClass = currentClasses.find((c)=> c.unitID == classId)// Se busca en que clase estamos
+            
+            // En caso de ser "True" se le pone el numero de seccion maxima 
+            if(currentClass?.done)setMaxSessionReached(6)
+    
+            // En caso de ser "False" se le pone -1
+            else setMaxSessionReached(-1)
+        }
+    },[session])
+
     return(
-        <>
+        <div className="flex">
 
         <Menu />
 
-        <section className="ml-[225px] relative py-[60px] px-[40px]
+        <section className="ml-[40px] relative py-[60px] px-[40px]
         md:ml-0 md:px-[20px]">
             
             {/* Bienvenido */}
@@ -120,11 +158,13 @@ export default function Unidad(){
                         </div>
 
                         {/* Check */}
-                        {/* <span>
-                            <FontAwesomeIcon
-                            className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
-                            icon={faCheck}/>
-                        </span> */}
+                        {maxSessionReached >= 0 && (
+                            <span>
+                                <FontAwesomeIcon
+                                className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
+                                icon={faCheck}/>
+                            </span>
+                        )}
                 </Link>
                 
                 {/* Comencemos */}
@@ -154,11 +194,13 @@ export default function Unidad(){
                         </div>
 
                         {/* Check */}
-                        {/* <span>
-                            <FontAwesomeIcon
-                            className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
-                            icon={faCheck}/>
-                        </span> */}
+                        {maxSessionReached >= 1 && (
+                            <span>
+                                <FontAwesomeIcon
+                                className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
+                                icon={faCheck}/>
+                            </span>
+                        )}
                 </Link>
 
                 {/* Aprendemos */}
@@ -188,11 +230,13 @@ export default function Unidad(){
                         </div>
 
                         {/* Check */}
-                        {/* <span>
-                            <FontAwesomeIcon
-                            className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
-                            icon={faCheck}/>
-                        </span> */}
+                        {maxSessionReached >= 2 && (
+                            <span>
+                                <FontAwesomeIcon
+                                className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
+                                icon={faCheck}/>
+                            </span>
+                        )}
                 </Link>
                 
                 {/* Practiquemos */}
@@ -222,11 +266,13 @@ export default function Unidad(){
                         </div>
 
                         {/* Check */}
-                        {/* <span>
-                            <FontAwesomeIcon
-                            className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
-                            icon={faCheck}/>
-                        </span> */}
+                        {maxSessionReached >= 3 && (
+                            <span>
+                                <FontAwesomeIcon
+                                className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
+                                icon={faCheck}/>
+                            </span>
+                        )}
                 </Link>
                 
                 {/* Mis retos */}
@@ -256,11 +302,13 @@ export default function Unidad(){
                         </div>
 
                         {/* Check */}
-                        {/* <span>
-                            <FontAwesomeIcon
-                            className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
-                            icon={faCheck}/>
-                        </span> */}
+                        {maxSessionReached >= 4 && (
+                            <span>
+                                <FontAwesomeIcon
+                                className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
+                                icon={faCheck}/>
+                            </span>
+                        )}
                 </Link>
                 
                 {/* Evaluemos */}
@@ -290,17 +338,19 @@ export default function Unidad(){
                         </div>
 
                         {/* Check */}
-                        {/* <span>
-                            <FontAwesomeIcon
-                            className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
-                            icon={faCheck}/>
-                        </span> */}
+                        {maxSessionReached >= 5 && (
+                            <span>
+                                <FontAwesomeIcon
+                                className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
+                                icon={faCheck}/>
+                            </span>
+                        )}
                 </Link>
 
             </div>
         </section>
 
 
-        </>
+        </div>
     )
 }

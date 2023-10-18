@@ -39,7 +39,7 @@ export default function Home() {
 
       <Menu />
 
-      <main className='ml-[277px] relative p-[60px] overflow-hidden
+      <main className='ml-[40px] relative p-[60px] overflow-hidden
       md:ml-0 md:px-[25px]'>
 
         {/* Bienvenido */}
