@@ -53,41 +53,51 @@ export function TourCard() {
   };
   // prueba
   return (
-    <>
-      {/* Verifica si hay datos en cards, si no, muestra "Cargando" */}
+   <>
+      <div className='flex flex-col my-5'>
+
+        <p className='font-extrabold'>Encontrá tu profesor</p>
+        <p className='my-2 flex flex-row'>¡Bienvenido a <p className='font-bold italic'> Español con E</p>, nuestra plataforma de profesores particulares!</p>
+        <p> Nuestra plataforma es fácil de usar y te va a permitr buscar profesores según tus preferencias</p>
+      </div>
+
       {cards.length > 0 ? (
         cards.map((card, index) => (
-          <div key={index}>
-            <div className="ml-[200px] bg-gray-100 p-8 max-w-lg rounded-lg shadow-md">
-              <div className="w-full flex items-center space-x-4">
-                <Image
-                  alt="photo"
-                  width={160}
-                  height={160}
-                  src={card.image}
-                  style={{ zIndex: -1 }}
-                  className="w-[30%] rounded-full object-cover mr-4 drop-shadow-[2px_3px_2px_rgba(255,255,255,.4)] dark:drop-shadow-[2px_3px_2px_rgba(0,0,0,.4)]"
-                />
-                <div>
+          <div key={index} className="w-screen mb-4">
+            <div className="grid grid-cols-6 gap-4">
+              <div className="col-span- flex items-center justify-center p-4">
+                <div className="w-24 h-24">
+                  <Image
+                    alt="photo"
+                    width={160}
+                    height={160}
+                    src={card.image}
+                    className="w-full h-full rounded-lg object-cover mb-5"
+                  />
                   <div className="flex items-center space-x-1 text-green-500">
                     {renderStars()}
                   </div>
-                  <p className="mt-1 text-xl font-semibold text-gray-700">{card.namePerson}</p>
                 </div>
               </div>
-              <p className="mt-4 truncate text-gray-500">{card.content}</p>
-              <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                onClick={() => handleButtonClick(card)}
-              >
-                more
-              </button>
+              <div className="col-span-4 ">
+                <div className="flex-1 p-4">
+                  <div className="text-xl font-semibold text-gray-700 mb-2">{card.namePerson}</div>
+                  <p className="text-gray-500">{card.content}</p>
+                </div>
+              </div>
+              <div className="col-span-1  flex items-end justify-center p-4">
+                <button
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                  onClick={() => handleButtonClick(card)}
+                >
+                  more
+                </button>
+              </div>
             </div>
           </div>
         ))
       ) : (
-
-        < Spinner />
+        <Spinner />
       )}
     </>
   );

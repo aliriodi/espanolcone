@@ -6,7 +6,7 @@ import Image from 'next/image';
 export default function TeacherDetailPage() {
 
 
-  const cardDetail = useSelector((state) => state.datos.cardsTouristDetail);
+  const cardDetail = useSelector((state) => state.datos.cardsTouristDetaill);
   const [isCardAvailable, setIsCardAvailable] = useState(false);
 
   useEffect(() => {

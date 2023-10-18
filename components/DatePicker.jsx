@@ -4,7 +4,9 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 export default function DatePi() {
   const [selectedDate, setSelectedDate] = useState(new Date());
-
+  console.log('====================================');
+  console.log(selectedDate);
+  console.log('====================================');
   return (
     <>
       <div className="flex flex-col items-center justify-center">

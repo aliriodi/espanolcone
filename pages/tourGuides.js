@@ -9,7 +9,7 @@ export default function tourGuides() {
   return (
     <>
       <Menu />
-      <div className='ml-[80px] w-full flex flex-wrap'>
+      <div className='ml-[80px] flex flex-wrap'>
         {/* <DatePi /> */}
         <TourCard />
 
