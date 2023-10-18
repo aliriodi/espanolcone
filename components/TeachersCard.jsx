@@ -53,6 +53,7 @@ export function TeachersCard() {
 
   return (
     <>
+    <div className='bg-gray-200'>
       <div className='flex flex-col my-5'>
 
         <p className='font-extrabold'>Encontrá tu profesor</p>
@@ -62,8 +63,8 @@ export function TeachersCard() {
 
       {cards.length > 0 ? (
         cards.map((card, index) => (
-          <div key={index} className="w-screen mb-4">
-            <div className="grid grid-cols-6 gap-4 border border-solid border-[1px] border-gray-400 rounded mr-2">
+          <div key={index} className="w-screen mb-4 g-white">
+            <div className="grid grid-cols-6 gap-4  border border-gray-400 b rounded mr-2">
               <div className="col-span- flex items-center justify-center p-4">
                 <div className="w-24 h-24">
                   <Image
@@ -98,6 +99,7 @@ export function TeachersCard() {
       ) : (
         <Spinner />
       )}
+      </div>
     </>
   );
 }
