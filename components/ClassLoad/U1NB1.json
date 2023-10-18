@@ -130,42 +130,47 @@
             "number":1,
             "value":"Comencemos"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697632552/images/template1_zzkxz8.png",
         "data": [
             {
                 "type": "title",
-                "value": "Actividad",
-                "className": "centerRightWhite"
+                "value": "A partir de los textos que leímos, vamos a responder las siguientes preguntas",
+                "className": "leftWhite2"
             },
+           
+          
             {
-                "type": "paragraph",
-                "value": "A David y a Bruna <span style='text-decoration: underline; color:orange;'> les gusta</span> mucho Córdoba.",
-                "className": "titleBlack"
-            },
-            {
-                "type": "paragraph",
-                "value": "¿Cuál de estas frases corresponde a Bruna y cuál corresponde a David?",
-                "className": "paragraph3"
+                "type": "selectsimple",
+                "value": "1.¿Teresa y Pablo tienen vidas similares?",
+                "option": "No tanto, a pesar de ser artistas su vida no es tan similar",
+                "options": [
+                    "Sí, ambos son artistas",
+                    "No, trabajan en ámbitos diferentes",
+                    "No tanto, a pesar de ser artistas su vida no es tan similar"
+                ],
+                "className": "paragraph10"
             },
             {
                 "type": "selectsimple",
-                "value": "1.\"Me gusta la vida aquí:  la gente, la comida, el clima, el mate …\"",
-                "option": "David",
+                "value": "2. ¿Cómo describirías la vida de Teresa?",
+                "option": "Tranquila, pero se mantiene activa trabajando",
                 "options": [
-                    "Bruna",
-                    "David"
+                    "Aburrida, no tiene nada para hacer",
+                    "Tranquila, pero se mantiene activa trabajando",
+                    "Abrumadora, no puede descansar en ningún momento"
                 ],
-                "className": "paragraph3"
+                "className": "paragraph11"
             },
             {
                 "type": "selectsimple",
-                "value": "2. Le gusta hablar y compartir con los nativos.",
-                "option": "Bruna",
+                "value": "3. ¿Cómo describirías la vida de Pablo?",
+                "option": "Agitada, pero feliz porque trabaja de lo que ama",
                 "options": [
-                    "Bruna",
-                    "David"
+                    "Triste, porque no tiene tiempo de calidad con su familia",
+                    "Agitada, pero feliz porque trabaja de lo que ama",
+                    "Solitaria, pasa mucho tiempo sin una buena compañía"
                 ],
-                "className": "paragraph3"
+                "className": "paragraph11"
             }
         ]
     },
