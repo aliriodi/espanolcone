@@ -383,6 +383,34 @@
     margin-top: 65px;
     text-align: center;
  }
+ .centerRightWhite-2{  
+    font-weight: 800;
+    font-size: 300%;
+    color:white;
+    /* border:solid  3px red; */
+    margin-top: 65px;
+    text-align: center;}
+
+    .centerRight-blue-primary{
+        color:var(--primary);
+        margin-top: 25%;
+        font-weight: 800;
+        font-size: 400%;
+        text-align: center;
+    }
+    .table{
+        margin-top: 10%;
+        margin-left: 5%;
+        width:90%;
+        display: flex;
+        justify-content: center; /* Centra horizontalmente */
+        align-items: center; /* Centra verticalmente, opcional */
+       /* border:solid  3px red; */
+        
+    }
+    .table table {
+        margin: 0 auto; /* Centra horizontalmente la tabla en el div */
+      }
 
  @media (min-width: 1601px) and (max-width: 1681px ) {
    
