@@ -53,7 +53,7 @@ export function TourCard() {
   };
   // prueba
   return (
-   <>
+    <>
       <div className='flex flex-col my-5'>
 
         <p className='font-extrabold'>Encontrá tu profesor</p>
@@ -64,7 +64,7 @@ export function TourCard() {
       {cards.length > 0 ? (
         cards.map((card, index) => (
           <div key={index} className="w-screen mb-4">
-            <div className="grid grid-cols-6 gap-4">
+            <div className="grid grid-cols-6 gap-4 border border-solid border-[1px] border-gray-400 rounded mr-2">
               <div className="col-span- flex items-center justify-center p-4">
                 <div className="w-24 h-24">
                   <Image
@@ -72,7 +72,7 @@ export function TourCard() {
                     width={160}
                     height={160}
                     src={card.image}
-                    className="w-full h-full rounded-lg object-cover mb-5"
+                    className="w-full h-full rounded-full object-cover mb-5"
                   />
                   <div className="flex items-center space-x-1 text-green-500">
                     {renderStars()}
