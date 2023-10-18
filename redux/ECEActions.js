@@ -69,7 +69,7 @@ export const fetchTouristGuides = () => async (dispatch) => {
     // Importa los datos de profesores desde tu archivo local
     await import('../public/imgs/images').then((module) => {
       // Accede a la variable exportada del módulo
-      const teachers = module.guiaDeTurismo;
+      const tourist = module.guiaDeTurismo;
       // Envía la acción setCards al reducer con los datos de guias
       dispatch(setCardsTourist(tourist));
     });
@@ -83,3 +83,4 @@ export const CardsTouristDetail = (card) => (dispatch) => {
   // console.log(id)
   dispatch(setCardsTouristDetail(card))
 };
+
