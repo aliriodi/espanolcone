@@ -31,9 +31,16 @@
             "number":0,
             "value":"Mis Metas"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697572404/images/u1p2nib1_ormtrk.png",
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697582910/images/imagpag3_gh1wjd.png",
         "data": [
+            {"type": "title",
+            "value": "¿Qué voy a aprender en esta unidad?",
+            "className": "centerRightWhite-2"
+            },
             {
+                "type":"paragraph",
+                "value":" <table style= 'border: 2px solid black;' ><tr  style=' background-color: var(--primary); border: 2px solid black;' ><th style= 'border: 2px solid black;width:30%;' ><h2><strong style='color:black;'>Comunicación</strong></h2></th><th style= ' border: 2px solid black;width:20%' ><h2><strong style='color:black;'>Vocabulario</strong></h2></th><th style= 'border: 2px solid black; width:30%' ><h2><strong style='color:black;'>Gramática</strong></h2></th></tr><tr><td style= 'border: 2px solid black;' > <ul> <li>*Dar y pedir información sobre personas.</li>  <li>*Dar y pedir información acerca de personalidades, gustos y experiencias.</li> <li>*Expresar similitudes, diferencias y afinidades entre personas.</li><li>*Valorar personas.</li><li>*Graduar expresiones.</li><li>*Descripción de la personalidad Sujeto + verbo ser + muy / poco / un poco + adjetivo </li> <li>*Expresar sentimientos, gustos y sensaciones</li><li>*Describir sentimientos.</li><li>*Expresar motivos para estudiar español.</li></ul> </td><td style= 'border: 2px solid black;' ><ul> <li>*Adjetivos y sustantivos relacionados con el carácter.</li>  <li> *Gustos, aficiones y manías.</li> <li>*Ámbitos personales: costumbres, familia y experiencias.</li> <li>*Virtudes y defectos.</li> </ul></td><td style= 'border: 2px solid black; ' ><ul> <li>*Régimen pronominal de verbos como gustar, encantar, interesar: me/te/le/nos/os/les</li>  <li>*Condicional: verbos regulares e irregulares más frecuentes.</li> <li>*Interrogativas: ¿A qué hora?/¿Qué…?/ ¿Cuál? / ¿Qué tipo de..? / ¿Dónde …? / ¿Con quién?</li> <li>*Interrogativas indirectas con si e interrogativas directas con: ¿Qué…?/ ¿Dónde …? / ¿Por qué? / ¿Con quién? / ¿Cuándo?</li>  <li>*Sustantivos femeninos: -dad - ez- eza-ía-ura</li> <li>*Muy / tan / demasiado + adjetivo</li> </ul></td></tr></table>",
+                "className":"table"
             }
         ]
     },
@@ -43,10 +50,11 @@
             "number":1,
             "value":"Comencemos"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697572465/images/u1p3nib1_hee7jq.png",
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697582910/images/imagpag3_gh1wjd.png",
         "data": [
-            {
-                
+            {"type": "title",
+            "value": "Elemento disparador",
+            "className": "centerRight-blue-primary"
             }
         ]
     },
@@ -56,7 +64,7 @@
             "number":1,
             "value":"Comencemos"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697572529/images/u1p4nib1_idfzkz.png",
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697582910/images/imagpag3_gh1wjd.png",
         "data": [
             {
             }
