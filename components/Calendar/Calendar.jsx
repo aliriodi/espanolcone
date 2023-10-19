@@ -18,10 +18,15 @@ import {
 } from 'date-fns'
 import Image from 'next/image'
 import { Fragment, useState } from 'react'
+const teachers = require("./teachers.json");
+const alumnos = require("./alumnos.json");
+const guides = require("./guides.json");
+
 
 const meetings = [
   {
     id: 1,
+    first_name:"Leslie",
     name: 'Leslie Alexander',
      imageUrl:
      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -30,6 +35,7 @@ const meetings = [
   },
   {
     id: 2,
+    first_name:"Mike",
     name: 'Michael Foster',
     imageUrl:
       'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -38,6 +44,7 @@ const meetings = [
   },
   {
     id: 3,
+    first_name:"Dires",
     name: 'Dries Vincent',
     imageUrl:
       'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -46,6 +53,7 @@ const meetings = [
   },
   {
     id: 4,
+    first_name:"Leslie",
     name: 'Leslie Alexander',
     imageUrl:
       'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -54,6 +62,7 @@ const meetings = [
   },
   {
     id: 5,
+    first_name:"Mike",
     name: 'Michael Foster',
     imageUrl:
       'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -62,6 +71,7 @@ const meetings = [
   },
   {
     id: 6,
+    first_name:"Alirio",
     name: 'Alirio Diaz',
      imageUrl:
      'https://res.cloudinary.com/dfddh08q8/image/upload/v1696624364/images/Alirio_llwj0p.png',
@@ -218,7 +228,7 @@ function Meeting({ meeting }) {
     <li className="flex items-center px-4 py-2 space-x-4 group rounded-xl focus-within:bg-gray-100 hover:bg-gray-100">
       <Image
         src={meeting.imageUrl}
-        alt=""
+        alt={meeting.first_name}
         className="flex-none w-10 h-10 rounded-full"
         width={160}
         height={160}
