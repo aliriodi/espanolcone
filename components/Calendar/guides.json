@@ -1,0 +1,167 @@
+{
+    "value": [
+        {
+            "id": 102,
+            "first_name": "Josefina",
+            "last_name": "strogonof",
+            "role":"guide",
+            "email":"espanolconeacademy@gmail.com",
+            "image":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366467/images/promo_img_3_cgi2d1.png",
+            "schedule": [
+                {
+                    "assigned": false,
+                    "nameuser": null,
+                    "email": null,
+                    "image":"",
+                    "iduser": null,
+                    "startDatetime": "2023-10-23T13:00",
+                    "endDatetime": "2023-10-23T14:00"
+                },
+                {
+                    "assigned": false,
+                    "nameuser": null,
+                    "image":"",
+                    "email": null,
+                    "iduser": null,
+                    "startDatetime": "2023-10-23T14:00",
+                    "endDatetime": "2023-10-23T15:00"
+                },
+                {
+                    "assigned": false,
+                    "nameuser": null,
+                    "iduser": null,
+                    "image":"",
+                    "email": null,
+                    "startDatetime": "2023-10-23T16:00",
+                    "endDatetime": "2023-10-23T17:00"
+                },
+                {
+                    "assigned": false,
+                    "nameuser": null,
+                    "iduser": null,
+                    "image":"",
+                    "email": null,
+                    "startDatetime": "2023-10-24T17:00",
+                    "endDatetime": "2023-10-24T18:00"
+                },
+                {
+                    "assigned": false,
+                    "nameuser": null,
+                    "image":"",
+                    "iduser": null,
+                    "email": null,
+                    "startDatetime": "2023-10-24T13:00",
+                    "endDatetime": "2023-10-24T14:00"
+                },
+                {
+                    "assigned": false,
+                    "nameuser": null,
+                    "iduser": null,
+                    "email": null,
+                    "startDatetime": "2023-10-24T14:00",
+                    "endDatetime": "2023-10-24T15:00"
+                },
+                {
+                    "assigned": false,
+                    "nameuser": null,
+                    "iduser": null,
+                    "image":"",
+                    "email": null,
+                    "startDatetime": "2023-10-24T16:00",
+                    "endDatetime": "2023-10-24T17:00"
+                },
+                {
+                    "assigned": false,
+                    "nameuser": null,
+                    "iduser": null,
+                    "image":"",
+                    "email": null,
+                    "startDatetime": "2023-10-24T17:00",
+                    "endDatetime": "2023-10-24T18:00"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "first_name":"Rigoberto",
+            "email": "espanolconeacademy@gmail.com",
+            "image":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694535859/images/davidpic_ob5ukd.png",
+            "last_name": "Perez",
+            "role":"guide",
+            "schedule": [
+                {
+                    "assigned": true,
+                    "nameuser": "Pedro Perez",
+                    "iduser": 152,
+                    "image":"",
+                    "email": "aliriodi@gmail.com",
+                    "startDatetime": "2023-10-23T13:00",
+                    "endDatetime": "2023-10-23T14:00"
+                },
+                {
+                    "assigned": false,
+                    "nameuser": null,
+                    "iduser": null,
+                    "image":"",
+                    "email": null,
+                    "startDatetime": "2023-10-23T14:00",
+                    "endDatetime": "2023-10-23T15:00"
+                },
+                {
+                    "assigned": false,
+                    "nameuser": null,
+                    "iduser": null,
+                    "image":"",
+                    "email": null,
+                    "startDatetime": "2023-10-23T16:00",
+                    "endDatetime": "2023-10-23T17:00"
+                },
+                {
+                    "assigned": true,
+                    "nameuser": "Jose Luis",
+                    "iduser": 875,
+                    "image":"",
+                    "email": null,
+                    "startDatetime": "2023-10-24T17:00",
+                    "endDatetime": "2023-10-24T18:00"
+                },
+                {
+                    "assigned": false,
+                    "nameuser": null,
+                    "iduser": null,
+                    "image":"",
+                    "email": null,
+                    "startDatetime": "2023-10-24T13:00",
+                    "endDatetime": "2023-10-24T14:00"
+                },
+                {
+                    "assigned": false,
+                    "nameuser": null,
+                    "iduser": null,
+                    "image":"",
+                    "email": null,
+                    "startDatetime": "2023-10-24T14:00",
+                    "endDatetime": "2023-10-24T15:00"
+                },
+                {
+                    "assigned": false,
+                    "nameuser": null,
+                    "iduser": null,
+                    "email": null,
+                    "image":"",
+                    "startDatetime": "2023-10-24T16:00",
+                    "endDatetime": "2023-10-24T17:00"
+                },
+                {
+                    "assigned": false,
+                    "nameuser": null,
+                    "iduser": null,
+                    "image":"",
+                    "email": null,
+                    "startDatetime": "2023-10-24T17:00",
+                    "endDatetime": "2023-10-24T18:00"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,60 @@
+{
+    "value": [
+        {"id": 1,
+        "first_name": "Hugo",
+        "last_name": "Sanchez",
+        "role":"user",
+        "image":"https://res.cloudinary.com/dfddh08q8/image/upload/v1697514246/images/7_tcfqxh.png",
+        "schedule": [
+            {
+                "assigned": false,
+                "nameuser": null,
+                "email": null,
+                "role":null,
+                "iduser": null,
+                "startDatetime": "",
+                "endDatetime": ""
+            }           
+        ]},
+        {"id": 100,
+        "first_name": "Brenda",
+        "last_name": "Martinez",
+        "role":"user",
+        "image":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694765455/images/bruna_kb7jcg.jpg",
+        "schedule": [
+            {
+                "assigned": false,
+                "nameuser": null,
+                "email": null,
+                "role":null,
+                "image":"",
+                "iduser": null,
+                "startDatetime": "",
+                "endDatetime": ""
+            },
+            {
+                "assigned": true,
+                "first_name": "Eucaris",
+                "last_name": "Rodriguez",
+                "image":"",
+                "email": "espanolcone.com",
+                "role":"teacher",
+                "iduser": "1",
+                "startDatetime": "2023-10-28T12:00",
+                "endDatetime": "2023-10-28T16:30"
+            }  ,
+            {
+                "assigned": true,
+                "first_name": "Josefina",
+                "last_name": "strogonof",
+                "image":"",
+                "email": "espanolcone.com",
+                "role":"guide",
+                "iduser": "1",
+                "startDatetime": "2023-10-28T12:00",
+                "endDatetime": "2023-10-28T16:30"
+            }                                 
+        ]}
+
+    ]
+}

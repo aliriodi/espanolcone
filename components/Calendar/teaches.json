@@ -1,0 +1,168 @@
+{
+    "value": [
+        {
+            "id": 1,
+            "first_name": "Eucaris",
+            "last_name": "Rodiguez",
+            "role":"teacher",
+            "email":"espanolconeacademy@gmail.com",
+            "image":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366482/images/team-photo-01_svprcr.png",
+            "schedule": [
+                {
+                    "assigned": false,
+                    "nameuser": null,
+                    "email": null,
+                    "image":"",
+                    "iduser": null,
+                    "startDatetime": "2023-10-23T13:00",
+                    "endDatetime": "2023-10-23T14:00"
+                },
+                {
+                    "assigned": false,
+                    "nameuser": null,
+                    "email": null,
+                    "image":"",
+                    "iduser": null,
+                    "startDatetime": "2023-10-23T14:00",
+                    "endDatetime": "2023-10-23T15:00"
+                },
+                {
+                    "assigned": false,
+                    "nameuser": null,
+                    "iduser": null,
+                    "image":"",
+                    "email": null,
+                    "startDatetime": "2023-10-23T16:00",
+                    "endDatetime": "2023-10-23T17:00"
+                },
+                {
+                    "assigned": false,
+                    "nameuser": null,
+                    "iduser": null,
+                    "image":"",
+                    "email": null,
+                    "startDatetime": "2023-10-24T17:00",
+                    "endDatetime": "2023-10-24T18:00"
+                },
+                {
+                    "assigned": false,
+                    "nameuser": null,
+                    "iduser": null,
+                    "image":"",
+                    "email": null,
+                    "startDatetime": "2023-10-24T13:00",
+                    "endDatetime": "2023-10-24T14:00"
+                },
+                {
+                    "assigned": false,
+                    "nameuser": null,
+                    "iduser": null,
+                    "email": null,
+                    "image":"",
+                    "startDatetime": "2023-10-24T14:00",
+                    "endDatetime": "2023-10-24T15:00"
+                },
+                {
+                    "assigned": false,
+                    "nameuser": null,
+                    "iduser": null,
+                    "image":"",
+                    "email": null,
+                    "startDatetime": "2023-10-24T16:00",
+                    "endDatetime": "2023-10-24T17:00"
+                },
+                {
+                    "assigned": false,
+                    "nameuser": null,
+                    "iduser": null,
+                    "image":"",
+                    "email": null,
+                    "startDatetime": "2023-10-24T17:00",
+                    "endDatetime": "2023-10-24T18:00"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "first_name":"Alirio",
+            "email": "Alirio",
+            "role":"teacher",
+            "image":"https://res.cloudinary.com/dfddh08q8/image/upload/v1696624364/images/Alirio_llwj0p.png",
+            "last_name": "Diaz",
+            "schedule": [
+                {
+                    "assigned": false,
+                    "nameuser": "Pedro Perez",
+                    "iduser": 152,
+                    "email": "aliriodi@gmail.com",
+                    "image":"",
+                    "startDatetime": "2023-10-23T13:00",
+                    "endDatetime": "2023-10-23T14:00"
+                },
+                {
+                    "assigned": false,
+                    "nameuser": null,
+                    "iduser": null,
+                    "image":"",
+                    "email": null,
+                    "startDatetime": "2023-10-23T14:00",
+                    "endDatetime": "2023-10-23T15:00"
+                },
+                {
+                    "assigned": false,
+                    "nameuser": null,
+                    "image":"",
+                    "iduser": null,
+                    "email": null,
+                    "startDatetime": "2023-10-23T16:00",
+                    "endDatetime": "2023-10-23T17:00"
+                },
+                {
+                    "assigned": false,
+                    "nameuser": "Jose Luis",
+                    "iduser": 875,
+                    "image":"",
+                    "email": null,
+                    "startDatetime": "2023-10-24T17:00",
+                    "endDatetime": "2023-10-24T18:00"
+                },
+                {
+                    "assigned": false,
+                    "nameuser": null,
+                    "iduser": null,
+                    "image":"",
+                    "email": null,
+                    "startDatetime": "2023-10-24T13:00",
+                    "endDatetime": "2023-10-24T14:00"
+                },
+                {
+                    "assigned": false,
+                    "nameuser": null,
+                    "iduser": null,
+                    "image":"",
+                    "email": null,
+                    "startDatetime": "2023-10-24T14:00",
+                    "endDatetime": "2023-10-24T15:00"
+                },
+                {
+                    "assigned": false,
+                    "nameuser": null,
+                    "iduser": null,
+                    "image":"",
+                    "email": null,
+                    "startDatetime": "2023-10-24T16:00",
+                    "endDatetime": "2023-10-24T17:00"
+                },
+                {
+                    "assigned": false,
+                    "nameuser": null,
+                    "iduser": null,
+                    "email": null,
+                    "image":"",
+                    "startDatetime": "2023-10-24T17:00",
+                    "endDatetime": "2023-10-24T18:00"
+                }
+            ]
+        }
+    ]
+}
