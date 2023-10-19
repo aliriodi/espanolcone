@@ -18,7 +18,7 @@ import { useTranslation } from 'next-i18next';
 import { useSession, signIn, signOut } from 'next-auth/react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useState } from 'react';
-import { AiOutlineGoogle } from 'react-icons/ai'
+import { AiOutlineGoogle } from 'react-icons/ai';
 import { redirect } from 'next/dist/server/api-utils';
 import { dropShadow } from '@cloudinary/url-gen/actions/effect';
 import { color } from '@cloudinary/url-gen/qualifiers/background';

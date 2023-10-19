@@ -175,6 +175,7 @@ import styles from '../../styles/boxmove.module.css';
 import { Rnd } from "react-rnd";
 
 export default function Boxmove(props) {
+  
   const [state, setState] = useState({ x: props.option.x, y: props.option.y });
   const [boxShadowcolor, setBoxShadowcolor] = useState('0px 0px 20px yellow');
   const [cXmax, setCXmax] = useState(0);
@@ -225,12 +226,14 @@ export default function Boxmove(props) {
   // Agregar el event listener cuando el componente se monta
   useEffect(() => {
     window.addEventListener("mouseup", handleMouseUp);
-
+    setState({ x: props.option.x, y: props.option.y });
+    setBoxShadowcolor('0px 0px 20px yellow')
+    
     return () => {
       // Quitar el event listener cuando el componente se desmonta
       window.removeEventListener("mouseup", handleMouseUp);
     };
-  }, []);
+  }, [props]);
 
   const handleDrag = (e, d) => {
     const distance = Math.sqrt((d.x - correctPosition.x) ** 2 + (d.y - correctPosition.y) ** 2);
