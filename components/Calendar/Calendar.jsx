@@ -22,8 +22,8 @@ const meetings = [
   {
     id: 1,
     name: 'Leslie Alexander',
-    // imageUrl:
-    //   // 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+     imageUrl:
+     'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
     startDatetime: '2023-10-28T13:00',
     endDatetime: '2023-10-28T14:30',
   },
@@ -32,32 +32,32 @@ const meetings = [
     name: 'Michael Foster',
     imageUrl:
       'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    startDatetime: '2022-05-20T09:00',
-    endDatetime: '2022-05-20T11:30',
+    startDatetime: '2023-10-20T09:00',
+    endDatetime: '2023-10-20T11:30',
   },
   {
     id: 3,
     name: 'Dries Vincent',
     imageUrl:
       'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    startDatetime: '2022-05-20T17:00',
-    endDatetime: '2022-05-20T18:30',
+    startDatetime: '2023-10-20T17:00',
+    endDatetime: '2023-10-20T18:30',
   },
   {
     id: 4,
     name: 'Leslie Alexander',
     imageUrl:
       'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    startDatetime: '2022-06-09T13:00',
-    endDatetime: '2022-06-09T14:30',
+    startDatetime: '2023-10-09T13:00',
+    endDatetime: '2023-10-09T14:30',
   },
   {
     id: 5,
     name: 'Michael Foster',
     imageUrl:
       'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    startDatetime: '2022-05-13T14:00',
-    endDatetime: '2022-05-13T14:30',
+    startDatetime: '2023-10-13T14:00',
+    endDatetime: '2023-10-13T14:30',
   },
 ]
 
@@ -117,12 +117,12 @@ export default function Example() {
               </button>
             </div>
             <div className="grid grid-cols-7 mt-10 text-xs leading-6 text-center text-gray-500">
-              <div>S</div>
+              <div>D</div>
+              <div>L</div>
               <div>M</div>
-              <div>T</div>
-              <div>W</div>
-              <div>T</div>
-              <div>F</div>
+              <div>M</div>
+              <div>J</div>
+              <div>V</div>
               <div>S</div>
             </div>
             <div className="grid grid-cols-7 mt-2 text-sm">
@@ -160,7 +160,7 @@ export default function Example() {
                       'mx-auto flex h-8 w-8 items-center justify-center rounded-full'
                     )}
                   >
-                    {console.log(selectedDay)}
+                    {/* {console.log(selectedDay)} */}
                     <time dateTime={format(day, 'yyyy-MM-dd')}>
                       {format(day, 'd')}
                     </time>
@@ -179,7 +179,7 @@ export default function Example() {
           </div>
           <section className="mt-12 md:mt-0 md:pl-14">
             <h2 className="font-semibold text-gray-900">
-              Schedule for{' '}
+              Agenda{' '}
               <time dateTime={format(selectedDay, 'yyyy-MM-dd')}>
                 {format(selectedDay, 'MMM dd, yyy')}
               </time>
@@ -256,7 +256,7 @@ function Meeting({ meeting }) {
                       'block px-4 py-2 text-sm'
                     )}
                   >
-                    Edit
+                    Seleccionar
                   </a>
                 )}
               </Menu.Item>
@@ -269,7 +269,7 @@ function Meeting({ meeting }) {
                       'block px-4 py-2 text-sm'
                     )}
                   >
-                    Cancel
+                    Cancelar
                   </a>
                 )}
               </Menu.Item>
