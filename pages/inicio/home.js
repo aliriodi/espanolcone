@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import Menu from '../../components/Menu';
 import Class from '../../components/Class/Class';
@@ -12,11 +12,14 @@ import { useDispatch } from "react-redux";
 import { classid } from '../../redux/ECEActions'
 
 export default function Home() {
-  
+  const [totalUnits, setTotalUnits] = useState()
+  const [unitsDone, setUnitsDone] = useState()
+
+  const [GeneralProgress, setGeneralProgress] = useState(0)
+
   const {data: session,status} = useSession();
   
   const dispatch = useDispatch()
-  console.log(session)
 
   const {showClass} = useSelector((state) => state.datos);
     const handleClickLogin = () => {
@@ -29,6 +32,64 @@ export default function Home() {
     window.location.href = '/users';
   };
 
+  function calculateGeneralProgress(){
+    // Esta funcion se encarga de calcular el progreso general en base a la cantidad de clases completadas    
+    let progressValue;
+    let currentClasses = [];
+    let clasesLength;
+    let classesDone;
+    
+    for(let i = 0; session?.user?.classes.length > i; i++){
+        // Se ponen todas las clases en un mismo array 
+        currentClasses = [...currentClasses, ...session?.user?.classes[i]?.units]
+    }
+
+    // Se le asigna las cantidad de clases totales
+    clasesLength = currentClasses.length
+
+    // Se le asigna la cantidad de clases completadas totales
+    classesDone = currentClasses.indexOf(currentClasses.find((c)=> c.unitID == session?.user?.position.id))
+
+    // Se calcula el porsentaje 
+    progressValue = (classesDone / clasesLength) * 100
+
+    // Se actualiza generalProgress 
+    setGeneralProgress(progressValue.toFixed(1))
+  }
+
+  function calculateUnitsDone(){
+    // Esta funcion calcula las cantidad de clases completadas en el nivel actual
+    
+    let currentLevel;
+    let currentUnitDone;
+    
+    // Busca el nivel actual correspondiente a la position
+    for(let i = 0; session?.user?.classes.length > i; i++){
+      if(session?.user?.classes[i]?.units.find((unit)=>unit.unitID == session?.user?.position.id)){
+        currentLevel = session?.user?.classes[i];
+        break;
+      }
+    }
+
+    // Busca hasta que unidad llego en el nivel actual
+    for(let i = 0; currentLevel?.units?.length > i; i++){
+      if(currentLevel?.units[i]?.unitID == session?.user?.position.id){
+        currentUnitDone = i;
+        break; 
+      }
+    }
+    
+    setUnitsDone(currentUnitDone || 0)
+    setTotalUnits(currentLevel?.units?.length || 0)
+  }
+
+  useEffect(()=>{
+
+    calculateGeneralProgress();
+
+    calculateUnitsDone();
+
+  },[session])
   return (
     <>
       {/* //TODO hacer header 
@@ -39,7 +100,7 @@ export default function Home() {
 
       <Menu />
 
-      <main className='ml-[277px] relative p-[60px] overflow-hidden
+      <main className='ml-[40px] relative p-[60px] overflow-hidden
       md:ml-0 md:px-[25px]'>
 
         {/* Bienvenido */}
@@ -83,11 +144,11 @@ export default function Home() {
                   <animated.div
                     className="progress-bar rounded-l-full h-[14px] flex justify-center items-center bg-success"
                     style={{
-                      width: '50%',
+                      width: `${GeneralProgress}%`,
                       // backgroundColor: '#ccc', // Color de fondo de la barra de progreso
                     }}
                   >
-                    <p className='text-[12px] text-white'>5 / 10</p>
+                    <p className='text-[12px] text-white'>{GeneralProgress}%</p>
                   </animated.div>
               </div>
 
@@ -103,11 +164,11 @@ export default function Home() {
                   <animated.div
                     className="progress-bar rounded-l-full h-[14px] flex justify-center items-center bg-success"
                     style={{
-                      width: '50%',
+                      width: `${(unitsDone / totalUnits) * 100}%`,
                       // backgroundColor: '#ccc', // Color de fondo de la barra de progreso
                     }}
                   >
-                    <p className='text-[12px] text-white'>5 / 10</p>
+                    <p className='text-[12px] text-white'>{unitsDone} / {totalUnits}</p>
                   </animated.div>
               </div>
             </li>

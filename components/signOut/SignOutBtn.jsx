@@ -1,4 +1,6 @@
 import { signOut } from "next-auth/react"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPowerOff } from '@fortawesome/free-solid-svg-icons';
 
 export default function SignOutBtn() {
     const handleSignOut = async () => {
@@ -9,8 +11,10 @@ export default function SignOutBtn() {
         <button
             onClick={() => handleSignOut()}// Te devuelve al formulario de iniciar sesion 
             type='submit'
-            className='bg-primary text-white px-5 py-2 rounded mr-5'>
-            Salir de cuenta
+            className='w-full flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-danger border-solid border-[1px] rounded-[7px] text-danger transition-all
+            hover:bg-danger hover:text-white'>
+                <FontAwesomeIcon icon={faPowerOff} className=" mr-[10px]" />
+                <p>Salir de cuenta</p>
         </button>
     )
 }
