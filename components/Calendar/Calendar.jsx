@@ -1,5 +1,6 @@
 import { Menu, Transition } from '@headlessui/react'
 import { DotsVerticalIcon } from '@heroicons/react/outline'
+import { es } from 'date-fns/locale';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
 import {
   add,
@@ -59,6 +60,14 @@ const meetings = [
     startDatetime: '2023-10-13T14:00',
     endDatetime: '2023-10-13T14:30',
   },
+  {
+    id: 6,
+    name: 'Alirio Diaz',
+     imageUrl:
+     'https://res.cloudinary.com/dfddh08q8/image/upload/v1696624364/images/Alirio_llwj0p.png',
+    startDatetime: '2023-10-28T12:00',
+    endDatetime: '2023-10-28T16:30',
+  },
 ]
 
 function classNames(...classes) {
@@ -68,7 +77,7 @@ function classNames(...classes) {
 export default function Example() {
   let today = startOfToday()
   let [selectedDay, setSelectedDay] = useState(today)
-  let [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
+  let [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'), { locale: es })
   let firstDayCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date())
 
   let days = eachDayOfInterval({
@@ -78,12 +87,12 @@ export default function Example() {
 
   function previousMonth() {
     let firstDayNextMonth = add(firstDayCurrentMonth, { months: -1 })
-    setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'))
+    setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy', { locale: es }))
   }
 
   function nextMonth() {
     let firstDayNextMonth = add(firstDayCurrentMonth, { months: 1 })
-    setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'))
+    setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy', { locale: es }))
   }
 
   let selectedDayMeetings = meetings.filter((meeting) =>
@@ -97,7 +106,8 @@ export default function Example() {
           <div className="md:pr-14">
             <div className="flex items-center">
               <h2 className="flex-auto font-semibold text-gray-900">
-                {format(firstDayCurrentMonth, 'MMMM yyyy')}
+                {/* Aca esta el mes  del calendario */}
+                {format(firstDayCurrentMonth, 'MMMM yyyy', { locale: es }).charAt(0).toUpperCase()+format(firstDayCurrentMonth, 'MMMM yyyy', { locale: es }).slice(1)}
               </h2>
               <button
                 type="button"
@@ -161,7 +171,7 @@ export default function Example() {
                     )}
                   >
                     {/* {console.log(selectedDay)} */}
-                    <time dateTime={format(day, 'yyyy-MM-dd')}>
+                    <time dateTime={format(day, 'yyyy-MM-dd', { locale: es })}>
                       {format(day, 'd')}
                     </time>
                   </button>
@@ -180,8 +190,8 @@ export default function Example() {
           <section className="mt-12 md:mt-0 md:pl-14">
             <h2 className="font-semibold text-gray-900">
               Agenda{' '}
-              <time dateTime={format(selectedDay, 'yyyy-MM-dd')}>
-                {format(selectedDay, 'MMM dd, yyy')}
+              <time dateTime={format(selectedDay, 'yyyy-MM-dd', { locale: es })}>
+                {format(selectedDay, 'MMM dd, yyy', { locale: es })}
               </time>
             </h2>
             <ol className="mt-4 space-y-1 text-sm leading-6 text-gray-500">
@@ -217,11 +227,11 @@ function Meeting({ meeting }) {
         <p className="text-gray-900">{meeting.name}</p>
         <p className="mt-0.5">
           <time dateTime={meeting.startDatetime}>
-            {format(startDateTime, 'h:mm a')}
+            {format(startDateTime, 'h:mm a', { locale: es })}
           </time>{' '}
           -{' '}
           <time dateTime={meeting.endDatetime}>
-            {format(endDateTime, 'h:mm a')}
+            {format(endDateTime, 'h:mm a', { locale: es })}
           </time>
         </p>
       </div>
