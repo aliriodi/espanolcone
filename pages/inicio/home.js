@@ -12,7 +12,7 @@ import { useDispatch } from "react-redux";
 import { classid } from '../../redux/ECEActions'
 
 export default function Home() {
-  const [totalUnitsDone, setTotalUnitsDone] = useState()
+  const [totalUnits, setTotalUnits] = useState()
   const [unitsDone, setUnitsDone] = useState()
 
   const [GeneralProgress, setGeneralProgress] = useState(0)
@@ -59,13 +59,36 @@ export default function Home() {
 
   function calculateUnitsDone(){
     // Esta funcion calcula las cantidad de clases completadas en el nivel actual
+    
+    let currentLevel;
+    let currentUnitDone;
+    
+    // Busca el nivel actual correspondiente a la position
+    for(let i = 0; session?.user?.classes.length > i; i++){
+      if(session?.user?.classes[i]?.units.find((unit)=>unit.unitID == session?.user?.position.id)){
+        currentLevel = session?.user?.classes[i];
+        break;
+      }
+    }
 
+    // Busca hasta que unidad llego en el nivel actual
+    for(let i = 0; currentLevel?.units?.length > i; i++){
+      if(currentLevel?.units[i]?.unitID == session?.user?.position.id){
+        currentUnitDone = i;
+        break; 
+      }
+    }
+    
+    setUnitsDone(currentUnitDone || 0)
+    setTotalUnits(currentLevel?.units?.length || 0)
   }
 
   useEffect(()=>{
+
     calculateGeneralProgress();
 
     calculateUnitsDone();
+
   },[session])
   return (
     <>
@@ -141,11 +164,11 @@ export default function Home() {
                   <animated.div
                     className="progress-bar rounded-l-full h-[14px] flex justify-center items-center bg-success"
                     style={{
-                      width: '50%',
+                      width: `${(unitsDone / totalUnits) * 100}%`,
                       // backgroundColor: '#ccc', // Color de fondo de la barra de progreso
                     }}
                   >
-                    <p className='text-[12px] text-white'>5 / 10</p>
+                    <p className='text-[12px] text-white'>{unitsDone} / {totalUnits}</p>
                   </animated.div>
               </div>
             </li>
