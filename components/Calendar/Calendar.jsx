@@ -68,6 +68,14 @@ function classNames(...classes) {
 }
 
 export default function Example() {
+  //Aca debe venir de la BD los por userId o email un solo usuario
+  //con todos los teachers y guias turisticos disponibles
+  //y sus calendarios y propiedades
+  //1. en caso de ser user se trae todo los teachers y guias
+  //2. en caso de ser teacher solo se trae su calendario con alumnos agendados y que pueda modificar sus horas disponibles
+  //   no tiene derecho de cancelar clases esta replanificaion va con el departamento de profesores
+  //3. en caso de ser guia turistico solo trae su calendario con sus clientes asignados, puede modificar sus horarios 
+  //   disponibles no puede cancelar citas ya reservadas
   const student = require("./alumnos.json");
   const teacher = require("./teachers.json");
   const guide = require("./guides.json");
@@ -86,6 +94,8 @@ let [name,setName] =useState('students')
     if(user==='teachers'){setRenders(teachers);setName('teachers')}
     if(user==='guides'){setRenders(guides);setName('guides')}
    }
+
+// Termina section de BD ahora viebne el codigo que usa los datos
 
   let today = startOfToday()
   let [selectedDay, setSelectedDay] = useState(today)
@@ -117,7 +127,7 @@ let [name,setName] =useState('students')
         <div className="md:grid md:grid-cols-2 md:divide-x md:divide-gray-200">
             <div className="md:pr-14">
           <div style={{border:'solid 1px red'}}>
-  {/* Menu Desplegable */}
+  {/* Menu Desplegable para tipo de usuarios */}
   <ul className={`${styles['select-languages_menu2']} ${ styles['active']}`}>
               {
                 users.length > 0 &&
@@ -127,8 +137,7 @@ let [name,setName] =useState('students')
                     value={user}
                     className={styles["select-languages_languages"]}
                     key={user}>
-                    {/* Icono */}
-                   
+                                    
 
                     {/* Label */}
                     <label style={{ marginLeft: "8px" }}>
