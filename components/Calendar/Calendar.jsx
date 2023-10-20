@@ -2,7 +2,7 @@ import { Menu, Transition } from '@headlessui/react'
 import { DotsVerticalIcon } from '@heroicons/react/outline'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
 import styles from '../../styles/navbar.module.css';
-
+import { es } from 'date-fns/locale';
 import {
   add,
   eachDayOfInterval,
@@ -34,32 +34,32 @@ const meetings = [
     name: 'Michael Foster',
     imageUrl:
       'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    startDatetime: '2022-05-20T09:00',
-    endDatetime: '2022-05-20T11:30',
+    startDatetime: '2023-10-20T09:00',
+    endDatetime: '2023-10-20T11:30',
   },
   {
     id: 3,
     name: 'Dries Vincent',
     imageUrl:
       'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    startDatetime: '2022-05-20T17:00',
-    endDatetime: '2022-05-20T18:30',
+    startDatetime: '2023-10-20T17:00',
+    endDatetime: '2023-10-20T18:30',
   },
   {
     id: 4,
     name: 'Leslie Alexander',
     imageUrl:
       'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    startDatetime: '2022-06-09T13:00',
-    endDatetime: '2022-06-09T14:30',
+    startDatetime: '2023-10-09T13:00',
+    endDatetime: '2023-10-09T14:30',
   },
   {
     id: 5,
     name: 'Michael Foster',
     imageUrl:
       'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    startDatetime: '2022-05-13T14:00',
-    endDatetime: '2022-05-13T14:30',
+    startDatetime: '2023-10-13T14:00',
+    endDatetime: '2023-10-13T14:30',
   },
 ]
 
@@ -155,7 +155,8 @@ let [name,setName] =useState('students')
               </div>:null}
             <div className="flex items-center">
               <h2 className="flex-auto font-semibold text-gray-900">
-                {format(firstDayCurrentMonth, 'MMMM yyyy')}
+                {/* Aca esta el mes  del calendario */}
+                {format(firstDayCurrentMonth, 'MMMM yyyy', { locale: es }).charAt(0).toUpperCase()+format(firstDayCurrentMonth, 'MMMM yyyy', { locale: es }).slice(1)}
               </h2>
               <button
                 type="button"
@@ -175,12 +176,12 @@ let [name,setName] =useState('students')
               </button>
             </div>
             <div className="grid grid-cols-7 mt-10 text-xs leading-6 text-center text-gray-500">
-              <div>S</div>
+              <div>D</div>
+              <div>L</div>
               <div>M</div>
-              <div>T</div>
-              <div>W</div>
-              <div>T</div>
-              <div>F</div>
+              <div>M</div>
+              <div>J</div>
+              <div>V</div>
               <div>S</div>
             </div>
             <div className="grid grid-cols-7 mt-2 text-sm">
@@ -237,9 +238,10 @@ let [name,setName] =useState('students')
           </div>
           <section className="mt-12 md:mt-0 md:pl-14">
             <h2 className="font-semibold text-gray-900">
-              Schedule for{' '}
+              Agenda{' '}
               <time dateTime={format(selectedDay, 'yyyy-MM-dd')}>
-                {format(selectedDay, 'MMM dd, yyy')}
+              
+                {format(selectedDay, 'MMM dd, yyy', { locale: es }).charAt(0).toUpperCase()+format(selectedDay, 'MMM dd, yyy', { locale: es }).slice(1)}
               </time>
             </h2>
             <ol className="mt-4 space-y-1 text-sm leading-6 text-gray-500">
