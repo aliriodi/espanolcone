@@ -7,14 +7,27 @@
         "image":"https://res.cloudinary.com/dfddh08q8/image/upload/v1697514246/images/7_tcfqxh.png",
         "schedule": [
             {
-                "assigned": false,
-                "nameuser": null,
+                "id":1,
+                "assigned": true,
+                "nameuser": "Alirio Diaz",
                 "email": null,
-                "role":null,
+                "role":"teacher",
+                "image":"https://res.cloudinary.com/dfddh08q8/image/upload/v1696624364/images/Alirio_llwj0p.png",
                 "iduser": null,
-                "startDatetime": "",
-                "endDatetime": ""
-            }           
+                "startDatetime": "2023-10-26T13:00",
+                "endDatetime": "2023-10-26T15:00"
+            }   ,
+            {
+                "id":1,
+                "assigned": true,
+                "nameuser": "Eucaris Rodriguez",
+                "email": null,
+                "role":"teacher",
+                "image":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366482/images/team-photo-01_svprcr.png",
+                "iduser": null,
+                "startDatetime": "2023-10-27T14:00",
+                "endDatetime": "2023-10-27T15:00"
+            }                   
         ]},
         {"id": 100,
         "first_name": "Bruna",
@@ -53,8 +66,8 @@
                 "email": "espanolcone.com",
                 "role":"guide",
                 "iduser": "1",
-                "startDatetime": "2023-10-28T12:00",
-                "endDatetime": "2023-10-28T16:30"
+                "startDatetime": "2023-10-28T17:00",
+                "endDatetime": "2023-10-28T21:30"
             }                                 
         ]}
 

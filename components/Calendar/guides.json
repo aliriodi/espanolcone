@@ -6,18 +6,20 @@
             "last_name": "strogonof",
             "role":"guide",
             "email":"espanolconeacademy@gmail.com",
-            "image":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366467/images/promo_img_3_cgi2d1.png",
+            "image":"https://res.cloudinary.com/dfddh08q8/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1697590888/images/maria_teresa_kcfi99.png",
             "schedule": [
                 
-                {"id":1,
-                       "role":null,
-                    "assigned": false,
-                    "nameuser": null,
-                    "email": null,
-                    "image":"",
-                    "iduser": null,
-                    "startDatetime": "2023-10-23T13:00",
-                    "endDatetime": "2023-10-23T14:00"
+                {"id":3,
+                "assigned": true,
+                "nameuser": "Bruna Martinez",
+                "first_name": "Josefina",
+                "last_name": "strogonof",
+                "image":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694765455/images/bruna_kb7jcg.jpg",
+                "email": "espanolcone.com",
+                "role":"user",
+                "iduser": "1",
+                "startDatetime": "2023-10-28T17:00",
+                "endDatetime": "2023-10-28T21:30"
                 },
                 {"id":2,
                 "role":null,
@@ -80,16 +82,7 @@
             "last_name": "Perez",
             "role":"guide",
             "schedule": [
-                {"id":1,
-                "role":"user",
-                    "assigned": true,
-                    "nameuser": "Pedro Perez",
-                    "iduser": 152,
-                    "image":"",
-                    "email": "aliriodi@gmail.com",
-                    "startDatetime": "2023-10-23T13:00",
-                    "endDatetime": "2023-10-23T14:00"
-                },
+               
                 {"id":2,
                 "role":null,
                     "assigned": false,
