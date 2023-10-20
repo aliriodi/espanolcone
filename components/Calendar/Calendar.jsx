@@ -1,7 +1,8 @@
 import { Menu, Transition } from '@headlessui/react'
 import { DotsVerticalIcon } from '@heroicons/react/outline'
-import { es } from 'date-fns/locale';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
+import styles from '../../styles/navbar.module.css';
+
 import {
   add,
   eachDayOfInterval,
@@ -18,65 +19,47 @@ import {
 } from 'date-fns'
 import Image from 'next/image'
 import { Fragment, useState } from 'react'
-const teachers = require("./teachers.json");
-const alumnos = require("./alumnos.json");
-const guides = require("./guides.json");
-
 
 const meetings = [
   {
     id: 1,
-    first_name:"Leslie",
     name: 'Leslie Alexander',
      imageUrl:
-     'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
     startDatetime: '2023-10-28T13:00',
     endDatetime: '2023-10-28T14:30',
   },
   {
     id: 2,
-    first_name:"Mike",
     name: 'Michael Foster',
     imageUrl:
       'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    startDatetime: '2023-10-20T09:00',
-    endDatetime: '2023-10-20T11:30',
+    startDatetime: '2022-05-20T09:00',
+    endDatetime: '2022-05-20T11:30',
   },
   {
     id: 3,
-    first_name:"Dires",
     name: 'Dries Vincent',
     imageUrl:
       'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    startDatetime: '2023-10-20T17:00',
-    endDatetime: '2023-10-20T18:30',
+    startDatetime: '2022-05-20T17:00',
+    endDatetime: '2022-05-20T18:30',
   },
   {
     id: 4,
-    first_name:"Leslie",
     name: 'Leslie Alexander',
     imageUrl:
       'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    startDatetime: '2023-10-09T13:00',
-    endDatetime: '2023-10-09T14:30',
+    startDatetime: '2022-06-09T13:00',
+    endDatetime: '2022-06-09T14:30',
   },
   {
     id: 5,
-    first_name:"Mike",
     name: 'Michael Foster',
     imageUrl:
       'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    startDatetime: '2023-10-13T14:00',
-    endDatetime: '2023-10-13T14:30',
-  },
-  {
-    id: 6,
-    first_name:"Alirio",
-    name: 'Alirio Diaz',
-     imageUrl:
-     'https://res.cloudinary.com/dfddh08q8/image/upload/v1696624364/images/Alirio_llwj0p.png',
-    startDatetime: '2023-10-28T12:00',
-    endDatetime: '2023-10-28T16:30',
+    startDatetime: '2022-05-13T14:00',
+    endDatetime: '2022-05-13T14:30',
   },
 ]
 
@@ -85,9 +68,28 @@ function classNames(...classes) {
 }
 
 export default function Example() {
+  const student = require("./alumnos.json");
+  const teacher = require("./teachers.json");
+  const guide = require("./guides.json");
+ 
+let [students, setStudents] = useState(student.value)
+let [teachers, setTeachers] = useState(teacher.value)
+let [guides, setGuides] = useState(guide.value)
+let [renders, setRenders] = useState(students)
+let [name,setName] =useState('students')
+  const users = ['students','teachers','guides']
+  let [i, setI] = useState(0)
+  function nextI() {if(i<students.length-1){let iaux = i+1; setI(iaux);} console.log(i) }
+  function backI() {if(0<i){let iaux = i-1; setI(iaux);} console.log(i)}
+  function handleOnChange(user) {
+    if(user==='students'){setRenders(students);setName('students')}
+    if(user==='teachers'){setRenders(teachers);setName('teachers')}
+    if(user==='guides'){setRenders(guides);setName('guides')}
+   }
+
   let today = startOfToday()
   let [selectedDay, setSelectedDay] = useState(today)
-  let [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'), { locale: es })
+  let [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
   let firstDayCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date())
 
   let days = eachDayOfInterval({
@@ -97,12 +99,12 @@ export default function Example() {
 
   function previousMonth() {
     let firstDayNextMonth = add(firstDayCurrentMonth, { months: -1 })
-    setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy', { locale: es }))
+    setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'))
   }
 
   function nextMonth() {
     let firstDayNextMonth = add(firstDayCurrentMonth, { months: 1 })
-    setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy', { locale: es }))
+    setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'))
   }
 
   let selectedDayMeetings = meetings.filter((meeting) =>
@@ -113,11 +115,47 @@ export default function Example() {
     <div className="pt-16">
       <div className="max-w-md px-4 mx-auto sm:px-7 md:max-w-4xl md:px-6">
         <div className="md:grid md:grid-cols-2 md:divide-x md:divide-gray-200">
-          <div className="md:pr-14">
+            <div className="md:pr-14">
+          <div style={{border:'solid 1px red'}}>
+  {/* Menu Desplegable */}
+  <ul className={`${styles['select-languages_menu2']} ${ styles['active']}`}>
+              {
+                users.length > 0 &&
+                users.map((user) => (
+                  <li
+                    onClick={() => handleOnChange(user)}
+                    value={user}
+                    className={styles["select-languages_languages"]}
+                    key={user}>
+                    {/* Icono */}
+                   
+
+                    {/* Label */}
+                    <label style={{ marginLeft: "8px" }}>
+                      {user}
+                    </label>
+                  </li>
+                )
+                )
+              }
+            </ul>
+            </div>
+ 
+            <>{name}</>
+
+
+
+
+
+            
+          <button style={{ 'marginLeft': '16px', 'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={backI}>Anterior</button>
+            <button style={{ 'marginLeft': '16px', 'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={nextI}>Siguiente</button>
+            {renders? <div>
+              <Image alt={'student'} width={100} height={100} src={renders[i].image}></Image>
+              </div>:null}
             <div className="flex items-center">
               <h2 className="flex-auto font-semibold text-gray-900">
-                {/* Aca esta el mes  del calendario */}
-                {format(firstDayCurrentMonth, 'MMMM yyyy', { locale: es }).charAt(0).toUpperCase()+format(firstDayCurrentMonth, 'MMMM yyyy', { locale: es }).slice(1)}
+                {format(firstDayCurrentMonth, 'MMMM yyyy')}
               </h2>
               <button
                 type="button"
@@ -137,12 +175,12 @@ export default function Example() {
               </button>
             </div>
             <div className="grid grid-cols-7 mt-10 text-xs leading-6 text-center text-gray-500">
-              <div>D</div>
-              <div>L</div>
+              <div>S</div>
               <div>M</div>
-              <div>M</div>
-              <div>J</div>
-              <div>V</div>
+              <div>T</div>
+              <div>W</div>
+              <div>T</div>
+              <div>F</div>
               <div>S</div>
             </div>
             <div className="grid grid-cols-7 mt-2 text-sm">
@@ -180,8 +218,8 @@ export default function Example() {
                       'mx-auto flex h-8 w-8 items-center justify-center rounded-full'
                     )}
                   >
-                    {/* {console.log(selectedDay)} */}
-                    <time dateTime={format(day, 'yyyy-MM-dd', { locale: es })}>
+                    
+                    <time dateTime={format(day, 'yyyy-MM-dd')}>
                       {format(day, 'd')}
                     </time>
                   </button>
@@ -199,9 +237,9 @@ export default function Example() {
           </div>
           <section className="mt-12 md:mt-0 md:pl-14">
             <h2 className="font-semibold text-gray-900">
-              Agenda{' '}
-              <time dateTime={format(selectedDay, 'yyyy-MM-dd', { locale: es })}>
-                {format(selectedDay, 'MMM dd, yyy', { locale: es })}
+              Schedule for{' '}
+              <time dateTime={format(selectedDay, 'yyyy-MM-dd')}>
+                {format(selectedDay, 'MMM dd, yyy')}
               </time>
             </h2>
             <ol className="mt-4 space-y-1 text-sm leading-6 text-gray-500">
@@ -228,7 +266,7 @@ function Meeting({ meeting }) {
     <li className="flex items-center px-4 py-2 space-x-4 group rounded-xl focus-within:bg-gray-100 hover:bg-gray-100">
       <Image
         src={meeting.imageUrl}
-        alt={meeting.first_name}
+        alt=""
         className="flex-none w-10 h-10 rounded-full"
         width={160}
         height={160}
@@ -237,11 +275,11 @@ function Meeting({ meeting }) {
         <p className="text-gray-900">{meeting.name}</p>
         <p className="mt-0.5">
           <time dateTime={meeting.startDatetime}>
-            {format(startDateTime, 'h:mm a', { locale: es })}
+            {format(startDateTime, 'h:mm a')}
           </time>{' '}
           -{' '}
           <time dateTime={meeting.endDatetime}>
-            {format(endDateTime, 'h:mm a', { locale: es })}
+            {format(endDateTime, 'h:mm a')}
           </time>
         </p>
       </div>
@@ -276,7 +314,7 @@ function Meeting({ meeting }) {
                       'block px-4 py-2 text-sm'
                     )}
                   >
-                    Seleccionar
+                    Edit
                   </a>
                 )}
               </Menu.Item>
@@ -289,7 +327,7 @@ function Meeting({ meeting }) {
                       'block px-4 py-2 text-sm'
                     )}
                   >
-                    Cancelar
+                    Cancel
                   </a>
                 )}
               </Menu.Item>

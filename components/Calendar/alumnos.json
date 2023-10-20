@@ -22,17 +22,18 @@
         "role":"user",
         "image":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694765455/images/bruna_kb7jcg.jpg",
         "schedule": [
-            {
+            {    "id":1,
                 "assigned": false,
                 "nameuser": null,
                 "email": null,
                 "role":null,
                 "image":"",
                 "iduser": null,
-                "startDatetime": "",
-                "endDatetime": ""
+                "startDatetime": "2023-10-28T12:00",
+                "endDatetime": "2023-10-28T16:30"
             },
-            {
+            {  "id":2,
+                "nameuser": "Eucaris Rodriguez",
                 "assigned": true,
                 "first_name": "Eucaris",
                 "last_name": "Rodriguez",
@@ -43,8 +44,9 @@
                 "startDatetime": "2023-10-28T12:00",
                 "endDatetime": "2023-10-28T16:30"
             }  ,
-            {
+            { "id":3,
                 "assigned": true,
+                "nameuser": "Josefina strogonof",
                 "first_name": "Josefina",
                 "last_name": "strogonof",
                 "image":"",
