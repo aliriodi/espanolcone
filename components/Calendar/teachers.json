@@ -8,6 +8,15 @@
             "email":"espanolconeacademy@gmail.com",
             "image":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366482/images/team-photo-01_svprcr.png",
             "schedule": [
+                {"id":1,
+                "assigned": true,
+                "nameuser": "Hugo Sanchez",
+                "email": null,
+                "role":"student",
+                "image":"https://res.cloudinary.com/dfddh08q8/image/upload/v1697514246/images/7_tcfqxh.png",
+                "iduser": null,
+                "startDatetime": "2023-10-27T14:00",
+                "endDatetime": "2023-10-27T15:00"},
                 {
                     "id":2,
                     "role":"students",
@@ -105,7 +114,7 @@
             "schedule": [
                 {
                     "assigned": false,
-                    "nameuser": "Pedro Perez",
+                    "nameuser": null,
                     "iduser": 152,
                     "email": "aliriodi@gmail.com",
                     "image":"",
@@ -132,7 +141,7 @@
                 },
                 {
                     "assigned": false,
-                    "nameuser": "Jose Luis",
+                    "nameuser": null,
                     "iduser": 875,
                     "image":"",
                     "email": null,
@@ -174,7 +183,16 @@
                     "image":"",
                     "startDatetime": "2023-10-24T17:00",
                     "endDatetime": "2023-10-24T18:00"
-                }
+                },
+                {"id":1,
+                "assigned": true,
+                "nameuser": "Hugo Sanchez",
+                "email": null,
+                "role":"student",
+                "image":"https://res.cloudinary.com/dfddh08q8/image/upload/v1697514246/images/7_tcfqxh.png",
+                "iduser": null,
+                "startDatetime": "2023-10-26T13:00",
+                "endDatetime": "2023-10-26T15:00"}
             ]
         }
     ]
