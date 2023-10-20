@@ -187,15 +187,16 @@ let [name,setName] =useState('students')
                 <span className="sr-only">Next month</span>
                 <ChevronRightIcon className="w-5 h-5" aria-hidden="true" />
               </button>
-            </div>
-            <div className="grid grid-cols-7 mt-10 text-xs leading-6 text-center text-gray-500">
-              <div>D</div>
-              <div>L</div>
-              <div>M</div>
-              <div>M</div>
-              <div>J</div>
-              <div>V</div>
-              <div>S</div>
+            </div >
+            <div className="grid grid-cols-7 mt-10 text-base leading-6 text-center text-white bg-primary">
+            {/* <div className="grid grid-cols-7 mt-10 text-xs leading-6 text-center text-gray-500"> */}
+              <div>Dom</div>
+              <div>Lun</div>
+              <div>Mar</div>
+              <div>Mie</div>
+              <div>Jue</div>
+              <div>Vie</div>
+              <div>Sáb</div>
             </div>
             <div className="grid grid-cols-7 mt-2 text-sm">
               {days.map((day, dayIdx) => (
@@ -211,24 +212,13 @@ let [name,setName] =useState('students')
                     onClick={() => setSelectedDay(day)}
                     className={classNames(
                       isEqual(day, selectedDay) && 'text-white',
-                      !isEqual(day, selectedDay) &&
-                      isToday(day) &&
-                      'text-red-500',
-                      !isEqual(day, selectedDay) &&
-                      !isToday(day) &&
-                      isSameMonth(day, firstDayCurrentMonth) &&
-                      'text-gray-900',
-                      !isEqual(day, selectedDay) &&
-                      !isToday(day) &&
-                      !isSameMonth(day, firstDayCurrentMonth) &&
-                      'text-gray-400',
-                      isEqual(day, selectedDay) && isToday(day) && 'bg-red-500',
-                      isEqual(day, selectedDay) &&
-                      !isToday(day) &&
-                      'bg-gray-900',
+                      !isEqual(day, selectedDay) && isToday(day) && 'text-primary text-lg ',
+                      !isEqual(day, selectedDay) && !isToday(day) &&  isSameMonth(day, firstDayCurrentMonth) && 'text-gray-900',
+                      !isEqual(day, selectedDay) && !isToday(day) &&  !isSameMonth(day, firstDayCurrentMonth) &&'text-gray-400',
+                      isEqual(day, selectedDay) && isToday(day) && 'bg-success',
+                      isEqual(day, selectedDay) &&   !isToday(day) && 'bg-success',
                       !isEqual(day, selectedDay) && 'hover:bg-gray-200',
-                      (isEqual(day, selectedDay) || isToday(day)) &&
-                      'font-semibold',
+                      (isEqual(day, selectedDay) || isToday(day)) && 'font-semibold',
                       'mx-auto flex h-8 w-8 items-center justify-center rounded-full'
                     )}
                   >
@@ -239,11 +229,21 @@ let [name,setName] =useState('students')
                   </button>
 
                   <div className="w-1 h-1 mx-auto mt-1">
-                    {meetings.some((meeting) =>
+                    {/* aca deberia ir los meets que tienen estilos, los dias disponibles y /o reservados 
+                    para estudiantes y mas abajo otro para profesores donde cargan calendarios o tienen vista
+                    de citas */}
+                  {renders[i].schedule.some((meeting) =>
                       isSameDay(parseISO(meeting.startDatetime), day)
                     ) && (
                         <div className="w-1 h-1 rounded-full bg-sky-500"></div>
                       )}
+
+                    
+                    {/* {meetings.some((meeting) =>
+                      isSameDay(parseISO(meeting.startDatetime), day)
+                    ) && (
+                        <div className="w-1 h-1 rounded-full bg-sky-500"></div>
+                      )} */}
                   </div>
                 </div>
               ))}
