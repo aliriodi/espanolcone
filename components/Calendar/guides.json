@@ -8,7 +8,9 @@
             "email":"espanolconeacademy@gmail.com",
             "image":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366467/images/promo_img_3_cgi2d1.png",
             "schedule": [
-                {
+                
+                {"id":1,
+                       "role":null,
                     "assigned": false,
                     "nameuser": null,
                     "email": null,
@@ -17,67 +19,56 @@
                     "startDatetime": "2023-10-23T13:00",
                     "endDatetime": "2023-10-23T14:00"
                 },
-                {
-                    "assigned": false,
-                    "nameuser": null,
-                    "image":"",
-                    "email": null,
-                    "iduser": null,
-                    "startDatetime": "2023-10-23T14:00",
-                    "endDatetime": "2023-10-23T15:00"
+                {"id":2,
+                "role":null,
+             "assigned": false,
+             "nameuser": null,
+             "email": null,
+             "image":"",
+             "iduser": null,
+             "startDatetime": "2023-10-23T13:00",
+             "endDatetime": "2023-10-23T14:00"
                 },
                 {
-                    "assigned": false,
-                    "nameuser": null,
-                    "iduser": null,
-                    "image":"",
-                    "email": null,
-                    "startDatetime": "2023-10-23T16:00",
-                    "endDatetime": "2023-10-23T17:00"
-                },
+                    "id":1,
+                    "role":null,
+                 "assigned": false,
+                 "nameuser": null,
+                 "email": null,
+                 "image":"",
+                 "iduser": null,
+                 "startDatetime": "2023-10-23T13:00",
+                 "endDatetime": "2023-10-23T14:00"                },
                 {
+                    "id":1,
+                       "role":null,
                     "assigned": false,
                     "nameuser": null,
-                    "iduser": null,
-                    "image":"",
                     "email": null,
-                    "startDatetime": "2023-10-24T17:00",
-                    "endDatetime": "2023-10-24T18:00"
-                },
-                {
-                    "assigned": false,
-                    "nameuser": null,
                     "image":"",
                     "iduser": null,
-                    "email": null,
-                    "startDatetime": "2023-10-24T13:00",
-                    "endDatetime": "2023-10-24T14:00"
+                    "startDatetime": "2023-10-23T13:00",
+                    "endDatetime": "2023-10-23T14:00"
                 },
-                {
-                    "assigned": false,
-                    "nameuser": null,
-                    "iduser": null,
-                    "email": null,
-                    "startDatetime": "2023-10-24T14:00",
-                    "endDatetime": "2023-10-24T15:00"
+                {"id":1,
+                "role":null,
+             "assigned": false,
+             "nameuser": null,
+             "email": null,
+             "image":"",
+             "iduser": null,
+             "startDatetime": "2023-10-23T13:00",
+             "endDatetime": "2023-10-23T14:00"
                 },
-                {
-                    "assigned": false,
-                    "nameuser": null,
-                    "iduser": null,
-                    "image":"",
-                    "email": null,
-                    "startDatetime": "2023-10-24T16:00",
-                    "endDatetime": "2023-10-24T17:00"
-                },
-                {
-                    "assigned": false,
-                    "nameuser": null,
-                    "iduser": null,
-                    "image":"",
-                    "email": null,
-                    "startDatetime": "2023-10-24T17:00",
-                    "endDatetime": "2023-10-24T18:00"
+                {"id":1,
+                "role":null,
+             "assigned": false,
+             "nameuser": null,
+             "email": null,
+             "image":"",
+             "iduser": null,
+             "startDatetime": "2023-10-23T13:00",
+             "endDatetime": "2023-10-23T14:00"
                 }
             ]
         },
@@ -89,7 +80,8 @@
             "last_name": "Perez",
             "role":"guide",
             "schedule": [
-                {
+                {"id":1,
+                "role":"user",
                     "assigned": true,
                     "nameuser": "Pedro Perez",
                     "iduser": 152,
@@ -98,7 +90,8 @@
                     "startDatetime": "2023-10-23T13:00",
                     "endDatetime": "2023-10-23T14:00"
                 },
-                {
+                {"id":2,
+                "role":null,
                     "assigned": false,
                     "nameuser": null,
                     "iduser": null,
@@ -107,7 +100,8 @@
                     "startDatetime": "2023-10-23T14:00",
                     "endDatetime": "2023-10-23T15:00"
                 },
-                {
+                {"id":2,
+                "role":null,
                     "assigned": false,
                     "nameuser": null,
                     "iduser": null,
@@ -116,7 +110,8 @@
                     "startDatetime": "2023-10-23T16:00",
                     "endDatetime": "2023-10-23T17:00"
                 },
-                {
+                {"id":2,
+                "role":null,
                     "assigned": true,
                     "nameuser": "Jose Luis",
                     "iduser": 875,
@@ -125,7 +120,8 @@
                     "startDatetime": "2023-10-24T17:00",
                     "endDatetime": "2023-10-24T18:00"
                 },
-                {
+                {"id":2,
+                "role":null,
                     "assigned": false,
                     "nameuser": null,
                     "iduser": null,
@@ -134,7 +130,8 @@
                     "startDatetime": "2023-10-24T13:00",
                     "endDatetime": "2023-10-24T14:00"
                 },
-                {
+                {"id":2,
+                "role":null,
                     "assigned": false,
                     "nameuser": null,
                     "iduser": null,
@@ -143,7 +140,8 @@
                     "startDatetime": "2023-10-24T14:00",
                     "endDatetime": "2023-10-24T15:00"
                 },
-                {
+                {"id":2,
+                "role":null,
                     "assigned": false,
                     "nameuser": null,
                     "iduser": null,
@@ -152,7 +150,8 @@
                     "startDatetime": "2023-10-24T16:00",
                     "endDatetime": "2023-10-24T17:00"
                 },
-                {
+                {"id":2,
+                "role":null,
                     "assigned": false,
                     "nameuser": null,
                     "iduser": null,
