@@ -233,9 +233,15 @@ let [name,setName] =useState('students')
                     para estudiantes y mas abajo otro para profesores donde cargan calendarios o tienen vista
                     de citas */}
                   {renders[i].schedule.some((meeting) =>
-                      isSameDay(parseISO(meeting.startDatetime), day)
+                      isSameDay(parseISO(meeting.startDatetime), day)&&meeting.assigned
                     ) && (
                         <div className="w-1 h-1 rounded-full bg-sky-500"></div>
+                      )}
+                    
+                    {renders[i].schedule.some((meeting) =>
+                      isSameDay(parseISO(meeting.startDatetime), day)&& !meeting.assigned
+                    ) && (
+                        <div className="w-1 h-1 rounded-full bg-red-500"></div>
                       )}
 
                     
@@ -279,7 +285,7 @@ function Meeting({ meeting }) {
 
   return (
     <li className="flex items-center px-4 py-2 space-x-4 group rounded-xl focus-within:bg-gray-100 hover:bg-gray-100">
-      <Image
+       <Image
         src={meeting.image}
         alt=""
         className="flex-none w-10 h-10 rounded-full"
@@ -287,7 +293,7 @@ function Meeting({ meeting }) {
         height={160}
       />
       <div className="flex-auto">
-        <p className="text-gray-900">{meeting.name}</p>
+        {meeting.assigned?  <p className="text-gray-900">{meeting.name}</p> :<p className="text-gray-900">Meeting no asignado aún</p>}
         <p className="text-gray-900">{meeting.nameuser}</p>
         <p className="text-gray-900">{meeting.role}</p>
         <p className="mt-0.5">
