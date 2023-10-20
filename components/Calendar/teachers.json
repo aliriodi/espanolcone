@@ -10,14 +10,25 @@
             "schedule": [
                 {
                     "id":2,
-                    "role":null,
-                    "assigned": false,
-                    "nameuser": null,
+                    "role":"students",
+                    "assigned": true,
+                    "nameuser": "Bruna Martinez",
                     "email": null,
-                    "image":"",
+                    "image":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694765455/images/bruna_kb7jcg.jpg",
                     "iduser": null,
-                    "startDatetime": "2023-10-23T13:00",
-                    "endDatetime": "2023-10-23T14:00"
+                    "startDatetime": "2023-10-28T12:00",
+                    "endDatetime": "2023-10-28T16:30"
+                },
+                {
+                    "id":2,
+                    "role":"students",
+                    "assigned": true,
+                    "nameuser": "Bruna Martinez",
+                    "email": null,
+                    "image":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694765455/images/bruna_kb7jcg.jpg",
+                    "iduser": null,
+                    "startDatetime": "2023-10-29T12:00",
+                    "endDatetime": "2023-10-29T16:30"
                 },
                 {
                     "assigned": false,

@@ -118,9 +118,12 @@ let [name,setName] =useState('students')
     setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'))
   }
 
-  let selectedDayMeetings = meetings.filter((meeting) =>
-    isSameDay(parseISO(meeting.startDatetime), selectedDay)
-  )
+  let selectedDayMeetings = renders[i].schedule.filter((meeting) =>
+  isSameDay(parseISO(meeting.startDatetime), selectedDay)
+)
+  // let selectedDayMeetings = meetings.filter((meeting) =>
+  //   isSameDay(parseISO(meeting.startDatetime), selectedDay)
+  // )
 
   return (
     <div className="pt-16">
@@ -260,7 +263,7 @@ let [name,setName] =useState('students')
                   <Meeting meeting={meeting} key={meeting.id} />
                 ))
               ) : (
-                <p>No meetings for today.</p>
+                <p>No hay actividad agendad aún.</p>
               )}
             </ol>
           </section>
@@ -277,7 +280,7 @@ function Meeting({ meeting }) {
   return (
     <li className="flex items-center px-4 py-2 space-x-4 group rounded-xl focus-within:bg-gray-100 hover:bg-gray-100">
       <Image
-        src={meeting.imageUrl}
+        src={meeting.image}
         alt=""
         className="flex-none w-10 h-10 rounded-full"
         width={160}
@@ -285,6 +288,8 @@ function Meeting({ meeting }) {
       />
       <div className="flex-auto">
         <p className="text-gray-900">{meeting.name}</p>
+        <p className="text-gray-900">{meeting.nameuser}</p>
+        <p className="text-gray-900">{meeting.role}</p>
         <p className="mt-0.5">
           <time dateTime={meeting.startDatetime}>
             {format(startDateTime, 'h:mm a')}
