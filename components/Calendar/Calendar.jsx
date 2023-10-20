@@ -93,6 +93,7 @@ let [name,setName] =useState('students')
     if(user==='students'){setRenders(students);setName('students')}
     if(user==='teachers'){setRenders(teachers);setName('teachers')}
     if(user==='guides'){setRenders(guides);setName('guides')}
+    setI(0)
    }
 
 // Termina section de BD ahora viebne el codigo que usa los datos
