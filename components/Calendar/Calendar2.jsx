@@ -20,49 +20,6 @@ import {
 import Image from 'next/image'
 import { Fragment, useState } from 'react'
 
-const meetings = [
-  {
-    id: 1,
-    name: 'Leslie Alexander',
-    imageUrl:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    startDatetime: '2023-10-28T13:00',
-    endDatetime: '2023-10-28T14:30',
-  },
-  {
-    id: 2,
-    name: 'Michael Foster',
-    imageUrl:
-      'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    startDatetime: '2023-10-20T09:00',
-    endDatetime: '2023-10-20T11:30',
-  },
-  {
-    id: 3,
-    name: 'Dries Vincent',
-    imageUrl:
-      'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    startDatetime: '2023-10-20T17:00',
-    endDatetime: '2023-10-20T18:30',
-  },
-  {
-    id: 4,
-    name: 'Leslie Alexander',
-    imageUrl:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    startDatetime: '2023-10-09T13:00',
-    endDatetime: '2023-10-09T14:30',
-  },
-  {
-    id: 5,
-    name: 'Michael Foster',
-    imageUrl:
-      'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    startDatetime: '2023-10-13T14:00',
-    endDatetime: '2023-10-13T14:30',
-  },
-]
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
@@ -86,6 +43,9 @@ export default function Example() {
   let [renders, setRenders] = useState(students)
   let [personSchedule, setPersonSchedule] = useState(teachers[0])
   let [name, setName] = useState('students')
+  //variable para asignar New Meeting en caso de asignar hora
+  let [newMeeting, setNewMeeting] = useState()
+
   const users = ['students', 'teachers', 'guides']
   let [i, setI] = useState(0)
   function nextI() { if (i < students.length - 1) { let iaux = i + 1; setI(iaux); } console.log(i) }
@@ -99,6 +59,73 @@ export default function Example() {
 
   // Termina section de BD ahora viebne el codigo que usa los datos
 
+  /*
+Variable para renderizar la primera vuelta de los horarios disponibles en caso
+de que sea role:user con bg success o morado 
+*/
+  let isFirstMeeting = true;
+
+  function selectSchedule(meeting) {
+    setNewMeeting(meeting)
+    
+      }
+
+  function Confirm() {
+    personSchedule.schedule.map(meeting => {
+      if (meeting.startDatetime === newMeeting.startDatetime) 
+      { 
+/*
+// Desplazamiento horario en minutos (ejemplo para GMT-03)
+const offsetMinutes = -180;
+// Obtén el UTN actual en UTC
+const nowUTC = new Date().getTime();
+// Calcula el nuevo UTN ajustado
+const adjustedUTN = nowUTC + (offsetMinutes * 60000); // 1 minuto = 60,000 ms
+// Crea una nueva fecha en la zona horaria deseada
+const adjustedDate = new Date(adjustedUTN);
+console.log(adjustedDate); // Esto mostrará la hora ajustada según el desplazamiento horario.
+*/
+       // Obtener el UTN de la fecha
+      const fecha = today;
+      const offsetMinutes = fecha.getTimezoneOffset();
+      const offsetHours = offsetMinutes / 60;
+      const offsetSign = offsetHours > 0 ? '-' : '+';
+      const offsetHoursAbs = Math.abs(offsetHours);
+      const formattedOffset = `${offsetSign}${String(offsetHoursAbs).padStart(2, '')}`;
+      const offsetNumber = parseInt(formattedOffset, 10);
+      
+        //renders[i] es el usuario que sera asignado al teacher
+        meeting.assigned = true;
+        meeting.first_name = renders[i].first_name;
+        meeting.image = renders[i].image;
+        meeting.email=renders[i].email;
+        meeting.role = renders[i].role;
+        meeting.utnscheduled
+
+        //aca asigno el profesor al calendario del alumno
+         renders[i].schedule.push({
+          id:1,
+          assigned: true,
+          first_name: personSchedule.first_name ,
+          email: personSchedule.email,
+          role:personSchedule.role,
+          image:personSchedule.image,
+          iduser: personSchedule.id,
+          startDatetime: meeting.startDatetime,
+          endDatetime: meeting.endDatetime,
+          utnCreated:"",
+          utnscheduled:offsetNumber,
+
+         })
+
+      }
+     //aca va la promesa de cargar en BD el nuevo personSchedule.schedule
+     //aca va la promesa de enviar dos correos uno a teacher y uno a profesor
+     
+    })
+    
+    console.log(personSchedule.schedule)
+  }
   let today = startOfToday()
   let [selectedDay, setSelectedDay] = useState(today)
   let [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
@@ -166,7 +193,7 @@ export default function Example() {
             <button style={{ 'marginLeft': '16px', 'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={nextI}>Siguiente</button>
             {/* De aca inicia el componente real */}
             {renders ? <div>
-              <Image alt={'student'} width={100} height={100} src={renders[i].image}></Image>
+              <Image alt={'student'} width={100} height={100} src={personSchedule.image}></Image>
             </div> : null}
             <div className="flex items-center">
               <h2 className="flex-auto font-semibold text-gray-900">
@@ -241,11 +268,6 @@ export default function Example() {
                     { }
 
 
-                    {/* {meetings.some((meeting) =>
-                      isSameDay(parseISO(meeting.startDatetime), day)
-                    ) && (
-                        <div className="w-1 h-1 rounded-full bg-sky-500"></div>
-                      )} */}
                   </div>
                 </div>
               ))}
@@ -261,25 +283,38 @@ export default function Example() {
                 <>
                   de aca viene el id del usuario donde va a renderizar el estado del teacher o guias
                   con los datos del teacher o guia turistico, viene por redux
-                  <div><strong> {teachers[0].first_name}</strong></div>
+                  <div><strong> {personSchedule.first_name}</strong></div>
 
-                  {personSchedule.schedule.map((meeting) => {
+                  {personSchedule.schedule.map((meeting, index) => {
                     if (!meeting.assigned && isSameDay(parseISO(meeting.startDatetime), selectedDay)) {
                       return (
-                        <p key={meeting.id}>
-                          <time dateTime={meeting.startDatetime}>
-                            {format(parseISO(meeting.startDatetime), 'h:mm a')}
-                          </time>{' '}
-                          -{' '}
-                          <time dateTime={meeting.endDatetime}>
-                            {format(parseISO(meeting.endDatetime), 'h:mm a')}
-                          </time>
+
+                        <p key={index}>
+                          <button onClick={() => selectSchedule(meeting)}
+                            className={classNames(
+                              'focus:outline-none  hover:bg-purple-800  font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900',
+                              isFirstMeeting ? 'bg-success text-white ' : '  ring-2 text-primary hover:border-none border-primary hover:text-white'
+                            )} >
+                            {isFirstMeeting = false}
+                            <time dateTime={meeting.startDatetime}>
+                              {format(parseISO(meeting.startDatetime), 'h:mm a')}
+                            </time>{' '}
+                            -{' '}
+                            <time dateTime={meeting.endDatetime}>
+                              {format(parseISO(meeting.endDatetime), 'h:mm a')}
+                            </time>
+                          </button>
                         </p>
+
                       );
                     }
 
                   })}
-
+                  
+                  
+                          <button type="button" onClick={Confirm} className='focus:outline-none  bg-primary text-white font-medium rounded-lg te t-sm px-5 py-2.5 mb-2 '>Confirma </button>
+                        
+                
 
 
 
