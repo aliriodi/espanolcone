@@ -42,6 +42,8 @@
                 "role":"teacher",
                 "image":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366482/images/team-photo-01_svprcr.png",
                 "iduser": null,
+                "utnCreated":"",
+                "utnscheduled":"",
                 "startDatetime": "2023-10-28T12:00",
                 "endDatetime": "2023-10-28T16:30"
             },
@@ -54,6 +56,8 @@
                 "email": "espanolcone.com",
                 "role":"teacher",
                 "iduser": "1",
+                "utnCreated":"",
+                "utnscheduled":"",
                 "startDatetime": "2023-10-29T12:00",
                 "endDatetime": "2023-10-29T16:30"
             }  ,
@@ -66,6 +70,8 @@
                 "email": "espanolcone.com",
                 "role":"guide",
                 "iduser": "1",
+                "utnCreated":"",
+                "utnscheduled":"",
                 "startDatetime": "2023-10-28T17:00",
                 "endDatetime": "2023-10-28T21:30"
             }                                 
