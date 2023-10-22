@@ -24,8 +24,8 @@ const meetings = [
   {
     id: 1,
     name: 'Leslie Alexander',
-     imageUrl:
-        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    imageUrl:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
     startDatetime: '2023-10-28T13:00',
     endDatetime: '2023-10-28T14:30',
   },
@@ -79,24 +79,25 @@ export default function Example() {
   const student = require("./alumnos.json");
   const teacher = require("./teachers.json");
   const guide = require("./guides.json");
- 
-let [students, setStudents] = useState(student.value)
-let [teachers, setTeachers] = useState(teacher.value)
-let [guides, setGuides] = useState(guide.value)
-let [renders, setRenders] = useState(students)
-let [name,setName] =useState('students')
-  const users = ['students','teachers','guides']
-  let [i, setI] = useState(0)
-  function nextI() {if(i<students.length-1){let iaux = i+1; setI(iaux);} console.log(i) }
-  function backI() {if(0<i){let iaux = i-1; setI(iaux);} console.log(i)}
-  function handleOnChange(user) {
-    if(user==='students'){setRenders(students);setName('students')}
-    if(user==='teachers'){setRenders(teachers);setName('teachers')}
-    if(user==='guides'){setRenders(guides);setName('guides')}
-    setI(0)
-   }
 
-// Termina section de BD ahora viebne el codigo que usa los datos
+  let [students, setStudents] = useState(student.value)
+  let [teachers, setTeachers] = useState(teacher.value)
+  let [guides, setGuides] = useState(guide.value)
+  let [renders, setRenders] = useState(students)
+  let [personSchedule, setPersonSchedule] = useState(teachers[0])
+  let [name, setName] = useState('students')
+  const users = ['students', 'teachers', 'guides']
+  let [i, setI] = useState(0)
+  function nextI() { if (i < students.length - 1) { let iaux = i + 1; setI(iaux); } console.log(i) }
+  function backI() { if (0 < i) { let iaux = i - 1; setI(iaux); } console.log(i) }
+  function handleOnChange(user) {
+    if (user === 'students') { setRenders(students); setName('students') }
+    if (user === 'teachers') { setRenders(teachers); setName('teachers') }
+    if (user === 'guides') { setRenders(guides); setName('guides') }
+    setI(0)
+  }
+
+  // Termina section de BD ahora viebne el codigo que usa los datos
 
   let today = startOfToday()
   let [selectedDay, setSelectedDay] = useState(today)
@@ -119,8 +120,8 @@ let [name,setName] =useState('students')
   }
 
   let selectedDayMeetings = renders[i].schedule.filter((meeting) =>
-  isSameDay(parseISO(meeting.startDatetime), selectedDay)
-)
+    isSameDay(parseISO(meeting.startDatetime), selectedDay)
+  )
   // let selectedDayMeetings = meetings.filter((meeting) =>
   //   isSameDay(parseISO(meeting.startDatetime), selectedDay)
   // )
@@ -129,48 +130,48 @@ let [name,setName] =useState('students')
     <div className="pt-16">
       <div className="max-w-md px-4 mx-auto sm:px-7 md:max-w-4xl md:px-6">
         <div className="md:grid md:grid-cols-2 md:divide-x md:divide-gray-200">
-            <div className="md:pr-14">
-          <div style={{border:'solid 1px red'}}>
-  {/* Menu Desplegable para tipo de usuarios */}
-  <ul className={`${styles['select-languages_menu2']} ${ styles['active']}`}>
-              {
-                users.length > 0 &&
-                users.map((user) => (
-                  <li
-                    onClick={() => handleOnChange(user)}
-                    value={user}
-                    className={styles["select-languages_languages"]}
-                    key={user}>
-                                    
+          <div className="md:pr-14">
+            <div style={{ border: 'solid 1px red' }}>
+              {/* Menu Desplegable para tipo de usuarios */}
+              <ul className={`${styles['select-languages_menu2']} ${styles['active']}`}>
+                {
+                  users.length > 0 &&
+                  users.map((user) => (
+                    <li
+                      onClick={() => handleOnChange(user)}
+                      value={user}
+                      className={styles["select-languages_languages"]}
+                      key={user}>
 
-                    {/* Label */}
-                    <label style={{ marginLeft: "8px" }}>
-                      {user}
-                    </label>
-                  </li>
-                )
-                )
-              }
-            </ul>
+
+                      {/* Label */}
+                      <label style={{ marginLeft: "8px" }}>
+                        {user}
+                      </label>
+                    </li>
+                  )
+                  )
+                }
+              </ul>
             </div>
- 
+
             <>{name}</>
 
 
 
 
 
-            
-          <button style={{ 'marginLeft': '16px', 'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={backI}>Anterior</button>
+
+            <button style={{ 'marginLeft': '16px', 'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={backI}>Anterior</button>
             <button style={{ 'marginLeft': '16px', 'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={nextI}>Siguiente</button>
-        {/* De aca inicia el componente real */}
-            {renders? <div>
+            {/* De aca inicia el componente real */}
+            {renders ? <div>
               <Image alt={'student'} width={100} height={100} src={renders[i].image}></Image>
-              </div>:null}
+            </div> : null}
             <div className="flex items-center">
               <h2 className="flex-auto font-semibold text-gray-900">
                 {/* Aca esta el mes  del calendario */}
-                {format(firstDayCurrentMonth, 'MMMM yyyy', { locale: es }).charAt(0).toUpperCase()+format(firstDayCurrentMonth, 'MMMM yyyy', { locale: es }).slice(1)}
+                {format(firstDayCurrentMonth, 'MMMM yyyy', { locale: es }).charAt(0).toUpperCase() + format(firstDayCurrentMonth, 'MMMM yyyy', { locale: es }).slice(1)}
               </h2>
               <button
                 type="button"
@@ -190,7 +191,7 @@ let [name,setName] =useState('students')
               </button>
             </div >
             <div className="grid grid-cols-7 mt-10 text-base leading-6 text-center text-white bg-primary">
-            {/* <div className="grid grid-cols-7 mt-10 text-xs leading-6 text-center text-gray-500"> */}
+              {/* <div className="grid grid-cols-7 mt-10 text-xs leading-6 text-center text-gray-500"> */}
               <div>Dom</div>
               <div>Lun</div>
               <div>Mar</div>
@@ -214,38 +215,32 @@ let [name,setName] =useState('students')
                     className={classNames(
                       isEqual(day, selectedDay) && 'text-white',
                       !isEqual(day, selectedDay) && isToday(day) && 'text-primary text-lg ',
-                      !isEqual(day, selectedDay) && !isToday(day) &&  isSameMonth(day, firstDayCurrentMonth) && 'text-gray-900',
-                      !isEqual(day, selectedDay) && !isToday(day) &&  !isSameMonth(day, firstDayCurrentMonth) &&'text-gray-400',
+                      !isEqual(day, selectedDay) && !isToday(day) && isSameMonth(day, firstDayCurrentMonth) && 'text-gray-900',
+                      !isEqual(day, selectedDay) && !isToday(day) && !isSameMonth(day, firstDayCurrentMonth) && 'text-gray-400',
                       isEqual(day, selectedDay) && isToday(day) && 'bg-success',
-                      isEqual(day, selectedDay) &&   !isToday(day) && 'bg-success',
+                      isEqual(day, selectedDay) && !isToday(day) && 'bg-success',
                       !isEqual(day, selectedDay) && 'hover:bg-gray-200',
                       (isEqual(day, selectedDay) || isToday(day)) && 'font-semibold',
+                      personSchedule.schedule.some((meeting) =>
+                        isSameDay(parseISO(meeting.startDatetime), day) && !meeting.assigned) && "rounded-full bg-gray-200 text-primary text-lg",
                       'mx-auto flex h-8 w-8 items-center justify-center rounded-full'
                     )}
                   >
-                    
+
                     <time dateTime={format(day, 'yyyy-MM-dd')}>
                       {format(day, 'd')}
                     </time>
+
                   </button>
 
                   <div className="w-1 h-1 mx-auto mt-1">
                     {/* aca deberia ir los meets que tienen estilos, los dias disponibles y /o reservados 
                     para estudiantes y mas abajo otro para profesores donde cargan calendarios o tienen vista
                     de citas */}
-                  {renders[i].schedule.some((meeting) =>
-                      isSameDay(parseISO(meeting.startDatetime), day)&&meeting.assigned
-                    ) && (
-                        <div className="w-1 h-1 rounded-full bg-sky-500"></div>
-                      )}
-                    
-                    {renders[i].schedule.some((meeting) =>
-                      isSameDay(parseISO(meeting.startDatetime), day)&& !meeting.assigned
-                    ) && (
-                        <div className="w-1 h-1 rounded-full bg-red-500"></div>
-                      )}
 
-                    
+                    { }
+
+
                     {/* {meetings.some((meeting) =>
                       isSameDay(parseISO(meeting.startDatetime), day)
                     ) && (
@@ -257,14 +252,54 @@ let [name,setName] =useState('students')
             </div>
           </div>
 
-         
+          {/* Seccion asignacion de calendarios de acuerdo a disponibildiad */}
 
-          <section className="mt-12 md:mt-0 md:pl-14">
+          <section>
+            <time dateTime={format(selectedDay, "yyyy-MM-dd'T'HH:00:00")}>
+              {console.log(renders[i].role)}
+              {renders[i].role === 'user' ?
+                <>
+                  de aca viene el id del usuario donde va a renderizar el estado del teacher o guias
+                  con los datos del teacher o guia turistico, viene por redux
+                  <div><strong> {teachers[0].first_name}</strong></div>
+
+                  {personSchedule.schedule.map((meeting) => {
+                    if (!meeting.assigned && isSameDay(parseISO(meeting.startDatetime), selectedDay)) {
+                      return (
+                        <p key={meeting.id}>
+                          <time dateTime={meeting.startDatetime}>
+                            {format(parseISO(meeting.startDatetime), 'h:mm a')}
+                          </time>{' '}
+                          -{' '}
+                          <time dateTime={meeting.endDatetime}>
+                            {format(parseISO(meeting.endDatetime), 'h:mm a')}
+                          </time>
+                        </p>
+                      );
+                    }
+
+                  })}
+
+
+
+
+                </>
+
+                : null}
+
+              {renders[i].role === 'guide' ? true : null}
+              {renders[i].role === 'teacher' ? true : null}
+
+              {/* {format(selectedDay, "yyyy-MM-dd HH:00:00")} */}
+            </time>
+          </section>
+
+          {/* <section className="mt-12 md:mt-0 md:pl-14">
             <h2 className="font-semibold text-gray-900">
               Agenda{' '}
               <time dateTime={format(selectedDay, 'yyyy-MM-dd')}>
-              
-                {format(selectedDay, 'MMM dd, yyy', { locale: es }).charAt(0).toUpperCase()+format(selectedDay, 'MMM dd, yyy', { locale: es }).slice(1)}
+
+                {format(selectedDay, 'MMM dd, yyy', { locale: es }).charAt(0).toUpperCase() + format(selectedDay, 'MMM dd, yyy', { locale: es }).slice(1)}
               </time>
             </h2>
             <ol className="mt-4 space-y-1 text-sm leading-6 text-gray-500">
@@ -276,7 +311,7 @@ let [name,setName] =useState('students')
                 <p>No hay actividad agendad aún.</p>
               )}
             </ol>
-          </section>
+          </section> */}
         </div>
       </div>
     </div>
@@ -289,7 +324,7 @@ function Meeting({ meeting }) {
 
   return (
     <li className="flex items-center px-4 py-2 space-x-4 group rounded-xl focus-within:bg-gray-100 hover:bg-gray-100">
-       <Image
+      <Image
         src={meeting.image}
         alt=""
         className="flex-none w-10 h-10 rounded-full"
@@ -297,7 +332,7 @@ function Meeting({ meeting }) {
         height={160}
       />
       <div className="flex-auto">
-        {meeting.assigned?  <p className="text-gray-900">{meeting.name}</p> :<p className="text-gray-900">Meeting no asignado aún</p>}
+        {meeting.assigned ? <p className="text-gray-900">{meeting.name}</p> : <p className="text-gray-900">Meeting no asignado aún</p>}
         <p className="text-gray-900">{meeting.nameuser}</p>
         <p className="text-gray-900">{meeting.role}</p>
         <p className="mt-0.5">
