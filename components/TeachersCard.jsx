@@ -59,7 +59,9 @@ export function TeachersCard() {
         <div className='flex flex-col my-5'>
 
           <p className='font-extrabold'>Encontrá tu profesor</p>
-          <p className='my-2 flex flex-row'>¡Bienvenido a <p className='font-bold italic'> Español con E</p>, nuestra plataforma de profesores particulares!</p>
+          <p className='my-2 flex flex-row'>
+            ¡Bienvenido a &nbsp;<span className='font-bold italic'>Español con E</span>, nuestra plataforma de profesores particulares!
+          </p>
           <p> Nuestra plataforma es fácil de usar y te va a permitr buscar profesores según tus preferencias</p>
         </div>
 
