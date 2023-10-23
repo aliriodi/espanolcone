@@ -94,63 +94,135 @@ export const cardsTeachers = [
   {
     id: 1,
     name: "picture1",
+
     image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366482/images/team-photo-01_svprcr.png",
+
     namePerson: "Eucaris Rodríguez",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+    hablante: "nativo",
+
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    // </br>
+
+    intro: "Me complace mucho darles la bienvenida a mi aula virtual. Como maestro, mi objetivo principal es inspirar el aprendizaje y fomentar el crecimiento de cada uno de ustedes. Durante nuestras clases, exploraremos juntos el apasionante mundo del conocimiento y desentrañaremos las maravillas que la educación tiene para ofrecer. Mi enfoque se basa en la creencia de que el aprendizaje es un viaje enriquecedor que nos permite no solo adquirir habilidades y conocimientos, sino también descubrir nuevas perspectivas y horizontes inexplorados.                                                           A lo largo de nuestras clases, trabajaremos en colaboración, construiremos conexiones y superaremos desafíos.Creo que el aprendizaje es un proceso continuo, y estoy aquí para apoyarlos en cada paso del camino.Juntos, exploraremos temas apasionantes, resolveremos problemas y, lo más importante, cultivaremos un ambiente de respeto y curiosidad.Siempre estoy dispuesto a responder a sus preguntas y brindar orientación adicional para garantizar que alcancen sus objetivos académicos.Espero con ansias este emocionante viaje de aprendizaje que emprenderemos juntos.                                                    ¡Una vez más, bienvenidos a mi clase! Estoy emocionado de ser su guía en esta travesía educativa.",
+
+    enfoquePedagogico: "En mi enfoque pedagógico, priorizo la participación activa y el aprendizaje práctico. Creo firmemente en que el conocimiento se internaliza mejor cuando se aplica en situaciones reales. Durante nuestras clases, fomentaré la discusión, el trabajo en equipo y la resolución de problemas. También promoveré el pensamiento crítico y el desarrollo de habilidades prácticas que puedan ser útiles en la vida cotidiana. Mi objetivo es ayudarlos a comprender los conceptos a un nivel profundo y aplicarlos de manera efectiva.",
+
+    puntos: [
+      "Aprendizaje activo",
+      "Pensamiento crítico",
+      "Resolución de problemas",
+      "Colaboración efectiva",
+      "Investigación independiente",
+      "Creatividad y expresión personal",
+      "Evaluación continua",
+      "Aplicación práctica del conocimiento",
+    ],
+
+    despedida: "¡Espero que estas directrices nos ayuden a alcanzar nuestros objetivos académicos! Nos vemos en la próxima clase.",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+
+    reseña: [
+      {
+        nombre: "John Smith",
+        reseña: "Excellent teacher, the classes are very informative and engaging. Always willing to help and clarify doubts. Highly recommended!",
+        img: "https://res.cloudinary.com/dfddh08q8/image/upload/v1698013351/images/smith_bazufu.jpg"
+      },
+      {
+        nombre: "Laura Müller",
+        reseña: "The best professor I've ever had. His focus on active learning and critical thinking really made a difference in my education. Thanks for everything, Professor.",
+        img: "https://res.cloudinary.com/dfddh08q8/image/upload/v1698013432/images/laura_rik9b7.jpg"
+      }
+    ],
+
+    instagram: "www.instagram.com",
+
+    facebook: "www.facebook.com",
   },
   {
     id: 2,
     name: "picture2", image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366487/images/team-photo-02_ruhmc1.png",
     namePerson: "Roiber Avendaño",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    intro: "Me complace mucho darles la bienvenida a mi aula virtual. Como maestro, mi objetivo principal es inspirar el aprendizaje y fomentar el crecimiento de cada uno de ustedes. Durante nuestras clases, exploraremos juntos el apasionante mundo del conocimiento y desentrañaremos las maravillas que la educación tiene para ofrecer. Mi enfoque se basa en la creencia de que el aprendizaje es un viaje enriquecedor que nos permite no solo adquirir habilidades y conocimientos, sino también descubrir nuevas perspectivas y horizontes inexplorados.                                                           A lo largo de nuestras clases, trabajaremos en colaboración, construiremos conexiones y superaremos desafíos.Creo que el aprendizaje es un proceso continuo, y estoy aquí para apoyarlos en cada paso del camino.Juntos, exploraremos temas apasionantes, resolveremos problemas y, lo más importante, cultivaremos un ambiente de respeto y curiosidad.Siempre estoy dispuesto a responder a sus preguntas y brindar orientación adicional para garantizar que alcancen sus objetivos académicos.Espero con ansias este emocionante viaje de aprendizaje que emprenderemos juntos.                                                    ¡Una vez más, bienvenidos a mi clase! Estoy emocionado de ser su guía en esta travesía educativa.",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    instagram: "www.instagram.com",
+    facebook: "www.facebook.com"
   },
   {
     id: 3,
     name: "picture3",
     image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366492/images/team-photo-03_qft36h.png",
     namePerson: "Ariana Hernandez",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    intro: "Me complace mucho darles la bienvenida a mi aula virtual. Como maestro, mi objetivo principal es inspirar el aprendizaje y fomentar el crecimiento de cada uno de ustedes. Durante nuestras clases, exploraremos juntos el apasionante mundo del conocimiento y desentrañaremos las maravillas que la educación tiene para ofrecer. Mi enfoque se basa en la creencia de que el aprendizaje es un viaje enriquecedor que nos permite no solo adquirir habilidades y conocimientos, sino también descubrir nuevas perspectivas y horizontes inexplorados.                                                           A lo largo de nuestras clases, trabajaremos en colaboración, construiremos conexiones y superaremos desafíos.Creo que el aprendizaje es un proceso continuo, y estoy aquí para apoyarlos en cada paso del camino.Juntos, exploraremos temas apasionantes, resolveremos problemas y, lo más importante, cultivaremos un ambiente de respeto y curiosidad.Siempre estoy dispuesto a responder a sus preguntas y brindar orientación adicional para garantizar que alcancen sus objetivos académicos.Espero con ansias este emocionante viaje de aprendizaje que emprenderemos juntos.                                                    ¡Una vez más, bienvenidos a mi clase! Estoy emocionado de ser su guía en esta travesía educativa.",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    instagram: "www.instagram.com",
+    facebook: "www.facebook.com"
   },
   {
     id: 4,
     name: "picture4",
     image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366496/images/team-photo-04_napxfa.png",
     namePerson: "Manuel Meneses",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    intro: "Me complace mucho darles la bienvenida a mi aula virtual. Como maestro, mi objetivo principal es inspirar el aprendizaje y fomentar el crecimiento de cada uno de ustedes. Durante nuestras clases, exploraremos juntos el apasionante mundo del conocimiento y desentrañaremos las maravillas que la educación tiene para ofrecer. Mi enfoque se basa en la creencia de que el aprendizaje es un viaje enriquecedor que nos permite no solo adquirir habilidades y conocimientos, sino también descubrir nuevas perspectivas y horizontes inexplorados.                                                           A lo largo de nuestras clases, trabajaremos en colaboración, construiremos conexiones y superaremos desafíos.Creo que el aprendizaje es un proceso continuo, y estoy aquí para apoyarlos en cada paso del camino.Juntos, exploraremos temas apasionantes, resolveremos problemas y, lo más importante, cultivaremos un ambiente de respeto y curiosidad.Siempre estoy dispuesto a responder a sus preguntas y brindar orientación adicional para garantizar que alcancen sus objetivos académicos.Espero con ansias este emocionante viaje de aprendizaje que emprenderemos juntos.                                                    ¡Una vez más, bienvenidos a mi clase! Estoy emocionado de ser su guía en esta travesía educativa.",
+    instagram: "www.instagram.com",
+    facebook: "www.facebook.com"
   },
   {
     id: 5,
     name: "picture5",
     image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366482/images/team-photo-01_svprcr.png",
     namePerson: "Eucaris Rodríguez",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    intro: "Me complace mucho darles la bienvenida a mi aula virtual. Como maestro, mi objetivo principal es inspirar el aprendizaje y fomentar el crecimiento de cada uno de ustedes. Durante nuestras clases, exploraremos juntos el apasionante mundo del conocimiento y desentrañaremos las maravillas que la educación tiene para ofrecer. Mi enfoque se basa en la creencia de que el aprendizaje es un viaje enriquecedor que nos permite no solo adquirir habilidades y conocimientos, sino también descubrir nuevas perspectivas y horizontes inexplorados.                                                           A lo largo de nuestras clases, trabajaremos en colaboración, construiremos conexiones y superaremos desafíos.Creo que el aprendizaje es un proceso continuo, y estoy aquí para apoyarlos en cada paso del camino.Juntos, exploraremos temas apasionantes, resolveremos problemas y, lo más importante, cultivaremos un ambiente de respeto y curiosidad.Siempre estoy dispuesto a responder a sus preguntas y brindar orientación adicional para garantizar que alcancen sus objetivos académicos.Espero con ansias este emocionante viaje de aprendizaje que emprenderemos juntos.                                                    ¡Una vez más, bienvenidos a mi clase! Estoy emocionado de ser su guía en esta travesía educativa.",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    instagram: "www.instagram.com",
+    facebook: "www.facebook.com"
   },
   {
     id: 6,
     name: "picture6", image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366487/images/team-photo-02_ruhmc1.png",
     namePerson: "Roiber Avendaño",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    intro: "Me complace mucho darles la bienvenida a mi aula virtual. Como maestro, mi objetivo principal es inspirar el aprendizaje y fomentar el crecimiento de cada uno de ustedes. Durante nuestras clases, exploraremos juntos el apasionante mundo del conocimiento y desentrañaremos las maravillas que la educación tiene para ofrecer. Mi enfoque se basa en la creencia de que el aprendizaje es un viaje enriquecedor que nos permite no solo adquirir habilidades y conocimientos, sino también descubrir nuevas perspectivas y horizontes inexplorados.                                                           A lo largo de nuestras clases, trabajaremos en colaboración, construiremos conexiones y superaremos desafíos.Creo que el aprendizaje es un proceso continuo, y estoy aquí para apoyarlos en cada paso del camino.Juntos, exploraremos temas apasionantes, resolveremos problemas y, lo más importante, cultivaremos un ambiente de respeto y curiosidad.Siempre estoy dispuesto a responder a sus preguntas y brindar orientación adicional para garantizar que alcancen sus objetivos académicos.Espero con ansias este emocionante viaje de aprendizaje que emprenderemos juntos.                                                    ¡Una vez más, bienvenidos a mi clase! Estoy emocionado de ser su guía en esta travesía educativa.",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    instagram: "www.instagram.com",
+    facebook: "www.facebook.com"
   },
   {
     id: 7,
     name: "picture7",
     image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366492/images/team-photo-03_qft36h.png",
     namePerson: "Ariana Hernandez",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    intro: "Me complace mucho darles la bienvenida a mi aula virtual. Como maestro, mi objetivo principal es inspirar el aprendizaje y fomentar el crecimiento de cada uno de ustedes. Durante nuestras clases, exploraremos juntos el apasionante mundo del conocimiento y desentrañaremos las maravillas que la educación tiene para ofrecer. Mi enfoque se basa en la creencia de que el aprendizaje es un viaje enriquecedor que nos permite no solo adquirir habilidades y conocimientos, sino también descubrir nuevas perspectivas y horizontes inexplorados.                                                           A lo largo de nuestras clases, trabajaremos en colaboración, construiremos conexiones y superaremos desafíos.Creo que el aprendizaje es un proceso continuo, y estoy aquí para apoyarlos en cada paso del camino.Juntos, exploraremos temas apasionantes, resolveremos problemas y, lo más importante, cultivaremos un ambiente de respeto y curiosidad.Siempre estoy dispuesto a responder a sus preguntas y brindar orientación adicional para garantizar que alcancen sus objetivos académicos.Espero con ansias este emocionante viaje de aprendizaje que emprenderemos juntos.                                                    ¡Una vez más, bienvenidos a mi clase! Estoy emocionado de ser su guía en esta travesía educativa.",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    instagram: "www.instagram.com",
+    facebook: "www.facebook.com"
   },
   {
     id: 8,
     name: "picture8",
     image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366496/images/team-photo-04_napxfa.png",
     namePerson: "Manuel Meneses",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    intro: "Me complace mucho darles la bienvenida a mi aula virtual. Como maestro, mi objetivo principal es inspirar el aprendizaje y fomentar el crecimiento de cada uno de ustedes. Durante nuestras clases, exploraremos juntos el apasionante mundo del conocimiento y desentrañaremos las maravillas que la educación tiene para ofrecer. Mi enfoque se basa en la creencia de que el aprendizaje es un viaje enriquecedor que nos permite no solo adquirir habilidades y conocimientos, sino también descubrir nuevas perspectivas y horizontes inexplorados.                                                           A lo largo de nuestras clases, trabajaremos en colaboración, construiremos conexiones y superaremos desafíos.Creo que el aprendizaje es un proceso continuo, y estoy aquí para apoyarlos en cada paso del camino.Juntos, exploraremos temas apasionantes, resolveremos problemas y, lo más importante, cultivaremos un ambiente de respeto y curiosidad.Siempre estoy dispuesto a responder a sus preguntas y brindar orientación adicional para garantizar que alcancen sus objetivos académicos.Espero con ansias este emocionante viaje de aprendizaje que emprenderemos juntos.                                                    ¡Una vez más, bienvenidos a mi clase! Estoy emocionado de ser su guía en esta travesía educativa.",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    instagram: "www.instagram.com",
+    facebook: "www.facebook.com"
   },
   {
     id: 9,
     name: "picture9",
     image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366496/images/team-photo-04_napxfa.png",
     namePerson: "Nahuel Escujury",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    intro: "Me complace mucho darles la bienvenida a mi aula virtual. Como maestro, mi objetivo principal es inspirar el aprendizaje y fomentar el crecimiento de cada uno de ustedes. Durante nuestras clases, exploraremos juntos el apasionante mundo del conocimiento y desentrañaremos las maravillas que la educación tiene para ofrecer. Mi enfoque se basa en la creencia de que el aprendizaje es un viaje enriquecedor que nos permite no solo adquirir habilidades y conocimientos, sino también descubrir nuevas perspectivas y horizontes inexplorados.                                                           A lo largo de nuestras clases, trabajaremos en colaboración, construiremos conexiones y superaremos desafíos.Creo que el aprendizaje es un proceso continuo, y estoy aquí para apoyarlos en cada paso del camino.Juntos, exploraremos temas apasionantes, resolveremos problemas y, lo más importante, cultivaremos un ambiente de respeto y curiosidad.Siempre estoy dispuesto a responder a sus preguntas y brindar orientación adicional para garantizar que alcancen sus objetivos académicos.Espero con ansias este emocionante viaje de aprendizaje que emprenderemos juntos.                                                    ¡Una vez más, bienvenidos a mi clase! Estoy emocionado de ser su guía en esta travesía educativa.",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    instagram: "www.instagram.com",
+    facebook: "www.facebook.com"
   },
 ]
 
