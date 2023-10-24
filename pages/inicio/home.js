@@ -150,6 +150,12 @@ export default function Home() {
                   >
                     <p className='text-[12px] text-white'>{GeneralProgress}%</p>
                   </animated.div>
+                  
+                  {/* En caso de que no haya progreso */}
+                  {
+                    GeneralProgress == 0 || !GeneralProgress &&
+                    <p className='text-[12px] text-success absolute top-0 w-full text-center font-semibold'>0%</p>
+                  }
               </div>
 
             </li>
@@ -169,7 +175,14 @@ export default function Home() {
                     }}
                   >
                     <p className='text-[12px] text-white'>{unitsDone} / {totalUnits}</p>
+                    
                   </animated.div>
+                  
+                  {/* En caso de que no haya actividades echas */}
+                  {
+                    unitsDone == 0 || !unitsDone &&
+                    <p className='text-[12px] text-success absolute top-0 w-full text-center font-semibold'>0 / {totalUnits}</p>
+                  }
               </div>
             </li>
             
