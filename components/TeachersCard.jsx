@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
 import Spinner from './Spinner';
+import YouTube from 'react-youtube';
 import { cardsTeachers } from '../public/imgs/images';
 import { cardDetail, fetchTeachers } from '../redux/ECEActions'
 
@@ -25,6 +26,9 @@ export function TeachersCard() {
 
 
   }, [dispatch]);
+
+  
+
 
   // Obtén la información de cards desde Redux
   const cards = useSelector((state) => state.datos.cards);

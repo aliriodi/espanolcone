@@ -11,6 +11,7 @@ import { faFlagCheckered } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch } from "react-redux";
 import { classid } from '../../redux/ECEActions'
 
+
 export default function Home() {
   const [totalUnits, setTotalUnits] = useState()
   const [unitsDone, setUnitsDone] = useState()
@@ -109,8 +110,8 @@ export default function Home() {
         style={{background:'linear-gradient(38.12deg, #7834E4 40.17%, #0E98B6 122.83%)'}}>
             {/* Icono */}
             <FontAwesomeIcon
-            className='text-[28px] text-white p-[21px] bg-primary rounded-full mb-[28px] shadow-[0px_5.410437107086182px_5.410437107086182px_#00000040]'
             icon={faFlagCheckered}
+            className='text-[28px] text-white p-[21px] bg-primary rounded-full mb-[28px] shadow-[0px_5.410437107086182px_5.410437107086182px_#00000040]'
             />
 
             {/* Titulo */}
