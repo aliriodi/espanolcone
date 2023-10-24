@@ -41,6 +41,9 @@ const UserSchema = new Schema(
     aux: {
       type: Object,
     },
+    content:{
+      type: String,
+    },
     test: {
       type: Object,
     },
@@ -107,6 +110,29 @@ const UserSchema = new Schema(
     password: {
       type: String
     },
+    
+    //Datos para Teacher
+    
+    hablante: {
+      type: String
+    },
+    intro: {
+      type: String
+    },
+    enfoquePedagogico: {
+      type: String
+    },
+    puntos: {
+      type: Array
+    },
+    
+    despedida: {
+      type: String
+    },
+    youtube: {
+      type: String
+    },
+    
 
   },
   {

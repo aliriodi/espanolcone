@@ -47,12 +47,20 @@ export const classpreviewA = (classp) => (dispatch) => {
 export const fetchTeachers = () => async (dispatch) => {
   try {
     // Importa los datos de profesores desde tu archivo local
-    await import('../public/imgs/images').then((module) => {
-      // Accede a la variable exportada del módulo
-      const teachers = module.cardsTeachers;
-      // Envía la acción setCards al reducer con los datos de profesores
-      dispatch(setCards(teachers));
-    });
+    
+    
+    // await import('../public/imgs/images').then((module) => {
+    //   // Accede a la variable exportada del módulo
+    //   const teachers = module.cardsTeachers;
+    //   console.log('file',teachers)
+    //   // Envía la acción setCards al reducer con los datos de profesores
+    //   dispatch(setCards(teachers));
+    // });
+    await fetch('/api/teachers/get')
+          .then(teachers=>teachers.json())
+          .then(teachers=>{
+            dispatch(setCards(teachers.teachers))
+            console.log('bd',teachers.teachers)})
   } catch (error) {
     console.error('Error al cargar los datos de profesores:', error);
   }
