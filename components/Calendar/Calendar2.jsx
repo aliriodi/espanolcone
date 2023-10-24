@@ -311,8 +311,9 @@ console.log(adjustedDate); // Esto mostrará la hora ajustada según el desplaza
 
                   })}
                   
-                  
-                          <button type="button" onClick={Confirm} className='focus:outline-none  bg-primary text-white font-medium rounded-lg te t-sm px-5 py-2.5 mb-2 '>Confirma </button>
+                  {personSchedule.schedule.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay)&&!meeting.assigned)&&
+                  <button type="button" onClick={Confirm} className='focus:outline-none  bg-primary text-white font-medium rounded-lg te t-sm px-5 py-2.5 mb-2 '>Confirma </button>}
+                          
                         
                 
 

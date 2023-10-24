@@ -41,6 +41,9 @@ const UserSchema = new Schema(
     aux: {
       type: Object,
     },
+    content:{
+      type: String,
+    },
     test: {
       type: Object,
     },
