@@ -91,6 +91,7 @@ export default function Home() {
     calculateGeneralProgress();
     setIsLoading(false);
     calculateUnitsDone();
+    console.log()
 
   }, [session])
   return (
@@ -156,12 +157,15 @@ export default function Home() {
                       // backgroundColor: '#ccc', // Color de fondo de la barra de progreso
                     }}
                   >
-                    <p className='text-[12px] text-white'>{GeneralProgress}%</p>
+                    {
+                      GeneralProgress > 0 &&
+                      <p className='text-[12px] text-white'>{GeneralProgress}%</p>
+                    }
                   </animated.div>
                   
                   {/* En caso de que no haya progreso */}
                   {
-                    GeneralProgress == 0 || !GeneralProgress &&
+                    GeneralProgress == 0 &&
                     <p className='text-[12px] text-success absolute top-0 w-full text-center font-semibold'>0%</p>
                   }
               </div>
@@ -182,13 +186,16 @@ export default function Home() {
                       // backgroundColor: '#ccc', // Color de fondo de la barra de progreso
                     }}
                   >
-                    <p className='text-[12px] text-white'>{unitsDone} / {totalUnits}</p>
+                    {
+                      unitsDone > 0 &&
+                      <p className='text-[12px] text-white'>{unitsDone} / {totalUnits}</p>
+                    }
                     
                   </animated.div>
                   
                   {/* En caso de que no haya actividades echas */}
                   {
-                    unitsDone == 0 || !unitsDone &&
+                    unitsDone == 0 &&
                     <p className='text-[12px] text-success absolute top-0 w-full text-center font-semibold'>0 / {totalUnits}</p>
                   }
               </div>
