@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef,useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { cardDetail } from './../../redux/ECEActions';
 import Image from 'next/image';
+import YouTube from 'react-youtube';
 import blanc_profile from '../../public/imgs/blank-profile-picture.png'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -12,7 +13,8 @@ export default function TeacherDetailPage() {
   const cardDetail = useSelector((state) => state.datos.cardDetail);
   const [isCardAvailable, setIsCardAvailable] = useState(false);
   const router = useRouter()
-
+  // Opciones de Youtube
+  const iframeRef = useRef(null);
 
   useEffect(() => {
     if (cardDetail) {
@@ -25,9 +27,17 @@ export default function TeacherDetailPage() {
   }
 
   const handleButton = () => {
-    router.push(`/inicio/schedule`);
+    router.push('/inicio/schedule');
   }
-
+  const opts = {
+    playerVars: {
+      rel: 0, // Evitar videos relacionados al final
+      autoplay: 1, // Desactivar la reproducción automática
+      modestbranding: 1, // Ocultar el logotipo de YouTube
+      fs: 1, // Oculto el boton de maximizar video fs FullScreen
+      color: "#000"
+    }
+  }
   return (
     <>
       <div className="flex bg-slate-200">
@@ -130,10 +140,13 @@ export default function TeacherDetailPage() {
           </div>
         </div>
         <div className="w-1/4 h-[600px] bg-white mt-5 mr-5  mb-5 p-2 flex flex-col items-center shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-md">
-          <iframe
+         
+        <YouTube ref={iframeRef} opts={opts} videoId={cardDetail.youtube}  />
+        
+          {/* <iframe
             src={cardDetail.youtube?"https://www.youtube.com/embed/dQw4w9WgXcQ":"https://www.youtube.com/embed/dQw4w9WgXcQ"}
             className=" w-full h-full mt-5"
-          ></iframe>
+          ></iframe> */}
           
           <p className='my-10'>estrellas</p>
           <button
