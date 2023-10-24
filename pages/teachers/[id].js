@@ -53,7 +53,7 @@ export default function TeacherDetailPage() {
                   />
                 )}
 
-                <p className='my-3'>svg&apos;s</p>
+                <p className='my-3'></p>
                 <div className='flex  flex-col justify-evenly mt-2'>
                   <p>Español:</p>
                   {cardDetail.hablante ? (
@@ -65,8 +65,8 @@ export default function TeacherDetailPage() {
               </div>
               <div className="w-4/5 flex flex-col">
                 <div className='py-5'>
-                  {cardDetail.namePerson ? (
-                    <p className='pb-5'>{cardDetail.namePerson}</p>
+                  {cardDetail.first_name   ? (
+                    <p className='pb-5'>{cardDetail.first_name+' '+cardDetail.last_name}</p>
                   ) : (
                     <p className='pb-5'>No hay datos personales</p>
                   )}
@@ -114,7 +114,7 @@ export default function TeacherDetailPage() {
                       />
                       {/* <strong>{item.nombre}:</strong> {item.reseña} */}
                       <strong>
-                        {item.nombre ? item.nombre : 'Nombre no especificado'}:
+                        {item.first_name&&item.last_name ? item.first_name+' '+item.last_name : 'Nombre no especificado'}:
                       </strong>
                       {item.reseña ? item.reseña : 'Reseña no disponible'}
                     </li>
@@ -131,9 +131,10 @@ export default function TeacherDetailPage() {
         </div>
         <div className="w-1/4 h-[600px] bg-white mt-5 mr-5  mb-5 p-2 flex flex-col items-center shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-md">
           <iframe
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            src={cardDetail.youtube?"https://www.youtube.com/embed/dQw4w9WgXcQ":"https://www.youtube.com/embed/dQw4w9WgXcQ"}
             className=" w-full h-full mt-5"
           ></iframe>
+          
           <p className='my-10'>estrellas</p>
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"

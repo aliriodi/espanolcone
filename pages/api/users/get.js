@@ -21,11 +21,11 @@ export default async function getAllUsers(req, res) {
 
 
 
-    console.log('CREATING DOCUMENT');
+    console.log('LOOKING USERS');
 
     const users = await Users.find().exec();
 
-    console.log('CREATED DOCUMENT');
+    console.log('USERS READY TO GO!!!');
 
     res.json({ users })
 

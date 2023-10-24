@@ -31,7 +31,7 @@ export function TeachersCard() {
 
   const handleButtonClick = (card) => {
     dispatch(cardDetail(card))
-    router.push(`/teachers/${card.id}`);
+    router.push(`/teachers/${card._id}`);
   };
 
   const renderStars = () => {
@@ -75,7 +75,11 @@ export function TeachersCard() {
                       alt="photo"
                       width={160}
                       height={160}
-                      src={card.image}
+                      src={ card ?  // ¿Existe la variable 'card'?
+                      card.image ?  // ¿Existe la propiedad 'image' en 'card'?
+                        card.image.url ? card.image.url : card.image // ¿Existe la propiedad 'url' en 'card.image'? Si es cierto, usa 'card.image.url'; de lo contrario, usa 'card.image'.
+                      : card.image // Si no existe 'card.image', usa 'card.image'.
+                    : null}
                       className="w-full h-full rounded-lg object-cover mb-5"
                     />
                     <div className="flex items-center space-x-1 text-green-500">
@@ -85,7 +89,7 @@ export function TeachersCard() {
                 </div>
                 <div className="col-span-4 ">
                   <div className="flex-1 p-4">
-                    <div className="text-xl font-semibold text-gray-700 mb-2">{card.namePerson}</div>
+                    <div className="text-xl font-semibold text-gray-700 mb-2">{card.first_name+' '+card.last_name}</div>
                     <p className="text-gray-500">{card.content}</p>
                   </div>
                 </div>
