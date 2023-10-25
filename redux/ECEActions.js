@@ -69,7 +69,7 @@ export const fetchTeachers = () => async (dispatch) => {
 export const cardDetail = (card) => (dispatch) => {
   console.log('cardDetailS')
   // console.log(id)
-  card['password']='';
+  
   dispatch(cardDetailS(card))
 };
 
