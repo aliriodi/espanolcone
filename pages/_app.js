@@ -6,7 +6,7 @@ import { useSession, SessionProvider } from "next-auth/react";
 import { appWithTranslation } from 'next-i18next'
 import nextI18NextConfig from '../next-i18next.config';
 import Head from 'next/head';
-import GoogleAnalytics from '../components/GOOGLEANALYTICS.JSX';
+import GoogleAnalytics from '../components/GOOGLEANALYTICS';
 
 function App({ Component, pageProps }) {
 
@@ -19,6 +19,7 @@ function App({ Component, pageProps }) {
         <Provider store={store}>
           <GoogleAnalytics />
           <Component {...pageProps} />
+         
         </Provider>
       </SessionProvider>
     </>

@@ -2,11 +2,12 @@
 'use client'
 
 import Script from "next/script"
-import * as gtag from "./gtag.js"
+import * as gtag from "../config/gtag"
 
-const GoogleAnalytics = () => {
-    return (
-        <>
+function GoogleAnalytics  ()  {
+      return (
+        <div>
+        {/* {console.log(gtag)} */}
             <Script
                 strategy="afterInteractive"
                 src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
@@ -25,7 +26,7 @@ const GoogleAnalytics = () => {
                     `,
                 }}
             />
-        </>
+        </div>
     )
 }
 
