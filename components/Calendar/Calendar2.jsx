@@ -19,6 +19,7 @@ import {
 } from 'date-fns'
 import Image from 'next/image'
 import { Fragment, useState } from 'react'
+import { useEffect } from 'react';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -45,6 +46,7 @@ export default function Example() {
   let [name, setName] = useState('students')
   //variable para asignar New Meeting en caso de asignar hora
   let [newMeeting, setNewMeeting] = useState()
+   
 
   const users = ['students', 'teachers', 'guides']
   let [i, setI] = useState(0)
@@ -67,70 +69,69 @@ de que sea role:user con bg success o morado
 
   function selectSchedule(meeting) {
     setNewMeeting(meeting)
-    
-      }
+
+  }
 
   function Confirm() {
     personSchedule.schedule.map(meeting => {
-      if (meeting.startDatetime === newMeeting.startDatetime) 
-      { 
-/*
-// Desplazamiento horario en minutos (ejemplo para GMT-03)
-const offsetMinutes = -180;
-// Obtén el UTN actual en UTC
-const nowUTC = new Date().getTime();
-// Calcula el nuevo UTN ajustado
-const adjustedUTN = nowUTC + (offsetMinutes * 60000); // 1 minuto = 60,000 ms
-// Crea una nueva fecha en la zona horaria deseada
-const adjustedDate = new Date(adjustedUTN);
-console.log(adjustedDate); // Esto mostrará la hora ajustada según el desplazamiento horario.
-*/
-       // Obtener el UTN de la fecha
-      const fecha = today;
-      const offsetMinutes = fecha.getTimezoneOffset();
-      const offsetHours = offsetMinutes / 60;
-      const offsetSign = offsetHours > 0 ? '-' : '+';
-      const offsetHoursAbs = Math.abs(offsetHours);
-      const formattedOffset = `${offsetSign}${String(offsetHoursAbs).padStart(2, '')}`;
-      const offsetNumber = parseInt(formattedOffset, 10);
-      
+      if (meeting.startDatetime === newMeeting.startDatetime) {
+        /*
+        // Desplazamiento horario en minutos (ejemplo para GMT-03)
+        const offsetMinutes = -180;
+        // Obtén el UTN actual en UTC
+        const nowUTC = new Date().getTime();
+        // Calcula el nuevo UTN ajustado
+        const adjustedUTN = nowUTC + (offsetMinutes * 60000); // 1 minuto = 60,000 ms
+        // Crea una nueva fecha en la zona horaria deseada
+        const adjustedDate = new Date(adjustedUTN);
+        console.log(adjustedDate); // Esto mostrará la hora ajustada según el desplazamiento horario.
+        */
+        // Obtener el UTN de la fecha
+        const fecha = today;
+        const offsetMinutes = fecha.getTimezoneOffset();
+        const offsetHours = offsetMinutes / 60;
+        const offsetSign = offsetHours > 0 ? '-' : '+';
+        const offsetHoursAbs = Math.abs(offsetHours);
+        const formattedOffset = `${offsetSign}${String(offsetHoursAbs).padStart(2, '')}`;
+        const offsetNumber = parseInt(formattedOffset, 10);
+
         //renders[i] es el usuario que sera asignado al teacher
         meeting.assigned = true;
         meeting.first_name = renders[i].first_name;
         meeting.image = renders[i].image;
-        meeting.email=renders[i].email;
+        meeting.email = renders[i].email;
         meeting.role = renders[i].role;
         meeting.utnscheduled
 
         //aca asigno el profesor al calendario del alumno
-         renders[i].schedule.push({
-          id:1,
+        renders[i].schedule.push({
+          id: 1,
           assigned: true,
-          first_name: personSchedule.first_name ,
+          first_name: personSchedule.first_name,
           email: personSchedule.email,
-          role:personSchedule.role,
-          image:personSchedule.image,
+          role: personSchedule.role,
+          image: personSchedule.image,
           iduser: personSchedule.id,
           startDatetime: meeting.startDatetime,
           endDatetime: meeting.endDatetime,
-          utnCreated:"",
-          utnscheduled:offsetNumber,
+          utnCreated: "",
+          utnscheduled: offsetNumber,
 
-         })
+        })
 
       }
-     //aca va la promesa de cargar en BD el nuevo personSchedule.schedule
-     //aca va la promesa de enviar dos correos uno a teacher y uno a profesor
-     
+      //aca va la promesa de cargar en BD el nuevo personSchedule.schedule
+      //aca va la promesa de enviar dos correos uno a teacher y uno a profesor
+
     })
-    
+
     console.log(personSchedule.schedule)
   }
   let today = startOfToday()
   let [selectedDay, setSelectedDay] = useState(today)
   let [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
   let firstDayCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date())
-
+      
   let days = eachDayOfInterval({
     start: firstDayCurrentMonth,
     end: endOfMonth(firstDayCurrentMonth),
@@ -155,13 +156,13 @@ console.log(adjustedDate); // Esto mostrará la hora ajustada según el desplaza
 
   return (
     <div className="pt-16">
-      <div className="max-w-md px-4 mx-auto sm:px-7 md:max-w-4xl md:px-6">
-        <div className="md:grid md:grid-cols-2 md:divide-x md:divide-gray-200">
+      <div className=" max-w-4xl px-4 mx-auto sm:px-7 md:max-w-4xl md:px-4">
+        <div className="md:grid md:grid-cols-2  md:divide-x md:divide-gray-200 grid grid-cols-2">
           <div className="md:pr-14">
-            <div style={{ border: 'solid 1px red' }}>
-              {/* Menu Desplegable para tipo de usuarios */}
-              <ul className={`${styles['select-languages_menu2']} ${styles['active']}`}>
-                {
+            {/* <div style={{ border: 'solid 1px red' }}> */}
+            {/* Menu Desplegable para tipo de usuarios */}
+            {/* <ul className={`${styles['select-languages_menu2']} ${styles['active']}`}> */}
+            {/*
                   users.length > 0 &&
                   users.map((user) => (
                     <li
@@ -172,25 +173,20 @@ console.log(adjustedDate); // Esto mostrará la hora ajustada según el desplaza
 
 
                       {/* Label */}
-                      <label style={{ marginLeft: "8px" }}>
+            {/*<label style={{ marginLeft: "8px" }}>
                         {user}
                       </label>
                     </li>
                   )
                   )
                 }
-              </ul>
-            </div>
+              {/* </ul> */}
+            {/* </div> */}
 
-            <>{name}</>
+            {/* <>{name}</> */}
 
-
-
-
-
-
-            <button style={{ 'marginLeft': '16px', 'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={backI}>Anterior</button>
-            <button style={{ 'marginLeft': '16px', 'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={nextI}>Siguiente</button>
+            {/* <button style={{ 'marginLeft': '16px', 'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={backI}>Anterior</button> */}
+            {/* <button style={{ 'marginLeft': '16px', 'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={nextI}>Siguiente</button> */}
             {/* De aca inicia el componente real */}
             {renders ? <div>
               <Image alt={'student'} width={100} height={100} src={personSchedule.image}></Image>
@@ -261,13 +257,6 @@ console.log(adjustedDate); // Esto mostrará la hora ajustada según el desplaza
                   </button>
 
                   <div className="w-1 h-1 mx-auto mt-1">
-                    {/* aca deberia ir los meets que tienen estilos, los dias disponibles y /o reservados 
-                    para estudiantes y mas abajo otro para profesores donde cargan calendarios o tienen vista
-                    de citas */}
-
-                    { }
-
-
                   </div>
                 </div>
               ))}
@@ -276,13 +265,16 @@ console.log(adjustedDate); // Esto mostrará la hora ajustada según el desplaza
 
           {/* Seccion asignacion de calendarios de acuerdo a disponibildiad */}
 
-          <section>
-            <time dateTime={format(selectedDay, "yyyy-MM-dd'T'HH:00:00")}>
-              {console.log(renders[i].role)}
+          <section className=''>
+
+            <time dateTime={format(selectedDay, "yyyy-MM-dd'T'HH:00:00")} />
+            <div className='max-w-fit pt-36 pl-14 grid grid-cols-1 divide-x object-none object-right-top  border-red-500 border-solid-4'>
+              {/* {Section Alumnos} */}
+
               {renders[i].role === 'user' ?
                 <>
-                  de aca viene el id del usuario donde va a renderizar el estado del teacher o guias
-                  con los datos del teacher o guia turistico, viene por redux
+                  {/* de aca viene el id del usuario donde va a renderizar el estado del teacher o guias
+                  con los datos del teacher o guia turistico, viene por redux */}
                   <div><strong> {personSchedule.first_name}</strong></div>
 
                   {personSchedule.schedule.map((meeting, index) => {
@@ -292,10 +284,12 @@ console.log(adjustedDate); // Esto mostrará la hora ajustada según el desplaza
                         <p key={index}>
                           <button onClick={() => selectSchedule(meeting)}
                             className={classNames(
-                              'focus:outline-none  hover:bg-purple-800  font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900',
-                              isFirstMeeting ? 'bg-success text-white ' : '  ring-2 text-primary hover:border-none border-primary hover:text-white'
-                            )} >
-                            {isFirstMeeting = false}
+                              'focus:outline-none  hover:bg-success  font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900',
+                              // isFirstMeeting ? 'bg-success text-white ' : '  ring-2 text-primary hover:border-none border-primary hover:text-white',
+                              newMeeting?newMeeting.startDatetime===meeting.startDatetime ?'bg-success text-white ' : '  ring-2 text-primary hover:border-none border-primary hover:text-white':'ring-2 text-primary hover:border-none border-primary hover:text-white',
+                              newMeeting?newMeeting.startDatetime!==meeting.startDatetime ?'ring-2 text-primary hover:border-none border-primary hover:text-white':'bg-success text-white ' :null,
+                           )} >
+                           
                             <time dateTime={meeting.startDatetime}>
                               {format(parseISO(meeting.startDatetime), 'h:mm a')}
                             </time>{' '}
@@ -310,45 +304,29 @@ console.log(adjustedDate); // Esto mostrará la hora ajustada según el desplaza
                     }
 
                   })}
-                  
-                  {personSchedule.schedule.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay)&&!meeting.assigned)&&
-                  <button type="button" onClick={Confirm} className='focus:outline-none  bg-primary text-white font-medium rounded-lg te t-sm px-5 py-2.5 mb-2 '>Confirma </button>}
-                          
-                        
-                
 
-
-
+                  {personSchedule.schedule.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) &&
+                    <button type="button" onClick={Confirm} className='focus:outline-none  bg-primary text-white font-medium rounded-lg te t-sm px-5 py-2.5 mb-2 '>Confirma </button>}
                 </>
 
                 : null}
+            </div>
+            {renders[i].role === 'guide' ? true : null}
+            {renders[i].role === 'teacher' ? true : null}
 
-              {renders[i].role === 'guide' ? true : null}
-              {renders[i].role === 'teacher' ? true : null}
+            {/* {format(selectedDay, "yyyy-MM-dd HH:00:00")} */}
 
-              {/* {format(selectedDay, "yyyy-MM-dd HH:00:00")} */}
-            </time>
           </section>
-
-          {/* <section className="mt-12 md:mt-0 md:pl-14">
-            <h2 className="font-semibold text-gray-900">
-              Agenda{' '}
-              <time dateTime={format(selectedDay, 'yyyy-MM-dd')}>
-
-                {format(selectedDay, 'MMM dd, yyy', { locale: es }).charAt(0).toUpperCase() + format(selectedDay, 'MMM dd, yyy', { locale: es }).slice(1)}
-              </time>
-            </h2>
-            <ol className="mt-4 space-y-1 text-sm leading-6 text-gray-500">
-              {selectedDayMeetings.length > 0 ? (
-                selectedDayMeetings.map((meeting) => (
-                  <Meeting meeting={meeting} key={meeting.id} />
-                ))
-              ) : (
-                <p>No hay actividad agendad aún.</p>
-              )}
-            </ol>
-          </section> */}
+          
         </div>
+        <div className='pt-10 text'>Recuerda:</div>
+        <div className='pt-6 max-w-prose text-justify' ><p>
+        La cancelación o modificación de horario se realiza de manera sencilla a través de la agenda de la aplicación. 
+          Simplemente acceda a su cuenta, navegue hasta la sección de agenda y seleccione la fecha y hora que desea cambiar. 
+          Luego, seguí las instrucciones proporcionadas para cancelar o modificar tu reserva según sus necesidades. 
+          Esto le brindará la flexibilidad de gestionar sus clases de español de manera conveniente y eficiente, 
+          adaptándolas a tu agenda y preferencias.</p>
+          </div>
       </div>
     </div>
   )
