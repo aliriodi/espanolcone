@@ -6,9 +6,8 @@ import { useSession, SessionProvider } from "next-auth/react";
 import { appWithTranslation } from 'next-i18next'
 import nextI18NextConfig from '../next-i18next.config';
 import Head from 'next/head';
+import GoogleAnalytics from '../components/GOOGLEANALYTICS.JSX';
 
-const TRAKING_ID ='G-DVGE2GBTSL';
-ReactGA,initialize(TRAKING_ID);
 function App({ Component, pageProps }) {
 
   return (
@@ -18,6 +17,7 @@ function App({ Component, pageProps }) {
       </Head>
       <SessionProvider session={pageProps.session}>
         <Provider store={store}>
+          <GoogleAnalytics />
           <Component {...pageProps} />
         </Provider>
       </SessionProvider>
