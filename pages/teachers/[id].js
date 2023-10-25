@@ -12,7 +12,7 @@ export default function TeacherDetailPage() {
 
   const cardDetail = useSelector((state) => state.datos.cardDetail);
   const [isCardAvailable, setIsCardAvailable] = useState(false);
-  const router = useRouter()
+  const router = useRouter();
   // Opciones de Youtube
   const iframeRef = useRef(null);
 
@@ -26,7 +26,7 @@ export default function TeacherDetailPage() {
     return <div>Cargando...</div>;
   }
 
-  const handleButton = () => {
+  function  handleButton  () {
     router.push('/inicio/schedule');
   }
   const opts = {
@@ -151,7 +151,7 @@ export default function TeacherDetailPage() {
           <p className='my-10'>estrellas</p>
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            onAuxClick={handleButton}
+            onClick={handleButton}
           >
             Reservar Cita
           </button>
