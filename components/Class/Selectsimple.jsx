@@ -25,35 +25,33 @@ export default function Selectsimple(props) {
 
     }
     return (
-        <div>
+        <>
             {/* {intro} */}
-            <div>
-                <p dangerouslySetInnerHTML={{ __html: props.data.value }}></p>
-                
-                {props.data.options ? props.data.options.map(option =>
-                    <p  key={option}  ><label>
-                        <input type="radio"
-                            key={option}
-                            value={option}
-                            checked={selectedOption === option}
-                            onChange={handleOptionChange}
-                            
-                        />
-                        <span  style={{paddingLeft: '5px'}}>{option}</span>
-                        {selectedOption && (
-                            <span>
-                          {/* Para renderizar culito */}
-                                {selectedOption === option ? (
-                                    isCorrect ?
-                                        <span style={{ color: 'green' }}> ✔️</span>
-                                        :
-                                        <span style={{ color: 'red' }}> ❌</span>
-                                ) : null}
-                            </span>
-                        )}
-                    </label></p>
-                ) : null}
-            </div>
-        </div>
+            <p dangerouslySetInnerHTML={{ __html: props.data.value }}></p>
+            
+            {props.data.options ? props.data.options.map(option =>
+                <p  key={option}  ><label>
+                    <input type="radio"
+                        key={option}
+                        value={option}
+                        checked={selectedOption === option}
+                        onChange={handleOptionChange}
+                        
+                    />
+                    <span  style={{paddingLeft: '5px'}}>{option}</span>
+                    {selectedOption && (
+                        <span>
+                        {/* Para renderizar culito */}
+                            {selectedOption === option ? (
+                                isCorrect ?
+                                    <span style={{ color: 'green' }}> ✔️</span>
+                                    :
+                                    <span style={{ color: 'red' }}> ❌</span>
+                            ) : null}
+                        </span>
+                    )}
+                </label></p>
+            ) : null}
+        </>
     )
 }

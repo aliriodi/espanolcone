@@ -8,6 +8,8 @@ import BOXMOMVE from './boxmove';
 import SELECTSIMPLE from './Selectsimple';
 import PARAGGRAPHCOMPLETE from './paragragraphcomplete';
 import style from '../../styles/class.module.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 export default function Class(props) {
   //elemento a renderizar  
@@ -78,64 +80,165 @@ export default function Class(props) {
     }
   }
 
+  useEffect(()=>{
+    console.log(data)
+    console.log(data?.sheets[i])
+  },[i])
 
   //https://docs.google.com/presentation/d/10lxVnbNdlLZ6OlsXJTU9-uZ3GDJPz140/edit#slide=id.g27c3e69a393_0_0
   //https://www.figma.com/file/JZZzrLkQhTDEuUPkAsacuB/ECE-%2F-Prototipos?type=design&node-id=403-9008&mode=design&t=RIjgbE4EDSxOXwZ9-0
 
   return (
-    <div>
-     {/* <h2>Me traigo todas las clases a futuro me traigo solo las del usuario en sesion</h2>
-     <h2>Renderizando clase numero {props.id}</h2>
-      <h1>Esto es traido de la Base de Datos</h1> */}
-      <div><button style={{ 'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={() => Back(i)}> Back </button>
-        <span style={{ 'marginLeft': '16px' }}>{i + 1}/{length}</span>
-        <button style={{ 'marginLeft': '16px', 'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={() => Forward(i)}>Forward</button>
-      </div>
-      <div></div>
-      {
-        data &&data.sheets[i]?.data ?
+    <>
 
-                    
-          data.sheets[i].data.map((c, index) =>
-            <>
-         
-              {/* {console.log(index,i,c.className)} */}
-              {/* PARA RENDERIZAR MEJOR  */}
-             {data.sheets[i].template?
-             <div style={{width:80,heigth:40}}><Image
-                key={index+1}
-                src={data.sheets[i].template}
-                alt="Background Image"
-                 layout="fill"
-                objectFit="cover"
-                objectPosition="center"
-                style={{zIndex: -10}}
-                className="z-10"
-              /></div>:null} 
-              <div className={style[c.className]} key={index}  >
-              {c.type === 'level' ? <p dangerouslySetInnerHTML={{ __html: c.value }}></p> : null}
-              
-              {c.type === 'image' ? <div className='className'><Image width='100' height='100' src={c.value} alt={c.alt} /> </div>: null}
-              {c.type === 'title' ? <div className='className'><p dangerouslySetInnerHTML={{ __html: c.value }}></p></div> : null}
-              {c.type === 'video-youtube' ?<div className='youtube'> <YouTube ref={iframeRef} opts={opts} videoId={c.value} className='youtube' /> </div>: null}
-              {c.type === 'videoi-youtube' ? <div className='className'><YOUTUVEPOPUP titlep={null} popups={c.popups} videoId={c.value} className='youtube' /></div> : null}
-              <div className={styles['box']}>
-              <div className='className'>
-                {c.type === 'options-box' ? c.value.map(value => <BOXMOMVE key={c.id} option={value} id={c.id}  />): null}
-              </div></div>
-              {c.type === 'paragraph' ? <div className='className'><p dangerouslySetInnerHTML={{ __html: c.value }}></p> </div>: null}
-              {c.type === 'sentence-box' ? <div className='className'><p dangerouslySetInnerHTML={{ __html: c.value }}></p> </div>: null}
-              {c.type === 'selectsimple' ? <div className='className'> <SELECTSIMPLE key={c.option} data={c}/> </div>:null}
-              {c.type === 'text' ? <div className='className'><p dangerouslySetInnerHTML={{ __html: c.value }}></p> </div>: null}
-              {/* En la siguiente linea falta destructurar el objeto como input form */}
-              {c.type === 'paragraph-complete' ? <div className='className'><PARAGGRAPHCOMPLETE data={c}/></div> : null}
-              {c.type === 'complete-li' ? <div className='className'><PARAGGRAPHCOMPLETE data={c}/> </div> :  null}
-              {c.type === 'complete-li-personal' ? <div className='className'><PARAGGRAPHCOMPLETE data={c}/> </div> :  null}
-              {c.type === 'popup' ?<div className='className'> <p dangerouslySetInnerHTML={{ __html: c.value }}></p></div> : null}
-              {/* <p dangerouslySetInnerHTML={{ __html: c.value }}></p> */}
-            </div></>) 
-            : <div style={{ paddingRight: '1000px' }}> <Spinner /></div>
+      {/* Paginacion */}
+      <div className='fixed bottom-6 w-full flex justify-center z-50'>
+
+        <div className='pagination' style={{boxShadow:"0px 4px 26px #00000040"}}>
+
+          {/* Boton de Previo */}
+          <button
+          className='pagination-btn'
+          onClick={() => Back(i)}>
+            <FontAwesomeIcon icon={faAngleLeft}/> Prev
+          </button>
+
+          {/* Index */}
+          <span className='pagination-index'>{i + 1} / {length}</span>
+
+          {/* Boton de Siguiente */}
+          <button
+          className='pagination-btn'
+          onClick={() => Forward(i)}>
+            Next <FontAwesomeIcon icon={faAngleRight}/> 
+          </button>
+          
+        </div>
+      </div>
+
+      {
+        data && data.sheets[i]?.data ?
+
+        
+        data.sheets[i].template && i == 0 ||
+        data.sheets[i].template && (i + 1) == data.sheets.length?
+
+        // En caso de que sea la primera o ultima sheets
+        data.sheets[i].data.map((c, index) =>
+        <>
+
+          {/* Fondo */}
+          <div style={{width:80,heigth:40}}>
+            <Image
+              key={index+1}
+              src={data.sheets[i].template}
+              alt="Background Image"
+              layout="fill"
+              objectFit="cover"
+              objectPosition="center"
+              style={{zIndex: -10}}
+              className="z-10"
+            />
+          </div>
+
+          {/* Contenido */}
+          <div className={style[c.className]} key={index}>
+
+            {c.type === 'title' ? <div className='className'><p dangerouslySetInnerHTML={{ __html: c.value }}></p></div> : null}
+            
+            {c.type === 'paragraph' ? <div className='className'><p dangerouslySetInnerHTML={{ __html: c.value }}></p> </div>: null}
+            
+          </div>
+
+        </>)
+
+        :
+
+        // En el caso contrario se muestra el resto sheets
+        <>
+          {/* Teample */}
+          <div className={style[data.sheets[i].template]}>
+
+            {/* Titulo */}
+            <div className={style['title']}>
+              {
+              data.sheets[i].data.map((c, index) =>
+              <>
+                {c.type === 'title' && 
+                  <div className={style[c.className]}>
+                    <p dangerouslySetInnerHTML={{ __html: c.value }}></p>
+                  </div>
+                }
+              </>
+
+              )}
+            </div>
+            
+            {/* Contenido */}
+            <div className={style['content']}>
+              {
+              data.sheets[i].data.map((c, index) =>
+                <>
+                  {/* Level */}
+                  {c.type === 'level' &&
+                  <p className={style[c.className]} dangerouslySetInnerHTML={{ __html: c.value }}></p> }
+                  
+                  {/* Imagen */}
+                  {c.type === 'image' &&<Image width='100' height='100' className={style[c.className]} src={c.value} alt={c.alt} />}
+                  
+                  {/* Video Youtube */}
+                  {c.type === 'video-youtube' &&
+                  <div className={`${style[c.className]} youtube`}> <YouTube ref={iframeRef} opts={opts} videoId={c.value} className='youtube' /> </div>}
+                  
+                  {/* Video Youtube con PopUps */}
+                  {c.type === 'videoi-youtube' &&
+                  <div className={`${style[c.className]}`}><YOUTUVEPOPUP titlep={null} popups={c.popups} videoId={c.value} className='youtube' /></div> }
+
+                  {/* Box? */}
+                  <div className={styles['box']}>
+                  <div className='className'>
+                    {c.type === 'options-box' ? c.value.map(value => <BOXMOMVE key={c.id} option={value} id={c.id}  />): null}
+                  </div></div>
+                  
+                  {/* Parrafo */}
+                  {c.type === 'paragraph' &&
+                  <p className={style[c.className]} dangerouslySetInnerHTML={{ __html: c.value }}></p>}
+                  
+                  {/* Caja de Oraciones */}
+                  {c.type === 'sentence-box' &&
+                  <div className={style[c.className]}><p dangerouslySetInnerHTML={{ __html: c.value }}></p> </div>}
+                  
+                  {/* SelectSimple */}
+                  {c.type === 'selectsimple' &&
+                  <div className={style[c.className]}> <SELECTSIMPLE key={c.option} data={c}/> </div>}
+                  
+                  {/* Texto */}
+                  {c.type === 'text' &&
+                  <div className={style[c.className]}><p dangerouslySetInnerHTML={{ __html: c.value }}></p> </div>}
+                  {/* En la siguiente linea falta destructurar el objeto como input form */}
+                  
+                  {/* Parrafo a Completar */}
+                  {c.type === 'paragraph-complete' &&
+                  <div className={style[c.className]}><PARAGGRAPHCOMPLETE data={c}/></div> }
+                  
+                  {c.type === 'complete-li' &&
+                  <div className={style[c.className]}><PARAGGRAPHCOMPLETE data={c}/> </div> }
+                  
+                  {c.type === 'complete-li-personal' &&
+                  <div className={style[c.className]}><PARAGGRAPHCOMPLETE data={c}/> </div> }
+                  
+                  {c.type === 'popup' &&
+                  <div className={style[c.className]}> <p dangerouslySetInnerHTML={{ __html: c.value }}></p></div> }
+                  {/* <p dangerouslySetInnerHTML={{ __html: c.value }}></p> */}
+                </>)
+                } 
+            </div>
+            
+          </div>
+        </>
+
+        : <div style={{ paddingRight: '1000px' }}> <Spinner /></div>
       }
-    </div>
+    </>
   )
 }

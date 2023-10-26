@@ -93,6 +93,12 @@ h3{
 .className{
      border: none; /*solid  1px white;*/
 }
+
+.btn-disable{
+  opacity: .5;
+  pointer-events: none;
+}
+
 /* Titulo Subrayado */
 .underlined-title{
   text-align: center;
@@ -278,6 +284,36 @@ h3{
 .ytp-swatch-background-color{
   background-color: var(--primary)!important; /* Cambia el color aquí a tu preferencia */
 }
+
+/* Paginacion */
+.pagination{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #F3F2F7;
+  border-radius: 50px;
+  padding: 8px;
+}
+
+.pagination-index{
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 12px;
+  border-radius: 50px;
+  margin: 0 6px;
+}
+
+.pagination-btn{
+  padding: 12px;
+  border-radius: 50px;
+  color: var(--gray_title);
+  transition: .23s;
+}
+.pagination-btn:hover{
+  background-color: var(--primary);
+  color: var(--white);
+}
+
 
 @media (max-width: 768px) {
 
