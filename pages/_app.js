@@ -11,19 +11,19 @@ import GoogleAnalytics from './GoogleAnalytics'
 function App({ Component, pageProps }) {
 
   return (
-    <> 
+    <>
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <SessionProvider session={pageProps.session}>
         <Provider store={store}>
-          <GoogleAnalytics />
+          
           <Component {...pageProps} />
-         
+          <GoogleAnalytics />
         </Provider>
       </SessionProvider>
     </>
-    )
+  )
 }
 
 export default appWithTranslation(App, nextI18NextConfig)
