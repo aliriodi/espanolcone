@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useSelector, useDispatch } from 'react-redux'
 import Spinner from '../components/Spinner'
 import style from "../styles/courses.module.css"
+import Head from 'next/head'
 
 export default function Courses() {
 
@@ -23,20 +24,26 @@ export default function Courses() {
 
 
   return (
-    <> <div className={style['container']}>
-      <div className={style['container0']}>
-        <Menu /></div>
-      <div className='ml-[20px] '>
-        {id ? 
-          <div className={style['container1']}>
-          <Class id={id} page={page}></Class></div> 
-          :
-          <div classname='flex items-center justify-center h-screen'>
-            <Spinner className="mx-auto my-auto" />
-          </div>
-        }
+    <>
+      <Head>
+        <meta name="landing" content="welcome" />
+      </Head>
+
+      <div className={style['container']}>
+        <div className={style['container0']}>
+          <Menu /></div>
+        <div className='ml-[20px] '>
+          {id ? 
+            <div className={style['container1']}>
+            <Class id={id} page={page}></Class></div> 
+            :
+            <div classname='flex items-center justify-center h-screen'>
+              <Spinner className="mx-auto my-auto" />
+            </div>
+          }
+        </div>
       </div>
-    </div></>
+    </>
 
   )
 }
