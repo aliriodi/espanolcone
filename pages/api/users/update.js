@@ -16,7 +16,7 @@ export default async function updateUsers(req, res) {
   //  console.log('email',email)
   //  console.log('updates',updates)
     console.log('CONNECTING TO MONGO DB');
-
+    console.log(req.body)
     await dbConnect()
 
     console.log('CONNECTED TO MONGO DB');

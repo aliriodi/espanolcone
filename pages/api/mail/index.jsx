@@ -1,13 +1,15 @@
 import {transporter} from '../../../lib/sendEmail';
 
 export default async function handler(req, res) {
+  
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method not allowed' });
   }
 
   const { to, subject, text } = req.body;
-// console.log(req.body)
+  //console.log(req.body)
   try {
+
     const mailOptions = {
       from: 'espanolconeacademy@aliriodi.com', // Cambia esto a tu dirección de correo electrónico
       to:  to,

@@ -6,6 +6,7 @@ import YouTube from 'react-youtube';
 import blanc_profile from '../../public/imgs/blank-profile-picture.png'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Menu from "../../components/Menu";
 
 export default function TeacherDetailPage() {
 
@@ -40,6 +41,7 @@ export default function TeacherDetailPage() {
   }
   return (
     <>
+    <Menu />
       <div className="flex bg-slate-200">
         <div className="w-3/4  mx-5 ">
           <div className="flex flex-col">
@@ -50,7 +52,7 @@ export default function TeacherDetailPage() {
                     alt="photo"
                     width={160}
                     height={160}
-                    src={cardDetail.image}
+                    src={cardDetail?.image?.url? cardDetail.image.url:cardDetail.image}
                     className="w-100% p-5 mb-2 rounded-full object-cover drop-shadow-[2px_3px_2px_rgba(255,255,255,.4)] dark:drop-shadow-[2px_3px_2px_rgba(0,0,0,.4)]"
                   />
                 ) : (

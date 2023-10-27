@@ -3,9 +3,9 @@
         {
             "id": 1,
             "first_name": "Eucaris",
-            "last_name": "Rodiguez",
+            "last_name": "Rodriguez",
             "role":"teacher",
-            "email":"espanolconeacademy@gmail.com",
+            "email":"eucarodriguez@gmail.com",
             "image":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366482/images/team-photo-01_svprcr.png",
             "schedule": [
                 {"id":1,
