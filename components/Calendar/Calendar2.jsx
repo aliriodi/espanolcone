@@ -1,6 +1,8 @@
 import { Menu, Transition } from '@headlessui/react'
 import { DotsVerticalIcon } from '@heroicons/react/outline'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
+import { useSession } from "next-auth/react"
+import { useSelector } from 'react-redux';
 import styles from '../../styles/navbar.module.css';
 import { es } from 'date-fns/locale';
 import {
@@ -30,6 +32,8 @@ export default function Example() {
   //con todos los teachers y guias turisticos disponibles
   //y sus calendarios y propiedades
   //1. en caso de ser user se trae todo los teachers y guias
+      //Cargo usuario de BD
+      const { data: session, status } = useSession();
   //2. en caso de ser teacher solo se trae su calendario con alumnos agendados y que pueda modificar sus horas disponibles
   //   no tiene derecho de cancelar clases esta replanificaion va con el departamento de profesores
   //3. en caso de ser guia turistico solo trae su calendario con sus clientes asignados, puede modificar sus horarios 
@@ -37,17 +41,21 @@ export default function Example() {
   const student = require("./alumnos.json");
   const teacher = require("./teachers.json");
   const guide = require("./guides.json");
-
+  const cardDetail = useSelector((state) => state.datos.cardDetail);
   let [students, setStudents] = useState(student.value)
   let [teachers, setTeachers] = useState(teacher.value)
   let [guides, setGuides] = useState(guide.value)
-  let [renders, setRenders] = useState(students)
-  let [personSchedule, setPersonSchedule] = useState(teachers[0])
+  let [renders, setRenders] = useState('')
+  let [personSchedule, setPersonSchedule] = useState({})
   let [name, setName] = useState('students')
   //variable para asignar New Meeting en caso de asignar hora
   let [newMeeting, setNewMeeting] = useState()
-   
+  useEffect(() => {
 
+    setRenders(session)
+    setPersonSchedule(cardDetail)
+  }, [session])
+console.log(renders)
   const users = ['students', 'teachers', 'guides']
   let [i, setI] = useState(0)
   function nextI() { if (i < students.length - 1) { let iaux = i + 1; setI(iaux); } console.log(i) }
@@ -58,6 +66,7 @@ export default function Example() {
     if (user === 'guides') { setRenders(guides); setName('guides') }
     setI(0)
   }
+ 
 
   // Termina section de BD ahora viebne el codigo que usa los datos
 
@@ -73,11 +82,11 @@ de que sea role:user con bg success o morado
   }
 
   function Confirm() {
-    personSchedule.schedule.map(meeting => {
+    personSchedule.calendar.map(meeting => {
       if (meeting.startDatetime === newMeeting.startDatetime) {
         /*
         // Desplazamiento horario en minutos (ejemplo para GMT-03)
-        const offsetMinutes = -180;
+        const offsetMinutes = -3*60;
         // Obtén el UTN actual en UTC
         const nowUTC = new Date().getTime();
         // Calcula el nuevo UTN ajustado
@@ -97,15 +106,19 @@ de que sea role:user con bg success o morado
 
         //renders[i] es el usuario que sera asignado al teacher
         meeting.assigned = true;
-        meeting.first_name = renders[i].first_name;
-        meeting.image = renders[i].image;
-        meeting.email = renders[i].email;
-        meeting.role = renders[i].role;
-        meeting.utnscheduled
+        meeting.iduser=renders.user._id
+        meeting.nameuser=renders.user.first_name+' '+renders.user.last_name;
+        meeting.first_name = renders.user.first_name;
+        meeting.last_name = renders.user.last_name;
+        meeting.image = renders.user.image;
+        meeting.email = renders.user.email;
+        meeting.role = renders.user.role;
+        meeting.utnscheduled = offsetNumber; 
 
         //aca asigno el profesor al calendario del alumno
-        renders[i].schedule.push({
-          id: 1,
+        // renders[i].schedule.push({
+        renders.user.calendar.push({
+          id: personSchedule['_id'],
           assigned: true,
           first_name: personSchedule.first_name,
           email: personSchedule.email,
@@ -124,9 +137,52 @@ de que sea role:user con bg success o morado
       //aca va la promesa de enviar dos correos uno a teacher y uno a profesor
 
     })
+  
+    //aca actualizo el calendario del profesor con alumno en BD
+    try { fetch('/api/users/update', 
+    {
+      method: "POST",
+       headers: {
+      "Content-Type": "application/json", 
+         },
+    body: JSON.stringify({email:personSchedule.email,updates:{calendar:personSchedule.schedule}}),})
+  }catch (error)
+  {console.log(error)}
+  //envio email a teacher
+  
 
+  
+    //aca actualizo el calendario del alumno en BD
+    try { fetch('/api/users/update', 
+    {
+      method: "POST",
+       headers: {
+      "Content-Type": "application/json", 
+         },
+    body: JSON.stringify({email:renders.user.email,updates:{calendar:renders.user.calendar}}),})
+  }catch (error)
+  {console.log(error)}
+ //Envio email a alumno
+ try { fetch('/api/mail/', 
+  {
+    method: "POST",
+     headers: {
+    "Content-Type": "application/json", 
+       },
+
+      //  to:  to,
+      // subject: subject,
+      // text: text
+  body: JSON.stringify({to:renders.user.email,subject:'Asignación de nueva clase con: '+personSchedule.first_name+' '+personSchedule.last_name,
+                         text: 'Asignación de clase para el día '+newMeeting.startDatetime+' y termina en hora '+newMeeting.endDatetime})})
+}catch (error)
+{console.log(error)}
+
+  alert('Su clase ha sido asignada')
     console.log(personSchedule.schedule)
   }
+
+//Inicia el calendario
   let today = startOfToday()
   let [selectedDay, setSelectedDay] = useState(today)
   let [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
@@ -147,9 +203,10 @@ de que sea role:user con bg success o morado
     setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'))
   }
 
-  let selectedDayMeetings = renders[i].schedule.filter((meeting) =>
-    isSameDay(parseISO(meeting.startDatetime), selectedDay)
-  )
+  //let selectedDayMeetings = renders.schedule.filter((meeting) =>
+  // let selectedDayMeetings = renders.user.calendar.filter((meeting) =>
+  //   isSameDay(parseISO(meeting.startDatetime), selectedDay)
+  // )
   // let selectedDayMeetings = meetings.filter((meeting) =>
   //   isSameDay(parseISO(meeting.startDatetime), selectedDay)
   // )
@@ -189,6 +246,7 @@ de que sea role:user con bg success o morado
             {/* <button style={{ 'marginLeft': '16px', 'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={nextI}>Siguiente</button> */}
             {/* De aca inicia el componente real */}
             {renders ? <div>
+              {console.log(personSchedule)}
               <Image alt={'student'} width={100} height={100} src={personSchedule.image}></Image>
             </div> : null}
             <div className="flex items-center">
@@ -244,7 +302,7 @@ de que sea role:user con bg success o morado
                       isEqual(day, selectedDay) && !isToday(day) && 'bg-success',
                       !isEqual(day, selectedDay) && 'hover:bg-gray-200',
                       (isEqual(day, selectedDay) || isToday(day)) && 'font-semibold',
-                      personSchedule.schedule.some((meeting) =>
+                      personSchedule?.calendar?.some((meeting) =>
                         isSameDay(parseISO(meeting.startDatetime), day) && !meeting.assigned) && "rounded-full bg-gray-200 text-primary text-lg",
                       'mx-auto flex h-8 w-8 items-center justify-center rounded-full'
                     )}
@@ -271,13 +329,13 @@ de que sea role:user con bg success o morado
             <div className='max-w-fit pt-36 pl-14 grid grid-cols-1 divide-x object-none object-right-top  border-red-500 border-solid-4'>
               {/* {Section Alumnos} */}
 
-              {renders[i].role === 'user' ?
+              {renders?.user?.role === 'user'|| renders?.user?.role.includes('user')?
                 <>
                   {/* de aca viene el id del usuario donde va a renderizar el estado del teacher o guias
                   con los datos del teacher o guia turistico, viene por redux */}
                   <div><strong> {personSchedule.first_name}</strong></div>
 
-                  {personSchedule.schedule.map((meeting, index) => {
+                  {personSchedule?.calendar?.map((meeting, index) => {
                     if (!meeting.assigned && isSameDay(parseISO(meeting.startDatetime), selectedDay)) {
                       return (
 
@@ -304,15 +362,16 @@ de que sea role:user con bg success o morado
                     }
 
                   })}
-
-                  {personSchedule.schedule.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) &&
-                    <button type="button" onClick={Confirm} className='focus:outline-none  bg-primary text-white font-medium rounded-lg te t-sm px-5 py-2.5 mb-2 '>Confirma </button>}
+                   
+                   {/* Si existe meeting par asignar renderiza button confirmar citas*/}
+                  {personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) &&
+                    <button type="button" onClick={()=>Confirm()} className='focus:outline-none  bg-primary text-white font-medium rounded-lg te t-sm px-5 py-2.5 mb-2 '>Confirma </button>}
                 </>
 
                 : null}
             </div>
-            {renders[i].role === 'guide' ? true : null}
-            {renders[i].role === 'teacher' ? true : null}
+            {renders?.user?.role === 'guide' ? true : null}
+            {renders?.user?.role === 'teacher' ? true : null}
 
             {/* {format(selectedDay, "yyyy-MM-dd HH:00:00")} */}
 

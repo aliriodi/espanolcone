@@ -55,8 +55,8 @@ const UserSchema = new Schema(
       default: "user",
     },
     calendar: {  //opcional para uso nuestro
-      type: ["fecha", "hora", "prof_name"],
-      default: "user",
+      type: [{}]
+      
     },
     classes: {
       type: [{level: String,
