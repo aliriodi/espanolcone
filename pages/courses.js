@@ -31,8 +31,8 @@ export default function Courses() {
 
       <div className={style['container']}>
         <div className={style['container0']}>
-          <Menu /></div>
-        <div className='ml-[20px] '>
+          <Menu onlyMenu={true}/></div>
+        <div>
           {id ? 
             <div className={style['container1']}>
             <Class id={id} page={page}></Class></div> 

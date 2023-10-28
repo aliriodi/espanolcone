@@ -12,7 +12,7 @@ import { useSession } from "next-auth/react";
 import Class from '../components/Class/Class'
 import Courses from '../pages/courses'
 
-const Menu = () => {
+const Menu = (props) => {
     const dispatch = useDispatch();
     const { data: session, status } = useSession();
     const [isOpen, setIsOpen] = useState(false);
@@ -78,7 +78,10 @@ const Menu = () => {
 
     return (
         <>
-            {/* Nav Bar */}
+        {/* Nav Bar */}
+        {
+            !props.onlyMenu ?
+            (
             <div className='w-full absolute px-[60px] py-[20px] z-50'>
                 <div className='bg-white shadow-[0px_4px_24px_#18292F1A] flex justify-between px-[18px] py-[12px] rounded-[8px] items-center'>
 
@@ -125,6 +128,21 @@ const Menu = () => {
 
                 </div>
             </div>
+            )
+            :
+            (
+                <button 
+                    className='bg-white shadow-[0px_4px_24px_#18292F1A] absolute top-[20px] left-[50px] h-[50px] w-[50px] rounded-full flex items-center justify-center
+                    hover:bg-gray_light transition-all'
+                    ref={menuRef}
+                    onClick={() => setIsOpen(!isOpen)}>
+                        <FontAwesomeIcon
+                        icon={faBars}
+                        className='text-[20px] text-violet_dark cursor-pointer'/>
+                </button>
+            )
+
+        }
 
             {/* Menu */}
             <div className={`bg-white fixed ${isOpen && "px-1"} py-1 h-screen z-[60] shadow-[0px_0px_15px_#0000000D]`}>
