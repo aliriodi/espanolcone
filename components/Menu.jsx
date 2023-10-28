@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Logo from '../public/imgs/logo-gradient.png';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faAngleRight, faHouse, faPersonHiking, faChalkboardUser, faLaptop, faAddressCard, faPen, faBell, faBars } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faAngleRight, faHouse, faPersonHiking, faChalkboardUser, faLaptop, faAddressCard, faPen, faBell, faBars, faUser } from '@fortawesome/free-solid-svg-icons';
 import SignOutBtn from './signOut/SignOutBtn';
 import { setshowClass } from '../redux/ECEActions';
 import { useSession } from "next-auth/react";
@@ -79,7 +79,7 @@ const Menu = () => {
     return (
         <>
             {/* Nav Bar */}
-            <div className='w-full absolute px-[40px] py-[8px]'>
+            <div className='w-full absolute px-[60px] py-[20px] z-50'>
                 <div className='bg-white shadow-[0px_4px_24px_#18292F1A] flex justify-between px-[18px] py-[12px] rounded-[8px] items-center'>
 
                     {/* Boton de Menu */}
@@ -108,18 +108,26 @@ const Menu = () => {
                         </div>
 
                         {/* Imagen de Usuario */}
-                        <Image
-                        className='w-[38px] h-[38px] bg-primary rounded-full'
-                        src={session?.user?.image?.url}
-                        width={38}
-                        height={38}/>
+                        <div className='w-[38px] h-[38px] rounded-full bg-[#B9B9C3] flex justify-center items-center '>
+                            {
+                                session?.user?.image?.url ?
+                                <Image
+                                className='w-[38px] h-[38px] bg-primary rounded-full object-cover'
+                                src={session?.user?.image?.url}
+                                width={38}
+                                height={38}/> 
+                                :
+                                <FontAwesomeIcon className="text-violet_dark" icon={faUser}/>
+
+                            }
+                        </div>
                     </div>
 
                 </div>
             </div>
 
             {/* Menu */}
-            <div className={`bg-white fixed ${isOpen && "px-1"} py-1 h-screen z-20 shadow-[0px_0px_15px_#0000000D]`}>
+            <div className={`bg-white fixed ${isOpen && "px-1"} py-1 h-screen z-[60] shadow-[0px_0px_15px_#0000000D]`}>
 
                 {/* Opciones */}
                 <nav className="my-8 flex flex-row-reverse  h-full justify-between" style={{ fontWeight: '500' }}>

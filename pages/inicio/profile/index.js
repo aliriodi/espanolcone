@@ -13,7 +13,7 @@ export default function Profile(){
         <>
         <Menu/>
 
-        <section className='py-[78px] px-[40px]'>
+        <section className='py-[119px] px-[60px]'>
 
             {/* Parte Superior */}
             <div className='bg-primary w-full h-[410px] rounded-[10px] overflow-hidden flex flex-col shadow-[0_1px_2px_#00000033]'>

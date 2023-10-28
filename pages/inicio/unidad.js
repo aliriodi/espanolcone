@@ -83,7 +83,7 @@ export default function Unidad(){
 
         <Menu />
 
-        <section className="ml-[40px] relative py-[60px] px-[40px]
+        <section className="relative py-[119px] px-[40px]
         md:ml-0 md:px-[20px]">
             
             {/* Bienvenido */}

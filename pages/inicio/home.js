@@ -109,7 +109,7 @@ export default function Home() {
         </div> // Muestra el componente Spinner cuando isLoading es true
       ) : (
 
-        <main className='ml-[40px] relative p-[60px] overflow-hidden
+        <main className='relative px-[60px] overflow-hidden py-[119px] 
       md:ml-0 md:px-[25px]'>
 
           {/* Bienvenido */}

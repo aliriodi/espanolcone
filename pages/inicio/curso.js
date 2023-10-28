@@ -47,7 +47,7 @@ export default function Curso(){
         <>
         <Menu />
 
-        <section className="ml-[40px] relative py-[60px] px-[40px] overflow-hidden
+        <section className="relative py-[119px] px-[40px] overflow-hidden
         md:ml-0 md:px-[25px]">
             {/* Bienvenido */}
             <div
