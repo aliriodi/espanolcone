@@ -32,8 +32,8 @@ export default function Example() {
   //con todos los teachers y guias turisticos disponibles
   //y sus calendarios y propiedades
   //1. en caso de ser user se trae todo los teachers y guias
-      //Cargo usuario de BD
-      const { data: session, status } = useSession();
+  //Cargo usuario de BD
+  const { data: session, status } = useSession();
   //2. en caso de ser teacher solo se trae su calendario con alumnos agendados y que pueda modificar sus horas disponibles
   //   no tiene derecho de cancelar clases esta replanificaion va con el departamento de profesores
   //3. en caso de ser guia turistico solo trae su calendario con sus clientes asignados, puede modificar sus horarios 
@@ -55,7 +55,7 @@ export default function Example() {
     setRenders(session)
     setPersonSchedule(cardDetail)
   }, [session])
-console.log(renders)
+  console.log(renders)
   const users = ['students', 'teachers', 'guides']
   let [i, setI] = useState(0)
   function nextI() { if (i < students.length - 1) { let iaux = i + 1; setI(iaux); } console.log(i) }
@@ -66,7 +66,7 @@ console.log(renders)
     if (user === 'guides') { setRenders(guides); setName('guides') }
     setI(0)
   }
- 
+
 
   // Termina section de BD ahora viebne el codigo que usa los datos
 
@@ -80,8 +80,14 @@ de que sea role:user con bg success o morado
     setNewMeeting(meeting)
 
   }
+  //Function que asigna el horario al alumno en el calendario de profesor y del alumno
 
-  function Confirm() {
+  async function Confirm() {
+
+    const promises = [];
+    const newcalendar = [];
+    //Teacher o guia turistico apeando las citas del calendario para asignarlo
+    // a un nuevo calendario asignado la fecha
     personSchedule.calendar.map(meeting => {
       if (meeting.startDatetime === newMeeting.startDatetime) {
         /*
@@ -104,16 +110,31 @@ de que sea role:user con bg success o morado
         const formattedOffset = `${offsetSign}${String(offsetHoursAbs).padStart(2, '')}`;
         const offsetNumber = parseInt(formattedOffset, 10);
 
-        //renders[i] es el usuario que sera asignado al teacher
-        meeting.assigned = true;
-        meeting.iduser=renders.user._id
-        meeting.nameuser=renders.user.first_name+' '+renders.user.last_name;
-        meeting.first_name = renders.user.first_name;
-        meeting.last_name = renders.user.last_name;
-        meeting.image = renders.user.image;
-        meeting.email = renders.user.email;
-        meeting.role = renders.user.role;
-        meeting.utnscheduled = offsetNumber; 
+        //renders es el usuario que sera asignado al teacher
+        newcalendar.push({
+          assigned: true,
+          iduser: renders.user._id,
+          nameuser: renders.user.first_name + ' ' + renders.user.last_name,
+          first_name: renders.user.first_name,
+          last_name: renders.user.last_name,
+          image: renders.user.image,
+          email: renders.user.email,
+          role: renders.user.role,
+          utnCreated: "",
+          utnscheduled: offsetNumber,
+          startDatetime: meeting.startDatetime,
+          endDatetime: meeting.endDatetime,
+        })
+
+        // meeting.assigned = true;
+        // meeting.iduser = renders.user._id
+        // meeting.nameuser = renders.user.first_name + ' ' + renders.user.last_name;
+        // meeting.first_name = renders.user.first_name;
+        // meeting.last_name = renders.user.last_name;
+        // meeting.image = renders.user.image;
+        // meeting.email = renders.user.email;
+        // meeting.role = renders.user.role;
+        // meeting.utnscheduled = offsetNumber;
 
         //aca asigno el profesor al calendario del alumno
         // renders[i].schedule.push({
@@ -121,6 +142,7 @@ de que sea role:user con bg success o morado
           id: personSchedule['_id'],
           assigned: true,
           first_name: personSchedule.first_name,
+          last_name: personSchedule.last_name,
           email: personSchedule.email,
           role: personSchedule.role,
           image: personSchedule.image,
@@ -132,62 +154,84 @@ de que sea role:user con bg success o morado
 
         })
 
+        //aca va la promesa de cargar en BD el nuevo personSchedule.schedule
+        //aca va la promesa de enviar dos correos uno a teacher y uno a profesor
+
+        //aca actualizo el calendario del profesor con alumno en BD
+        promises.push(
+          fetch('/api/users/update',
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              // body: JSON.stringify({ email: personSchedule.email, updates: { calendar: personSchedule.schedule } }),
+              body: JSON.stringify({ email: personSchedule.email, updates: { calendar: newcalendar } }),
+            }))
+
+        //envio email a teacher
+        promises.push(
+          fetch('/api/mail/',
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                to: personSchedule.email, subject: 'Asignación de nueva clase con: ' + renders.user.first_name + ' ' + renders.user.last_name,
+                text: 'Asignación de clase para el día ' + newMeeting.startDatetime + ' y termina en hora ' + newMeeting.endDatetime
+              })
+            }))
+
+        //aca actualizo el calendario del alumno en BD
+        promises.push(
+          fetch('/api/users/update',
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ email: renders.user.email, updates: { calendar: renders.user.calendar } }),
+            }))
+
+        //Envio email a alumno
+        promises.push(
+          fetch('/api/mail/',
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                to: renders.user.email, subject: 'Asignación de nueva clase con: ' + personSchedule.first_name + ' ' + personSchedule.last_name,
+                text: 'Asignación de clase para el día ' + newMeeting.startDatetime + ' y termina en hora ' + newMeeting.endDatetime
+              })
+            })
+        )
+
+      } else {
+        newcalendar.push(meeting)
       }
-      //aca va la promesa de cargar en BD el nuevo personSchedule.schedule
-      //aca va la promesa de enviar dos correos uno a teacher y uno a profesor
-
     })
-  
-    //aca actualizo el calendario del profesor con alumno en BD
-    try { fetch('/api/users/update', 
-    {
-      method: "POST",
-       headers: {
-      "Content-Type": "application/json", 
-         },
-    body: JSON.stringify({email:personSchedule.email,updates:{calendar:personSchedule.schedule}}),})
-  }catch (error)
-  {console.log(error)}
-  //envio email a teacher
-  
 
-  
-    //aca actualizo el calendario del alumno en BD
-    try { fetch('/api/users/update', 
-    {
-      method: "POST",
-       headers: {
-      "Content-Type": "application/json", 
-         },
-    body: JSON.stringify({email:renders.user.email,updates:{calendar:renders.user.calendar}}),})
-  }catch (error)
-  {console.log(error)}
- //Envio email a alumno
- try { fetch('/api/mail/', 
-  {
-    method: "POST",
-     headers: {
-    "Content-Type": "application/json", 
-       },
+    alert('Su clase ha sido asignada')
+    //Ejecuto todas las promesas
+    try {
+      await Promise.all(promises);
+    } catch (error) {
+      console.log(error);
+    }
 
-      //  to:  to,
-      // subject: subject,
-      // text: text
-  body: JSON.stringify({to:renders.user.email,subject:'Asignación de nueva clase con: '+personSchedule.first_name+' '+personSchedule.last_name,
-                         text: 'Asignación de clase para el día '+newMeeting.startDatetime+' y termina en hora '+newMeeting.endDatetime})})
-}catch (error)
-{console.log(error)}
 
-  alert('Su clase ha sido asignada')
     console.log(personSchedule.schedule)
   }
 
-//Inicia el calendario
+  //Inicia el calendario
   let today = startOfToday()
   let [selectedDay, setSelectedDay] = useState(today)
   let [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
   let firstDayCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date())
-      
+
   let days = eachDayOfInterval({
     start: firstDayCurrentMonth,
     end: endOfMonth(firstDayCurrentMonth),
@@ -329,7 +373,7 @@ de que sea role:user con bg success o morado
             <div className='max-w-fit pt-36 pl-14 grid grid-cols-1 divide-x object-none object-right-top  border-red-500 border-solid-4'>
               {/* {Section Alumnos} */}
 
-              {renders?.user?.role === 'user'|| renders?.user?.role.includes('user')?
+              {renders?.user?.role === 'user' || renders?.user?.role.includes('user') ?
                 <>
                   {/* de aca viene el id del usuario donde va a renderizar el estado del teacher o guias
                   con los datos del teacher o guia turistico, viene por redux */}
@@ -344,10 +388,10 @@ de que sea role:user con bg success o morado
                             className={classNames(
                               'focus:outline-none  hover:bg-success  font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900',
                               // isFirstMeeting ? 'bg-success text-white ' : '  ring-2 text-primary hover:border-none border-primary hover:text-white',
-                              newMeeting?newMeeting.startDatetime===meeting.startDatetime ?'bg-success text-white ' : '  ring-2 text-primary hover:border-none border-primary hover:text-white':'ring-2 text-primary hover:border-none border-primary hover:text-white',
-                              newMeeting?newMeeting.startDatetime!==meeting.startDatetime ?'ring-2 text-primary hover:border-none border-primary hover:text-white':'bg-success text-white ' :null,
-                           )} >
-                           
+                              newMeeting ? newMeeting.startDatetime === meeting.startDatetime ? 'bg-success text-white ' : '  ring-2 text-primary hover:border-none border-primary hover:text-white' : 'ring-2 text-primary hover:border-none border-primary hover:text-white',
+                              newMeeting ? newMeeting.startDatetime !== meeting.startDatetime ? 'ring-2 text-primary hover:border-none border-primary hover:text-white' : 'bg-success text-white ' : null,
+                            )} >
+
                             <time dateTime={meeting.startDatetime}>
                               {format(parseISO(meeting.startDatetime), 'h:mm a')}
                             </time>{' '}
@@ -362,10 +406,10 @@ de que sea role:user con bg success o morado
                     }
 
                   })}
-                   
-                   {/* Si existe meeting par asignar renderiza button confirmar citas*/}
+
+                  {/* Si existe meeting par asignar renderiza button confirmar citas*/}
                   {personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) &&
-                    <button type="button" onClick={()=>Confirm()} className='focus:outline-none  bg-primary text-white font-medium rounded-lg te t-sm px-5 py-2.5 mb-2 '>Confirma </button>}
+                    <button type="button" onClick={() => Confirm()} className='focus:outline-none  bg-primary text-white font-medium rounded-lg te t-sm px-5 py-2.5 mb-2 '>Confirma </button>}
                 </>
 
                 : null}
@@ -376,16 +420,16 @@ de que sea role:user con bg success o morado
             {/* {format(selectedDay, "yyyy-MM-dd HH:00:00")} */}
 
           </section>
-          
+
         </div>
         <div className='pt-10 text'>Recuerda:</div>
         <div className='pt-6 max-w-prose text-justify' ><p>
-        La cancelación o modificación de horario se realiza de manera sencilla a través de la agenda de la aplicación. 
-          Simplemente acceda a su cuenta, navegue hasta la sección de agenda y seleccione la fecha y hora que desea cambiar. 
-          Luego, seguí las instrucciones proporcionadas para cancelar o modificar tu reserva según sus necesidades. 
-          Esto le brindará la flexibilidad de gestionar sus clases de español de manera conveniente y eficiente, 
+          La cancelación o modificación de horario se realiza de manera sencilla a través de la agenda de la aplicación.
+          Simplemente acceda a su cuenta, navegue hasta la sección de agenda y seleccione la fecha y hora que desea cambiar.
+          Luego, seguí las instrucciones proporcionadas para cancelar o modificar tu reserva según sus necesidades.
+          Esto le brindará la flexibilidad de gestionar sus clases de español de manera conveniente y eficiente,
           adaptándolas a tu agenda y preferencias.</p>
-          </div>
+        </div>
       </div>
     </div>
   )
