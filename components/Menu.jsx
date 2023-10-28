@@ -173,9 +173,9 @@ const Menu = () => {
                             <div className="text-title_color">
                                 <Link
                                     className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                    ${currentPathName == '/' && "bg-primary text-w"}
+                                    ${currentPathName == '/inicio/profile' && "bg-primary text-white"}
                                     hover:bg-primary hover:text-white`}
-                                    href="/inicio/home">
+                                    href="/inicio/profile">
                                     <FontAwesomeIcon icon={faAddressCard} className=" mr-[10px]" />
                                     <p>Mi Perfil</p>
                                 </Link>
