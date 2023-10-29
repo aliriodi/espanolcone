@@ -292,7 +292,8 @@ router.push('/inicio/calendar');
             {/* De aca inicia el componente real */}
             {renders ? <div>
               {/* {console.log(personSchedule)} */}
-              <Image alt={'student'} width={100} height={100} src={personSchedule.image}></Image>
+              {/* <Image alt={'student'} width={100} height={100} src={personSchedule.image}></Image> */}
+                 <Image alt={'student'} width={100} height={100} src={personSchedule?.image?.url||personSchedule?.image}></Image>
             </div> : null}
             <div className="flex items-center">
               <h2 className="flex-auto font-semibold text-gray-900">
