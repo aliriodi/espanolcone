@@ -24,7 +24,7 @@ export default function CloudinaryUploader (props) {
           mode: 'cors',
           cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
           credentials: 'same-origin', // include, *same-origin, omit
-          origin: '*',
+          'Allow-Access-Control-Origin': '*',
           body: formData
         }
       );
