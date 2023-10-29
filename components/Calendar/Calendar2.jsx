@@ -221,9 +221,7 @@ de que sea role:user con bg success o morado
     } catch (error) {
       console.log(error);
     }
-
-
-    console.log(personSchedule.schedule)
+//    console.log(personSchedule.schedule)
   }
 
   //Inicia el calendario
@@ -290,7 +288,7 @@ de que sea role:user con bg success o morado
             {/* <button style={{ 'marginLeft': '16px', 'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={nextI}>Siguiente</button> */}
             {/* De aca inicia el componente real */}
             {renders ? <div>
-              {console.log(personSchedule)}
+              {/* {console.log(personSchedule)} */}
               <Image alt={'student'} width={100} height={100} src={personSchedule.image}></Image>
             </div> : null}
             <div className="flex items-center">

@@ -106,7 +106,7 @@ useEffect(() => {
  // setRenders(session)
  
 }, [session])
-
+console.log(session)
   let today = startOfToday()
   let [selectedDay, setSelectedDay] = useState(today)
   let [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
@@ -140,40 +140,6 @@ useEffect(() => {
       <div className="max-w-md px-4 mx-auto sm:px-7 md:max-w-4xl md:px-6">
         <div className="md:grid md:grid-cols-2 md:divide-x md:divide-gray-200">
             <div className="md:pr-14">
-          <div style={{border:'solid 1px red'}}>
-  {/* Menu Desplegable para tipo de usuarios */}
-  {/* <ul className={`${styles['select-languages_menu2']} ${ styles['active']}`}>
-              {
-                users.length > 0 &&
-                users.map((user) => (
-                  <li
-                    onClick={() => handleOnChange(user)}
-                    value={user}
-                    className={styles["select-languages_languages"]}
-                    key={user}>
-                                    
-
-                    {/* Label */}
-                    {/* <label style={{ marginLeft: "8px" }}> */}
-                      {/* {user} */}
-                    {/* </label> */}
-                  {/* </li> */}
-                {/* ) */}
-                {/* ) */}
-              {/* } */}
-            {/* </ul> */} 
-            </div>
- 
-            <>{name}</>
-
-
-
-
-
-            
-          <button style={{ 'marginLeft': '16px', 'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={backI}>Anterior</button>
-            <button style={{ 'marginLeft': '16px', 'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={nextI}>Siguiente</button>
-        {/* De aca inicia el componente real */}
             {renders? <div>
               <Image alt={'student'} width={100} height={100} src={renders[i].image}></Image>
               </div>:null}
@@ -385,23 +351,3 @@ let colStartClasses = [
   'col-start-6',
   'col-start-7',
 ]
-
-// h1 {
-//   disponible{
-//     1/0
-//   }
-//   ocupado{
-//     1/0
-//   }
-// }
-// 2 1 / 0
-// 3
-// 4
-// 5
-// 6
-// 7
-// 8
-// 8
-// 10
-// 11
-// 12
