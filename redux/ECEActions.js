@@ -60,7 +60,8 @@ export const fetchTeachers = () => async (dispatch) => {
           .then(teachers=>teachers.json())
           .then(teachers=>{
             dispatch(setCards(teachers.teachers))
-            console.log('bd',teachers.teachers)})
+            //console.log('bd',teachers.teachers)
+          })
   } catch (error) {
     console.error('Error al cargar los datos de profesores:', error);
   }
