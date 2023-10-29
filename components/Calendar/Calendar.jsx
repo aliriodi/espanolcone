@@ -212,7 +212,7 @@ export default function Example() {
             </h2>
             <div className=''>
               <ol className="">
-                {console.log(selectedDayMeetings)}
+                {/* {console.log(selectedDayMeetings)} */}
                 {selectedDayMeetings.length > 0 ? (
                   selectedDayMeetings.map((meeting) => (
                     <Meeting meeting={meeting} key={meeting.id} />
@@ -241,7 +241,7 @@ function Meeting({ meeting }) {
         className="flex-none w-10 h-10 rounded-full"
         width={160}
         height={160}
-      />{console.log(meeting.image)}
+      />{/* console.log(meeting.image)*/}
       <div className="flex-auto">
         {meeting.assigned ? true : <p className="text-gray-900">Meeting no asignado aún</p>}
         <p className="text-gray-900">{meeting.first_name+' '+meeting.last_name}</p>

@@ -57,7 +57,7 @@ export default function Example() {
     setRenders(session)
     setPersonSchedule(cardDetail)
   }, [session])
-  console.log(renders)
+  // console.log(renders)
   const users = ['students', 'teachers', 'guides']
   let [i, setI] = useState(0)
   function nextI() { if (i < students.length - 1) { let iaux = i + 1; setI(iaux); } console.log(i) }
