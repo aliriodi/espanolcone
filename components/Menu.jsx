@@ -115,6 +115,7 @@ const Menu = (props) => {
                             {
                                 session?.user?.image?.url ?
                                 <Image
+                                alt="session.user.image"
                                 className='w-[38px] h-[38px] bg-primary rounded-full object-cover'
                                 src={session?.user?.image?.url}
                                 width={38}
@@ -159,7 +160,7 @@ const Menu = (props) => {
                                 {/* Logo */}
                                 <div >
                                     <Link href="/inicio/home" >
-                                        <Image src={Logo} className='mb-[10px]' style={{ width: '80px' }} alt="logo" />
+                                        <Image  src={Logo} className='mb-[10px]' style={{ width: '80px' }} alt="Logo" />
                                     </Link>
 
                                 </div>

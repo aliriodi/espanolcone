@@ -1,6 +1,8 @@
 import { Menu, Transition } from '@headlessui/react'
 import { DotsVerticalIcon } from '@heroicons/react/outline'
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
+import { useSession } from "next-auth/react"
+import React, { useState, useEffect, Fragment } from 'react';
 import styles from '../../styles/navbar.module.css';
 import { es } from 'date-fns/locale';
 import {
@@ -18,7 +20,7 @@ import {
   startOfToday,
 } from 'date-fns'
 import Image from 'next/image'
-import { Fragment, useState } from 'react'
+
 
 const meetings = [
   {
@@ -80,6 +82,8 @@ export default function Example() {
   const teacher = require("./teachers.json");
   const guide = require("./guides.json");
  
+const { data: session, status } = useSession();
+
 let [students, setStudents] = useState(student.value)
 let [teachers, setTeachers] = useState(teacher.value)
 let [guides, setGuides] = useState(guide.value)
@@ -97,7 +101,12 @@ let [name,setName] =useState('students')
    }
 
 // Termina section de BD ahora viebne el codigo que usa los datos
+useEffect(() => {
 
+ // setRenders(session)
+ 
+}, [session])
+console.log(session)
   let today = startOfToday()
   let [selectedDay, setSelectedDay] = useState(today)
   let [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
@@ -118,6 +127,7 @@ let [name,setName] =useState('students')
     setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'))
   }
 
+  // de BD 
   let selectedDayMeetings = renders[i].schedule.filter((meeting) =>
   isSameDay(parseISO(meeting.startDatetime), selectedDay)
 )
@@ -126,44 +136,10 @@ let [name,setName] =useState('students')
   // )
 
   return (
-    <div className="pt-16">
+    <div className="pt-24">
       <div className="max-w-md px-4 mx-auto sm:px-7 md:max-w-4xl md:px-6">
         <div className="md:grid md:grid-cols-2 md:divide-x md:divide-gray-200">
             <div className="md:pr-14">
-          <div style={{border:'solid 1px red'}}>
-  {/* Menu Desplegable para tipo de usuarios */}
-  <ul className={`${styles['select-languages_menu2']} ${ styles['active']}`}>
-              {
-                users.length > 0 &&
-                users.map((user) => (
-                  <li
-                    onClick={() => handleOnChange(user)}
-                    value={user}
-                    className={styles["select-languages_languages"]}
-                    key={user}>
-                                    
-
-                    {/* Label */}
-                    <label style={{ marginLeft: "8px" }}>
-                      {user}
-                    </label>
-                  </li>
-                )
-                )
-              }
-            </ul>
-            </div>
- 
-            <>{name}</>
-
-
-
-
-
-            
-          <button style={{ 'marginLeft': '16px', 'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={backI}>Anterior</button>
-            <button style={{ 'marginLeft': '16px', 'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={nextI}>Siguiente</button>
-        {/* De aca inicia el componente real */}
             {renders? <div>
               <Image alt={'student'} width={100} height={100} src={renders[i].image}></Image>
               </div>:null}
@@ -375,23 +351,3 @@ let colStartClasses = [
   'col-start-6',
   'col-start-7',
 ]
-
-// h1 {
-//   disponible{
-//     1/0
-//   }
-//   ocupado{
-//     1/0
-//   }
-// }
-// 2 1 / 0
-// 3
-// 4
-// 5
-// 6
-// 7
-// 8
-// 8
-// 10
-// 11
-// 12
