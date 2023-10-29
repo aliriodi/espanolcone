@@ -218,7 +218,7 @@ export default function Example() {
                     <Meeting meeting={meeting} key={meeting.id} />
                   ))
                 ) : (
-                  <p>No hay actividad agendad aún.</p>
+                  <p>No hay actividad agendada aún.</p>
                 )}
               </ol></div>
               </div>
