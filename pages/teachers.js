@@ -8,8 +8,8 @@ export default function teachers() {
   return (
     <>
       <Menu />
-      <div className='ml-[80px] flex flex-wrap'>
-        {/* <DatePi /> */}
+      <div className='pt-24 ml-[80px] flex flex-wrap'>
+        {/* <DatePi /> */} 
         <TeachersCard />
 
       </div>

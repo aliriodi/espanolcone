@@ -103,8 +103,8 @@ export default function Example() {
       <div className=" max-w-4xl px-4 mx-auto sm:px-7 md:max-w-4xl md:px-4">
         <div className="md:grid md:grid-cols-2  md:divide-x md:divide-gray-200 grid grid-cols-2">
           <div className="md:pr-14">
-            {renders ? <div>
-              <Image alt={'student'} width={100} height={100} src={renders?.user.image}></Image>
+            {renders ? <div className='pt-24'>
+              {/* <Image alt={'student'} width={100} height={100} src={renders?.user?.image?.url||renders?.user?.image}></Image> */}
             </div> : null}
             <div className="flex items-center">
               <h2 className="flex-auto font-semibold text-gray-900">
@@ -202,7 +202,7 @@ export default function Example() {
 
       
           <section className="mt-12 md:mt-0 md:pl-14">
-            <div className='max-w-fit pt-36 pl-14 grid grid-cols-1 divide-x object-none object-right-top  border-red-500 border-solid-4'>
+            <div className='max-w-fit pt-16 pl-14 grid grid-cols-1 divide-x object-none object-right-top  border-red-500 border-solid-4'>
             <h2 className="font-semibold text-gray-900">
               Agenda{' '}
               <time dateTime={format(selectedDay, 'yyyy-MM-dd')}>
