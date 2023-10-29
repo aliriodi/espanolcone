@@ -19,12 +19,15 @@ export default function CloudinaryUploader (props) {
       formData.append("api_key",process.env.CLOUDINARY_KEY);
       const response = await fetch(
         "https://api.cloudinary.com/v1_1/"+process.env.NEXT_PUBLIC_CLOUDINARY_NAME+"/images/upload",
-        {
+         {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': process.env.CLOUDINARY_KEY,
+          },
           method: "POST",
           mode: 'cors',
           cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
           credentials: 'same-origin', // include, *same-origin, omit
-          'Allow-Access-Control-Origin': '*',
           body: formData
         }
       );
