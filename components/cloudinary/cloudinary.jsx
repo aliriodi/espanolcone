@@ -22,7 +22,7 @@ export default function CloudinaryUploader (props) {
          {
          headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${process.env.CLOUDINARY_SECRET}`,
+            'Authorization': `Bearer ${process.env.CLOUDINARY_KEY}`,
             'Access-Control-Allow-Origin': '*',
           },
           method: "POST",
