@@ -82,7 +82,8 @@ const Menu = (props) => {
         {
             !props.onlyMenu ?
             (
-            <div className='w-full absolute px-[60px] py-[20px] z-50'>
+            <div className='w-full absolute px-[60px] py-[20px] z-50
+            md:px-[25px]'>
                 <div className='bg-white shadow-[0px_4px_24px_#18292F1A] flex justify-between px-[18px] py-[12px] rounded-[8px] items-center'>
 
                     {/* Boton de Menu */}

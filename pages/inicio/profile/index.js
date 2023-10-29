@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { useSession } from 'next-auth/react';
 import { useEffect } from 'react';
+import Link from 'next/link';
 
 export default function Profile(){
     const { data: session, status } = useSession();
@@ -13,7 +14,8 @@ export default function Profile(){
         <>
         <Menu/>
 
-        <section className='py-[119px] px-[60px]'>
+        <section className='py-[119px] px-[60px]
+        md:px-[25px]'>
 
             {/* Parte Superior */}
             <div className='bg-primary w-full h-[410px] rounded-[10px] overflow-hidden flex flex-col shadow-[0_1px_2px_#00000033]'>
@@ -42,10 +44,10 @@ export default function Profile(){
 
                 {/* Edicion de perfil */}
                 <div className='bg-white p-[12px] flex justify-end '>
-                    <button className='btn-primary px-[55px] py-[9px]'>
+                    <Link href={"./profile/edit"} className='btn-primary px-[55px] py-[9px]'>
                         Editar
                         <FontAwesomeIcon className='ml-[6px]' icon={faPenToSquare}/>
-                    </button>
+                    </Link>
                 </div>
 
             </div>
@@ -57,7 +59,7 @@ export default function Profile(){
                 <div className='w-[45%] rounded-[10px] overflow-hidden shadow-[0px_4px_24px_#0000000F]'>
                     {/* Acerca de Mi */}
                     <div className='bg-white relative px-[22px] py-[26px]'>
-                        <p className='text-[18px] text-violet_dark font-medium border-b-2 py-2'>Acerca de Mi</p>
+                        <p className='text-[18px] text-title_color font-medium border-b-2 py-2'>Acerca de Mi</p>
 
                         <p className='text-violet_dark py-2'>
                             Mi nombre es Luis, vivo en Rio de Janeiro y soy estudiante de la carrera de Marketing.
@@ -68,7 +70,7 @@ export default function Profile(){
 
                 {/* Parte de la Izquierda */}
                 <div className='bg-white w-[52%] rounded-[10px] relative px-[22px] py-[26px] shadow-[0px_4px_24px_#0000000F]'>
-                    <p className='text-[18px] text-violet_dark font-medium border-b-2 py-2'>Certificado</p>
+                    <p className='text-[18px] text-title_color font-medium border-b-2 py-2'>Certificado</p>
 
                     {/* Certificado */}
                     <div className='py-2'>

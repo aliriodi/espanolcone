@@ -304,7 +304,7 @@ export default function Register() {
                     style={{ width:'100%', flexGrow:1}}>
 
                         <div className="flex justify-between" style={{ margin: '8px 0' }}>
-                            <label htmlFor="last_name" className='md:text-[12px]'>{t("password")}</label>
+                            <label htmlFor="last_name" className='md:text-[12px]'>{t("lastname")}</label>
                         </div>
 
                         <input
@@ -413,6 +413,32 @@ export default function Register() {
                         )}
                     </div>
 
+                    
+                    {/* Campo Apellido */}
+                    <div className="flex flex-col mt-[18px]
+                    md:mt-[10px]"
+                    style={{ width:'100%', flexGrow:1}}>
+
+                        <div className="flex justify-between" style={{ margin: '8px 0' }}>
+                            <label htmlFor="last_name" className='md:text-[12px]'>{t("lastname")}</label>
+                        </div>
+
+                        <input
+                          className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.last_name ? "border-danger" :"border-gray-clear"}
+                          md:text-[12px]`}
+                          type="text"
+                          id="last_name"
+                          placeholder='Doe'
+                          value={newUser.last_name}
+                          onChange={(e) => setNewUser({...newUser, last_name: e.target.value})}
+                        />
+
+                        {/* Error de Apellido */}
+                        {errorsForm.last_name && (
+                            <p className='text-danger md:text-[12px]'>{t("warningLastname")}</p>
+                        )}
+                    </div>
+
                     {/* Campo Pais */}
                     <div className="flex flex-col mt-[18px]
                     md:mt-[10px]"
@@ -438,31 +464,6 @@ export default function Register() {
                         )}
                     </div>
                     
-                    {/* Campo Apellido */}
-                    <div className="flex flex-col mt-[18px]
-                    md:mt-[10px]"
-                    style={{ width:'100%', flexGrow:1}}>
-
-                        <div className="flex justify-between" style={{ margin: '8px 0' }}>
-                            <label htmlFor="last_name" className='md:text-[12px]'>{t("password")}</label>
-                        </div>
-
-                        <input
-                          className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.last_name ? "border-danger" :"border-gray-clear"}
-                          md:text-[12px]`}
-                          type="text"
-                          id="last_name"
-                          placeholder='Doe'
-                          value={newUser.last_name}
-                          onChange={(e) => setNewUser({...newUser, last_name: e.target.value})}
-                        />
-
-                        {/* Error de Apellido */}
-                        {errorsForm.last_name && (
-                            <p className='text-danger md:text-[12px]'>{t("warningLastname")}</p>
-                        )}
-                    </div>
-
                     {/* Campo Email */}
                     <div className="flex flex-col mt-[18px]
                     md:mt-[10px]"
@@ -492,37 +493,6 @@ export default function Register() {
                     <div className="flex flex-col mt-[18px]
                     md:mt-[10px]"
                     style={{ width:'100%', flexGrow:1}}>
-                      
-                        <div className="flex justify-between" style={{ margin: '8px 0' }}>
-                            <label htmlFor="confirm_password" className='md:text-[12px]'>{t("confirmPaswword")}</label>
-                        </div>
-
-                        <div className='relative'>
-                          <input
-                            className={`p-2 rounded-md border focus-visible:outline-none w-full ${errorsForm.password ? "border-danger" :"border-gray-clear"}
-                            md:text-[12px]`}
-                            type={showPassword ? "text" : "password"}
-                            id="confirm_password"
-                            value={newUser.confirm_password}
-                            onChange={(e) => setNewUser({...newUser, confirm_password: e.target.value})}/>
-                            
-                            {/* Ojo */}
-                            <FontAwesomeIcon 
-                            onClick={()=> showPassword ? setShowPassword(false) : setShowPassword(true)}
-                            className={`${showPassword ? "text-dark" : "text-dark_flat_hover"} absolute  top-1/2 transform -translate-y-1/2 right-0 mr-[13px] cursor-pointer max-w-[16px]`}
-                            icon={faEye}/>
-                        </div>
-                          
-                        {/* Error de Contraseña */}
-                        {errorsForm.password && (
-                            <p className='text-danger md:text-[12px]'>{t("warningPassw")}</p>
-                        )}
-                    </div>
-
-                    {/* Campo Confirma Contraseña */}
-                    <div className="flex flex-col mt-[18px]
-                    md:mt-[10px]"
-                    style={{ width:'100%', flexGrow:1}}>
                         <div className="flex justify-between" style={{ margin: '8px 0' }}>
                             <label htmlFor="password" className="md:text-[12px]">{t("password")}</label>
                         </div>
@@ -549,6 +519,38 @@ export default function Register() {
                             <p className='text-danger flex'>{t("warningPass")}</p>
                         )}
                     </div>   
+                    
+                    {/* Campo Confirma Contraseña */}
+                    <div className="flex flex-col mt-[18px]
+                    md:mt-[10px]"
+                    style={{ width:'100%', flexGrow:1}}>
+                      
+                        <div className="flex justify-between" style={{ margin: '8px 0' }}>
+                            <label htmlFor="confirm_password" className='md:text-[12px]'>{t("confirmPaswword")}</label>
+                        </div>
+
+                        <div className='relative'>
+                          <input
+                            className={`p-2 rounded-md border focus-visible:outline-none w-full ${errorsForm.password ? "border-danger" :"border-gray-clear"}
+                            md:text-[12px]`}
+                            type={showPassword ? "text" : "password"}
+                            id="confirm_password"
+                            value={newUser.confirm_password}
+                            onChange={(e) => setNewUser({...newUser, confirm_password: e.target.value})}/>
+                            
+                            {/* Ojo */}
+                            <FontAwesomeIcon 
+                            onClick={()=> showPassword ? setShowPassword(false) : setShowPassword(true)}
+                            className={`${showPassword ? "text-dark" : "text-dark_flat_hover"} absolute  top-1/2 transform -translate-y-1/2 right-0 mr-[13px] cursor-pointer max-w-[16px]`}
+                            icon={faEye}/>
+                        </div>
+                          
+                        {/* Error de Contraseña */}
+                        {errorsForm.password && (
+                            <p className='text-danger md:text-[12px]'>{t("warningPassw")}</p>
+                        )}
+                    </div>
+                    
                   </div>
 
                 </div>

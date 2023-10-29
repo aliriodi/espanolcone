@@ -27,7 +27,7 @@ export default async function updateUsers(req, res) {
 
    // console.log('UPDATED DOCUMENT', result);
     
-   res.json({ message: 'Usuario actualizado con éxito' });
+   res.json({ message: 'Usuario actualizado con éxito',email });
 
  //  res.json({ result })
 
