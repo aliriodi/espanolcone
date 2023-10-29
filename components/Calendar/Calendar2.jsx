@@ -3,6 +3,7 @@ import { DotsVerticalIcon } from '@heroicons/react/outline'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
 import { useSession } from "next-auth/react"
 import { useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
 import styles from '../../styles/navbar.module.css';
 import { es } from 'date-fns/locale';
 import {
@@ -28,6 +29,7 @@ function classNames(...classes) {
 }
 
 export default function Example() {
+  const router = useRouter();
   //Aca debe venir de la BD los por userId o email un solo usuario
   //con todos los teachers y guias turisticos disponibles
   //y sus calendarios y propiedades
@@ -102,7 +104,7 @@ de que sea role:user con bg success o morado
         console.log(adjustedDate); // Esto mostrará la hora ajustada según el desplazamiento horario.
         */
         // Obtener el UTN de la fecha
-        const fecha = today;
+        const fecha = today;Fragment
         const offsetMinutes = fecha.getTimezoneOffset();
         const offsetHours = offsetMinutes / 60;
         const offsetSign = offsetHours > 0 ? '-' : '+';
@@ -221,9 +223,8 @@ de que sea role:user con bg success o morado
     } catch (error) {
       console.log(error);
     }
-
-
-    console.log(personSchedule.schedule)
+//    console.log(personSchedule.schedule)
+router.push('/inicio/calendar');
   }
 
   //Inicia el calendario
@@ -256,7 +257,7 @@ de que sea role:user con bg success o morado
   // )
 
   return (
-    <div className="pt-16">
+    <div className="pt-24">
       <div className=" max-w-4xl px-4 mx-auto sm:px-7 md:max-w-4xl md:px-4">
         <div className="md:grid md:grid-cols-2  md:divide-x md:divide-gray-200 grid grid-cols-2">
           <div className="md:pr-14">
@@ -290,8 +291,9 @@ de que sea role:user con bg success o morado
             {/* <button style={{ 'marginLeft': '16px', 'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={nextI}>Siguiente</button> */}
             {/* De aca inicia el componente real */}
             {renders ? <div>
-              {console.log(personSchedule)}
-              <Image alt={'student'} width={100} height={100} src={personSchedule.image}></Image>
+              {/* {console.log(personSchedule)} */}
+              {/* <Image alt={'student'} width={100} height={100} src={personSchedule.image}></Image> */}
+                 <Image alt={'student'} width={100} height={100} src={personSchedule?.image?.url||personSchedule?.image}></Image>
             </div> : null}
             <div className="flex items-center">
               <h2 className="flex-auto font-semibold text-gray-900">
