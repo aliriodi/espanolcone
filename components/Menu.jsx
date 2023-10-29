@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Logo from '../public/imgs/logo-gradient.png';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faAngleRight, faHouse, faPersonHiking, faChalkboardUser, faLaptop, faAddressCard, faPen, faBell, faBars, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faAngleRight,faCalendarDays, faHouse, faPersonHiking, faChalkboardUser, faLaptop, faAddressCard, faPen, faBell, faBars, faUser } from '@fortawesome/free-solid-svg-icons';
 import SignOutBtn from './signOut/SignOutBtn';
 import { setshowClass } from '../redux/ECEActions';
 import { useSession } from "next-auth/react";
@@ -191,7 +191,17 @@ const Menu = (props) => {
                                             <p>Curso</p>
                                         </Link>
                                     </li>
-
+                                    {/* Calendario */}
+                                    <li>
+                                        <Link
+                                            className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
+                                            ${currentPathName == '/inicio/calendar' && "bg-primary text-white"}
+                                        hover:bg-primary hover:text-white`}
+                                            href="/inicio/calendar">
+                                            <FontAwesomeIcon icon={faCalendarDays} className=" mr-[10px]" />
+                                            <p>Calendario</p>
+                                        </Link>
+                                    </li>
                                     {/* Profesores */}
                                     <li>
                                         <Link

@@ -3,6 +3,7 @@ import { DotsVerticalIcon } from '@heroicons/react/outline'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
 import { useSession } from "next-auth/react"
 import { useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
 import styles from '../../styles/navbar.module.css';
 import { es } from 'date-fns/locale';
 import {
@@ -28,6 +29,7 @@ function classNames(...classes) {
 }
 
 export default function Example() {
+  const router = useRouter();
   //Aca debe venir de la BD los por userId o email un solo usuario
   //con todos los teachers y guias turisticos disponibles
   //y sus calendarios y propiedades
@@ -222,6 +224,7 @@ de que sea role:user con bg success o morado
       console.log(error);
     }
 //    console.log(personSchedule.schedule)
+router.push('/inicio/calendar');
   }
 
   //Inicia el calendario

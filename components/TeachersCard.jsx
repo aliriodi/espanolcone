@@ -88,7 +88,7 @@ export function TeachersCard() {
                     />
                    
                     <div className="flex items-center space-x-1 text-green-500">
-                    {console.log(card)}
+                    {/* {console.log(card)} */}
                       {renderStars()}
                     </div>
                   </div>
