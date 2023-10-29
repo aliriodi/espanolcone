@@ -199,7 +199,7 @@ const Menu = (props) => {
                                         hover:bg-primary hover:text-white`}
                                             href="/inicio/calendar">
                                             <FontAwesomeIcon icon={faCalendarDays} className=" mr-[10px]" />
-                                            <p>Calendario</p>
+                                            <p>Agenda</p>
                                         </Link>
                                     </li>
                                     {/* Profesores */}

@@ -42,7 +42,7 @@ export default function TeacherDetailPage() {
   return (
     <>
     <Menu />
-      <div className="flex bg-slate-200">
+      <div className="pt-24 flex bg-slate-200">
         <div className="w-3/4  mx-5 ">
           <div className="flex flex-col">
             <div className='flex flex-row m-5 p-2 border bg-white rounded-md shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]'>
