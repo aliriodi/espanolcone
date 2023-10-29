@@ -1,6 +1,8 @@
 import { Menu, Transition } from '@headlessui/react'
 import { DotsVerticalIcon } from '@heroicons/react/outline'
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
+import { useSession } from "next-auth/react"
+import React, { useState, useEffect, Fragment } from 'react';
 import styles from '../../styles/navbar.module.css';
 import { es } from 'date-fns/locale';
 import {
@@ -18,7 +20,7 @@ import {
   startOfToday,
 } from 'date-fns'
 import Image from 'next/image'
-import { Fragment, useState } from 'react'
+
 
 const meetings = [
   {
@@ -80,6 +82,8 @@ export default function Example() {
   const teacher = require("./teachers.json");
   const guide = require("./guides.json");
  
+const { data: session, status } = useSession();
+
 let [students, setStudents] = useState(student.value)
 let [teachers, setTeachers] = useState(teacher.value)
 let [guides, setGuides] = useState(guide.value)
@@ -97,6 +101,11 @@ let [name,setName] =useState('students')
    }
 
 // Termina section de BD ahora viebne el codigo que usa los datos
+useEffect(() => {
+
+ // setRenders(session)
+ 
+}, [session])
 
   let today = startOfToday()
   let [selectedDay, setSelectedDay] = useState(today)
@@ -118,6 +127,7 @@ let [name,setName] =useState('students')
     setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'))
   }
 
+  // de BD 
   let selectedDayMeetings = renders[i].schedule.filter((meeting) =>
   isSameDay(parseISO(meeting.startDatetime), selectedDay)
 )
@@ -132,7 +142,7 @@ let [name,setName] =useState('students')
             <div className="md:pr-14">
           <div style={{border:'solid 1px red'}}>
   {/* Menu Desplegable para tipo de usuarios */}
-  <ul className={`${styles['select-languages_menu2']} ${ styles['active']}`}>
+  {/* <ul className={`${styles['select-languages_menu2']} ${ styles['active']}`}>
               {
                 users.length > 0 &&
                 users.map((user) => (
@@ -144,14 +154,14 @@ let [name,setName] =useState('students')
                                     
 
                     {/* Label */}
-                    <label style={{ marginLeft: "8px" }}>
-                      {user}
-                    </label>
-                  </li>
-                )
-                )
-              }
-            </ul>
+                    {/* <label style={{ marginLeft: "8px" }}> */}
+                      {/* {user} */}
+                    {/* </label> */}
+                  {/* </li> */}
+                {/* ) */}
+                {/* ) */}
+              {/* } */}
+            {/* </ul> */} 
             </div>
  
             <>{name}</>

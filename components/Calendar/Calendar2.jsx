@@ -102,7 +102,7 @@ de que sea role:user con bg success o morado
         console.log(adjustedDate); // Esto mostrará la hora ajustada según el desplazamiento horario.
         */
         // Obtener el UTN de la fecha
-        const fecha = today;
+        const fecha = today;Fragment
         const offsetMinutes = fecha.getTimezoneOffset();
         const offsetHours = offsetMinutes / 60;
         const offsetSign = offsetHours > 0 ? '-' : '+';
@@ -256,7 +256,7 @@ de que sea role:user con bg success o morado
   // )
 
   return (
-    <div className="pt-16">
+    <div className="pt-24">
       <div className=" max-w-4xl px-4 mx-auto sm:px-7 md:max-w-4xl md:px-4">
         <div className="md:grid md:grid-cols-2  md:divide-x md:divide-gray-200 grid grid-cols-2">
           <div className="md:pr-14">
