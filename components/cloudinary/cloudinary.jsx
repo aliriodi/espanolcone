@@ -19,7 +19,7 @@ export default function CloudinaryUploader (props) {
        formData.append("upload_preset", process.env.NEXT_PUBLIC_UPLOAD_PRESET); // en el settings de cloudinary se cambia este presets
       formData.append("api_key",process.env.CLOUDINARY_KEY);
       const response = await fetch(
-        "https://api.cloudinary.com/v1_1/"+process.env.NEXT_PUBLIC_CLOUDINARY_NAME+"/images/fetch",
+        "https://api.cloudinary.com/v1_1/"+process.env.NEXT_PUBLIC_CLOUDINARY_NAME+"/images/upload",
          {
          headers: {
          //   'Content-Type': 'multipart/form-data',
