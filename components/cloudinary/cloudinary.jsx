@@ -16,9 +16,19 @@ export default function CloudinaryUploader (props) {
       const formData = new FormData();
       formData.append("file", file);
       formData.append("upload_preset", process.env.NEXT_PUBLIC_UPLOAD_PRESET); // en el settings de cloudinary se cambia este presets
+      formData.append("api_key",process.env.CLOUDINARY_KEY);
       const response = await fetch(
-        "https://api.cloudinary.com/v1_1/"+process.env.NEXT_PUBLIC_CLOUDINARY_NAME+"/image/upload",
-        {
+        "https://api.cloudinary.com/v1_1/"+process.env.NEXT_PUBLIC_CLOUDINARY_NAME+"/images/upload",
+         {
+         headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${process.env.CLOUDINARY_SECRET}`,
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': true,
+            'Access-Control-Allow-Methods': 'GET,DELETE,PATCH,POST,PUT',
+            'Access-Control-Allow-Headers':
+            'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+          },
           method: "POST",
           mode: 'cors',
           cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
