@@ -276,6 +276,17 @@ h3{
   box-shadow: 0px 4px 14px 0px var(--success_blur);
 }
 
+.btn-success-active{
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  background-color: var(--success);
+  border-radius: 7px;
+  color: white; 
+  cursor: pointer;
+  background-color: var(--success_hover);
+  box-shadow: 0px 4px 14px 0px var(--success_blur);
+}
 /* Youtube */
 .youtube iframe{
   width: 100%;
