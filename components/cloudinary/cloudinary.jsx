@@ -20,7 +20,7 @@ export default function CloudinaryUploader (props) {
       formData.append("api_key",process.env.CLOUDINARY_KEY);
       formData.append("api_secret",process.env.CLOUDINARY_SECRET);
       const response = await fetch(       
-       "https://api.cloudinary.com/v1_1/"+process.env.NEXT_PUBLIC_CLOUDINARY_NAME+"/images/fetch",
+       "https://api.cloudinary.com/v1_1/"+process.env.NEXT_PUBLIC_CLOUDINARY_NAME+"/images/upload",
          {
          headers: {
          //   'Content-Type': 'multipart/form-data',
