@@ -15,24 +15,26 @@ export default function CloudinaryUploader (props) {
     try {
       const formData = new FormData();
       formData.append("file", file);
-      formData.append("upload_preset", process.env.NEXT_PUBLIC_UPLOAD_PRESET); // en el settings de cloudinary se cambia este presets
+     // formData.append("upload_preset",'cldxikhc');
+       formData.append("upload_preset", process.env.NEXT_PUBLIC_UPLOAD_PRESET); // en el settings de cloudinary se cambia este presets
       formData.append("api_key",process.env.CLOUDINARY_KEY);
-      const response = await fetch(
-        "https://api.cloudinary.com/v1_1/"+process.env.NEXT_PUBLIC_CLOUDINARY_NAME+"/images/fetch",
+      formData.append("api_secret",process.env.CLOUDINARY_SECRET);
+      const response = await fetch(       
+       "https://api.cloudinary.com/v1_1/"+process.env.NEXT_PUBLIC_CLOUDINARY_NAME+"/images/fetch",
          {
          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${process.env.CLOUDINARY_SECRET}`,
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Credentials': true,
-            'Access-Control-Allow-Methods': 'GET,DELETE,PATCH,POST,PUT',
-            'Access-Control-Allow-Headers':
-            'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+         //   'Content-Type': 'multipart/form-data',
+       // 'Authorization': `Bearer ${process.env.CLOUDINARY_SECRET}`,
+        //    'Access-Control-Allow-Origin': '*',
+        //  //   'Access-Control-Allow-Credentials': true,
+        //     'Access-Control-Allow-Methods': 'GET,DELETE,PATCH,POST,PUT',
+        //   //  'Access-Control-Allow-Headers':
+        //   //  'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
           },
           method: "POST",
           mode: 'cors',
           cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-          credentials: 'same-origin', // include, *same-origin, omit
+         credentials: 'same-origin', // include, *same-origin, omit
           body: formData
         }
       );
@@ -44,7 +46,7 @@ export default function CloudinaryUploader (props) {
       console.log(data)
       setLoading(false);
     } catch (error) {
-      console.error("Error al subir la imagen:", error);
+      console.error("Error al subir la imagen 2:", error);
       setLoading(false);
     }
   };
@@ -60,7 +62,7 @@ export default function CloudinaryUploader (props) {
         <p>{languageR.cloudinary.loading}</p>
       ) : (
         imageURL && (
-          <Image cloudName="tu_nombre_de_cloudinary" width={props.width}  publicId={imageURL} alt='cloudinary'>
+          <Image cloudName={process.env.NEXT_PUBLIC_CLOUDINARY_NAME} width={props.width}  publicId={imageURL} alt='cloudinary'>
             <Transformation width="300px"  crop="scale" />
           </Image>
         )
