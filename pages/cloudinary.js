@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { getuser } from "../redux/ECEActions";
 import CLOUDYNARY from "../components/cloudinary/cloudinary"
 
+
 export default function Cloudynary(){
     const dispatch = useDispatch();
     useEffect(() => 
@@ -13,6 +14,7 @@ export default function Cloudynary(){
         <div>
             {/* le paso por props el ancho de la foto cuando llamo el componente */}
          <CLOUDYNARY userL={userL} width={"100px"}/>
+        
         </div>
     )}
 
