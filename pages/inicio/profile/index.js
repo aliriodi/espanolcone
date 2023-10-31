@@ -18,7 +18,8 @@ export default function Profile(){
         md:px-[25px]'>
 
             {/* Parte Superior */}
-            <div className='bg-primary w-full h-[410px] rounded-[10px] overflow-hidden flex flex-col shadow-[0_1px_2px_#00000033]'>
+            <div className='w-full h-[410px] rounded-[10px] overflow-hidden flex flex-col shadow-[0_1px_2px_#00000033]'
+            style={{ background: 'linear-gradient(38.12deg, #33bb99, #4CCFEB )' }}>
 
                 {/* Fondo de Perfil */}
                 <div className='h-[350px] flex-grow-1 flex items-end px-[22px]'>
