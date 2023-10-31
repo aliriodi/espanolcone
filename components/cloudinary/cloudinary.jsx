@@ -17,7 +17,7 @@ export default function CloudinaryUploader(props) {
       formData.append("upload_preset", process.env.NEXT_PUBLIC_UPLOAD_PRESET);
 
       // Send the FormData to Cloudinary
-      const response = await fetch("https://api.cloudinary.com/v1_1/" + process.env.NEXT_PUBLIC_CLOUDINARY_NAME + "/image/upload", {
+      const response = await fetch("https://api.cloudinary.com/v1_1/" + process.env.NEXT_PUBLIC_CLOUDINARY_NAME + "/upload", {
         method: 'POST',
         body: formData,
       });
