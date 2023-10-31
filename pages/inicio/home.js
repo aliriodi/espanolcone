@@ -334,7 +334,7 @@ export default function Home() {
               md:mt-[15px]'>
                   <Link
                     className='btn-primary px-[70px] py-[9px] text-[14px] mt-[21px] shadow-[0px_5.410437107086182px_5.410437107086182px_#00000040]'
-                    href={'/#'}
+                    href={'/teachers'}
                     style={{ display: 'inline-block' }}>
                     Ver más
                   </Link>
@@ -387,7 +387,7 @@ export default function Home() {
               md:mt-[15px]'>
                   <Link
                     className='btn-success px-[70px] py-[9px] text-[14px] mt-[21px] shadow-[0px_5.410437107086182px_5.410437107086182px_#00000040]'
-                    href={'/#'}
+                    href={'/tourGuides'}
                     style={{ display: 'inline-block' }}>
                     Ver más
                   </Link>
