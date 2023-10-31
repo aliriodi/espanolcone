@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Menu from '../../../components/Menu';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faLock } from '@fortawesome/free-solid-svg-icons';
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 
@@ -25,6 +25,12 @@ export default function Profile(){
         newPassewordConfirm:""
     })
 
+    const [ errorPassword, setErrorPassword ] = useState({
+        currentPaseword:false,
+        newPasseword:false,
+        newPassewordConfirm:false
+    })
+
     const [errorsForm, setErrorsForm] = useState({
         name:false,
         last_name:false,
@@ -38,7 +44,7 @@ export default function Profile(){
     useEffect(()=>console.log(session?.user),[]) 
 
     useEffect(()=>{
-        // Este UseEffect se va a encargar de verificar si hay cambios en los inputs
+        // Este UseEffect se va a encargar de verificar si hay cambios en los inputs en el formulario de "Cuenta"
         // para activar el boton de "Guardar cambios" 
 
         let currentDates ={
@@ -51,7 +57,18 @@ export default function Profile(){
         if(!areEquals(currentDates, updates))setCanBeUpdated(true);
         else setCanBeUpdated(false);
 
-    },[updates])
+    },[updates, currentSection])
+
+    useEffect(()=>{
+        // Este UseEffect se va a encargar de verificar si hay cambios en los inputs en el formulario de "Seguridad"
+        // para activar el boton de "Guardar cambios" 
+
+        if(updatePasseword.currentPaseword.length > 0 &&
+            updatePasseword.newPasseword.length > 0 &&
+            updatePasseword.newPassewordConfirm.length > 0 )setCanBeUpdated(true);
+        else setCanBeUpdated(false)
+
+    },[updatePasseword, currentSection])
 
     useEffect(()=>{
         setUpdates({
@@ -63,7 +80,9 @@ export default function Profile(){
 
     },[session])
     
-    async function updateDates() {
+    async function updateDates(updates) {
+        // Esta funcion se encarga de actualizar los datos del usuario 
+        // en funcion de lo que se le pase por el parametro "updates"
         try {
           const response = await fetch('/api/users/update', {
             method: 'POST',
@@ -109,17 +128,49 @@ export default function Profile(){
         return true;
     }
 
-    function returnChanges(){
+    function changePasseword(){
+        // Se encarga de verificar el formulario de seguridad y actualizar la contraseña del usuario
+        // si todo esta correto
+
+        let errors = {
+            currentPaseword:false,
+            newPasseword:false,
+            newPassewordConfirm:false
+        };
+
+        if (updatePasseword.currentPaseword !== session?.user?.password)errors.currentPaseword = true;
+        else errors.currentPaseword = false
+
+        if(updatePasseword.newPasseword.length < 8)errors.newPasseword = true;
+        else errors.newPasseword = false
+
+        if(updatePasseword.newPasseword !== updatePasseword.newPassewordConfirm)errors.newPassewordConfirm = true;
+        else errors.newPassewordConfirm = false
+
+        setErrorPassword(errors);
+        if(errors.currentPaseword ||
+            errors.newPassewordConfirm)return;
+        
+        
+        updateDates({
+            password: updatePasseword.newPasseword
+        })
+    }
+    
+    function returnChanges(e){
+        e.preventDefault()
         setUpdates({
             first_name:session?.user?.first_name,
             last_name:session?.user?.last_name,
             country:session?.user?.country,
             email:session?.user?.email
         })
-    }
 
-    function changePasseword(){
-
+        setUpdatePasseword({
+            currentPaseword:"",
+            newPasseword:"",
+            newPassewordConfirm:""
+        })
     }
 
     return(
@@ -132,11 +183,20 @@ export default function Profile(){
             <div className='mb-[24px] flex'>
                 <button
                 onClick={()=>setCurrentSection("cuenta")}
-                className={`text-title_color px-[22px] py-[10px] ${currentSection == "cuenta" && "btn-success-active"}`}>Cuenta</button>
+                className={`text-title_color px-[22px] py-[10px] ${currentSection == "cuenta" && "btn-success-active"}`}>
+                    <FontAwesomeIcon
+                    className='mr-[5px]' 
+                    icon={faUser}/> Cuenta
+                </button>
 
                 <button
                 onClick={()=>setCurrentSection("seguridad")}
-                className={`text-title_color px-[22px] py-[10px] ${currentSection == "seguridad" && "btn-success-active"}`}>Seguridad</button>
+                className={`text-title_color px-[22px] py-[10px] ${currentSection == "seguridad" && "btn-success-active"}`}>
+                    <FontAwesomeIcon
+                    className='mr-[5px]' 
+                    icon={faLock}/>Seguridad
+                </button>
+
             </div>
             
             
@@ -156,11 +216,17 @@ export default function Profile(){
                             <div className='flex items-center'>
                                 
                                 <div className='py-[26px]'>
-                                    <Image
-                                    className='bg-gray_clear w-[125px] h-[125px] relative rounded-[10px] object-cover'
-                                    src={session?.user?.image?.url}
-                                    width={125}
-                                    height={125}/>
+                                    {session?.user?.image?.url ?
+                                        <Image
+                                        className='bg-[#B9B9C3] w-[125px] h-[125px] relative rounded-[10px] object-cover'
+                                        src={session?.user?.image?.url}
+                                        width={125}
+                                        height={125}/>
+                                        :
+                                        <span className='bg-[#B9B9C3] w-[125px] h-[125px] relative rounded-[10px] flex justify-center items-center'>
+                                            <FontAwesomeIcon className='text-violet_dark text-[3em]' icon={faUser}/>
+                                        </span>
+                                    }
                                 </div>
                                 
                                 <button className='btn-primary py-[8px] px-[19px] ml-[22px]'>
@@ -171,7 +237,7 @@ export default function Profile(){
                             {/* Formulario */}
                             <form onSubmit={(e)=>{
                                 e.preventDefault()
-                                updateDates()
+                                updateDates(updates)
                                 }}>
                                 
                                 {/* Campos */}
@@ -432,7 +498,7 @@ export default function Profile(){
                         {/* Formulario */}
                         <form onSubmit={(e)=>{
                                 e.preventDefault()
-                                updateDates()
+                                changePasseword()
                                 }}>
                                 
                                 {/* Campos */}
@@ -448,22 +514,22 @@ export default function Profile(){
                                     style={{ width:'100%', flexGrow:1}}>
                                         
                                         <div style={{ margin: '8px 0' }}>
-                                            <label htmlFor="name" className="md:text-[12px]">Contraseña actual</label>
+                                            <label htmlFor="current_password" className="md:text-[12px]">Contraseña actual</label>
                                         </div>
 
                                         <input
-                                        className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.name ? "border-danger" :"border-gray-clear"}
+                                        className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorPassword.currentPaseword ? "border-danger" :"border-gray-clear"}
                                         md:text-[12px]`}
                                         type="text"
-                                        id="name"
+                                        id="current_password"
                                         placeholder='Ingresa tu contraseña actual'
                                         value={updatePasseword.currentPaseword}
                                         onChange={(e) => setUpdatePasseword({...updatePasseword, currentPaseword: e.target.value})}
                                         />
                                         
-                                        {/* Error de Nombre */}
-                                        {errorsForm.name && (
-                                            <p className='text-danger'>{t("warningname")}</p>
+                                        {/* Error */}
+                                        {errorPassword.currentPaseword && (
+                                            <p className='text-danger'>La contraseña ingresada no coinside con la contraseña actual</p>
                                         )}
                                     </div>
 
@@ -473,22 +539,22 @@ export default function Profile(){
                                     style={{ width:'100%', flexGrow:1}}>
 
                                         <div className="flex justify-between" style={{ margin: '8px 0' }}>
-                                            <label htmlFor="country" className="md:text-[12px]">Nueva contraseña</label>
+                                            <label htmlFor="new_password" className="md:text-[12px]">Nueva contraseña</label>
                                         </div>
 
                                         <input
-                                        className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.country ? "border-danger" :"border-gray-clear"}
+                                        className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorPassword.newPasseword ? "border-danger" :"border-gray-clear"}
                                         md:text-[12px]`}
                                         type="text"
-                                        id="country"
+                                        id="new_password"
                                         placeholder='Ingresa tu nueva contraseña'
                                         value={updatePasseword.newPasseword}
                                         onChange={(e) => setUpdatePasseword({...updatePasseword, newPasseword: e.target.value})}
                                         />
 
-                                        {/* Error de Pais */}
-                                        {errorsForm.country && (
-                                            <p className='text-danger'>{t("warningCountry")}</p>
+                                        {/* Error */}
+                                        {errorPassword.newPasseword && (
+                                            <p className='text-danger'>La contraseña tiene menos de 8 caracteres</p>
                                         )}
                                     </div>
                                     
@@ -504,22 +570,22 @@ export default function Profile(){
                                     style={{ width:'100%', flexGrow:1}}>
 
                                         <div className="flex justify-between" style={{ margin: '8px 0' }}>
-                                            <label htmlFor="email" className='md:text-[12px]'>Confirma tu nueva contraseña</label>
+                                            <label htmlFor="new_password_confirm" className='md:text-[12px]'>Confirma tu nueva contraseña</label>
                                         </div>
 
                                         <input
-                                        className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.email ? "border-danger" :"border-gray-clear"}
+                                        className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorPassword.newPassewordConfirm ? "border-danger" :"border-gray-clear"}
                                         md:text-[12px]`}
                                         type="text"
-                                        id="email"
+                                        id="new_password_confirm"
                                         placeholder='Confirma tu nueva contraseña'
                                         value={updatePasseword.newPassewordConfirm}
                                         onChange={(e) => setUpdatePasseword({...updatePasseword, newPassewordConfirm: e.target.value})}
                                         />
                                         
-                                        {/* Error de Email */}
-                                        {errorsForm.email && (
-                                            <p className='text-danger md:text-[12px]'>{t("warningEmail")}</p>
+                                        {/* Error */}
+                                        {errorPassword.newPassewordConfirm && (
+                                            <p className='text-danger md:text-[12px]'>Las contraseñas no coinsiden</p>
                                         )}
                                     </div>
                                     
@@ -534,49 +600,50 @@ export default function Profile(){
 
                                     {/* Campo de la Izquierda */}
                                     <div className='w-full pr-5 md:p-0'>
-                                        {/* Campo Nombre */}
+
+                                        {/* Campo Contraseña actual */}
                                         <div className="flex flex-col mt-[18px]
                                         md:mt-[10px]"
                                         style={{ width:'100%', flexGrow:1}}>
                                             
                                             <div style={{ margin: '8px 0' }}>
-                                                <label htmlFor="name" className="md:text-[12px]">Nombre</label>
+                                                <label htmlFor="current_password" className="md:text-[12px]">Contraseña actual</label>
                                             </div>
 
                                             <input
-                                            className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.name ? "border-danger" :"border-gray-clear"}
+                                            className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorPassword.currentPaseword ? "border-danger" :"border-gray-clear"}
                                             md:text-[12px]`}
                                             type="text"
-                                            id="name"
-                                            placeholder='John'
-                                            value={updates.first_name}
-                                            onChange={(e) => setUpdates({...updates, first_name: e.target.value})}
+                                            id="current_password"
+                                            placeholder='Ingresa tu contraseña actual'
+                                            value={updatePasseword.currentPaseword}
+                                            onChange={(e) => setUpdatePasseword({...updatePasseword, currentPaseword: e.target.value})}
                                             />
                                             
-                                            {/* Error de Nombre */}
+                                            {/* Error */}
                                             {errorsForm.name && (
                                                 <p className='text-danger'>{t("warningname")}</p>
                                             )}
                                         </div>
 
                                         
-                                        {/* Campo Apellido */}
+                                        {/* Campo Nueva contraseña */}
                                         <div className="flex flex-col mt-[18px]
                                         md:mt-[10px]"
                                         style={{ width:'100%', flexGrow:1}}>
 
                                             <div className="flex justify-between" style={{ margin: '8px 0' }}>
-                                                <label htmlFor="last_name" className='md:text-[12px]'>Apellido</label>
+                                                <label htmlFor="new_password" className='md:text-[12px]'>Nueva contraseña</label>
                                             </div>
 
                                             <input
-                                            className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.last_name ? "border-danger" :"border-gray-clear"}
+                                            className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorPassword.newPasseword ? "border-danger" :"border-gray-clear"}
                                             md:text-[12px]`}
                                             type="text"
-                                            id="last_name"
-                                            placeholder='Doe'
-                                            value={updates.last_name}
-                                            onChange={(e) => setUpdates({...updates, last_name: e.target.value})}
+                                            id="new_password"
+                                            placeholder='Ingresa tu nueva contraseña'
+                                            value={updatePasseword.newPasseword}
+                                            onChange={(e) => setUpdatePasseword({...updatePasseword, newPasseword: e.target.value})}
                                             />
 
                                             {/* Error de Apellido */}
@@ -585,53 +652,28 @@ export default function Profile(){
                                             )}
                                         </div>
 
-                                        {/* Campo Pais */}
+                                        {/* Campo Confirma tu nueva contraseña */}
                                         <div className="flex flex-col mt-[18px]
                                         md:mt-[10px]"
                                         style={{ width:'100%', flexGrow:1}}>
 
                                             <div className="flex justify-between" style={{ margin: '8px 0' }}>
-                                                <label htmlFor="country" className="md:text-[12px]">Pais</label>
+                                                <label htmlFor="new_password_confirm" className="md:text-[12px]">Confirma tu nueva contraseña</label>
                                             </div>
 
                                             <input
-                                            className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.country ? "border-danger" :"border-gray-clear"}
+                                            className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorPassword.newPassewordConfirm ? "border-danger" :"border-gray-clear"}
                                             md:text-[12px]`}
                                             type="text"
-                                            id="country"
-                                            placeholder='U.S.A.'
-                                            value={updates.country}
-                                            onChange={(e) => setUpdates({...updates, country: e.target.value})}
+                                            id="new_password_confirm"
+                                            placeholder='Confirma tu nueva contraseña'
+                                            value={updatePasseword.newPassewordConfirm}
+                                            onChange={(e) => setUpdatePasseword({...updatePasseword, newPassewordConfirm: e.target.value})}
                                             />
 
-                                            {/* Error de Pais */}
+                                            {/* Error */}
                                             {errorsForm.country && (
                                                 <p className='text-danger'>{t("warningCountry")}</p>
-                                            )}
-                                        </div>
-                                        
-                                        {/* Campo Email */}
-                                        <div className="flex flex-col mt-[18px]
-                                        md:mt-[10px]"
-                                        style={{ width:'100%', flexGrow:1}}>
-
-                                            <div className="flex justify-between" style={{ margin: '8px 0' }}>
-                                                <label htmlFor="email" className='md:text-[12px]'>Email</label>
-                                            </div>
-
-                                            <input
-                                            className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.email ? "border-danger" :"border-gray-clear"}
-                                            md:text-[12px]`}
-                                            type="text"
-                                            id="email"
-                                            placeholder='johndoe@gmail.com'
-                                            value={updates.email}
-                                            onChange={(e) => setUpdates({...updates, email: e.target.value})}
-                                            />
-                                            
-                                            {/* Error de Email */}
-                                            {errorsForm.email && (
-                                                <p className='text-danger md:text-[12px]'>{t("warningEmail")}</p>
                                             )}
                                         </div>
                                         
@@ -639,12 +681,14 @@ export default function Profile(){
 
                                 </div>
                                 
-                                <div className='flex mt-[30px]'>
+                                <div className='flex mt-[30px]
+                                md:flex-col md:mt-[40px]'>
                                     {/* Guardar Cambios */}
                                     <input
                                     type='submit'
                                     value={"Guardar cambios"}
-                                    className={`btn-primary py-[10px] px-[22px] mr-[10px] ${!canBeUpdated && "pointer-events-none opacity-50"}`}/>
+                                    className={`btn-primary py-[10px] px-[22px] mr-[10px] ${!canBeUpdated && "pointer-events-none opacity-50"}
+                                    md:w-full md:mb-3`}/>
 
                                     {/* Descartar Cambios */}
                                     <button
