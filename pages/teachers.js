@@ -8,7 +8,7 @@ export default function teachers() {
   return (
     <>
       <Menu />
-      <div className='pt-24 ml-[80px] flex flex-wrap'>
+      <div className='mx-[60px] my-[119px] flex flex-wrap'>
         {/* <DatePi /> */} 
         <TeachersCard />
 
