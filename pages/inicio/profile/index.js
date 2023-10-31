@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Menu from '../../../components/Menu';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare, faUser } from '@fortawesome/free-solid-svg-icons';
 import { useSession } from 'next-auth/react';
 import { useEffect } from 'react';
 import Link from 'next/link';
@@ -24,11 +24,18 @@ export default function Profile(){
                 <div className='h-[350px] flex-grow-1 flex items-end px-[22px]'>
 
                     {/* Imagen */}
-                    <Image
-                    className='bg-gray_clear w-[125px] h-[125px] bottom-[-11px] relative rounded-[10px] object-cover'
-                    src={session?.user?.image?.url}
-                    width={125}
-                    height={125}/>
+                    
+                    {session?.user?.image?.url ?
+                        <Image
+                        className='bg-gray_clear w-[125px] h-[125px] bottom-[-11px] relative rounded-[10px] object-cover'
+                        src={session?.user?.image?.url}
+                        width={125}
+                        height={125}/>
+                        :
+                        <span className='bg-gray_clear w-[125px] h-[125px] bottom-[-11px] relative rounded-[10px] flex justify-center items-center'>
+                            <FontAwesomeIcon className='text-violet_dark text-[3em]' icon={faUser}/>
+                        </span>
+                    }
 
                     <div className='ml-[15px]'>
                         {/* Nombre */}
