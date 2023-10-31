@@ -290,6 +290,7 @@ h3{
 /* Youtube */
 .youtube iframe{
   width: 100%;
+  height: 100%;
 }
 
 .ytp-swatch-background-color{

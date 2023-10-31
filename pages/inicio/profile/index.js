@@ -62,7 +62,7 @@ export default function Profile(){
             {/* Parte Inferior */}
             <div className='flex mt-[24px] w-full justify-between'>
 
-                {/* Parte de la Derecha */}
+                {/* Parte de la Izquierda */}
                 <div className='w-[45%] rounded-[10px] overflow-hidden shadow-[0px_4px_24px_#0000000F]'>
                     {/* Acerca de Mi */}
                     <div className='bg-white relative px-[22px] py-[26px]'>
@@ -75,7 +75,7 @@ export default function Profile(){
                     </div>
                 </div>
 
-                {/* Parte de la Izquierda */}
+                {/* Parte de la Derecha */}
                 <div className='bg-white w-[52%] rounded-[10px] relative px-[22px] py-[26px] shadow-[0px_4px_24px_#0000000F]'>
                     <p className='text-[18px] text-title_color font-medium border-b-2 py-2'>Certificado</p>
 
