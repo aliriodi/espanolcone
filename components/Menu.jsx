@@ -112,7 +112,9 @@ const Menu = (props) => {
                         </div>
 
                         {/* Imagen de Usuario */}
-                        <div className='w-[38px] h-[38px] rounded-full bg-[#B9B9C3] flex justify-center items-center '>
+                        <Link
+                        href={"./profile"}
+                        className='w-[38px] h-[38px] rounded-full bg-[#B9B9C3] flex justify-center items-center '>
                             {
                                 session?.user?.image?.url ?
                                 <Image
@@ -125,7 +127,7 @@ const Menu = (props) => {
                                 <FontAwesomeIcon className="text-violet_dark" icon={faUser}/>
 
                             }
-                        </div>
+                        </Link>
                     </div>
 
                 </div>

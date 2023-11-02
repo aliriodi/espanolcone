@@ -1,12 +1,16 @@
 import Image from 'next/image';
 import Menu from '../../../components/Menu';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faLock } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faLock, faUpload, faL } from '@fortawesome/free-solid-svg-icons';
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
+import Spinner from '../../../components/Spinner';
+import { update } from 'react-spring';
 
 export default function Profile(){
-    const { data: session, status } = useSession();
+    const { data: session, status, update } = useSession();
+
+    const [profileImage, setProfileImage] = useState();
 
     const [currentSection, setCurrentSection] = useState("cuenta")
 
@@ -16,7 +20,8 @@ export default function Profile(){
         first_name:session?.user?.first_name,
         last_name:session?.user?.last_name,
         country:session?.user?.country,
-        email:session?.user?.email
+        email:session?.user?.email,
+        image:session?.user?.image
     })
 
     const [updatePasseword, setUpdatePasseword] = useState({
@@ -41,7 +46,9 @@ export default function Profile(){
         existing_user:false
     })
 
-    useEffect(()=>console.log(session?.user),[]) 
+    const [loading, setLoading] = useState(false);
+
+    // useEffect(()=>console.log(updates),[]) 
 
     useEffect(()=>{
         // Este UseEffect se va a encargar de verificar si hay cambios en los inputs en el formulario de "Cuenta"
@@ -51,9 +58,10 @@ export default function Profile(){
             first_name:session?.user?.first_name,
             last_name:session?.user?.last_name,
             country:session?.user?.country,
-            email:session?.user?.email
+            email:session?.user?.email,
+            image:session?.user?.image
         }
-
+        
         if(!areEquals(currentDates, updates))setCanBeUpdated(true);
         else setCanBeUpdated(false);
 
@@ -75,7 +83,8 @@ export default function Profile(){
         first_name:session?.user?.first_name,
         last_name:session?.user?.last_name,
         country:session?.user?.country,
-        email:session?.user?.email
+        email:session?.user?.email,
+        image:session?.user?.image
         })
 
     },[session])
@@ -83,28 +92,44 @@ export default function Profile(){
     async function updateDates(updates) {
         // Esta funcion se encarga de actualizar los datos del usuario 
         // en funcion de lo que se le pase por el parametro "updates"
+
+        setLoading(true);
+
         try {
-          const response = await fetch('/api/users/update', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email:session?.user?.email, updates: updates}),
-          });
+
+            if(updates.image != session?.user?.image) await upLoadProfilePictutre();
+
+            const response = await fetch('/api/users/update', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email:session?.user?.email, updates: updates}),
+            });
       
-          if (response.ok) {
-            const data = await response.json();
-            if (data.message) {
-                console.log(data)
-              console.log('Usuario actualizado con éxito');
+            if (response.ok) {
+                const data = await response.json();
+
+                if (data.message) {
+                    // Se Actualiza el usuario
+                    await update({
+                        ...session?.user,
+                        accessToken:"dddd"
+                    })
+
+                    console.log("data ",data)
+                    console.log('Usuario actualizado con éxito');
+                } else {
+                    console.error('Error al actualizar el usuario:', data.error);
+                }
             } else {
-              console.error('Error al actualizar el usuario:', data.error);
+                console.error('Error al realizar la solicitud:', response.status);
             }
-          } else {
-            console.error('Error al realizar la solicitud:', response.status);
-          }
+
+            setLoading(false)
         } catch (error) {
-          console.error('Error al realizar la solicitud:', error);
+            setLoading(false)
+            console.error('Error al realizar la solicitud:', error);
         }
     }
 
@@ -126,6 +151,47 @@ export default function Profile(){
         }
       
         return true;
+    }
+
+    function handlerProfilePicture(event){
+        // Esta imagen se encarga de cargar imagenes y visualizar las imagenes cargadas para el perfil
+        const file = event.target.files[0];
+        setProfileImage(file)
+
+        if (file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+                setUpdates({...updates, image:{ url: event.target.result}})
+            };
+
+            reader.readAsDataURL(file);
+
+        }
+    }
+
+    async function upLoadProfilePictutre(){
+        try {
+        // Create a FormData object and append data to it
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append("upload_preset", process.env.NEXT_PUBLIC_UPLOAD_PRESET);
+
+        // Send the FormData to Cloudinary
+        const response = await fetch("https://api.cloudinary.com/v1_1/" + process.env.NEXT_PUBLIC_CLOUDINARY_NAME + "/upload", {
+            
+            method: 'POST',
+            body: formData,
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            setUpdates({...updates, image:{ url: data.secure_url}})
+        } else {
+            throw new Error('Error uploading image');
+        }
+        } catch (error) {
+        console.error('Error uploading image:', error);
+        }
     }
 
     function changePasseword(){
@@ -163,7 +229,8 @@ export default function Profile(){
             first_name:session?.user?.first_name,
             last_name:session?.user?.last_name,
             country:session?.user?.country,
-            email:session?.user?.email
+            email:session?.user?.email,
+            image:session?.user?.image
         })
 
         setUpdatePasseword({
@@ -176,6 +243,15 @@ export default function Profile(){
     return(
         <>
         <Menu/>
+
+        
+        {/* Loader */}
+        {
+            loading &&
+            <div className='fixed w-screen h-screen bg-[#fffa] flex justify-center items-center z-40'>
+                <Spinner/>
+            </div>
+        }
 
         <section className='py-[119px] px-[60px]
         md:px-[25px]'>
@@ -206,6 +282,7 @@ export default function Profile(){
                 
                 // Formulario de edicion 
                 <div className=' rounded-[10px] overflow-hidden shadow-[0px_4px_24px_#0000000F]'>
+
                         
                         <div className='bg-white relative px-[22px] py-[26px]'>
 
@@ -216,10 +293,12 @@ export default function Profile(){
                             <div className='flex items-center'>
                                 
                                 <div className='py-[26px]'>
-                                    {session?.user?.image?.url ?
+                                    {
+                                    updates?.image?.url ?
                                         <Image
                                         className='bg-[#B9B9C3] w-[125px] h-[125px] relative rounded-[10px] object-cover'
-                                        src={session?.user?.image?.url}
+                                        src={updates?.image?.url}
+                                        alt='profile'
                                         width={125}
                                         height={125}/>
                                         :
@@ -229,9 +308,23 @@ export default function Profile(){
                                     }
                                 </div>
                                 
-                                <button className='btn-primary py-[8px] px-[19px] ml-[22px]'>
-                                    Actualizar
-                                </button>
+                                {/* Actualizar imagen */}
+                                <div for='profile' className='btn-primary py-[8px] px-[19px] ml-[22px] relative overflow-hidden'>
+                                    {/* Texto */}
+                                    <p className=''>Actualizar</p>
+
+                                    {/* Input */}
+                                    <input
+                                    onChange={handlerProfilePicture}
+                                    type='file'
+                                    id='profile'
+                                    name='profile'
+                                    accept="image/*"
+                                    className='w-full opacity-0 cursor-pointer absolute'/>
+
+                                    {/* Icono */}
+                                    <FontAwesomeIcon className='ml-2' icon={faUpload}/>
+                                </div>
                             </div>
 
                             {/* Formulario */}
