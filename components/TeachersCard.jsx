@@ -37,7 +37,7 @@ export function TeachersCard() {
 
   const handleButtonClick = (card) => {
     dispatch(cardDetail(card))
-    router.push(`/teachers/${card._id}`);
+    router.push(`/inicio/teachers/${card._id}`);
   };
 
   const renderStars = () => {

@@ -1,12 +1,12 @@
 import React, { useState, useRef,useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { cardDetail } from './../../redux/ECEActions';
+import { cardDetail } from '../../../redux/ECEActions';
 import Image from 'next/image';
 import YouTube from 'react-youtube';
-import blanc_profile from '../../public/imgs/blank-profile-picture.png'
+import blanc_profile from '../../../public/imgs/blank-profile-picture.png'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import Menu from "../../components/Menu";
+import Menu from "../../../components/Menu";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
