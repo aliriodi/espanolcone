@@ -19,6 +19,9 @@ const ClassSchema = new Schema(
      },
     sheets: {
       type: [Object],
+    },
+    pay:{
+      type:Boolean
     }
   },
   {
