@@ -20,7 +20,8 @@ import {
   startOfToday,
 } from 'date-fns'
 import Image from 'next/image'
-
+//Componente donde se ven los Meets agendados del usuario logueado
+//sea profesor alumno o guia
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }

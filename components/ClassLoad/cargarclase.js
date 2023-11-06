@@ -1,5 +1,5 @@
 //import clase from "./nivela2.json"
-const clase = require("./U1NB1.json");
+const clase = require("./U2NB1.json");
 async function imprimir()
 {
   //console.log(clase)
@@ -8,7 +8,7 @@ const numberOfPages = Object.keys(clase).length;
 console.log(numberOfPages)
 console.log(Object.keys(clase))
 //cargo las nuevas clases las primeras 11 paginas
-for(i=1;i<numberOfPages;i++){
+for(i=1;i<numberOfPages+1;i++){
 //mapeo el objeto de clases por numero de paginas 
 //es un OBJETO
     nuevaclase.push(clase['page'+i])
@@ -26,9 +26,9 @@ console.log(nuevaclase.length)
                             'Content-Type': 'application/json'  // 'Content-Type': 'application/x-www-form-urlencoded',
                           },
                  body: JSON.stringify({
-                                      level:"Nivel B1",
-                                       unit:"Unidad 1",
-                                       description:'hecho solo con templates',
+                                       level:"Nivel B1",
+                                       unit:"Unidad 2",
+                                       description:'clase cargada por Virginia a ver que pasa',
                                        sheets:nuevaclase})
                                        
                                        //mando por el body la nueva clase
