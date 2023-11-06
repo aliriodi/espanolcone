@@ -120,17 +120,19 @@ const Menu = (props) => {
                         href={"./profile"}
                         className='w-[38px] h-[38px] rounded-full bg-[#B9B9C3] flex justify-center items-center '>
                             {
-                                session?.user?.image?.url ?
+                                session?.user?.image?
                                 <Image
                                 alt="session.user.image"
                                 className='w-[38px] h-[38px] bg-primary rounded-full object-cover'
-                                src={session?.user?.image?.url}
+                                src={session.user.image.url?
+                                                           session.user.image.url:
+                                                           session.user.image }
                                 width={38}
                                 height={38}/> 
                                 :
                                 <FontAwesomeIcon className="text-violet_dark" icon={faUser}/>
 
-                            }
+                            }{console.log(session)}
                         </Link>
                     </div>
 
