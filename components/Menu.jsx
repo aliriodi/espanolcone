@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Logo from '../public/imgs/logo-gradient.png';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faAngleRight,faCalendarDays, faHouse, faPersonHiking, faChalkboardUser, faLaptop, faAddressCard, faPen, faBell, faBars, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faAngleRight,faCalendarDays, faHouse, faPersonHiking, faChalkboardUser, faLaptop, faAddressCard, faPen, faBell, faBars, faUser, faMoneyBill } from '@fortawesome/free-solid-svg-icons';
 import SignOutBtn from './signOut/SignOutBtn';
 import { setshowClass } from '../redux/ECEActions';
 import { useSession } from "next-auth/react";
@@ -75,6 +75,9 @@ const Menu = (props) => {
     const toggleDropdown = () => {
         setIsOpenDropdown(!isOpenDropdown);
     };
+
+
+    const [isOpenModal, setIsOpenModal] = useState(false);
 
 
     return (
@@ -225,7 +228,7 @@ const Menu = (props) => {
                                             className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
                                             ${currentPathName == '/tourGuides' && "bg-primary text-white"}
                                         hover:bg-primary hover:text-white`}
-                                            href="/tourGuides">
+                                            href="/inicio/tourGuides">
                                             <FontAwesomeIcon icon={faPersonHiking} className=" mr-[10px]" />
                                             <p>Guías turisticos</p>
                                         </Link>
@@ -245,8 +248,22 @@ const Menu = (props) => {
                                         </li>
                                         : null}
                                         <li>
+                                    {/* Pagar */}
+                                        <button
+                                            onClick={()=>setIsOpenModal(!isOpenModal)}
+                                            className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
+                                            ${currentPathName == '/tourGuides' && "bg-primary text-white"}
+                                            hover:bg-primary hover:text-white`}
+  
+                                        >
+                                            <FontAwesomeIcon icon={faMoneyBill} className="mr-[10px]" />
+                                            <p>Hazte Premium</p>
+                                        </button> 
+                                            <ModalPago open ={isOpenModal} />
+                                    </li>
+                                        {/* <li>
                                             <ModalPago/>
-                                        </li>
+                                        </li> */}
 
                                 </ul>
                             </div>
