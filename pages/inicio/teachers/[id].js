@@ -9,6 +9,7 @@ import { useRouter } from 'next/router';
 import Menu from "../../../components/Menu";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import Spinner from '../../../components/Spinner';
 
 export default function TeacherDetailPage() {
 
@@ -26,7 +27,11 @@ export default function TeacherDetailPage() {
   }, [cardDetail]);
 
   if (!isCardAvailable) {
-    return <div>Cargando...</div>;
+    return (
+      <div class="flex justify-center items-center min-h-screen">
+        <Spinner />
+      </div>
+    )
   }
 
   function  handleButton  () {

@@ -2,15 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { cardsTouristDetail } from './../../../redux/ECEActions';
 import Image from 'next/image';
-import YouTube from 'react-youtube';
 import Menu from "../../../components/Menu";
+import YouTube from 'react-youtube';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import Spinner from '../../../components/Spinner';
 
 export default function TeacherDetailPage() {
 
 
-  const cardDetail = useSelector((state) => state.datos.cardsTouristDetaill);
+  const cardDetail = useSelector((state) => state.datos.cardsTouristDetail);
   const [isCardAvailable, setIsCardAvailable] = useState(false);
 
   useEffect(() => {
@@ -20,9 +21,27 @@ export default function TeacherDetailPage() {
   }, [cardDetail]);
 
   if (!isCardAvailable) {
-    return <div>Cargando...</div>;
+    return (
+      <div class="flex justify-center items-center min-h-screen">
+        <Spinner />
+      </div>
+    )
   }
   // pueba
+  // return (
+  //   <>
+  //     <div>hols</div>
+  //     <div>{cardDetail.name}</div>
+  //     <Image
+  //       alt="photo"
+  //       width={160}
+  //       height={160}
+  //       src={cardDetail.image}
+  //       // style={{ zIndex: -1 }}
+  //       className="w-[30%] rounded-full object-cover mr-4 drop-shadow-[2px_3px_2px_rgba(255,255,255,.4)] dark:drop-shadow-[2px_3px_2px_rgba(0,0,0,.4)]"
+  //     />
+  //   </>
+  // );
   return (
     <>
     <Menu />
@@ -157,11 +176,11 @@ export default function TeacherDetailPage() {
       <div className="w-1/4 ml-[13px]">
         
         <div className='bg-white  px-[8px] py-[14px] flex flex-col items-center shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-md'>
-          <YouTube 
+          {/* <YouTube 
           ref={iframeRef}
           opts={opts}
           videoId={cardDetail.youtube}
-          className='w-full flex justify-center youtube h-[175px] relative rounded-[5px] overflow-hidden'/>
+          className='w-full flex justify-center youtube h-[175px] relative rounded-[5px] overflow-hidden'/> */}
           
           {/* Estrellas */}
           <p className='my-10'>estrellas</p>
@@ -169,7 +188,7 @@ export default function TeacherDetailPage() {
           {/* Reservar Cita */}
           <button
             className="btn-primary py-2 px-[26px] rounded"
-            onClick={handleButton}
+            // onClick={handleButton}
           >
             Reservar Cita
           </button>

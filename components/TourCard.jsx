@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CardsTouristDetail, fetchTouristGuides } from './../redux/ECEActions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChalkboardUser, faPersonHiking } from '@fortawesome/free-solid-svg-icons';
+import { faPersonHiking } from '@fortawesome/free-solid-svg-icons';
 
 
 
