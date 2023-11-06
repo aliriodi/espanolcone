@@ -11,6 +11,7 @@ import { setshowClass } from '../redux/ECEActions';
 import { useSession } from "next-auth/react";
 import Class from '../components/Class/Class'
 import Courses from '../pages/courses'
+import ModalPago from './ModalPago';
 
 const Menu = (props) => {
     const dispatch = useDispatch();
@@ -243,6 +244,9 @@ const Menu = (props) => {
                                             </Link>
                                         </li>
                                         : null}
+                                        <li>
+                                            <ModalPago/>
+                                        </li>
 
                                 </ul>
                             </div>
