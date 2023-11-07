@@ -1,12 +1,9 @@
-import React, { useState, useRef,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { cardDetail } from '../../../redux/ECEActions';
+import { cardsTouristDetail } from './../../../redux/ECEActions';
 import Image from 'next/image';
-import YouTube from 'react-youtube';
-import blanc_profile from '../../../public/imgs/blank-profile-picture.png'
-import Link from 'next/link';
-import { useRouter } from 'next/router';
 import Menu from "../../../components/Menu";
+import YouTube from 'react-youtube';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import Spinner from '../../../components/Spinner';
@@ -14,11 +11,8 @@ import Spinner from '../../../components/Spinner';
 export default function TeacherDetailPage() {
 
 
-  const cardDetail = useSelector((state) => state.datos.cardDetail);
+  const cardDetail = useSelector((state) => state.datos.cardsTouristDetail);
   const [isCardAvailable, setIsCardAvailable] = useState(false);
-  const router = useRouter();
-  // Opciones de Youtube
-  const iframeRef = useRef(null);
 
   useEffect(() => {
     if (cardDetail) {
@@ -33,19 +27,21 @@ export default function TeacherDetailPage() {
       </div>
     )
   }
-
-  function  handleButton  () {
-    router.push('/inicio/schedule');
-  }
-  const opts = {
-    playerVars: {
-      rel: 0, // Evitar videos relacionados al final
-      autoplay: 1, // Desactivar la reproducción automática
-      modestbranding: 1, // Ocultar el logotipo de YouTube
-      fs: 1, // Oculto el boton de maximizar video fs FullScreen
-      color: "#000"
-    }
-  }
+  // pueba
+  // return (
+  //   <>
+  //     <div>hols</div>
+  //     <div>{cardDetail.name}</div>
+  //     <Image
+  //       alt="photo"
+  //       width={160}
+  //       height={160}
+  //       src={cardDetail.image}
+  //       // style={{ zIndex: -1 }}
+  //       className="w-[30%] rounded-full object-cover mr-4 drop-shadow-[2px_3px_2px_rgba(255,255,255,.4)] dark:drop-shadow-[2px_3px_2px_rgba(0,0,0,.4)]"
+  //     />
+  //   </>
+  // );
   return (
     <>
     <Menu />
@@ -180,11 +176,11 @@ export default function TeacherDetailPage() {
       <div className="w-1/4 ml-[13px]">
         
         <div className='bg-white  px-[8px] py-[14px] flex flex-col items-center shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-md'>
-          <YouTube 
+          {/* <YouTube 
           ref={iframeRef}
           opts={opts}
           videoId={cardDetail.youtube}
-          className='w-full flex justify-center youtube h-[175px] relative rounded-[5px] overflow-hidden'/>
+          className='w-full flex justify-center youtube h-[175px] relative rounded-[5px] overflow-hidden'/> */}
           
           {/* Estrellas */}
           <p className='my-10'>estrellas</p>
@@ -192,7 +188,7 @@ export default function TeacherDetailPage() {
           {/* Reservar Cita */}
           <button
             className="btn-primary py-2 px-[26px] rounded"
-            onClick={handleButton}
+            // onClick={handleButton}
           >
             Reservar Cita
           </button>
@@ -203,5 +199,3 @@ export default function TeacherDetailPage() {
     </>
   );
 }
-
-

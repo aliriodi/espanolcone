@@ -104,13 +104,25 @@ de que sea role:user con bg success o morado
         console.log(adjustedDate); // Esto mostrará la hora ajustada según el desplazamiento horario.
         */
         // Obtener el UTN de la fecha
-        const fecha = today;Fragment
+        const fecha = today; Fragment
         const offsetMinutes = fecha.getTimezoneOffset();
         const offsetHours = offsetMinutes / 60;
         const offsetSign = offsetHours > 0 ? '-' : '+';
         const offsetHoursAbs = Math.abs(offsetHours);
         const formattedOffset = `${offsetSign}${String(offsetHoursAbs).padStart(2, '')}`;
         const offsetNumber = parseInt(formattedOffset, 10);
+        //Para obteneer el pais donde cargamos la fecha
+        const options = { timeZoneName: 'long' };
+        const timeZoneName = new Intl.DateTimeFormat('es', options).formatToParts(today);
+
+        let country = '';
+        for (const part of timeZoneName) {
+          if (part.type === 'timeZoneName') {
+            country = part.value.trim();
+            break;
+          }
+        }
+
 
         //renders es el usuario que sera asignado al teacher
         newcalendar.push({
@@ -122,7 +134,9 @@ de que sea role:user con bg success o morado
           image: renders.user.image,
           email: renders.user.email,
           role: renders.user.role,
-          utnCreated: "",
+          locationscheduled:country,
+          locationCreated: personSchedule.locationCreated, //profesor o guia que creo el calendario ubicacion
+          utnCreated: personSchedule.utnCreated, //profesor o guia que creo el calendario horas
           utnscheduled: offsetNumber,
           startDatetime: meeting.startDatetime,
           endDatetime: meeting.endDatetime,
@@ -151,8 +165,10 @@ de que sea role:user con bg success o morado
           iduser: personSchedule.id,
           startDatetime: meeting.startDatetime,
           endDatetime: meeting.endDatetime,
-          utnCreated: "",
+          utnCreated: personSchedule.utnCreated,
           utnscheduled: offsetNumber,
+          locationCreated: personSchedule.locationCreated,
+          locationscheduled:country
 
         })
 
@@ -223,8 +239,8 @@ de que sea role:user con bg success o morado
     } catch (error) {
       console.log(error);
     }
-//    console.log(personSchedule.schedule)
-router.push('/inicio/calendar');
+    //    console.log(personSchedule.schedule)
+    router.push('/inicio/calendar');
   }
 
   //Inicia el calendario
@@ -293,7 +309,7 @@ router.push('/inicio/calendar');
             {renders ? <div>
               {/* {console.log(personSchedule)} */}
               {/* <Image alt={'student'} width={100} height={100} src={personSchedule.image}></Image> */}
-                 <Image alt={'student'} width={100} height={100} src={personSchedule?.image?.url||personSchedule?.image}></Image>
+              <Image alt={'student'} width={100} height={100} src={personSchedule?.image?.url || personSchedule?.image}></Image>
             </div> : null}
             <div className="flex items-center">
               <h2 className="flex-auto font-semibold text-gray-900">

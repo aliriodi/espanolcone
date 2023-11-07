@@ -7,6 +7,7 @@ import styles from '../../styles/navbar.module.css';
 import { es } from 'date-fns/locale';
 import {
   add,
+  addHours,
   eachDayOfInterval,
   endOfMonth,
   format,
@@ -20,7 +21,8 @@ import {
   startOfToday,
 } from 'date-fns'
 import Image from 'next/image'
-
+//Componente donde se ven los Meets agendados del usuario logueado
+//sea profesor alumno o guia
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
@@ -34,34 +36,17 @@ export default function Example() {
   //   no tiene derecho de cancelar clases esta replanificaion va con el departamento de profesores
   //3. en caso de ser guia turistico solo trae su calendario con sus clientes asignados, puede modificar sus horarios 
   //   disponibles no puede cancelar citas ya reservadas
-  const student = require("./alumnos.json");
-  const teacher = require("./teachers.json");
-  const guide = require("./guides.json");
 
   const { data: session, status } = useSession();
-
-  let [students, setStudents] = useState(student.value)
-  let [teachers, setTeachers] = useState(teacher.value)
-  let [guides, setGuides] = useState(guide.value)
-  let [renders, setRenders] = useState({ user: { calendar: [{}], image: 'https://res.cloudinary.com/dfddh08q8/image/upload/v1695578432/images/4_svg8uq.png' } })
-  let [name, setName] = useState('students')
-  const users = ['students', 'teachers', 'guides']
-  let [i, setI] = useState(0)
-  function nextI() { if (i < students.length - 1) { let iaux = i + 1; setI(iaux); } console.log(i) }
-  function backI() { if (0 < i) { let iaux = i - 1; setI(iaux); } console.log(i) }
-  function handleOnChange(user) {
-    if (user === 'students') { setRenders(students); setName('students') }
-    if (user === 'teachers') { setRenders(teachers); setName('teachers') }
-    if (user === 'guides') { setRenders(guides); setName('guides') }
-    setI(0)
-  }
-
+  let [renders, setRenders] = useState({ user: {role:"user", calendar: [{}], image: 'https://res.cloudinary.com/dfddh08q8/image/upload/v1695578432/images/4_svg8uq.png' } })
+  let [newcalendar,setCalendar]=useState([]);
   // Termina section de BD ahora viebne el codigo que usa los datos
   let selectedDayMeetings = [];
 
   useEffect(() => {
     setRenders(session)
-
+    if(session){
+    setCalendar(session.user.calendar)}
   }, [session, renders])
 
   //console.log('session 109',session)
@@ -90,6 +75,49 @@ export default function Example() {
     setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'))
   }
 
+
+//Generando calendario 24 horas en el dia seleccionado
+const day = selectedDay;
+const hoursOfDay = [];
+ // Obtener el UTN de la fecha
+ const fecha = today;
+ const offsetMinutes = fecha.getTimezoneOffset();
+ const offsetHours = offsetMinutes / 60;
+ const offsetSign = offsetHours > 0 ? '-' : '+';
+ const offsetHoursAbs = Math.abs(offsetHours);
+ const formattedOffset = `${offsetSign}${String(offsetHoursAbs).padStart(2, '')}`;
+ const offsetNumber = parseInt(formattedOffset, 10);
+ //Para obteneer el pais donde cargamos la fecha
+ const options = { timeZoneName: 'long' };
+ const timeZoneName = new Intl.DateTimeFormat('es',options).formatToParts(today);
+ 
+ let country = '';
+for (const part of timeZoneName) {
+  if (part.type === 'timeZoneName') {
+    country = part.value.trim();
+    break;
+  }
+}
+
+//Generando las horas con sus atributos
+for (let i = 0; i < 24; i++) {
+  const hour = addHours(day, i);
+  const hour1 = addHours(day, i+1);
+  const startDatetime1 = format(hour, "yyyy-MM-dd'T'HH:mm");
+  const endDatetime1 = format(hour1, "yyyy-MM-dd'T'HH:mm");
+  hoursOfDay.push({
+                   assigned:false,
+                   locationCreated:country,
+                   locationscheduled:"",
+                   utnCreated:offsetNumber,
+                   utnscheduled:"",
+                   iduser: null,
+                   image:"",
+                   startDatetime:startDatetime1, 
+                   endDateTime:endDatetime1});
+}
+
+
   // de BD 
   //   let selectedDayMeetings = renders.user.calendar.filter((meeting) =>
   //   isSameDay(parseISO(meeting.startDatetime), selectedDay)
@@ -100,8 +128,8 @@ export default function Example() {
 
   return (
     <div className="pt-24">
-      <div className=" max-w-4xl px-4 mx-auto sm:px-7 md:max-w-4xl md:px-4">
-        <div className="md:grid md:grid-cols-2  md:divide-x md:divide-gray-200 grid grid-cols-2">
+      <div className=" max-w-6xl px-4 mx-auto sm:px-7 md:max-w-6xl md:px-4">
+        <div className="md:grid md:grid-cols-3  md:divide-x md:divide-gray-200 grid grid-cols-3">
           <div className="md:pr-14">
             {renders ? <div className='pt-24'>
               {/* <Image alt={'student'} width={100} height={100} src={renders?.user?.image?.url||renders?.user?.image}></Image> */}
@@ -184,45 +212,67 @@ export default function Example() {
                     {renders?.user?.calendar?.some((meeting) =>
                       isSameDay(parseISO(meeting.startDatetime), day) && !meeting.assigned
                     ) && (
-                        <div className="w-1 h-1 rounded-full bg-red-500"></div>
+                        <div className="w-1 h-1 rounded-full bg-red-500  "></div>
                       )}
 
 
-                    {/* {meetings.some((meeting) =>
-                      isSameDay(parseISO(meeting.startDatetime), day)
-                    ) && (
-                        <div className="w-1 h-1 rounded-full bg-sky-500"></div>
-                      )} */}
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-
-      
+          {/* Agenda existente */}
           <section className="mt-12 md:mt-0 md:pl-14">
+            
             <div className='max-w-fit pt-16 pl-14 grid grid-cols-1 divide-x object-none object-right-top  border-red-500 border-solid-4'>
             <h2 className="font-semibold text-gray-900">
-              Agenda{' '}
-              <time dateTime={format(selectedDay, 'yyyy-MM-dd')}>
-
-                {format(selectedDay, 'MMM dd, yyy', { locale: es }).charAt(0).toUpperCase() + format(selectedDay, 'MMM dd, yyy', { locale: es }).slice(1)}
-              </time>
-            </h2>
-            <div className=''>
-              <ol className="">
-                {/* {console.log(selectedDayMeetings)} */}
-                {selectedDayMeetings.length > 0 ? (
-                  selectedDayMeetings.map((meeting) => (
-                    <Meeting meeting={meeting} key={meeting.id} />
-                  ))
-                ) : (
-                  <p>No hay actividad agendada aún.</p>
-                )}
-              </ol></div>
-              </div>
+            <time dateTime={format(selectedDay, 'yyyy-MM-dd')}>
+                  {format(selectedDay, 'MMM dd, yyy', { locale: es }).charAt(0).toUpperCase() + format(selectedDay, 'MMM dd, yyy', { locale: es }).slice(1)}
+                </time></h2>
+              <h2 className="font-semibold text-gray-900">
+                
+                Agenda Existente{' '}
+                
+              </h2>
+              <div className=''>
+                <ol className="">
+                  {/* {console.log(selectedDayMeetings)} */}
+                  {selectedDayMeetings.length > 0 ? (
+                    selectedDayMeetings.map((meeting) => (
+                      <Meeting meeting={meeting} key={meeting.id} />
+                    ))
+                  ) : (
+                    <p>No hay actividad agendada aún.</p>
+                  )}
+                </ol></div>
+            </div>
           </section>
+
+          {/* {crear Agenda} */ console.log(renders)}
+          {console.log(newcalendar)}
+
+        { renders?.user?.role.includes('teacher')||renders?.user?.role.includes('guides')?
+          <section className="mt-12 md:mt-0 md:pl-14">
+            <div className='max-w-fit pt-16 pl-14 grid grid-cols-1 divide-x object-none object-right-top  border-red-500 border-solid-4'>
+              <h2 className="font-semibold text-gray-900">
+                Planificar Agenda{' '}
+               </h2>
+              <div className=''>
+                <ol className="">
+                  {/* {console.log(selectedDayMeetings)} */}
+                  {console.log(hoursOfDay)}
+                  {selectedDayMeetings.length > 0 ? (
+                    selectedDayMeetings.map((meeting) => (
+                      <Meeting meeting={meeting} key={meeting.id} />
+                    ))
+                  ) : (
+                    <p>No hay actividad agendada aún.</p>
+                  )}
+                </ol></div>
+            </div>
+          </section>
+:null}
         </div>
       </div>
     </div>
@@ -244,7 +294,7 @@ function Meeting({ meeting }) {
       />{/* console.log(meeting.image)*/}
       <div className="flex-auto">
         {meeting.assigned ? true : <p className="text-gray-900">Meeting no asignado aún</p>}
-        <p className="text-gray-900">{meeting.first_name+' '+meeting.last_name}</p>
+        <p className="text-gray-900">{meeting.first_name + ' ' + meeting.last_name}</p>
         <p className="text-gray-900">{meeting.role}</p>
         <p className="mt-0.5">
           <time dateTime={meeting.startDatetime}>
@@ -256,7 +306,7 @@ function Meeting({ meeting }) {
           </time>
         </p>
       </div>
-      <Menu
+      {/* <Menu
         as="div"
         className="relative opacity-0 focus-within:opacity-100 group-hover:opacity-100"
       >
@@ -307,7 +357,7 @@ function Meeting({ meeting }) {
             </div>
           </Menu.Items>
         </Transition>
-      </Menu>
+      </Menu> */}
     </li>
   )
 }

@@ -297,6 +297,12 @@ h3{
   background-color: var(--primary)!important; /* Cambia el color aquí a tu preferencia */
 }
 
+/* Modal Paypal */
+.modal-paypal iframe{
+  width: 100%;
+  height: 100%;
+}
+
 /* Paginacion */
 .pagination{
   display: flex;

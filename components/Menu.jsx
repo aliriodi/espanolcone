@@ -5,12 +5,13 @@ import Image from 'next/image';
 import Logo from '../public/imgs/logo-gradient.png';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faAngleRight,faCalendarDays, faHouse, faPersonHiking, faChalkboardUser, faLaptop, faAddressCard, faPen, faBell, faBars, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faAngleRight,faCalendarDays, faHouse, faPersonHiking, faChalkboardUser, faLaptop, faAddressCard, faPen, faBell, faBars, faUser, faMoneyBill } from '@fortawesome/free-solid-svg-icons';
 import SignOutBtn from './signOut/SignOutBtn';
 import { setshowClass } from '../redux/ECEActions';
 import { useSession } from "next-auth/react";
 import Class from '../components/Class/Class'
 import Courses from '../pages/courses'
+import ModalPago from './ModalPago';
 
 const Menu = (props) => {
     const dispatch = useDispatch();
@@ -76,6 +77,9 @@ const Menu = (props) => {
     };
 
 
+    const [isOpenModal, setIsOpenModal] = useState(false);
+
+
     return (
         <>
         {/* Nav Bar */}
@@ -116,17 +120,19 @@ const Menu = (props) => {
                         href={"./profile"}
                         className='w-[38px] h-[38px] rounded-full bg-[#B9B9C3] flex justify-center items-center '>
                             {
-                                session?.user?.image?.url ?
+                                session?.user?.image?
                                 <Image
                                 alt="session.user.image"
                                 className='w-[38px] h-[38px] bg-primary rounded-full object-cover'
-                                src={session?.user?.image?.url}
+                                src={session.user.image.url?
+                                                           session.user.image.url:
+                                                           session.user.image }
                                 width={38}
                                 height={38}/> 
                                 :
                                 <FontAwesomeIcon className="text-violet_dark" icon={faUser}/>
 
-                            }
+                            }{console.log(session)}
                         </Link>
                     </div>
 
@@ -149,7 +155,7 @@ const Menu = (props) => {
         }
 
             {/* Menu */}
-            <div className={`bg-white fixed ${!isOpen ? "left-[-300px]" : "left-0"} px-1 py-1 h-screen z-[60] shadow-[0px_0px_15px_#0000000D] transition-all`}>
+            <div className={`bg-white fixed ${!isOpen ? "left-[-300px]" : "left-0"} max-w-[277px] px-1 py-1 h-screen z-[60] shadow-[0px_0px_15px_#0000000D] transition-all`}>
 
                 {/* Opciones */}
                 <nav className="my-8 flex flex-row-reverse  h-full justify-between" style={{ fontWeight: '500' }}>
@@ -221,7 +227,7 @@ const Menu = (props) => {
                                 className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
                                 ${currentPathName == '/tourGuides' && "bg-primary text-white"}
                             hover:bg-primary hover:text-white`}
-                                href="/tourGuides">
+                                href="/inicio/tourGuides">
                                 <FontAwesomeIcon icon={faPersonHiking} className=" mr-[10px]" />
                                 <p>Guías turisticos</p>
                             </Link>
@@ -240,6 +246,23 @@ const Menu = (props) => {
                                 </Link>
                             </li>
                             : null}
+                            <li>
+                        {/* Pagar */}
+                            <button
+                                onClick={()=>setIsOpenModal(!isOpenModal)}
+                                className={`flex w-full items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
+                                ${currentPathName == '/tourGuides' && "bg-primary text-white"}
+                                hover:bg-primary hover:text-white`}
+
+                            >
+                                <FontAwesomeIcon icon={faMoneyBill} className="mr-[10px]" />
+                                <p>Hazte Premium</p>
+                            </button> 
+                                <ModalPago open ={isOpenModal} />
+                        </li>
+                            {/* <li>
+                                <ModalPago/>
+                            </li> */}
 
                     </ul>
                 </div>
