@@ -149,133 +149,121 @@ const Menu = (props) => {
         }
 
             {/* Menu */}
-            <div className={`bg-white fixed ${isOpen && "px-1"} py-1 h-screen z-[60] shadow-[0px_0px_15px_#0000000D]`}>
+            <div className={`bg-white fixed ${!isOpen ? "left-[-300px]" : "left-0"} px-1 py-1 h-screen z-[60] shadow-[0px_0px_15px_#0000000D] transition-all`}>
 
                 {/* Opciones */}
                 <nav className="my-8 flex flex-row-reverse  h-full justify-between" style={{ fontWeight: '500' }}>
+                <div className=' flex flex-col justify-between mx-[14px] mb-10 min-w-[225px]'>
 
-                    {/* Contenido del menú */}
-                    {isOpen && (
-                        <div className=' flex flex-col justify-between mx-[14px] mb-10 min-w-[225px]'>
+                {/* Seccion Superior */}
+                <div>
+                    {/* Logo */}
+                    <div >
+                        <Link href="/inicio/home" >
+                            <Image  src={Logo} className='mb-[10px]' style={{ width: '80px' }} alt="Logo" />
+                        </Link>
 
-                            {/* Seccion Superior */}
-                            <div>
-                                {/* Logo */}
-                                <div >
-                                    <Link href="/inicio/home" >
-                                        <Image  src={Logo} className='mb-[10px]' style={{ width: '80px' }} alt="Logo" />
-                                    </Link>
+                    </div>
 
-                                </div>
+                    {/* Opciones Principales */}
+                    <ul className="text-title_color">
 
-                                {/* Opciones Principales */}
-                                <ul className="text-title_color">
+                        {/* Inicio */}
+                        <li>
+                            <Link
+                                className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all    
+                                ${currentPathName == '/inicio/home' && "bg-primary text-white"}
+                            hover:bg-primary hover:text-white`}
+                                href="/inicio/home">
+                                <FontAwesomeIcon icon={faHouse} className="  mr-[10px]" />
+                                <p>Inicio</p>
+                            </Link>
+                        </li>
 
-                                    {/* Inicio */}
-                                    <li>
-                                        <Link
-                                            className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all    
-                                            ${currentPathName == '/inicio/home' && "bg-primary text-white"}
-                                        hover:bg-primary hover:text-white`}
-                                            href="/inicio/home">
-                                            <FontAwesomeIcon icon={faHouse} className="  mr-[10px]" />
-                                            <p>Inicio</p>
-                                        </Link>
-                                    </li>
+                        {/* Curso */}
+                        <li>
+                            <Link
+                                className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
+                                ${currentPathName == '/inicio/curso' && "bg-primary text-white"}
+                            hover:bg-primary hover:text-white`}
+                                href="/inicio/curso">
+                                <FontAwesomeIcon icon={faLaptop} className="  mr-[10px]" />
+                                <p>Curso</p>
+                            </Link>
+                        </li>
+                        {/* Calendario */}
+                        <li>
+                            <Link
+                                className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
+                                ${currentPathName == '/inicio/calendar' && "bg-primary text-white"}
+                            hover:bg-primary hover:text-white`}
+                                href="/inicio/calendar">
+                                <FontAwesomeIcon icon={faCalendarDays} className=" mr-[10px]" />
+                                <p>Agenda</p>
+                            </Link>
+                        </li>
+                        {/* Profesores */}
+                        <li>
+                            <Link
+                                className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
+                                ${currentPathName == '/teachers' && "bg-primary text-white"}
+                            hover:bg-primary hover:text-white`}
+                                href="/inicio/teachers" >
+                                <FontAwesomeIcon icon={faChalkboardUser} className="mr-[10px]" />
+                                <p>Profesores</p>
 
-                                    {/* Curso */}
-                                    <li>
-                                        <Link
-                                            className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                            ${currentPathName == '/inicio/curso' && "bg-primary text-white"}
-                                        hover:bg-primary hover:text-white`}
-                                            href="/inicio/curso">
-                                            <FontAwesomeIcon icon={faLaptop} className="  mr-[10px]" />
-                                            <p>Curso</p>
-                                        </Link>
-                                    </li>
-                                    {/* Calendario */}
-                                    <li>
-                                        <Link
-                                            className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                            ${currentPathName == '/inicio/calendar' && "bg-primary text-white"}
-                                        hover:bg-primary hover:text-white`}
-                                            href="/inicio/calendar">
-                                            <FontAwesomeIcon icon={faCalendarDays} className=" mr-[10px]" />
-                                            <p>Agenda</p>
-                                        </Link>
-                                    </li>
-                                    {/* Profesores */}
-                                    <li>
-                                        <Link
-                                            className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                            ${currentPathName == '/teachers' && "bg-primary text-white"}
-                                        hover:bg-primary hover:text-white`}
-                                            href="/inicio/teachers" >
-                                            <FontAwesomeIcon icon={faChalkboardUser} className="mr-[10px]" />
-                                            <p>Profesores</p>
+                            </Link>
+                        </li>
 
-                                        </Link>
-                                    </li>
+                        {/* Guías turisticos */}
+                        <li>
+                            <Link
+                                className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
+                                ${currentPathName == '/tourGuides' && "bg-primary text-white"}
+                            hover:bg-primary hover:text-white`}
+                                href="/tourGuides">
+                                <FontAwesomeIcon icon={faPersonHiking} className=" mr-[10px]" />
+                                <p>Guías turisticos</p>
+                            </Link>
+                        </li>
 
-                                    {/* Guías turisticos */}
-                                    <li>
-                                        <Link
-                                            className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                            ${currentPathName == '/tourGuides' && "bg-primary text-white"}
-                                        hover:bg-primary hover:text-white`}
-                                            href="/tourGuides">
-                                            <FontAwesomeIcon icon={faPersonHiking} className=" mr-[10px]" />
-                                            <p>Guías turisticos</p>
-                                        </Link>
-                                    </li>
+                        {/* Cargar Clase */}
+                        {session && session.user && session.user.role.includes('admin') ?
+                            <li>
+                                <Link
+                                    className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
+                                ${currentPathName == '/inicio/cargarclase' && "bg-primary text-white"}
+                            hover:bg-primary hover:text-white`}
+                                    href="/inicio/cargarclase">
+                                    <FontAwesomeIcon icon={faPen} className=" mr-[10px]" />
+                                    <p>Cargar Clase</p>
+                                </Link>
+                            </li>
+                            : null}
 
-                                    {/* Cargar Clase */}
-                                    {session && session.user && session.user.role.includes('admin') ?
-                                        <li>
-                                            <Link
-                                                className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                            ${currentPathName == '/inicio/cargarclase' && "bg-primary text-white"}
-                                        hover:bg-primary hover:text-white`}
-                                                href="/inicio/cargarclase">
-                                                <FontAwesomeIcon icon={faPen} className=" mr-[10px]" />
-                                                <p>Cargar Clase</p>
-                                            </Link>
-                                        </li>
-                                        : null}
+                    </ul>
+                </div>
 
-                                </ul>
-                            </div>
+                {/* Opciones de Perfil */}
+                <div>
 
-                            {/* Opciones de Perfil */}
-                            <div>
+                    {/* Mi Perfil */}
+                    <div className="text-title_color">
+                        <Link
+                            className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
+                            ${currentPathName == '/inicio/profile' && "bg-primary text-white"}
+                            hover:bg-primary hover:text-white`}
+                            href="/inicio/profile">
+                            <FontAwesomeIcon icon={faAddressCard} className=" mr-[10px]" />
+                            <p>Mi Perfil</p>
+                        </Link>
+                    </div>
 
-                                {/* Mi Perfil */}
-                                <div className="text-title_color">
-                                    <Link
-                                        className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                        ${currentPathName == '/inicio/profile' && "bg-primary text-white"}
-                                        hover:bg-primary hover:text-white`}
-                                        href="/inicio/profile">
-                                        <FontAwesomeIcon icon={faAddressCard} className=" mr-[10px]" />
-                                        <p>Mi Perfil</p>
-                                    </Link>
-                                </div>
+                    {/* Cerrar Secion */}
+                    <SignOutBtn />
 
-                                {/* Cerrar Secion */}
-                                <SignOutBtn />
-
-                            </div>
-                        </div>
-                    )}
-
-                    {/* Botón para abrir/cerrar el menú */}
-                    {/* <button
-                        className=" h-screen items-center p-2 rounded-md border border-gray-clear flex item-center my-5"
-                        onClick={() => setIsOpen(!isOpen)}
-                    >
-                        {isOpen ? <FontAwesomeIcon className="" icon={faAngleLeft} /> : <FontAwesomeIcon icon={faAngleRight} />}
-                    </button> */}
+                </div>
+                </div>
                 </nav>
             </div>
         </>
