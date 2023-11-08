@@ -21,7 +21,8 @@ export default function Profile(){
         last_name:session?.user?.last_name,
         country:session?.user?.country,
         email:session?.user?.email,
-        image:session?.user?.image
+        image:session?.user?.image,
+        content:session?.user?.content
     })
 
     const [updatePasseword, setUpdatePasseword] = useState({
@@ -48,7 +49,7 @@ export default function Profile(){
 
     const [loading, setLoading] = useState(false);
 
-    // useEffect(()=>console.log(updates),[]) 
+    // useEffect(()=>console.log(session),[]) 
 
     useEffect(()=>{
         // Este UseEffect se va a encargar de verificar si hay cambios en los inputs en el formulario de "Cuenta"
@@ -84,7 +85,8 @@ export default function Profile(){
         last_name:session?.user?.last_name,
         country:session?.user?.country,
         email:session?.user?.email,
-        image:session?.user?.image
+        image:session?.user?.image,
+        content:session?.user?.content
         })
 
     },[session])
@@ -555,23 +557,50 @@ export default function Profile(){
                                             {errorsForm.email && (
                                                 <p className='text-danger md:text-[12px]'>{t("warningEmail")}</p>
                                             )}
-                                        </div>
-                                        
+                                        </div>                                        
                                     </div>
 
                                 </div>
+
                                 
-                                <div className='flex mt-[30px]'>
+                                {/* Campo Descripción */}
+                                <div className="flex flex-col mt-[18px]
+                                md:mt-[10px]"
+                                style={{ width:'100%', flexGrow:1}}>
+
+                                    <div className="flex justify-between" style={{ margin: '8px 0' }}>
+                                        <label htmlFor="email" className='md:text-[12px]'>Descripción</label>
+                                    </div>
+
+                                    <textarea
+                                    className={`min-h-[80px] p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.email ? "border-danger" :"border-gray-clear"}
+                                    md:text-[12px]`}
+                                    type="text"
+                                    id="email"
+                                    placeholder='johndoe@gmail.com'
+                                    value={updates.content}
+                                    onChange={(e) => setUpdates({...updates, content: e.target.value})}
+                                    />
+                                    
+                                    {/* Error de Descripsion */}
+                                    {errorsForm.email && (
+                                        <p className='text-danger md:text-[12px]'>{t("warningEmail")}</p>
+                                    )}
+                                </div>
+                                
+                                <div className='flex mt-[30px] md:flex-col'>
                                     {/* Guardar Cambios */}
                                     <input
                                     type='submit'
                                     value={"Guardar cambios"}
-                                    className={`btn-primary py-[10px] px-[22px] mr-[10px] ${!canBeUpdated && "pointer-events-none opacity-50"}`}/>
+                                    className={`btn-primary py-[10px] px-[22px] mr-[10px] ${!canBeUpdated && "pointer-events-none opacity-50"}
+                                    md:mr-0 md:mb-[10px]`}/>
 
                                     {/* Descartar Cambios */}
                                     <button
                                     onClick={returnChanges}
-                                    className={`border-danger border-[2px] rounded-[5px] text-danger py-[10px] px-[22px] font-medium ${!canBeUpdated && "pointer-events-none opacity-50"}`}>
+                                    className={`border-danger border-[2px] rounded-[5px] text-danger py-[10px] px-[22px] font-medium ${!canBeUpdated && "pointer-events-none opacity-50"}
+                                    md:mr-0 md:mb-[10px]`}>
                                         Descartar cambios
                                     </button>
                                 </div>
