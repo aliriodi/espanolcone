@@ -3,6 +3,7 @@ import { DotsVerticalIcon } from '@heroicons/react/outline'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
 import { useSession } from "next-auth/react"
 import React, { useState, useEffect, Fragment } from 'react';
+import MeetingPlaning from "./MeetingPlaning";
 import styles from '../../styles/navbar.module.css';
 import { es } from 'date-fns/locale';
 import {
@@ -105,6 +106,8 @@ for (let i = 0; i < 24; i++) {
   const hour1 = addHours(day, i+1);
   const startDatetime1 = format(hour, "yyyy-MM-dd'T'HH:mm");
   const endDatetime1 = format(hour1, "yyyy-MM-dd'T'HH:mm");
+  // console.log(endDatetime1,typeof(endDatetime1))
+  // console.log(startDatetime1,typeof(endDatetime1))
   hoursOfDay.push({
                    assigned:false,
                    locationCreated:country,
@@ -114,7 +117,7 @@ for (let i = 0; i < 24; i++) {
                    iduser: null,
                    image:"",
                    startDatetime:startDatetime1, 
-                   endDateTime:endDatetime1});
+                   endDatetime:endDatetime1});
 }
 
 
@@ -249,8 +252,8 @@ for (let i = 0; i < 24; i++) {
             </div>
           </section>
 
-          {/* {crear Agenda} */ console.log(renders)}
-          {console.log(newcalendar)}
+          {/* {crear Agenda}  console.log(renders)*/}
+          {/* {console.log(newcalendar)} */}
 
         { renders?.user?.role.includes('teacher')||renders?.user?.role.includes('guides')?
           <section className="mt-12 md:mt-0 md:pl-14">
@@ -261,10 +264,12 @@ for (let i = 0; i < 24; i++) {
               <div className=''>
                 <ol className="">
                   {/* {console.log(selectedDayMeetings)} */}
-                  {console.log(hoursOfDay)}
-                  {selectedDayMeetings.length > 0 ? (
-                    selectedDayMeetings.map((meeting) => (
-                      <Meeting meeting={meeting} key={meeting.id} />
+                  {/* {console.log(hoursOfDay)} */}
+                  {/* {console.log(selectedDayMeetings)} */}
+                  {hoursOfDay.length > 0 ? (
+                    hoursOfDay.map((meeting) => (
+                      
+                      <MeetingPlaning meeting={meeting} key={meeting.id} />
                     ))
                   ) : (
                     <p>No hay actividad agendada aún.</p>
