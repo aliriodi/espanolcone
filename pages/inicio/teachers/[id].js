@@ -35,7 +35,7 @@ export default function TeacherDetailPage() {
   }
 
   function  handleButton  () {
-    router.push('/inicio/schedule');
+    router.push('/inicio/schedule/'+cardDetail._id);
   }
   const opts = {
     playerVars: {
