@@ -91,30 +91,64 @@ export default function Class(props) {
   return (
     <>
 
-      {/* Paginacion */}
-      <div className='fixed bottom-6 w-full flex justify-center z-50'>
+      {
+        i == 0 &&
+        <button
+        className='bg-gradient-to-r from-primary to-secondary z-50 absolute bottom-[20%] text-white text-[28px] right-[30%] p-3 rounded-[5px] transition-all
+        hover:shadow-[0px_4px_26px] hover:shadow-primary'
+        onClick={() => Forward(i)}>
+          ¡Empezemos!
+        </button>
+      }
 
-        <div className='pagination' style={{boxShadow:"0px 4px 26px #00000040"}}>
+      {/* Paginacion */}
+      {/* <div className='fixed bottom-6 w-full flex justify-center z-50'> */}
+
+        {/* <div className='pagination' style={{boxShadow:"0px 4px 26px #00000040"}}> */}
 
           {/* Boton de Previo */}
-          <button
+          {/* <button
           className='pagination-btn'
           onClick={() => Back(i)}>
             <FontAwesomeIcon icon={faAngleLeft}/> Prev
-          </button>
+          </button> */}
 
           {/* Index */}
-          <span className='pagination-index'>{i + 1} / {length}</span>
+          {/* <span className='pagination-index'>{i + 1} / {length}</span> */}
 
           {/* Boton de Siguiente */}
-          <button
+          {/* <button
           className='pagination-btn'
           onClick={() => Forward(i)}>
             Next <FontAwesomeIcon icon={faAngleRight}/> 
-          </button>
+          </button> */}
           
-        </div>
-      </div>
+        {/* </div> */}
+      {/* </div> */}
+
+      {/* Paginacion de Prueba */}
+
+        {/* Boton de Previo */}
+        {
+          i != 0 &&
+          <button
+          className='transition-all fixed bottom-0 left-0 z-[90] bg-white rounded-[0_70%_0_0] py-8 px-10 shadow-[0px_4px_26px_#00000040] text-title_color text-left text-[18px]
+          hover:bg-primary_hover hover:text-white'
+          onClick={() => Back(i)}>
+            <FontAwesomeIcon icon={faAngleLeft}/> Prev
+          </button>
+        } 
+
+        {/* Boton de Siguiente */}
+        {
+          i != 0 &&
+          <button
+          className='transition-all fixed bottom-0 right-0 z-[90] bg-white rounded-[70%_0_0_0] py-8 px-10 shadow-[0px_4px_26px_#00000040] text-title_color text-right text-[18px]
+          hover:bg-primary_hover hover:text-white'
+          onClick={() => Forward(i)}>
+            Next <FontAwesomeIcon icon={faAngleRight}/> 
+          </button>
+        }
 
       {
         data && data.sheets[i]?.data ?
@@ -169,6 +203,13 @@ export default function Class(props) {
                     <p dangerouslySetInnerHTML={{ __html: c.value }}></p>
                   </div>
                 }
+
+                {/* PopUp de Dialogos */}
+                {c.type === 'popup' &&
+                  <div className={style[c.className]}> <p dangerouslySetInnerHTML={{ __html: c.value }}></p></div>
+                }
+
+
               </>
 
               )}
@@ -227,8 +268,6 @@ export default function Class(props) {
                   {c.type === 'complete-li-personal' &&
                   <div className={style[c.className]}><PARAGGRAPHCOMPLETE data={c}/> </div> }
                   
-                  {c.type === 'popup' &&
-                  <div className={style[c.className]}> <p dangerouslySetInnerHTML={{ __html: c.value }}></p></div> }
                   {/* <p dangerouslySetInnerHTML={{ __html: c.value }}></p> */}
                 </>)
                 } 
