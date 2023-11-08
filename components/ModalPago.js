@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js'
 import axios from 'axios'
 import Logo from '../public/imgs/logo-gradient.png';
@@ -7,6 +7,11 @@ import Image from 'next/image';
 
 export default function ModalPago(props) {
   const [isOpen, setIsOpen] = useState(false)
+
+  const closeModal = () => {
+    props.modalPaypal(false)
+    setIsOpen(false)
+  }
 
   useEffect(()=>{
     setIsOpen(props.open)
@@ -53,7 +58,7 @@ export default function ModalPago(props) {
       {isOpen &&
       <>
         <div
-        onClick={()=>setIsOpen(false)}
+        onClick={closeModal}
         className='fixed w-screen min-h-screen top-0 left-0 bg-[#000000aa] flex flex-col justify-center items-center'>
 
           <div
@@ -70,49 +75,53 @@ export default function ModalPago(props) {
 
             {/* Metodo de pago */}
             <div
-            className='w-[750px] max-h-[400px]  flex justify-center p-3 mt-7
+            className='w-[750px] max-h-[70vh]  flex justify-center p-3 mt-7
             overflow-y-scroll modal-paypal'>
               
 
 
               <div className='w-full m-auto'>
-                <PayPalScriptProvider
-                  style={{
-                    width: "100%",
-                  }}
-                  options={{
-                      "clientId": process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID,
-                  }}
-                  >
-                    <PayPalButtons
-                    className=''
-                        style={{
-                            color:"blue",
-                            
-                        }}
-                        createOrder={async()=>{
-                          try{
-                          const res =  await axios({
-                              url:"/api/payment",
-                              method: "POST",
-                              headers:{
-                                "Content-Type": "application/json"
-                              }
-                            })
-                            return res.data.id
-                          } catch{
-                            console.log(error)
-                          }
-                        }} 
-                        onCancel={(data) => {
-                          console.log("Canceled order:", data)
-                        }}
-                        onApprove={(data, actions)=>{
-                          console.log(data)
-                          actions.order.capture()
-                        }}
-                    />
-                </PayPalScriptProvider>
+                {
+                  <PayPalScriptProvider
+                    style={{
+                      width: "100%",
+                    }}
+                    options={{
+                        "clientId": process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID,
+                    }}
+                    >
+                      <PayPalButtons
+                      className=''
+                          style={{
+                              color:"blue",
+                              
+                          }}
+                          createOrder={async()=>{
+                            try{
+                            const res =  await axios({
+                                url:"/api/payment",
+                                method: "POST",
+                                headers:{
+                                  "Content-Type": "application/json"
+                                }
+                              })
+                              return res.data.id
+                            } catch{
+                              console.log(error)
+                            }
+                          }} 
+                          onCancel={(data) => {
+                            console.log("Canceled order:", data)
+                          }}
+                          onApprove={(data, actions)=>{
+                            console.log(data)
+                            actions.order.capture()
+                          }}
+                      />
+                  </PayPalScriptProvider>
+                  ||
+                  <p>Loadin...</p>
+                }
               </div>
             </div>
 

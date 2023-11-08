@@ -48,6 +48,19 @@ const Menu = (props) => {
         setShowClass(!showClass);
 
     };
+
+    //#region  Modal de Paypal
+    const [paypalModal, setPaypalModal] = useState(false)
+
+    const openPaypalModal = () =>{
+        setPaypalModal(true)
+    }
+
+    const handleChangePaypalModal = (data) =>{
+        setPaypalModal(data)
+    }
+    //#endregion
+
     const menuRef = useRef(null);
 
     const [currentPathName, setCurrentPathName] = useState("")
@@ -132,7 +145,7 @@ const Menu = (props) => {
                                 :
                                 <FontAwesomeIcon className="text-violet_dark" icon={faUser}/>
 
-                            }{console.log(session)}
+                            }
                         </Link>
                     </div>
 
@@ -249,7 +262,7 @@ const Menu = (props) => {
                             <li>
                         {/* Pagar */}
                             <button
-                                onClick={()=>setIsOpenModal(!isOpenModal)}
+                                onClick={openPaypalModal}
                                 className={`flex w-full items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
                                 ${currentPathName == '/tourGuides' && "bg-primary text-white"}
                                 hover:bg-primary hover:text-white`}
@@ -258,7 +271,8 @@ const Menu = (props) => {
                                 <FontAwesomeIcon icon={faMoneyBill} className="mr-[10px]" />
                                 <p>Hazte Premium</p>
                             </button> 
-                                <ModalPago open ={isOpenModal} />
+
+                            <ModalPago modalPaypal={handleChangePaypalModal} open={paypalModal}/>
                         </li>
                             {/* <li>
                                 <ModalPago/>
