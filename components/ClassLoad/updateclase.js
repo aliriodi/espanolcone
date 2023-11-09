@@ -1,5 +1,5 @@
 //import clase from "./nivela2.json"
-const clase = require("./U2NB1.json");
+const clase = require("./U2nivelb1.json");
 async function imprimir()
 {
   //console.log(clase)
