@@ -39,20 +39,22 @@ export default function Example() {
   //   disponibles no puede cancelar citas ya reservadas
 
   const { data: session, status } = useSession();
-  let [renders, setRenders] = useState({ user: {role:"user", calendar: [{}], image: 'https://res.cloudinary.com/dfddh08q8/image/upload/v1695578432/images/4_svg8uq.png' } })
-  let [newcalendar,setCalendar]=useState([]);
+  let [renders, setRenders] = useState({ user: { role: "user", calendar: [{}], image: 'https://res.cloudinary.com/dfddh08q8/image/upload/v1695578432/images/4_svg8uq.png' } })
+  let [newcalendar, setCalendar] = useState([]);
   // Termina section de BD ahora viebne el codigo que usa los datos
   let selectedDayMeetings = [];
 
   useEffect(() => {
     setRenders(session)
-    if(session){
-    setCalendar(session.user.calendar)}
+    if (session) {
+      setCalendar(session.user.calendar)
+    }
   }, [session, renders])
 
   //console.log('session 109',session)
   let today = startOfToday()
   let [selectedDay, setSelectedDay] = useState(today)
+  let [i, setI] = useState(0)
   let [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
   let firstDayCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date())
 
@@ -77,48 +79,49 @@ export default function Example() {
   }
 
 
-//Generando calendario 24 horas en el dia seleccionado
-const day = selectedDay;
-const hoursOfDay = [];
- // Obtener el UTN de la fecha
- const fecha = today;
- const offsetMinutes = fecha.getTimezoneOffset();
- const offsetHours = offsetMinutes / 60;
- const offsetSign = offsetHours > 0 ? '-' : '+';
- const offsetHoursAbs = Math.abs(offsetHours);
- const formattedOffset = `${offsetSign}${String(offsetHoursAbs).padStart(2, '')}`;
- const offsetNumber = parseInt(formattedOffset, 10);
- //Para obteneer el pais donde cargamos la fecha
- const options = { timeZoneName: 'long' };
- const timeZoneName = new Intl.DateTimeFormat('es',options).formatToParts(today);
- 
- let country = '';
-for (const part of timeZoneName) {
-  if (part.type === 'timeZoneName') {
-    country = part.value.trim();
-    break;
-  }
-}
+  //Generando calendario 24 horas en el dia seleccionado
+  const day = selectedDay;
+  const hoursOfDay = [];
+  // Obtener el UTN de la fecha
+  const fecha = today;
+  const offsetMinutes = fecha.getTimezoneOffset();
+  const offsetHours = offsetMinutes / 60;
+  const offsetSign = offsetHours > 0 ? '-' : '+';
+  const offsetHoursAbs = Math.abs(offsetHours);
+  const formattedOffset = `${offsetSign}${String(offsetHoursAbs).padStart(2, '')}`;
+  const offsetNumber = parseInt(formattedOffset, 10);
+  //Para obteneer el pais donde cargamos la fecha
+  const options = { timeZoneName: 'long' };
+  const timeZoneName = new Intl.DateTimeFormat('es', options).formatToParts(today);
 
-//Generando las horas con sus atributos
-for (let i = 0; i < 24; i++) {
-  const hour = addHours(day, i);
-  const hour1 = addHours(day, i+1);
-  const startDatetime1 = format(hour, "yyyy-MM-dd'T'HH:mm");
-  const endDatetime1 = format(hour1, "yyyy-MM-dd'T'HH:mm");
-  // console.log(endDatetime1,typeof(endDatetime1))
-  // console.log(startDatetime1,typeof(endDatetime1))
-  hoursOfDay.push({
-                   assigned:false,
-                   locationCreated:country,
-                   locationscheduled:"",
-                   utnCreated:offsetNumber,
-                   utnscheduled:"",
-                   iduser: null,
-                   image:"",
-                   startDatetime:startDatetime1, 
-                   endDatetime:endDatetime1});
-}
+  let country = '';
+  for (const part of timeZoneName) {
+    if (part.type === 'timeZoneName') {
+      country = part.value.trim();
+      break;
+    }
+  }
+
+  //Generando las horas con sus atributos
+  for (let i = 0; i < 24; i++) {
+    const hour = addHours(day, i);
+    const hour1 = addHours(day, i + 1);
+    const startDatetime1 = format(hour, "yyyy-MM-dd'T'HH:mm");
+    const endDatetime1 = format(hour1, "yyyy-MM-dd'T'HH:mm");
+    // console.log(endDatetime1,typeof(endDatetime1))
+    // console.log(startDatetime1,typeof(endDatetime1))
+    hoursOfDay.push({
+      assigned: false,
+      locationCreated: country,
+      locationscheduled: "",
+      utnCreated: offsetNumber,
+      utnscheduled: "",
+      iduser: null,
+      image: "",
+      startDatetime: startDatetime1,
+      endDatetime: endDatetime1
+    });
+  }
 
 
   // de BD 
@@ -227,17 +230,19 @@ for (let i = 0; i < 24; i++) {
 
           {/* Agenda existente */}
           <section className="mt-12 md:mt-0 md:pl-14">
-            
+
             <div className='max-w-fit pt-16 pl-14 grid grid-cols-1 divide-x object-none object-right-top  border-red-500 border-solid-4'>
-            <h2 className="font-semibold text-gray-900">
-            <time dateTime={format(selectedDay, 'yyyy-MM-dd')}>
+              <h2 className="font-semibold text-gray-900">
+                <time dateTime={format(selectedDay, 'yyyy-MM-dd')}>
                   {format(selectedDay, 'MMM dd, yyy', { locale: es }).charAt(0).toUpperCase() + format(selectedDay, 'MMM dd, yyy', { locale: es }).slice(1)}
                 </time></h2>
               <h2 className="font-semibold text-gray-900">
-                
+
                 Agenda Existente{' '}
-                
+
               </h2>
+
+
               <div className=''>
                 <ol className="">
                   {/* {console.log(selectedDayMeetings)} */}
@@ -250,34 +255,64 @@ for (let i = 0; i < 24; i++) {
                   )}
                 </ol></div>
             </div>
+
+
+            {/* aca van los botones de que deseo renderizar */}
+            {renders?.user?.role.includes('teacher') || renders?.user?.role.includes('guides') ?
+              <div className='max-w-fit pt-10 pl-14 grid grid-cols-4 divide-x object-none object-right-top  '>
+                <button className= 'border-primary border-solid border-2' onClick={()=>setI(0)}>1</button>
+                <button className= 'border-primary border-solid border-2' onClick={()=>setI(1)}>2</button>
+                <button className= 'border-primary border-solid border-2' onClick={()=>setI(2)}>3</button>
+                <button className= 'border-primary border-solid border-2' onClick={()=>setI(3)}>4</button>
+              </div> : null}
+
+
           </section>
 
           {/* {crear Agenda}  console.log(renders)*/}
           {/* {console.log(newcalendar)} */}
 
-        { renders?.user?.role.includes('teacher')||renders?.user?.role.includes('guides')?
-          <section className="mt-12 md:mt-0 md:pl-14">
-            <div className='max-w-fit pt-16 pl-14 grid grid-cols-1 divide-x object-none object-right-top  border-red-500 border-solid-4'>
-              <h2 className="font-semibold text-gray-900">
-                Planificar Agenda{' '}
-               </h2>
-              <div className=''>
-                <ol className="">
-                  {/* {console.log(selectedDayMeetings)} */}
-                  {/* {console.log(hoursOfDay)} */}
-                  {/* {console.log(selectedDayMeetings)} */}
-                  {hoursOfDay.length > 0 ? (
-                    hoursOfDay.map((meeting) => (
-                      
-                      <MeetingPlaning meeting={meeting} key={meeting.id} />
-                    ))
-                  ) : (
-                    <p>No hay actividad agendada aún.</p>
-                  )}
-                </ol></div>
-            </div>
-          </section>
-:null}
+          {renders?.user?.role.includes('teacher') || renders?.user?.role.includes('guides') ?
+            <section className="mt-12 md:mt-0 md:pl-14">
+              <div className='max-w-fit pt-16 pl-14 grid grid-cols-1 divide-x object-none object-right-top  '>
+                <h2 className="font-semibold text-gray-900">
+                  Planificar Agenda{' '}
+                </h2>
+                <div className=''>
+                  <ol className="">
+                    {/* {console.log(selectedDayMeetings)} */}
+                    {/* {console.log(hoursOfDay)} */}
+                    {/* {console.log(selectedDayMeetings)} */}
+
+                    {hoursOfDay.length > 0 ? (
+                      hoursOfDay.slice(i*6, (i+1)*6 ).map((meeting,index) => (
+                        <button key={index} onClick={()=>alert('hola')}
+                          className={classNames(
+                            'focus:outline-none    font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900 ring-2 text-primary hover:border-none border-primary hover:text-white ',
+                           
+                            // isFirstMeeting ? 'bg-success text-white ' : '  ring-2 text-primary hover:border-none border-primary hover:text-white',
+                            //  newMeeting ? newMeeting.startDatetime === meeting.startDatetime ? 'bg-success text-white ' : '  ring-2 text-primary hover:border-none border-primary hover:text-white' : 'ring-2 text-primary hover:border-none border-primary hover:text-white',
+                            //  newMeeting ? newMeeting.startDatetime !== meeting.startDatetime ? 'ring-2 text-primary hover:border-none border-primary hover:text-white' : 'bg-success text-white ' : null,
+                            selectedDayMeetings.some((meeting1) => meeting1.startDatetime === meeting.startDatetime && meeting1.assigned)
+                            && 'border-red-500 border-solid border-2 hover:border-primary'
+                            )} 
+                             //Para deshabilitar el boton cuando haya meeting
+                             disabled={selectedDayMeetings.some(
+                              (meeting1) =>
+                                meeting1.startDatetime === meeting.startDatetime &&
+                                meeting1.assigned
+                            )}
+                            >
+                          <MeetingPlaning key={index} meeting={meeting}  /></button>
+                      ))
+                    ) : (
+                      <p>No hay actividad agendada aún.</p>
+                    )}
+
+                  </ol></div>
+              </div>
+            </section>
+            : null}
         </div>
       </div>
     </div>

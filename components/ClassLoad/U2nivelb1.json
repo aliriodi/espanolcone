@@ -1,0 +1,682 @@
+{
+    "page1": {
+        "type": "text",
+        "section": {
+            "number":0,
+            "value":"Mis Metas"
+        },
+        "template": "",
+        "data": [
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366262/images/logo-primary_qoagkg.png",
+                "alt": "EspañolconE",
+                "className": "Portadaimg"
+            },
+            {
+                "type": "title",
+                "value": "QUIERO PASARLA BIEN EN CÓRDOBA",
+                "className": "Portadatil"
+            },
+            {
+                "type": "level",
+                "value": "NIVEL B1",
+                "className": "Portadalev"
+            }
+        ]
+    },
+    "page2": {
+        "type": "text",
+        "section": {
+            "number":0,
+            "value":"Mis Metas"
+        },
+        "template": "",
+        "data": [
+            {
+                "type": "title",
+                "value": "¿Qué voy a aprender en esta unidad?",
+                "className": "p1title"
+            },
+            {
+                "type": "title",
+                "value": "Comunicación",
+                "className": ""
+            },
+            {
+                "type": "title",
+                "value": "Vocabulario",
+                "className": ""
+            },
+            {
+                "type": "title",
+                "value": "Gramática",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "*Expresar gustos y preferencias sobre actividades de ocio.\n*Describir y valorar sitios, eventos y espectáculos.\n*Describir y recomendar lugares y locales de ocio.\n*Expresar deseos de hacer algo.\n*Proponer, aceptar y rechazar invitaciones y propuestas.\n*Concertar citas y excusarse.\n*Planificar una actividad para compartir y un dia de paseo.\n*Recursos y herramientas para ponerse de acuerdo para hacer alguna actividad.\n*Buscar información sobre ofertas culturales y de ocio.",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "*Lugares y actividades de ocio.\n*Adjetivos descriptivos.\n*Adjetivos para valorar lugares, eventos y espectáculos.\n*Descripción de sitios de Córdoba.\n*Vocabulario asociado a ofertas culturales, espectáculos, ofertas gastronómicas y monumentos.\n*Algunas palabras sencillas y frases cortas del argot cordobés.",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "*Pronombres me / te / le / nos / les.\n*Interrogativas: ¿Qué te / le / os apetece hacer?\n*Aceptar una invitación o propuesta: Vale. Dale. Buena idea. Me apetece.\n*Rechazar una invitación o propuesta. Excusarse: Es que  ... / Es que + expresión de tiempo + no puedo.\n*Rechazar una invitación o propuesta. Excusarse: Es que  ... / Es que + expresión de tiempo + no puedo.\n*Interrogativas: ¿Dónde quedamos? / ¿A qué hora? / ¿Cuándo? / ¿Con quién o quienes? / ¿Cómo? + te;les + va bien ...?\n*Verbo quedar.\n*Condicionales: me iría mejor / me gustaría / nos convendría / preferiría.",
+                "className": ""
+            }
+        ]
+    },
+    "page3": {
+        "type": "text",
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
+        "template": "",
+        "data": [
+            {
+                "type": "title",
+                "value": "¿Qué podés hacer en Cordoba para pasarla bien?",
+                "className": "titleleft-white"
+            },
+            {
+                "type": "image",
+				"value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--EY-Oe4h---/v1699320089/images/atkgrfy91npt1fmjtpgu.png",
+                "alt": "Media Legua de Oro Cultural",
+				"className": ""
+			},
+            {
+                "type": "paragraph",
+                "value": "Media Legua de Oro Cultural en Córdoba Capital",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--kI-dwj7G--/v1699320314/images/ndq1hnopetytoyy7uxye.png",
+                "alt": "Oktoberfest",
+                "className": ""  
+            },
+            {
+                "type": "paragraph",
+                "value": "Oktoberfest en Villa General Belgrano",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--2pjIQK3Q--/v1699320360/images/gwsaejtn8akklna9ix64.png",
+                "alt": "Paseo en lancha en Miramar de Ansenuza",
+                "className": ""  
+            },
+            {
+                "type": "paragraph",
+                "value": "Paseo en lancha en Miramar de Ansenuza",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--zEk5a0Xv--/v1699319855/images/oeyswfp4lxvaxglkwbsw.png",
+                "alt": "Villa Carlos Paz",
+                "className": ""  
+            },
+            {
+                "type": "paragraph",
+                "value": "Visitar Villa Carlos Paz",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s---aLVkjMh--/v1699320400/images/f1s8uxga3wl6771dywvc.png",
+                "alt": "Cerro Champaquí",
+                "className": ""  
+            },
+            {
+                "type": "paragraph",
+                "value": "Escalar el Cerro Champaquí",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--SltW_icM--/v1699320493/images/ikcwxiuurolqvtf46620.png",
+                "alt": "Cascada de Santa Rosa de Calamuchita",
+                "className": ""  
+            },
+            {
+                "type": "paragraph",
+                "value": "La Cascada de Santa Rosa de Calamuchita",
+                "className": ""
+            }
+        ]
+    },
+    "page4": {
+        "type": "text",
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
+        "template": "",
+        "data": [
+            {
+                "type": "title",
+                "value": "¿De qué se trata cada propuesta?",
+                "className": "titleleft-white"
+            },
+            {
+                "type": "image",
+				"value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--EY-Oe4h---/v1699320089/images/atkgrfy91npt1fmjtpgu.png",
+                "alt": "Media Legua de Oro Cultural",
+				"className": ""
+			},
+            {
+                "type": "paragraph",
+                "value": "Media Legua de Oro Cultural en Córdoba Capital",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "Es un recorrido imperdible que abarca desde la histórica Plaza San Martín hasta el barrio Nueva Córdoba. La propuesta consta de 8 espacios destinados a la cultura y el arte en diversas formas. Es un circuito que integra un conglomerado de espacios culturales de gran valor arquitectónico y artístico.",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--kI-dwj7G--/v1699320314/images/ndq1hnopetytoyy7uxye.png",
+                "alt": "Oktoberfest",
+                "className": ""  
+            },
+            {
+                "type": "paragraph",
+                "value": "Oktoberfest en Villa General Belgrano",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "Cada octubre, Villa General Belgrano prepara una gran fiesta para exhibir  las costumbres de la cultura centroeuropea, presenta la música, danzas típicas y la gastronomía de esta particular región del viejo continente. Además, todas las noches se contempla la participación de un grupo musical destacado.",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--2pjIQK3Q--/v1699320360/images/gwsaejtn8akklna9ix64.pn",
+                "alt": "Paseo en lancha en Miramar de Ansenuza",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "Paseo en lancha en Miramar de Ansenuza",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "En el segundo mar salado más grande de Sudamérica, nos embarcamos para navegar junto a un biólogo que nos contará sobre las propiedades de las aguas y la riqueza de la fauna. Vivirán un momento mágico cuando el sol se oculte en el horizonte del mar, y contemplen uno de los atardecer más lindos.",
+                "className": ""
+            }
+        ]
+    },
+    "page5": {
+        "type": "text",
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
+        "template": "",
+        "data": [
+            {
+                "type": "title",
+                "value": "¿De qué se trata cada propuesta?",
+                "className": "titleleft-white"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--zEk5a0Xv--/v1699319855/images/oeyswfp4lxvaxglkwbsw.png",
+                "alt": "Villa Carlos Paz",
+                "className": ""  
+            },
+            {
+                "type": "paragraph",
+                "value": "Visitar Villa Carlos Paz",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "Entre sus variadas propuestas, podemos subir a la aerosilla que ofrece una vista desde lo alto de la ciudad. Además podemos alquilar bicicletas para pasear por la costanera del lago. Pasar el día en un parque acuático. Y, en verano, encontramos innumerables obras de teatro.",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s---aLVkjMh--/v1699320400/images/f1s8uxga3wl6771dywvc.pn",
+                "alt": "Cerro Champaquí",
+                "className": ""  
+            },
+            {
+                "type": "paragraph",
+                "value": "Escalar el Cerro Champaquí",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "Es una actividad que dura 3 días y 2 noches. Durante el recorrido descubrimos muchos rincones, entre ellos el cementerio del Champaquí y el río Tabaquillos. Disfrutamos llegar a la cima de 2790 msnm, con vistas increíbles al Valle de Calamuchita al este y de Traslasierra y Conlara al oeste.",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--SltW_icM--/v1699320493/images/ikcwxiuurolqvtf46620.png",
+                "alt": "Cascada de Santa Rosa de Calamuchita",
+                "className": ""  
+            },
+            {
+                "type": "paragraph",
+                "value": "La Cascada de Santa Rosa de Calamuchita",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "Es el perfecto equilibrio entre la tranquilidad de la naturaleza y el esfuerzo de tu resistencia, que será recompensada con una experiencia única de alcanzar el espectáculo del salto de agua. El sendero recorre 1.700 mts de bosque autóctono atravesado por un arroyo de vertientes naturales.",
+                "className": ""
+            }
+        ]
+    },
+    "page6": {
+        "type": "paragraph-complete",
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
+        "template": "",
+        "data": [
+            {
+                "type": "title",
+                "value": "Un amigo te pide recomendaciones para hacer algunas actividades en sus vacaciones en Córdoba, ahora que ya conoces varias opciones...",
+                "className": "titleleft-black"
+            },
+            {
+                "type": "title",
+                "value": "¿A dónde le recomendarías ir en cada caso?\nColoca entre paréntesis el numero de la imagen asociada",
+                "className": "titleleft-white"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "Si querés conectar con la naturaleza y recorrer senderos naturales que te lleven a un lugar relajado y tranquilo, deber ir (",
+                    {
+                        "block": 1,
+                        "color": "orange",
+                        "option": 4
+                    },
+                    ")"
+                    ],
+                "className": ""
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "Si querés disfrutar de un espectáculo de teatro, tienes que ir a (",
+                    {
+                        "block": 1,
+                        "color": "orange",
+                        "option": 3
+                    },
+                    ")"
+                    ],
+                "className": ""
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "Si querés experimentar una tradición traída por inmigrantes a Argentina, deberías que ir a (",
+                    {
+                        "block": 1,
+                        "color": "orange",
+                        "option": 1
+                    },
+                    ")"
+                    ],
+                "className": ""
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "Si querés aprender sobre flora y fauna tradicional y a la vez vivir un momento mágico al atardecer, debés visitar (",
+                    {
+                        "block": 1,
+                        "color": "orange",
+                        "option": 2
+                    },
+                    ")"
+                    ],
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--kI-dwj7G--/v1699320314/images/ndq1hnopetytoyy7uxye.png",
+                "alt": "Villa General Belgrano",
+                "className":""
+            },
+            {
+                "type": "text",
+                "value": "1. Villa General Belgrano",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--2pjIQK3Q--/v1699320360/images/gwsaejtn8akklna9ix64.png",
+                "alt": "Miramar de Ansenuza",
+                "className":""
+            },
+            {
+                "type": "text",
+                "value": "2. Miramar de Ansenuza",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--zEk5a0Xv--/v1699319855/images/oeyswfp4lxvaxglkwbsw.png",
+                "alt": "Villa Carlos Paz",
+                "className":""
+            },
+            {
+                "type": "text",
+                "value": "3. Villa Carlos Paz",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--SltW_icM--/v1699320493/images/ikcwxiuurolqvtf46620.png",
+                "alt": "Santa Rosa de Calamuchita",
+                "className":""
+            },
+            {
+                "type": "text",
+                "value": "4. Santa Rosa de Calamuchita",
+                "className": ""
+            }
+        ]
+    },
+    "page7": {
+        "type": "slide",
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
+        "template": "",
+        "data": [
+            {
+                "type": "title",
+                "value": "Actividades interactivas",
+                "className": "p1title"
+            }
+        ]
+    },
+    "page8": {
+        "type": "video",
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
+        "template": "",
+        "data": [
+            {
+                "type": "paragraph",
+                "value": "Vamos a conocer más en profundidad de qué se trata\n<span style= 'color: purple; font-size: 24px;'>La Media Legua de Oro Cultural</span>\nun recorrido que se puede hacer en la capital de la provincia",
+                "className": ""
+            },
+            {
+                "type": "video-youtube",
+                "value": "watch?v=GyJtkcbSbmw&t=4s",
+                "youtuve": "https://www.youtube.com/watch?v=GyJtkcbSbmw&t=4s",
+                "className": ""
+            }
+        ]
+    },
+    "page9": {
+        "type": "paragraph-complete",
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
+        "template": "",
+        "data": [
+            {
+                "type": "title",
+                "value": "Después de mirar el video, completá el diálogo entre Bárbara, una mexicana, y Florencia, una cordobesa, que están planeando hacer el recorrido.",
+                "className": "titleleft-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "Para completar los espacios vacíos seleccioná:\nuna cárcel de mujeres - Teatro del Libertador San Martín - Ciudad de las Artes - El Origen del Universo - Teatro Real - Plaza España",
+                "className": ""
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [ "<span style= 'color: orange'>Bárbara:</span> Es mi segundo día en la ciudad y no conozco casi nada\n<span style= 'color: blue'>Florencia:</span> ¿Qué te apetece hacer?\n<span style= 'color: orange'>Bárbara:</span> Me gustaría conocer algunos sitios culturales o importantes de la ciudad\n<span style= 'color: blue'>Florencia:</span> ¿Querés que hagamos el recorrido de la <i>media legua de oro cultural?</i> Está compuesto de ocho de los lugares más interesantes de acá.\n<span style= 'color: orange'>Bárbara:</span> ¡Dale! ¿En dónde quedamos?\n<span style= 'color: blue'>Florencia:</span> En la Plaza San Martín porque vamos a empezar en el",
+                {
+                    "block": 10,
+                    "color": "orange",
+                    "option": "teatro real"
+                },
+                " y luego vamos a otro teatro, el ",
+                {
+                    "block": 10,
+                    "color": "orange",
+                    "option": "teatro del libertador san martín"
+                },
+                ", en el que se hacen presentaciones de ópera, orquestas y ballet.\n<span style= 'color: orange'>Bárbara:</span> ¡Genial! Suena muy interesante. Después, ¿por cuál seguimos?"
+            ],
+                "className": ""
+            }
+        ]
+    },
+    "page10": {
+        "type": "paragraph-complete",
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
+        "template": "",
+        "data": [
+            {
+                "type": "title",
+                "value": "Después de mirar el video, completá el diálogo entre Bárbara, una mexicana, y Florencia, una cordobesa, que están planeando hacer el recorrido.",
+                "className": "titleleft-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "Para completar los espacios vacíos seleccioná:\nuna cárcel de mujeres - Teatro del Libertador San Martín - Ciudad de las Artes - El Origen del Universo - Teatro Real - Plaza España",
+                "className": ""
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [ "<span style= 'color: blue'>Florencia:</span> Después seguimos por el Paseo del Buen Pastor\n<span style= 'color: orange'>Bárbara:</span> Ah, ¿es el que antes era",
+                {
+                    "block": 10,
+                    "color": "orange",
+                    "option": "una cárcel de mujeres"
+                },
+                "?\n",
+                "<span style= 'color: blue'>Florencia:</span> Sí, ese. Cuando crucemos la",
+                {
+                    "block": 10,
+                    "color": "orange",
+                    "option": "Plaza España"
+                },
+                " llegamos al Palacio Dionisi, es un museo de fotografía.\n<span style= 'color: orange'>Bárbara:</span> Ese no me llama la atención, prefiero no ir.\n<span style= 'color: blue'>Florencia:</span> Bueno, ¿querés que vayamos directamente al museo de Ciencias Naturales?\n<span style= 'color: orange'>Bárbara:</span> ¿Qué hay ahí?\n<span style= 'color: blue'>Florencia:</span> Exposiciones sobre la megafauna, paleontología y",
+                {
+                    "block": 10,
+                    "color": "orange",
+                    "option": "el origen del universo"
+                },
+                "<span style= 'color: orange'>Bárbara:</span> ¡Me copa! Suena muy bueno. ¿En dónde termina el recorrido?\n<span style= 'color: blue'>Florencia:</span> Termina en la",
+                {
+                    "block": 10,
+                    "color": "orange",
+                    "option": "Ciudad de las artes"
+                },
+                ", que forma parte de la Universidad Provincial de Córdoba\n<span style= 'color: orange'>Bárbara:</span> ¡De una! Me necanta, nos vemos en la Plaza San Martín en un rato."
+            ],
+                "className": ""
+            }
+        ]
+    },
+    "page11": {
+        "type": "slide",
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
+        "template": "",
+        "data": [
+            {
+                "type": "title",
+                "value": "Juliana se ha ganado entradas para ir a un boliche y ha invitado a sus amigos a ir con ella, porque tiene cinco entradas. paero, la mayoría de sus amigos ya tienen planes para el fin de semana ...",
+                "className": "titleBlack"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--N1mOzWkx--/v1699321267/images/lfuws2zfuozv9ie6mj3x.png",
+                "className": "Portadaimg"
+            }
+        ]
+    },
+    "page12": {
+        "type": "boxmove",
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
+        "template": "",
+        "data": [
+            {
+                "type": "title",
+                "value": "Relaciona las respuestas que le dan sus amigos, colocando el nombre con la imagen que corresponda.",
+                "className": "titleleft-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style= 'color: orange'>Lucas:</span> ¡De una, me encantaría! ¿Te parece bien si invito a unos amigos del barrio? Es que hace unas semanas se mueren de ganas de salir",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style= 'color: orange'>Morena:</span> Ay, amiga, yo mejor paso. Es que estuve trabajando mucho toda la semana y prefiero quedarme durmiendo",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style= 'color: orange'>Abril:</span> Me copa la idea. Pero, es que el domingo me voy a escalar el Champaquí con mi novio. ¡Perdón!",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style= 'color: orange'>Franco:</span> Uy, disculpá, es que quedé con mi novia para ir al cine a ver una peli.  Me iría mejor si fuera otro día",
+                "className": ""
+            },
+            {
+                "type": "sentence-box",
+                "value": "<img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--tVaspz9z--/v1699321484/images/y23w3awsowbgpheclsyz.png' alt='abril' /><p style= 'color: orange; padding-top:1%;padding-left:3%;'><span id='abril' style= 'color: rgba(0, 0, 0, 0); display: inline-block; border: 2px solid orange; '>____________</span></p>",
+                "option": "abril",
+                "className": "image1-boxmove"
+            },
+            
+            {
+                "type": "sentence-box",
+                "value": "<img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--aiG54j1T--/v1699321561/images/rweycoqvt0z8xqmh6cfg.png' alt='franco' /><p style= 'color: orange; padding-top:1%;padding-left:3%;'><span id='franco' style= 'color: rgba(0, 0, 0, 0); display: inline-block; border: 2px solid orange; '>____________</span></p>",
+                "option": "franco",
+                "className": "image2-boxmove"
+            },
+            
+            {
+                "type": "sentence-box",
+                "value": "<img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--Bvt0L8KK--/v1699321595/images/f4h31oqnxp64k5zowxz6.png' alt='morena' /><p style= 'color: orange; padding-top:1%;padding-left:3%;'><span id='morena' style= 'color: rgba(0, 0, 0, 0); display: inline-block; border: 2px solid orange; '>____________</span></p>",
+                "option": "morena",
+                "className": "image3-boxmove"
+            },
+            {
+                "type": "sentence-box",
+                "value": "<img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--aYMk1JfW--/v1699321645/images/lf6ooc8swcpfoypoulqh.png' alt='lucas' /><p style= 'color: orange; padding-top:1%;padding-left:3%;'><span id='lucas' style= 'color: rgba(0, 0, 0, 0); display: inline-block; border: 2px solid orange; '>____________</span></p>",
+                "option": "lucas",
+                "className": "image4-boxmove"
+            },
+            {
+                "type": "options-box",
+                "value": [
+                    {"value":"lucas","id":"value1","x":50,"y":-1100,"xmin":0,"xmax":0,"ymin":0,"ymax":200,"width":130,"height":22},
+                    {"value":"abril","id":"value2","x":200,"y":-1100,"xmin":285,"xmax":410,"ymin":-32,"ymax":-20,"width":130,"height":22},
+                    {"value":"franco","id":"value3","x":350,"y":-1100,"xmin":248,"xmax":339,"ymin":-150,"ymax":-142,"width":130,"height":22},
+                    {"value":"morena","id":"value4","x":500,"y":-1100,"xmin":335,"xmax":432,"ymin":-56,"ymax":-49,"width":130,"height":22}
+                    
+                ],
+                "className": ""
+            }
+        ]
+    },
+    "page13": {
+        "type": "text",
+        "section": {
+            "number":4,
+            "value":"Mis retos"
+        },
+        "template": "",
+        "data": [
+            {
+                "type": "title",
+                "value": "Idea para el RETO",
+                "className": ""
+            },
+            {
+                "type": "video-youtube",
+                "value": "watch?v=EwtFESvbows",
+                "className": "",
+                "youtube": "https://www.youtube.com/watch?v=EwtFESvbows"
+            },
+            {
+                "type": "paragraph",
+                "value": "Fidel Ernesto Nadal es un músico y cantante argentino. En los años 1980, integró la banda Todos Tus Muertos grupo de rock, punk y reggae de Argentina, donde publicaron un total de ocho álbumes. Nacimiento: 21 de Septiembre de 1965 (edad 58 años), Buenos Aires. Genero: Reggae" ,
+                "className": ""
+            },
+            {
+                "type": "video-youtube",
+                "value": "watch?v=tWdt2dgxMM0",
+                "className": "",
+                "youtube": "https://www.youtube.com/watch?v=tWdt2dgxMM0"
+            },
+            {
+                "type": "paragraph",
+                "value": "Ilegales o Los Ilegales es una agrupación musical dominicana fundada en 1993 y liderada por Vladimir Dotel. Ha recibido varias nominaciones y premios internacionales, además de llegar a las listas de Billboard Tropical.Género: Pop. Origen: República Dominicana (1993).\nAntonio Enrique Álvarez Cisneros, más conocido por su nombre artístico de El Potro Álvarez, es un exbeisbolista, cantante y político venezolano. Estuvo bajo varias ligas de béisbol tanto venezolanas, como internacionales. Aparte, logró posicionar varios temas musicales dentro del conteo de canciones en Latinoamérica. Wikipedia.\nNacimiento: 10 de mayo de 1979 (edad 44 años), Caracas, Venezuela",
+                "className": ""
+            },
+            {
+                "type": "video-youtube",
+                "value": "watch?v=TcK47ozBJNQ",
+                "className": "",
+                "youtube": "https://www.youtube.com/watch?v=TcK47ozBJNQ"
+            },
+            {
+                "type": "paragraph",
+                "value": "Márama es un grupo musical uruguayo de cumbia pop, formado en 2014.​ Género: Pop. Origen: Montevideo, Uruguay (2014)" ,
+                "className": ""
+            }
+        ]
+    },
+    "page14": {
+        "type": "text",
+        "section": {
+            "number":5,
+            "value":"Evaluemos"
+        },
+        "template": "",
+        "data": [
+            {
+                "type": "title",
+                "value": "¡Gracias por tu atención!",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366258/images/logo_etoaae.png",
+                "alt":"Español con E",
+                "className": ""
+            }
+        ]
+    }
+}
