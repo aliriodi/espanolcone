@@ -55,7 +55,7 @@ export default function Home() {
     classesDone = currentClasses.indexOf(currentClasses.find((c) => c.unitID == session?.user?.position.id))
     
     // En caso de no haber clases se devuelve 0
-    if(clasesLength >= 0){
+    if(clasesLength <= 0){
       setGeneralProgress(0)
       return;
     }
