@@ -262,6 +262,12 @@ export default function Class(props) {
                   {c.type === 'paragraph-complete' &&
                   <div className={style[c.className]}><PARAGGRAPHCOMPLETE data={c}/></div> }
                   
+                  {/* PopUp de Dialogos */}
+                  {c.type === 'popUp-dialogues' &&
+                  <div className={style[c.className]} dangerouslySetInnerHTML={{ __html: c.value }}></div>
+                  }
+                  
+                  
                   {c.type === 'complete-li' &&
                   <div className={style[c.className]}><PARAGGRAPHCOMPLETE data={c}/> </div> }
                   
@@ -269,6 +275,8 @@ export default function Class(props) {
                   <div className={style[c.className]}><PARAGGRAPHCOMPLETE data={c}/> </div> }
                   
                   {/* <p dangerouslySetInnerHTML={{ __html: c.value }}></p> */}
+
+                  
                 </>)
                 } 
             </div>
