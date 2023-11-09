@@ -53,6 +53,12 @@ export default function Home() {
 
     // Se le asigna la cantidad de clases completadas totales
     classesDone = currentClasses.indexOf(currentClasses.find((c) => c.unitID == session?.user?.position.id))
+    
+    // En caso de no haber clases se devuelve 0
+    if(clasesLength >= 0){
+      setGeneralProgress(0)
+      return;
+    }
 
     // Se calcula el porsentaje 
     progressValue = (classesDone / clasesLength) * 100
@@ -83,9 +89,13 @@ export default function Home() {
       }
     }
 
-    setUnitsDone(currentUnitDone || 0)
-    setTotalUnits(currentLevel?.units?.length || 0)
+    setUnitsDone(currentUnitDone  != undefined ? currentUnitDone : 0)
+    setTotalUnits(currentLevel?.units?.length  != undefined ? currentLevel?.units?.length : 0)
   }
+  useEffect(()=>{
+    console.log("currentUnitDone ",unitsDone)
+    console.log("currentLevel?.units?.length ",totalUnits)
+  },[totalUnits, unitsDone])
 
   useEffect(() => {
 
@@ -150,7 +160,7 @@ export default function Home() {
                 <p className='md:text-[11px]'>Progreso general</p>
 
                 {/* Barra de progreso */}
-                <div className='w-[100%] bg-success_light rounded-full h-[14px] relative'>
+                <div className='w-[100%] bg-success_light rounded-full h-[14px] relative overflow-hidden'>
                   <animated.div
                     className="progress-bar rounded-l-full h-[14px] flex justify-center items-center bg-success"
                     style={{
@@ -179,11 +189,11 @@ export default function Home() {
                 <p className='md:text-[11px]'>Unidades realizadas</p>
 
                 {/* Barra de progreso */}
-                <div className='w-[100%] bg-success_light rounded-full h-[14px] relative'>
+                <div className='w-[100%] bg-success_light rounded-full h-[14px] relative overflow-hidden'>
                   <animated.div
                     className="progress-bar rounded-l-full h-[14px] flex justify-center items-center bg-success"
                     style={{
-                      width: `${(unitsDone / totalUnits) * 100}%`,
+                      width: `${ totalUnits == 0 && unitsDone == 0 ? 0 : (unitsDone / totalUnits) * 100}%`,
                       // backgroundColor: '#ccc', // Color de fondo de la barra de progreso
                     }}
                   >
@@ -208,7 +218,7 @@ export default function Home() {
                 <p className='md:text-[11px]'>Clase individual</p>
 
                 {/* Barra de progreso */}
-                <div className='w-[100%] bg-success_light rounded-full h-[14px] relative'>
+                <div className='w-[100%] bg-success_light rounded-full h-[14px] relative overflow-hidden'>
                   <animated.div
                     className="progress-bar rounded-l-full h-[14px] flex justify-center items-center bg-success"
                     style={{
@@ -227,7 +237,7 @@ export default function Home() {
                 <p className='md:text-[11px]'>Guía turistico</p>
 
                 {/* Barra de progreso */}
-                <div className='w-[100%] bg-success_light rounded-full h-[14px] relative'>
+                <div className='w-[100%] bg-success_light rounded-full h-[14px] relative overflow-hidden'>
                   <animated.div
                     className="progress-bar rounded-l-full h-[14px] flex justify-center items-center bg-success"
                     style={{

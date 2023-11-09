@@ -32,7 +32,7 @@ export default function Curso(){
             )
         )
     },[session])
-
+    
     useEffect(()=>
     {
         // Actualiza Nivel Actual si no tiene un valor
@@ -91,26 +91,32 @@ export default function Curso(){
             </div>
 
             {/* Selecionar Nivel */}
-            <div className="bg-white rounded-[8.12px] flex items-center justify-between px-[40px] py-[10px] my-[24px] shadow-[0px_4.982935428619385px_29.897613525390625px_#0000000F] mx-[20px]
-            md:mx-0 md:flex-col">
-                {/* Text */}
-                <p className="text-[18px]
-                md:mb-2 md:text-[16px]">
-                    Estas en el {currentLevel?.label}
-                </p>
+            {
+                levels?.length > 0 &&
+                <div className="bg-white rounded-[8.12px] flex items-center justify-between px-[40px] py-[10px] my-[24px] shadow-[0px_4.982935428619385px_29.897613525390625px_#0000000F] mx-[20px]
+                md:mx-0 md:flex-col">
+                    {/* Text */}
+                    <p className="text-[18px]
+                    md:mb-2 md:text-[16px]">
+                        Estas en el {currentLevel?.label}
+                    </p>
 
-                {/* Select */}
-                <Select
-                value={currentLevel}
-                options={levels}
-                className="text-[18px] min-w-[230px]
-                md:mt-2 md:text-[16px]"
-                onChange={handleChangeSelect}/>
-            </div>
+                    {/* Select */}
+                    <Select
+                    value={currentLevel}
+                    options={levels}
+                    className="text-[18px] min-w-[230px]
+                    md:mt-2 md:text-[16px]"
+                    onChange={handleChangeSelect}/>
+                </div>
+            }
 
             {/* Modulos */}
             <div className="w-full flex flex-wrap">
-                {currentLevel?.modules?.length > 0 &&
+                {
+                currentLevel?.modules?.length > 0 ?
+
+                // Modulo
                 currentLevel?.modules.map((module)=>(
                     <Link
                     onClick={()=>dispatch(classid(module.unitID))}
@@ -150,6 +156,18 @@ export default function Curso(){
 
                     </Link>
                 )) 
+                :
+
+                // En caso de NO haber Modulos
+                <div className="flex justify-center items-center min-h-[400px] w-full mt-8 flex-col text-light text-[21px]">
+
+                    <FontAwesomeIcon icon={faBookOpen} className="mb-4 text-[2em]"/>
+                    
+                    <p className="text-light text-[21px] text-center
+                    md:text-[14px] ">
+                        Aún no tienen clases disponibles
+                    </p>
+                </div>
                 }
                 
 

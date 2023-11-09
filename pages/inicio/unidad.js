@@ -18,7 +18,7 @@ export default function Unidad(){
     const dispatch = useDispatch();
     
     const classId = useSelector((state) => state.datos.classid);
-
+    
     async function setSection(section){
         // Esta Funcion Busca la clase actual y asigna 
         // la section correspondiente en el redux 
@@ -47,7 +47,7 @@ export default function Unidad(){
 
         // Primero se comprueba si la ultima clase realizada es igual a la ultima que hizo el usuario
         // en caso de ser asi a maxSessionReached se le asigna hasta que seccion llego el usuario
-        if(session?.user?.position.id == classId){
+        if(session?.user?.position?.id == classId){
             console.log("clase actual ",session?.user)
             fetch(`/api/class/${classId}`)
             .then((response) => response.json())
@@ -79,7 +79,7 @@ export default function Unidad(){
     },[session])
 
     return(
-        <div className="flex">
+        <>
 
         <Menu />
 
@@ -127,230 +127,246 @@ export default function Unidad(){
                 src={'https://res.cloudinary.com/dfddh08q8/image/upload/v1696941779/images/imagen_2023-10-10_094259869_dhejox.png'}/>
             </div>
 
-            {/* Unidades */}
-            <div className=" mx-[20px] my-[32px] flex relative justify-between flex-wrap
-            md:mx-0">
+            {
+                classId !== undefined
+                ?
+                // Unidades
+                <div className=" mx-[20px] my-[32px] flex relative justify-between flex-wrap
+                md:mx-0">
 
-                {/* Mis Metas */}
-                <Link
-                onClick={(e)=>setSection(0)}
-                href={'/courses'}
-                className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
-                hover:bg-[#3331] transition-colors
-                md:w-full">
+                    {/* Mis Metas */}
+                    <Link
+                    onClick={(e)=>setSection(0)}
+                    href={'/courses'}
+                    className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
+                    hover:bg-[#3331] transition-colors
+                    md:w-full">
+                        
+                            {/* Contenido */}
+                            <div className="flex items-center">
+                                {/* Icono */}
+                                <span className="bg-success rounded-full w-[60px] h-[60px] flex justify-center items-center">
+                                    <Image
+                                        alt=""
+                                        width={36}
+                                        height={36}
+                                        src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1697119384/images/aprender-en-linea_7_cqjjwh.png"}/>
+                                </span>
+
+                                {/* Texto */}
+                                <p className="ml-[32px] text-[24px] font-medium text-violet_dark
+                                md:text-[16px]">
+                                    Mis metas
+                                </p>
+                            </div>
+
+                            {/* Check */}
+                            {maxSessionReached >= 0 && (
+                                <span>
+                                    <FontAwesomeIcon
+                                    className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
+                                    icon={faCheck}/>
+                                </span>
+                            )}
+                    </Link>
                     
-                        {/* Contenido */}
-                        <div className="flex items-center">
-                            {/* Icono */}
-                            <span className="bg-success rounded-full w-[60px] h-[60px] flex justify-center items-center">
-                                <Image
-                                    alt=""
+                    {/* Comencemos */}
+                    <Link
+                    onClick={()=>setSection(1)}
+                    href={'/courses'}
+                    className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
+                    hover:bg-[#3331] transition-colors
+                    md:w-full">
+                        
+                            {/* Contenido */}
+                            <div className="flex items-center">
+                                {/* Icono */}
+                                <span className="bg-success rounded-full w-[60px] h-[60px] flex justify-center items-center">
+                                    <Image
+                                        alt=""
+                                        width={36}
+                                        height={36}
+                                        src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1696970606/images/book_kvtyqe.png"}/>
+                                </span>
+
+                                {/* Texto */}
+                                <p className="ml-[32px] text-[24px] font-medium text-violet_dark
+                                md:text-[16px]">
+                                    Comencemos
+                                </p>
+                            </div>
+
+                            {/* Check */}
+                            {maxSessionReached >= 1 && (
+                                <span>
+                                    <FontAwesomeIcon
+                                    className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
+                                    icon={faCheck}/>
+                                </span>
+                            )}
+                    </Link>
+
+                    {/* Aprendemos */}
+                    <Link
+                    onClick={()=>setSection(2)}
+                    href={'/courses'}
+                    className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
+                    hover:bg-[#3331] transition-colors
+                    md:w-full">
+                        
+                            {/* Contenido */}
+                            <div className="flex items-center">
+                                {/* Icono */}
+                                <span className="bg-success rounded-full w-[60px] h-[60px] flex justify-center items-center">
+                                    <Image
+                                        alt=""
                                     width={36}
                                     height={36}
-                                    src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1697119384/images/aprender-en-linea_7_cqjjwh.png"}/>
-                            </span>
+                                    src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1696961818/images/head_ddujqx.png"}/>
+                                </span>
 
-                            {/* Texto */}
-                            <p className="ml-[32px] text-[24px] font-medium text-violet_dark
-                            md:text-[16px]">
-                                Mis metas
-                            </p>
-                        </div>
+                                {/* Texto */}
+                                <p className="ml-[32px] text-[24px] font-medium text-violet_dark
+                                md:text-[16px]">
+                                    Aprendemos
+                                </p>
+                            </div>
 
-                        {/* Check */}
-                        {maxSessionReached >= 0 && (
-                            <span>
-                                <FontAwesomeIcon
-                                className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
-                                icon={faCheck}/>
-                            </span>
-                        )}
-                </Link>
-                
-                {/* Comencemos */}
-                <Link
-                onClick={()=>setSection(1)}
-                href={'/courses'}
-                className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
-                hover:bg-[#3331] transition-colors
-                md:w-full">
+                            {/* Check */}
+                            {maxSessionReached >= 2 && (
+                                <span>
+                                    <FontAwesomeIcon
+                                    className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
+                                    icon={faCheck}/>
+                                </span>
+                            )}
+                    </Link>
                     
-                        {/* Contenido */}
-                        <div className="flex items-center">
-                            {/* Icono */}
-                            <span className="bg-success rounded-full w-[60px] h-[60px] flex justify-center items-center">
-                                <Image
-                                    alt=""
-                                    width={36}
-                                    height={36}
-                                    src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1696970606/images/book_kvtyqe.png"}/>
-                            </span>
+                    {/* Practiquemos */}
+                    <Link
+                    onClick={()=>setSection(3)}
+                    href={'/courses'}
+                    className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
+                    hover:bg-[#3331] transition-colors
+                    md:w-full">
+                        
+                            {/* Contenido */}
+                            <div className="flex items-center">
+                                {/* Icono */}
+                                <span className="bg-success rounded-full w-[60px] h-[60px] flex justify-center items-center">
+                                    <Image
+                                        alt=""
+                                        width={36}
+                                        height={36}
+                                        src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1697119720/images/hacer-clic_1_zr9rai.png"}/>
+                                </span>
 
-                            {/* Texto */}
-                            <p className="ml-[32px] text-[24px] font-medium text-violet_dark
-                            md:text-[16px]">
-                                Comencemos
-                            </p>
-                        </div>
+                                {/* Texto */}
+                                <p className="ml-[32px] text-[24px] font-medium text-violet_dark
+                                md:text-[16px]">
+                                    Practiquemos
+                                </p>
+                            </div>
 
-                        {/* Check */}
-                        {maxSessionReached >= 1 && (
-                            <span>
-                                <FontAwesomeIcon
-                                className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
-                                icon={faCheck}/>
-                            </span>
-                        )}
-                </Link>
-
-                {/* Aprendemos */}
-                <Link
-                onClick={()=>setSection(2)}
-                href={'/courses'}
-                className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
-                hover:bg-[#3331] transition-colors
-                md:w-full">
+                            {/* Check */}
+                            {maxSessionReached >= 3 && (
+                                <span>
+                                    <FontAwesomeIcon
+                                    className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
+                                    icon={faCheck}/>
+                                </span>
+                            )}
+                    </Link>
                     
-                        {/* Contenido */}
-                        <div className="flex items-center">
-                            {/* Icono */}
-                            <span className="bg-success rounded-full w-[60px] h-[60px] flex justify-center items-center">
-                                <Image
-                                    alt=""
-                                width={36}
-                                height={36}
-                                src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1696961818/images/head_ddujqx.png"}/>
-                            </span>
+                    {/* Mis retos */}
+                    <Link
+                    onClick={()=>setSection(4)}
+                    href={'/courses'}
+                    className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
+                    hover:bg-[#3331] transition-colors
+                    md:w-full">
+                        
+                            {/* Contenido */}
+                            <div className="flex items-center">
+                                {/* Icono */}
+                                <span className="bg-success rounded-full w-[60px] h-[60px] flex justify-center items-center">
+                                    <Image
+                                        alt=""
+                                        width={36}
+                                        height={36}
+                                        src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1697119604/images/aprobacion_2_tne492.png"}/>
+                                </span>
 
-                            {/* Texto */}
-                            <p className="ml-[32px] text-[24px] font-medium text-violet_dark
-                            md:text-[16px]">
-                                Aprendemos
-                            </p>
-                        </div>
+                                {/* Texto */}
+                                <p className="ml-[32px] text-[24px] font-medium text-violet_dark
+                                md:text-[16px]">
+                                    Mis retos
+                                </p>
+                            </div>
 
-                        {/* Check */}
-                        {maxSessionReached >= 2 && (
-                            <span>
-                                <FontAwesomeIcon
-                                className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
-                                icon={faCheck}/>
-                            </span>
-                        )}
-                </Link>
-                
-                {/* Practiquemos */}
-                <Link
-                onClick={()=>setSection(3)}
-                href={'/courses'}
-                className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
-                hover:bg-[#3331] transition-colors
-                md:w-full">
+                            {/* Check */}
+                            {maxSessionReached >= 4 && (
+                                <span>
+                                    <FontAwesomeIcon
+                                    className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
+                                    icon={faCheck}/>
+                                </span>
+                            )}
+                    </Link>
                     
-                        {/* Contenido */}
-                        <div className="flex items-center">
-                            {/* Icono */}
-                            <span className="bg-success rounded-full w-[60px] h-[60px] flex justify-center items-center">
-                                <Image
-                                    alt=""
-                                    width={36}
-                                    height={36}
-                                    src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1697119720/images/hacer-clic_1_zr9rai.png"}/>
-                            </span>
+                    {/* Evaluemos */}
+                    <Link
+                    onClick={()=>setSection(5)}
+                    href={'/courses'}
+                    className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
+                    hover:bg-[#3331] transition-colors
+                    md:w-full">
+                        
+                            {/* Contenido */}
+                            <div className="flex items-center">
+                                {/* Icono */}
+                                <span className="bg-success rounded-full w-[60px] h-[60px] flex justify-center items-center">
+                                    <Image
+                                        alt=""
+                                        width={36}
+                                        height={36}
+                                        src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1697119795/images/idea_1_sxrdhn.png"}/>
+                                </span>
 
-                            {/* Texto */}
-                            <p className="ml-[32px] text-[24px] font-medium text-violet_dark
-                            md:text-[16px]">
-                                Practiquemos
-                            </p>
-                        </div>
+                                {/* Texto */}
+                                <p className="ml-[32px] text-[24px] font-medium text-violet_dark
+                                md:text-[16px]">
+                                    Evaluemos
+                                </p>
+                            </div>
 
-                        {/* Check */}
-                        {maxSessionReached >= 3 && (
-                            <span>
-                                <FontAwesomeIcon
-                                className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
-                                icon={faCheck}/>
-                            </span>
-                        )}
-                </Link>
-                
-                {/* Mis retos */}
-                <Link
-                onClick={()=>setSection(4)}
-                href={'/courses'}
-                className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
-                hover:bg-[#3331] transition-colors
-                md:w-full">
+                            {/* Check */}
+                            {maxSessionReached >= 5 && (
+                                <span>
+                                    <FontAwesomeIcon
+                                    className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
+                                    icon={faCheck}/>
+                                </span>
+                            )}
+                    </Link>
+
+                </div>
+                :
+
+                // En caso de NO haber Unidades
+                <div className="flex justify-center items-center min-h-[400px] mt-8 flex-col text-light text-[21px]">
+
+                    <FontAwesomeIcon icon={faBookOpen} className="mb-4 text-[2em]"/>
                     
-                        {/* Contenido */}
-                        <div className="flex items-center">
-                            {/* Icono */}
-                            <span className="bg-success rounded-full w-[60px] h-[60px] flex justify-center items-center">
-                                <Image
-                                    alt=""
-                                    width={36}
-                                    height={36}
-                                    src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1697119604/images/aprobacion_2_tne492.png"}/>
-                            </span>
-
-                            {/* Texto */}
-                            <p className="ml-[32px] text-[24px] font-medium text-violet_dark
-                            md:text-[16px]">
-                                Mis retos
-                            </p>
-                        </div>
-
-                        {/* Check */}
-                        {maxSessionReached >= 4 && (
-                            <span>
-                                <FontAwesomeIcon
-                                className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
-                                icon={faCheck}/>
-                            </span>
-                        )}
-                </Link>
-                
-                {/* Evaluemos */}
-                <Link
-                onClick={()=>setSection(5)}
-                href={'/courses'}
-                className="mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
-                hover:bg-[#3331] transition-colors
-                md:w-full">
-                    
-                        {/* Contenido */}
-                        <div className="flex items-center">
-                            {/* Icono */}
-                            <span className="bg-success rounded-full w-[60px] h-[60px] flex justify-center items-center">
-                                <Image
-                                    alt=""
-                                    width={36}
-                                    height={36}
-                                    src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1697119795/images/idea_1_sxrdhn.png"}/>
-                            </span>
-
-                            {/* Texto */}
-                            <p className="ml-[32px] text-[24px] font-medium text-violet_dark
-                            md:text-[16px]">
-                                Evaluemos
-                            </p>
-                        </div>
-
-                        {/* Check */}
-                        {maxSessionReached >= 5 && (
-                            <span>
-                                <FontAwesomeIcon
-                                className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
-                                icon={faCheck}/>
-                            </span>
-                        )}
-                </Link>
-
-            </div>
+                    <p className="text-light text-[21px] text-center
+                    md:text-[14px] ">
+                        Aún no tienen clases disponibles
+                    </p>
+                </div>
+            }
         </section>
 
 
-        </div>
+        </>
     )
 }
