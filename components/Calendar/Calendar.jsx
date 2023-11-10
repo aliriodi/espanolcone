@@ -241,15 +241,17 @@ export default function Example() {
                     as */}
                     {/* {renders[i].schedule.some((meeting) => */}
                     {renders?.user?.calendar?.some((meeting) =>
-                      isSameDay(parseISO(meeting.startDatetime), day) && meeting.assigned
+                      (isSameDay(parseISO(meeting.startDatetime), day) && meeting.assigned) ||
+                      (newcalendar.some((meeting1)=> isSameDay(parseISO(meeting1.startDatetime), day)&& meeting1.assigned))
                     ) && (
                         <div className="w-1 h-1 rounded-full bg-sky-500"></div>
                       )}
 
                     {/* {renders[i].schedule.some((meeting) => */}
                     {renders?.user?.calendar?.some((meeting) =>
-                      isSameDay(parseISO(meeting.startDatetime), day) && !meeting.assigned
-                    ) && (
+                      (isSameDay(parseISO(meeting.startDatetime), day) && !meeting.assigned) ||
+                       (newcalendar.some((meeting1)=> isSameDay(parseISO(meeting1.startDatetime), day)&& !meeting1.assigned)
+                    )) && (
                         <div className="w-1 h-1 rounded-full bg-red-500  "></div>
                       )}
 
