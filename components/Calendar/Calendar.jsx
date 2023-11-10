@@ -65,10 +65,30 @@ export default function Example() {
       isSameDay(parseISO(meeting.startDatetime), selectedDay))
   }
 
-  function addNewElement  (newElement)  {
+  //funcion para agregar nuevo calendario a disposicion de estudiantes
+  async function  addNewElement  (newElement)  {
     setCalendar((prevCalendar) => [...prevCalendar, newElement]);
+    try { 
+    //enviando disponibilidad de calendario a BD
+    console.log('cargando newcalendar',newcalendar)
+   
+    await  fetch('/api/users/update',
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        // body: JSON.stringify({ email: personSchedule.email, updates: { calendar: personSchedule.schedule } }),
+        body: JSON.stringify({ email: session.user.email, updates: { calendar: [...newcalendar,newElement] } }),
+      })
+   
+    } catch (error) {
+      console.log(error);
+    }
     alert('Tu hora fue puesta a disposicion')
   };
+
+
 
   let days = eachDayOfInterval({
     start: firstDayCurrentMonth,
@@ -118,12 +138,17 @@ export default function Example() {
     // console.log(endDatetime1,typeof(endDatetime1))
     // console.log(startDatetime1,typeof(endDatetime1))
     hoursOfDay.push({
-      assigned: true,
+      assigned: false,
       locationCreated: country,
+      nameuser: "",
+      first_name: "",
+      last_name: "",
       locationscheduled: "",
       utnCreated: offsetNumber,
       utnscheduled: "",
+      locationscheduled:"",
       iduser: null,
+      email:"",
       image: "",
       startDatetime: startDatetime1,
       endDatetime: endDatetime1
@@ -267,10 +292,10 @@ export default function Example() {
             {/* aca van los botones de que deseo renderizar */}
             {(renders?.user?.role.includes('teacher') || renders?.user?.role.includes('guides') )&&  isAfter(selectedDay, today) ?
               <div className='max-w-fit pt-10 pl-14 grid grid-cols-4 divide-x object-none object-right-top  '>
-                <button className= 'border-primary border-solid border-2' onClick={()=>setI(0)}>1</button>
-                <button className= 'border-primary border-solid border-2' onClick={()=>setI(1)}>2</button>
-                <button className= 'border-primary border-solid border-2' onClick={()=>setI(2)}>3</button>
-                <button className= 'border-primary border-solid border-2' onClick={()=>setI(3)}>4</button>
+                <button className= 'border-primary border-solid border-2' onClick={()=>setI(0)}>Turno 1</button>
+                <button className= 'border-primary border-solid border-2' onClick={()=>setI(1)}>Turno 2</button>
+                <button className= 'border-primary border-solid border-2' onClick={()=>setI(2)}>Turno 3</button>
+                <button className= 'border-primary border-solid border-2' onClick={()=>setI(3)}>Turno 4</button>
               </div> : null}
 
 

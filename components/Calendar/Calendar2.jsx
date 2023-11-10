@@ -15,6 +15,7 @@ import {
   isEqual,
   isSameDay,
   isAfter,
+  isBefore,
   isSameMonth,
   isToday,
   parse,
@@ -367,7 +368,7 @@ de que sea role:user con bg success o morado
                       (isEqual(day, selectedDay) || isToday(day)) && 'font-semibold',
                       personSchedule?.calendar?.some((meeting) =>
                       //Los dias de meetings deben ser despues de la fecha de hoy y deben tener disponibilidad
-                      isAfter(selectedDay, today) &&   isSameDay(parseISO(meeting.startDatetime), day) && !meeting.assigned) && "rounded-full bg-gray-200 text-primary text-lg",
+                       isSameDay(parseISO(meeting.startDatetime), day) && !meeting.assigned) && "rounded-full bg-gray-200 text-primary text-lg",
                       'mx-auto flex h-8 w-8 items-center justify-center rounded-full'
                     )}
                   >
@@ -393,7 +394,7 @@ de que sea role:user con bg success o morado
             <div className='max-w-fit pt-36 pl-14 grid grid-cols-1 divide-x object-none object-right-top  border-red-500 border-solid-4'>
               {/* {Section Alumnos} */}
 
-              {renders?.user?.role === 'user' || renders?.user?.role.includes('user') ?
+              {renders?.user?.role === 'user' || renders?.user?.role.includes('user') || true?
                 <>
                   {/* de aca viene el id del usuario donde va a renderizar el estado del teacher o guias
                   con los datos del teacher o guia turistico, viene por redux */}
@@ -434,8 +435,8 @@ de que sea role:user con bg success o morado
 
                 : null}
             </div>
-            {renders?.user?.role === 'guide' ? true : null}
-            {renders?.user?.role === 'teacher' ? true : null}
+            {renders?.user?.role === 'guide' ? <>guia</> : null}
+            {renders?.user?.role === 'teacher' ? <>teacher</> : null}
 
             {/* {format(selectedDay, "yyyy-MM-dd HH:00:00")} */}
 
