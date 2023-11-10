@@ -47,7 +47,7 @@ export default function Meeting({ meeting ,assigned}) {
             <time dateTime={meeting.endDatetime}>
               {format(endDateTime, 'h:mm a')}
             </time>
-            {assigned?<div className='text-black-500'>Asignado</div>:null}
+            {assigned?<p className='text-black-500'>Asignado</p>:null}
           </p>
         </div>
         {/* <Menu
