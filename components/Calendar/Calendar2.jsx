@@ -14,6 +14,7 @@ import {
   getDay,
   isEqual,
   isSameDay,
+  isAfter,
   isSameMonth,
   isToday,
   parse,
@@ -362,10 +363,11 @@ de que sea role:user con bg success o morado
                       !isEqual(day, selectedDay) && !isToday(day) && !isSameMonth(day, firstDayCurrentMonth) && 'text-gray-400',
                       isEqual(day, selectedDay) && isToday(day) && 'bg-success',
                       isEqual(day, selectedDay) && !isToday(day) && 'bg-success',
-                      !isEqual(day, selectedDay) && 'hover:bg-gray-200',
+                     !isEqual(day, selectedDay) && 'hover:bg-gray-200',
                       (isEqual(day, selectedDay) || isToday(day)) && 'font-semibold',
                       personSchedule?.calendar?.some((meeting) =>
-                        isSameDay(parseISO(meeting.startDatetime), day) && !meeting.assigned) && "rounded-full bg-gray-200 text-primary text-lg",
+                      //Los dias de meetings deben ser despues de la fecha de hoy y deben tener disponibilidad
+                      isAfter(selectedDay, today) &&   isSameDay(parseISO(meeting.startDatetime), day) && !meeting.assigned) && "rounded-full bg-gray-200 text-primary text-lg",
                       'mx-auto flex h-8 w-8 items-center justify-center rounded-full'
                     )}
                   >
@@ -397,7 +399,7 @@ de que sea role:user con bg success o morado
                   con los datos del teacher o guia turistico, viene por redux */}
                   <div><strong> {personSchedule.first_name}</strong></div>
 
-                  {personSchedule?.calendar?.map((meeting, index) => {
+                  { isAfter(selectedDay, today) && personSchedule?.calendar?.map((meeting, index) => {
                     if (!meeting.assigned && isSameDay(parseISO(meeting.startDatetime), selectedDay)) {
                       return (
 
@@ -426,7 +428,7 @@ de que sea role:user con bg success o morado
                   })}
 
                   {/* Si existe meeting par asignar renderiza button confirmar citas*/}
-                  {personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) &&
+                  {  isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) &&
                     <button type="button" onClick={() => Confirm()} className='focus:outline-none  bg-primary text-white font-medium rounded-lg te t-sm px-5 py-2.5 mb-2 '>Confirma </button>}
                 </>
 

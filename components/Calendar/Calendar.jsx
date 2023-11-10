@@ -15,6 +15,8 @@ import {
   getDay,
   isEqual,
   isSameDay,
+  isBefore, 
+  isAfter, 
   isSameMonth,
   isToday,
   parse,
@@ -263,7 +265,7 @@ export default function Example() {
 
 
             {/* aca van los botones de que deseo renderizar */}
-            {renders?.user?.role.includes('teacher') || renders?.user?.role.includes('guides') ?
+            {(renders?.user?.role.includes('teacher') || renders?.user?.role.includes('guides') )&&  isAfter(selectedDay, today) ?
               <div className='max-w-fit pt-10 pl-14 grid grid-cols-4 divide-x object-none object-right-top  '>
                 <button className= 'border-primary border-solid border-2' onClick={()=>setI(0)}>1</button>
                 <button className= 'border-primary border-solid border-2' onClick={()=>setI(1)}>2</button>
@@ -276,8 +278,10 @@ export default function Example() {
 
           {/* {crear Agenda}  console.log(renders)*/}
           {/* {console.log(newcalendar)} */}
-
-          {renders?.user?.role.includes('teacher') || renders?.user?.role.includes('guides') ?
+         {/* { isAfter(selectedDay, today)?<>el dia es despues</>:<>el dia es antes</>} */}
+          {
+          isAfter(selectedDay, today)?
+          renders?.user?.role.includes('teacher') || renders?.user?.role.includes('guides') ?
             <section className="mt-12 md:mt-0 md:pl-14">
               <div className='max-w-fit pt-16 pl-14 grid grid-cols-1 divide-x object-none object-right-top  '>
                 <h2 className="font-semibold text-gray-900">
@@ -289,7 +293,9 @@ export default function Example() {
                     {/* {console.log(hoursOfDay)} */}
                     {/* {console.log(selectedDayMeetings)} */}
                       {console.log(newcalendar)}
-                    {hoursOfDay.length > 0 ? (
+                    {
+                    
+                    hoursOfDay.length > 0 ? (
                       hoursOfDay.slice(i*6, (i+1)*6 ).map((meeting,index) => (
                         <button key={index} onClick={()=>addNewElement(meeting)}
                           className={classNames(
@@ -317,7 +323,9 @@ export default function Example() {
                   </ol></div>
               </div>
             </section>
-            : null}
+            : null:
+            isEqual(selectedDay,today)?
+            <p>Si desea planificar comuniquese con el Admin</p>:<p>No se puede planificar</p>}
         </div>
       </div>
     </div>
