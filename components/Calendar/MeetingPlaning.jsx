@@ -22,7 +22,7 @@ import {
 } from 'date-fns'
 
 
-export default function Meeting({ meeting }) {
+export default function Meeting({ meeting ,assigned}) {
     let startDateTime = parseISO(meeting.startDatetime)
     let endDateTime = parseISO(meeting.endDatetime)
   
@@ -47,6 +47,7 @@ export default function Meeting({ meeting }) {
             <time dateTime={meeting.endDatetime}>
               {format(endDateTime, 'h:mm a')}
             </time>
+            {assigned?<div className='text-black-500'>Asignado</div>:null}
           </p>
         </div>
         {/* <Menu
