@@ -63,6 +63,10 @@ export default function Example() {
       isSameDay(parseISO(meeting.startDatetime), selectedDay))
   }
 
+  function addNewElement  (newElement)  {
+    setCalendar((prevCalendar) => [...prevCalendar, newElement]);
+  };
+
   let days = eachDayOfInterval({
     start: firstDayCurrentMonth,
     end: endOfMonth(firstDayCurrentMonth),
@@ -111,7 +115,7 @@ export default function Example() {
     // console.log(endDatetime1,typeof(endDatetime1))
     // console.log(startDatetime1,typeof(endDatetime1))
     hoursOfDay.push({
-      assigned: false,
+      assigned: true,
       locationCreated: country,
       locationscheduled: "",
       utnCreated: offsetNumber,
@@ -283,10 +287,10 @@ export default function Example() {
                     {/* {console.log(selectedDayMeetings)} */}
                     {/* {console.log(hoursOfDay)} */}
                     {/* {console.log(selectedDayMeetings)} */}
-
+                      {console.log(newcalendar)}
                     {hoursOfDay.length > 0 ? (
                       hoursOfDay.slice(i*6, (i+1)*6 ).map((meeting,index) => (
-                        <button key={index} onClick={()=>alert('hola')}
+                        <button key={index} onClick={()=>addNewElement(meeting)}
                           className={classNames(
                             'focus:outline-none    font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900 ring-2 text-primary hover:border-none border-primary hover:text-white ',
                            
@@ -303,7 +307,7 @@ export default function Example() {
                                 meeting1.assigned
                             )}
                             >
-                          <MeetingPlaning key={index} meeting={meeting}  /></button>
+                          <MeetingPlaning key={index} meeting={meeting} assigned={ selectedDayMeetings.some((meeting1) => meeting1.startDatetime === meeting.startDatetime && meeting1.assigned)} /></button>
                       ))
                     ) : (
                       <p>No hay actividad agendada aún.</p>
@@ -344,6 +348,8 @@ function Meeting({ meeting }) {
           <time dateTime={meeting.endDatetime}>
             {format(endDateTime, 'h:mm a')}
           </time>
+          
+
         </p>
       </div>
       {/* <Menu
