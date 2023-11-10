@@ -65,6 +65,7 @@ export default function Example() {
 
   function addNewElement  (newElement)  {
     setCalendar((prevCalendar) => [...prevCalendar, newElement]);
+    alert('Tu hora fue puesta a disposicion')
   };
 
   let days = eachDayOfInterval({
@@ -298,14 +299,14 @@ export default function Example() {
                             //  newMeeting ? newMeeting.startDatetime === meeting.startDatetime ? 'bg-success text-white ' : '  ring-2 text-primary hover:border-none border-primary hover:text-white' : 'ring-2 text-primary hover:border-none border-primary hover:text-white',
                             //  newMeeting ? newMeeting.startDatetime !== meeting.startDatetime ? 'ring-2 text-primary hover:border-none border-primary hover:text-white' : 'bg-success text-white ' : null,
                             selectedDayMeetings.some((meeting1) => meeting1.startDatetime === meeting.startDatetime && meeting1.assigned)
-                            && 'border-red-500 border-solid border-2 hover:border-primary'
+                            && 'border-red-500 border-solid border-2 hover:border-primary',
+                            newcalendar.some((meeting1) => meeting1.startDatetime === meeting.startDatetime ) && 'border-red-500 border-solid border-2 hover:border-primary'
                             )} 
+
                              //Para deshabilitar el boton cuando haya meeting
-                             disabled={selectedDayMeetings.some(
-                              (meeting1) =>
-                                meeting1.startDatetime === meeting.startDatetime &&
-                                meeting1.assigned
-                            )}
+                             disabled={
+                                 selectedDayMeetings.some((meeting1) => meeting1.startDatetime === meeting.startDatetime && meeting1.assigned)
+                              || newcalendar.some((meeting1) => meeting1.startDatetime === meeting.startDatetime )}
                             >
                           <MeetingPlaning key={index} meeting={meeting} assigned={ selectedDayMeetings.some((meeting1) => meeting1.startDatetime === meeting.startDatetime && meeting1.assigned)} /></button>
                       ))
