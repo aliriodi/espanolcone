@@ -41,25 +41,26 @@ export default function Example() {
   //   disponibles no puede cancelar citas ya reservadas
 
   const { data: session, status } = useSession();
-  let [renders, setRenders] = useState({ user: { role: "user", calendar: [{}], image: 'https://res.cloudinary.com/dfddh08q8/image/upload/v1695578432/images/4_svg8uq.png' } })
-  let [newcalendar, setCalendar] = useState([]);
+  const [renders, setRenders] = useState({ user: { role: "user", calendar: [{}], image: 'https://res.cloudinary.com/dfddh08q8/image/upload/v1695578432/images/4_svg8uq.png' } })
+  const [newcalendar, setCalendar] = useState([]);
   // Termina section de BD ahora viebne el codigo que usa los datos
   let selectedDayMeetings = [];
 
   useEffect(() => {
-    setRenders(session)
+   
     if (session) {
+      setRenders(session)
       setCalendar(session.user.calendar)
     }
-  }, [session, renders])
+  }, [session])
 
   //console.log('session 109',session)
   let today = startOfToday()
-  let [selectedDay, setSelectedDay] = useState(today)
-  let [i, setI] = useState(0)
-  let [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
+  const [selectedDay, setSelectedDay] = useState(today)
+  const [i, setI] = useState(0)
+  const [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
   let firstDayCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date())
-
+  
   if (renders) {
     selectedDayMeetings = renders.user.calendar.filter((meeting) =>
       isSameDay(parseISO(meeting.startDatetime), selectedDay))
