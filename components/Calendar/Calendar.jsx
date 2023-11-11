@@ -352,7 +352,10 @@ export default function Example() {
             </section>
             : null:
             isEqual(selectedDay,today)?
-            <p>Si desea planificar comuniquese con el Admin</p>:<p>No se puede planificar</p>}
+            <span className='pt-14 '><h2 className="pt-20 font-semibold text-gray-900">Si desea planificar comuniquese con el Admin</h2></span>
+            :<span className='pt-14 '><h2 className="pt-20 font-semibold text-gray-900">No se puede planificar</h2></span>
+            }
+            
         </div>
       </div>
     </div>
