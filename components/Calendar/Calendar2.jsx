@@ -368,7 +368,7 @@ de que sea role:user con bg success o morado
                       (isEqual(day, selectedDay) || isToday(day)) && 'font-semibold',
                       personSchedule?.calendar?.some((meeting) =>
                       //Los dias de meetings deben ser despues de la fecha de hoy y deben tener disponibilidad
-                       isSameDay(parseISO(meeting.startDatetime), day) && !meeting.assigned) && "rounded-full bg-gray-200 text-primary text-lg",
+                      (isAfter(parseISO(meeting.startDatetime),today ))&& isSameDay(parseISO(meeting.startDatetime), day) && !meeting.assigned) && "rounded-full bg-gray-200 text-primary text-lg",
                       'mx-auto flex h-8 w-8 items-center justify-center rounded-full'
                     )}
                   >
