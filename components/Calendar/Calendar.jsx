@@ -15,8 +15,8 @@ import {
   getDay,
   isEqual,
   isSameDay,
-  isBefore, 
-  isAfter, 
+  isBefore,
+  isAfter,
   isSameMonth,
   isToday,
   parse,
@@ -66,22 +66,22 @@ export default function Example() {
   }
 
   //funcion para agregar nuevo calendario a disposicion de estudiantes
-  async function  addNewElement  (newElement)  {
+  async function addNewElement(newElement) {
     setCalendar((prevCalendar) => [...prevCalendar, newElement]);
-    try { 
-    //enviando disponibilidad de calendario a BD
-    console.log('cargando newcalendar',newcalendar)
-   
-    await  fetch('/api/users/update',
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        // body: JSON.stringify({ email: personSchedule.email, updates: { calendar: personSchedule.schedule } }),
-        body: JSON.stringify({ email: session.user.email, updates: { calendar: [...newcalendar,newElement] } }),
-      })
-   
+    try {
+      //enviando disponibilidad de calendario a BD
+      console.log('cargando newcalendar', newcalendar)
+
+      await fetch('/api/users/update',
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          // body: JSON.stringify({ email: personSchedule.email, updates: { calendar: personSchedule.schedule } }),
+          body: JSON.stringify({ email: session.user.email, updates: { calendar: [...newcalendar, newElement] } }),
+        })
+
     } catch (error) {
       console.log(error);
     }
@@ -146,9 +146,9 @@ export default function Example() {
       locationscheduled: "",
       utnCreated: offsetNumber,
       utnscheduled: "",
-      locationscheduled:"",
+      locationscheduled: "",
       iduser: null,
-      email:"",
+      email: "",
       image: "",
       startDatetime: startDatetime1,
       endDatetime: endDatetime1
@@ -242,7 +242,7 @@ export default function Example() {
                     {/* {renders[i].schedule.some((meeting) => */}
                     {renders?.user?.calendar?.some((meeting) =>
                       (isSameDay(parseISO(meeting.startDatetime), day) && meeting.assigned) ||
-                      (newcalendar.some((meeting1)=> isSameDay(parseISO(meeting1.startDatetime), day)&& meeting1.assigned))
+                      (newcalendar.some((meeting1) => isSameDay(parseISO(meeting1.startDatetime), day) && meeting1.assigned))
                     ) && (
                         <div className="w-1 h-1 rounded-full bg-sky-500"></div>
                       )}
@@ -250,8 +250,8 @@ export default function Example() {
                     {/* {renders[i].schedule.some((meeting) => */}
                     {renders?.user?.calendar?.some((meeting) =>
                       (isSameDay(parseISO(meeting.startDatetime), day) && !meeting.assigned) ||
-                       (newcalendar.some((meeting1)=> isSameDay(parseISO(meeting1.startDatetime), day)&& !meeting1.assigned)
-                    )) && (
+                      (newcalendar.some((meeting1) => isSameDay(parseISO(meeting1.startDatetime), day) && !meeting1.assigned)
+                      )) && (
                         <div className="w-1 h-1 rounded-full bg-red-500  "></div>
                       )}
 
@@ -292,12 +292,12 @@ export default function Example() {
 
 
             {/* aca van los botones de que deseo renderizar */}
-            {(renders?.user?.role.includes('teacher') || renders?.user?.role.includes('guides') )&&  isAfter(selectedDay, today) ?
+            {(renders?.user?.role.includes('teacher') || renders?.user?.role.includes('guides')) && isAfter(selectedDay, today) ?
               <div className='max-w-fit pt-10 pl-14 grid grid-cols-4 divide-x object-none object-right-top  '>
-                <button className= 'border-primary border-solid border-2' onClick={()=>setI(0)}>Turno 1</button>
-                <button className= 'border-primary border-solid border-2' onClick={()=>setI(1)}>Turno 2</button>
-                <button className= 'border-primary border-solid border-2' onClick={()=>setI(2)}>Turno 3</button>
-                <button className= 'border-primary border-solid border-2' onClick={()=>setI(3)}>Turno 4</button>
+                <button className='border-primary border-solid border-2' onClick={() => setI(0)}>Turno 1</button>
+                <button className='border-primary border-solid border-2' onClick={() => setI(1)}>Turno 2</button>
+                <button className='border-primary border-solid border-2' onClick={() => setI(2)}>Turno 3</button>
+                <button className='border-primary border-solid border-2' onClick={() => setI(3)}>Turno 4</button>
               </div> : null}
 
 
@@ -305,57 +305,57 @@ export default function Example() {
 
           {/* {crear Agenda}  console.log(renders)*/}
           {/* {console.log(newcalendar)} */}
-         {/* { isAfter(selectedDay, today)?<>el dia es despues</>:<>el dia es antes</>} */}
+          {/* { isAfter(selectedDay, today)?<>el dia es despues</>:<>el dia es antes</>} */}
           {
-          isAfter(selectedDay, today)?
-          renders?.user?.role.includes('teacher') || renders?.user?.role.includes('guides') ?
-            <section className="mt-12 md:mt-0 md:pl-14">
-              <div className='max-w-fit pt-16 pl-14 grid grid-cols-1 divide-x object-none object-right-top  '>
-                <h2 className="font-semibold text-gray-900">
-                  Planificar Agenda{' '}
-                </h2>
-                <div className=''>
-                  <ol className="">
-                    {/* {console.log(selectedDayMeetings)} */}
-                    {/* {console.log(hoursOfDay)} */}
-                    {/* {console.log(selectedDayMeetings)} */}
-                      {console.log(newcalendar)}
-                    {
-                    
-                    hoursOfDay.length > 0 ? (
-                      hoursOfDay.slice(i*6, (i+1)*6 ).map((meeting,index) => (
-                        <button key={index} onClick={()=>addNewElement(meeting)}
-                          className={classNames(
-                            'focus:outline-none    font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900 ring-2 text-primary hover:border-none border-primary hover:text-white ',
-                           
-                            // isFirstMeeting ? 'bg-success text-white ' : '  ring-2 text-primary hover:border-none border-primary hover:text-white',
-                            //  newMeeting ? newMeeting.startDatetime === meeting.startDatetime ? 'bg-success text-white ' : '  ring-2 text-primary hover:border-none border-primary hover:text-white' : 'ring-2 text-primary hover:border-none border-primary hover:text-white',
-                            //  newMeeting ? newMeeting.startDatetime !== meeting.startDatetime ? 'ring-2 text-primary hover:border-none border-primary hover:text-white' : 'bg-success text-white ' : null,
-                            selectedDayMeetings.some((meeting1) => meeting1.startDatetime === meeting.startDatetime && meeting1.assigned)
-                            && 'border-red-500 border-solid border-2 hover:border-primary',
-                            newcalendar.some((meeting1) => meeting1.startDatetime === meeting.startDatetime ) && 'border-red-500 border-solid border-2 hover:border-primary'
-                            )} 
+            isAfter(selectedDay, today) ?
+              renders?.user?.role.includes('teacher') || renders?.user?.role.includes('guides') ?
+                <section className="mt-12 md:mt-0 md:pl-14">
+                  <div className='max-w-fit pt-16 pl-14 grid grid-cols-1 divide-x object-none object-right-top  '>
+                    <h2 className="font-semibold text-gray-900">
+                      Planificar Agenda{' '}
+                    </h2>
+                    <div className=''>
+                      <ol className="">
+                        {/* {console.log(selectedDayMeetings)} */}
+                        {/* {console.log(hoursOfDay)} */}
+                        {/* {console.log(selectedDayMeetings)} */}
+                        {console.log(newcalendar)}
+                        {
 
-                             //Para deshabilitar el boton cuando haya meeting
-                             disabled={
-                                 selectedDayMeetings.some((meeting1) => meeting1.startDatetime === meeting.startDatetime && meeting1.assigned)
-                              || newcalendar.some((meeting1) => meeting1.startDatetime === meeting.startDatetime )}
-                            >
-                          <MeetingPlaning key={index} meeting={meeting} assigned={ selectedDayMeetings.some((meeting1) => meeting1.startDatetime === meeting.startDatetime && meeting1.assigned)} /></button>
-                      ))
-                    ) : (
-                      <p>No hay actividad agendada aún.</p>
-                    )}
+                          hoursOfDay.length > 0 ? (
+                            hoursOfDay.slice(i * 6, (i + 1) * 6).map((meeting, index) => (
+                              <button key={index} onClick={() => addNewElement(meeting)}
+                                className={classNames(
+                                  'focus:outline-none    font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900 ring-2 text-primary hover:border-none border-primary hover:text-white ',
 
-                  </ol></div>
-              </div>
-            </section>
-            : null:
-            isEqual(selectedDay,today)?
-            <span className='pt-14 '><h2 className="pt-20 font-semibold text-gray-900">Si desea planificar comuniquese con el Admin</h2></span>
-            :<span className='pt-14 '><h2 className="pt-20 font-semibold text-gray-900">No se puede planificar</h2></span>
-            }
-            
+                                  // isFirstMeeting ? 'bg-success text-white ' : '  ring-2 text-primary hover:border-none border-primary hover:text-white',
+                                  //  newMeeting ? newMeeting.startDatetime === meeting.startDatetime ? 'bg-success text-white ' : '  ring-2 text-primary hover:border-none border-primary hover:text-white' : 'ring-2 text-primary hover:border-none border-primary hover:text-white',
+                                  //  newMeeting ? newMeeting.startDatetime !== meeting.startDatetime ? 'ring-2 text-primary hover:border-none border-primary hover:text-white' : 'bg-success text-white ' : null,
+                                  selectedDayMeetings.some((meeting1) => meeting1.startDatetime === meeting.startDatetime && meeting1.assigned)
+                                  && 'border-red-500 border-solid border-2 hover:border-primary',
+                                  newcalendar.some((meeting1) => meeting1.startDatetime === meeting.startDatetime) && 'border-red-500 border-solid border-2 hover:border-primary'
+                                )}
+
+                                //Para deshabilitar el boton cuando haya meeting
+                                disabled={
+                                  selectedDayMeetings.some((meeting1) => meeting1.startDatetime === meeting.startDatetime && meeting1.assigned)
+                                  || newcalendar.some((meeting1) => meeting1.startDatetime === meeting.startDatetime)}
+                              >
+                                <MeetingPlaning key={index} meeting={meeting} assigned={selectedDayMeetings.some((meeting1) => meeting1.startDatetime === meeting.startDatetime && meeting1.assigned)} /></button>
+                            ))
+                          ) : (
+                            <p>No hay actividad agendada aún.</p>
+                          )}
+
+                      </ol></div>
+                  </div>
+                </section>
+                : null :
+              isEqual(selectedDay, today) ?
+                <span className='pt-14 '>
+                  <h2 className="pt-20 font-semibold text-gray-900">Si desea planificar comuniquese con el Admin</h2></span> :
+                <span className='pt-14 '><h2 className="pt-20 font-semibold text-gray-900">No se puede planificar</h2></span>}
+
         </div>
       </div>
     </div>
@@ -387,7 +387,7 @@ function Meeting({ meeting }) {
           <time dateTime={meeting.endDatetime}>
             {format(endDateTime, 'h:mm a')}
           </time>
-          
+
 
         </p>
       </div>
