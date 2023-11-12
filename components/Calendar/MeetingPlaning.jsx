@@ -20,25 +20,25 @@ import {
   parseISO,
   startOfToday,
 } from 'date-fns'
-import Image from 'next/image'
 
-export default function Meeting({ meeting }) {
+
+export default function Meeting({ meeting ,assigned}) {
     let startDateTime = parseISO(meeting.startDatetime)
     let endDateTime = parseISO(meeting.endDatetime)
   
     return (
       <li className="flex items-center px-4 py-2 space-x-4 group rounded-xl focus-within:bg-gray-100 hover:bg-gray-100">
-        <Image
+        {/* <Image
           src={meeting?.image?.url || meeting?.image}
           alt="img"
           className="flex-none w-10 h-10 rounded-full"
           width={160}
-          height={160}
-        />{/* console.log(meeting.image)*/}
+          height={160}        /> */}
+          {/* console.log(meeting.image)*/}
         <div className="flex-auto">
           {/* {meeting.assigned ? true : <p className="text-gray-900">Meeting no asignado aún</p>} */}
-          <p className="text-gray-900">{meeting.first_name + ' ' + meeting.last_name}</p>
-          <p className="text-gray-900">{meeting.role}</p>
+          {/* <p className="text-gray-900">{meeting.first_name + ' ' + meeting.last_name}</p> */}
+          {/* <p className="text-gray-900">{meeting.role}</p> */}
           <p className="mt-0.5">
             <time dateTime={meeting.startDatetime}>
               {format(startDateTime, 'h:mm a')}
@@ -47,6 +47,7 @@ export default function Meeting({ meeting }) {
             <time dateTime={meeting.endDatetime}>
               {format(endDateTime, 'h:mm a')}
             </time>
+            {assigned?<p className='text-black-500'>Asignado</p>:null}
           </p>
         </div>
         {/* <Menu

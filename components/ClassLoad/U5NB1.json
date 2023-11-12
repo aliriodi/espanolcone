@@ -1,0 +1,28 @@
+{
+    "page1": {
+        "type": "text",
+        "section": {
+            "number":0,
+            "value":"Mis Metas"
+        },
+        "template": "",
+        "data": [
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366262/images/logo-primary_qoagkg.png",
+                "alt": "EspañolconE",
+                "className": "Portadaimg"
+            },
+            {
+                "type": "title",
+                "value": "TREKKING Y SENDERISMO EN CÓRDOBA",
+                "className": "Portadatil"
+            },
+            {
+                "type": "level",
+                "value": "NIVEL B1",
+                "className": "Portadalev"
+            }
+        ]
+    }
+}

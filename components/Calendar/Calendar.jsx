@@ -15,6 +15,8 @@ import {
   getDay,
   isEqual,
   isSameDay,
+  isBefore,
+  isAfter,
   isSameMonth,
   isToday,
   parse,
@@ -39,27 +41,55 @@ export default function Example() {
   //   disponibles no puede cancelar citas ya reservadas
 
   const { data: session, status } = useSession();
-  let [renders, setRenders] = useState({ user: {role:"user", calendar: [{}], image: 'https://res.cloudinary.com/dfddh08q8/image/upload/v1695578432/images/4_svg8uq.png' } })
-  let [newcalendar,setCalendar]=useState([]);
+  const [renders, setRenders] = useState({ user: { role: "user", calendar: [{}], image: 'https://res.cloudinary.com/dfddh08q8/image/upload/v1695578432/images/4_svg8uq.png' } })
+  const [newcalendar, setCalendar] = useState([]);
   // Termina section de BD ahora viebne el codigo que usa los datos
   let selectedDayMeetings = [];
 
   useEffect(() => {
-    setRenders(session)
-    if(session){
-    setCalendar(session.user.calendar)}
-  }, [session, renders])
+   
+    if (session) {
+      setRenders(session)
+      setCalendar(session.user.calendar)
+    }
+  }, [session])
 
   //console.log('session 109',session)
   let today = startOfToday()
-  let [selectedDay, setSelectedDay] = useState(today)
-  let [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
+  const [selectedDay, setSelectedDay] = useState(today)
+  const [i, setI] = useState(0)
+  const [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
   let firstDayCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date())
-
+  
   if (renders) {
     selectedDayMeetings = renders.user.calendar.filter((meeting) =>
       isSameDay(parseISO(meeting.startDatetime), selectedDay))
   }
+
+  //funcion para agregar nuevo calendario a disposicion de estudiantes
+  async function addNewElement(newElement) {
+    setCalendar((prevCalendar) => [...prevCalendar, newElement]);
+    try {
+      //enviando disponibilidad de calendario a BD
+      console.log('cargando newcalendar', newcalendar)
+
+      await fetch('/api/users/update',
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          // body: JSON.stringify({ email: personSchedule.email, updates: { calendar: personSchedule.schedule } }),
+          body: JSON.stringify({ email: session.user.email, updates: { calendar: [...newcalendar, newElement] } }),
+        })
+
+    } catch (error) {
+      console.log(error);
+    }
+    alert('Tu hora fue puesta a disposicion')
+  };
+
+
 
   let days = eachDayOfInterval({
     start: firstDayCurrentMonth,
@@ -77,48 +107,54 @@ export default function Example() {
   }
 
 
-//Generando calendario 24 horas en el dia seleccionado
-const day = selectedDay;
-const hoursOfDay = [];
- // Obtener el UTN de la fecha
- const fecha = today;
- const offsetMinutes = fecha.getTimezoneOffset();
- const offsetHours = offsetMinutes / 60;
- const offsetSign = offsetHours > 0 ? '-' : '+';
- const offsetHoursAbs = Math.abs(offsetHours);
- const formattedOffset = `${offsetSign}${String(offsetHoursAbs).padStart(2, '')}`;
- const offsetNumber = parseInt(formattedOffset, 10);
- //Para obteneer el pais donde cargamos la fecha
- const options = { timeZoneName: 'long' };
- const timeZoneName = new Intl.DateTimeFormat('es',options).formatToParts(today);
- 
- let country = '';
-for (const part of timeZoneName) {
-  if (part.type === 'timeZoneName') {
-    country = part.value.trim();
-    break;
-  }
-}
+  //Generando calendario 24 horas en el dia seleccionado
+  const day = selectedDay;
+  const hoursOfDay = [];
+  // Obtener el UTN de la fecha
+  const fecha = today;
+  const offsetMinutes = fecha.getTimezoneOffset();
+  const offsetHours = offsetMinutes / 60;
+  const offsetSign = offsetHours > 0 ? '-' : '+';
+  const offsetHoursAbs = Math.abs(offsetHours);
+  const formattedOffset = `${offsetSign}${String(offsetHoursAbs).padStart(2, '')}`;
+  const offsetNumber = parseInt(formattedOffset, 10);
+  //Para obteneer el pais donde cargamos la fecha
+  const options = { timeZoneName: 'long' };
+  const timeZoneName = new Intl.DateTimeFormat('es', options).formatToParts(today);
 
-//Generando las horas con sus atributos
-for (let i = 0; i < 24; i++) {
-  const hour = addHours(day, i);
-  const hour1 = addHours(day, i+1);
-  const startDatetime1 = format(hour, "yyyy-MM-dd'T'HH:mm");
-  const endDatetime1 = format(hour1, "yyyy-MM-dd'T'HH:mm");
-  // console.log(endDatetime1,typeof(endDatetime1))
-  // console.log(startDatetime1,typeof(endDatetime1))
-  hoursOfDay.push({
-                   assigned:false,
-                   locationCreated:country,
-                   locationscheduled:"",
-                   utnCreated:offsetNumber,
-                   utnscheduled:"",
-                   iduser: null,
-                   image:"",
-                   startDatetime:startDatetime1, 
-                   endDatetime:endDatetime1});
-}
+  let country = '';
+  for (const part of timeZoneName) {
+    if (part.type === 'timeZoneName') {
+      country = part.value.trim();
+      break;
+    }
+  }
+
+  //Generando las horas con sus atributos
+  for (let i = 0; i < 24; i++) {
+    const hour = addHours(day, i);
+    const hour1 = addHours(day, i + 1);
+    const startDatetime1 = format(hour, "yyyy-MM-dd'T'HH:mm");
+    const endDatetime1 = format(hour1, "yyyy-MM-dd'T'HH:mm");
+    // console.log(endDatetime1,typeof(endDatetime1))
+    // console.log(startDatetime1,typeof(endDatetime1))
+    hoursOfDay.push({
+      assigned: false,
+      locationCreated: country,
+      nameuser: "",
+      first_name: "",
+      last_name: "",
+      locationscheduled: "",
+      utnCreated: offsetNumber,
+      utnscheduled: "",
+      locationscheduled: "",
+      iduser: null,
+      email: "",
+      image: "",
+      startDatetime: startDatetime1,
+      endDatetime: endDatetime1
+    });
+  }
 
 
   // de BD 
@@ -206,15 +242,17 @@ for (let i = 0; i < 24; i++) {
                     as */}
                     {/* {renders[i].schedule.some((meeting) => */}
                     {renders?.user?.calendar?.some((meeting) =>
-                      isSameDay(parseISO(meeting.startDatetime), day) && meeting.assigned
+                      (isSameDay(parseISO(meeting.startDatetime), day) && meeting.assigned) ||
+                      (newcalendar.some((meeting1) => isSameDay(parseISO(meeting1.startDatetime), day) && meeting1.assigned))
                     ) && (
                         <div className="w-1 h-1 rounded-full bg-sky-500"></div>
                       )}
 
                     {/* {renders[i].schedule.some((meeting) => */}
                     {renders?.user?.calendar?.some((meeting) =>
-                      isSameDay(parseISO(meeting.startDatetime), day) && !meeting.assigned
-                    ) && (
+                      (isSameDay(parseISO(meeting.startDatetime), day) && !meeting.assigned) ||
+                      (newcalendar.some((meeting1) => isSameDay(parseISO(meeting1.startDatetime), day) && !meeting1.assigned)
+                      )) && (
                         <div className="w-1 h-1 rounded-full bg-red-500  "></div>
                       )}
 
@@ -227,17 +265,19 @@ for (let i = 0; i < 24; i++) {
 
           {/* Agenda existente */}
           <section className="mt-12 md:mt-0 md:pl-14">
-            
+
             <div className='max-w-fit pt-16 pl-14 grid grid-cols-1 divide-x object-none object-right-top  border-red-500 border-solid-4'>
-            <h2 className="font-semibold text-gray-900">
-            <time dateTime={format(selectedDay, 'yyyy-MM-dd')}>
+              <h2 className="font-semibold text-gray-900">
+                <time dateTime={format(selectedDay, 'yyyy-MM-dd')}>
                   {format(selectedDay, 'MMM dd, yyy', { locale: es }).charAt(0).toUpperCase() + format(selectedDay, 'MMM dd, yyy', { locale: es }).slice(1)}
                 </time></h2>
               <h2 className="font-semibold text-gray-900">
-                
+
                 Agenda Existente{' '}
-                
+
               </h2>
+
+
               <div className=''>
                 <ol className="">
                   {/* {console.log(selectedDayMeetings)} */}
@@ -250,34 +290,73 @@ for (let i = 0; i < 24; i++) {
                   )}
                 </ol></div>
             </div>
+
+
+            {/* aca van los botones de que deseo renderizar */}
+            {(renders?.user?.role.includes('teacher') || renders?.user?.role.includes('guides')) && isAfter(selectedDay, today) ?
+              <div className='max-w-fit pt-10 pl-14 grid grid-cols-4 divide-x object-none object-right-top  '>
+                <button className='border-primary border-solid border-2' onClick={() => setI(0)}>Turno 1</button>
+                <button className='border-primary border-solid border-2' onClick={() => setI(1)}>Turno 2</button>
+                <button className='border-primary border-solid border-2' onClick={() => setI(2)}>Turno 3</button>
+                <button className='border-primary border-solid border-2' onClick={() => setI(3)}>Turno 4</button>
+              </div> : null}
+
+
           </section>
 
           {/* {crear Agenda}  console.log(renders)*/}
           {/* {console.log(newcalendar)} */}
+          {/* { isAfter(selectedDay, today)?<>el dia es despues</>:<>el dia es antes</>} */}
+          {
+            isAfter(selectedDay, today) ?
+              renders?.user?.role.includes('teacher') || renders?.user?.role.includes('guides') ?
+                <section className="mt-12 md:mt-0 md:pl-14">
+                  <div className='max-w-fit pt-16 pl-14 grid grid-cols-1 divide-x object-none object-right-top  '>
+                    <h2 className="font-semibold text-gray-900">
+                      Planificar Agenda{' '}
+                    </h2>
+                    <div className=''>
+                      <ol className="">
+                        {/* {console.log(selectedDayMeetings)} */}
+                        {/* {console.log(hoursOfDay)} */}
+                        {/* {console.log(selectedDayMeetings)} */}
+                        {console.log(newcalendar)}
+                        {
 
-        { renders?.user?.role.includes('teacher')||renders?.user?.role.includes('guides')?
-          <section className="mt-12 md:mt-0 md:pl-14">
-            <div className='max-w-fit pt-16 pl-14 grid grid-cols-1 divide-x object-none object-right-top  border-red-500 border-solid-4'>
-              <h2 className="font-semibold text-gray-900">
-                Planificar Agenda{' '}
-               </h2>
-              <div className=''>
-                <ol className="">
-                  {/* {console.log(selectedDayMeetings)} */}
-                  {/* {console.log(hoursOfDay)} */}
-                  {/* {console.log(selectedDayMeetings)} */}
-                  {hoursOfDay.length > 0 ? (
-                    hoursOfDay.map((meeting) => (
-                      
-                      <MeetingPlaning meeting={meeting} key={meeting.id} />
-                    ))
-                  ) : (
-                    <p>No hay actividad agendada aún.</p>
-                  )}
-                </ol></div>
-            </div>
-          </section>
-:null}
+                          hoursOfDay.length > 0 ? (
+                            hoursOfDay.slice(i * 6, (i + 1) * 6).map((meeting, index) => (
+                              <button key={index} onClick={() => addNewElement(meeting)}
+                                className={classNames(
+                                  'focus:outline-none    font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900 ring-2 text-primary hover:border-none border-primary hover:text-white ',
+
+                                  // isFirstMeeting ? 'bg-success text-white ' : '  ring-2 text-primary hover:border-none border-primary hover:text-white',
+                                  //  newMeeting ? newMeeting.startDatetime === meeting.startDatetime ? 'bg-success text-white ' : '  ring-2 text-primary hover:border-none border-primary hover:text-white' : 'ring-2 text-primary hover:border-none border-primary hover:text-white',
+                                  //  newMeeting ? newMeeting.startDatetime !== meeting.startDatetime ? 'ring-2 text-primary hover:border-none border-primary hover:text-white' : 'bg-success text-white ' : null,
+                                  selectedDayMeetings.some((meeting1) => meeting1.startDatetime === meeting.startDatetime && meeting1.assigned)
+                                  && 'border-red-500 border-solid border-2 hover:border-primary',
+                                  newcalendar.some((meeting1) => meeting1.startDatetime === meeting.startDatetime) && 'border-red-500 border-solid border-2 hover:border-primary'
+                                )}
+
+                                //Para deshabilitar el boton cuando haya meeting
+                                disabled={
+                                  selectedDayMeetings.some((meeting1) => meeting1.startDatetime === meeting.startDatetime && meeting1.assigned)
+                                  || newcalendar.some((meeting1) => meeting1.startDatetime === meeting.startDatetime)}
+                              >
+                                <MeetingPlaning key={index} meeting={meeting} assigned={selectedDayMeetings.some((meeting1) => meeting1.startDatetime === meeting.startDatetime && meeting1.assigned)} /></button>
+                            ))
+                          ) : (
+                            <p>No hay actividad agendada aún.</p>
+                          )}
+
+                      </ol></div>
+                  </div>
+                </section>
+                : null :
+              isEqual(selectedDay, today) ?
+                <span className='pt-14 '>
+                  <h2 className="pt-20 font-semibold text-gray-900">Si desea planificar comuniquese con el Admin</h2></span> :
+                <span className='pt-14 '><h2 className="pt-20 font-semibold text-gray-900">No se puede planificar</h2></span>}
+
         </div>
       </div>
     </div>
@@ -309,6 +388,8 @@ function Meeting({ meeting }) {
           <time dateTime={meeting.endDatetime}>
             {format(endDateTime, 'h:mm a')}
           </time>
+
+
         </p>
       </div>
       {/* <Menu
