@@ -1,0 +1,81 @@
+[{
+    "type": "dragable-box",
+    "value":[
+        {
+            "type":"DropUp",
+            "value":[
+                {
+                    "type":"image",
+                    "src":"Url",
+                    "value":"valor 1"
+                },
+                {
+                    "type":"text",
+                    "content":"Texto generico",
+                    "value":"valor 1"
+                }
+            ]
+        },
+        {
+            "type":"Drag",
+            "value":[
+                {
+                    "value":"valor 1"
+                }
+            ]
+        }
+    ],
+    "className": "dragable-box"
+},
+{
+    "type": "dragable-box",
+    "value":{
+        "DropUps":
+        [
+            {
+                "type":"image",
+                "src":"https://res.cloudinary.com/dfddh08q8/image/upload/v1697635249/images/jovenes_wdvbgc.png",
+                "value":"jóvenes",
+                "id":"DropUp1"
+            },
+            {
+                "type":"image",
+                "src":"https://res.cloudinary.com/dfddh08q8/image/upload/v1697639695/images/timida_kn1wrv.png",
+                "value":"tímida",
+                "id":"DropUp2"
+            },
+            {
+                "type":"image",
+                "src":"https://res.cloudinary.com/dfddh08q8/image/upload/v1697640114/images/guapo_aisyup.png",
+                "value":"guapo",
+                "id":"DropUp3"
+            },
+            {
+                "type":"image",
+                "src":"https://res.cloudinary.com/dfddh08q8/image/upload/v1697640136/images/persezoso_qtnchw.png",
+                "value":"perezoso",
+                "id":"DropUp4"
+            }
+        ],
+
+        "DragBoxs":[
+            {
+                "value":"jóvenes",
+                "id":"DragBox1"
+            },
+            {
+                "value":"tímida",
+                "id":"DragBox2"
+            },
+            {
+                "value":"guapo",
+                "id":"DragBox3"
+            },
+            {
+                "value":"perezoso",
+                "id":"DragBox4"
+            }
+        ]
+    },
+    "className": "dragable-box"
+}]
