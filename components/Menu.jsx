@@ -156,7 +156,8 @@ const Menu = (props) => {
             (
                 <button 
                     className='bg-white shadow-[0px_4px_24px_#18292F1A] absolute top-[20px] left-[50px] h-[50px] w-[50px] rounded-full flex items-center justify-center
-                    hover:bg-gray_light transition-all'
+                    hover:bg-gray_light transition-all
+                    md:top-[10px] md:left-[10px]'
                     ref={menuRef}
                     onClick={() => setIsOpen(!isOpen)}>
                         <FontAwesomeIcon
