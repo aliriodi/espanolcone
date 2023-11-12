@@ -24,8 +24,6 @@ export default function DropContainer({
             dropUp,
         }
     });
-
-    useEffect(()=>console.log("container ",dropUp),[])
       
     const style =
     {
@@ -53,10 +51,17 @@ export default function DropContainer({
                     style={style}
                     className="flex flex-col my-[60px] items-center">
 
+                        {
+                        dropUp?.src
+                        ?
                         <Image
                         className="rounded-[5px] w-[160px] h-[160px] bg-light shadow-[0px_4px_26px_#00000040] mb-2 object-cover"
+                        alt="Image"
                         src={dropUp?.src} width={250} height={250}/>
-                        {/* <span className="rounded-[5px] w-[250px] h-[250px] bg-success mb-2"></span> */}
+                        :
+                        <span className="rounded-[5px] w-[160px] h-[160px] bg-light shadow-[0px_4px_26px_#00000040] mb-2 object-cover"></span>
+
+                        }
 
                         <div
                         ref={setNodeRef}

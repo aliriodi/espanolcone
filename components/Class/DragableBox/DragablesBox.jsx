@@ -49,7 +49,6 @@ export default function DragableBox( props ){
 
         // Im dropping a Task over another Task
         if (isActiveADragBox && isOverADragBox) {
-            console.log("Task over another Task")
             
             setOptions((options) => {
             const activeIndex = options.findIndex((t) => t.id === activeId);
@@ -58,8 +57,6 @@ export default function DragableBox( props ){
             if (options[activeIndex].dropUpId != options[overIndex].dropUpId) {
             // Fix introduced after video recording
                 let overDropContainer = dropUpContainer?.filter((dropUp)=> dropUp.id == options[overIndex].dropUpId)[0]
-                console.log("another ", overDropContainer.id != "container")
-                console.log("ID ", overDropContainer.id )
 
                 // En caso de estar dobre otro DragBox y no estar en el contenedor
                 if(overDropContainer?.id != "container") return options;
@@ -86,7 +83,6 @@ export default function DragableBox( props ){
 
         // Im dropping a Task over a column
         if (isActiveADragBox && isOverADropContainer) {
-            console.log("Task over a column ",over.data.current.value != "container")
 
             if(options.filter((op)=> op.dropUpId == over.data.current.dropUp.id).length > 0 && over.data.current.value != "container") return;
             
@@ -131,7 +127,7 @@ export default function DragableBox( props ){
                             dropUpContainer.map((dropUp)=>
                                 <DropContainer
                                     dropUp={dropUp}
-
+                                    key={dropUp.id}
                                     type={dropUp.type}
                                     
                                     // se le pasan las respectivas opciones que corresponden a cada  contenedor
