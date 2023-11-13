@@ -23,8 +23,8 @@ import {
   startOfToday,
 } from 'date-fns'
 import Image from 'next/image'
-import { Fragment, useState } from 'react'
-import { useEffect } from 'react';
+import { Fragment, useState, useEffect } from 'react'
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -46,30 +46,41 @@ export default function Example() {
   const teacher = require("./teachers.json");
   const guide = require("./guides.json");
   const cardDetail = useSelector((state) => state.datos.cardDetail);
-  let [students, setStudents] = useState(student.value)
-  let [teachers, setTeachers] = useState(teacher.value)
-  let [guides, setGuides] = useState(guide.value)
+
+
   let [renders, setRenders] = useState('')
   let [personSchedule, setPersonSchedule] = useState({})
   let [name, setName] = useState('students')
   //variable para asignar New Meeting en caso de asignar hora
   let [newMeeting, setNewMeeting] = useState()
+  const { id } = router.query;
   useEffect(() => {
-
     setRenders(session)
-    setPersonSchedule(cardDetail)
+    if(Object.keys(cardDetail).length!==0){
+    setPersonSchedule(cardDetail)}
+   else{
+      async function carDet() {
+        try {
+        const details = await fetch('/api/users/' + id).then(response => response.json());
+        setPersonSchedule(details.userid);
+      } catch (error) {
+        console.error('Error fetching user details:', error);
+      }}
+      carDet()
+    }
   }, [session])
   // console.log(renders)
   const users = ['students', 'teachers', 'guides']
   let [i, setI] = useState(0)
-  function nextI() { if (i < students.length - 1) { let iaux = i + 1; setI(iaux); } console.log(i) }
-  function backI() { if (0 < i) { let iaux = i - 1; setI(iaux); } console.log(i) }
-  function handleOnChange(user) {
-    if (user === 'students') { setRenders(students); setName('students') }
-    if (user === 'teachers') { setRenders(teachers); setName('teachers') }
-    if (user === 'guides') { setRenders(guides); setName('guides') }
-    setI(0)
-  }
+    
+  // function nextI() { if (i < students.length - 1) { let iaux = i + 1; setI(iaux); } console.log(i) }
+  // function backI() { if (0 < i) { let iaux = i - 1; setI(iaux); } console.log(i) }
+  // function handleOnChange(user) {
+  //   if (user === 'students') { setRenders(students); setName('students') }
+  //   if (user === 'teachers') { setRenders(teachers); setName('teachers') }
+  //   if (user === 'guides') { setRenders(guides); setName('guides') }
+  //   setI(0)
+  // }
 
 
   // Termina section de BD ahora viebne el codigo que usa los datos
@@ -78,7 +89,12 @@ export default function Example() {
 Variable para renderizar la primera vuelta de los horarios disponibles en caso
 de que sea role:user con bg success o morado 
 */
-  let isFirstMeeting = true;
+  // let isFirstMeeting = true;
+
+
+
+
+
 
   function selectSchedule(meeting) {
     setNewMeeting(meeting)
@@ -94,17 +110,17 @@ de que sea role:user con bg success o morado
     // a un nuevo calendario asignado la fecha
     personSchedule.calendar.map(meeting => {
       if (meeting.startDatetime === newMeeting.startDatetime) {
-        /*
+
         // Desplazamiento horario en minutos (ejemplo para GMT-03)
-        const offsetMinutes = -3*60;
+        const offsetMinutes1 = -3 * 60;
         // Obtén el UTN actual en UTC
         const nowUTC = new Date().getTime();
         // Calcula el nuevo UTN ajustado
-        const adjustedUTN = nowUTC + (offsetMinutes * 60000); // 1 minuto = 60,000 ms
+        const adjustedUTN = nowUTC + (offsetMinutes1 * 60000); // 1 minuto = 60,000 ms
         // Crea una nueva fecha en la zona horaria deseada
         const adjustedDate = new Date(adjustedUTN);
         console.log(adjustedDate); // Esto mostrará la hora ajustada según el desplazamiento horario.
-        */
+
         // Obtener el UTN de la fecha
         const fecha = today; Fragment
         const offsetMinutes = fecha.getTimezoneOffset();
@@ -136,7 +152,7 @@ de que sea role:user con bg success o morado
           image: renders.user.image,
           email: renders.user.email,
           role: renders.user.role,
-          locationscheduled:country,
+          locationscheduled: country,
           locationCreated: personSchedule.locationCreated, //profesor o guia que creo el calendario ubicacion
           utnCreated: personSchedule.utnCreated, //profesor o guia que creo el calendario horas
           utnscheduled: offsetNumber,
@@ -170,7 +186,7 @@ de que sea role:user con bg success o morado
           utnCreated: personSchedule.utnCreated,
           utnscheduled: offsetNumber,
           locationCreated: personSchedule.locationCreated,
-          locationscheduled:country
+          locationscheduled: country
 
         })
 
@@ -279,6 +295,7 @@ de que sea role:user con bg success o morado
       <div className=" max-w-4xl px-4 mx-auto sm:px-7 md:max-w-4xl md:px-4">
         <div className="md:grid md:grid-cols-2  md:divide-x md:divide-gray-200 grid grid-cols-2">
           <div className="md:pr-14">
+            {  console.log(personSchedule)}
             {/* <div style={{ border: 'solid 1px red' }}> */}
             {/* Menu Desplegable para tipo de usuarios */}
             {/* <ul className={`${styles['select-languages_menu2']} ${styles['active']}`}> */}
@@ -364,11 +381,11 @@ de que sea role:user con bg success o morado
                       !isEqual(day, selectedDay) && !isToday(day) && !isSameMonth(day, firstDayCurrentMonth) && 'text-gray-400',
                       isEqual(day, selectedDay) && isToday(day) && 'bg-success',
                       isEqual(day, selectedDay) && !isToday(day) && 'bg-success',
-                     !isEqual(day, selectedDay) && 'hover:bg-gray-200',
+                      !isEqual(day, selectedDay) && 'hover:bg-gray-200',
                       (isEqual(day, selectedDay) || isToday(day)) && 'font-semibold',
                       personSchedule?.calendar?.some((meeting) =>
-                      //Los dias de meetings deben ser despues de la fecha de hoy y deben tener disponibilidad
-                      (isAfter(parseISO(meeting.startDatetime),today ))&& isSameDay(parseISO(meeting.startDatetime), day) && !meeting.assigned) && "rounded-full bg-gray-200 text-primary text-lg",
+                        //Los dias de meetings deben ser despues de la fecha de hoy y deben tener disponibilidad
+                        (isAfter(parseISO(meeting.startDatetime), today)) && isSameDay(parseISO(meeting.startDatetime), day) && !meeting.assigned) && "rounded-full bg-gray-200 text-primary text-lg",
                       'mx-auto flex h-8 w-8 items-center justify-center rounded-full'
                     )}
                   >
@@ -394,13 +411,13 @@ de que sea role:user con bg success o morado
             <div className='max-w-fit pt-36 pl-14 grid grid-cols-1 divide-x object-none object-right-top  border-red-500 border-solid-4'>
               {/* {Section Alumnos} */}
 
-              {renders?.user?.role === 'user' || renders?.user?.role.includes('user') || true?
+              {renders?.user?.role === 'user' || renders?.user?.role.includes('user') || true ?
                 <>
                   {/* de aca viene el id del usuario donde va a renderizar el estado del teacher o guias
                   con los datos del teacher o guia turistico, viene por redux */}
-                  <div><strong> {personSchedule.first_name}</strong></div>
+                  <div><strong> {personSchedule?.first_name}</strong></div>
 
-                  { isAfter(selectedDay, today) && personSchedule?.calendar?.map((meeting, index) => {
+                  {isAfter(selectedDay, today) && personSchedule?.calendar?.map((meeting, index) => {
                     if (!meeting.assigned && isSameDay(parseISO(meeting.startDatetime), selectedDay)) {
                       return (
 
@@ -429,7 +446,7 @@ de que sea role:user con bg success o morado
                   })}
 
                   {/* Si existe meeting par asignar renderiza button confirmar citas*/}
-                  {  isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) &&
+                  {isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) &&
                     <button type="button" onClick={() => Confirm()} className='focus:outline-none  bg-primary text-white font-medium rounded-lg te t-sm px-5 py-2.5 mb-2 '>Confirma </button>}
                 </>
 

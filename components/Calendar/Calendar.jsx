@@ -40,14 +40,14 @@ export default function Example() {
   //3. en caso de ser guia turistico solo trae su calendario con sus clientes asignados, puede modificar sus horarios 
   //   disponibles no puede cancelar citas ya reservadas
 
-  const { data: session, status } = useSession();
+  const { data: session, status,update } = useSession();
   const [renders, setRenders] = useState({ user: { role: "user", calendar: [{}], image: 'https://res.cloudinary.com/dfddh08q8/image/upload/v1695578432/images/4_svg8uq.png' } })
   const [newcalendar, setCalendar] = useState([]);
   // Termina section de BD ahora viebne el codigo que usa los datos
   let selectedDayMeetings = [];
 
   useEffect(() => {
-   
+   update();
     if (session) {
       setRenders(session)
       setCalendar(session.user.calendar)
@@ -82,10 +82,13 @@ export default function Example() {
           // body: JSON.stringify({ email: personSchedule.email, updates: { calendar: personSchedule.schedule } }),
           body: JSON.stringify({ email: session.user.email, updates: { calendar: [...newcalendar, newElement] } }),
         })
+    
+    
 
     } catch (error) {
       console.log(error);
     }
+    
     alert('Tu hora fue puesta a disposicion')
   };
 
