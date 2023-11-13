@@ -4,6 +4,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
 import { useSession } from "next-auth/react"
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
+import Spinner from '../../components/Spinner';
 import styles from '../../styles/navbar.module.css';
 import { es } from 'date-fns/locale';
 import {
@@ -30,7 +31,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example() {
+export default function Schedule() {
   const router = useRouter();
   //Aca debe venir de la BD los por userId o email un solo usuario
   //con todos los teachers y guias turisticos disponibles
@@ -50,58 +51,32 @@ export default function Example() {
 
   let [renders, setRenders] = useState('')
   let [personSchedule, setPersonSchedule] = useState({})
-  let [name, setName] = useState('students')
   //variable para asignar New Meeting en caso de asignar hora
   let [newMeeting, setNewMeeting] = useState()
   const { id } = router.query;
   useEffect(() => {
     setRenders(session)
-    if(Object.keys(cardDetail).length!==0){
-    setPersonSchedule(cardDetail)}
-   else{
+    if (Object.keys(cardDetail).length !== 0) {
+      setPersonSchedule(cardDetail)
+    }
+    else {
       async function carDet() {
         try {
-        const details = await fetch('/api/users/' + id).then(response => response.json());
-        setPersonSchedule(details.userid);
-      } catch (error) {
-        console.error('Error fetching user details:', error);
-      }}
+          const details = await fetch('/api/users/' + id).then(response => response.json());
+          setPersonSchedule(details.userid);
+        } catch (error) {
+          console.error('Error fetching user details:', error);
+        }
+      }
       carDet()
     }
   }, [session])
-  // console.log(renders)
-  const users = ['students', 'teachers', 'guides']
-  let [i, setI] = useState(0)
-    
-  // function nextI() { if (i < students.length - 1) { let iaux = i + 1; setI(iaux); } console.log(i) }
-  // function backI() { if (0 < i) { let iaux = i - 1; setI(iaux); } console.log(i) }
-  // function handleOnChange(user) {
-  //   if (user === 'students') { setRenders(students); setName('students') }
-  //   if (user === 'teachers') { setRenders(teachers); setName('teachers') }
-  //   if (user === 'guides') { setRenders(guides); setName('guides') }
-  //   setI(0)
-  // }
-
-
-  // Termina section de BD ahora viebne el codigo que usa los datos
-
-  /*
-Variable para renderizar la primera vuelta de los horarios disponibles en caso
-de que sea role:user con bg success o morado 
-*/
-  // let isFirstMeeting = true;
-
-
-
-
-
 
   function selectSchedule(meeting) {
     setNewMeeting(meeting)
 
   }
   //Function que asigna el horario al alumno en el calendario de profesor y del alumno
-
   async function Confirm() {
 
     const promises = [];
@@ -257,7 +232,6 @@ de que sea role:user con bg success o morado
     } catch (error) {
       console.log(error);
     }
-    //    console.log(personSchedule.schedule)
     router.push('/inicio/calendar');
   }
 
@@ -282,52 +256,22 @@ de que sea role:user con bg success o morado
     setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'))
   }
 
-  //let selectedDayMeetings = renders.schedule.filter((meeting) =>
-  // let selectedDayMeetings = renders.user.calendar.filter((meeting) =>
-  //   isSameDay(parseISO(meeting.startDatetime), selectedDay)
-  // )
-  // let selectedDayMeetings = meetings.filter((meeting) =>
-  //   isSameDay(parseISO(meeting.startDatetime), selectedDay)
-  // )
+  
+  if (!personSchedule|| Object.keys(personSchedule).length===0) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <Spinner />
+      </div>
+    )
+  } 
 
   return (
     <div className="pt-24">
       <div className=" max-w-4xl px-4 mx-auto sm:px-7 md:max-w-4xl md:px-4">
         <div className="md:grid md:grid-cols-2  md:divide-x md:divide-gray-200 grid grid-cols-2">
           <div className="md:pr-14">
-            {  console.log(personSchedule)}
-            {/* <div style={{ border: 'solid 1px red' }}> */}
-            {/* Menu Desplegable para tipo de usuarios */}
-            {/* <ul className={`${styles['select-languages_menu2']} ${styles['active']}`}> */}
-            {/*
-                  users.length > 0 &&
-                  users.map((user) => (
-                    <li
-                      onClick={() => handleOnChange(user)}
-                      value={user}
-                      className={styles["select-languages_languages"]}
-                      key={user}>
 
-
-                      {/* Label */}
-            {/*<label style={{ marginLeft: "8px" }}>
-                        {user}
-                      </label>
-                    </li>
-                  )
-                  )
-                }
-              {/* </ul> */}
-            {/* </div> */}
-
-            {/* <>{name}</> */}
-
-            {/* <button style={{ 'marginLeft': '16px', 'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={backI}>Anterior</button> */}
-            {/* <button style={{ 'marginLeft': '16px', 'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={nextI}>Siguiente</button> */}
-            {/* De aca inicia el componente real */}
             {renders ? <div>
-              {/* {console.log(personSchedule)} */}
-              {/* <Image alt={'student'} width={100} height={100} src={personSchedule.image}></Image> */}
               <Image alt={'student'} width={100} height={100} src={personSchedule?.image?.url || personSchedule?.image}></Image>
             </div> : null}
             <div className="flex items-center">
@@ -353,7 +297,6 @@ de que sea role:user con bg success o morado
               </button>
             </div >
             <div className="grid grid-cols-7 mt-10 text-base leading-6 text-center text-white bg-primary">
-              {/* <div className="grid grid-cols-7 mt-10 text-xs leading-6 text-center text-gray-500"> */}
               <div>Dom</div>
               <div>Lun</div>
               <div>Mar</div>
@@ -414,7 +357,7 @@ de que sea role:user con bg success o morado
               {renders?.user?.role === 'user' || renders?.user?.role.includes('user') || true ?
                 <>
                   {/* de aca viene el id del usuario donde va a renderizar el estado del teacher o guias
-                  con los datos del teacher o guia turistico, viene por redux */}
+                  con los datos del teacher o guia turistico, viene por redux  y por BD en caso de dar f5*/}
                   <div><strong> {personSchedule?.first_name}</strong></div>
 
                   {isAfter(selectedDay, today) && personSchedule?.calendar?.map((meeting, index) => {
@@ -425,7 +368,6 @@ de que sea role:user con bg success o morado
                           <button onClick={() => selectSchedule(meeting)}
                             className={classNames(
                               'focus:outline-none  hover:bg-success  font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900',
-                              // isFirstMeeting ? 'bg-success text-white ' : '  ring-2 text-primary hover:border-none border-primary hover:text-white',
                               newMeeting ? newMeeting.startDatetime === meeting.startDatetime ? 'bg-success text-white ' : '  ring-2 text-primary hover:border-none border-primary hover:text-white' : 'ring-2 text-primary hover:border-none border-primary hover:text-white',
                               newMeeting ? newMeeting.startDatetime !== meeting.startDatetime ? 'ring-2 text-primary hover:border-none border-primary hover:text-white' : 'bg-success text-white ' : null,
                             )} >
@@ -454,8 +396,6 @@ de que sea role:user con bg success o morado
             </div>
             {renders?.user?.role === 'guide' ? <>guia</> : null}
             {renders?.user?.role === 'teacher' ? <>teacher</> : null}
-
-            {/* {format(selectedDay, "yyyy-MM-dd HH:00:00")} */}
 
           </section>
 
@@ -565,23 +505,3 @@ let colStartClasses = [
   'col-start-6',
   'col-start-7',
 ]
-
-// h1 {
-//   disponible{
-//     1/0
-//   }
-//   ocupado{
-//     1/0
-//   }
-// }
-// 2 1 / 0
-// 3
-// 4
-// 5
-// 6
-// 7
-// 8
-// 8
-// 10
-// 11
-// 12

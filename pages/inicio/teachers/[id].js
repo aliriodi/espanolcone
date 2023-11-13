@@ -28,7 +28,7 @@ export default function TeacherDetailPage() {
      else{
         async function carDet() {
           try {
-          const details = await fetch('/api/users/65272226594ccf3fcf0e2043' ).then(response => response.json());
+          const details = await fetch('/api/users/'+id ).then(response => response.json());
           setcardDetail(details.userid);
         } catch (error) {
           console.error('Error fetching user details:', error);
@@ -38,7 +38,7 @@ export default function TeacherDetailPage() {
              }
   }, [cardDetail2,id]);
 
-  if (cardDetail.length===0 || Object.keys(cardDetail).length===0) {
+  if (!cardDetail||cardDetail.length===0 || Object.keys(cardDetail).length===0) {
     return (
       <div className="flex justify-center items-center min-h-screen">
         <Spinner />
