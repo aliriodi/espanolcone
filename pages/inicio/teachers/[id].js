@@ -44,7 +44,7 @@ export default function TeacherDetailPage() {
         <Spinner />
       </div>
     )
-  }
+  } 
 
   function  handleButton  () {
     router.push('/inicio/schedule/'+cardDetail._id);
