@@ -47,7 +47,7 @@ export default function Example() {
   let selectedDayMeetings = [];
 
   useEffect(() => {
-   update();
+   //update();
     if (session) {
       setRenders(session)
       setCalendar(session.user.calendar)
@@ -289,7 +289,7 @@ export default function Example() {
                       <Meeting meeting={meeting} key={meeting.id} />
                     ))
                   ) : (
-                    <p>No hay actividad agendada aún.</p>
+                    <li>No hay actividad agendada aún.</li>
                   )}
                 </ol></div>
             </div>
@@ -323,7 +323,7 @@ export default function Example() {
                         {/* {console.log(selectedDayMeetings)} */}
                         {/* {console.log(hoursOfDay)} */}
                         {/* {console.log(selectedDayMeetings)} */}
-                        {console.log(newcalendar)}
+                        {/* {console.log(newcalendar)} */}
                         {
 
                           hoursOfDay.length > 0 ? (
@@ -355,10 +355,10 @@ export default function Example() {
                   </div>
                 </section>
                 : null :
-              isEqual(selectedDay, today) ?
+              isEqual(selectedDay, today) && (renders?.user?.role.includes('teacher') || renders?.user?.role.includes('guides') ) ?
                 <span className='pt-14 '>
                   <h2 className="pt-20 font-semibold text-gray-900">Si desea planificar comuniquese con el Admin</h2></span> :
-                <span className='pt-14 '><h2 className="pt-20 font-semibold text-gray-900">No se puede planificar</h2></span>}
+               (renders?.user?.role.includes('teacher') || renders?.user?.role.includes('guides') ) ?  <span className='pt-14 '><h2 className="pt-20 font-semibold text-gray-900">No se puede planificar</h2></span>:null}
 
         </div>
       </div>

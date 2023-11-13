@@ -38,7 +38,7 @@ export default function Schedule() {
   //y sus calendarios y propiedades
   //1. en caso de ser user se trae todo los teachers y guias
   //Cargo usuario de BD
-  const { data: session, status } = useSession();
+  const { data: session, status ,update} = useSession();
   //2. en caso de ser teacher solo se trae su calendario con alumnos agendados y que pueda modificar sus horas disponibles
   //   no tiene derecho de cancelar clases esta replanificaion va con el departamento de profesores
   //3. en caso de ser guia turistico solo trae su calendario con sus clientes asignados, puede modificar sus horarios 
@@ -48,7 +48,7 @@ export default function Schedule() {
   const guide = require("./guides.json");
   const cardDetail = useSelector((state) => state.datos.cardDetail);
 
-
+  const [deltaTime,setDeltaTime]= useState(0)
   let [renders, setRenders] = useState('')
   let [personSchedule, setPersonSchedule] = useState({})
   //variable para asignar New Meeting en caso de asignar hora
@@ -72,10 +72,18 @@ export default function Schedule() {
     }
   }, [session])
 
+ 
+
   function selectSchedule(meeting) {
     setNewMeeting(meeting)
 
   }
+
+//Declaro diferencial de horario
+
+
+
+
   //Function que asigna el horario al alumno en el calendario de profesor y del alumno
   async function Confirm() {
 
@@ -87,7 +95,7 @@ export default function Schedule() {
       if (meeting.startDatetime === newMeeting.startDatetime) {
 
         // Desplazamiento horario en minutos (ejemplo para GMT-03)
-        const offsetMinutes1 = -3 * 60;
+        const offsetMinutes1 = meeting.utnCreated * 60;
         // Obtén el UTN actual en UTC
         const nowUTC = new Date().getTime();
         // Calcula el nuevo UTN ajustado
@@ -116,7 +124,6 @@ export default function Schedule() {
           }
         }
 
-
         //renders es el usuario que sera asignado al teacher
         newcalendar.push({
           assigned: true,
@@ -128,25 +135,13 @@ export default function Schedule() {
           email: renders.user.email,
           role: renders.user.role,
           locationscheduled: country,
-          locationCreated: personSchedule.locationCreated, //profesor o guia que creo el calendario ubicacion
-          utnCreated: personSchedule.utnCreated, //profesor o guia que creo el calendario horas
+          locationCreated: meeting.locationCreated, //profesor o guia que creo el calendario ubicacion
+          utnCreated: meeting.utnCreated, //profesor o guia que creo el calendario horas
           utnscheduled: offsetNumber,
           startDatetime: meeting.startDatetime,
           endDatetime: meeting.endDatetime,
         })
-
-        // meeting.assigned = true;
-        // meeting.iduser = renders.user._id
-        // meeting.nameuser = renders.user.first_name + ' ' + renders.user.last_name;
-        // meeting.first_name = renders.user.first_name;
-        // meeting.last_name = renders.user.last_name;
-        // meeting.image = renders.user.image;
-        // meeting.email = renders.user.email;
-        // meeting.role = renders.user.role;
-        // meeting.utnscheduled = offsetNumber;
-
         //aca asigno el profesor al calendario del alumno
-        // renders[i].schedule.push({
         renders.user.calendar.push({
           id: personSchedule['_id'],
           assigned: true,
@@ -157,10 +152,10 @@ export default function Schedule() {
           image: personSchedule.image,
           iduser: personSchedule.id,
           startDatetime: meeting.startDatetime,
-          endDatetime: meeting.endDatetime,
-          utnCreated: personSchedule.utnCreated,
+          endDatetime:   meeting.endDatetime,
+          utnCreated:    meeting.utnCreated,
           utnscheduled: offsetNumber,
-          locationCreated: personSchedule.locationCreated,
+          locationCreated: meeting.locationCreated,
           locationscheduled: country
 
         })
@@ -228,10 +223,12 @@ export default function Schedule() {
     alert('Su clase ha sido asignada')
     //Ejecuto todas las promesas
     try {
-      await Promise.all(promises);
+      const results = await Promise.all(promises);
+     
     } catch (error) {
       console.log(error);
     }
+   
     router.push('/inicio/calendar');
   }
 
