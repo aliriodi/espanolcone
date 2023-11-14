@@ -22,7 +22,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   languages: ['br', 'en', 'sp'],
   classid: '65285a70bb78bea94a6b1369',
-  classPage: 1,
+  classPage: 5,
   language: 'br',
   showClass: false,
   plan: 'plan1',
