@@ -1,4 +1,4 @@
-import { SortableContext, useSortable,rectSwappingStrategy, horizontalListSortingStrategy } from "@dnd-kit/sortable";
+import { SortableContext, useSortable,rectSwappingStrategy, horizontalListSortingStrategy, verticalListSortingStrategy } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { useEffect, useMemo, useState } from "react";
 import DragBox from "./DragBox";
@@ -7,6 +7,7 @@ import Image from "next/image";
 export default function DropContainer({
     dropUp,
     type,
+    typesDropsUps,
     dragBoxs
 })
 {
@@ -37,12 +38,6 @@ export default function DropContainer({
     
     return (
         <>
-
-            
-            <SortableContext
-            strategy={horizontalListSortingStrategy}
-            items={dragBoxsIds}>
-
                 {
                     // Tipo Imagen
                     type=="image" &&
@@ -79,13 +74,49 @@ export default function DropContainer({
                     </div>
                 }
 
+{
+                    // Tipo Dropup End
+                    type=="dropup-end" &&
+                    <div
+                    // ref={setNodeRef}
+                    className="flex my-[5px] items-center">
+
+                        <p
+                        className="text-[#6E6B7B] text-[1.33rem]"
+                        dangerouslySetInnerHTML={{ __html: dropUp?.content }}></p>
+
+
+                        <div
+                        ref={setNodeRef}
+                        style={style}
+                        className="rounded-[5px] w-[160px] border-solid border-[2px] bg-primary_flat_hover border-primary  min-h-[78px] flex justify-center">
+                            
+                            {dragBoxs?.map((dragBox) => (
+                                <DragBox
+                                    dropUpValue={dropUp?.value} 
+                                    key={dragBox.id}
+                                    dragBox={dragBox}
+                                />
+                                
+                            ))}
+                        </div>
+                    </div>
+                }
+
                 {
                     // Tipo Contenedor
                     type=="container" &&
                     <div
                     style={style}
                     ref={setNodeRef}
-                    className="rounded-[5px] border-solid border-[2px] bg-primary_flat_hover border-primary w-full min-h-[78px] flex justify-center">
+                    // className="rounded-[5px] border-solid border-[2px] bg-primary_flat_hover border-primary w-full min-h-[78px] flex justify-center my-[30px]"
+                    className={
+                        typesDropsUps != "image" ?
+                        "absolute right-0 flex-col translate-y-[-50%] top-1/2 rounded-[5px] border-solid border-[2px] bg-primary_flat_hover border-primary min-w-[78px] min-h-[100%] flex justify-center"
+                        :
+                        "rounded-[5px] border-solid border-[2px] bg-primary_flat_hover border-primary w-full min-h-[78px] flex justify-center my-[30px]"
+                    }
+                    >
                         {dragBoxs?.map((dragBox) => (
                             <DragBox
                                 dropUpValue={dropUp?.value} 
@@ -96,7 +127,8 @@ export default function DropContainer({
                         ))}
                     </div>
                 }
-            </SortableContext>
+
+            
         </>
     )
 }

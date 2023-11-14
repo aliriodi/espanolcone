@@ -1,32 +1,6 @@
-[{
-    "type": "dragable-box",
-    "value":[
-        {
-            "type":"DropUp",
-            "value":[
-                {
-                    "type":"image",
-                    "src":"Url",
-                    "value":"valor 1"
-                },
-                {
-                    "type":"text-start",
-                    "content":"Texto generico",
-                    "value":"valor 1"
-                }
-            ]
-        },
-        {
-            "type":"Drag",
-            "value":[
-                {
-                    "value":"valor 1"
-                }
-            ]
-        }
-    ],
-    "className": "dragable-box"
-},
+[
+
+"/////////////////////////// Con Imagen ///////////////////////////",
 {
     "type": "dragable-box",
     "value":{
@@ -78,4 +52,79 @@
         ]
     },
     "className": "dragable-box"
-}]
+},
+
+"/////////////////////////// DropUp al final ///////////////////////////",
+{
+    "type": "dragable-box",
+    "value":{
+        "DropUps":
+        [
+            {
+                "type":"dropup-end",
+                "content":"David <span style= 'color: orange;'>trabaja</span> muchas horas al día. ",
+                "value":"trabajar",
+                "id":"DropUp1"
+            },
+            {
+                "type":"dropup-end",
+                "content":"No <span style= 'color: orange;'>piensa</span> volver a su país. <span id='pensar'  ",
+                "value":"pensar",
+                "id":"DropUp2"
+            },
+            {
+                "type":"dropup-end",
+                "content":"<span style= 'color: orange;'>Reconozco</span> que aún tengo problemas con la lengua. ",
+                "value":"reconocer",
+                "id":"DropUp3"
+            },
+            {
+                "type":"dropup-end",
+                "content":"Bruna <span style= 'color: orange;'>estudia</span> medicina en la UNC. ",
+                "value":"estudiar",
+                "id":"DropUp4"
+            },
+            {
+                "type":"dropup-end",
+                "content":"Todavía no <span style= 'color: orange;'>entiende</span> perfectamente el  español.",
+                "value":"entender",
+                "id":"DropUp5"
+            },
+            {
+                "type":"dropup-end",
+                "content":"<span style= 'color: orange;'>Le cuesta</span> bastante la pronunciación. ",
+                "value":"costar",
+                "id":"DropUp6"
+            }
+        ],
+
+        "DragBoxs":[
+            {
+                "value":"trabajar",
+                "id":"DragBox1"
+            },
+            {
+                "value":"pensar",
+                "id":"DragBox2"
+            },
+            {
+                "value":"reconocer",
+                "id":"DragBox3"
+            },
+            {
+                "value":"estudiar",
+                "id":"DragBox4"
+            },
+            {
+                "value":"entender",
+                "id":"DragBox5"
+            },
+            {
+                "value":"costar",
+                "id":"DragBox6"
+            }
+        ]
+    },
+    "className": "dragable-box"
+}
+]

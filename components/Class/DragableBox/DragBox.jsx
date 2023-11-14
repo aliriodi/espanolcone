@@ -37,7 +37,8 @@ export default function DragBox (props){
         ${dropUpValue == "container" && "bg-primary"}
         ${dropUpValue != "container" && dropUpValue == props.dragBox.value && "bg-secondary"}
         ${dropUpValue != "container" && dropUpValue != props.dragBox.value && "bg-danger"}
-         rounded-md text-white p-4 m-2 text-center min-h-[58px] inline-block`}>
+         rounded-md text-white p-4 m-2 text-center min-h-[58px] inline-block cursor-grab
+         active:cursor-grabbing`}>
             {props.dragBox.value}
         </div>
     )

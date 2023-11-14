@@ -1,12 +1,15 @@
-import { DndContext, closestCenter, MouseSensor, TouchSensor, useSensor  } from '@dnd-kit/core';
-import { SortableContext, arrayMove, horizontalListSortingStrategy, rectSortingStrategy} from '@dnd-kit/sortable';
+import { DndContext, closestCenter, MouseSensor, TouchSensor, useSensor, useSensors, PointerSensor  } from '@dnd-kit/core';
+import { SortableContext, arrayMove, horizontalListSortingStrategy, rectSortingStrategy, verticalListSortingStrategy} from '@dnd-kit/sortable';
 import { useEffect, useState, useMemo } from 'react';
 import DragBox from './DragBox';
 import DropContainer from './DropContainer';
 
 
 export default function DragableBox( props ){
-    const sensor = useSensor(MouseSensor, TouchSensor);
+    // const sensors = useSensor(MouseSensor, TouchSensor);
+
+    const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor));
+
 
     // Opciones
     const [options, setOptions] = useState([
@@ -59,17 +62,18 @@ export default function DragableBox( props ){
                 let overDropContainer = dropUpContainer?.filter((dropUp)=> dropUp.id == options[overIndex].dropUpId)[0]
 
                 // En caso de estar dobre otro DragBox y no estar en el contenedor
-                if(overDropContainer?.id != "container") return options;
-                // if(overDropContainer?.id != "container")
-                // {
-                //     let activeId = options[activeIndex].dropUpId;
-                //     let overId = options[overIndex].dropUpId;
+                // if(overDropContainer?.id != "container") return options;
+                console.log("hoal")
+                if(overDropContainer?.id != "container")
+                {
+                    let activeId = options[activeIndex].dropUpId;
+                    let overId = options[overIndex].dropUpId;
 
-                //     options[activeIndex].dropUpId = overId;
-                //     options[overIndex].dropUpId = activeId;
+                    options[activeIndex].dropUpId = overId;
+                    options[overIndex].dropUpId = activeId;
 
-                //     return arrayMove(options, activeIndex, overIndex - 1);
-                // }
+                    return arrayMove(options, activeIndex, overIndex - 1);
+                }
                 
                 options[activeIndex].dropUpId = options[overIndex].dropUpId;
                 return arrayMove(options, activeIndex, overIndex - 1);
@@ -108,12 +112,17 @@ export default function DragableBox( props ){
         const isOverADragBox = over.data.current?.type === "DragBox";
     }
 
+
+    // const dragBoxsIds = useMemo(() => {
+    //     return dragBoxs?.map((dragBox) => dragBox.id);
+    // }, [dragBoxs]);    
+
     if(dropUpContainer?.length < 0) return(null)
 
     return(
         // Contexto
         <DndContext 
-            sensor={[sensor]}
+            sensor={sensors}
             collisionDetection={closestCenter}
             onDragOver={handleDragOver}
             onDragEnd={handleDragEnd}>
@@ -122,18 +131,28 @@ export default function DragableBox( props ){
                 <div className='w-full'>
                     
 
-                    <div className='flex flex-wrap relative justify-between '>
+                    <div className={`flex flex-wrap relative justify-between 
+                    ${dropUpContainer[0].type == "dropup-end" && "flex-col"}`}>
+                         
+                    <SortableContext
+                    strategy={dropUpContainer[0].type == "image" ? horizontalListSortingStrategy : rectSortingStrategy}
+                    // strategy={rectSortingStrategy}
+                    items={options}>
+
                             {dropUpContainer.length > 0 &&
                             dropUpContainer.map((dropUp)=>
                                 <DropContainer
                                     dropUp={dropUp}
                                     key={dropUp.id}
                                     type={dropUp.type}
+                                    typesDropsUps={dropUpContainer[0].type}
                                     
                                     // se le pasan las respectivas opciones que corresponden a cada  contenedor
                                     dragBoxs={options?.filter((option) => option.dropUpId === dropUp.id)}/>
                             )
                         }
+
+                    </SortableContext>
                     </div>
                     {/* Contenedores de Opciones */}
                     {/* <SortableContext
