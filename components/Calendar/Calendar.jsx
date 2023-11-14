@@ -256,7 +256,7 @@ export default function Example() {
                       (isSameDay(parseISO(meeting.startDatetime), day) && !meeting.assigned) ||
                       (newcalendar.some((meeting1) => isSameDay(parseISO(meeting1.startDatetime), day) && !meeting1.assigned)
                       )) && (
-                        <div className="w-1 h-1 rounded-full bg-red-500  "></div>
+                        <div className="w-1 h-1 rounded-full bg-secondary  "></div>
                       )}
 
 
@@ -318,7 +318,7 @@ export default function Example() {
                     <h2 className="font-semibold text-gray-900">
                       Planificar Agenda{' '}
                     </h2>
-                    <div className=''>
+                    <div className='border-none'>
                       <ol className="">
                         {/* {console.log(selectedDayMeetings)} */}
                         {/* {console.log(hoursOfDay)} */}
@@ -330,14 +330,14 @@ export default function Example() {
                             hoursOfDay.slice(i * 6, (i + 1) * 6).map((meeting, index) => (
                               <button key={index} onClick={() => addNewElement(meeting)}
                                 className={classNames(
-                                  'focus:outline-none    font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900 ring-2 text-primary hover:border-none border-primary hover:text-white ',
+                                  'focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 mb-2 text-primary hover:text-white hover:bg-primary border-solid border-[2px] border-primary transition-all',
 
                                   // isFirstMeeting ? 'bg-success text-white ' : '  ring-2 text-primary hover:border-none border-primary hover:text-white',
                                   //  newMeeting ? newMeeting.startDatetime === meeting.startDatetime ? 'bg-success text-white ' : '  ring-2 text-primary hover:border-none border-primary hover:text-white' : 'ring-2 text-primary hover:border-none border-primary hover:text-white',
                                   //  newMeeting ? newMeeting.startDatetime !== meeting.startDatetime ? 'ring-2 text-primary hover:border-none border-primary hover:text-white' : 'bg-success text-white ' : null,
                                   selectedDayMeetings.some((meeting1) => meeting1.startDatetime === meeting.startDatetime && meeting1.assigned)
-                                  && 'border-red-500 border-solid border-2 hover:border-primary',
-                                  newcalendar.some((meeting1) => meeting1.startDatetime === meeting.startDatetime) && 'border-red-500 border-solid border-2 hover:border-primary'
+                                  && 'border-red-500 border-solid border-[2px] hover:border-primary',
+                                  newcalendar.some((meeting1) => meeting1.startDatetime === meeting.startDatetime) && 'border-red-500 border-solid border-[2px] hover:border-primary'
                                 )}
 
                                 //Para deshabilitar el boton cuando haya meeting

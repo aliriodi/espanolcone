@@ -27,7 +27,7 @@ export default function Meeting({ meeting ,assigned}) {
     let endDateTime = parseISO(meeting.endDatetime)
   
     return (
-      <li className="flex items-center px-4 py-2 space-x-4 group rounded-xl focus-within:bg-gray-100 hover:bg-gray-100">
+      <li className="flex items-center px-4 py-2 space-x-4 group rounded-xl ">
         {/* <Image
           src={meeting?.image?.url || meeting?.image}
           alt="img"
