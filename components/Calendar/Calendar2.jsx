@@ -25,6 +25,12 @@ import {
 } from 'date-fns'
 import Image from 'next/image'
 import { Fragment, useState, useEffect } from 'react'
+import ModalPago from '../ModalPago';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMoneyBill } from '@fortawesome/free-solid-svg-icons';
+
+
+
 
 
 function classNames(...classes) {
@@ -53,6 +59,22 @@ export default function Schedule() {
   let [personSchedule, setPersonSchedule] = useState({})
   //variable para asignar New Meeting en caso de asignar hora
   let [newMeeting, setNewMeeting] = useState()
+
+  const [isPaymentConfirmed, setIsPaymentConfirmed] = useState(false);
+  const [paymentCancelled, setPaymentCancelled] = useState(false);
+
+  const handlePaymentSuccess = () => {
+    setIsPaymentConfirmed(true);
+    setPaymentCancelled(false); // Asegúrate de restablecer el otro estado
+  };
+  
+  const handlePaymentCancel = () => {
+    setIsPaymentConfirmed(false);
+    setPaymentCancelled(true); // Asegúrate de restablecer el otro estado
+  };
+
+
+
   const { id } = router.query;
   useEffect(() => {
     setRenders(session)
@@ -77,6 +99,16 @@ export default function Schedule() {
   function selectSchedule(meeting) {
     setNewMeeting(meeting)
 
+  }
+
+  const [paypalModal, setPaypalModal] = useState(false)
+
+  const openPaypalModal = () =>{
+      setPaypalModal(true)
+  }
+
+  const handleChangePaypalModal = (data) =>{
+      setPaypalModal(data)
   }
 
 //Declaro diferencial de horario
@@ -262,6 +294,9 @@ export default function Schedule() {
     )
   } 
 
+
+  
+
   return (
     <div className="pt-24">
       <div className=" max-w-4xl px-4 mx-auto sm:px-7 md:max-w-4xl md:px-4">
@@ -292,7 +327,7 @@ export default function Schedule() {
                 <span className="sr-only">Next month</span>
                 <ChevronRightIcon className="w-5 h-5" aria-hidden="true" />
               </button>
-            </div >
+            </div>
             <div className="grid grid-cols-7 mt-10 text-base leading-6 text-center text-white bg-primary">
               <div>Dom</div>
               <div>Lun</div>
@@ -385,8 +420,53 @@ export default function Schedule() {
                   })}
 
                   {/* Si existe meeting par asignar renderiza button confirmar citas*/}
-                  {isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) &&
-                    <button type="button" onClick={() => Confirm()} className='focus:outline-none  bg-primary text-white font-medium rounded-lg te t-sm px-5 py-2.5 mb-2 '>Confirma </button>}
+                  {/* {isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) &&
+                    <button type="button" onClick={() => Confirm()} className='focus:outline-none  bg-primary text-white font-medium rounded-lg te t-sm px-5 py-2.5 mb-2 '>Confirma </button>} */}
+                  
+                  
+                  {/* <div>hola</div>
+                  <p>
+                  <button
+                                onClick={openPaypalModal}
+                                className={`flex w-full items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
+                                 "bg-primary text-white"}
+                                hover:bg-primary hover:text-white`}
+
+                            >
+                                <FontAwesomeIcon icon={faMoneyBill} className="mr-[10px]" />
+                                <p>Reserva tu Cita</p>
+                            </button> 
+
+                            <ModalPago modalPaypal={handleChangePaypalModal} open={paypalModal}/>
+                  </p> */}
+
+                  {/* Si existe un meeting para asignar y el pago ha sido confirmado, renderiza el botón de confirmar citas */}
+
+                  {isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) && isPaymentConfirmed &&
+  <button type="button" onClick={() => Confirm()} className='focus:outline-none bg-primary text-white font-medium rounded-lg text-sm px-5 py-2.5 mb-2'>Confirma</button>
+}
+
+{
+  !isPaymentConfirmed && <p>
+    {/* Botón para abrir el modal de PayPal */}
+    <button
+      onClick={openPaypalModal}
+      className="flex w-full items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all bg-primary text-white hover:bg-primary hover:text-white"
+    >
+      <FontAwesomeIcon icon={faMoneyBill} className="mr-[10px]" />
+      <p>Reserva tu Cita</p>
+    </button>
+
+    {/* Modal de Pago */}
+    <ModalPago 
+    onPaymentSuccess={handlePaymentSuccess} 
+    onPaymentCancel={handlePaymentCancel} 
+    modalPaypal={handleChangePaypalModal} 
+    open={paypalModal} 
+    />
+  </p>
+}
+
                 </>
 
                 : null}
