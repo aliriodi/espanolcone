@@ -169,7 +169,8 @@ const Menu = (props) => {
         }
 
             {/* Menu */}
-            <div className={`bg-white fixed ${!isOpen ? "left-[-300px]" : "left-0"} max-w-[277px] px-1 py-1 h-screen z-[60] shadow-[0px_0px_15px_#0000000D] transition-all`}>
+            <div className={`bg-white fixed ${!isOpen ? "left-[-300px]" : "left-0"} max-w-[277px] px-1 py-1 h-screen z-[60] shadow-[0px_0px_15px_#0000000D] transition-all
+            md:text-[14px]`}>
 
                 {/* Opciones */}
                 <nav className="my-8 flex flex-row-reverse  h-full justify-between" style={{ fontWeight: '500' }}>
