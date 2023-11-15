@@ -18,7 +18,8 @@ export default function Profile(){
         md:px-[25px]'>
 
             {/* Parte Superior */}
-            <div className='w-full h-[410px] rounded-[10px] overflow-hidden flex flex-col shadow-[0_1px_2px_#00000033]'
+            <div className='w-full h-[410px] rounded-[10px] overflow-hidden flex flex-col shadow-[0_1px_2px_#00000033]
+            md:h-[310.92px]'
             style={{ background: 'linear-gradient(38.12deg, #33bb99, #4CCFEB )' }}>
 
                 {/* Fondo de Perfil */}
@@ -28,7 +29,8 @@ export default function Profile(){
                     
                     {session?.user?.image?.url ?
                         <Image
-                        className='bg-gray_clear w-[125px] h-[125px] bottom-[-11px] relative rounded-[10px] object-cover'
+                        className='bg-gray_clear w-[125px] h-[125px] bottom-[-11px] relative rounded-[10px] object-cover
+                        md:w-[100px] md:h-[100px]'
                         src={session?.user?.image?.url}
                         width={125}
                         height={125}/>
@@ -40,19 +42,23 @@ export default function Profile(){
 
                     <div className='ml-[15px]'>
                         {/* Nombre */}
-                        <p className='text-[24px] text-white font-medium'>{session?.user?.first_name}</p>
+                        <p className='text-[24px] text-white font-medium
+                        md:text-[18px]'>{session?.user?.first_name}</p>
 
                         {/* Apellido */}
-                        <p className='text-[24px] text-white font-medium'>{session?.user?.last_name}</p>
+                        <p className='text-[24px] text-white font-medium
+                        md:text-[18px]'>{session?.user?.last_name}</p>
 
                         {/* Email */}
-                        <p className='text-white'>{session?.user?.email}</p>
+                        <p className='text-white
+                        md:text-[12px]'>{session?.user?.email}</p>
                     </div>
                 </div>
 
                 {/* Edicion de perfil */}
                 <div className='bg-white p-[12px] flex justify-end '>
-                    <Link href={"./profile/edit"} className='btn-primary px-[55px] py-[9px]'>
+                    <Link href={"./profile/edit"} className='btn-primary px-[55px] py-[9px]
+                    md:text-[14px] md:px-[40px]'>
                         Editar
                         <FontAwesomeIcon className='ml-[6px]' icon={faPenToSquare}/>
                     </Link>
@@ -61,10 +67,12 @@ export default function Profile(){
             </div>
 
             {/* Parte Inferior */}
-            <div className='flex mt-[24px] w-full justify-between'>
+            <div className='flex mt-[24px] w-full justify-between
+            md:flex-col'>
 
                 {/* Parte de la Izquierda */}
-                <div className='bg-white w-[45%] rounded-[10px] overflow-hidden shadow-[0px_4px_24px_#0000000F]'>
+                <div className='bg-white w-[45%] rounded-[10px] overflow-hidden shadow-[0px_4px_24px_#0000000F]
+                md:w-full'>
                     {/* Acerca de Mi */}
                     <div className='bg-white relative px-[22px] py-[26px]'>
                         <p className='text-[18px] text-title_color font-medium border-b-2 py-2'>Acerca de Mi</p>
@@ -72,11 +80,13 @@ export default function Profile(){
                         {
                             session?.user?.content
                             ?
-                            <p className='text-violet_dark py-2'>
+                            <p className='text-violet_dark py-2 
+                            md:text-[14px]'>
                                 {session?.user?.content}
                             </p>
                             :
-                            <p className='text-[#B9B9C3]'>
+                            <p className='text-[#B9B9C3] 
+                            md:text-[14px]'>
                                 Sin descripsion
                             </p>
 
@@ -85,7 +95,8 @@ export default function Profile(){
                 </div>
 
                 {/* Parte de la Derecha */}
-                <div className='bg-white w-[52%] rounded-[10px] relative px-[22px] py-[26px] shadow-[0px_4px_24px_#0000000F]'>
+                <div className='bg-white w-[52%] rounded-[10px] relative px-[22px] py-[26px] shadow-[0px_4px_24px_#0000000F]
+                md:w-full md:mt-2'>
                     <p className='text-[18px] text-title_color font-medium border-b-2 py-2'>Certificado</p>
 
                     {/* Certificado */}
