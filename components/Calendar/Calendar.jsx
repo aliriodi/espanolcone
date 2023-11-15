@@ -176,14 +176,16 @@ export default function Example() {
       <div className="px-[60px] flex justify-between
       sm:px-7 md:max-w-6xl md:px-[25px]">
 
-        <div className="flex justify-between w-full">
+        <div className="flex justify-between w-full
+        md:flex-col">
 
           {/* Calesndario */}
-          <div className="bg-white rounded-[5px] p-[16px] w-[60%] shadow-[0px_4px_24px_#18292F1A]">
+          <div className="bg-white rounded-[5px] p-[16px] w-[60%] shadow-[0px_4px_24px_#18292F1A]
+          md:w-full md:mb-4">
 
             <div className="flex flex-col">
 
-              <h2>Selecciona una fecha</h2>
+              <h2 className='md:text-[18px]'>Selecciona una fecha</h2>
 
               <div className='flex mt-[16px]'>
 
@@ -222,7 +224,8 @@ export default function Example() {
               </div>
 
             {/* Encabezado de Dias */}
-            <div className="grid grid-cols-7 mt-[15px] text-base leading-6 text-center text-white bg-primary">
+            <div className="grid grid-cols-7 mt-[15px] text-base leading-6 text-center text-white bg-primary
+            md:text-[14px]">
               {/* <div className="grid grid-cols-7 mt-10 text-xs leading-6 text-center text-gray-500"> */}
               <div>Dom</div>
               <div>Lun</div>
@@ -301,11 +304,11 @@ export default function Example() {
 
                   <div className='max-w-fit grid grid-cols-1 divide-x object-none object-right-top mt-10'>
 
-                    <h2>
+                    <h2 className='md:text-[18px]'>
                       Selecciona un Horario
                     </h2>
 
-                    <div className='border-none'>
+                    <div className='border-none md:text-[14px]'>
 
                       
                       {/* Botones de Turnos */}
@@ -336,7 +339,8 @@ export default function Example() {
                       }
                       
                       {/* Horarios */}
-                      <ul className="flex  flex-wrap">
+                      <ul className="flex  flex-wrap
+                      md:justify-center">
                         {
                           hoursOfDay.length > 0 ? (
                             hoursOfDay.slice(i * 6, (i + 1) * 6).map((meeting, index) => (
@@ -368,24 +372,33 @@ export default function Example() {
                 
               :
               isEqual(selectedDay, today) && (renders?.user?.role.includes('teacher') || renders?.user?.role.includes('guides') ) ?
+
                 <span className='pt-14 '>
-                  <h2 className="pt-20 font-semibold text-gray-900">Si desea planificar comuniquese con el Admin</h2></span> :
+                  <h2 className="py-20 text-gray_clear text-center
+                  md:text-[18px]">
+                    Si desea planificar comuniquese con el Admin
+                  </h2>
+                </span>
+                :
                (renders?.user?.role.includes('teacher') || renders?.user?.role.includes('guides') ) ?  <span className='pt-14 '><h2 className="pt-20 font-semibold text-gray-900">No se puede planificar</h2></span>:null}
 
           </div>
 
           {/* Agenda de Meetings */}
-          <div className="bg-white shadow-[0px_4px_24px_#18292F1A] w-[38%] rounded-[5px] p-[16px]">
+          <div className="bg-white shadow-[0px_4px_24px_#18292F1A] w-[38%] rounded-[5px] p-[16px]
+          md:w-full md:mb-4">
 
-            <div className='flex justify-between mb-5'>
+            {/* Titulo */}
+            <div className='flex justify-between mb-5
+            md:flex-col'>
 
-              <h2 className="">
+              <h2 className='md:text-[18px]'>
 
                 Agenda de Reuniones
 
               </h2>
 
-              <h3 className="">
+              <h3 className='md:text-[15px]'>
                 <time dateTime={format(selectedDay, 'yyyy-MM-dd')}>
                   {format(selectedDay, 'MMM dd, yyy', { locale: es }).charAt(0).toUpperCase() + format(selectedDay, 'MMM dd, yyy', { locale: es }).slice(1)}
                 </time>
@@ -429,7 +442,8 @@ function Meeting({ meeting }) {
   useEffect(()=>console.log(meeting),[])
 
   return (
-    <li className="flex items-center px-4 py-2 space-x-4 group focus-within:bg-gray-100 hover:bg-gray-100 border-b-2">
+    <li className="flex items-center px-4 py-2 space-x-4 group focus-within:bg-gray-100 hover:bg-gray-100 border-b-2 last-of-type:border-none
+    md:flex-col">
 
       {/* Imagen de Perfil */}
 
@@ -452,11 +466,18 @@ function Meeting({ meeting }) {
       </div>
 
       {/* Datos del usuario */}
-      <div className="flex justify-between w-full">
+      <div className="flex justify-between w-full
+      md:flex-col md:items-center">
         {meeting.assigned ? true : <p className="text-gray-900">Meeting no asignado aún</p>}
 
+        {/* Nombre */}
         <p className="text-gray-900">{meeting.first_name + ' ' + meeting.last_name}</p>
-        <p className="text-gray-900">{meeting.role[0]}</p>
+
+        {/* Role */}
+        <p className="text-gray-900
+        md:hidden">{meeting.role}</p>
+
+        {/* Hora */}
         <p className="mt-0.5 text-primary">
           <time dateTime={meeting.startDatetime}>
             {format(startDateTime, 'h:mm a')}
