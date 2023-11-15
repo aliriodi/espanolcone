@@ -118,12 +118,15 @@ export default function Schedule() {
 
   //Function que asigna el horario al alumno en el calendario de profesor y del alumno
   async function Confirm() {
+//sb-x747sj28200220@personal.example.com
+//Px4q]_[X
+//https://sandbox.paypal.com
 
     const promises = [];
     const newcalendar = [];
     //Teacher o guia turistico apeando las citas del calendario para asignarlo
     // a un nuevo calendario asignado la fecha
-    personSchedule.calendar.map(meeting => {
+   await personSchedule.calendar.map(meeting => {
       if (meeting.startDatetime === newMeeting.startDatetime) {
 
         // Desplazamiento horario en minutos (ejemplo para GMT-03)
