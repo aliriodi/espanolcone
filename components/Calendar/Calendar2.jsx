@@ -450,7 +450,8 @@ export default function Schedule() {
 }
 
 {
-  !isPaymentConfirmed && <p>
+  !isPaymentConfirmed && isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) && 
+  <p>
     {/* Botón para abrir el modal de PayPal */}
     <button
       onClick={openPaypalModal}
@@ -462,10 +463,10 @@ export default function Schedule() {
 
     {/* Modal de Pago */}
     <ModalPago 
-    onPaymentSuccess={handlePaymentSuccess} 
-    onPaymentCancel={handlePaymentCancel} 
-    modalPaypal={handleChangePaypalModal} 
-    open={paypalModal} 
+      onPaymentSuccess={handlePaymentSuccess} 
+      onPaymentCancel={handlePaymentCancel} 
+      modalPaypal={handleChangePaypalModal} 
+      open={paypalModal} 
     />
   </p>
 }

@@ -1,0 +1,128 @@
+{
+    "page1": {
+        "type": "text",
+        "section": {
+            "number":0,
+            "value":"Mis Metas"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697578474/images/template3_hdoriw.png",
+        "data": [
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366258/images/logo_etoaae.png",
+                "alt": "EspañolconE",
+                "className": "Portadaimg"
+            },
+            {
+                "type": "title",
+                "value": "TREKKING Y SENDERISMO EN CÓRDOBA",
+                "className": "TITLE-P0-BLACK"
+            },
+            {
+                "type": "level",
+                "value": "NIVEL B1",
+                "className": "titleBlack"
+            }
+        ]
+    },
+    "page2": {
+        "type": "text",
+        "section": {
+            "number": 0,
+            "value": "Mis Metas"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "¿Qué voy a aprender en esta unidad?",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "<table style= 'border: 2px solid black;' ><tr  style=' background-color: var(--primary); border: 2px solid black;' ><th style= 'border: 2px solid black;width:30%;' ><h2><strong style='color:black;'>Comunicación</strong></h2></th><th style= ' border: 2px solid black;width:20%' ><h2><strong style='color:black;'>Vocabulario</strong></h2></th><th style= 'border: 2px solid black; width:30%' ><h2><strong style='color:black;'>Gramática</strong></h2></th></tr><tr><td style= 'border: 2px solid black;' > <ul> <li>*Describir lugares turísticos naturales (lugares de Córdoba).</li>  <li>*Hablar de trekking y senderismo en Córdoba.</li> <li>*Preguntar y responder sobre el estado físico y sobre el estado de salud.</li><li>*Describir los síntomas de una enfermedad.</li><li>*Dar consejos y recomendaciones para estar en buenas condiciones físicas.</li><li>*Dar advertencias y recomendaciones para hacer senderismo.</li></ul> </td><td style= 'border: 2px solid black;' ><ul> <li>*Nombres de lugares turísticos y rutas de Trekking y Senderismo en Córdoba.</li>  <li> *Vocabulario relacionado con la naturaleza, trekking y senderismo.</li> <li>*Estados de salud y partes del cuerpo humano.</li> <li>*Palabras y frases relacionadas con el cuerpo humano.</li> <li>*Dolores y molestias físicas relacionadas con el sedentarismo.</li> <li>*Dolencias, alergias, intolerancias y enfermedades.</li></ul></td><td style= 'border: 2px solid black; ' ><ul> <li>*Imperativos afirmativos y negativos: morfología y algunos usos del imperativo afirmativo y negativo.</li>  <li>*Oraciones condicionales: si + presente.</li> <li>*Usos impersonales de tú en las construcciones con si y con cuando.</li> <li>*(No) debes / deberías … + infinitivo / (No) hay que … + infinitivo.</li>  <li>* Algunos usos de poder + infinitivo en recomendaciones.</li> <li>*El uso de los artículos con nombres de partes del cuerpo.</li> <li>* Adverbios en -mente y locuciones adverbiales de forma + adjetivo.</li> <li>* Relacionar ideas: sin embargo, a pesar de que, ya que …</li></ul></td></tr></table>",
+                "className": "table"
+            }
+    ]
+    },
+    "page3": {
+        "type": "text",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Veremos un video sobre una escapadita para hacer trekking en La Quebrada del Condorito, Córdoba. Miralo y responde las preguntas que aparecen allí seleccionando si son verdaderas o falsas",
+                "className": "titleleft-white"
+            }
+        ]
+    },
+    "page4": {
+        "type": "video",
+        "section": {
+            "number": 2,
+            "value": "Aprendemos"
+        },
+        "template": "template-video-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Video explicativo",
+                "className": "title-white"
+            },
+            {
+                "type": "video-youtube",
+                "value": "",
+                "className": "",
+                "youtuve": ""
+            }
+        ]
+    },
+    "page5": {
+        "type": "text",
+        "section": {
+            "number": 2,
+            "value": "Practiquemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Video Interactivo",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "<p style='color: orange'>En el siguiente video completa las actividades escribiendo la parte del cuerpo que se nombra en el video.</p>",
+                "className": "className"
+            },
+            {
+                "type": "video-youtube",
+                "value": "",
+                "youtuve": "",
+                "className": ""
+            }
+        ]
+    },
+    "page6": {
+       "type": "text",
+       "section": {
+           "number": 2,
+           "value": "Practiquemos"
+       },
+       "template": "template-title-top-1",
+       "data": [
+           {
+               "type": "title",
+               "value": "Video Interactivo",
+               "className": "title-white"
+           }
+       ]
+    },
+    "page7": {
+
+    }
+}

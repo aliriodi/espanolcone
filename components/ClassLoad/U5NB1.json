@@ -5,24 +5,561 @@
             "number":0,
             "value":"Mis Metas"
         },
-        "template": "",
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697578474/images/template3_hdoriw.png",
         "data": [
             {
                 "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366262/images/logo-primary_qoagkg.png",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366258/images/logo_etoaae.png",
                 "alt": "EspañolconE",
-                "className": "Portadaimg"
+                "className": "image-p0"
             },
             {
                 "type": "title",
                 "value": "TREKKING Y SENDERISMO EN CÓRDOBA",
-                "className": "Portadatil"
+                "className": "TITLE-P0-BLACK"
             },
             {
                 "type": "level",
                 "value": "NIVEL B1",
-                "className": "Portadalev"
+                "className": "TITLE-P0-BLACK"
             }
         ]
+    },
+    "page2": {
+        "type": "text",
+        "section": {
+            "number": 0,
+            "value": "Mis Metas"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "¿Qué voy a aprender en esta unidad?",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "<table style= 'border: 2px solid black;' ><tr  style=' background-color: var(--primary); border: 2px solid black;' ><th style= 'border: 2px solid black;width:30%;' ><h2><strong style='color:black;'>Comunicación</strong></h2></th><th style= ' border: 2px solid black;width:20%' ><h2><strong style='color:black;'>Vocabulario</strong></h2></th><th style= 'border: 2px solid black; width:30%' ><h2><strong style='color:black;'>Gramática</strong></h2></th></tr><tr><td style= 'border: 2px solid black;' > <ul> <li>*Describir lugares turísticos naturales (lugares de Córdoba).</li>  <li>*Hablar de trekking y senderismo en Córdoba.</li> <li>*Preguntar y responder sobre el estado físico y sobre el estado de salud.</li><li>*Describir los síntomas de una enfermedad.</li><li>*Dar consejos y recomendaciones para estar en buenas condiciones físicas.</li><li>*Dar advertencias y recomendaciones para hacer senderismo.</li></ul> </td><td style= 'border: 2px solid black;' ><ul> <li>*Nombres de lugares turísticos y rutas de Trekking y Senderismo en Córdoba.</li>  <li> *Vocabulario relacionado con la naturaleza, trekking y senderismo.</li> <li>*Estados de salud y partes del cuerpo humano.</li> <li>*Palabras y frases relacionadas con el cuerpo humano.</li> <li>*Dolores y molestias físicas relacionadas con el sedentarismo.</li> <li>*Dolencias, alergias, intolerancias y enfermedades.</li></ul></td><td style= 'border: 2px solid black; ' ><ul> <li>*Imperativos afirmativos y negativos: morfología y algunos usos del imperativo afirmativo y negativo.</li>  <li>*Oraciones condicionales: si + presente.</li> <li>*Usos impersonales de tú en las construcciones con si y con cuando.</li> <li>*(No) debes / deberías … + infinitivo / (No) hay que … + infinitivo.</li>  <li>* Algunos usos de poder + infinitivo en recomendaciones.</li> <li>*El uso de los artículos con nombres de partes del cuerpo.</li> <li>* Adverbios en -mente y locuciones adverbiales de forma + adjetivo.</li> <li>* Relacionar ideas: sin embargo, a pesar de que, ya que …</li></ul></td></tr></table>",
+                "className": "table"
+            }
+    ]
+    },
+    "page3": {
+        "type": "videoInteractivo",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Veremos un video sobre una escapadita para hacer trekking en La Quebrada del Condorito, Córdoba. Miralo y responde las preguntas que aparecen allí seleccionando si son <span style='color:orange'><u>verdaderas</u></span> o <span style='color:orange'><u>falsas</u></span>",
+                "className": "title-white"
+            },
+            {
+                "type": "video-youtube",
+                "id": "iOI1pcA0Aks",
+                "value": "iOI1pcA0Aks",
+                "youtuve": "https://youtu.be/iOI1pcA0Aks",
+                "popups": [
+                    {
+                        "time": 28,
+                        "title": "Cuando ella dice que la caminata es “tranqui”, quiere decir que cualquier persona puede hacer el trekking",
+                        "reply": "Verdadero",
+                        "message": "(verdadero/falso)",
+                        "type": "checkbox",
+                        "options": [
+                            "Verdadero",
+                            "Falso"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value":0
+                    },
+                    {
+                        "time": 51,
+                        "title": "Tenés que hacer la caminata obligatoriamente con un guía turístico",
+                        "reply": "Falso",
+                        "message": "(verdadero/falso)",
+                        "type": "checkbox",
+                        "options": [
+                            "Verdadero",
+                            "Falso"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value":0
+
+                    },
+                    {
+                        "time": 73,
+                        "title": "No podés usar ningún tipo de vehículo para hacer el recorrido",
+                        "reply": "Verdadero",
+                        "message": "(verdadero/falso)",
+                        "type": "checkbox",
+                        "options": [
+                            "Verdadero",
+                            "Falso"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value":0
+
+                    },
+                    {
+                        "time": 124,
+                        "title": "Cuando llegás al balcón sur, podés ver cóndores, jotes y otras aves",
+                        "reply": "Falso",
+                        "message": "(verdadero/falso)",
+                        "type": "checkbox",
+                        "options": [
+                            "Verdadero",
+                            "Falso"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value":0
+
+                    },
+                    {
+                        "time": 152,
+                        "title": "En el mirador hay lugares designados para tirar la basura allá",
+                        "reply": "Falso",
+                        "message": "(verdadero/falso)",
+                        "type": "checkbox",
+                        "options": [
+                            "Verdadero",
+                            "Falso"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value":0
+
+                    }
+                ],
+                "className": "youtube"
+            },
+            {
+
+            }
+        ]
+    },
+    "page4": {
+        "type": "video",
+        "section": {
+            "number": 2,
+            "value": "Aprendemos"
+        },
+        "template": "template-video-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Video explicativo",
+                "className": "title-white"
+            },
+            {
+                "type": "video-youtube",
+                "value": "yGR79X6o5gU",
+                "youtuve": "https://youtu.be/yGR79X6o5gU",
+                "className": "youtube"
+            }
+        ]
+    },
+    "page5": {
+        "type": "videoInteractivo",
+        "section": {
+            "number": 3,
+            "value": "Practiquemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Video Interactivo",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "<p style='color: orange'>En el siguiente video completa las actividades escribiendo la parte del cuerpo que se nombra en el video.</p>",
+                "className": "subtitle-default"
+            },
+            {
+                "type": "videoi-youtube",
+                "id": "TWyguC7VVh8",
+                "value": "TWyguC7VVh8",
+                "youtuve": "https://youtu.be/TWyguC7VVh8",
+                "popups": [
+                    {
+                        "time": 33,
+                        "title": "Con la _______ bien recta",
+                        "reply": "espalda",
+                        "message": "(espalda/rodilla)",
+                        "type": "checkbox",
+                        "options": [
+                            "espalda",
+                            "rodilla"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value":0
+                    },
+                    {
+                        "time": 35,
+                        "title": "Para abrir la ____ ________",
+                        "reply": "caja torácica",
+                        "message": "(caja toráxica/caja torácica)",
+                        "type": "checkbox",
+                        "options": [
+                            "caja toráxica",
+                            "caja torácica"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value":0
+
+                    },
+                    {
+                        "time": 48,
+                        "title": "Entre los dos ______ a mitad de la zancada",
+                        "reply": "pies",
+                        "message": "(pies/pie)",
+                        "type": "checkbox",
+                        "options": [
+                            "pies",
+                            "pie"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value":0
+                    },
+                    {
+                        "time": 65,
+                        "title": "Abriendo la ______ hacia el inferior",
+                        "reply": "mano",
+                        "message": "(espalda/mano)",
+                        "type": "checkbox",
+                        "options": [
+                            "espalda",
+                            "mano"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value":0
+                    },
+                    {
+                        "time": 95,
+                        "title": "Con los ________ a lo largo del cuerpo",
+                        "reply": "brazos",
+                        "message": "(brazos/brazo)",
+                        "type": "checkbox",
+                        "options": [
+                            "brazos",
+                            "brazo"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value":0
+                    },
+                    {
+                        "time": 125,
+                        "title": "Deja que el _______ continúe su camino hacia atrás",
+                        "reply": "brazo",
+                        "message": "(mano/brazo)",
+                        "type": "checkbox",
+                        "options": [
+                            "mano",
+                            "brazo"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value":0
+                    },
+                    {
+                        "time": 129,
+                        "title": "Abre la _______ haciéndola girar hacia el interior",
+                        "reply": "mano",
+                        "message": "(pierna/mano)",
+                        "type": "checkbox",
+                        "options": [
+                            "pierna",
+                            "mano"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value":0
+                    }
+                ],
+                "className": "youtube"
+            }
+        ]
+    },
+    "page6": {
+        "type": "text",
+        "section": {
+           "number": 3,
+           "value": "Practiquemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "PARA TENER EN CUENTA: SENDEROS DE CÓRDOBA",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "<p style='color: black'>En el siguiente texto encontrarás indicaciones y recomendaciones a seguir cuando realicen senderismo en Córdoba.</p>",
+                "className": "title-white"
+            },
+            {
+                "type": "text",
+                "value": "https://www.cordobaturismo.gov.ar/para-tener-en-cuenta-senderos-de-cordoba/",
+                "className": "className"
+            },
+            {
+                "type": "text",
+                "value": "<ul><li>1. En lo posible, realiza los senderos en grupos de dos o más personas.</li><li>2. No ingreses en sitios privados sin autorización.</li><li>3. Infórmate sobre las características particulares del sendero a realizar.</li><li>4. Por tu seguridad, no salgas de las delimitaciones de los senderos y circuitos.</li><li>5. Lleva ropa y calzado adecuados, protector solar, gorro, repelente de insectos y una botella recargable para mantenerte siempre hidratado.</li><li>6. Prepara un pequeño botiquín de primeros auxilios y, en caso que consumas medicación específica, lleva una dosis extra.</li><li>7. NO SE PUEDE REALIZAR FUEGO. Si ves fuego o humo, denuncia al <span style='color: black; font-weight: 600'>0800-888-38346</span>.</li></ul>",
+                "className": "paragraph-default"
+            }
+        ]
+    },
+    "page7": {
+        "type": "text",
+        "section": {
+            "number": 3,
+            "value": "Practiquemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "PARA TENER EN CUENTA: SENDEROS DE CÓRDOBA",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "<p style='color: black'>En el siguiente texto encontrarás indicaciones y recomendaciones a seguir cuando realicen senderismo en Córdoba.</p>",
+                "className": "title-white"
+            },
+            {
+                "type": "text",
+                "value": "https://www.cordobaturismo.gov.ar/para-tener-en-cuenta-senderos-de-cordoba/",
+                "className": "className"
+            },
+            {
+                "type": "text",
+                "value": "<ul><li>9. Mantén los espacios limpios: recoge los residuos que generes (incluso orgánicos) en una bolsa.</li><li>10. Nunca alimentes a los animales silvestres, aunque parezca divertido, les hace daño, cambia sus hábitos y les genera problemas de salud.</li><li>11. Respeta los valores, tiempos y costumbres de las comunidades que visites.</li><li>12. Ten en cuenta que no en todas las zonas hay disponible señal de telefonía celular.</li><li>13. Si utilizas el teléfono para sacar fotos, sé precavido y colócalo en modo avión para resguardar la carga de la batería.</li><li>14. Disfruta de todo lo que veas, pero no te lleves nada: plantas, flores, piedras, hongos, animales, fósiles, ni restos arqueológicos.</li></ul>",
+                "className": "paragraph-default"
+            }
+        ] 
+    },
+    "page8": {
+        "type": "selectsimple",
+        "section": {
+            "number": 3,
+            "value": "Practiquemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "A partir del texto leído, indica cuáles de estas afirmaciones son <span style='color:orange'><u>verdaderas</u></span> y cuáles son <span style='color:orange'><u>falsas</u></span>",
+                "className": "title-white"
+            },    
+            {
+                "type": "selectsimple",
+                "value": "Puedes ingresar a sitios privados sin autorización.",
+                "option": "Falso",
+                "options": [ "Verdadero", "Falso" ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "Puedes salirte de las delimitaciones de los senderos.",
+                "option": "Falso",
+                "options": [ "Verdadero", "Falso" ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "Debes mantenerte hidratado.",
+                "option": "Verdadero",
+                "options": [ "Verdadero", "Falso" ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "Tienes que llevar un botiquín de primeros auxilios.",
+                "option": "Verdadero",
+                "options": [ "Verdadero", "Falso" ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "Puedes encender una fogata tranquilamente.",
+                "option": "Falso",
+                "options": [ "Verdadero", "Falso" ],
+                "className": "selector-simple"
+            }
+        ]
+    },
+    "page9": {
+        "type": "selectsimple",
+        "section": {
+            "number": 3,
+            "value": "Practiquemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "A partir del texto leído, indica cuáles de estas afirmaciones son <span style='color:orange'><u>verdaderas</u></span> y cuáles son <span style='color:orange'><u>falsas</u></span>",
+                "className": "title-white"
+            },    
+            {
+                "type": "selectsimple",
+                "value": "Debes recoger los residuos que generes.",
+                "option": "Verdadero",
+                "options": [ "Verdadero", "Falso" ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "Puedes alimentar a los animales silvestres.",
+                "option": "Falso",
+                "options": [ "Verdadero", "Falso" ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "Debes respetar las costumbres de las comunidades.",
+                "option": "Verdadero",
+                "options": [ "Verdadero", "Falso" ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "En todas las zonas hay señal de telefonía celular.",
+                "option": "Falso",
+                "options": [ "Verdadero", "Falso" ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "Puedes  llevarte plantas, animales y piedras del sendero.",
+                "option": "Falso",
+                "options": [ "Verdadero", "Falso" ],
+                "className": "selector-simple"
+            }
+        ]
+    },
+    "page10": {
+        "type": "text",
+        "section": {
+            "number": 4,
+            "value": "Mis retos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Lee el siguiente texto y realiza el reto que se propone",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "En el siguiente enlace encuentras un artículo periodístico titulado:",
+                "className": "subtitle-default"
+            },
+            {
+                "type": "title",
+                "value": "4 senderos de trekking ideales para principiantes en Córdoba.",
+                "className": "subtitle-default"
+            },
+            {
+                "type": "text",
+                "value": "https://www.cadena3.com/noticia/cordoba/4-senderos-de-trekking-ideales-para-principiantes-en-cordoba_288907",
+                "className": "className"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1700016158/images/cion3kpk50vd7sgrtnuh.jpg",
+                "alt": "Cascada Los Hornillos, Río Ceballos",
+                "className": "className"
+            },
+            {
+                "type": "image",
+                "value": "",
+                "alt": "Cascada Los Chorrillos, Tanti",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "",
+                "alt": "Reserva Hídrica, Los Quebrachitos, Unquillo",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "",
+                "alt": "Reserva Natural Vaquerías, Valle Hermoso",
+                "className": ""
+            }
+        ]
+    },
+    "page11": {
+        "type": "text",
+        "section": {
+            "number":4,
+            "value": "Mis retos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Lee el siguiente texto y realiza el reto que se propone",
+                "className": "title-white"
+            },
+            {
+                "type": "text",
+                "value": "Disfruta la lectura de este texto que describe 4 sitios adecuados para hacer trekking en Córdoba:",
+                "className": "subtitle-default"
+            },
+            {
+                "type": "text",
+                "value": "<u style='text-decoration:none; font-weight:600'><li>1- Cascada Los Hornillos, Río Ceballos</li><li>2- Cascada Los Chorrillos, Tanti</li><li>3- Reserva Hídrica, Natural y Recreativa Los Quebrachitos, Unquillo</li><li>4- Reserva Natural Vaquerías, Valle Hermoso</li></u>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "text",
+                "value": "Después de realizar la lectura, selecciona uno de estos sitios para hacer trekking y explicale las razones a tu profesor.",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "text",
+                "value": "<u style='color:orange; text-decoration:none'><li>¿Por qué seleccionaste este sitio?</li><li>¿Qué es lo que más te gustó?</li><li>¿Has hecho senderismo o trekking alguna vez?</li><li>Envíale un email a tu profesor con algunas recomendaciones y consejos útiles para hacer una de estas actividades.</li></u>",
+                "className": "paragraph-default"
+            }
+        ]
+        
+    },
+    "page12": {},
+    "page15": {
+        "type": "text",
+        "section": {
+            "number":5,
+            "value": "Evaluemos"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117479/images/4_skpl9k.png",
+        "data": [
+            {
+                "type": "title",
+                "value": "GRACIAS POR TU ATENCIÓN",
+                "className": "title-white"
+            }
+        ]
+        
     }
 }
