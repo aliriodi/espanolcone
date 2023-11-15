@@ -24,6 +24,8 @@ import {
   startOfToday,
 } from 'date-fns'
 import Image from 'next/image'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 //Componente donde se ven los Meets agendados del usuario logueado
 //sea profesor alumno o guia
 function classNames(...classes) {
@@ -89,7 +91,7 @@ export default function Example() {
       console.log(error);
     }
     
-    alert('Tu hora fue puesta a disposicion')
+   // alert('Tu hora fue puesta a disposicion')
   };
 
 
@@ -143,6 +145,7 @@ export default function Example() {
     // console.log(startDatetime1,typeof(endDatetime1))
     hoursOfDay.push({
       assigned: false,
+      role:"user",
       locationCreated: country,
       nameuser: "",
       first_name: "",
@@ -167,6 +170,7 @@ export default function Example() {
   // let selectedDayMeetings = meetings.filter((meeting) =>
   //   isSameDay(parseISO(meeting.startDatetime), selectedDay)
   // )
+
 
   return (
     <div className="pt-24">
@@ -232,6 +236,8 @@ export default function Example() {
               <div>Vie</div>
               <div>Sáb</div>
             </div>
+
+            {/* Calendario */}
             <div className="grid grid-cols-7 mt-2 text-sm">
               {days.map((day, dayIdx) => (
                 <div
@@ -280,7 +286,7 @@ export default function Example() {
                       (isSameDay(parseISO(meeting.startDatetime), day) && !meeting.assigned) ||
                       (newcalendar.some((meeting1) => isSameDay(parseISO(meeting1.startDatetime), day) && !meeting1.assigned)
                       )) && (
-                        <div className="w-1 h-1 rounded-full bg-secondary  "></div>
+                        <div className="w-1 h-1 rounded-full bg-success  "></div>
                       )}
 
 
@@ -288,63 +294,22 @@ export default function Example() {
                 </div>
               ))}
             </div>
-          </div>
 
-          {/* Agenda existente */}
-          <section className="mt-12 md:mt-0 md:pl-14">
+            {/* Separador */}
+            {/* <span className='flex mx-auto w-full h-[2px] bg-gray_clear my-[50px]'></span> */}
 
-            <div className='max-w-fit pt-16 pl-14 grid grid-cols-1 divide-x object-none object-right-top  border-red-500 border-solid-4'>
-              <h2 className="font-semibold text-gray-900">
-                <time dateTime={format(selectedDay, 'yyyy-MM-dd')}>
-                  {format(selectedDay, 'MMM dd, yyy', { locale: es }).charAt(0).toUpperCase() + format(selectedDay, 'MMM dd, yyy', { locale: es }).slice(1)}
-                </time></h2>
-              <h2 className="font-semibold text-gray-900">
-
-                Agenda Existente{' '}
-
-              </h2>
-
-
-              <div className=''>
-                <ol className="">
-                  {/* {console.log(selectedDayMeetings)} */}
-                  {selectedDayMeetings.length > 0 ? (
-                    selectedDayMeetings.map((meeting) => (
-                      <Meeting meeting={meeting} key={meeting.id} />
-                    ))
-                  ) : (
-                    <li>No hay actividad agendada aún.</li>
-                  )}
-                </ol></div>
-            </div>
-
-
-            {/* aca van los botones de que deseo renderizar */}
-            {(renders?.user?.role.includes('teacher') || renders?.user?.role.includes('guides')) && isAfter(selectedDay, today) ?
-              <div className='max-w-fit pt-10 pl-14 grid grid-cols-4 divide-x object-none object-right-top  '>
-                <button className='border-primary border-solid border-2' onClick={() => setI(0)}>Turno 1</button>
-                <button className='border-primary border-solid border-2' onClick={() => setI(1)}>Turno 2</button>
-                <button className='border-primary border-solid border-2' onClick={() => setI(2)}>Turno 3</button>
-                <button className='border-primary border-solid border-2' onClick={() => setI(3)}>Turno 4</button>
-              </div> : null}
-
-
-          </section>
-
-          {/* {crear Agenda}  console.log(renders)*/}
-          {/* {console.log(newcalendar)} */}
-          {/* { isAfter(selectedDay, today)?<>el dia es despues</>:<>el dia es antes</>} */}
-          {
+            {/* Horarios */}
+            {
             isAfter(selectedDay, today) ?
               renders?.user?.role.includes('teacher') || renders?.user?.role.includes('guides') ?
 
                   <div className='max-w-fit grid grid-cols-1 divide-x object-none object-right-top mt-10'>
 
-                    <h2>
+                    <h2 className='md:text-[18px]'>
                       Selecciona un Horario
                     </h2>
 
-                    <div className='border-none'>
+                    <div className='border-none md:text-[14px]'>
 
                       
                       {/* Botones de Turnos */}
@@ -375,38 +340,38 @@ export default function Example() {
                       }
                       
                       {/* Horarios */}
-                      <ul className="flex  flex-wrap">
+                      <ul className="flex  flex-wrap
+                      md:justify-center">
                         {
-
                           hoursOfDay.length > 0 ? (
                             hoursOfDay.slice(i * 6, (i + 1) * 6).map((meeting, index) => (
                               <button key={index} onClick={() => addNewElement(meeting)}
-                                className={classNames(
-                                  'focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 mb-2 text-primary hover:text-white hover:bg-primary border-solid border-[2px] border-primary transition-all',
+                              className={classNames(
+                                'focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 mb-2 text-secondary hover:bg-secondary_light border-solid border-[2px] border-secondary transition-all mx-1',
+                                selectedDayMeetings.some((meeting1) => meeting1.startDatetime === meeting.startDatetime && meeting1.assigned)
+                                && 'border-red-500 border-solid border-[2px] hover:border-primary',
+                                newcalendar.some((meeting1) => meeting1.startDatetime === meeting.startDatetime) && 'bg-secondary text-white hover:bg-secondary'
+                              )}
 
-                                  // isFirstMeeting ? 'bg-success text-white ' : '  ring-2 text-primary hover:border-none border-primary hover:text-white',
-                                  //  newMeeting ? newMeeting.startDatetime === meeting.startDatetime ? 'bg-success text-white ' : '  ring-2 text-primary hover:border-none border-primary hover:text-white' : 'ring-2 text-primary hover:border-none border-primary hover:text-white',
-                                  //  newMeeting ? newMeeting.startDatetime !== meeting.startDatetime ? 'ring-2 text-primary hover:border-none border-primary hover:text-white' : 'bg-success text-white ' : null,
-                                  selectedDayMeetings.some((meeting1) => meeting1.startDatetime === meeting.startDatetime && meeting1.assigned)
-                                  && 'border-red-500 border-solid border-[2px] hover:border-primary',
-                                  newcalendar.some((meeting1) => meeting1.startDatetime === meeting.startDatetime) && 'border-red-500 border-solid border-[2px] hover:border-primary'
-                                )}
-
-                                //Para deshabilitar el boton cuando haya meeting
-                                disabled={
-                                  selectedDayMeetings.some((meeting1) => meeting1.startDatetime === meeting.startDatetime && meeting1.assigned)
-                                  || newcalendar.some((meeting1) => meeting1.startDatetime === meeting.startDatetime)}
-                              >
-                                <MeetingPlaning key={index} meeting={meeting} assigned={selectedDayMeetings.some((meeting1) => meeting1.startDatetime === meeting.startDatetime && meeting1.assigned)} /></button>
+                              //Para deshabilitar el boton cuando haya meeting
+                              disabled={
+                                selectedDayMeetings.some((meeting1) => meeting1.startDatetime === meeting.startDatetime && meeting1.assigned)
+                                || newcalendar.some((meeting1) => meeting1.startDatetime === meeting.startDatetime)}
+                            >
+                              <MeetingPlaning key={index} meeting={meeting} assigned={selectedDayMeetings.some((meeting1) => meeting1.startDatetime === meeting.startDatetime && meeting1.assigned)} /></button>
                             ))
                           ) : (
                             <p>No hay actividad agendada aún.</p>
                           )}
 
-                      </ol></div>
+                      </ul>
+                      
+                    </div>
+
                   </div>
-                </section>
-                : null :
+                : null
+                
+              :
               isEqual(selectedDay, today) && (renders?.user?.role.includes('teacher') || renders?.user?.role.includes('guides') ) ?
 
                 <span className='pt-14 '>
@@ -421,17 +386,20 @@ export default function Example() {
           </div>
 
           {/* Agenda de Meetings */}
-          <div className="bg-white shadow-[0px_4px_24px_#18292F1A] w-[38%] rounded-[5px] p-[16px]">
+          <div className="bg-white shadow-[0px_4px_24px_#18292F1A] w-[38%] rounded-[5px] p-[16px]
+          md:w-full md:mb-4">
 
-            <div className='flex justify-between mb-5'>
+            {/* Titulo */}
+            <div className='flex justify-between mb-5
+            md:flex-col'>
 
-              <h2 className="">
+              <h2 className='md:text-[18px]'>
 
                 Agenda de Reuniones
 
               </h2>
 
-              <h3 className="">
+              <h3 className='md:text-[15px]'>
                 <time dateTime={format(selectedDay, 'yyyy-MM-dd')}>
                   {format(selectedDay, 'MMM dd, yyy', { locale: es }).charAt(0).toUpperCase() + format(selectedDay, 'MMM dd, yyy', { locale: es }).slice(1)}
                 </time>
@@ -462,6 +430,7 @@ export default function Example() {
           
 
         </div>
+
       </div>
     </div>
   )
@@ -470,15 +439,18 @@ export default function Example() {
 function Meeting({ meeting }) {
   let startDateTime = parseISO(meeting.startDatetime)
   let endDateTime = parseISO(meeting.endDatetime)
+  
+  useEffect(()=>console.log(meeting),[])
 
   return (
-    <li className="flex items-center px-4 py-2 space-x-4 group focus-within:bg-gray-100 hover:bg-gray-100 border-b-2">
+    <li className="flex items-center px-4 py-2 space-x-4 group focus-within:bg-gray-100 hover:bg-gray-100 border-b-2 last-of-type:border-none
+    md:flex-col">
 
       {/* Imagen de Perfil */}
 
       <div className='flex-none w-10 h-10 rounded-full bg-[#B9B9C3] relative overflow-hidden flex justify-center items-center'>
         {
-          meeting?.image?.url ?
+          meeting?.image?.url ||meeting?.image?
           <Image
             src={meeting?.image?.url || meeting?.image}
             alt="img"
@@ -490,16 +462,23 @@ function Meeting({ meeting }) {
           :
 
           <FontAwesomeIcon className="text-violet_dark w-[60%] h-[60%]" icon={faUser}/>
- 
+
         }
       </div>
 
       {/* Datos del usuario */}
-      <div className="flex justify-between w-full">
+      <div className="flex justify-between w-full
+      md:flex-col md:items-center">
         {meeting.assigned ? true : <p className="text-gray-900">Meeting no asignado aún</p>}
 
+        {/* Nombre */}
         <p className="text-gray-900">{meeting.first_name + ' ' + meeting.last_name}</p>
-        <p className="text-gray-900">{meeting.role[0]}</p>
+
+        {/* Role */}
+        <p className="text-gray-900
+        md:hidden">{meeting.role}</p>
+
+        {/* Hora */}
         <p className="mt-0.5 text-primary">
           <time dateTime={meeting.startDatetime}>
             {format(startDateTime, 'h:mm a')}
