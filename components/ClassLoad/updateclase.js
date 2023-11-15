@@ -25,7 +25,7 @@ console.log(nuevaclase.length)
                  headers: {
                             'Content-Type': 'application/json'  // 'Content-Type': 'application/x-www-form-urlencoded',
                           },
-                 body: JSON.stringify({_id:"654d4aea964a981dde13750c",
+                 body: JSON.stringify({_id:"6546bf1977937d4bff645ee0",
                                       // level:"Nivel A1",
                                       //  unit:"Unidad 6",
                                       //  description:'nivela2 del MVP con ejemplos de ppopppus2 1 2 3 4 5 6 alirio',

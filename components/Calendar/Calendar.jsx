@@ -91,7 +91,7 @@ export default function Example() {
       console.log(error);
     }
     
-    alert('Tu hora fue puesta a disposicion')
+   // alert('Tu hora fue puesta a disposicion')
   };
 
 
@@ -145,6 +145,7 @@ export default function Example() {
     // console.log(startDatetime1,typeof(endDatetime1))
     hoursOfDay.push({
       assigned: false,
+      role:"user",
       locationCreated: country,
       nameuser: "",
       first_name: "",
@@ -449,7 +450,7 @@ function Meeting({ meeting }) {
 
       <div className='flex-none w-10 h-10 rounded-full bg-[#B9B9C3] relative overflow-hidden flex justify-center items-center'>
         {
-          meeting?.image?.url ?
+          meeting?.image?.url ||meeting?.image?
           <Image
             src={meeting?.image?.url || meeting?.image}
             alt="img"

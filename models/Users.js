@@ -18,7 +18,7 @@ const UserSchema = new Schema(
     phone2: {
       type: String,
     },
-    validate: {
+    validates: {
       type: Number,
     },
     email: {

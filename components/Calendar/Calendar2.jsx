@@ -118,6 +118,9 @@ export default function Schedule() {
 
   //Function que asigna el horario al alumno en el calendario de profesor y del alumno
   async function Confirm() {
+//sb-x747sj28200220@personal.example.com
+//Px4q]_[X
+//https://sandbox.paypal.com
 
     const promises = [];
     const newcalendar = [];
@@ -152,7 +155,7 @@ export default function Schedule() {
         for (const part of timeZoneName) {
           if (part.type === 'timeZoneName') {
             country = part.value.trim();
-            break;
+           break;
           }
         }
 
@@ -195,17 +198,8 @@ export default function Schedule() {
         //aca va la promesa de cargar en BD el nuevo personSchedule.schedule
         //aca va la promesa de enviar dos correos uno a teacher y uno a profesor
 
-        //aca actualizo el calendario del profesor con alumno en BD
-        promises.push(
-          fetch('/api/users/update',
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              // body: JSON.stringify({ email: personSchedule.email, updates: { calendar: personSchedule.schedule } }),
-              body: JSON.stringify({ email: personSchedule.email, updates: { calendar: newcalendar } }),
-            }))
+        //La promesa del nuevo calendario del profesor la saco del if porque sino la
+        //promesa sale sin todo los calendarios actualizados tenia un problema de logica
 
         //envio email a teacher
         promises.push(
@@ -222,6 +216,7 @@ export default function Schedule() {
             }))
 
         //aca actualizo el calendario del alumno en BD
+        //fuera del map para que se declare una sola promesa y con el recorrido completo
         promises.push(
           fetch('/api/users/update',
             {
@@ -250,7 +245,19 @@ export default function Schedule() {
       } else {
         newcalendar.push(meeting)
       }
+       
     })
+      //aca actualizo el calendario del profesor con alumno en BD
+      promises.push(
+        fetch('/api/users/update',
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            // body: JSON.stringify({ email: personSchedule.email, updates: { calendar: personSchedule.schedule } }),
+            body: JSON.stringify({ email: personSchedule.email, updates: { calendar: newcalendar } }),
+          }))
 
     alert('Su clase ha sido asignada')
     //Ejecuto todas las promesas
@@ -294,8 +301,6 @@ export default function Schedule() {
     )
   } 
 
-
-  
 
   return (
     <div className="pt-24">

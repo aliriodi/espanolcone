@@ -1,0 +1,510 @@
+{
+    "page1": {
+        "type": "text",
+        "section": {
+            "number":0,
+            "value":"Mis Metas"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697579417/images/template4_s2xy5m.png",
+        "data": [
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366258/images/logo_etoaae.png",
+                "alt":"Español con E",
+                "className": "image-p0"
+            },
+            {
+                "type": "title",
+                "value": "QUIERO CONOCER GENTE EN CÓRDOBA",
+                "className": "titleBlack2-p0"
+            },
+            {
+                "type": "title",
+                "value": "NIVEL B1",
+                "className": "TITLE-P0-BLACK"
+            }           
+              ]
+    },
+    "page2": {
+        "type": "video",
+        "section": {
+            "number":0,
+            "value":"Mis Metas"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697582910/images/imagpag3_gh1wjd.png",
+        "data": [
+            {"type": "title",
+            "value": "¿Qué voy a aprender en esta unidad?",
+            "className": "centerRightWhite-2"
+            },
+            {
+                "type":"paragraph",
+                "value":" <table style= 'border: 2px solid black;' ><tr  style=' background-color: var(--primary); border: 2px solid black;' ><th style= 'border: 2px solid black;width:30%;' ><h2><strong style='color:black;'>Comunicación</strong></h2></th><th style= ' border: 2px solid black;width:20%' ><h2><strong style='color:black;'>Vocabulario</strong></h2></th><th style= 'border: 2px solid black; width:30%' ><h2><strong style='color:black;'>Gramática</strong></h2></th></tr><tr><td style= 'border: 2px solid black;' > <ul> <li>*Dar y pedir información sobre personas.</li>  <li>*Dar y pedir información acerca de personalidades, gustos y experiencias.</li> <li>*Expresar similitudes, diferencias y afinidades entre personas.</li><li>*Valorar personas.</li><li>*Graduar expresiones.</li><li>*Descripción de la personalidad Sujeto + verbo ser + muy / poco / un poco + adjetivo </li> <li>*Expresar sentimientos, gustos y sensaciones</li><li>*Describir sentimientos.</li><li>*Expresar motivos para estudiar español.</li></ul> </td><td style= 'border: 2px solid black;' ><ul> <li>*Adjetivos y sustantivos relacionados con el carácter.</li>  <li> *Gustos, aficiones y manías.</li> <li>*Ámbitos personales: costumbres, familia y experiencias.</li> <li>*Virtudes y defectos.</li> </ul></td><td style= 'border: 2px solid black; ' ><ul> <li>*Régimen pronominal de verbos como gustar, encantar, interesar: me/te/le/nos/os/les</li>  <li>*Condicional: verbos regulares e irregulares más frecuentes.</li> <li>*Interrogativas: ¿A qué hora?/¿Qué…?/ ¿Cuál? / ¿Qué tipo de..? / ¿Dónde …? / ¿Con quién?</li> <li>*Interrogativas indirectas con si e interrogativas directas con: ¿Qué…?/ ¿Dónde …? / ¿Por qué? / ¿Con quién? / ¿Cuándo?</li>  <li>*Sustantivos femeninos: -dad - ez- eza-ía-ura</li> <li>*Muy / tan / demasiado + adjetivo</li> </ul></td></tr></table>",
+                "className":"table"
+            }
+        ]
+    },
+   
+    "page3": {
+        "type": "text",
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697582910/images/imagpag3_gh1wjd.png",
+        "data": [
+            {"type": "title",
+            "value": "Vamos a conocer a María Teresa Andruetto",
+            "className": "leftWhite"
+            },
+            {"type":"image",
+            "value":"https://res.cloudinary.com/dfddh08q8/image/upload/v1697590888/images/maria_teresa_kcfi99.png",
+           "alt":"Maria Teresa",
+        "className":"image-p4"},
+        {
+            "type": "paragraph",
+            "value": "Teresa Andruetto es una escritora cordobesa,  <span style= 'color: var(--primary);' >competente </span> en su profesión. Es una mujer <span style= 'color: var(--primary);' >inteligente y responsable</span>. Estudió Letras Modernas en la Universidad Nacional de Córdoba." ,
+            "className": "paragraph7"
+        },
+        {
+            "type": "paragraph",
+            "value": "<span style='color:orange;'>Le gusta mucho</span> <span style='text-decoration: underline;'> vivir en Córdoba</span>, hace 21 años que vive en Unquillo, una ciudad del interior. <span style='color:orange;'>Le encanta</span> <span style='text-decoration: underline;'>ver el bosque</span> de algarrobos y espinillos que rodea su casa, también <span style='color:orange;'>le gusta mucho</span> <span style='text-decoration:underline;'>atender a los animales de su granja</span>. Es una persona <span style='color:var(--primary);'>sensible</span> y le gusta <span style='color:var(--primary);'>la tranquilidad</span> porque le permite escribir sin presiones." ,
+            "className": "paragraph8"
+        },
+        {
+            "type": "paragraph",
+            "value": "<p><span style='color:orange;'>Le gusta</span> <span style='text-decoration:underline;'>escuchar la radio por la mañana</span> y, cuando sale a la calle, también</p>  <p><span style='color:orange;'>le gusta</span> <span style='text-decoration:underline;'>escuchar las conversaciones</span> que mantienen otras personas, lo que muchas veces le sirve de inspiración para escribir sus cuentos o novelas.</p>  <p> <span style='color:orange;'>Odia</span> <span style='color:var(--primary);text-decoration:underline;'>la monotonía</span> y <span style='color:var(--primary);text-decoration:underline;'>la superficialidad </span> en su trabajo por lo que siempre busca experimentar distintos géneros literarios para distintos tipos de lectores.</p>" ,
+            "className": "paragraph9"
+        }
+        ]
+    },
+    "page4": {
+        "type": "text",
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697582910/images/imagpag3_gh1wjd.png",
+        "data": [
+            {"type": "title",
+            "value": "Vamos a conocer a Pablo Tamagnini",
+            "className": "leftWhite"
+            },
+            {"type":"image",
+            "value":"https://res.cloudinary.com/dfddh08q8/image/upload/v1697595089/images/Pablo_tk3jzw.png",
+           "alt":"Maria Teresa",
+        "className":"image-p5"},
+        {
+            "type": "paragraph",
+            "value": "Pablo Tamagnini es un cantante cordobés, muy <span style='color:var(--primary)'>extrovertido</span>, que vive en la capital de la provincia. Es un hombre <span style='color:var(--primary)'>amistoso</span>, forma parte de la banda de cuarteto La K’onga, junto a Diego y Nelson, sus amigos. <span style='color:orange'>Le encanta</span> cantar y es <span style='color:var(--primary)'>persistente</span> ya que estuvo muchos años buscando la estabilidad económica en su carrera, hasta que pudo consagrarse como cantante de cuarteto." ,
+            "className": "paragraph7"
+        },
+        {
+            "type": "paragraph",
+            "value": "<span style='color:orange'>Le gusta</span> <span style='text-decoration:underline;'> conectar con la gente en los bailes</span>, que es el nombre que tienen los recitales de este género musical. Es <span style='color:var(--primary)'>soñador</span> y <span style='color:orange'>le interesa</span> <span style='text-decoration:underline;'>llegar con su banda a muchos lugares del mundo</span>, no sólo dentro de Argentina o Latinoamérica." ,
+            "className": "paragraph8"
+        },
+        {
+            "type": "paragraph",
+            "value": "Lo que <span style='color:orange;'>no le gusta</span> de su trabajo es <span style='text-decoration:underline'>el sacrificio que implica estar lejos de familia, de sus amigos</span>. A pesar de perderse cumpleaños, casamientos, u otros momentos personales importantes por estar haciendo giras o bailes, es muy <span style='color:var(--primary);'>tenaz</span> porque <span style='color:orange;'>le encanta</span> <span style='text-decoration:underline;'>su trabajo</span> y lo disfruta mucho." ,
+            "className": "paragraph9"
+        }
+        ]
+    },
+    "page5": {
+        "type": "selectsimple",
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697632552/images/template1_zzkxz8.png",
+        "data": [
+            {
+                "type": "title",
+                "value": "A partir de los textos que leímos, vamos a responder las siguientes preguntas",
+                "className": "leftWhite2"
+            },
+           
+          
+            {
+                "type": "selectsimple",
+                "value": "1.¿Teresa y Pablo tienen vidas similares?",
+                "option": "No tanto, a pesar de ser artistas su vida no es tan similar",
+                "options": [
+                    "Sí, ambos son artistas",
+                    "No, trabajan en ámbitos diferentes",
+                    "No tanto, a pesar de ser artistas su vida no es tan similar"
+                ],
+                "className": "paragraph10"
+            },
+            {
+                "type": "selectsimple",
+                "value": "2. ¿Cómo describirías la vida de Teresa?",
+                "option": "Tranquila, pero se mantiene activa trabajando",
+                "options": [
+                    "Aburrida, no tiene nada para hacer",
+                    "Tranquila, pero se mantiene activa trabajando",
+                    "Abrumadora, no puede descansar en ningún momento"
+                ],
+                "className": "paragraph11"
+            },
+            {
+                "type": "selectsimple",
+                "value": "3. ¿Cómo describirías la vida de Pablo?",
+                "option": "Agitada, pero feliz porque trabaja de lo que ama",
+                "options": [
+                    "Triste, porque no tiene tiempo de calidad con su familia",
+                    "Agitada, pero feliz porque trabaja de lo que ama",
+                    "Solitaria, pasa mucho tiempo sin una buena compañía"
+                ],
+                "className": "paragraph11"
+            }
+        ]
+    },
+    "page6": {
+        "type": "boxmove",
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697632552/images/template1_zzkxz8.png",
+        "title": "Actividad",
+        "data": [
+            {
+                "type": "title",
+                "value": "A partir de los textos que leímos, arrastrá los sustantivos a la imagen que mejor los represente",
+                "className": "leftWhite2"
+            },
+            {
+                "type": "dragable-box",
+                "value":{
+                    "DropUps":
+                    [
+                        {
+                            "type":"image",
+                            "src":"https://res.cloudinary.com/dfddh08q8/image/upload/v1697635249/images/jovenes_wdvbgc.png",
+                            "value":"jóvenes",
+                            "id":"DropUp1"
+                        },
+                        {
+                            "type":"image",
+                            "src":"https://res.cloudinary.com/dfddh08q8/image/upload/v1697639695/images/timida_kn1wrv.png",
+                            "value":"tímida",
+                            "id":"DropUp2"
+                        },
+                        {
+                            "type":"image",
+                            "src":"https://res.cloudinary.com/dfddh08q8/image/upload/v1697640114/images/guapo_aisyup.png",
+                            "value":"guapo",
+                            "id":"DropUp3"
+                        },
+                        {
+                            "type":"image",
+                            "src":"https://res.cloudinary.com/dfddh08q8/image/upload/v1697640136/images/persezoso_qtnchw.png",
+                            "value":"perezoso",
+                            "id":"DropUp4"
+                        }
+                    ],
+            
+                    "DragBoxs":[
+                        {
+                            "value":"jóvenes",
+                            "id":"DragBox1"
+                        },
+                        {
+                            "value":"tímida",
+                            "id":"DragBox2"
+                        },
+                        {
+                            "value":"guapo",
+                            "id":"DragBox3"
+                        },
+                        {
+                            "value":"perezoso",
+                            "id":"DragBox4"
+                        }
+                    ]
+                },
+                "className": "dragable-box"
+            }
+
+            
+        ]
+    },
+    "page7": {
+        "type": "slide",
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
+        "template":  "https://res.cloudinary.com/dfddh08q8/image/upload/v1697632552/images/template1_zzkxz8.png",
+        "data": [
+            {
+                "type": "title",
+                "value": "A partir de los textos que leímos, arrastrá los sustantivos a la imagen que mejor los represente",
+                "className": "leftWhite2"
+            },
+            {
+                "type": "dragable-box",
+                "value":{
+                    "DropUps":
+                    [
+                        {
+                            "type":"image",
+                            "src":"https://res.cloudinary.com/dfddh08q8/image/upload/v1697635249/images/jovenes_wdvbgc.png",
+                            "value":"jóvenes",
+                            "id":"DropUp1"
+                        },
+                        {
+                            "type":"image",
+                            "src":"https://res.cloudinary.com/dfddh08q8/image/upload/v1697639695/images/timida_kn1wrv.png",
+                            "value":"tímida",
+                            "id":"DropUp2"
+                        },
+                        {
+                            "type":"image",
+                            "src":"https://res.cloudinary.com/dfddh08q8/image/upload/v1697640114/images/guapo_aisyup.png",
+                            "value":"guapo",
+                            "id":"DropUp3"
+                        },
+                        {
+                            "type":"image",
+                            "src":"https://res.cloudinary.com/dfddh08q8/image/upload/v1697640136/images/persezoso_qtnchw.png",
+                            "value":"perezoso",
+                            "id":"DropUp4"
+                        }
+                    ],
+            
+                    "DragBoxs":[
+                        {
+                            "value":"jóvenes",
+                            "id":"DragBox1"
+                        },
+                        {
+                            "value":"tímida",
+                            "id":"DragBox2"
+                        },
+                        {
+                            "value":"guapo",
+                            "id":"DragBox3"
+                        },
+                        {
+                            "value":"perezoso",
+                            "id":"DragBox4"
+                        }
+                    ]
+                },
+                "className": "dragable-box"
+            }
+          
+        ]
+    },
+    "page8": {
+        "type": "videoInteractivo",
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697632552/images/template1_zzkxz8.png",
+        "data": [
+            {
+                "type": "title",
+                "value": "<span style='color:var(--primary);'>Aprendemos</span>",
+                "className": "p8title"
+            },
+            {
+                "type": "video-youtube",
+                "value": "tMz57dZS0ZY",
+                "className": "youtuve-p10",
+                "youtube": "https://youtu.be/tMz57dZS0ZY"
+            }
+        
+                
+            
+        ]
+    },
+    "page9": {
+        "type": "text",
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697679179/images/template2_uhryao.png",
+        "data": [
+            {
+                "type": "title",
+                "value": "Lucía y Fernanda son dos hermanas tucumanas. Fernanda vive en Córdoba hace 25 años, su hermana y su sobrino, Benjamín, la visitan cada verano. A continuación vas a leer un diálogo en el cual los tres están haciendo planes para el fin de semana.",
+                "className": "paragraph12"
+            },
+            {
+                "type": "title",
+                "value": "Completa la conversación eligiendo la opción del verbo que corresponda.",
+                "className": "purple-center"
+            },
+             {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697679111/images/imagpag14_ek8mv7.png",
+                "alt": "Paisaje",
+                "className":"imagepaisaje"
+            }
+        ]
+
+
+    },
+    "page10": {
+        "type": "selectsimple",
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
+        "data": [
+            {
+                "type": "selectsimple",
+                "value": " <strong> <span style= 'color: #4CCFEB;'>1. </span> Los estudiantes que hablan en el video son de:</strong>",
+                "option": "Colombia, Brasil y México.",
+                "options": [
+                    "Perú, Colombia y Brasil.",
+                    "Colombia, Brasil y México.",
+                    "Brasil, Venezuela y Estado unidos."
+                ],
+                "className": "paragraph2"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<strong> <span style= 'color: #4CCFEB;'>2. </span> A los estudiantes les gusta:</strong>",
+                "option": "La gente y la comida.",
+                "options": [
+                    "La gente y la comida.",
+                    "El clima y los ríos.",
+                    "Las plazas y la comida."
+                ],
+                "className": "paragraph2"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<strong> <span style= 'color: #4CCFEB;'>3. </span>  Todos los estudiantes del video estudian la misma carrera universitaria.</strong>",
+                "option": "Falso.",
+                "options": [
+                    "Verdadero.",
+                    "Falso."
+                ],
+                "className": "paragraph2"
+            }
+        ]
+    },
+    "page11": {
+        "type": "complete",
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
+        "data": [
+            {
+                "type": "title",
+                "value": "Completa la historia de la familia Garcia con los verbos en paréntesis.",
+                "className": "titleright-black2"
+            },
+            {
+                "type": "paragraph",
+                "value": "¡Hola!",
+                "className": "paragraph2"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "Me llamo Lucas y en la foto",
+                    {
+                        "block": 8,
+                        "color": "orange",
+                        "option": "salgo"
+                    },
+                    "(salir) con mi esposa Romina y nuestras mascotas, Canela y Pancho. Nosotros",
+                    {
+                        "block": 7,
+                        "color": "orange",
+                        "option": "somos"
+                    },
+                    "(ser) cordobeses, y amamos los perros. Vivimos en las sierras de Córdoba porque",
+                    {
+                        "block": 12,
+                        "color": "orange",
+                        "option": "preferimos"
+                    },
+                    "(preferir) el interior de la provincia."
+                ],
+                "className": "paragraph2"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "Todos los fines de semana, después de bañarme,",
+                    {
+                        "block": 9,
+                        "color": "orange",
+                        "option": "salimos"
+                    },
+                    "(salir) a dar un paseo con mis perros. Mi esposa les",
+                    {
+                        "block": 6,
+                        "color": "orange",
+                        "option": "pone"
+                    },
+                    "(poner) la correa mientras yo",
+                    {
+                        "block": 8,
+                        "color": "orange",
+                        "option": "traigo"
+                    },
+                    "(traer) sus galletitas y termos con agua. Cuando regresamos de pasear, yo me",
+                    {
+                        "block": 6,
+                        "color": "orange",
+                        "option": "pongo"
+                    },
+                    "(poner) ropa limpia y",
+                    {
+                        "block": 6,
+                        "color": "orange",
+                        "option": "hago"
+                    },
+                    " (hacer) el desayuno. Antes de tomar una siesta, yo",
+                    {
+                        "block": 8,
+                        "color": "orange",
+                        "option": "dispongo"
+                    },
+                    " (disponer) un espacio para los perros en nuestro cuarto. Porque sino ellos",
+                    {
+                        "block": 11,
+                        "color": "orange",
+                        "option": "destruyen"
+                    },
+                    " (destruir) toda la casa mientras Romi y yo dormimos."
+                ],"className":"paragraph2"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1695571885/images/3_fjrubz.png",
+                "className": "imagedownright",
+                "alt":"matrimonio"
+            }
+        ]
+    },
+    "page12": {
+        "type": "complete",
+        "section": {
+            "number":5,
+            "value":"Mis retos"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697572892/images/u1p14nib1_oobxox.png",
+        "data": [
+            {
+                
+            }       ]
+    }
+    
+  
+
+}
