@@ -126,7 +126,7 @@ export default function Schedule() {
     const newcalendar = [];
     //Teacher o guia turistico apeando las citas del calendario para asignarlo
     // a un nuevo calendario asignado la fecha
-   await personSchedule.calendar.map(meeting => {
+    personSchedule.calendar.map(meeting => {
       if (meeting.startDatetime === newMeeting.startDatetime) {
 
         // Desplazamiento horario en minutos (ejemplo para GMT-03)
@@ -155,7 +155,7 @@ export default function Schedule() {
         for (const part of timeZoneName) {
           if (part.type === 'timeZoneName') {
             country = part.value.trim();
-            break;
+           // break;
           }
         }
 
