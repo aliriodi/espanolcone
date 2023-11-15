@@ -490,7 +490,7 @@ function Meeting({ meeting }) {
           :
 
           <FontAwesomeIcon className="text-violet_dark w-[60%] h-[60%]" icon={faUser}/>
-
+ 
         }
       </div>
 
