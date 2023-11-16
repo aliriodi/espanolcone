@@ -4,7 +4,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
 import { useSession } from "next-auth/react"
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
-import Spinner from '../../components/Spinner';
+import Spinner from '../Spinner';
 import styles from '../../styles/navbar.module.css';
 import { es } from 'date-fns/locale';
 import {
@@ -424,27 +424,7 @@ export default function Schedule() {
 
                   })}
 
-                  {/* Si existe meeting par asignar renderiza button confirmar citas*/}
-                  {/* {isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) &&
-                    <button type="button" onClick={() => Confirm()} className='focus:outline-none  bg-primary text-white font-medium rounded-lg te t-sm px-5 py-2.5 mb-2 '>Confirma </button>} */}
-                  
-                  
-                  {/* <div>hola</div>
-                  <p>
-                  <button
-                                onClick={openPaypalModal}
-                                className={`flex w-full items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                 "bg-primary text-white"}
-                                hover:bg-primary hover:text-white`}
-
-                            >
-                                <FontAwesomeIcon icon={faMoneyBill} className="mr-[10px]" />
-                                <p>Reserva tu Cita</p>
-                            </button> 
-
-                            <ModalPago modalPaypal={handleChangePaypalModal} open={paypalModal}/>
-                  </p> */}
-
+                
                   {/* Si existe un meeting para asignar y el pago ha sido confirmado, renderiza el botón de confirmar citas */}
 
                   {isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) && isPaymentConfirmed &&
