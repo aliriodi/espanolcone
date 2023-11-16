@@ -2,7 +2,7 @@ import React from 'react'
 import Schedule from '../../components/Calendar/CalendarTeacher'
 import Menu from '../../components/Menu'
 
-export default function Calendar2
+export default function CalendarForGuidesTeachersPlaning
 
   () {
   return (
