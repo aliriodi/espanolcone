@@ -1147,11 +1147,7 @@
             "value":"Evaluemos"
         },
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117479/images/4_skpl9k.png",
-        "data": [
-                        {
-                "type": "title",
-                "value": "NOS VEMOS EN LA PRÓXIMA CLASE",
-                "className": "closeTitle"
+        "data": [            {        "type": "title",         "value": "NOS VEMOS EN LA PRÓXIMA CLASE",    "className": "closeTitle"
             },
             {
                 "type": "title",
