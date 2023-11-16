@@ -42,7 +42,7 @@ $ npm run dev
 
    /api/teachers/add
 
-   /api/teaches/getcalendar      (teachers con disponibilidad cargada a partir de manana)
+   /api/teachers/getcalendar      (teachers con disponibilidad cargada a partir de manana)
 
 7. api features class
 
