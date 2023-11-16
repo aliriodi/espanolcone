@@ -39,19 +39,12 @@ function classNames(...classes) {
 
 export default function Schedule() {
   const router = useRouter();
-  //Aca debe venir de la BD los por userId o email un solo usuario
-  //con todos los teachers y guias turisticos disponibles
-  //y sus calendarios y propiedades
-  //1. en caso de ser user se trae todo los teachers y guias
-  //Cargo usuario de BD
+ /*
+ Aca el usuario se trae por _id el calendario del guia o teacher
+ para poder agendar una cita en caso de que exista disponibilidad
+ */
   const { data: session, status ,update} = useSession();
-  //2. en caso de ser teacher solo se trae su calendario con alumnos agendados y que pueda modificar sus horas disponibles
-  //   no tiene derecho de cancelar clases esta replanificaion va con el departamento de profesores
-  //3. en caso de ser guia turistico solo trae su calendario con sus clientes asignados, puede modificar sus horarios 
-  //   disponibles no puede cancelar citas ya reservadas
-  const student = require("./alumnos.json");
-  const teacher = require("./teachers.json");
-  const guide = require("./guides.json");
+ 
   const cardDetail = useSelector((state) => state.datos.cardDetail);
 
   const [deltaTime,setDeltaTime]= useState(0)
@@ -92,6 +85,7 @@ export default function Schedule() {
       }
       carDet()
     }
+    
   }, [session])
 
  
