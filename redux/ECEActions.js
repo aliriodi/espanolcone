@@ -46,17 +46,8 @@ export const classpreviewA = (classp) => (dispatch) => {
 
 export const fetchTeachers = () => async (dispatch) => {
   try {
-    // Importa los datos de profesores desde tu archivo local
-    
-    
-    // await import('../public/imgs/images').then((module) => {
-    //   // Accede a la variable exportada del módulo
-    //   const teachers = module.cardsTeachers;
-    //   console.log('file',teachers)
-    //   // Envía la acción setCards al reducer con los datos de profesores
-    //   dispatch(setCards(teachers));
-    // });
-    await fetch('/api/teachers/get')
+   
+    await fetch('/api/teachers/getcalendar')
           .then(teachers=>teachers.json())
           .then(teachers=>{
             dispatch(setCards(teachers.teachers))

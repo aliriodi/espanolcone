@@ -26,7 +26,8 @@ export default async function getAllTechers(req, res) {
     const teachers = await Users.find({ role: 'teacher' }).exec();
 
     console.log('TEACHERS FOUND');
-
+    
+    //console.log(today())
     res.json({ teachers })
 
   } catch (error) {

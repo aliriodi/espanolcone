@@ -33,14 +33,10 @@ function classNames(...classes) {
 }
 
 export default function Example() {
-  //Aca debe venir de la BD los por userId o email un solo usuario
-  //con todos los teachers y guias turisticos disponibles
-  //y sus calendarios y propiedades
-  //1. en caso de ser user se trae todo los teachers y guias
-  //2. en caso de ser teacher solo se trae su calendario con alumnos agendados y que pueda modificar sus horas disponibles
-  //   no tiene derecho de cancelar clases esta replanificaion va con el departamento de profesores
-  //3. en caso de ser guia turistico solo trae su calendario con sus clientes asignados, puede modificar sus horarios 
-  //   disponibles no puede cancelar citas ya reservadas
+  //Esta es la agenda donde el profesor puede asignar 
+  //sus horas de trabajo y poder ver la cantidad de citas
+  //o meetings que tiene agendado
+  //En el perfil del profesor se trae su calendar de la BD y observa todo
 
   const { data: session, status,update } = useSession();
   const [renders, setRenders] = useState({ user: { role: "user", calendar: [{}], image: 'https://res.cloudinary.com/dfddh08q8/image/upload/v1695578432/images/4_svg8uq.png' } })
@@ -377,7 +373,7 @@ export default function Example() {
                 <span className='pt-14 '>
                   <h2 className="py-20 text-gray_clear text-center
                   md:text-[18px]">
-                    Si desea planificar comuniquese con el Admin
+                    Si desea planificar hoy comuniquese con el Admin, ¡sino seleccione un dia despues de hoy!
                   </h2>
                 </span>
                 :
