@@ -32,8 +32,26 @@ $ npm run dev
 
 /api/users/update
 
-7. api de correos /api/mail   por   req.body {to:"email",subject:"titulo o asunto", text:"cuerpo o correo como tal"}
+/api/users/[id]
+
+/api/users/image
+
+6. api de teachers
+
+   /api/teachers/get
+
+   /api/teachers/add
+
+   /api/teachers/getcalendar      (teachers con disponibilidad cargada a partir de manana)
+
+7. api features class
+
+   /api/features/add
+   
+   /api/features/get
+
+9. api de correos /api/mail   por   req.body {to:"email",subject:"titulo o asunto", text:"cuerpo o correo como tal"}
 
 
-8. El archivo /styles/class.module.css  posee todas los estilos del componente que renderiza las clases
+10. El archivo /styles/class.module.css  posee todas los estilos del componente que renderiza las clases
 

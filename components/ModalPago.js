@@ -19,42 +19,6 @@ export default function ModalPago(props) {
 
   return (
     <>
-      {/* Opcion 1 */}
-      {/* <div className=' h-[200px] flex flex-col justify-left items-left ;'>
-        <PayPalScriptProvider
-        options={{
-            "clientId": process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID,
-        }}
-        >
-            <PayPalButtons
-                style={{
-                    color:"blue",
-                }}
-                createOrder={async()=>{
-                  try{
-                  const res =  await axios({
-                      url:"/api/payment",
-                      method: "POST",
-                      headers:{
-                        "Content-Type": "application/json"
-                      }
-                    })
-                    return res.data.id
-                  } catch{
-                    console.log(error)
-                  }
-                }} 
-                onCancel={(data) => {
-                  console.log("Canceled order:", data)
-                }}
-                onApprove={(data, actions)=>{
-                  console.log(data)
-                  actions.order.capture()
-                }}
-            />
-        </PayPalScriptProvider>
-      </div> */}
-
       {isOpen &&
       <>
         <div
@@ -111,11 +75,15 @@ export default function ModalPago(props) {
                             }
                           }} 
                           onCancel={(data) => {
-                            console.log("Canceled order:", data)
+                            console.log("Canceled order:", data);
+                            props.onPaymentCancel();
                           }}
                           onApprove={(data, actions)=>{
                             console.log(data)
-                            actions.order.capture()
+                            actions.order.capture().then(() => {
+                            props.onPaymentSuccess(); 
+                            closeModal();
+                            });
                           }}
                       />
                   </PayPalScriptProvider>

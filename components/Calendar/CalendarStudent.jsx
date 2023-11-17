@@ -4,6 +4,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
 import { useSession } from "next-auth/react"
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
+import Spinner from '../Spinner';
 import styles from '../../styles/navbar.module.css';
 import { es } from 'date-fns/locale';
 import {
@@ -15,6 +16,7 @@ import {
   isEqual,
   isSameDay,
   isAfter,
+  isBefore,
   isSameMonth,
   isToday,
   parse,
@@ -22,70 +24,97 @@ import {
   startOfToday,
 } from 'date-fns'
 import Image from 'next/image'
-import { Fragment, useState } from 'react'
-import { useEffect } from 'react';
+import { Fragment, useState, useEffect } from 'react'
+import ModalPago from '../ModalPago';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMoneyBill } from '@fortawesome/free-solid-svg-icons';
+
+
+
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example() {
+export default function Schedule() {
   const router = useRouter();
-  //Aca debe venir de la BD los por userId o email un solo usuario
-  //con todos los teachers y guias turisticos disponibles
-  //y sus calendarios y propiedades
-  //1. en caso de ser user se trae todo los teachers y guias
-  //Cargo usuario de BD
-  const { data: session, status } = useSession();
-  //2. en caso de ser teacher solo se trae su calendario con alumnos agendados y que pueda modificar sus horas disponibles
-  //   no tiene derecho de cancelar clases esta replanificaion va con el departamento de profesores
-  //3. en caso de ser guia turistico solo trae su calendario con sus clientes asignados, puede modificar sus horarios 
-  //   disponibles no puede cancelar citas ya reservadas
-  const student = require("./alumnos.json");
-  const teacher = require("./teachers.json");
-  const guide = require("./guides.json");
+ /*
+ Aca el usuario se trae por _id el calendario del guia o teacher
+ para poder agendar una cita en caso de que exista disponibilidad
+ */
+  const { data: session, status ,update} = useSession();
+ 
   const cardDetail = useSelector((state) => state.datos.cardDetail);
-  let [students, setStudents] = useState(student.value)
-  let [teachers, setTeachers] = useState(teacher.value)
-  let [guides, setGuides] = useState(guide.value)
+
+  const [deltaTime,setDeltaTime]= useState(0)
   let [renders, setRenders] = useState('')
   let [personSchedule, setPersonSchedule] = useState({})
-  let [name, setName] = useState('students')
   //variable para asignar New Meeting en caso de asignar hora
   let [newMeeting, setNewMeeting] = useState()
+
+  const [isPaymentConfirmed, setIsPaymentConfirmed] = useState(false);
+  const [paymentCancelled, setPaymentCancelled] = useState(false);
+
+  const handlePaymentSuccess = () => {
+    setIsPaymentConfirmed(true);
+    setPaymentCancelled(false); // Asegúrate de restablecer el otro estado
+  };
+  
+  const handlePaymentCancel = () => {
+    setIsPaymentConfirmed(false);
+    setPaymentCancelled(true); // Asegúrate de restablecer el otro estado
+  };
+
+
+
+  const { id } = router.query;
   useEffect(() => {
-
     setRenders(session)
-    setPersonSchedule(cardDetail)
+    if (Object.keys(cardDetail).length !== 0) {
+      setPersonSchedule(cardDetail)
+    }
+    else {
+      async function carDet() {
+        try {
+          const details = await fetch('/api/users/' + id).then(response => response.json());
+          setPersonSchedule(details.userid);
+        } catch (error) {
+          console.error('Error fetching user details:', error);
+        }
+      }
+      carDet()
+    }
+    
   }, [session])
-  // console.log(renders)
-  const users = ['students', 'teachers', 'guides']
-  let [i, setI] = useState(0)
-  function nextI() { if (i < students.length - 1) { let iaux = i + 1; setI(iaux); } console.log(i) }
-  function backI() { if (0 < i) { let iaux = i - 1; setI(iaux); } console.log(i) }
-  function handleOnChange(user) {
-    if (user === 'students') { setRenders(students); setName('students') }
-    if (user === 'teachers') { setRenders(teachers); setName('teachers') }
-    if (user === 'guides') { setRenders(guides); setName('guides') }
-    setI(0)
-  }
 
-
-  // Termina section de BD ahora viebne el codigo que usa los datos
-
-  /*
-Variable para renderizar la primera vuelta de los horarios disponibles en caso
-de que sea role:user con bg success o morado 
-*/
-  let isFirstMeeting = true;
+ 
 
   function selectSchedule(meeting) {
     setNewMeeting(meeting)
 
   }
-  //Function que asigna el horario al alumno en el calendario de profesor y del alumno
 
+  const [paypalModal, setPaypalModal] = useState(false)
+
+  const openPaypalModal = () =>{
+      setPaypalModal(true)
+  }
+
+  const handleChangePaypalModal = (data) =>{
+      setPaypalModal(data)
+  }
+
+//Declaro diferencial de horario
+
+
+
+
+  //Function que asigna el horario al alumno en el calendario de profesor y del alumno
   async function Confirm() {
+//sb-x747sj28200220@personal.example.com
+//Px4q]_[X
+//https://sandbox.paypal.com
 
     const promises = [];
     const newcalendar = [];
@@ -93,17 +122,17 @@ de que sea role:user con bg success o morado
     // a un nuevo calendario asignado la fecha
     personSchedule.calendar.map(meeting => {
       if (meeting.startDatetime === newMeeting.startDatetime) {
-        /*
+
         // Desplazamiento horario en minutos (ejemplo para GMT-03)
-        const offsetMinutes = -3*60;
+        const offsetMinutes1 = meeting.utnCreated * 60;
         // Obtén el UTN actual en UTC
         const nowUTC = new Date().getTime();
         // Calcula el nuevo UTN ajustado
-        const adjustedUTN = nowUTC + (offsetMinutes * 60000); // 1 minuto = 60,000 ms
+        const adjustedUTN = nowUTC + (offsetMinutes1 * 60000); // 1 minuto = 60,000 ms
         // Crea una nueva fecha en la zona horaria deseada
         const adjustedDate = new Date(adjustedUTN);
         console.log(adjustedDate); // Esto mostrará la hora ajustada según el desplazamiento horario.
-        */
+
         // Obtener el UTN de la fecha
         const fecha = today; Fragment
         const offsetMinutes = fecha.getTimezoneOffset();
@@ -120,10 +149,9 @@ de que sea role:user con bg success o morado
         for (const part of timeZoneName) {
           if (part.type === 'timeZoneName') {
             country = part.value.trim();
-            break;
+           break;
           }
         }
-
 
         //renders es el usuario que sera asignado al teacher
         newcalendar.push({
@@ -135,26 +163,14 @@ de que sea role:user con bg success o morado
           image: renders.user.image,
           email: renders.user.email,
           role: renders.user.role,
-          locationscheduled:country,
-          locationCreated: personSchedule.locationCreated, //profesor o guia que creo el calendario ubicacion
-          utnCreated: personSchedule.utnCreated, //profesor o guia que creo el calendario horas
+          locationscheduled: country,
+          locationCreated: meeting.locationCreated, //profesor o guia que creo el calendario ubicacion
+          utnCreated: meeting.utnCreated, //profesor o guia que creo el calendario horas
           utnscheduled: offsetNumber,
           startDatetime: meeting.startDatetime,
           endDatetime: meeting.endDatetime,
         })
-
-        // meeting.assigned = true;
-        // meeting.iduser = renders.user._id
-        // meeting.nameuser = renders.user.first_name + ' ' + renders.user.last_name;
-        // meeting.first_name = renders.user.first_name;
-        // meeting.last_name = renders.user.last_name;
-        // meeting.image = renders.user.image;
-        // meeting.email = renders.user.email;
-        // meeting.role = renders.user.role;
-        // meeting.utnscheduled = offsetNumber;
-
         //aca asigno el profesor al calendario del alumno
-        // renders[i].schedule.push({
         renders.user.calendar.push({
           id: personSchedule['_id'],
           assigned: true,
@@ -165,28 +181,19 @@ de que sea role:user con bg success o morado
           image: personSchedule.image,
           iduser: personSchedule.id,
           startDatetime: meeting.startDatetime,
-          endDatetime: meeting.endDatetime,
-          utnCreated: personSchedule.utnCreated,
+          endDatetime:   meeting.endDatetime,
+          utnCreated:    meeting.utnCreated,
           utnscheduled: offsetNumber,
-          locationCreated: personSchedule.locationCreated,
-          locationscheduled:country
+          locationCreated: meeting.locationCreated,
+          locationscheduled: country
 
         })
 
         //aca va la promesa de cargar en BD el nuevo personSchedule.schedule
         //aca va la promesa de enviar dos correos uno a teacher y uno a profesor
 
-        //aca actualizo el calendario del profesor con alumno en BD
-        promises.push(
-          fetch('/api/users/update',
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              // body: JSON.stringify({ email: personSchedule.email, updates: { calendar: personSchedule.schedule } }),
-              body: JSON.stringify({ email: personSchedule.email, updates: { calendar: newcalendar } }),
-            }))
+        //La promesa del nuevo calendario del profesor la saco del if porque sino la
+        //promesa sale sin todo los calendarios actualizados tenia un problema de logica
 
         //envio email a teacher
         promises.push(
@@ -203,6 +210,7 @@ de que sea role:user con bg success o morado
             }))
 
         //aca actualizo el calendario del alumno en BD
+        //fuera del map para que se declare una sola promesa y con el recorrido completo
         promises.push(
           fetch('/api/users/update',
             {
@@ -231,16 +239,29 @@ de que sea role:user con bg success o morado
       } else {
         newcalendar.push(meeting)
       }
+       
     })
+      //aca actualizo el calendario del profesor con alumno en BD
+      promises.push(
+        fetch('/api/users/update',
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            // body: JSON.stringify({ email: personSchedule.email, updates: { calendar: personSchedule.schedule } }),
+            body: JSON.stringify({ email: personSchedule.email, updates: { calendar: newcalendar } }),
+          }))
 
     alert('Su clase ha sido asignada')
     //Ejecuto todas las promesas
     try {
-      await Promise.all(promises);
+      const results = await Promise.all(promises);
+     
     } catch (error) {
       console.log(error);
     }
-    //    console.log(personSchedule.schedule)
+   
     router.push('/inicio/calendar');
   }
 
@@ -265,51 +286,23 @@ de que sea role:user con bg success o morado
     setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'))
   }
 
-  //let selectedDayMeetings = renders.schedule.filter((meeting) =>
-  // let selectedDayMeetings = renders.user.calendar.filter((meeting) =>
-  //   isSameDay(parseISO(meeting.startDatetime), selectedDay)
-  // )
-  // let selectedDayMeetings = meetings.filter((meeting) =>
-  //   isSameDay(parseISO(meeting.startDatetime), selectedDay)
-  // )
+  
+  if (!personSchedule|| Object.keys(personSchedule).length===0) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <Spinner />
+      </div>
+    )
+  } 
+
 
   return (
     <div className="pt-24">
       <div className=" max-w-4xl px-4 mx-auto sm:px-7 md:max-w-4xl md:px-4">
         <div className="md:grid md:grid-cols-2  md:divide-x md:divide-gray-200 grid grid-cols-2">
           <div className="md:pr-14">
-            {/* <div style={{ border: 'solid 1px red' }}> */}
-            {/* Menu Desplegable para tipo de usuarios */}
-            {/* <ul className={`${styles['select-languages_menu2']} ${styles['active']}`}> */}
-            {/*
-                  users.length > 0 &&
-                  users.map((user) => (
-                    <li
-                      onClick={() => handleOnChange(user)}
-                      value={user}
-                      className={styles["select-languages_languages"]}
-                      key={user}>
 
-
-                      {/* Label */}
-            {/*<label style={{ marginLeft: "8px" }}>
-                        {user}
-                      </label>
-                    </li>
-                  )
-                  )
-                }
-              {/* </ul> */}
-            {/* </div> */}
-
-            {/* <>{name}</> */}
-
-            {/* <button style={{ 'marginLeft': '16px', 'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={backI}>Anterior</button> */}
-            {/* <button style={{ 'marginLeft': '16px', 'backgroundColor': '#4CCFEB', 'border': '4px solid #007bff' }} onClick={nextI}>Siguiente</button> */}
-            {/* De aca inicia el componente real */}
             {renders ? <div>
-              {/* {console.log(personSchedule)} */}
-              {/* <Image alt={'student'} width={100} height={100} src={personSchedule.image}></Image> */}
               <Image alt={'student'} width={100} height={100} src={personSchedule?.image?.url || personSchedule?.image}></Image>
             </div> : null}
             <div className="flex items-center">
@@ -333,9 +326,8 @@ de que sea role:user con bg success o morado
                 <span className="sr-only">Next month</span>
                 <ChevronRightIcon className="w-5 h-5" aria-hidden="true" />
               </button>
-            </div >
+            </div>
             <div className="grid grid-cols-7 mt-10 text-base leading-6 text-center text-white bg-primary">
-              {/* <div className="grid grid-cols-7 mt-10 text-xs leading-6 text-center text-gray-500"> */}
               <div>Dom</div>
               <div>Lun</div>
               <div>Mar</div>
@@ -363,11 +355,11 @@ de que sea role:user con bg success o morado
                       !isEqual(day, selectedDay) && !isToday(day) && !isSameMonth(day, firstDayCurrentMonth) && 'text-gray-400',
                       isEqual(day, selectedDay) && isToday(day) && 'bg-success',
                       isEqual(day, selectedDay) && !isToday(day) && 'bg-success',
-                     !isEqual(day, selectedDay) && 'hover:bg-gray-200',
+                      !isEqual(day, selectedDay) && 'hover:bg-gray-200',
                       (isEqual(day, selectedDay) || isToday(day)) && 'font-semibold',
                       personSchedule?.calendar?.some((meeting) =>
-                      //Los dias de meetings deben ser despues de la fecha de hoy y deben tener disponibilidad
-                      isAfter(selectedDay, today) &&   isSameDay(parseISO(meeting.startDatetime), day) && !meeting.assigned) && "rounded-full bg-gray-200 text-primary text-lg",
+                        //Los dias de meetings deben ser despues de la fecha de hoy y deben tener disponibilidad
+                        (isAfter(parseISO(meeting.startDatetime), today)) && isSameDay(parseISO(meeting.startDatetime), day) && !meeting.assigned) && "rounded-full bg-gray-200 text-primary text-lg",
                       'mx-auto flex h-8 w-8 items-center justify-center rounded-full'
                     )}
                   >
@@ -393,13 +385,13 @@ de que sea role:user con bg success o morado
             <div className='max-w-fit pt-36 pl-14 grid grid-cols-1 divide-x object-none object-right-top  border-red-500 border-solid-4'>
               {/* {Section Alumnos} */}
 
-              {renders?.user?.role === 'user' || renders?.user?.role.includes('user') ?
+              {renders?.user?.role === 'user' || renders?.user?.role.includes('user') || true ?
                 <>
                   {/* de aca viene el id del usuario donde va a renderizar el estado del teacher o guias
-                  con los datos del teacher o guia turistico, viene por redux */}
-                  <div><strong> {personSchedule.first_name}</strong></div>
+                  con los datos del teacher o guia turistico, viene por redux  y por BD en caso de dar f5*/}
+                  <div><strong> {personSchedule?.first_name}</strong></div>
 
-                  { isAfter(selectedDay, today) && personSchedule?.calendar?.map((meeting, index) => {
+                  {isAfter(selectedDay, today) && personSchedule?.calendar?.map((meeting, index) => {
                     if (!meeting.assigned && isSameDay(parseISO(meeting.startDatetime), selectedDay)) {
                       return (
 
@@ -407,7 +399,6 @@ de que sea role:user con bg success o morado
                           <button onClick={() => selectSchedule(meeting)}
                             className={classNames(
                               'focus:outline-none  hover:bg-success  font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900',
-                              // isFirstMeeting ? 'bg-success text-white ' : '  ring-2 text-primary hover:border-none border-primary hover:text-white',
                               newMeeting ? newMeeting.startDatetime === meeting.startDatetime ? 'bg-success text-white ' : '  ring-2 text-primary hover:border-none border-primary hover:text-white' : 'ring-2 text-primary hover:border-none border-primary hover:text-white',
                               newMeeting ? newMeeting.startDatetime !== meeting.startDatetime ? 'ring-2 text-primary hover:border-none border-primary hover:text-white' : 'bg-success text-white ' : null,
                             )} >
@@ -427,17 +418,41 @@ de que sea role:user con bg success o morado
 
                   })}
 
-                  {/* Si existe meeting par asignar renderiza button confirmar citas*/}
-                  {  isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) &&
-                    <button type="button" onClick={() => Confirm()} className='focus:outline-none  bg-primary text-white font-medium rounded-lg te t-sm px-5 py-2.5 mb-2 '>Confirma </button>}
+                
+                  {/* Si existe un meeting para asignar y el pago ha sido confirmado, renderiza el botón de confirmar citas */}
+
+                  {isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) && isPaymentConfirmed &&
+  <button type="button" onClick={() => Confirm()} className='focus:outline-none bg-primary text-white font-medium rounded-lg text-sm px-5 py-2.5 mb-2'>Confirma</button>
+}
+
+{
+  !isPaymentConfirmed && isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) && 
+  <p>
+    {/* Botón para abrir el modal de PayPal */}
+    <button
+      onClick={openPaypalModal}
+      className="flex w-full items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all bg-primary text-white hover:bg-primary hover:text-white"
+    >
+      <FontAwesomeIcon icon={faMoneyBill} className="mr-[10px]" />
+      <p>Reserva tu Cita</p>
+    </button>
+
+    {/* Modal de Pago */}
+    <ModalPago 
+      onPaymentSuccess={handlePaymentSuccess} 
+      onPaymentCancel={handlePaymentCancel} 
+      modalPaypal={handleChangePaypalModal} 
+      open={paypalModal} 
+    />
+  </p>
+}
+
                 </>
 
                 : null}
             </div>
-            {renders?.user?.role === 'guide' ? true : null}
-            {renders?.user?.role === 'teacher' ? true : null}
-
-            {/* {format(selectedDay, "yyyy-MM-dd HH:00:00")} */}
+            {renders?.user?.role === 'guide' ? <>guia</> : null}
+            {renders?.user?.role === 'teacher' ? <>teacher</> : null}
 
           </section>
 
@@ -547,23 +562,3 @@ let colStartClasses = [
   'col-start-6',
   'col-start-7',
 ]
-
-// h1 {
-//   disponible{
-//     1/0
-//   }
-//   ocupado{
-//     1/0
-//   }
-// }
-// 2 1 / 0
-// 3
-// 4
-// 5
-// 6
-// 7
-// 8
-// 8
-// 10
-// 11
-// 12

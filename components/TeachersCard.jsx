@@ -96,14 +96,17 @@ export function TeachersCard() {
       {cards.length > 0 ? (
         cards.map((card, index) => (
           <>
-          <div key={index} className='w-full flex p-[18px] bg-white rounded-[5px] shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000040] mb-[24px]'>
+          <div key={index} className='overflow-hidden relative w-full flex p-[18px] bg-white rounded-[5px] shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000040] mb-[24px]
+          md:p-0'>
             
             {/* Imagen de perfil */}
-            <div className='flex flex-col items-center w-auto'>
+            <div className='flex flex-col items-center w-auto '>
 
               {/* Imagen */}
+              {
+              card.image.url || card.image?
               <Image
-                alt="photo"
+              alt="photo"
                 width={160}
                 height={160}
                 src={ card ?  // ¿Existe la variable 'card'?
@@ -111,33 +114,64 @@ export function TeachersCard() {
                   card.image.url ? card.image.url : card.image // ¿Existe la propiedad 'url' en 'card.image'? Si es cierto, usa 'card.image.url'; de lo contrario, usa 'card.image'.
                 : card.image // Si no existe 'card.image', usa 'card.image'.
               : null}
-                className="w-[134px] h-[126px] rounded-lg object-cover mb-5"
+                className="w-[134px] h-[126px] rounded-lg object-cover mb-5 block
+                md:m-0 md:rounded-none"
               />
+              :
+              <div className="w-[134px] h-[126px] rounded-lg object-cover mb-5 bg-gray_clear
+              md:m-0 md:rounded-none">
+              </div>
+              }
+              
 
               {/* Estrellas */}
-              <div className="flex items-center space-x-1 text-success">
+              <div className="flex items-center space-x-1 text-success
+              md:hidden">
                 {renderStars()}
               </div>
             </div>
 
             {/* Contenido */}
-            <div className='relative ml-[20px] w-[100%] flex flex-col  justify-between'>
+            <div className='relative ml-[20px] w-[100%] flex flex-col  justify-between overflow-hidden
+            md:m-0 md:h-[126px] md:p-3'>
 
               {/* Nombre */}
-              <p className='text-title_color font-semibold text-[21px]'>{card.first_name+' '+card.last_name}</p>
+              <p className='text-title_color font-semibold text-[21px] '>{card.first_name+' '+card.last_name}</p>
               
               {/* Descripcion */}
-              <p className='text-violet_dark'>{card.content}</p>
+              <p className='text-violet_dark
+              md:text-[14px] md:relative md:overflow-hidden'>
+                {card.content}
+
+                {/* Degrade en responsive */}
+                <span className='bg-gradient-to-t from-white  w-full h-full absolute top-0 left-0 hidden
+                md:flex'></span>
+              </p>
 
               {/* Boton */}
               <div className='w-full flex justify-end'>
                 <button
-                    className=" py-[10px] px-[48px] btn-primary"
+                    className=" py-[10px] px-[48px] btn-primary
+                    md:hidden"
                     onClick={() => handleButtonClick(card)}>
                     Ver más
                 </button>
               </div>
+
+              
+              {/* Estrellas en el responsive*/}
+              <div className="items-center space-x-1 text-success hidden
+              md:flex">
+                {renderStars()}
+              </div>
             </div>
+
+            {/* Boton en el responsive */}
+            <button
+                    className="hidden
+                    md:flex md:absolute md:w-full md:h-full"
+                    onClick={() => handleButtonClick(card)}>
+            </button>
 
           </div>
           </>

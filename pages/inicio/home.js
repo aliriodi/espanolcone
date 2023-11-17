@@ -12,6 +12,7 @@ import { faAngleLeft, faAngleRight, faHouse, faPersonHiking, faChalkboardUser, f
 import { useDispatch } from "react-redux";
 import { classid } from '../../redux/ECEActions'
 import Spinner from './../../components/Spinner';
+import Logo from '../../public/imgs/only-logo.png'
 
 
 export default function Home() {
@@ -128,10 +129,18 @@ export default function Home() {
             style={{ background: 'linear-gradient(38.12deg, #7834E4 40.17%, #0E98B6 122.83%)' }}>
 
             {/* Icono */}
-            <FontAwesomeIcon
+            {/* <FontAwesomeIcon
               icon={faFlagCheckered}
               className='text-[28px] text-white p-[21px] bg-primary rounded-full mb-[28px] shadow-[0px_5.410437107086182px_5.410437107086182px_#00000040]'
-            />
+            /> */}
+            <div
+             className='text-[28px] text-white p-[14px] bg-primary rounded-full mb-[28px] shadow-[0px_5.410437107086182px_5.410437107086182px_#00000040]'
+            >
+              <Image
+              src={Logo}
+              height={35}
+              width={35}/>
+            </div>
 
             {/* Titulo */}
             {session && session.user ?

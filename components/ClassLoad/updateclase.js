@@ -1,7 +1,36 @@
 //import clase from "./nivela2.json"
-const clase = require("./U5NB1.json");
-async function imprimir()
-{
+//const clase = require("./U1NA1.json");
+
+const readline = require('readline');
+
+// Configurar la interfaz de lectura
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+// Función para introducir una variable
+ function introducirVariable(pregunta, callback) {
+  rl.question(pregunta, (respuesta) => {
+    callback(respuesta);
+  });
+}
+
+// Introducir la primera variable
+introducirVariable('Por favor introduce el nombre del json, example: U1NA1.json: ',  (namefile) => {
+  // Introducir la segunda variable
+  console.log('Introduce el _id de la clase a modificar')
+  introducirVariable(' example: 65561111c0af4de4ff78f6cc :  ', async (id) => {
+  
+      console.log('Procedo a modificar');
+      await imprimir( namefile,id)
+      // Cerrar la interfaz de lectura
+      rl.close();
+    });
+    
+  });
+
+async function imprimir(namefile,id)
+{const clase = require("./"+namefile);
   //console.log(clase)
 let nuevaclase=[];
 const numberOfPages = Object.keys(clase).length;
@@ -25,7 +54,7 @@ console.log(nuevaclase.length)
                  headers: {
                             'Content-Type': 'application/json'  // 'Content-Type': 'application/x-www-form-urlencoded',
                           },
-                 body: JSON.stringify({_id:"654d4aea964a981dde13750c",
+                 body: JSON.stringify({_id:id,
                                       // level:"Nivel A1",
                                       //  unit:"Unidad 6",
                                       //  description:'nivela2 del MVP con ejemplos de ppopppus2 1 2 3 4 5 6 alirio',
@@ -36,4 +65,3 @@ console.log(nuevaclase.length)
               )
 
 }
-imprimir();

@@ -19,7 +19,7 @@ function App({ Component, pageProps }) {
         <Provider store={store}>
           
           <Component {...pageProps} />
-          {/* <GoogleAnalytics /> */}
+          <GoogleAnalytics />
         </Provider>
       </SessionProvider>
     </>

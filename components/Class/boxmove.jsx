@@ -187,6 +187,8 @@ export default function Boxmove(props) {
     const sol = document.querySelector("#" + props.option.value);
     const sol1 = document.querySelector("#" + props.option.id);
 
+    console.log(sol)
+
     if (sol && sol1) {
       const sol1Rect = sol1.getBoundingClientRect();
       const solRect = sol.getBoundingClientRect();
@@ -267,6 +269,7 @@ export default function Boxmove(props) {
             justifyContent: 'center',
             borderRadius: '8px',
             boxShadow: boxShadowcolor,
+            cursor: "pointer"
           }}
         >
           {props.option.value}

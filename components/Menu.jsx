@@ -156,7 +156,8 @@ const Menu = (props) => {
             (
                 <button 
                     className='bg-white shadow-[0px_4px_24px_#18292F1A] absolute top-[20px] left-[50px] h-[50px] w-[50px] rounded-full flex items-center justify-center
-                    hover:bg-gray_light transition-all'
+                    hover:bg-gray_light transition-all
+                    md:top-[10px] md:left-[10px]'
                     ref={menuRef}
                     onClick={() => setIsOpen(!isOpen)}>
                         <FontAwesomeIcon
@@ -168,7 +169,8 @@ const Menu = (props) => {
         }
 
             {/* Menu */}
-            <div className={`bg-white fixed ${!isOpen ? "left-[-300px]" : "left-0"} max-w-[277px] px-1 py-1 h-screen z-[60] shadow-[0px_0px_15px_#0000000D] transition-all`}>
+            <div className={`bg-white fixed ${!isOpen ? "left-[-300px]" : "left-0"} max-w-[277px] px-1 py-1 h-screen z-[60] shadow-[0px_0px_15px_#0000000D] transition-all
+            md:text-[14px]`}>
 
                 {/* Opciones */}
                 <nav className="my-8 flex flex-row-reverse  h-full justify-between" style={{ fontWeight: '500' }}>

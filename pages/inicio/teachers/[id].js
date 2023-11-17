@@ -12,27 +12,39 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import Spinner from '../../../components/Spinner';
 
 export default function TeacherDetailPage() {
-
-
-  const cardDetail = useSelector((state) => state.datos.cardDetail);
+  const cardDetail2 = useSelector((state) => state.datos.cardDetail);
   const [isCardAvailable, setIsCardAvailable] = useState(false);
+  const [cardDetail, setcardDetail] = useState({});
   const router = useRouter();
+  const { id } = router.query;
   // Opciones de Youtube
   const iframeRef = useRef(null);
 
   useEffect(() => {
-    if (cardDetail) {
+    if (cardDetail2.length!==0) {
       setIsCardAvailable(true);
+      setcardDetail(cardDetail2)
     }
-  }, [cardDetail]);
+     else{
+        async function carDet() {
+          try {
+          const details = await fetch('/api/users/'+id ).then(response => response.json());
+          setcardDetail(details.userid);
+        } catch (error) {
+          console.error('Error fetching user details:', error);
+        }}
+        carDet()
+      
+             }
+  }, [cardDetail2,id]);
 
-  if (!isCardAvailable) {
+  if (!cardDetail||cardDetail.length===0 || Object.keys(cardDetail).length===0) {
     return (
-      <div class="flex justify-center items-center min-h-screen">
+      <div className="flex justify-center items-center min-h-screen">
         <Spinner />
       </div>
     )
-  }
+  } 
 
   function  handleButton  () {
     router.push('/inicio/schedule/'+cardDetail._id);
@@ -62,7 +74,8 @@ export default function TeacherDetailPage() {
 
              {/*Imagen de Profesor  */}
             <div className="w-1/5 flex flex-col items-center ">
-              {cardDetail.image ? (
+              {cardDetail?.image ? (
+                
                 <Image
                 alt="photo"
                 width={160}
@@ -82,8 +95,8 @@ export default function TeacherDetailPage() {
 
               {/* Nivel de Español */}
               <div className='flex justify-evenly mt-2 text-violet_dark'>
-                <p className='mr-[5px]'>Español:</p>
-                {cardDetail.hablante ? (
+                <p className='mr-[5px]'>Español: </p>
+                {cardDetail?.hablante ? (
                   <strong>{cardDetail.hablante}</strong>
                 ) : (
                   <strong>No hay idioma detectado</strong>
@@ -96,7 +109,7 @@ export default function TeacherDetailPage() {
 
               <div className='py-5'>
                 {/* Nombre */}
-                {cardDetail.first_name   ? (
+                {cardDetail?.first_name   ? (
                   <p className='pb-5 text-title_color font-semibold text-[28px]'>{cardDetail.first_name+' '+cardDetail.last_name}</p>
                 ) : (
                   <p className='pb-5 text-title_color font-semibold text-[28px]'>No hay datos personales</p>
@@ -112,10 +125,10 @@ export default function TeacherDetailPage() {
           <div className='px-[22px] py-[26px] border bg-white rounded-md shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] mb-[12px]'>
 
             {/* Titulo */}
-            <p className='text-[18px] text-title_color font-medium border-b-2 py-2'>Metodología:</p>
+            <p className='text-[18px] text-title_color font-medium border-b-2 py-2'>Metodología:{console.log('128',cardDetail)}</p>
 
             {/* Metodologias */}
-            {cardDetail.enfoquePedagogico ? (
+            {cardDetail?.enfoquePedagogico ? (
               <p className='text-violet_dark py-2'>{cardDetail.enfoquePedagogico}</p>
             ) : (
               <p className='text-violet_dark py-2'>No hay metodología cargada</p>
@@ -123,8 +136,8 @@ export default function TeacherDetailPage() {
 
             {/* Puntos */}
             <ul>
-              {cardDetail.puntos && cardDetail.puntos.length > 0 ? (
-                cardDetail.puntos.map((punto, index) => (
+              {cardDetail?.puntos && cardDetail?.puntos.length > 0 ? (
+                cardDetail?.puntos.map((punto, index) => (
                   <li
                   className='text-violet_dark ml-2 mb-1'
                   key={index}>
@@ -137,7 +150,7 @@ export default function TeacherDetailPage() {
               )}
             </ul>
             <p className='text-violet_dark py-2'>
-              {cardDetail.despedida ? cardDetail.despedida : 'No hay despedida'}
+              {cardDetail?.despedida ? cardDetail.despedida : 'No hay despedida'}
             </p>
           </div>
 
@@ -147,7 +160,7 @@ export default function TeacherDetailPage() {
             <p className='text-[18px] text-title_color font-medium border-b-2 py-2'>Reseñas:</p>
             
             <ul>
-              {cardDetail.reseña && cardDetail.reseña.length > 0 ? (
+              {cardDetail?.reseña && cardDetail.reseña.length > 0 ? (
                 cardDetail.reseña.map((item, index) => (
                   <li className='m-2 p-2 border border-black rounded-md flex flex-row' key={index}>
                     <Image
@@ -183,7 +196,7 @@ export default function TeacherDetailPage() {
           <YouTube 
           ref={iframeRef}
           opts={opts}
-          videoId={cardDetail.youtube}
+          videoId={cardDetail?.youtube}
           className='w-full flex justify-center youtube h-[175px] relative rounded-[5px] overflow-hidden'/>
           
           {/* Estrellas */}

@@ -10,6 +10,7 @@ import PARAGGRAPHCOMPLETE from './paragragraphcomplete';
 import style from '../../styles/class.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import DragablesBox from './DragableBox/DragablesBox';
 
 export default function Class(props) {
   //elemento a renderizar  
@@ -240,14 +241,19 @@ export default function Class(props) {
                   <div className='className'>
                     {c.type === 'options-box' ? c.value.map(value => <BOXMOMVE key={c.id} option={value} id={c.id}  />): null}
                   </div></div>
+
+                  {/* Caja de Oraciones */}
+                  {c.type === 'sentence-box' &&
+                  <div className={style[c.className]}><p dangerouslySetInnerHTML={{ __html: c.value }}></p> </div>}
+                  
+                  {/* Drag Box */}
+                  {c.type === 'dragable-box' &&
+                  <DragablesBox options={c.value}/>}
                   
                   {/* Parrafo */}
                   {c.type === 'paragraph' &&
                   <p className={style[c.className]} dangerouslySetInnerHTML={{ __html: c.value }}></p>}
                   
-                  {/* Caja de Oraciones */}
-                  {c.type === 'sentence-box' &&
-                  <div className={style[c.className]}><p dangerouslySetInnerHTML={{ __html: c.value }}></p> </div>}
                   
                   {/* SelectSimple */}
                   {c.type === 'selectsimple' &&
