@@ -469,43 +469,63 @@
                 "className": "title-white"
             },
             {
-                "type": "title",
+                "type": "text",
                 "value": "En el siguiente enlace encuentras un artículo periodístico titulado:",
                 "className": "subtitle-default"
             },
             {
-                "type": "title",
+                "type": "text",
                 "value": "4 senderos de trekking ideales para principiantes en Córdoba.",
-                "className": "subtitle-default"
+                "className": "subtitle--complete-li"
             },
             {
                 "type": "text",
                 "value": "https://www.cadena3.com/noticia/cordoba/4-senderos-de-trekking-ideales-para-principiantes-en-cordoba_288907",
-                "className": "className"
+                "className": "paragraph3"
             },
             {
                 "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1700016158/images/cion3kpk50vd7sgrtnuh.jpg",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1700088731/images/cfoiyfoexwkcn1ozkyuk.jpg",
                 "alt": "Cascada Los Hornillos, Río Ceballos",
-                "className": "className"
+                "className": "img-c-position"
+            },
+            {
+                "type": "text",
+                "value": "Cascada Los Hornillos, Río Ceballos",
+                "className": "citydown"
             },
             {
                 "type": "image",
-                "value": "",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1700089568/images/uunrxurnntxd8jds43kd.jpg",
                 "alt": "Cascada Los Chorrillos, Tanti",
-                "className": ""
+                "className": "img-c-position"
+            },
+            {
+                "type": "text",
+                "value": "Cascada Los Chorrillos, Tanti",
+                "className": "citydown"
             },
             {
                 "type": "image",
-                "value": "",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1700089663/images/h49abdmx48cd7epojtz2.jpg",
                 "alt": "Reserva Hídrica, Los Quebrachitos, Unquillo",
-                "className": ""
+                "className": "img-rows-position"
+            },
+            {
+                "type": "text",
+                "value": "Reserva Hídrica, Los Quebrachitos, Unquillo",
+                "className": "citydown"
             },
             {
                 "type": "image",
-                "value": "",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1700089752/images/k5tg5hx3kzspf8ctrxkr.jpg",
                 "alt": "Reserva Natural Vaquerías, Valle Hermoso",
-                "className": ""
+                "className": "img-rows-position"
+            },
+            {
+                "type": "text",
+                "value": "Reserva Natural Vaquerías, Valle Hermoso",
+                "className": "citydown"
             }
         ]
     },
