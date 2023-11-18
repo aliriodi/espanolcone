@@ -54,7 +54,7 @@ export default function Class(props) {
        // alert(typeof(response.class1))
         setData(response.class1);
         setL(response.class1.sheets.length)
-        props.updateTitle(`${response.class1?.level} - ${response.class1?.unit}`)
+        // props.updateTitle(`${response.class1?.level} - ${response.class1?.unit}`)
 
       })
       .catch((error) => {

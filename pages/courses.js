@@ -19,10 +19,10 @@ export default function Courses() {
 
   const [title, setTitle] = useState(null);
 
-  const updateTitle = (datos) => {
-    // Hacer algo con los datos recibidos del hijo
-    setTitle(datos);
-  };
+  // const updateTitle = (datos) => {
+  //   // Hacer algo con los datos recibidos del hijo
+  //   setTitle(datos);
+  // };
 
   useEffect(() => {
     // console.log(page)
@@ -47,7 +47,11 @@ export default function Courses() {
         <div>
           {id ? 
             <div className={style['container1']}>
-            <Class id={id} page={page} updateTitle={updateTitle}></Class></div> 
+            <Class 
+            id={id} 
+            page={page}
+            //  updateTitle={updateTitle}
+             ></Class></div> 
             :
             <div classname='flex items-center justify-center h-screen'>
               <Spinner className="mx-auto my-auto" />
