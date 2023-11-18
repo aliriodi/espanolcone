@@ -33,11 +33,11 @@ export default function Courses() {
   return (
     <>
       <Head>
-        {
+        {/* {
           title?
           <title>{`${title}`} | Español con E</title>:
           <title>Español con E</title>
-        }
+        } */}
         <meta name="landing" content="welcome" />
       </Head>
 
