@@ -17,6 +17,13 @@ export default function Courses() {
   const id = useSelector((state) => state.datos.classid);
   const page = useSelector((state) => state.datos.classPage);
 
+  const [title, setTitle] = useState(null);
+
+  const updateTitle = (datos) => {
+    // Hacer algo con los datos recibidos del hijo
+    setTitle(datos);
+  };
+
   useEffect(() => {
     // console.log(page)
   }, [page]);
@@ -26,6 +33,11 @@ export default function Courses() {
   return (
     <>
       <Head>
+        {
+          title?
+          <title>{`${title}`} | Español con E</title>:
+          <title>Español con E</title>
+        }
         <meta name="landing" content="welcome" />
       </Head>
 
@@ -35,7 +47,7 @@ export default function Courses() {
         <div>
           {id ? 
             <div className={style['container1']}>
-            <Class id={id} page={page}></Class></div> 
+            <Class id={id} page={page} updateTitle={updateTitle}></Class></div> 
             :
             <div classname='flex items-center justify-center h-screen'>
               <Spinner className="mx-auto my-auto" />

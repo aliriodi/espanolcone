@@ -11,6 +11,7 @@ import style from '../../styles/class.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import DragablesBox from './DragableBox/DragablesBox';
+import { Head } from 'next/document';
 
 export default function Class(props) {
   //elemento a renderizar  
@@ -53,6 +54,7 @@ export default function Class(props) {
        // alert(typeof(response.class1))
         setData(response.class1);
         setL(response.class1.sheets.length)
+        props.updateTitle(`${response.class1?.level} - ${response.class1?.unit}`)
 
       })
       .catch((error) => {
@@ -92,206 +94,214 @@ export default function Class(props) {
   return (
     <>
 
-      {
-        i == 0 &&
-        <button
-        className='bg-gradient-to-r from-primary to-secondary z-50 absolute bottom-[20%] text-white text-[28px] right-[30%] p-3 rounded-[5px] transition-all
-        hover:shadow-[0px_4px_26px] hover:shadow-primary'
-        onClick={() => Forward(i)}>
-          ¡Empezemos!
-        </button>
-      }
+      {/* <Head>
+        <title>{data?.level} - {data?.unit} | Español con E</title>
+        <meta name="landing" content="welcome" />
+      </Head> */}
 
-      {/* Paginacion */}
-      {/* <div className='fixed bottom-6 w-full flex justify-center z-50'> */}
+      <div>
 
-        {/* <div className='pagination' style={{boxShadow:"0px 4px 26px #00000040"}}> */}
-
-          {/* Boton de Previo */}
-          {/* <button
-          className='pagination-btn'
-          onClick={() => Back(i)}>
-            <FontAwesomeIcon icon={faAngleLeft}/> Prev
-          </button> */}
-
-          {/* Index */}
-          {/* <span className='pagination-index'>{i + 1} / {length}</span> */}
-
-          {/* Boton de Siguiente */}
-          {/* <button
-          className='pagination-btn'
-          onClick={() => Forward(i)}>
-            Next <FontAwesomeIcon icon={faAngleRight}/> 
-          </button> */}
-          
-        {/* </div> */}
-      {/* </div> */}
-
-      {/* Paginacion de Prueba */}
-
-        {/* Boton de Previo */}
         {
-          i != 0 &&
+          i == 0 &&
           <button
-          className='transition-all fixed bottom-0 left-0 z-[90] bg-white rounded-[0_70%_0_0] py-8 px-10 shadow-[0px_4px_26px_#00000040] text-title_color text-left text-[18px]
-          hover:bg-primary_hover hover:text-white'
-          onClick={() => Back(i)}>
-            <FontAwesomeIcon icon={faAngleLeft}/> Prev
-          </button>
-        } 
-
-        {/* Boton de Siguiente */}
-        {
-          i != 0 &&
-          <button
-          className='transition-all fixed bottom-0 right-0 z-[90] bg-white rounded-[70%_0_0_0] py-8 px-10 shadow-[0px_4px_26px_#00000040] text-title_color text-right text-[18px]
-          hover:bg-primary_hover hover:text-white'
+          className='bg-gradient-to-r from-primary to-secondary z-50 absolute bottom-[20%] text-white text-[28px] right-[30%] p-3 rounded-[5px] transition-all
+          hover:shadow-[0px_4px_26px] hover:shadow-primary'
           onClick={() => Forward(i)}>
-            Next <FontAwesomeIcon icon={faAngleRight}/> 
+            ¡Empezemos!
           </button>
         }
 
-      {
-        data && data.sheets[i]?.data ?
+        {/* Paginacion */}
+        {/* <div className='fixed bottom-6 w-full flex justify-center z-50'> */}
 
-        
-        data.sheets[i].template && i == 0 ||
-        data.sheets[i].template && (i + 1) == data.sheets.length?
+          {/* <div className='pagination' style={{boxShadow:"0px 4px 26px #00000040"}}> */}
 
-        // En caso de que sea la primera o ultima sheets
-        data.sheets[i].data.map((c, index) =>
-        <>
+            {/* Boton de Previo */}
+            {/* <button
+            className='pagination-btn'
+            onClick={() => Back(i)}>
+              <FontAwesomeIcon icon={faAngleLeft}/> Prev
+            </button> */}
 
-          {/* Fondo */}
-          <div style={{width:80,heigth:40}}>
-            <Image
-              key={index+1}
-              src={data.sheets[i].template}
-              alt="Background Image"
-              layout="fill"
-              objectFit="cover"
-              objectPosition="center"
-              style={{zIndex: -10}}
-              className="z-10"
-            />
-          </div>
+            {/* Index */}
+            {/* <span className='pagination-index'>{i + 1} / {length}</span> */}
 
-          {/* Contenido */}
-          <div className={style[c.className]} key={index}>
-
-            {c.type === 'title' ? <div className='className'><p dangerouslySetInnerHTML={{ __html: c.value }}></p></div> : null}
+            {/* Boton de Siguiente */}
+            {/* <button
+            className='pagination-btn'
+            onClick={() => Forward(i)}>
+              Next <FontAwesomeIcon icon={faAngleRight}/> 
+            </button> */}
             
-            {c.type === 'paragraph' ? <div className='className'><p dangerouslySetInnerHTML={{ __html: c.value }}></p> </div>: null}
-            
-          </div>
+          {/* </div> */}
+        {/* </div> */}
 
-        </>)
+        {/* Paginacion de Prueba */}
 
-        :
+          {/* Boton de Previo */}
+          {
+            i != 0 &&
+            <button
+            className='transition-all fixed bottom-0 left-0 z-[90] bg-white rounded-[0_70%_0_0] py-8 px-10 shadow-[0px_4px_26px_#00000040] text-title_color text-left text-[18px]
+            hover:bg-primary_hover hover:text-white'
+            onClick={() => Back(i)}>
+              <FontAwesomeIcon icon={faAngleLeft}/> Prev
+            </button>
+          } 
 
-        // En el caso contrario se muestra el resto sheets
-        <>
-          {/* Teample */}
-          <div className={style[data.sheets[i].template]}>
+          {/* Boton de Siguiente */}
+          {
+            i != 0 &&
+            <button
+            className='transition-all fixed bottom-0 right-0 z-[90] bg-white rounded-[70%_0_0_0] py-8 px-10 shadow-[0px_4px_26px_#00000040] text-title_color text-right text-[18px]
+            hover:bg-primary_hover hover:text-white'
+            onClick={() => Forward(i)}>
+              Next <FontAwesomeIcon icon={faAngleRight}/> 
+            </button>
+          }
 
-            {/* Titulo */}
-            <div className={style['title']}>
-              {
-              data.sheets[i].data.map((c, index) =>
-              <>
-                {c.type === 'title' && 
-                  <div className={style[c.className]}>
-                    <p dangerouslySetInnerHTML={{ __html: c.value }}></p>
-                  </div>
-                }
+        {
+          data && data.sheets[i]?.data ?
 
-                {/* PopUp de Dialogos */}
-                {c.type === 'popup' &&
-                  <div className={style[c.className]}> <p dangerouslySetInnerHTML={{ __html: c.value }}></p></div>
-                }
+          
+          data.sheets[i].template && i == 0 ||
+          data.sheets[i].template && (i + 1) == data.sheets.length?
 
+          // En caso de que sea la primera o ultima sheets
+          data.sheets[i].data.map((c, index) =>
+          <>
 
-              </>
-
-              )}
+            {/* Fondo */}
+            <div style={{width:80,heigth:40}}>
+              <Image
+                key={index+1}
+                src={data.sheets[i].template}
+                alt="Background Image"
+                layout="fill"
+                objectFit="cover"
+                objectPosition="center"
+                style={{zIndex: -10}}
+                className="z-10"
+              />
             </div>
-            
+
             {/* Contenido */}
-            <div className={style['content']}>
-              {
-              data.sheets[i].data.map((c, index) =>
-                <>
-                  {/* Level */}
-                  {c.type === 'level' &&
-                  <p className={style[c.className]} dangerouslySetInnerHTML={{ __html: c.value }}></p> }
-                  
-                  {/* Imagen */}
-                  {c.type === 'image' &&<Image width='100' height='100' className={style[c.className]} src={c.value} alt={c.alt} />}
-                  
-                  {/* Video Youtube */}
-                  {c.type === 'video-youtube' &&
-                  <div className={`${style[c.className]} youtube`}> <YouTube ref={iframeRef} opts={opts} videoId={c.value} className='youtube' /> </div>}
-                  
-                  {/* Video Youtube con PopUps */}
-                  {c.type === 'videoi-youtube' &&
-                  <div className={`${style[c.className]}`}><YOUTUVEPOPUP titlep={null} popups={c.popups} videoId={c.value} className='youtube' /></div> }
+            <div className={style[c.className]} key={index}>
 
-                  {/* Box? */}
-                  <div className={styles['box']}>
-                  <div className='className'>
-                    {c.type === 'options-box' ? c.value.map(value => <BOXMOMVE key={c.id} option={value} id={c.id}  />): null}
-                  </div></div>
-
-                  {/* Caja de Oraciones */}
-                  {c.type === 'sentence-box' &&
-                  <div className={style[c.className]}><p dangerouslySetInnerHTML={{ __html: c.value }}></p> </div>}
-                  
-                  {/* Drag Box */}
-                  {c.type === 'dragable-box' &&
-                  <DragablesBox options={c.value}/>}
-                  
-                  {/* Parrafo */}
-                  {c.type === 'paragraph' &&
-                  <p className={style[c.className]} dangerouslySetInnerHTML={{ __html: c.value }}></p>}
-                  
-                  
-                  {/* SelectSimple */}
-                  {c.type === 'selectsimple' &&
-                  <div className={style[c.className]}> <SELECTSIMPLE key={c.option} data={c}/> </div>}
-                  
-                  {/* Texto */}
-                  {c.type === 'text' &&
-                  <div className={style[c.className]}><p dangerouslySetInnerHTML={{ __html: c.value }}></p> </div>}
-                  {/* En la siguiente linea falta destructurar el objeto como input form */}
-                  
-                  {/* Parrafo a Completar */}
-                  {c.type === 'paragraph-complete' &&
-                  <div className={style[c.className]}><PARAGGRAPHCOMPLETE data={c}/></div> }
-                  
-                  {/* PopUp de Dialogos */}
-                  {c.type === 'popUp-dialogues' &&
-                  <div className={style[c.className]} dangerouslySetInnerHTML={{ __html: c.value }}></div>
-                  }
-                  
-                  
-                  {c.type === 'complete-li' &&
-                  <div className={style[c.className]}><PARAGGRAPHCOMPLETE data={c}/> </div> }
-                  
-                  {c.type === 'complete-li-personal' &&
-                  <div className={style[c.className]}><PARAGGRAPHCOMPLETE data={c}/> </div> }
-                  
-                  {/* <p dangerouslySetInnerHTML={{ __html: c.value }}></p> */}
-
-                  
-                </>)
-                } 
+              {c.type === 'title' ? <div className='className'><p dangerouslySetInnerHTML={{ __html: c.value }}></p></div> : null}
+              
+              {c.type === 'paragraph' ? <div className='className'><p dangerouslySetInnerHTML={{ __html: c.value }}></p> </div>: null}
+              
             </div>
-            
-          </div>
-        </>
 
-        : <div style={{ paddingRight: '1000px' }}> <Spinner /></div>
-      }
+          </>)
+
+          :
+
+          // En el caso contrario se muestra el resto sheets
+          <>
+            {/* Teample */}
+            <div className={style[data.sheets[i].template]}>
+
+              {/* Titulo */}
+              <div className={style['title']}>
+                {
+                data.sheets[i].data.map((c, index) =>
+                <>
+                  {c.type === 'title' && 
+                    <div className={style[c.className]}>
+                      <p dangerouslySetInnerHTML={{ __html: c.value }}></p>
+                    </div>
+                  }
+
+                  {/* PopUp de Dialogos */}
+                  {c.type === 'popup' &&
+                    <div className={style[c.className]}> <p dangerouslySetInnerHTML={{ __html: c.value }}></p></div>
+                  }
+
+
+                </>
+
+                )}
+              </div>
+              
+              {/* Contenido */}
+              <div className={style['content']}>
+                {
+                data.sheets[i].data.map((c, index) =>
+                  <>
+                    {/* Level */}
+                    {c.type === 'level' &&
+                    <p className={style[c.className]} dangerouslySetInnerHTML={{ __html: c.value }}></p> }
+                    
+                    {/* Imagen */}
+                    {c.type === 'image' &&<Image width='100' height='100' className={style[c.className]} src={c.value} alt={c.alt} />}
+                    
+                    {/* Video Youtube */}
+                    {c.type === 'video-youtube' &&
+                    <div className={`${style[c.className]} youtube`}> <YouTube ref={iframeRef} opts={opts} videoId={c.value} className='youtube' /> </div>}
+                    
+                    {/* Video Youtube con PopUps */}
+                    {c.type === 'videoi-youtube' &&
+                    <div className={`${style[c.className]}`}><YOUTUVEPOPUP titlep={null} popups={c.popups} videoId={c.value} className='youtube' /></div> }
+
+                    {/* Box? */}
+                    <div className={styles['box']}>
+                    <div className='className'>
+                      {c.type === 'options-box' ? c.value.map(value => <BOXMOMVE key={c.id} option={value} id={c.id}  />): null}
+                    </div></div>
+
+                    {/* Caja de Oraciones */}
+                    {c.type === 'sentence-box' &&
+                    <div className={style[c.className]}><p dangerouslySetInnerHTML={{ __html: c.value }}></p> </div>}
+                    
+                    {/* Drag Box */}
+                    {c.type === 'dragable-box' &&
+                    <DragablesBox options={c.value}/>}
+                    
+                    {/* Parrafo */}
+                    {c.type === 'paragraph' &&
+                    <p className={style[c.className]} dangerouslySetInnerHTML={{ __html: c.value }}></p>}
+                    
+                    
+                    {/* SelectSimple */}
+                    {c.type === 'selectsimple' &&
+                    <div className={style[c.className]}> <SELECTSIMPLE key={c.option} data={c}/> </div>}
+                    
+                    {/* Texto */}
+                    {c.type === 'text' &&
+                    <div className={style[c.className]}><p dangerouslySetInnerHTML={{ __html: c.value }}></p> </div>}
+                    {/* En la siguiente linea falta destructurar el objeto como input form */}
+                    
+                    {/* Parrafo a Completar */}
+                    {c.type === 'paragraph-complete' &&
+                    <div className={style[c.className]}><PARAGGRAPHCOMPLETE data={c}/></div> }
+                    
+                    {/* PopUp de Dialogos */}
+                    {c.type === 'popUp-dialogues' &&
+                    <div className={style[c.className]} dangerouslySetInnerHTML={{ __html: c.value }}></div>
+                    }
+                    
+                    
+                    {c.type === 'complete-li' &&
+                    <div className={style[c.className]}><PARAGGRAPHCOMPLETE data={c}/> </div> }
+                    
+                    {c.type === 'complete-li-personal' &&
+                    <div className={style[c.className]}><PARAGGRAPHCOMPLETE data={c}/> </div> }
+                    
+                    {/* <p dangerouslySetInnerHTML={{ __html: c.value }}></p> */}
+
+                    
+                  </>)
+                  } 
+              </div>
+              
+            </div>
+          </>
+
+          : <div style={{ paddingRight: '1000px' }}> <Spinner /></div>
+        }
+      </div>
     </>
   )
 }
