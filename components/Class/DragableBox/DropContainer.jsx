@@ -3,6 +3,7 @@ import { CSS } from "@dnd-kit/utilities";
 import { useEffect, useMemo, useState } from "react";
 import DragBox from "./DragBox";
 import Image from "next/image";
+import { DragOverlay } from "@dnd-kit/core"
 
 export default function DropContainer({
     dropUp,
@@ -82,14 +83,16 @@ export default function DropContainer({
                     className="flex my-[5px] items-center">
 
                         <p
-                        className="text-[#6E6B7B] text-[1.33rem]"
+                        className="text-[#6E6B7B] text-[1.33rem]
+                        md:text-[14px]"
                         dangerouslySetInnerHTML={{ __html: dropUp?.content }}></p>
 
 
                         <div
                         ref={setNodeRef}
                         style={style}
-                        className="rounded-[5px] w-[160px] border-solid border-[2px] bg-primary_flat_hover border-primary  min-h-[78px] flex justify-center">
+                        className="rounded-[5px] w-[160px] border-solid border-[2px] bg-primary_flat_hover border-primary  min-h-[78px] flex justify-center
+                        md:min-h-[50px]">
                             
                             {dragBoxs?.map((dragBox) => (
                                 <DragBox
@@ -111,10 +114,12 @@ export default function DropContainer({
                     ref={setNodeRef}
                     // className="rounded-[5px] border-solid border-[2px] bg-primary_flat_hover border-primary w-full min-h-[78px] flex justify-center my-[30px]"
                     className={
-                        typesDropsUps != "image" ?
-                        "absolute right-0 flex-col translate-y-[-50%] top-1/2 rounded-[5px] border-solid border-[2px] bg-primary_flat_hover border-primary min-w-[78px] min-h-[100%] flex justify-center"
+                        `
+                        ${typesDropsUps != "image" ?
+                        "absolute right-0 flex-col translate-y-[-50%] top-1/2 rounded-[5px] border-solid border-[2px] bg-primary_flat_hover border-primary min-w-[78px] min-h-[100%] flex justify-center   md:relative md:min-h-[78px] md:mt-6 md:translate-y-0 md:flex-row md:flex-wrap"
                         :
-                        "rounded-[5px] border-solid border-[2px] bg-primary_flat_hover border-primary w-full min-h-[78px] flex justify-center my-[30px]"
+                        "rounded-[5px] border-solid border-[2px] bg-primary_flat_hover border-primary w-full min-h-[78px] flex justify-center my-[30px]"}
+                        `
                     }
                     >
                         {dragBoxs?.map((dragBox) => (
