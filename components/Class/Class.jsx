@@ -155,8 +155,8 @@ export default function Class(props) {
         data && data.sheets[i]?.data ?
 
         
-        data.sheets[i].template && i == 0 ||
-        data.sheets[i].template && (i + 1) == data.sheets.length?
+        data.sheets[i].template && data.sheets[i].template[0]==='h' && i == 0 ||
+         data.sheets[i].template && data.sheets[i].template[0]==='h' && (i + 1) == data.sheets.length?
 
         // En caso de que sea la primera o ultima sheets
         data.sheets[i].data.map((c, index) =>

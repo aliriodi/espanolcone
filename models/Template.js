@@ -4,7 +4,7 @@ import { Schema, model, models } from 'mongoose'
 const templateSchema = new Schema(
   {
     template: {
-      type:String,
+      type:{},
       unique:true
     },
     },

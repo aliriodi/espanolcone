@@ -4,7 +4,30 @@
                 "titleleft-white","titleright-black","paragraph1",
                 "imagedownright","name","citydown","centerRightWhite","titleBlack",
                 "paragraph3","p1title","paragraph1","paragraph2","titleright-black2",
-                "className"],
+                {"value":"className",
+                "description":"Es el className por defecto pone en rojo todo el perimetro del elemento"},
+              {"value":"subtitle-default",
+                "description":"Es para hacer el subtitulo de la derecha "},
+                {"value":"paragraph-default",
+                "description":"Es para hacer hacer el parrafo que esta a la derecha (en buena parte de los parrafo se va a usar esta clase)"},
+                {"value":"passages-img-bottom-left",
+                "description":"Es para poner la imagen de la persona de abajo a la derecha"},
+                {"value":"name ",
+                "description":"Es para poner el nombre de abajo de la imagen"},
+                {"value":"citydown",
+                "description":"Es para poner el pais que esta debajo del nombre"},
+                {"value":"subtitle-selector-simple",
+                "description":" Es para hacer un subtitulos para actividades de tipo selector-simple en este caso solo lo tiene en donde dice ¿Cuál de estas frases corresponde a Bruna y cuál corresponde a David?"},
+                {"value":"selector-simple",
+                "description":"Es para los elementos de tipo  selectsimple"},
+                {"value":"paragraph-complete",
+                "description":"aca lo único que varia del resto es es el className del párrafo de la derecha, el className es paragraph-complete se usa para los elementos tipo paragraph-complete"},
+                {"value":" leftWhite ",
+                "description":"Es para hacer que el titulo este a la izquierda"}
+                                         
+                
+                
+              ],
 
     "type":["text","image","title","Portadalev","p1title","video-youtube","paragraph",
             "sentence-box","options-box","selectsimple","videoi-youtube",
@@ -22,7 +45,15 @@
                     "https://res.cloudinary.com/dfddh08q8/image/upload/v1696113984/images/1_qywc8c.png",
                     "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
                     "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
-                    "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117479/images/4_skpl9k.png"
+                    "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117479/images/4_skpl9k.png",
+                    {"value":"template-video-1 ",
+                    "description":"Este temple se usa videos"},
+                    {"value":"template-title-right-1",
+                     "description":"no tiene un uso especifico este temple es solo para que este el titulo a la izquierda"},
+                     {"value":"template-title-top-1",
+                     "description":"es simplemente para poner el titulo en la parte superior"},
+                     {"value":"template-title-top-2",
+                    "description":"Es un template específicamente para hablar de personas"}
                     ]
             
 }

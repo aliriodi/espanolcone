@@ -4,7 +4,7 @@ import { Schema, model, models } from 'mongoose'
 const classNameCSchema = new Schema(
   {
     classnamec: {
-      type: String,
+      type: {},
       unique:true
     },
    

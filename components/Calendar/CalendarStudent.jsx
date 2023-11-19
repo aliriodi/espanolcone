@@ -59,6 +59,7 @@ export default function Schedule() {
   const handlePaymentSuccess = () => {
     setIsPaymentConfirmed(true);
     setPaymentCancelled(false); // Asegúrate de restablecer el otro estado
+    Confirm()
   };
   
   const handlePaymentCancel = () => {
@@ -67,7 +68,8 @@ export default function Schedule() {
   };
 
 
-
+//aca traigo al teacher o guia turistico con sus detalles
+//bien sea por redux o por Base de datos
   const { id } = router.query;
   useEffect(() => {
     setRenders(session)
@@ -85,10 +87,25 @@ export default function Schedule() {
       }
       carDet()
     }
-    
-  }, [session])
 
- 
+      }, [session])
+
+ //calculo la diferencia de horario entre el estudiante y profesor
+      useEffect(() => {
+         // Obtener el UTN de la fecha
+         if(personSchedule&&Object.keys(personSchedule).length !== 0){
+         const fecha = today; Fragment
+         const offsetMinutes = fecha.getTimezoneOffset();
+         const offsetHours = offsetMinutes / 60;
+         const offsetSign = offsetHours > 0 ? '-' : '+';
+         const offsetHoursAbs = Math.abs(offsetHours);
+         const formattedOffset = `${offsetSign}${String(offsetHoursAbs).padStart(2, '')}`;
+         const utnUser = -6;//parseInt(formattedOffset, 10);
+         const last = personSchedule.calendar.length;
+         const utnToG=personSchedule.calendar[last-1].utnCreated;
+         setDeltaTime((utnUser-utnToG)*3600000); //de horas a ms la diferencia de Huso horario
+        }
+          }, [personSchedule])
 
   function selectSchedule(meeting) {
     setNewMeeting(meeting)
@@ -120,7 +137,7 @@ export default function Schedule() {
     const newcalendar = [];
     //Teacher o guia turistico apeando las citas del calendario para asignarlo
     // a un nuevo calendario asignado la fecha
-    personSchedule.calendar.map(meeting => {
+    await personSchedule.calendar.map(meeting => {
       if (meeting.startDatetime === newMeeting.startDatetime) {
 
         // Desplazamiento horario en minutos (ejemplo para GMT-03)
@@ -396,7 +413,7 @@ export default function Schedule() {
                       return (
 
                         <p key={index}>
-                          <button onClick={() => selectSchedule(meeting)}
+                          <button onClick={() => setNewMeeting(meeting)}
                             className={classNames(
                               'focus:outline-none  hover:bg-success  font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900',
                               newMeeting ? newMeeting.startDatetime === meeting.startDatetime ? 'bg-success text-white ' : '  ring-2 text-primary hover:border-none border-primary hover:text-white' : 'ring-2 text-primary hover:border-none border-primary hover:text-white',
@@ -409,7 +426,7 @@ export default function Schedule() {
                             -{' '}
                             <time dateTime={meeting.endDatetime}>
                               {format(parseISO(meeting.endDatetime), 'h:mm a')}
-                            </time>
+                             </time>
                           </button>
                         </p>
 
@@ -421,7 +438,7 @@ export default function Schedule() {
                 
                   {/* Si existe un meeting para asignar y el pago ha sido confirmado, renderiza el botón de confirmar citas */}
 
-                  {isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) && isPaymentConfirmed &&
+                  {isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) && isPaymentConfirmed &&!isPaymentConfirmed&&
   <button type="button" onClick={() => Confirm()} className='focus:outline-none bg-primary text-white font-medium rounded-lg text-sm px-5 py-2.5 mb-2'>Confirma</button>
 }
 
@@ -451,7 +468,7 @@ export default function Schedule() {
 
                 : null}
             </div>
-            {renders?.user?.role === 'guide' ? <>guia</> : null}
+            {renders?.user?.role === 'guide' ? <>guia</> : <>{deltaTime}</>}
             {renders?.user?.role === 'teacher' ? <>teacher</> : null}
 
           </section>
