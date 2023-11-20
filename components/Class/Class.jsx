@@ -11,7 +11,6 @@ import style from '../../styles/class.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import DragablesBox from './DragableBox/DragablesBox';
-import { Head } from 'next/document';
 
 export default function Class(props) {
   //elemento a renderizar  
@@ -93,13 +92,6 @@ export default function Class(props) {
 
   return (
     <>
-
-      {/* <Head>
-        <title>{data?.level} - {data?.unit} | Español con E</title>
-        <meta name="landing" content="welcome" />
-      </Head> */}
-
-      <div>
 
         {
           i == 0 &&
@@ -301,7 +293,6 @@ export default function Class(props) {
 
           : <div style={{ paddingRight: '1000px' }}> <Spinner /></div>
         }
-      </div>
     </>
   )
 }
