@@ -98,8 +98,9 @@ export default function Profile(){
         setLoading(true);
 
         try {
-
-            if(updates.image != session?.user?.image) await upLoadProfilePictutre();
+            
+            if(updates.image != session?.user?.image) updates = {...updates, image:{ url: await upLoadProfilePictutre()}}
+            console.log("UPADTES",updates)
 
             const response = await fetch('/api/users/update', {
                 method: 'POST',
@@ -175,7 +176,7 @@ export default function Profile(){
         try {
         // Create a FormData object and append data to it
         const formData = new FormData();
-        formData.append('file', file);
+        formData.append('file', profileImage);
         formData.append("upload_preset", process.env.NEXT_PUBLIC_UPLOAD_PRESET);
 
         // Send the FormData to Cloudinary
@@ -187,12 +188,18 @@ export default function Profile(){
 
         if (response.ok) {
             const data = await response.json();
+            console.log("file", data.secure_url)
             setUpdates({...updates, image:{ url: data.secure_url}})
+
+            return data.secure_url;
+
         } else {
-            throw new Error('Error uploading image');
+            return updates.image.url
+            // throw new Error('Error uploading image');
         }
         } catch (error) {
-        console.error('Error uploading image:', error);
+            console.error('Error uploading image:', error);
+            return updates.image.url
         }
     }
 
