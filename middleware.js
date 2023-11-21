@@ -16,14 +16,14 @@ export async function middleware(req){
 
 
     //#region Apis Protegidas
-    // const url = req.nextUrl.clone();
-    // url.pathname = '/inicio/home'
+    const url = req.nextUrl.clone();
+    url.pathname = '/inicio/home'
     
-    // if(!session && req.nextUrl.pathname.startsWith('/api/class/')) return NextResponse.redirect( url );
-    // if(!session && req.nextUrl.pathname.startsWith('/api/featureclass/')) return NextResponse.redirect( url );
-    // if(!session && req.nextUrl.pathname.startsWith('/api/guides/')) return NextResponse.redirect( url );
-    // if(!session && req.nextUrl.pathname.startsWith('/api/teachers/')) return NextResponse.redirect( url );
-    // if(!session && req.nextUrl.pathname.startsWith('/api/users/')) return NextResponse.redirect( url );
+    if(!session && req.nextUrl.pathname.startsWith('/api/class/')) return NextResponse.redirect( url );
+    if(!session && req.nextUrl.pathname.startsWith('/api/featureclass/')) return NextResponse.redirect( url );
+    if(!session && req.nextUrl.pathname.startsWith('/api/guides/')) return NextResponse.redirect( url );
+    if(!session && req.nextUrl.pathname.startsWith('/api/teachers/')) return NextResponse.redirect( url );
+    if(!session && req.nextUrl.pathname.startsWith('/api/users/')) return NextResponse.redirect( url );
     //#endregion
         
     return NextResponse.next()
