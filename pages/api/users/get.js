@@ -26,8 +26,18 @@ export default async function getAllUsers(req, res) {
     const users = await Users.find().exec();
 
     console.log('USERS READY TO GO!!!');
+    
+    // Verifica procedencia de solicitud 
+    console.log("/////////////////////////////// ",req.headers.accept == "*/*" ? "Solicitud desde Codigo": "Solicitud desde Navegador"," ///////////////////////////////")
 
-    res.json({ users })
+    if(req.headers.accept == "*/*"){
+      // Solicitud desde el codigo
+      return res.status(200).json({ users });
+    }
+    else{
+      // Solicitud desde el navegador
+      res.status(200).json({ message: "Acceso Denegado" });
+    }
 
   } catch (error) {
     console.log(error);
