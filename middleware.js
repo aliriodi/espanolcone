@@ -19,7 +19,7 @@ export async function middleware(req){
     //#region Apis Protegidas
     const url = req.nextUrl.clone();
     url.pathname = '/inicio/home'
-    // console.log("////////////////",req.headers['user-agent'],"////////////////")
+    
     if(!session && req.nextUrl.pathname.startsWith('/api/class/')) return NextResponse.redirect( url );
     if(!session && req.nextUrl.pathname.startsWith('/api/featureclass/')) return NextResponse.redirect( url );
     if(!session && req.nextUrl.pathname.startsWith('/api/guides/')) return NextResponse.redirect( url );
