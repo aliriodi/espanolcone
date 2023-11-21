@@ -100,7 +100,6 @@ export default function Profile(){
         try {
             
             if(updates.image != session?.user?.image) updates = {...updates, image:{ url: await upLoadProfilePictutre()}}
-            console.log("UPADTES",updates)
 
             const response = await fetch('/api/users/update', {
                 method: 'POST',
@@ -120,7 +119,6 @@ export default function Profile(){
                         accessToken:"dddd"
                     })
 
-                    console.log("data ",data)
                     console.log('Usuario actualizado con éxito');
                 } else {
                     console.error('Error al actualizar el usuario:', data.error);
@@ -430,7 +428,7 @@ export default function Profile(){
                                     </div>
 
                                     {/* Campo Email */}
-                                    <div className="flex flex-col mt-[18px]
+                                    {/* <div className="flex flex-col mt-[18px]
                                     md:mt-[10px]"
                                     style={{ width:'100%', flexGrow:1}}>
 
@@ -448,11 +446,10 @@ export default function Profile(){
                                         onChange={(e) => setUpdates({...updates, email: e.target.value})}
                                         />
                                         
-                                        {/* Error de Email */}
                                         {errorsForm.email && (
                                             <p className='text-danger md:text-[12px]'>{t("warningEmail")}</p>
                                         )}
-                                    </div>
+                                    </div> */}
                                     
                                 </div>
 
@@ -542,7 +539,7 @@ export default function Profile(){
                                         </div>
                                         
                                         {/* Campo Email */}
-                                        <div className="flex flex-col mt-[18px]
+                                        {/* <div className="flex flex-col mt-[18px]
                                         md:mt-[10px]"
                                         style={{ width:'100%', flexGrow:1}}>
 
@@ -560,11 +557,11 @@ export default function Profile(){
                                             onChange={(e) => setUpdates({...updates, email: e.target.value})}
                                             />
                                             
-                                            {/* Error de Email */}
+                                            
                                             {errorsForm.email && (
                                                 <p className='text-danger md:text-[12px]'>{t("warningEmail")}</p>
                                             )}
-                                        </div>                                        
+                                        </div>                                         */}
                                     </div>
 
                                 </div>
