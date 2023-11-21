@@ -25,7 +25,18 @@ export default async function IdUser(req, res) {
           return res.status(404).json({ message: 'User not found' });
         }
 
-        return res.status(200).json({userid});
+        
+        // Verifica procedencia de solicitud 
+        console.log("/////////////////////////////// ",req.headers.accept == "*/*" ? "Solicitud desde Codigo": "Solicitud desde Navegador"," ///////////////////////////////")
+
+        if(req.headers.accept == "*/*"){
+          // Solicitud desde el codigo
+          return res.status(200).json({userid});
+        }
+        else{
+          // Solicitud desde el navegador
+          res.status(200).json({ message: "Acceso Denegado" });
+        }
       } catch (error) {
         return res.status(500).json({ message: 'Internal Server Error' });
       }
