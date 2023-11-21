@@ -70,7 +70,7 @@ export default NextAuth({
           session.user = user;
 
           // Se configura Token
-          token.role = user?.role;
+          // token.role = user?.role;
         }
 
         return session
