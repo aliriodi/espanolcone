@@ -21,8 +21,8 @@ import { createSlice } from '@reduxjs/toolkit';
 //   export default datosSlice.reducer;
 const initialState = {
   languages: ['br', 'en', 'sp'],
-  classid: '65285a70bb78bea94a6b1369',
-  classPage: 5,
+  classid: '6557e26410faf6be3ada6ad6',
+  classPage: 0,
   language: 'br',
   showClass: false,
   plan: 'plan1',

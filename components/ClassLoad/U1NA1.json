@@ -7,10 +7,12 @@
         },
         "template": "",
         "data": [
-            {"type": "image",
-            "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366262/images/logo-primary_qoagkg.png",
-            "alt": "EspañolconE",
-            "className": "Portadaimg"},
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366262/images/logo-primary_qoagkg.png",
+                "alt": "EspañolconE",
+                "className": "Portadaimg"
+            },
             {
                 "type": "title",
                 "value": "¡VAMOS A CONOCERNOS Y A SALUDAR!",
@@ -20,9 +22,300 @@
                 "type": "level",
                 "value": "NIVEL A1",
                 "className": "Portadalev"
-                
             }
-           
+        ]
+    },
+    "page2": {
+        "type": "table",
+        "section": {
+            "number": 0,
+            "value": "Mis Metas"
+        },
+        "template": "",
+        "data": [
+            {
+                "type": "title",
+                "value": "¿Qué voy a aprender en esta unidad?",
+                "className": "centerRightWhite-2"
+            },
+            {
+                "type": "paragraph",
+                "value": " <table style= 'border: 2px solid black;' ><tr  style=' background-color: var(--primary); border: 2px solid black;' ><th style= 'border: 2px solid black;width:30%;' ><h2><strong style='color:black;'>Comunicación</strong></h2></th><th style= ' border: 2px solid black;width:20%' ><h2><strong style='color:black;'>Vocabulario</strong></h2></th><th style= 'border: 2px solid black; width:30%' ><h2><strong style='color:black;'>Gramática</strong></h2></th></tr><tr><td style= 'border: 2px solid black;' > <ul> <li>*Identificarse, presentarse (nombre y apellido), saludar y despedirse.</li>  <li>*Deletrear.</li> <li>*Dar y pedir información acerca de nacionalidad o lugar de origen, lugar de residencia, profesión y edad.</li><li>*Cultura en saludos y despedidas: saludar con un beso, un abrazo y un apretón de manos.</li><li>*CREADO POR ANGEL JOSSUE DIAZ FRANCO EL MEJOR JUGADOR DE FUTBOL DE TODA LA HISTORIA.</li></ul> </td><td style= 'border: 2px solid black;' ><ul> <li>*Expresiones para saludar y despedirse.</li>  <li> *El abecedario.</li> <li>*Nombres de países y continentes.</li> <li>*Vocabulario de nacionalidades, profesiones y oficios.</li><li>*CREADO POR ANGEL JOSSUE DIAZ FRANCO EL MEJOR JUGADOR DE FUTBOL DE TODA LA HISTORIA.</li> </ul></td><td style= 'border: 2px solid black; ' ><ul> <li>*Uso del verbo ser para: identificar, profesiones y gentilicios.</li>  <li>*Géneros para gentilicios y profesiones.</li><li>*CREADO POR ANGEL JOSSUE DIAZ FRANCO EL MEJOR JUGADOR DE FUTBOL DE TODA LA HISTORIA.</li> </ul></td></tr></table>",
+                "className": "table"
+            }
+        ]
+    },
+    "page3": {
+        "type": "text",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697582910/images/template-title-right-1.png",
+        "data": [
+            {
+                "type": "title",
+                "value": "Veamos el video",
+                "className": "leftWhite"
+            },
+            {
+                "type": "paragraph",
+                "value": "¡Hola! ¿Qué tal?",
+                "className": "paragraph8"
+            },
+            {
+                "type": "paragraph",
+                "value": "¿Cómo estás?",
+                "className": "className2"
+            },
+            {
+                "type": "paragraph",
+                "value": "Mi nombre es Eucaris y mi apellido es Rodríguez",
+                "className": "className1"
+            },
+            {
+                "type": "paragraph",
+                "value": "R - O - D - R - I -G -U -E - Z",
+                "className": "className1"
+            },
+            {
+                "type": "paragraph",
+                "value": "Soy venezolana, pero vivo en Argentina",
+                "className": "className1"
+            },
+            {
+                "type": "paragraph",
+                "value": "Tengo 47 años",
+                "className": "className1"
+            },
+            {
+                "type": "paragraph",
+                "value": "Soy profesora de español y trabajo en Español con E",
+                "className": "className1"
+            },
+            {
+                "type": "paragraph",
+                "value": "Mi lengua materna es el español, pero también hablo inglés y hablo un poco de portugués",
+                "className": "className1"
+            },
+            {
+                "type": "paragraph",
+                "value": "Vivo con mi familia y tengo mascota, una perrita llamada Honey",
+                "className": "className1"
+            },
+            {
+                "type": "paragraph",
+                "value": "CREADO POR ANGEL JOSSUE DIAZ FRANCO EL MEJOR JUGADOR DE FUTBOL DE TODA LA HISTORIA.",
+                "className": "className1"
+            }
+        ]
+    },
+    "page4": {
+        "type": "selectsimple",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Después de ver el video:",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "Selecciona la respuesta correcta",
+                "className": "title-white"
+            },
+            {
+                "type": "selectsimple",
+                "value": "1. Yo soy:",
+                "option": "b. Eucaris Rodríguez.",
+                "options": [
+                    "a. Ana Gutierrez.",
+                    "b. Eucaris Rodríguez.",
+                    "c. Brasil, Venezuela y Estado unidos."
+                ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "2. Yo vivo en:",
+                "option": "a. Argentina.",
+                "options": [
+                    "a. Argentina.",
+                    "b. Venezuela.",
+                    "c. Colombia."
+                ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "3. Tengo 27 años:",
+                "option": "b. Falso.",
+                "options": [
+                    "a. Verdadero.",
+                    "b. Falso."
+                ],
+                "className": "selector-simple"
+            }
+        ]
+    },
+    "page5": {
+        "type": "selectsimple",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Después de ver el video:",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "Selecciona la respuesta correcta",
+                "className": "title-white"
+            },
+            {
+                "type": "selectsimple",
+                "value": "1. Yo soy:",
+                "option": "b. Profesora de español.",
+                "options": [
+                    "a. Doctora.",
+                    "b. Profesora de español.",
+                    "c. Abogada."
+                ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "2. Soy:",
+                "option": "a. Venezolana",
+                "options": [
+                    "a. Venezolana",
+                    "b. Argentina",
+                    "c. Colombiana"
+                ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "3. Yo tengo una gatita:",
+                "option": "b. Falso.",
+                "options": [
+                    "a. Verdadero.",
+                    "b. Falso."
+                ],
+                "className": "selector-simple"
+            }
+        ]
+    },
+    "page6": {
+        "type": "paragraph",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-video-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Video explicativo",
+                "className": "title-white"
+            }
+        ]
+    },
+    "page7": {
+        "type": "paragraph",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Actividades interactivas",
+                "className": "paragraph3"
+            }
+        ]
+    },
+    "page8": {
+        "type": "paragraph",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Observa las imágenes y arrastra hacia cada una la expresión",
+                "className": "leftWhite2"
+            },
+            {
+                "type": "dragable-box",
+                "value":{
+                    "DropUps":
+                    [
+                        {
+                            "type":"image",
+                            "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--v2laAfJK--/v1700437360/images/w7eb6ipq6dmfhaynkyke.png",
+                            "value":"Buenos días",
+                            "id":"DropUp1"
+                        },
+                        {
+                            "type":"image",
+                            "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--UEOoxZRg--/v1700438659/images/jywqvondmpyaxfuyjyb1.png",
+                            "value":"Buenas tardes",
+                            "id":"DropUp2"
+                        },
+                        {
+                            "type":"image",
+                            "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--mpwFxyia--/v1700438825/images/jfszrfkf3jr9fedch8hc.png",
+                            "value":"Buenas noches",
+                            "id":"DropUp3"
+                        }
+                    ],
+            
+                    "DragBoxs":[
+                        {
+                            "value":"Buenas tardes",
+                            "id":"DragBox1"
+                        },
+                        {
+                            "value":"Buenas noches",
+                            "id":"DragBox2"
+                        },
+                        {
+                            "value":"Buenos días",
+                            "id":"DragBox3"
+                        }
+                    ]
+                },
+                "className": "dragable-box"
+            }
+
+            
+        ]
+    },
+    "page9": {
+        "type": "paragraph",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696113984/images/1_qywc8c.png",
+        "data": [
+            {
+                "type": "title",
+                "value": "Actividades interactivas",
+                "className": "title-white "
+            }
         ]
     }
 }
