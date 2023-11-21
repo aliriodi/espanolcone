@@ -31,7 +31,19 @@ export default async function getTeachersWithAgendaFromTomorrow(req, res) {
 
     console.log('TEACHERS WITH SCHEDULE FROM TOMORROW FOUND');
 //console.log(teachersWithAgenda)
-    res.json({ teachers: output });
+
+  // Verifica procedencia de solicitud 
+  console.log("/////////////////////////////// ",req.headers.accept == "*/*" ? "Solicitud desde Codigo": "Solicitud desde Navegador"," ///////////////////////////////")
+
+  if(req.headers.accept == "*/*"){
+    // Solicitud desde el codigo
+    res.status(200).json({ teachers: output });
+  }
+  else{
+    // Solicitud desde el navegador
+    res.status(200).json({ message: "Acceso Denegado" });
+  }
+
   } catch (error) {
     console.error(error);
     res.json({ error });

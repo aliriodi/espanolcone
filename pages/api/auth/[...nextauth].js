@@ -61,9 +61,18 @@ export default NextAuth({
       // console.log(account)
       return true 
     },
-    async session({ session, user, token }) {
+    async session({ session, token }) {
       //  Define lo que va a devolver session.user
-        if (session.user) session.user = await getUser(session.user.email)
+        if (session.user) {
+          let user = await getUser(session.user.email)
+
+          // Se configuran Session
+          session.user = user;
+
+          // Se configura Token
+          // token.role = user?.role;
+        }
+
         return session
     }
   },

@@ -14,7 +14,18 @@ export default async function getUsersWithImage(req, res) {
 
     console.log('RETRIEVED USERS WITH IMAGE');
 
-    res.json({ usersWithImage });
+    
+    // Verifica procedencia de solicitud 
+    console.log("/////////////////////////////// ",req.headers.accept == "*/*" ? "Solicitud desde Codigo": "Solicitud desde Navegador"," ///////////////////////////////")
+
+    if(req.headers.accept == "*/*"){
+      // Solicitud desde el codigo
+      return res.status(200).json({ usersWithImage });
+    }
+    else{
+      // Solicitud desde el navegador
+      res.status(200).json({ message: "Acceso Denegado" });
+    }
   } catch (error) {
     console.log(error);
     res.json({ error });
