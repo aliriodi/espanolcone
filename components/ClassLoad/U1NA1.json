@@ -225,7 +225,96 @@
             {
                 "type": "title",
                 "value": "Video explicativo",
-                "className": "title-orange "
+                "className": "title-white"
+            }
+        ]
+    },
+    "page7": {
+        "type": "paragraph",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Actividades interactivas",
+                "className": "paragraph3"
+            }
+        ]
+    },
+    "page8": {
+        "type": "paragraph",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Observa las imágenes y arrastra hacia cada una la expresión",
+                "className": "leftWhite2"
+            },
+            {
+                "type": "dragable-box",
+                "value":{
+                    "DropUps":
+                    [
+                        {
+                            "type":"image",
+                            "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--v2laAfJK--/v1700437360/images/w7eb6ipq6dmfhaynkyke.png",
+                            "value":"Buenos días",
+                            "id":"DropUp1"
+                        },
+                        {
+                            "type":"image",
+                            "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--UEOoxZRg--/v1700438659/images/jywqvondmpyaxfuyjyb1.png",
+                            "value":"Buenas tardes",
+                            "id":"DropUp2"
+                        },
+                        {
+                            "type":"image",
+                            "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--mpwFxyia--/v1700438825/images/jfszrfkf3jr9fedch8hc.png",
+                            "value":"Buenas noches",
+                            "id":"DropUp3"
+                        }
+                    ],
+            
+                    "DragBoxs":[
+                        {
+                            "value":"Buenas tardes",
+                            "id":"DragBox1"
+                        },
+                        {
+                            "value":"Buenas noches",
+                            "id":"DragBox2"
+                        },
+                        {
+                            "value":"Buenos días",
+                            "id":"DragBox3"
+                        }
+                    ]
+                },
+                "className": "dragable-box"
+            }
+
+            
+        ]
+    },
+    "page9": {
+        "type": "paragraph",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696113984/images/1_qywc8c.png",
+        "data": [
+            {
+                "type": "title",
+                "value": "Actividades interactivas",
+                "className": "title-white "
             }
         ]
     }

@@ -95,7 +95,7 @@ export function TeachersCard() {
       {/* Profesores */}
       {cards.length > 0 ? (
         cards.map((card, index) => (
-          <>
+          <div key={index}>
           <div key={index} className='overflow-hidden relative w-full flex p-[18px] bg-white rounded-[5px] shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000040] mb-[24px]
           md:p-0'>
             
@@ -104,7 +104,7 @@ export function TeachersCard() {
 
               {/* Imagen */}
               {
-              card.image.url || card.image?
+              card?.image?.url || card?.image?
               <Image
               alt="photo"
                 width={160}
@@ -150,7 +150,7 @@ export function TeachersCard() {
 
               {/* Boton */}
               <div className='w-full flex justify-end'>
-                <button
+                <button key={index}
                     className=" py-[10px] px-[48px] btn-primary
                     md:hidden"
                     onClick={() => handleButtonClick(card)}>
@@ -174,7 +174,7 @@ export function TeachersCard() {
             </button>
 
           </div>
-          </>
+          </div>
         ))
       ) : (
         <Spinner />
