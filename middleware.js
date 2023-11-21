@@ -5,7 +5,7 @@ import { NextResponse } from 'next/server'
 
 export async function middleware(req){
 
-    const session = await getToken({req,secret:process.env.NEXTAUTH_SECRET})
+    const session = await getToken({req})
     
     if(!session && !req.nextUrl.pathname.startsWith('/api/')){
         const url = req.nextUrl.clone();
