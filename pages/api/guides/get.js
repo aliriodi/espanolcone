@@ -27,7 +27,15 @@ export default async function getAllTechers(req, res) {
 
     console.log('GUIDES FOUND');
 
-    res.json({ guides })
+    // Verifica procedencia de solicitud 
+    if(req.headers.accept == "*/*"){
+      // Solicitud desde el codigo
+      res.status(200).json({ guides });
+    }
+    else{
+      // Solicitud desde el navegador
+      res.status(200).json({ message: "Acceso Denegado" });
+    }
 
   } catch (error) {
     console.log(error);
