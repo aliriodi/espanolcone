@@ -37,7 +37,7 @@ export default function Example() {
   //sus horas de trabajo y poder ver la cantidad de citas
   //o meetings que tiene agendado
   //En el perfil del profesor se trae su calendar de la BD y observa todo
-
+  const [calendar, setCalendar2] = useState([]);
   const { data: session, status,update } = useSession();
   const [renders, setRenders] = useState({ user: { role: "user", calendar: [{}], image: 'https://res.cloudinary.com/dfddh08q8/image/upload/v1695578432/images/4_svg8uq.png' } })
   const [newcalendar, setCalendar] = useState([]);
@@ -49,9 +49,10 @@ export default function Example() {
     if (session) {
       setRenders(session)
       setCalendar(session.user.calendar)
+     
     }
-  }, [session])
-
+  }, [])
+ 
   //console.log('session 109',session)
   let today = startOfToday()
   const [selectedDay, setSelectedDay] = useState(today)
@@ -411,8 +412,8 @@ export default function Example() {
               <ol className="">
                 {/* {console.log(selectedDayMeetings)} */}
                 {selectedDayMeetings.length > 0 ? (
-                  selectedDayMeetings.map((meeting) => (
-                    <Meeting meeting={meeting} key={meeting.id} />
+                  selectedDayMeetings.map((meeting,index) => (
+                    <Meeting meeting={meeting} key={index} />
                   ))
                 ) : (
                   <li className='text-center mt-10 text-gray_clear'>No hay actividad agendada aún.</li>
