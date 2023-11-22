@@ -73,11 +73,25 @@ export default function Schedule() {
   const { id } = router.query;
   useEffect(() => {
     setRenders(session)
+    if(cardDetail){
     if (Object.keys(cardDetail).length !== 0) {
       setPersonSchedule(cardDetail)
-      
+      alert(1)
     }
-    else {
+    else {alert(2)
+      async function carDet() {
+        try {
+          const details = await fetch('/api/users/' + id)
+          setPersonSchedule(details.userid);
+          console.log('1',personSchedule.calendar)
+        } catch (error) {
+          console.error('Error fetching user details:', error);
+        }
+      }
+      carDet()
+    }
+  }
+    else { alert(3)
       async function carDet() {
         try {
           const details = await fetch('/api/users/' + id)
@@ -318,6 +332,7 @@ try {
         } catch (error) {
             console.error(error);
           }
+          update({ ...session, user: { ...session.user, calendar : newcalendarS } });
    console.log(newcalendar)
     //Ejecuto todas las promesas
    
