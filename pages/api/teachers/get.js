@@ -27,8 +27,16 @@ export default async function getAllTechers(req, res) {
 
     console.log('TEACHERS FOUND');
     
-    //console.log(today())
-    res.json({ teachers })
+    // Verifica procedencia de solicitud 
+    if(req.headers.accept == "*/*"){
+      // Solicitud desde el codigo
+      res.status(200).json({ teachers });
+    }
+    else{
+      // Solicitud desde el navegador
+      res.status(200).json({ message: "Acceso Denegado" });
+    }
+
 
   } catch (error) {
     console.log(error);
