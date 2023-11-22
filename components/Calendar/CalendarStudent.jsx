@@ -80,7 +80,7 @@ export default function Schedule() {
     else {
       async function carDet() {
         try {
-          const details = await fetch('/api/users/' + id).then(response => response.json());
+          const details = await fetch('/api/users/' + id)
           setPersonSchedule(details.userid);
           console.log('1',personSchedule.calendar)
         } catch (error) {

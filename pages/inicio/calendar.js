@@ -8,7 +8,7 @@ export default function Calendar2 () {
   return (
     <>
       <Menu />
-      <Calendar teacher={'teacher'}/>
+      <Calendar />
     </>
   )
 }

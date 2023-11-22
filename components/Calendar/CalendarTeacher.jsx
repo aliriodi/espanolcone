@@ -51,7 +51,7 @@ export default function Example() {
       setCalendar(session.user.calendar)
      
     }
-  }, [])
+  }, [session])
  
   //console.log('session 109',session)
   let today = startOfToday()
