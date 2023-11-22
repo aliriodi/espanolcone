@@ -82,7 +82,7 @@ export default function Example() {
           body: JSON.stringify({ email: session.user.email, updates: { calendar: [...newcalendar, newElement] } }),
         })
     
-    
+        update({ ...session, user: { ...session.user, calendar : [...newcalendar, newElement]  } });
 
     } catch (error) {
       console.log(error);
