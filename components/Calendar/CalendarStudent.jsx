@@ -74,24 +74,51 @@ export default function Schedule() {
   
   useEffect(() => {
    // console.log('76 cardDetail',cardDetail)
+    // Obtener el UTN de la fecha
+  
     setRenders(session)
     if(cardDetail){
     if (Object.keys(cardDetail).length !== 0) {
-      setPersonSchedule(cardDetail)
+   //   console.log('82',cardDetail)
+      const details2 = { ...cardDetail };
+      const fecha = today; Fragment
+        const offsetMinutes = fecha.getTimezoneOffset();
+        const offsetHours = offsetMinutes / 60;
+        const offsetSign = offsetHours > 0 ? '-' : '+';
+        const offsetHoursAbs = Math.abs(offsetHours);
+        const formattedOffset = `${offsetSign}${String(offsetHoursAbs).padStart(2, '')}`;
+        const utnUser = -6;//arseInt(formattedOffset, 10);
+        const last = cardDetail.calendar.length;
+        const utnToG=cardDetail.calendar[last-1].utnCreated;
+        const deltaTime2 = (utnUser-utnToG)*3600000;
+      //aca voy a modificar los calendarios para modificar los utn de las horas no asignadas
+      details2.calendar = details2.calendar.map(calendar1 => {
+        if (!calendar1.assigned) {
+          // Si 'assigned' es false, actualizar el valor
+          return { ...calendar1, userStardatetime: format(new Date(parseISO(calendar1.startDatetime).getTime()+deltaTime2), "yyyy-MM-dd'T'HH:mm"),
+                                 userendDatetime: format(new Date(parseISO(calendar1.endDatetime).getTime()+deltaTime2), "yyyy-MM-dd'T'HH:mm")                                          
+          };
+        }
+        // Si 'assigned' es true, dejar el objeto sin cambios
+        return calendar1;
+      });
+      //console.log('105',details2)
+     setPersonSchedule(details2)
    //   alert(1)
     }
     else {
       //alert(2)
       async function carDet() {
+        if(id){
         try {
          // console.log('id2',id)
-          const details = await fetch('/api/users/' +id, {headers:{accept:'*/*'}}).then(response=>response.json())
-          setPersonSchedule(details.userid);
+          const details = await fetch('/api/users/' +id).then(response=>response.json())
+          //setPersonSchedule(details);
        //   console.log('89',details)
          // console.log('90',personSchedule)
         } catch (error) {
           console.error('Error fetching user details:', error);
-        }
+        }}
       }
       carDet()
     }
@@ -99,8 +126,32 @@ export default function Schedule() {
     async function carDet() {
       try {
         console.log('id2',id)
-        const details = await fetch('/api/users/' + id, {headers:{accept:'*/*'}}).then(response=>response.json())
-        setPersonSchedule(details.userid);
+        const details = await fetch('/api/users/' + id).then(response=>response.json())
+        const details2 = { ...details.userid };
+        const fecha = today; Fragment
+          const offsetMinutes = fecha.getTimezoneOffset();
+          const offsetHours = offsetMinutes / 60;
+          const offsetSign = offsetHours > 0 ? '-' : '+';
+          const offsetHoursAbs = Math.abs(offsetHours);
+          const formattedOffset = `${offsetSign}${String(offsetHoursAbs).padStart(2, '')}`;
+          const utnUser = -6;//arseInt(formattedOffset, 10);
+          const last = details.userid.calendar.length;
+          const utnToG=details.userid.calendar[last-1].utnCreated;
+          const deltaTime2 = (utnUser-utnToG)*3600000;
+        //aca voy a modificar los calendarios para modificar los utn de las horas no asignadas
+        details2.calendar = details2.calendar.map(calendar1 => {
+          if (!calendar1.assigned) {
+            // Si 'assigned' es false, actualizar el valor
+            return { ...calendar1, userstartDatetime: format(new Date(parseISO(calendar1.startDatetime).getTime()+deltaTime2), "yyyy-MM-dd'T'HH:mm"),
+                                   userendDatetime: format(new Date(parseISO(calendar1.endDatetime).getTime()+deltaTime2), "yyyy-MM-dd'T'HH:mm")                                          
+            };
+          }
+          // Si 'assigned' es true, dejar el objeto sin cambios
+          return calendar1;
+        });
+        console.log(deltaTime2)
+        console.log(details2)
+        setPersonSchedule(details2);
      //   console.log('102',personSchedule)
       // console.log('103',details)
       } catch (error) {
@@ -110,25 +161,8 @@ export default function Schedule() {
     carDet()
   }
    
-      }, [session])
+      }, [session,id])
 
- //calculo la diferencia de horario entre el estudiante y profesor
-      useEffect(() => {
-         // Obtener el UTN de la fecha
-         if(personSchedule&&Object.keys(personSchedule).length !== 0){
-         const fecha = today; Fragment
-         const offsetMinutes = fecha.getTimezoneOffset();
-         const offsetHours = offsetMinutes / 60;
-         const offsetSign = offsetHours > 0 ? '-' : '+';
-         const offsetHoursAbs = Math.abs(offsetHours);
-         const formattedOffset = `${offsetSign}${String(offsetHoursAbs).padStart(2, '')}`;
-         const utnUser = -6;//arseInt(formattedOffset, 10);
-         const last = personSchedule.calendar.length;
-         const utnToG=personSchedule.calendar[last-1].utnCreated;
-         setDeltaTime((utnUser-utnToG)*3600000); //de horas a ms la diferencia de Huso horario
-        }
-      
-          }, [personSchedule])
 
          
             
@@ -215,8 +249,8 @@ export default function Schedule() {
           utnscheduled: offsetNumber,
           startDatetime: meeting.startDatetime,
           endDatetime: meeting.endDatetime,
-          userstartDatetime:format(new Date(parseISO(meeting.startDatetime).getTime()+deltaTime), "yyyy-MM-dd'T'HH:mm"),
-          userendDatetime:format(new Date(parseISO(meeting.endDatetime).getTime()+deltaTime), "yyyy-MM-dd'T'HH:mm")
+          userstartDatetime:meeting.userstartDatetime,
+          userendDatetime:meeting.userendDatetime
         })
         //aca asigno el profesor al calendario del alumno
         renders.user.calendar.map(calendar=>newcalendarS.push(calendar))
@@ -236,8 +270,8 @@ export default function Schedule() {
           utnscheduled: offsetNumber,
           locationCreated: meeting.locationCreated,
           locationscheduled: country,
-          userstartDatetime:format(new Date(parseISO(meeting.startDatetime).getTime()+deltaTime),"yyyy-MM-dd'T'HH:mm"),
-          userendDatetime:format(new Date(parseISO(meeting.endDatetime).getTime()+deltaTime),"yyyy-MM-dd'T'HH:mm")
+          userstartDatetime:meeting.userstartDatetime,
+          userendDatetime:meeting.userendDatetime
         })
       
         newcalendarS.sort((a, b) => {
@@ -272,8 +306,8 @@ try {
                 to: personSchedule.email, subject: 'Asignación de nueva clase con: ' + renders.user.first_name + ' ' + renders.user.last_name,
                 text:`Asignación de clase para el día ${newMeeting.startDatetime} 
                      y termina en hora ${newMeeting.endDatetime}, 
-                     El horario del alumno inicia en: ${format(new Date(parseISO(meeting.startDatetime).getTime() + deltaTime),"dd-MM' hora 'HH:mm")}
-                     y termina en ${format(new Date(parseISO(meeting.endDatetime).getTime() + deltaTime),"dd-MM' hora 'HH:mm")}`
+                     El horario del alumno inicia en: ${newMeeting.userstartDatetime}
+                     y termina en ${newMeeting.userendDatetime}`
                 
                 // 'Asignación de clase para el día ' + newMeeting.startDatetime + ' y termina en hora ' + newMeeting.endDatetime+', El horario del alumno inicia en: '+
                 // format(new Date(parseISO(meeting.startDatetime).getTime()+deltaTime),"dd-MM'T'HH:mm") +
@@ -444,7 +478,7 @@ try {
                       (isEqual(day, selectedDay) || isToday(day)) && 'font-semibold',
                       personSchedule?.calendar?.some((meeting) =>
                         //Los dias de meetings deben ser despues de la fecha de hoy y deben tener disponibilidad
-                        (isAfter(parseISO(meeting.startDatetime), today)) && isSameDay(parseISO(meeting.startDatetime), day) && !meeting.assigned) && "rounded-full bg-gray-200 text-primary text-lg",
+                        (isAfter(parseISO(meeting.userstartDatetime), today)) && isSameDay(parseISO(meeting.userstartDatetime), day) && !meeting.assigned) && "rounded-full bg-gray-200 text-primary text-lg",
                       'mx-auto flex h-8 w-8 items-center justify-center rounded-full'
                     )}
                   >
@@ -477,23 +511,23 @@ try {
                   <div><strong> {personSchedule?.first_name}</strong></div>
 
                   {isAfter(selectedDay, today) && personSchedule?.calendar?.map((meeting, index) => {
-                    if (!meeting.assigned && isSameDay(parseISO(meeting.startDatetime), selectedDay)) {
+                    if (!meeting.assigned && isSameDay(parseISO(meeting.userstartDatetime), selectedDay)) {
                       return (
 
                         <p key={index}>
                           <button onClick={() => setNewMeeting(meeting)}
                             className={classNames(
                               'focus:outline-none  hover:bg-success  font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900',
-                              newMeeting ? newMeeting.startDatetime === meeting.startDatetime ? 'bg-success text-white ' : '  ring-2 text-primary hover:border-none border-primary hover:text-white' : 'ring-2 text-primary hover:border-none border-primary hover:text-white',
-                              newMeeting ? newMeeting.startDatetime !== meeting.startDatetime ? 'ring-2 text-primary hover:border-none border-primary hover:text-white' : 'bg-success text-white ' : null,
+                              newMeeting ? newMeeting.userstartDatetime === meeting.userstartDatetime ? 'bg-success text-white ' : '  ring-2 text-primary hover:border-none border-primary hover:text-white' : 'ring-2 text-primary hover:border-none border-primary hover:text-white',
+                              newMeeting ? newMeeting.userstartDatetime !== meeting.userstartDatetime ? 'ring-2 text-primary hover:border-none border-primary hover:text-white' : 'bg-success text-white ' : null,
                             )} >
 
-                            <time dateTime={meeting.startDatetime}>
-                              {format(parseISO(meeting.startDatetime), 'h:mm a')}
+                            <time dateTime={meeting.userstartDatetime}>
+                              {format(parseISO(meeting.userstartDatetime), 'h:mm a')}
                             </time>{' '}
                             -{' '}
-                            <time dateTime={meeting.endDatetime}>
-                              {format(parseISO(meeting.endDatetime), 'h:mm a')}
+                            <time dateTime={meeting.userendDatetime}>
+                              {format(parseISO(meeting.userendDatetime), 'h:mm a')}
                              </time>
                           </button>
                         </p>
@@ -506,7 +540,7 @@ try {
                 
                   {/* Si existe un meeting para asignar y el pago ha sido confirmado, renderiza el botón de confirmar citas */}
 
-                  {isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) &&// isPaymentConfirmed &&!isPaymentConfirmed&&
+                  {isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.userstartDatetime), selectedDay) && !meeting.assigned) &&// isPaymentConfirmed &&!isPaymentConfirmed&&
   <button type="button" onClick={() => Confirm()} className='focus:outline-none bg-primary text-white font-medium rounded-lg text-sm px-5 py-2.5 mb-2'>Confirma</button>
 }
 
