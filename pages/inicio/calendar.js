@@ -22,8 +22,8 @@ console.log(session.user.role.includes('admin'))}
     <>
       <Menu />
     { session && session.user&& ( session.user.role.includes('admin')   ||
-                                  session.user.role.includes('teachers')||
-                                  session.user.role.includes('guides') ) ? 
+                                  session.user.role.includes('teacher')||
+                                  session.user.role.includes('guide') ) ? 
         <Calendar /> : <ScheduleStudent/>}
     </>
   )
