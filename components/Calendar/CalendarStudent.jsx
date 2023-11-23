@@ -87,7 +87,7 @@ export default function Schedule() {
         const offsetSign = offsetHours > 0 ? '-' : '+';
         const offsetHoursAbs = Math.abs(offsetHours);
         const formattedOffset = `${offsetSign}${String(offsetHoursAbs).padStart(2, '')}`;
-        const utnUser = ParseInt(formattedOffset, 10);
+        const utnUser = parseInt(formattedOffset, 10);
         const last = cardDetail.calendar.length;
         const utnToG = cardDetail.calendar[last - 1].utnCreated;
         const deltaTime2 = (utnUser - utnToG) * 3600000;
