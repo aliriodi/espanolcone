@@ -79,8 +79,8 @@ export default function Schedule() {
     setRenders(session)
     if(cardDetail){
     if (Object.keys(cardDetail).length !== 0) {
-   //   console.log('82',cardDetail)
-      const details2 = { ...cardDetail };
+      console.log('CalendarStudent 82',cardDetail)
+      
       const fecha = today; Fragment
         const offsetMinutes = fecha.getTimezoneOffset();
         const offsetHours = offsetMinutes / 60;
@@ -92,17 +92,18 @@ export default function Schedule() {
         const utnToG=cardDetail.calendar[last-1].utnCreated;
         const deltaTime2 = (utnUser-utnToG)*3600000;
       //aca voy a modificar los calendarios para modificar los utn de las horas no asignadas
+      const details2 = { ...cardDetail };
       details2.calendar = details2.calendar.map(calendar1 => {
         if (!calendar1.assigned) {
           // Si 'assigned' es false, actualizar el valor
-          return { ...calendar1, userStardatetime: format(new Date(parseISO(calendar1.startDatetime).getTime()+deltaTime2), "yyyy-MM-dd'T'HH:mm"),
+          return { ...calendar1, userstartDatetime: format(new Date(parseISO(calendar1.startDatetime).getTime()+deltaTime2), "yyyy-MM-dd'T'HH:mm"),
                                  userendDatetime: format(new Date(parseISO(calendar1.endDatetime).getTime()+deltaTime2), "yyyy-MM-dd'T'HH:mm")                                          
           };
         }
         // Si 'assigned' es true, dejar el objeto sin cambios
         return calendar1;
       });
-      //console.log('105',details2)
+      console.log('105',details2)
      setPersonSchedule(details2)
    //   alert(1)
     }

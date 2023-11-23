@@ -125,7 +125,7 @@ export default function TeacherDetailPage() {
           <div className='px-[22px] py-[26px] border bg-white rounded-md shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] mb-[12px]'>
 
             {/* Titulo */}
-            <p className='text-[18px] text-title_color font-medium border-b-2 py-2'>Metodología:{console.log('128',cardDetail)}</p>
+            <p className='text-[18px] text-title_color font-medium border-b-2 py-2'>Metodología:{console.log('/inicio/teachers/[id] 128',cardDetail)}</p>
 
             {/* Metodologias */}
             {cardDetail?.enfoquePedagogico ? (
