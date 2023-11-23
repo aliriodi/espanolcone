@@ -71,39 +71,45 @@ export default function Schedule() {
 //aca traigo al teacher o guia turistico con sus detalles
 //bien sea por redux o por Base de datos
   const { id } = router.query;
+  
   useEffect(() => {
+   // console.log('76 cardDetail',cardDetail)
     setRenders(session)
     if(cardDetail){
     if (Object.keys(cardDetail).length !== 0) {
       setPersonSchedule(cardDetail)
-      alert(1)
+   //   alert(1)
     }
-    else {alert(2)
+    else {
+      //alert(2)
       async function carDet() {
         try {
-          const details = await fetch('/api/users/' + id)
+         // console.log('id2',id)
+          const details = await fetch('/api/users/' +id, {headers:{accept:'*/*'}}).then(response=>response.json())
           setPersonSchedule(details.userid);
-          console.log('1',personSchedule.calendar)
+       //   console.log('89',details)
+         // console.log('90',personSchedule)
         } catch (error) {
           console.error('Error fetching user details:', error);
         }
       }
       carDet()
     }
+  }else{
+    async function carDet() {
+      try {
+        console.log('id2',id)
+        const details = await fetch('/api/users/' + id, {headers:{accept:'*/*'}}).then(response=>response.json())
+        setPersonSchedule(details.userid);
+     //   console.log('102',personSchedule)
+      // console.log('103',details)
+      } catch (error) {
+        console.error('Error fetching user details:', error);
+      }
+    }
+    carDet()
   }
-    else { alert(3)
-      async function carDet() {
-        try {
-          const details = await fetch('/api/users/' + id)
-          setPersonSchedule(details.userid);
-          console.log('1',personSchedule.calendar)
-        } catch (error) {
-          console.error('Error fetching user details:', error);
-        }
-      }
-      carDet()
-    }
-
+   
       }, [session])
 
  //calculo la diferencia de horario entre el estudiante y profesor
@@ -154,7 +160,7 @@ export default function Schedule() {
 //Px4q]_[X
 //https://sandbox.paypal.com
 
-    const promises = [];
+    
     const newcalendar = [];
     const newcalendarS = [];
     //Teacher o guia turistico apeando las citas del calendario para asignarlo
@@ -328,12 +334,13 @@ try {
               },
               body: JSON.stringify({ email: renders.user.email, updates: { calendar: newcalendarS } }),
             }).then(response=>console.log(response.json()))
+            console.log(newcalendarS)
         
         } catch (error) {
             console.error(error);
           }
           update({ ...session, user: { ...session.user, calendar : newcalendarS } });
-   console.log(newcalendar)
+   
     //Ejecuto todas las promesas
    
     alert('Su clase ha sido asignada')
