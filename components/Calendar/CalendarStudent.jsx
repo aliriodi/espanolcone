@@ -87,7 +87,7 @@ export default function Schedule() {
         const offsetSign = offsetHours > 0 ? '-' : '+';
         const offsetHoursAbs = Math.abs(offsetHours);
         const formattedOffset = `${offsetSign}${String(offsetHoursAbs).padStart(2, '')}`;
-        const utnUser = -6;//arseInt(formattedOffset, 10);
+        const utnUser = arseInt(formattedOffset, 10);
         const last = cardDetail.calendar.length;
         const utnToG=cardDetail.calendar[last-1].utnCreated;
         const deltaTime2 = (utnUser-utnToG)*3600000;
@@ -135,7 +135,7 @@ export default function Schedule() {
           const offsetSign = offsetHours > 0 ? '-' : '+';
           const offsetHoursAbs = Math.abs(offsetHours);
           const formattedOffset = `${offsetSign}${String(offsetHoursAbs).padStart(2, '')}`;
-          const utnUser = -6;//arseInt(formattedOffset, 10);
+          const utnUser = arseInt(formattedOffset, 10);
           const last = details.userid.calendar.length;
           const utnToG=details.userid.calendar[last-1].utnCreated;
           const deltaTime2 = (utnUser-utnToG)*3600000;
