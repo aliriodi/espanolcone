@@ -38,28 +38,28 @@ export default function Example() {
   //o meetings que tiene agendado
   //En el perfil del profesor se trae su calendar de la BD y observa todo
   const [calendar, setCalendar2] = useState([]);
-  const { data: session, status,update } = useSession();
+  const { data: session, status, update } = useSession();
   const [renders, setRenders] = useState({ user: { role: "user", calendar: [{}], image: 'https://res.cloudinary.com/dfddh08q8/image/upload/v1695578432/images/4_svg8uq.png' } })
   const [newcalendar, setCalendar] = useState([]);
   // Termina section de BD ahora viebne el codigo que usa los datos
   let selectedDayMeetings = [];
 
   useEffect(() => {
-   //update();
+    //update();
     if (session) {
       setRenders(session)
       setCalendar(session.user.calendar)
-     
+
     }
   }, [session])
- 
+
   //console.log('session 109',session)
   let today = startOfToday()
   const [selectedDay, setSelectedDay] = useState(today)
   const [i, setI] = useState(0)
   const [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
   let firstDayCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date())
-  
+
   if (renders) {
     selectedDayMeetings = renders.user.calendar.filter((meeting) =>
       isSameDay(parseISO(meeting.userstartDatetime), selectedDay))
@@ -81,13 +81,13 @@ export default function Example() {
           // body: JSON.stringify({ email: personSchedule.email, updates: { calendar: personSchedule.schedule } }),
           body: JSON.stringify({ email: session.user.email, updates: { calendar: [...newcalendar, newElement] } }),
         })
-    
-        update({ ...session, user: { ...session.user, calendar : [...newcalendar, newElement]  } });
+
+      update({ ...session, user: { ...session.user, calendar: [...newcalendar, newElement] } });
 
     } catch (error) {
       console.log(error);
     }
-    
+
     alert('Tu hora fue puesta a disposicion')
   };
 
@@ -142,7 +142,7 @@ export default function Example() {
     // console.log(startDatetime1,typeof(endDatetime1))
     hoursOfDay.push({
       assigned: false,
-      role:"",
+      role: "",
       locationCreated: country,
       nameuser: "",
       first_name: "",
@@ -156,8 +156,8 @@ export default function Example() {
       image: "",
       startDatetime: startDatetime1,
       endDatetime: endDatetime1,
-      userstartDatetime:"",
-      userendDatetime:""
+      userstartDatetime: "",
+      userendDatetime: ""
 
     });
   }
@@ -214,7 +214,7 @@ export default function Example() {
                   </button>
 
                 </div>
-                
+
                 {/* Mes del calendario */}
                 <h3 className="font-semibold text-[14px] text-violet_dark">
                   {format(firstDayCurrentMonth, 'MMMM yyyy', { locale: es }).charAt(0).toUpperCase() + format(firstDayCurrentMonth, 'MMMM yyyy', { locale: es }).slice(1)}
@@ -222,7 +222,7 @@ export default function Example() {
 
               </div>
 
-              </div>
+            </div>
 
             {/* Encabezado de Dias */}
             <div className="grid grid-cols-7 mt-[15px] text-base leading-6 text-center text-white bg-primary
@@ -300,8 +300,8 @@ export default function Example() {
 
             {/* Horarios */}
             {
-            isAfter(selectedDay, today) ?
-              renders?.user?.role.includes('teacher') || renders?.user?.role.includes('guides') ?
+              isAfter(selectedDay, today) ?
+                renders?.user?.role.includes('teacher') || renders?.user?.role.includes('guides') ?
 
                   <div className='max-w-fit grid grid-cols-1 divide-x object-none object-right-top mt-10'>
 
@@ -311,34 +311,34 @@ export default function Example() {
 
                     <div className='border-none md:text-[14px]'>
 
-                      
+
                       {/* Botones de Turnos */}
                       {
                         (renders?.user?.role.includes('teacher') || renders?.user?.role.includes('guides')) && isAfter(selectedDay, today) ?
 
-                        <div className='w-full relative my-4 flex justify-between'>
-                          <button className={`border-primary border-solid border-2 rounded-[5px] flex-grow-[1] mx-1 text-primary ${i == 0 && 'bg-primary text-white'}`} onClick={() => setI(0)}>
-                            Turno 1
-                          </button>
+                          <div className='w-full relative my-4 flex justify-between'>
+                            <button className={`border-primary border-solid border-2 rounded-[5px] flex-grow-[1] mx-1 text-primary ${i == 0 && 'bg-primary text-white'}`} onClick={() => setI(0)}>
+                              Turno 1
+                            </button>
 
-                          <button className={`border-primary border-solid border-2 rounded-[5px] flex-grow-[1] mx-1 text-primary ${i == 1 && 'bg-primary text-white'}`} onClick={() => setI(1)}>
-                            Turno 2
-                          </button>
+                            <button className={`border-primary border-solid border-2 rounded-[5px] flex-grow-[1] mx-1 text-primary ${i == 1 && 'bg-primary text-white'}`} onClick={() => setI(1)}>
+                              Turno 2
+                            </button>
 
-                          <button className={`border-primary border-solid border-2 rounded-[5px] flex-grow-[1] mx-1 text-primary ${i == 2 && 'bg-primary text-white'}`} onClick={() => setI(2)}>
-                            Turno 3
-                          </button>
+                            <button className={`border-primary border-solid border-2 rounded-[5px] flex-grow-[1] mx-1 text-primary ${i == 2 && 'bg-primary text-white'}`} onClick={() => setI(2)}>
+                              Turno 3
+                            </button>
 
-                          <button className={`border-primary border-solid border-2 rounded-[5px] flex-grow-[1] mx-1 text-primary ${i == 3 && 'bg-primary text-white'}`} onClick={() => setI(3)}>
-                            Turno 4
-                          </button>
+                            <button className={`border-primary border-solid border-2 rounded-[5px] flex-grow-[1] mx-1 text-primary ${i == 3 && 'bg-primary text-white'}`} onClick={() => setI(3)}>
+                              Turno 4
+                            </button>
 
-                        </div>
+                          </div>
 
-                        :
-                        null
+                          :
+                          null
                       }
-                      
+
                       {/* Horarios */}
                       <ul className="flex  flex-wrap
                       md:justify-center">
@@ -346,42 +346,42 @@ export default function Example() {
                           hoursOfDay.length > 0 ? (
                             hoursOfDay.slice(i * 6, (i + 1) * 6).map((meeting, index) => (
                               <button key={index} onClick={() => addNewElement(meeting)}
-                              className={classNames(
-                                'focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 mb-2 text-secondary hover:bg-secondary_light border-solid border-[2px] border-secondary transition-all mx-1',
-                                selectedDayMeetings.some((meeting1) => meeting1.userstartDatetime === meeting.userstartDatetime && meeting1.assigned)
-                                && 'border-red-500 border-solid border-[2px] hover:border-primary',
-                                newcalendar.some((meeting1) => meeting1.userstartDatetime === meeting.userstartDatetime) && 'bg-secondary text-white hover:bg-secondary'
-                              )}
+                                className={classNames(
+                                  'focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 mb-2 text-secondary hover:bg-secondary_light border-solid border-[2px] border-secondary transition-all mx-1',
+                                  selectedDayMeetings.some((meeting1) => meeting1.userstartDatetime === meeting.userstartDatetime && meeting1.assigned)
+                                  && 'border-red-500 border-solid border-[2px] hover:border-primary',
+                                  newcalendar.some((meeting1) => meeting1.userstartDatetime === meeting.userstartDatetime) && 'bg-secondary text-white hover:bg-secondary'
+                                )}
 
-                              //Para deshabilitar el boton cuando haya meeting
-                              disabled={
-                                selectedDayMeetings.some((meeting1) => meeting1.userstartDatetime === meeting.userstartDatetime && meeting1.assigned)
-                                || newcalendar.some((meeting1) => meeting1.userstartDatetime === meeting.userstartDatetime)}
-                            >
-                              <MeetingPlaning key={index} meeting={meeting} assigned={selectedDayMeetings.some((meeting1) => meeting1.userstartDatetime === meeting.userstartDatetime && meeting1.assigned)} /></button>
+                                //Para deshabilitar el boton cuando haya meeting
+                                disabled={
+                                  selectedDayMeetings.some((meeting1) => meeting1.userstartDatetime === meeting.userstartDatetime && meeting1.assigned)
+                                  || newcalendar.some((meeting1) => meeting1.userstartDatetime === meeting.userstartDatetime)}
+                              >
+                                <MeetingPlaning key={index} meeting={meeting} assigned={selectedDayMeetings.some((meeting1) => meeting1.userstartDatetime === meeting.userstartDatetime && meeting1.assigned)} /></button>
                             ))
                           ) : (
                             <p>No hay actividad agendada aún.</p>
                           )}
 
                       </ul>
-                      
+
                     </div>
 
                   </div>
-                : null
-                
-              :
-              isEqual(selectedDay, today) && (renders?.user?.role.includes('teacher') || renders?.user?.role.includes('guides') ) ?
+                  : null
 
-                <span className='pt-14 '>
-                  <h2 className="py-20 text-gray_clear text-center
-                  md:text-[18px]">
-                    Si desea planificar hoy comuniquese con el Admin, ¡sino seleccione un dia despues de hoy!
-                  </h2>
-                </span>
                 :
-               (renders?.user?.role.includes('teacher') || renders?.user?.role.includes('guides') ) ?  <span className='pt-14 '><h2 className="pt-20 font-semibold text-gray-900">No se puede planificar</h2></span>:null}
+                isEqual(selectedDay, today) && (renders?.user?.role.includes('teacher') || renders?.user?.role.includes('guides')) ?
+
+                  <span className='pt-14 '>
+                    <h2 className="py-20 text-gray_clear text-center
+                  md:text-[18px]">
+                      Si desea planificar hoy comuniquese con el Admin, ¡sino seleccione un dia despues de hoy!
+                    </h2>
+                  </span>
+                  :
+                  (renders?.user?.role.includes('teacher') || renders?.user?.role.includes('guides')) ? <span className='pt-14 '><h2 className="pt-20 font-semibold text-gray-900">No se puede planificar</h2></span> : null}
 
           </div>
 
@@ -412,7 +412,7 @@ export default function Example() {
               <ol className="">
                 {/* {console.log(selectedDayMeetings)} */}
                 {selectedDayMeetings.length > 0 ? (
-                  selectedDayMeetings.map((meeting,index) => (
+                  selectedDayMeetings.map((meeting, index) => (
                     <Meeting meeting={meeting} key={index} />
                   ))
                 ) : (
@@ -427,7 +427,7 @@ export default function Example() {
           {/* {crear Agenda}  console.log(renders)*/}
           {/* {console.log(newcalendar)} */}
           {/* { isAfter(selectedDay, today)?<>el dia es despues</>:<>el dia es antes</>} */}
-          
+
 
         </div>
 
@@ -439,8 +439,8 @@ export default function Example() {
 function Meeting({ meeting }) {
   let startDateTime = parseISO(meeting.userstartDatetime)
   let endDateTime = parseISO(meeting.userendDatetime)
-  
-  useEffect(()=>console.log(meeting),[])
+
+  useEffect(() => console.log(meeting), [])
 
   return (
     <li className="flex items-center px-4 py-2 space-x-4 group focus-within:bg-gray-100 hover:bg-gray-100 border-b-2 last-of-type:border-none
@@ -451,17 +451,17 @@ function Meeting({ meeting }) {
       <div className='flex-none w-10 h-10 rounded-full bg-[#B9B9C3] relative overflow-hidden flex justify-center items-center'>
         {
           meeting?.image?.url ?
-          <Image
-            src={meeting?.image?.url || meeting?.image}
-            alt="img"
-            className="object-cover"
-            width={160}
-            height={160}
-          />
+            <Image
+              src={meeting?.image?.url || meeting?.image}
+              alt="img"
+              className="object-cover"
+              width={160}
+              height={160}
+            />
 
-          :
+            :
 
-          <FontAwesomeIcon className="text-violet_dark w-[60%] h-[60%]" icon={faUser}/>
+            <FontAwesomeIcon className="text-violet_dark w-[60%] h-[60%]" icon={faUser} />
 
         }
       </div>

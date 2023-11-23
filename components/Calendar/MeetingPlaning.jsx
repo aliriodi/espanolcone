@@ -22,25 +22,25 @@ import {
 } from 'date-fns'
 
 
-export default function Meeting({ meeting ,assigned}) {
-    let startDateTime = parseISO(meeting.startDatetime)
-    let endDateTime = parseISO(meeting.endDatetime)
-  
-    return (
-      <li className="flex items-center space-x-4 group rounded-xl">
-        <div className="flex-auto flex flex-wrap justify-center">
+export default function Meeting({ meeting, assigned }) {
+  let startDateTime = parseISO(meeting.startDatetime)
+  let endDateTime = parseISO(meeting.endDatetime)
 
-            <time dateTime={meeting.startDatetime} className='flex'>
-              {format(startDateTime, 'h:mm a')}
-            </time>
-            <p className='mx-1'>-</p>
-            <time dateTime={meeting.endDatetime} className='flex'>
-              {format(endDateTime, 'h:mm a')}
-            </time>
-            {assigned?<p className='text-black-500 w-full'>Asignado</p>:null}
+  return (
+    <li className="flex items-center space-x-4 group rounded-xl">
+      <div className="flex-auto flex flex-wrap justify-center">
 
-        </div>
-        {/* <Menu
+        <time dateTime={meeting.startDatetime} className='flex'>
+          {format(startDateTime, 'h:mm a')}
+        </time>
+        <p className='mx-1'>-</p>
+        <time dateTime={meeting.endDatetime} className='flex'>
+          {format(endDateTime, 'h:mm a')}
+        </time>
+        {assigned ? <p className='text-black-500 w-full'>Asignado</p> : null}
+
+      </div>
+      {/* <Menu
           as="div"
           className="relative opacity-0 focus-within:opacity-100 group-hover:opacity-100"
         >
@@ -92,17 +92,16 @@ export default function Meeting({ meeting ,assigned}) {
             </Menu.Items>
           </Transition>
         </Menu> */}
-      </li>
-    )
-  }
-  
-  let colStartClasses = [
-    '',
-    'col-start-2',
-    'col-start-3',
-    'col-start-4',
-    'col-start-5',
-    'col-start-6',
-    'col-start-7',
-  ]
-  
+    </li>
+  )
+}
+
+let colStartClasses = [
+  '',
+  'col-start-2',
+  'col-start-3',
+  'col-start-4',
+  'col-start-5',
+  'col-start-6',
+  'col-start-7',
+]
