@@ -39,15 +39,15 @@ function classNames(...classes) {
 
 export default function Schedule() {
   const router = useRouter();
- /*
- Aca el usuario se trae por _id el calendario del guia o teacher
- para poder agendar una cita en caso de que exista disponibilidad
- */
-  const { data: session, status ,update} = useSession();
- 
+  /*
+  Aca el usuario se trae por _id el calendario del guia o teacher
+  para poder agendar una cita en caso de que exista disponibilidad
+  */
+  const { data: session, status, update } = useSession();
+
   const cardDetail = useSelector((state) => state.datos.cardDetail);
 
-  const [deltaTime,setDeltaTime]= useState(0)
+  const [deltaTime, setDeltaTime] = useState(0)
   let [renders, setRenders] = useState('')
   let [personSchedule, setPersonSchedule] = useState({})
   //variable para asignar New Meeting en caso de asignar hora
@@ -61,27 +61,27 @@ export default function Schedule() {
     setPaymentCancelled(false); // Asegúrate de restablecer el otro estado
     Confirm()
   };
-  
+
   const handlePaymentCancel = () => {
     setIsPaymentConfirmed(false);
     setPaymentCancelled(true); // Asegúrate de restablecer el otro estado
   };
 
 
-//aca traigo al teacher o guia turistico con sus detalles
-//bien sea por redux o por Base de datos
+  //aca traigo al teacher o guia turistico con sus detalles
+  //bien sea por redux o por Base de datos
   const { id } = router.query;
-  
+
   useEffect(() => {
-   // console.log('76 cardDetail',cardDetail)
+    // console.log('76 cardDetail',cardDetail)
     // Obtener el UTN de la fecha
-  
+
     setRenders(session)
-    if(cardDetail){
-    if (Object.keys(cardDetail).length !== 0) {
-      console.log('CalendarStudent 82',cardDetail)
-      
-      const fecha = today; Fragment
+    if (cardDetail) {
+      if (Object.keys(cardDetail).length !== 0) {
+        console.log('CalendarStudent 82', cardDetail)
+
+        const fecha = today; Fragment
         const offsetMinutes = fecha.getTimezoneOffset();
         const offsetHours = offsetMinutes / 60;
         const offsetSign = offsetHours > 0 ? '-' : '+';
@@ -89,47 +89,49 @@ export default function Schedule() {
         const formattedOffset = `${offsetSign}${String(offsetHoursAbs).padStart(2, '')}`;
         const utnUser = arseInt(formattedOffset, 10);
         const last = cardDetail.calendar.length;
-        const utnToG=cardDetail.calendar[last-1].utnCreated;
-        const deltaTime2 = (utnUser-utnToG)*3600000;
-      //aca voy a modificar los calendarios para modificar los utn de las horas no asignadas
-      const details2 = { ...cardDetail };
-      details2.calendar = details2.calendar.map(calendar1 => {
-        if (!calendar1.assigned) {
-          // Si 'assigned' es false, actualizar el valor
-          return { ...calendar1, userstartDatetime: format(new Date(parseISO(calendar1.startDatetime).getTime()+deltaTime2), "yyyy-MM-dd'T'HH:mm"),
-                                 userendDatetime: format(new Date(parseISO(calendar1.endDatetime).getTime()+deltaTime2), "yyyy-MM-dd'T'HH:mm")                                          
-          };
-        }
-        // Si 'assigned' es true, dejar el objeto sin cambios
-        return calendar1;
-      });
-      console.log('105',details2)
-     setPersonSchedule(details2)
-   //   alert(1)
-    }
-    else {
-      //alert(2)
-      async function carDet() {
-        if(id){
-        try {
-         // console.log('id2',id)
-          const details = await fetch('/api/users/' +id).then(response=>response.json())
-          //setPersonSchedule(details);
-       //   console.log('89',details)
-         // console.log('90',personSchedule)
-        } catch (error) {
-          console.error('Error fetching user details:', error);
-        }}
+        const utnToG = cardDetail.calendar[last - 1].utnCreated;
+        const deltaTime2 = (utnUser - utnToG) * 3600000;
+        //aca voy a modificar los calendarios para modificar los utn de las horas no asignadas
+        const details2 = { ...cardDetail };
+        details2.calendar = details2.calendar.map(calendar1 => {
+          if (!calendar1.assigned) {
+            // Si 'assigned' es false, actualizar el valor
+            return {
+              ...calendar1, userstartDatetime: format(new Date(parseISO(calendar1.startDatetime).getTime() + deltaTime2), "yyyy-MM-dd'T'HH:mm"),
+              userendDatetime: format(new Date(parseISO(calendar1.endDatetime).getTime() + deltaTime2), "yyyy-MM-dd'T'HH:mm")
+            };
+          }
+          // Si 'assigned' es true, dejar el objeto sin cambios
+          return calendar1;
+        });
+        console.log('105', details2)
+        setPersonSchedule(details2)
+        //   alert(1)
       }
-      carDet()
-    }
-  }else{
-    async function carDet() {
-      try {
-        console.log('id2',id)
-        const details = await fetch('/api/users/' + id).then(response=>response.json())
-        const details2 = { ...details.userid };
-        const fecha = today; Fragment
+      else {
+        //alert(2)
+        async function carDet() {
+          if (id) {
+            try {
+              // console.log('id2',id)
+              const details = await fetch('/api/users/' + id).then(response => response.json())
+              //setPersonSchedule(details);
+              //   console.log('89',details)
+              // console.log('90',personSchedule)
+            } catch (error) {
+              console.error('Error fetching user details:', error);
+            }
+          }
+        }
+        carDet()
+      }
+    } else {
+      async function carDet() {
+        try {
+          console.log('id2', id)
+          const details = await fetch('/api/users/' + id).then(response => response.json())
+          const details2 = { ...details.userid };
+          const fecha = today; Fragment
           const offsetMinutes = fecha.getTimezoneOffset();
           const offsetHours = offsetMinutes / 60;
           const offsetSign = offsetHours > 0 ? '-' : '+';
@@ -137,38 +139,39 @@ export default function Schedule() {
           const formattedOffset = `${offsetSign}${String(offsetHoursAbs).padStart(2, '')}`;
           const utnUser = arseInt(formattedOffset, 10);
           const last = details.userid.calendar.length;
-          const utnToG=details.userid.calendar[last-1].utnCreated;
-          const deltaTime2 = (utnUser-utnToG)*3600000;
-        //aca voy a modificar los calendarios para modificar los utn de las horas no asignadas
-        details2.calendar = details2.calendar.map(calendar1 => {
-          if (!calendar1.assigned) {
-            // Si 'assigned' es false, actualizar el valor
-            return { ...calendar1, userstartDatetime: format(new Date(parseISO(calendar1.startDatetime).getTime()+deltaTime2), "yyyy-MM-dd'T'HH:mm"),
-                                   userendDatetime: format(new Date(parseISO(calendar1.endDatetime).getTime()+deltaTime2), "yyyy-MM-dd'T'HH:mm")                                          
-            };
-          }
-          // Si 'assigned' es true, dejar el objeto sin cambios
-          return calendar1;
-        });
-        console.log(deltaTime2)
-        console.log(details2)
-        setPersonSchedule(details2);
-     //   console.log('102',personSchedule)
-      // console.log('103',details)
-      } catch (error) {
-        console.error('Error fetching user details:', error);
+          const utnToG = details.userid.calendar[last - 1].utnCreated;
+          const deltaTime2 = (utnUser - utnToG) * 3600000;
+          //aca voy a modificar los calendarios para modificar los utn de las horas no asignadas
+          details2.calendar = details2.calendar.map(calendar1 => {
+            if (!calendar1.assigned) {
+              // Si 'assigned' es false, actualizar el valor
+              return {
+                ...calendar1, userstartDatetime: format(new Date(parseISO(calendar1.startDatetime).getTime() + deltaTime2), "yyyy-MM-dd'T'HH:mm"),
+                userendDatetime: format(new Date(parseISO(calendar1.endDatetime).getTime() + deltaTime2), "yyyy-MM-dd'T'HH:mm")
+              };
+            }
+            // Si 'assigned' es true, dejar el objeto sin cambios
+            return calendar1;
+          });
+          console.log(deltaTime2)
+          console.log(details2)
+          setPersonSchedule(details2);
+          //   console.log('102',personSchedule)
+          // console.log('103',details)
+        } catch (error) {
+          console.error('Error fetching user details:', error);
+        }
       }
+      carDet()
     }
-    carDet()
-  }
-   
-      }, [session,id])
+
+  }, [session, id])
 
 
-         
-            
-              
-             
+
+
+
+
   function selectSchedule(meeting) {
     setNewMeeting(meeting)
 
@@ -176,31 +179,31 @@ export default function Schedule() {
 
   const [paypalModal, setPaypalModal] = useState(false)
 
-  const openPaypalModal = () =>{
-      setPaypalModal(true)
+  const openPaypalModal = () => {
+    setPaypalModal(true)
   }
 
-  const handleChangePaypalModal = (data) =>{
-      setPaypalModal(data)
+  const handleChangePaypalModal = (data) => {
+    setPaypalModal(data)
   }
 
-//Declaro diferencial de horario
+  //Declaro diferencial de horario
 
 
 
 
   //Function que asigna el horario al alumno en el calendario de profesor y del alumno
   async function Confirm() {
-//sb-x747sj28200220@personal.example.com
-//Px4q]_[X
-//https://sandbox.paypal.com
+    //sb-x747sj28200220@personal.example.com
+    //Px4q]_[X
+    //https://sandbox.paypal.com
 
-    
+
     const newcalendar = [];
     const newcalendarS = [];
     //Teacher o guia turistico apeando las citas del calendario para asignarlo
     // a un nuevo calendario asignado la fecha
-     personSchedule.calendar.map(async meeting => {
+    personSchedule.calendar.map(async meeting => {
       if (meeting.startDatetime === newMeeting.startDatetime) {
 
         // Desplazamiento horario en minutos (ejemplo para GMT-03)
@@ -229,7 +232,7 @@ export default function Schedule() {
         for (const part of timeZoneName) {
           if (part.type === 'timeZoneName') {
             country = part.value.trim();
-           break;
+            break;
           }
         }
 
@@ -250,11 +253,11 @@ export default function Schedule() {
           utnscheduled: offsetNumber,
           startDatetime: meeting.startDatetime,
           endDatetime: meeting.endDatetime,
-          userstartDatetime:meeting.userstartDatetime,
-          userendDatetime:meeting.userendDatetime
+          userstartDatetime: meeting.userstartDatetime,
+          userendDatetime: meeting.userendDatetime
         })
         //aca asigno el profesor al calendario del alumno
-        renders.user.calendar.map(calendar=>newcalendarS.push(calendar))
+        renders.user.calendar.map(calendar => newcalendarS.push(calendar))
         newcalendarS.push({
           id: personSchedule['_id'],
           iduser: renders.user._id,
@@ -266,26 +269,26 @@ export default function Schedule() {
           image: personSchedule.image,
           iduser: personSchedule.id,
           startDatetime: meeting.startDatetime,
-          endDatetime:   meeting.endDatetime,
-          utnCreated:    meeting.utnCreated,
+          endDatetime: meeting.endDatetime,
+          utnCreated: meeting.utnCreated,
           utnscheduled: offsetNumber,
           locationCreated: meeting.locationCreated,
           locationscheduled: country,
-          userstartDatetime:meeting.userstartDatetime,
-          userendDatetime:meeting.userendDatetime
+          userstartDatetime: meeting.userstartDatetime,
+          userendDatetime: meeting.userendDatetime
         })
-      
+
         newcalendarS.sort((a, b) => {
           const dateA = new Date(a.startDatetime);
           const dateB = new Date(b.startDatetime);
-        
+
           // Compare the dates
           return dateA - dateB;
         });
         newcalendar.sort((a, b) => {
           const dateA = new Date(a.startDatetime);
           const dateB = new Date(b.startDatetime);
-        
+
           // Compare the dates
           return dateA - dateB;
         });
@@ -294,94 +297,95 @@ export default function Schedule() {
 
         //La promesa del nuevo calendario del profesor la saco del if porque sino la
         //promesa sale sin todo los calendarios actualizados tenia un problema de logica
-try {
-        //envio email a teacher
-        await
-          fetch('/api/mail/',
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                to: personSchedule.email, subject: 'Asignación de nueva clase con: ' + renders.user.first_name + ' ' + renders.user.last_name,
-                text:`Asignación de clase para el día ${newMeeting.startDatetime} 
+        try {
+          //envio email a teacher
+          await
+            fetch('/api/mail/',
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  to: personSchedule.email, subject: 'Asignación de nueva clase con: ' + renders.user.first_name + ' ' + renders.user.last_name,
+                  text: `Asignación de clase para el día ${newMeeting.startDatetime} 
                      y termina en hora ${newMeeting.endDatetime}, 
                      El horario del alumno inicia en: ${newMeeting.userstartDatetime}
                      y termina en ${newMeeting.userendDatetime}`
-                
-                // 'Asignación de clase para el día ' + newMeeting.startDatetime + ' y termina en hora ' + newMeeting.endDatetime+', El horario del alumno inicia en: '+
-                // format(new Date(parseISO(meeting.startDatetime).getTime()+deltaTime),"dd-MM'T'HH:mm") +
-                //  'y termina en  ' + format(new Date(parseISO(meeting.endDatetime).getTime()+deltaTime),"dd-MM'T'HH:mm")
-              })
-            })
 
-       
-
-        //Envio email a alumno
-     await
-          fetch('/api/mail/',
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                to: renders.user.email, 
-                subject: 'Asignación de nueva clase con: ' + personSchedule.first_name + ' ' + personSchedule.last_name,
-                text: 'Asignación de clase para el día ' + meeting.userstartDatetime + ' y termina en hora ' + meeting.userendDatetime
+                  // 'Asignación de clase para el día ' + newMeeting.startDatetime + ' y termina en hora ' + newMeeting.endDatetime+', El horario del alumno inicia en: '+
+                  // format(new Date(parseISO(meeting.startDatetime).getTime()+deltaTime),"dd-MM'T'HH:mm") +
+                  //  'y termina en  ' + format(new Date(parseISO(meeting.endDatetime).getTime()+deltaTime),"dd-MM'T'HH:mm")
+                })
               })
-            })}catch (error) {
-              console.error(error);
-            }
-        
+
+
+
+          //Envio email a alumno
+          await
+            fetch('/api/mail/',
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  to: renders.user.email,
+                  subject: 'Asignación de nueva clase con: ' + personSchedule.first_name + ' ' + personSchedule.last_name,
+                  text: 'Asignación de clase para el día ' + meeting.userstartDatetime + ' y termina en hora ' + meeting.userendDatetime
+                })
+              })
+        } catch (error) {
+          console.error(error);
+        }
+
 
       } else {
         newcalendar.push(meeting)
       }
-       
+
     })
     // const contentLength =   new TextEncoder().encode(renders.user.calendar).length;
     // console.log(`Tamaño de datos: ${contentLength} bytes`);
     // const contentLength2 =   new TextEncoder().encode(newcalendar).length;
     // console.log(`Tamaño de datos: ${contentLength2} bytes`);
     // console.log(newcalendar)
-      //aca actualizo el calendario del profesor con alumno en BD
+    //aca actualizo el calendario del profesor con alumno en BD
     try {
-       await  fetch('/api/users/update',
+      await fetch('/api/users/update',
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          // body: JSON.stringify({ email: personSchedule.email, updates: { calendar: personSchedule.schedule } }),
+          body: JSON.stringify({ email: personSchedule.email, updates: { calendar: newcalendar } })
+        }).then(response => console.log(response.json()))
+
+      //aca actualizo el calendario del alumno en BD
+      //fuera del map para que se declare una sola promesa y con el recorrido completo
+      await
+        fetch('/api/users/update',
           {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
-            // body: JSON.stringify({ email: personSchedule.email, updates: { calendar: personSchedule.schedule } }),
-            body: JSON.stringify({ email: personSchedule.email, updates: { calendar: newcalendar } })
-          }).then(response=>console.log(response.json()))
-        
-         //aca actualizo el calendario del alumno en BD
-        //fuera del map para que se declare una sola promesa y con el recorrido completo
-        await
-          fetch('/api/users/update',
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ email: renders.user.email, updates: { calendar: newcalendarS } }),
-            }).then(response=>console.log(response.json()))
-            console.log(newcalendarS)
-        
-        } catch (error) {
-            console.error(error);
-          }
-          update({ ...session, user: { ...session.user, calendar : newcalendarS } });
-   
+            body: JSON.stringify({ email: renders.user.email, updates: { calendar: newcalendarS } }),
+          }).then(response => console.log(response.json()))
+      console.log(newcalendarS)
+
+    } catch (error) {
+      console.error(error);
+    }
+    update({ ...session, user: { ...session.user, calendar: newcalendarS } });
+
     //Ejecuto todas las promesas
-   
+
     alert('Su clase ha sido asignada')
-   
-   
-   
+
+
+
     router.push('/inicio/calendar');
   }
 
@@ -406,14 +410,14 @@ try {
     setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'))
   }
 
-  
-  if (!personSchedule|| Object.keys(personSchedule).length===0) {
+
+  if (!personSchedule || Object.keys(personSchedule).length === 0) {
     return (
       <div className="flex justify-center items-center min-h-screen">
         <Spinner />
       </div>
     )
-  } 
+  }
 
 
   return (
@@ -529,7 +533,7 @@ try {
                             -{' '}
                             <time dateTime={meeting.userendDatetime}>
                               {format(parseISO(meeting.userendDatetime), 'h:mm a')}
-                             </time>
+                            </time>
                           </button>
                         </p>
 
@@ -538,18 +542,18 @@ try {
 
                   })}
 
-                
+
                   {/* Si existe un meeting para asignar y el pago ha sido confirmado, renderiza el botón de confirmar citas */}
 
                   {isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.userstartDatetime), selectedDay) && !meeting.assigned) &&// isPaymentConfirmed &&!isPaymentConfirmed&&
-  <button type="button" onClick={() => Confirm()} className='focus:outline-none bg-primary text-white font-medium rounded-lg text-sm px-5 py-2.5 mb-2'>Confirma</button>
-}
+                    <button type="button" onClick={() => Confirm()} className='focus:outline-none bg-primary text-white font-medium rounded-lg text-sm px-5 py-2.5 mb-2'>Confirma</button>
+                  }
 
-{
-  !isPaymentConfirmed && isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) && 
-  <div>
-    {/* Botón para abrir el modal de PayPal */}
-    {/* <button
+                  {
+                    !isPaymentConfirmed && isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) &&
+                    <div>
+                      {/* Botón para abrir el modal de PayPal */}
+                      {/* <button
       onClick={openPaypalModal}
       className="flex w-full items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all bg-primary text-white hover:bg-primary hover:text-white"
     >
@@ -557,15 +561,15 @@ try {
       <span>Reserva tu Cita</span>
     </button> */}
 
-    {/* Modal de Pago */}
-    <ModalPago 
-      onPaymentSuccess={handlePaymentSuccess} 
-      onPaymentCancel={handlePaymentCancel} 
-      modalPaypal={handleChangePaypalModal} 
-      open={paypalModal} 
-    />
-  </div>
-}
+                      {/* Modal de Pago */}
+                      <ModalPago
+                        onPaymentSuccess={handlePaymentSuccess}
+                        onPaymentCancel={handlePaymentCancel}
+                        modalPaypal={handleChangePaypalModal}
+                        open={paypalModal}
+                      />
+                    </div>
+                  }
 
                 </>
 
