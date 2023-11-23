@@ -15,11 +15,16 @@ import DragablesBox from './DragableBox/DragablesBox';
 export default function Class(props) {
   //elemento a renderizar  
   const [data, setData] = useState(null);
+
   //numero de pagina
   const [i, setI] = useState(0);
+
   //cantidad de paginas de la leccion
   const [length, setL] = useState(1);
 
+  
+  const [canFollow, setCanFollow] = useState(true)
+  const [canBack, setCanBack] = useState(true)
 
   // Opciones de Youtube
   const iframeRef = useRef(null);
@@ -33,6 +38,7 @@ export default function Class(props) {
       color: "#000"
     }
   }
+
   // Fetch data when the component mounts 
   //me traigo todas las clase de base de datos por _id trida por props.id
   useEffect(() => {
@@ -66,7 +72,7 @@ export default function Class(props) {
     setI(props.page)
   },[props.page])
 
-  //PAGINATION
+  //#region Pagination
   //como son n sheets avanzo con el boton de forward
   function Forward(i) {
     if (data) {
@@ -81,11 +87,36 @@ export default function Class(props) {
       if (i > 0) setI(--i)
     }
   }
-
+  //#endregion
+  
+  //#region Verificacion de Actividades
   useEffect(()=>{
-    console.log(data)
     console.log(data?.sheets[i])
+    console.log("Type ",data?.sheets[i].type)
+    console.log("Es tipo actividad? ",data?.sheets[i].type != "text" && data?.sheets[i].type != "video" && data?.sheets[i].type != "slice" && data?.sheets[i].type != "table")
+
+
+    // Verifica si en esta pagina hay alguna actividad
+    if(
+      data?.sheets[i].type != undefined && 
+      data?.sheets[i].type != "text" &&
+      data?.sheets[i].type != "video" &&
+      data?.sheets[i].type != "slice" &&
+      data?.sheets[i].type != "table"){
+      setCanFollow(false)
+    }
+    else setCanFollow(true);
   },[i])
+
+  function allowFollow(){
+    // Esta funcion es usada desde los componentes actividades para activar el boton de follow
+    setCanFollow(true)
+  }
+
+  function checkSelectSimple(){
+    
+  }
+  //#endregion
 
   //https://docs.google.com/presentation/d/10lxVnbNdlLZ6OlsXJTU9-uZ3GDJPz140/edit#slide=id.g27c3e69a393_0_0
   //https://www.figma.com/file/JZZzrLkQhTDEuUPkAsacuB/ECE-%2F-Prototipos?type=design&node-id=403-9008&mode=design&t=RIjgbE4EDSxOXwZ9-0
@@ -104,39 +135,16 @@ export default function Class(props) {
         }
 
         {/* Paginacion */}
-        {/* <div className='fixed bottom-6 w-full flex justify-center z-50'> */}
-
-          {/* <div className='pagination' style={{boxShadow:"0px 4px 26px #00000040"}}> */}
-
-            {/* Boton de Previo */}
-            {/* <button
-            className='pagination-btn'
-            onClick={() => Back(i)}>
-              <FontAwesomeIcon icon={faAngleLeft}/> Prev
-            </button> */}
-
-            {/* Index */}
-            {/* <span className='pagination-index'>{i + 1} / {length}</span> */}
-
-            {/* Boton de Siguiente */}
-            {/* <button
-            className='pagination-btn'
-            onClick={() => Forward(i)}>
-              Next <FontAwesomeIcon icon={faAngleRight}/> 
-            </button> */}
-            
-          {/* </div> */}
-        {/* </div> */}
-
-        {/* Paginacion de Prueba */}
 
           {/* Boton de Previo */}
           {
             i != 0 &&
             <button
-            className='transition-all fixed bottom-0 left-0 z-[90] bg-white rounded-[0_70%_0_0] py-8 px-10 shadow-[0px_4px_26px_#00000040] text-title_color text-left text-[18px]
-            hover:bg-primary_hover hover:text-white'
-            onClick={() => Back(i)}>
+              className={`
+              ${ !canBack && "opacity-[50%] pointer-events-none"}
+              transition-all fixed bottom-0 left-0 z-[90] bg-white rounded-[0_70%_0_0] py-8 px-10 shadow-[0px_4px_26px_#00000040] text-title_color text-left text-[18px]
+              hover:bg-primary_hover hover:text-white`}
+              onClick={() => Back(i)}>
               <FontAwesomeIcon icon={faAngleLeft}/> Prev
             </button>
           } 
@@ -145,9 +153,11 @@ export default function Class(props) {
           {
             i != 0 &&
             <button
-            className='transition-all fixed bottom-0 right-0 z-[90] bg-white rounded-[70%_0_0_0] py-8 px-10 shadow-[0px_4px_26px_#00000040] text-title_color text-right text-[18px]
-            hover:bg-primary_hover hover:text-white'
-            onClick={() => Forward(i)}>
+              className={`
+              ${ !canFollow && "opacity-[50%] pointer-events-none"}
+              transition-all fixed bottom-0 right-0 z-[90] bg-white rounded-[70%_0_0_0] py-8 px-10 shadow-[0px_4px_26px_#00000040] text-title_color text-right text-[18px]
+              hover:bg-primary_hover hover:text-white`}
+              onClick={() => Forward(i)}>
               Next <FontAwesomeIcon icon={faAngleRight}/> 
             </button>
           }
@@ -249,7 +259,7 @@ export default function Class(props) {
                     
                     {/* Drag Box */}
                     {c.type === 'dragable-box' &&
-                    <DragablesBox options={c.value}/>}
+                    <DragablesBox allowFollow={allowFollow} options={c.value}/>}
                     
                     {/* Parrafo */}
                     {c.type === 'paragraph' &&

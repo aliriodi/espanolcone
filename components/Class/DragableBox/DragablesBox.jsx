@@ -8,17 +8,14 @@ import { createPortal } from "react-dom";
 
 
 export default function DragableBox( props ){
-    // const sensors = useSensor(MouseSensor, TouchSensor);
-
     const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor));
-
 
     // Opciones
     const [options, setOptions] = useState([
-        {value: "tímida",id: "value1", dropUpId:"container"},
-        {value: "guapo",id: "value2", dropUpId:"container"},
-        {value: "perezoso",id: "value3", dropUpId:"container"},
-        {value: "jóvenes",id: "value4", dropUpId:"container"}
+        {value: "tímida",id: "value1", dropUpId:"container", done:false},
+        {value: "guapo",id: "value2", dropUpId:"container", done:false},
+        {value: "perezoso",id: "value3", dropUpId:"container", done:false},
+        {value: "jóvenes",id: "value4", option:"container", done:false}
     ])
 
     const [currentOptionDrag, setCurrentOptionDrag] = useState({})
@@ -32,12 +29,28 @@ export default function DragableBox( props ){
         {value: "container",id: "container", type:"container"}
     ])
 
+    const [canCheck, setCanCheck] = useState(false)
+    
     const dropUpContainerId = useMemo(() => dropUpContainer.map((drag) => drag.id), [dropUpContainer]);
-
-    useEffect(()=> setOptions(props?.options?.DragBoxs?.map(dragBox =>{ return{...dragBox,dropUpId:"container"} })),[props?.options?.DragBoxs])
+    
+    useEffect(()=> setOptions(props?.options?.DragBoxs?.map(dragBox =>{ return{...dragBox ,dropUpId:"container", done:false} })),[props?.options?.DragBoxs])
 
     useEffect(()=> setDropUpContainer([...props?.options?.DropUps, {value:"container",id:"container", type:"container"}]),[props?.options?.DropUps])
+    
+    useEffect(()=>{
+        
+        if(options.filter((option)=>option.dropUpId != "container").length == options.length){
+            activityChack()
+            setCanCheck(true)
+        }
 
+        else setCanCheck(false)
+
+    },[options])
+
+    useEffect(()=>{
+
+    },[canCheck])
     
 
     function handleDragOver(event){
@@ -129,10 +142,40 @@ export default function DragableBox( props ){
     }
 
 
+    function handleDoneOption(value, id){
+        // Esta funcion se encarga de actualizar el valor de done de la opcion indicada por el parametro "id"
+        
+        if(value == null || !id) return;
+
+        let newOptions = options;
+        
+        newOptions = newOptions.map((option)=>{
+
+            if(option.id == id) return {... option, done:value}
+
+            return option;
+        })
+        
+        console.log("New Options ", newOptions)
+        setOptions(newOptions);
+    }
+
+    function activityChack(){      
+        console.log("Chequea")
+        let activityDone = true;
+
+        options.map((option)=>{
+            if(option.done == false) activityDone = false
+        })
+
+        console.log("Actividad Hecha ", activityDone)
+        if(activityDone) props.allowFollow()
+    }
+
     if(dropUpContainer?.length < 0) return(null)
 
     return(
-        // Contexto
+
         <DndContext 
             sensor={sensors}
             collisionDetection={closestCenter}
@@ -159,9 +202,12 @@ export default function DragableBox( props ){
                                     key={dropUp.id}
                                     type={dropUp.type}
                                     typesDropsUps={dropUpContainer[0].type}
+                                    handleDoneOption={handleDoneOption}
+                                    canCheck={canCheck}
                                     
                                     // se le pasan las respectivas opciones que corresponden a cada  contenedor
-                                    dragBoxs={options?.filter((option) => option.dropUpId === dropUp.id)}/>
+                                    dragBoxs={options?.filter((option) => option.dropUpId === dropUp.id)}
+                                    />
                             )
                         }
 
