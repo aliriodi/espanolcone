@@ -40,7 +40,7 @@ export default function DragableBox( props ){
     useEffect(()=>{
         
         if(options.filter((option)=>option.dropUpId != "container").length == options.length){
-            activityChack()
+            activityCheck()
             setCanCheck(true)
         }
 
@@ -160,7 +160,7 @@ export default function DragableBox( props ){
         setOptions(newOptions);
     }
 
-    function activityChack(){      
+    function activityCheck(){      
         console.log("Chequea")
         let activityDone = true;
 
@@ -169,9 +169,10 @@ export default function DragableBox( props ){
         })
 
         console.log("Actividad Hecha ", activityDone)
-        if(activityDone) props.allowFollow()
+        if(activityDone) props.onChangeActivityDone(props.id, true)
     }
 
+    
     if(dropUpContainer?.length < 0) return(null)
 
     return(

@@ -9,8 +9,10 @@ import SELECTSIMPLE from './Selectsimple';
 import PARAGGRAPHCOMPLETE from './paragragraphcomplete';
 import style from '../../styles/class.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faAngleRight, faCheck } from '@fortawesome/free-solid-svg-icons';
 import DragablesBox from './DragableBox/DragablesBox';
+import Selectsimple from './Selectsimple';
+import { useSpring, animated } from 'react-spring';
 
 export default function Class(props) {
   //elemento a renderizar  
@@ -22,9 +24,12 @@ export default function Class(props) {
   //cantidad de paginas de la leccion
   const [length, setL] = useState(1);
 
-  
   const [canFollow, setCanFollow] = useState(true)
   const [canBack, setCanBack] = useState(true)
+
+  const [typeActivitys, setTypeActivitys] = useState([])
+
+  const [successActivitys, setSuccessActivitys] = useState(false)
 
   // Opciones de Youtube
   const iframeRef = useRef(null);
@@ -72,6 +77,7 @@ export default function Class(props) {
     setI(props.page)
   },[props.page])
 
+
   //#region Pagination
   //como son n sheets avanzo con el boton de forward
   function Forward(i) {
@@ -95,17 +101,42 @@ export default function Class(props) {
     console.log("Type ",data?.sheets[i].type)
     console.log("Es tipo actividad? ",data?.sheets[i].type != "text" && data?.sheets[i].type != "video" && data?.sheets[i].type != "slice" && data?.sheets[i].type != "table")
 
+    window.scrollTo({top: 0});
+    setCanFollow(true)
+    // setSuccessActivitys(false)
 
-    // Verifica si en esta pagina hay alguna actividad
-    if(
-      data?.sheets[i].type != undefined && 
-      data?.sheets[i].type != "text" &&
-      data?.sheets[i].type != "video" &&
-      data?.sheets[i].type != "slice" &&
-      data?.sheets[i].type != "table"){
-      setCanFollow(false)
-    }
-    else setCanFollow(true);
+    // Se Asigna los tipos de actividades a "typeActivitys"
+    let newTypeActivitys = [];
+
+    data?.sheets[i].data?.map((data,index)=>{
+
+      if(data.type == "selectsimple" ||
+        data.type == "paragraph-complete" ||
+        data.type == "complete-li-personal" ||
+        data.type == "complete-li" ||
+        data.type == "dragable-box" ||
+        data.type == 'videoi-youtube'
+      ){
+
+        // "allowFollow" va a permitir que el boton de forward este activo en caso de que no sea alguno de estos tipos de elementos
+        let allowFollow = data.type == "paragraph-complete" || data.type == "complete-li-personal" || data.type == "complete-li" || data.type == 'videoi-youtube';
+
+        newTypeActivitys.push({
+          id:index,
+          type:data.type,
+          done:false
+        })
+
+
+
+        setCanFollow(allowFollow)
+      }
+
+    })
+
+    // Se asignan las nuevas actividades
+    setTypeActivitys(newTypeActivitys)
+
   },[i])
 
   function allowFollow(){
@@ -113,9 +144,106 @@ export default function Class(props) {
     setCanFollow(true)
   }
 
-  function checkSelectSimple(){
+  //#endregion
+
+  //#region Activity
+  function allActivitysDone(){
+    // Esta funcion devuelve un Boolean indicando si todas las actividades en "typeActivitys" estan echas
+    let result = true;
     
+    typeActivitys?.map((activity)=>{
+      if(activity.done == false) result = false;
+    })
+
+    return result
   }
+
+  function handleChangeActivityDone(id, value){
+    // Esta funcion se encarga de cambiar el valor "done" de la actividad espesificada por "id",
+    // que se encuentra en "typeActivitys"
+    setTypeActivitys(typeActivitys=>{
+      typeActivitys = typeActivitys.filter((activity)=>{
+
+        if(activity.id == id){
+          let newActivity = activity;
+          newActivity.done = value;
+          return newActivity
+        }
+
+        return activity
+
+      })
+      return typeActivitys
+    })
+  }
+
+  function activitysDone(){
+    setCanFollow(true)
+    setSuccessActivitys(true)
+    // alert("actividad completadas")
+  }
+  
+  // Animaciones de Check 
+  const [shakesCheck, setShakesCheck] = useState(false)
+
+  const translateCheckAnimation =  useSpring({
+    from: {
+      top: -200, // Grados de rotación inicial
+    },
+    to: async (next) => {
+      if(successActivitys){
+        await next({ top: 100 });
+        await next({ top: 120 });
+        await next({ top: 125 }); 
+  
+        setShakesCheck(true)
+  
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+  
+        await next({ top: -100 }); 
+      }
+      setSuccessActivitys(false)
+    },
+    config: { duration: 100 },
+  })
+
+  const successCheckAnimation = useSpring({
+    from: {
+      rotate: 0, // Grados de rotación inicial
+    },
+    to: async (next) => {
+      if (shakesCheck) {
+
+        await next({ rotate: 50 }); 
+        await next({ rotate: -50 }); 
+        
+        await next({ rotate: 30 }); 
+        await next({ rotate: -30 }); 
+  
+        await next({ rotate: 10 }); 
+        await next({ rotate: -10 });           
+        
+        await next({ rotate: 2 }); 
+        await next({ rotate: -2 });
+        
+        await next({ rotate: 0 });   
+  
+        await new Promise((resolve) => setTimeout(resolve, 100)); 
+
+        
+        setShakesCheck(true)
+        }
+      },
+
+    config: { duration: 100 }, // Configuración de animación,
+  }); 
+  
+  useEffect(()=> {
+
+    if(typeActivitys.length > 0 && allActivitysDone()) activitysDone()
+
+    console.log(typeActivitys)
+  },[typeActivitys])
   //#endregion
 
   //https://docs.google.com/presentation/d/10lxVnbNdlLZ6OlsXJTU9-uZ3GDJPz140/edit#slide=id.g27c3e69a393_0_0
@@ -123,18 +251,30 @@ export default function Class(props) {
 
   return (
     <>
-
-        {
-          i == 0 &&
-          <button
-          className='bg-gradient-to-r from-primary to-secondary z-50 absolute bottom-[20%] text-white text-[28px] right-[30%] p-3 rounded-[5px] transition-all
-          hover:shadow-[0px_4px_26px] hover:shadow-primary'
-          onClick={() => Forward(i)}>
-            ¡Empezemos!
-          </button>
-        }
+        {/* Check */}
+        <animated.div
+        className='fixed left-1/2 translate-x-[-50%] rounded-full bg-white w-[100px] h-[100px] flex justify-center items-center border-solid border-[4px] border-secondary z-50'
+          style={{
+            top: translateCheckAnimation.top,
+            translateX: "-50%",
+            rotate:successCheckAnimation.rotate,
+          }}
+          >
+            <FontAwesomeIcon className='w-[40%] h-[40%] p-[25%] rounded-full text-secondary text-[28px]' icon={faCheck}/>
+        </animated.div>
 
         {/* Paginacion */}
+
+          {/* Empezemos */}
+          {
+            i == 0 &&
+            <button
+            className='bg-gradient-to-r from-primary to-secondary z-50 absolute bottom-[20%] text-white text-[28px] right-[30%] p-3 rounded-[5px] transition-all
+            hover:shadow-[0px_4px_26px] hover:shadow-primary'
+            onClick={() => Forward(i)}>
+              ¡Empezemos!
+            </button>
+          }
 
           {/* Boton de Previo */}
           {
@@ -155,7 +295,8 @@ export default function Class(props) {
             <button
               className={`
               ${ !canFollow && "opacity-[50%] pointer-events-none"}
-              transition-all fixed bottom-0 right-0 z-[90] bg-white rounded-[70%_0_0_0] py-8 px-10 shadow-[0px_4px_26px_#00000040] text-title_color text-right text-[18px]
+              ${ successActivitys ? "bg-secondary text-white" : "bg-white"}
+              transition-all fixed bottom-0 right-0 z-[90]  rounded-[70%_0_0_0] py-8 px-10 shadow-[0px_4px_26px_#00000040] text-title_color text-right text-[18px]
               hover:bg-primary_hover hover:text-white`}
               onClick={() => Forward(i)}>
               Next <FontAwesomeIcon icon={faAngleRight}/> 
@@ -259,7 +400,7 @@ export default function Class(props) {
                     
                     {/* Drag Box */}
                     {c.type === 'dragable-box' &&
-                    <DragablesBox allowFollow={allowFollow} options={c.value}/>}
+                    <DragablesBox allowFollow={allowFollow} options={c.value} id={index} onChangeActivityDone={handleChangeActivityDone}/>}
                     
                     {/* Parrafo */}
                     {c.type === 'paragraph' &&
@@ -268,7 +409,7 @@ export default function Class(props) {
                     
                     {/* SelectSimple */}
                     {c.type === 'selectsimple' &&
-                    <div className={style[c.className]}> <SELECTSIMPLE key={c.option} data={c}/> </div>}
+                    <div className={style[c.className]}><SELECTSIMPLE key={c.option} data={c} id={index} onChangeActivityDone={handleChangeActivityDone}/></div>}
                     
                     {/* Texto */}
                     {c.type === 'text' &&
@@ -277,7 +418,7 @@ export default function Class(props) {
                     
                     {/* Parrafo a Completar */}
                     {c.type === 'paragraph-complete' &&
-                    <div className={style[c.className]}><PARAGGRAPHCOMPLETE data={c}/></div> }
+                    <div className={style[c.className]}><PARAGGRAPHCOMPLETE id={index} onChangeActivityDone={handleChangeActivityDone} data={c}/></div> }
                     
                     {/* PopUp de Dialogos */}
                     {c.type === 'popUp-dialogues' &&
@@ -286,10 +427,10 @@ export default function Class(props) {
                     
                     
                     {c.type === 'complete-li' &&
-                    <div className={style[c.className]}><PARAGGRAPHCOMPLETE data={c}/> </div> }
+                    <div className={style[c.className]}><PARAGGRAPHCOMPLETE id={index} onChangeActivityDone={handleChangeActivityDone} data={c}/> </div> }
                     
                     {c.type === 'complete-li-personal' &&
-                    <div className={style[c.className]}><PARAGGRAPHCOMPLETE data={c}/> </div> }
+                    <div className={style[c.className]}><PARAGGRAPHCOMPLETE id={index} onChangeActivityDone={handleChangeActivityDone} data={c}/> </div> }
                     
                     {/* <p dangerouslySetInnerHTML={{ __html: c.value }}></p> */}
 
@@ -301,7 +442,7 @@ export default function Class(props) {
             </div>
           </>
 
-          : <div style={{ paddingRight: '1000px' }}> <Spinner /></div>
+          : <div className='fixed w-screen h-screen flex justify-center items-center'> <Spinner /></div>
         }
     </>
   )

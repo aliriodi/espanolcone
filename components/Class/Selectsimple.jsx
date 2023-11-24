@@ -8,20 +8,27 @@ export default function Selectsimple(props) {
     //                     className: "className"}
     const [selectedOption, setSelectedOption] = useState('');
     const [isCorrect, setIsCorrect] = useState(false);
-    const [intro, setIntro] = useState(0)
+    const [options, setOptions]= useState(props?.data?.options)
 
-    useEffect(() => {
-        // Verifica si las props han cambiado y actualiza intro en consecuencia
-        if (props) {
-            //aca analizo cuantos slect simple hay
-            setIntro((prevIntro) => prevIntro + 1);
-        }
-    }, [props]);
+    useEffect(()=>{
+        // Cuando se actualiza las props se actualizan las variables de estado
+        setSelectedOption("")
+        setOptions(props?.data?.options)
+    },[props.data])
+    
     const handleOptionChange = (event) => {
         const selectedValue = event.target.value;
+
         setSelectedOption(selectedValue);
-        if (event.target.value == props.data.option) { setIsCorrect(true) }
-        else { setIsCorrect(false) }
+        
+        if (event.target.value == props.data.option) {
+            props.onChangeActivityDone(props.id, true)
+            setIsCorrect(true)
+        }
+        else {
+            props.onChangeActivityDone(props.id, false)
+            setIsCorrect(false)
+        }
 
     }
     return (
@@ -29,7 +36,7 @@ export default function Selectsimple(props) {
             {/* {intro} */}
             <p dangerouslySetInnerHTML={{ __html: props.data.value }}></p>
             
-            {props.data.options ? props.data.options.map(option =>
+            {options ? options?.map(option =>
                 <p  key={option}  ><label>
                     <input type="radio"
                         key={option}
