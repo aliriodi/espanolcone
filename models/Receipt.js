@@ -1,7 +1,7 @@
 import { Schema, model, models } from 'mongoose'
 
 
-const ReceiveSchema = new Schema(
+const ReceiptSchema = new Schema(
   {
        
     idUser: {
@@ -25,6 +25,6 @@ const ReceiveSchema = new Schema(
 )
 
 // error poco frectuente de versionado de modelos por eso etsa esto, pero revisar si puedo armarlo como lo anterior
-const Receive = models.Receive || model('Receive', ReceiveSchema)
+const Receipt = models.Receipt || model('Receipt', ReceiptSchema)
 
-export default Receive
+export default Receipt
