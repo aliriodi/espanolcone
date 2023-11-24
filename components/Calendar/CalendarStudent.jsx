@@ -79,7 +79,7 @@ export default function Schedule() {
     setRenders(session)
     if (cardDetail) {
       if (Object.keys(cardDetail).length !== 0) {
-        console.log('CalendarStudent 82', cardDetail)
+   //     console.log('CalendarStudent 82', cardDetail)
 
         const fecha = today; Fragment
         const offsetMinutes = fecha.getTimezoneOffset();
@@ -104,7 +104,7 @@ export default function Schedule() {
           // Si 'assigned' es true, dejar el objeto sin cambios
           return calendar1;
         });
-        console.log('105', details2)
+    //    console.log(' CalendarStudent 105', details2)
         setPersonSchedule(details2)
         //   alert(1)
       }
@@ -116,8 +116,8 @@ export default function Schedule() {
               // console.log('id2',id)
               const details = await fetch('/api/users/' + id2).then(response => response.json())
               //setPersonSchedule(details);
-              //   console.log('89',details)
-              // console.log('90',personSchedule)
+              //   console.log(' CalendarStudent 89',details)
+              // console.log(' CalendarStudent 90',personSchedule)
             } catch (error) {
               console.error('Error fetching user details:', error);
             }
@@ -128,7 +128,7 @@ export default function Schedule() {
     } else {
       async function carDet() {
         try {
-          console.log('id2', id)
+        //  console.log('CalendarStudent id2', id)
           const details = await fetch('/api/users/' + id).then(response => response.json())
           const details2 = { ...details.userid };
           const fecha = today; Fragment
@@ -153,11 +153,11 @@ export default function Schedule() {
             // Si 'assigned' es true, dejar el objeto sin cambios
             return calendar1;
           });
-          console.log(deltaTime2)
-          console.log(details2)
+        //  console.log('CalendarStudent 156',deltaTime2)
+        //  console.log('CalendarStudent 157',details2)
           setPersonSchedule(details2);
-          //   console.log('102',personSchedule)
-          // console.log('103',details)
+          //   console.log('CalendarStudent 102',personSchedule)
+          // console.log('CalendarStudent 103',details)
         } catch (error) {
           console.error('Error fetching user details:', error);
         }
