@@ -114,7 +114,7 @@ export default function Schedule() {
           if (id) {
             try {
               // console.log('id2',id)
-              const details = await fetch('/api/users/' + id).then(response => response.json())
+              const details = await fetch('/api/users/' + id2).then(response => response.json())
               //setPersonSchedule(details);
               //   console.log('89',details)
               // console.log('90',personSchedule)
@@ -137,7 +137,7 @@ export default function Schedule() {
           const offsetSign = offsetHours > 0 ? '-' : '+';
           const offsetHoursAbs = Math.abs(offsetHours);
           const formattedOffset = `${offsetSign}${String(offsetHoursAbs).padStart(2, '')}`;
-          const utnUser = arseInt(formattedOffset, 10);
+          const utnUser = parseInt(formattedOffset, 10);
           const last = details.userid.calendar.length;
           const utnToG = details.userid.calendar[last - 1].utnCreated;
           const deltaTime2 = (utnUser - utnToG) * 3600000;
@@ -575,7 +575,7 @@ export default function Schedule() {
 
                 : null}
             </div>
-            {renders?.user?.role === 'guide' ? <>guia</> : <>{deltaTime}</>}
+            {renders?.user?.role === 'guide' ? <>guia</> : null /*{deltaTime} */} 
             {renders?.user?.role === 'teacher' ? <>teacher</> : null}
 
           </section>
