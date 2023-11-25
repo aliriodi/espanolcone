@@ -9,7 +9,9 @@ export default function DropContainer({
     dropUp,
     type,
     typesDropsUps,
-    dragBoxs
+    dragBoxs,
+    handleDoneOption,
+    canCheck
 })
 {
     const {
@@ -67,6 +69,8 @@ export default function DropContainer({
                                     dropUpValue={dropUp?.value} 
                                     key={dragBox.id}
                                     dragBox={dragBox}
+                                    handleDoneOption={handleDoneOption}
+                                    canCheck={canCheck}
                                 />
                                 
                             ))}
@@ -99,6 +103,8 @@ export default function DropContainer({
                                     dropUpValue={dropUp?.value} 
                                     key={dragBox.id}
                                     dragBox={dragBox}
+                                    handleDoneOption={handleDoneOption}
+                                    canCheck={canCheck}
                                 />
                                 
                             ))}

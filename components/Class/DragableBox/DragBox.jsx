@@ -13,7 +13,7 @@ export default function DragBox (props){
         setNodeRef,
         transform,
         transition,
-        isDragging
+        isDragging,
     }= useSortable({
         id: props.dragBox.id,
         data:{
@@ -21,6 +21,13 @@ export default function DragBox (props){
             dragBox
         }
     })
+
+    // if(!isDragging)handleDoneOption()
+    useEffect(()=>{
+
+        if(!isDragging && props.handleDoneOption != undefined) props?.handleDoneOption(dropUpValue == props.dragBox.value, props.dragBox.id)
+
+    },[isDragging])
 
     const style = {
         transform:CSS.Transform.toString(transform && { ...transform, scaleX: 1 }),
@@ -50,10 +57,9 @@ export default function DragBox (props){
         {...attributes}
         {...listeners}
         className={`
-        ${dropUpValue == "container" && "bg-primary"}
-        ${dropUpValue != "container" && dropUpValue == props.dragBox.value && "bg-secondary"}
-        ${dropUpValue != "container" && dropUpValue != props.dragBox.value && "bg-danger"}
-         rounded-md text-white p-4 m-2 text-center inline-block cursor-grab touch-none
+        ${ !props.canCheck && "bg-primary"}
+        ${ props.canCheck && props.dragBox?.done ? "bg-secondary" : "bg-danger"}
+         rounded-md text-white p-4 m-2 text-center inline-block cursor-grab touch-none transition-all
          active:cursor-grabbing
          md:text-[12px] md:flex md:justify-center md:items-center md:py-0 md:h-[45px] md:w-fit`}>
             {props.dragBox.value}
