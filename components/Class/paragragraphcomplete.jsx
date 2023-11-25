@@ -16,9 +16,11 @@ export default function Paragragraphcomplete(props) {
     // Create a copy of the inputValues array
     const newInputValues = [...inputValues];
 
-    // Update the value at the specified index
+    // Update the value at the specified index)
+
+    if(!newInputValues[index]) return;
     newInputValues[index].answer = newValue;
-    newInputValues[index].done = newValue == newInputValues[index].option
+    newInputValues[index].done = newValue == newInputValues[index]?.option
 
     // Update the state
     setInputValues(newInputValues);
@@ -54,13 +56,13 @@ export default function Paragragraphcomplete(props) {
                   className={
                     `
                     border-[2px] border- border-solid transition-all rounded-[5px] bg-transparent text-center outline-none
-                    ${inputValues[index].answer == "" && "border-primary"}
-                    ${inputValues[index].answer != "" && inputValues[index].answer == inputValues[index].option
+                    ${inputValues[index]?.answer == "" && "border-primary"}
+                    ${inputValues[index]?.answer != "" && inputValues[index]?.answer == inputValues[index]?.option
                     ? "border-secondary" 
                     : "border-danger"}
                     `
                   }
-                  value={inputValues[index]['answer']}
+                  value={inputValues[index]?.answer}
                   size={value.block}
                   onChange={(e) => handleInputChange(index, e.target.value)}
                 />

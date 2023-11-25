@@ -13,6 +13,7 @@ import { faAngleLeft, faAngleRight, faCheck } from '@fortawesome/free-solid-svg-
 import DragablesBox from './DragableBox/DragablesBox';
 import Selectsimple from './Selectsimple';
 import { useSpring, animated } from 'react-spring';
+import { useSession } from 'next-auth/react';
 
 export default function Class(props) {
   //elemento a renderizar  
@@ -30,6 +31,8 @@ export default function Class(props) {
   const [typeActivitys, setTypeActivitys] = useState([])
 
   const [successActivitys, setSuccessActivitys] = useState(false)
+
+  const {data: session,status} = useSession();
 
   // Opciones de Youtube
   const iframeRef = useRef(null);
@@ -99,35 +102,31 @@ export default function Class(props) {
   useEffect(()=>{
     console.log(data?.sheets[i])
     console.log("Type ",data?.sheets[i].type)
-    console.log("Es tipo actividad? ",data?.sheets[i].type != "text" && data?.sheets[i].type != "video" && data?.sheets[i].type != "slice" && data?.sheets[i].type != "table")
 
     window.scrollTo({top: 0});
     setCanFollow(true)
-    // setSuccessActivitys(false)
 
     // Se Asigna los tipos de actividades a "typeActivitys"
     let newTypeActivitys = [];
 
-    data?.sheets[i].data?.map((data,index)=>{
+    data?.sheets[i].data?.map((date,index)=>{
 
-      if(data.type == "selectsimple" ||
-        data.type == "paragraph-complete" ||
-        data.type == "complete-li-personal" ||
-        data.type == "complete-li" ||
-        data.type == "dragable-box" ||
-        data.type == 'videoi-youtube'
+      if(date.type == "selectsimple" ||
+        date.type == "paragraph-complete" ||
+        date.type == "complete-li-personal" ||
+        date.type == "complete-li" ||
+        date.type == "dragable-box" ||
+        date.type == 'videoi-youtube'
       ){
 
         // "allowFollow" va a permitir que el boton de forward este activo en caso de que no sea alguno de estos tipos de elementos
-        let allowFollow = data.type == "paragraph-complete" || data.type == "complete-li-personal" || data.type == "complete-li" || data.type == 'videoi-youtube';
+        let allowFollow = (date.type == "paragraph-complete" || date.type == "complete-li-personal" || date.type == "complete-li" || date.type == 'videoi-youtube') && data?.sheets[i].section.number != 5;
 
         newTypeActivitys.push({
           id:index,
           type:data.type,
           done:false
         })
-
-
 
         setCanFollow(allowFollow)
       }
@@ -136,6 +135,16 @@ export default function Class(props) {
 
     // Se asignan las nuevas actividades
     setTypeActivitys(newTypeActivitys)
+
+    console.log("position ID", session?.user?.position)
+    console.log("Done? ", data)
+
+    // En caso de estar en una Evaluacion
+    if(data?.sheets[i].section.number == 5){
+      // setCanFollow(true)
+      setCanBack(false)
+    }
+    else setCanBack(true)
 
   },[i])
 
@@ -180,7 +189,6 @@ export default function Class(props) {
   function activitysDone(){
     setCanFollow(true)
     setSuccessActivitys(true)
-    // alert("actividad completadas")
   }
   
   // Animaciones de Check 
@@ -204,7 +212,7 @@ export default function Class(props) {
       }
       setSuccessActivitys(false)
     },
-    config: { duration: 100 },
+    config: { duration: 150 },
   })
 
   const successCheckAnimation = useSpring({
