@@ -31,7 +31,7 @@
             "number":0,
             "value":"Mis Metas"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
+        "template": "template-video-1",
         "data": [
             {
                 "type": "title",
@@ -52,7 +52,7 @@
             "number":1,
             "value":"Comencemos"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
+        "template": "template-title-right-1",
         "data": [
             {
                 "type": "title",
@@ -98,7 +98,7 @@
             "number":1,
             "value":"Comencemos"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
+        "template": "template-title-right-1",
         "data": [
             {
                 "type": "title",
@@ -144,7 +144,7 @@
             "number":1,
             "value":"Comencemos"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
+        "template": "template-title-top-1",
         "title": "Actividad",
         "data": [
             {
@@ -223,7 +223,7 @@
             "number":1,
             "value":"Comencemos"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
+        "template": "template-title-top-1",
         "data": [
             {
                 "type": "title",
@@ -268,7 +268,7 @@
             "number":2,
             "value":"Aprendemos"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
+        "template": "template-video-1",
         "data": [
             {
                 "type": "title",
@@ -289,7 +289,7 @@
             "number":3,
             "value":"Practiquemos"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
+        "template": "template-title-top-1",
         "data": [
             {
                 "type": "title",
@@ -304,7 +304,7 @@
             "number":3,
             "value":"Practiquemos"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
+        "template": "template-video-1",
         "data": [
             {
                 "type": "title",
@@ -438,7 +438,7 @@
             "number":3,
             "value":"Practiquemos"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
+        "template": "template-video-1",
         "data": [
             {
                 "type": "title",
@@ -464,7 +464,7 @@
             "number":3,
             "value":"Practiquemos"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
+        "template": "template-title-right-1",
         "data": [
             {
                 "type": "selectsimple",
@@ -506,7 +506,7 @@
             "number":3,
             "value":"Practiquemos"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
+        "template": "template-title-right-1",
         "data": [
             {
                 "type": "title",
@@ -605,7 +605,7 @@
             "number":3,
             "value":"Practiquemos"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
+        "template": "template-title-right-1",
         "data": [
             {
                 "type": "title",
@@ -679,7 +679,7 @@
     },
     "page14": {
         "type": "slide",
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
+        "template": "template-title-top-1",
         "section": {
             "number":4,
             "value":"Mis retos"
@@ -694,7 +694,7 @@
     },
     "page15": {
         "type": "complete",
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
+        "template": "template-title-right-1",
         "section": {
             "number":4,
             "value":"Mis retos"
@@ -846,7 +846,7 @@
     },
     "page16": {
         "type": "complete",
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117107/images/2_vaehrb.png",
+        "template": "template-title-top-1",
         "section": {
             "number":5,
             "value":"Evaluemos"
@@ -885,7 +885,7 @@
             "number":5,
             "value":"Evaluemos"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
+        "template": "template-title-right-1",
         "data": [
             {
                 "type": "title",
@@ -979,7 +979,7 @@
     },
     "page18": {
         "type": "complete",
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
+        "template": "template-title-right-1",
         "section": {
             "number":5,
             "value":"Evaluemos"
@@ -1060,7 +1060,7 @@
     },
     "page19": {
         "type": "complete",
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
+        "template": "template-title-right-1",
         "section": {
             "number":5,
             "value":"Evaluemos"
