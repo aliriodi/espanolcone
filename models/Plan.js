@@ -15,7 +15,14 @@ const PlanSchema = new Schema(
       type: Number,
       
      },
+     
+    items: {
+        type: [{}],
+    },
     description: {
+        type: String,
+    },
+    obs: {
         type: String,
     }
   },
