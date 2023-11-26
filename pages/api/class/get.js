@@ -26,8 +26,16 @@ export default async function getAllClass(req, res) {
     const class1 = await Class.find().exec();
 
     console.log('CLASS TAKEN');
-
-    res.json({ class1 })
+    
+    // Verifica procedencia de solicitud 
+    if(req.headers.accept == "*/*"){
+      // Solicitud desde el codigo
+      res.status(200).json({ class1 });
+    }
+    else{
+      // Solicitud desde el navegador
+      res.status(200).json({ message: "Acceso Denegado" });
+    }
 
   } catch (error) {
     console.log(error);

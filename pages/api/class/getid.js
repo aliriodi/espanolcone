@@ -27,7 +27,17 @@ export default async function getAllClass(req, res) {
 
     //console.log(users.password)
     console.log('GOT DOCUMENT');
-    res.json({ class1 })
+
+    
+    // Verifica procedencia de solicitud 
+    if(req.headers.accept == "*/*"){
+      // Solicitud desde el codigo
+      res.status(200).json({ class1 });
+    }
+    else{
+      // Solicitud desde el navegador
+      res.status(200).json({ message: "Acceso Denegado" });
+    }
   } catch (error) {
     console.log(error);
     res.json({ error })

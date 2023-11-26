@@ -1,0 +1,978 @@
+{
+    "page1": {
+        "type": "text",
+        "section": {
+            "number":0,
+            "value":"Mis Metas"
+        },
+        "template": "",
+        "data": [
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366262/images/logo-primary_qoagkg.png",
+                "alt": "EspañolconE",
+                "className": "Portadaimg"
+            },
+            {
+                "type": "title",
+                "value": "QUIERO NARRAR MIS EXPERIENCIAS EN CÓRDOBA",
+                "className": "Portadatil"
+            },
+            {
+                "type": "level",
+                "value": "NIVEL B1",
+                "className": "Portadalev"
+            }
+        ]
+    },
+    "page2": {
+        "type": "text",
+        "section": {
+            "number":0,
+            "value":"Mis Metas"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "¿Qué voy a aprender en esta unidad?",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "<table style='width: 80%;'><th style= 'border: 1px solid black; width: 25%; background-color: #00CDE5' ><h3><strong>Comunicación</strongyle=></h3></th><th style= ' border: 1px solid black; width: 25%; background-color: #00CDE5;' ><h3><strong>Vocabulario</strong></h3></th><th style= 'border: 1px solid black;width: 30%; background-color: #00CDE5;'><h3><strong>Gramática</strong></h3></th></tr><td style= 'border: 1px solid black; padding: 4px'>*Evocar y relatar hechos, circunstancias o acciones pasadas recientes y lejanas.<br>*Describir un sitio para pasar vacaciones y actividades que se pueden hacer en él.<br>*Expresar sorpresa:<br>-¡Que sorpresa!<br>-¿De verdad?<br>-¿En serio?<br>-¿Ah sì?<br>-¡No lo puedo creer!<br>*Expresar admiración:<br>-¡Qué lugar tan hermoso!<br>-¡Qué maravilla!<br>-Estoy impresionado con...</td><td style= 'border: 1px solid black;padding: 4px'>*Vocabulario asociado a conocimiento sociocultural de Córdoba.<br>*Vocabulario sobre viajes, transporte, alojamiento y naturaleza.<br>*Nombres de calles y lugares de interés.<br>*Tipos de hospedajes.<br>*Adjetivos para describir un sitio para alojarse..<br>*Formas, estilos y materiales.</td><td style= 'border: 1px solid black;padding: 4px;'>*Pretérito indefinido y pretérito perfecto compuesto.<br>*Diferencias y complementariedad entre los pretéritos perfecto compuesto e indefinido.<br>*Los participios regulares e irregulares.<br>*Conectores temporales: en aquel momento, un rato antes, al cabo de un rato…<br>*Preguntas sobre el pasado: ¿Qué; dónde; cuándo?<br>*Nunca he estado allí [en mi vida]. / Nunca estuve allí [en aquella época].<br>-Acciones realizadas en pasado que se extiende hasta el presente (esta…, hoy).<br>-Coincidencia con una acción pasada.<br>*Conectores para relatar: de repente/de pronto, (y) entonces, al final, al cabo de un rato, etc</td></table>",
+                "className": ""
+            },
+            {"type": "text", "value": "Creado por Virginia"}
+        ]
+    },
+    "page3": {
+        "type": "text",
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Vacaciones en Córdoba",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "Hace cuatro días <span style= 'color: orange'>llegamos</span> a Córdoba. Por suerte, <span style= 'color: purple'>hemos recorrido</span> bastante en pocos días. <span style= 'color: purple'>Hemos estado</span> en Carlos Paz, Villa General Belgrano y Córdoba Capital. Cuando estuvimos en Carlos Paz <span style= 'color: orange'>vimos</span> un <strong>Reloj Cucú</strong> gigante que es muy famoso, también <span style= 'color: orange'>asistimos</span> a un show de teatro de comedia muy divertido y <span style= 'color: orange'>recorrimos</span> su centro comercial que era muy pintoresco. En Villa  General Belgrano <span style= 'color: orange'>caminamos</span> por distintos senderos con <strong>cascadas</strong> y paisajes hermosos. Esta ciudad tiene gran influencia alemana por lo que <span style= 'color: orange'>aprovechamos</span> para asistir al Oktober Fest que se <span style= 'color: orange'>celebró</span> en la fecha en la que <span style= 'color: orange'>fuimos</span>. En este festival <span style= 'color: orange'>comimos</span> <strong>salchicha alemana</strong> y <span style= 'color: orange'>bebimos</span> <strong>cerveza artesanal</strong>. Ahora estamos en Córdoba Capital acá <span style= 'color: purple'>hemos visitado</span> muchas <strong>iglesias antiguas</strong> y museos de arte contemporáneo muy interesantes. Además <span style= 'color: purple'>hemos paseado</span> por distintas ferias artesanales en donde <span style= 'color: purple'>nos hemos cruzado</span> con muchos artistas callejeros que tocaban música. Además, en esta ciudad <span style= 'color: purple'>hemos probado</span> diferentes opciones gastronómicas como <strong>el choripan</strong>, que es un sándwich de chorizo, muy tradicional en Córdoba",
+                "className": ""
+            }
+        ]
+    },
+    "page4": {
+        "type": "text",
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "¿Conoces estas palabras? <br> ¿Sabes qué significan?",
+                "className": "titleleft-white"
+            },
+            {
+                "type": "title",
+                "value": "Relaciónalas con las siguientes imágenes",
+                "className": "titleleft-black"
+            },
+            {
+                "type": "sentence-box",
+                "value": "<img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--_ZQVUewx--/v1699580858/images/eiamjwgudxg9o3buzoir.png' alt='el reloj cucú' /><p style= 'color: orange; padding-top:1%;padding-left:3%;'><span id='el_reloj_cucú' style= 'color: rgba(0, 0, 0, 0); display: inline-block; border: 2px solid orange; '>______________</span></p>",
+                "option": "el reloj cucú",
+                "className": ""
+            },
+            {
+                "type": "sentence-box",
+                "value": "<img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--ns6_oNE_--/v1699581119/images/l5a9wwajr0zjkc5iityd.png' alt='la cascada' /><p style= 'color: orange; padding-top:1%;padding-left:3%;'><span id='la_cascada' style= 'color: rgba(0, 0, 0, 0); display: inline-block; border: 2px solid orange; '>______________</span></p>",
+                "option": "la cascada",
+                "className": ""
+            },
+            {
+                "type": "sentence-box",
+                "value": "<img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--wgTRPfrU--/v1699581246/images/wdcp459yvyfzgnoyqrcn.png' alt='la iglesia antigua' /><p style= 'color: orange; padding-top:1%;padding-left:3%;'><span id='la_iglesia_antigua' style= 'color: rgba(0, 0, 0, 0); display: inline-block; border: 2px solid orange; '>______________</span></p>",
+                "option": "la iglesia antigua",
+                "className": ""
+            },
+            {
+                "type": "options-box",
+                "value": [
+                    {"value":"la cascada","id":"value1","x":50,"y":-1100,"xmin":0,"xmax":0,"ymin":0,"ymax":200,"width":130,"height":22},
+                    {"value":"la iglesia antigua","id":"value2","x":200,"y":-1100,"xmin":285,"xmax":410,"ymin":-32,"ymax":-20,"width":130,"height":22},
+                    {"value":"el reloj cucú","id":"value3","x":350,"y":-1100,"xmin":248,"xmax":339,"ymin":-150,"ymax":-142,"width":130,"height":22}
+                ],
+                "className": ""
+            },
+            {
+                "type": "url",
+                "value": "https://villacarlospaz.tur.ar",
+                "className": ""
+            },
+            {
+                "type": "url",
+                "value": "https://www.cordobaturismo.gov.ar",
+                "className": ""
+            }
+        ]
+    },
+    "page5": {
+        "type": "text",
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "¿Conoces estas palabras? <br> ¿Sabes qué Significan?",
+                "className": "titleleft-white"
+            },
+            {
+                "type": "title",
+                "value": "Relaciónalas con las siguientes imágenes",
+                "className": "titleleft-black"
+            },
+            {
+                "type": "sentence-box",
+                "value": "<img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--6vo5M0S1--/v1699582438/images/m3mgpzydjcyjav1ezjud.png' alt='las salchichas alemanas' /><p style= 'color: orange; padding-top:1%;padding-left:3%;'><span id='las_salchichas_alemanas' style= 'color: rgba(0, 0, 0, 0); display: inline-block; border: 2px solid orange; '>______________</span></p>",
+                "option": "las salchichas alemanas",
+                "className": ""
+            },
+            {
+                "type": "sentence-box",
+                "value": "<img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--rdP4J29w--/v1699582561/images/nwo3gcpe7kdpldhk14de.png' alt='las cervezas artesanales' /><p style= 'color: orange; padding-top:1%;padding-left:3%;'><span id='las_cervezas artesanales' style= 'color: rgba(0, 0, 0, 0); display: inline-block; border: 2px solid orange; '>______________</span></p>",
+                "option": "las cervezas artesanales",
+                "className": ""
+            },
+            {
+                "type": "sentence-box",
+                "value": "<img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--DBllW7F---/v1699582653/images/dpchouaemabaqnq26rlm.png' alt='el choripan' /><p style= 'color: orange; padding-top:1%;padding-left:3%;'><span id='el_choripan' style= 'color: rgba(0, 0, 0, 0); display: inline-block; border: 2px solid orange; '>______________</span></p>",
+                "option": "el choripan",
+                "className": ""
+            },
+            {
+                "type": "options-box",
+                "value": [
+                    {"value":"la cerveza artesanal","id":"value4","x":50,"y":-1100,"xmin":0,"xmax":0,"ymin":0,"ymax":200,"width":130,"height":22},
+                    {"value":"el choripan","id":"value5","x":200,"y":-1100,"xmin":285,"xmax":410,"ymin":-32,"ymax":-20,"width":130,"height":22},
+                    {"value":"las salchichas alemanas","id":"value6","x":350,"y":-1100,"xmin":248,"xmax":339,"ymin":-150,"ymax":-142,"width":130,"height":22}
+                ],
+                "className": ""
+            }
+        ]
+    },
+    "page6": {
+        "type": "paragraph-complete",
+        "section": {
+            "number":2,
+            "value":"Aprendemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "paragraph",
+                "value": "Completa los siguientes espacios con la palabra correcta: cascadas - reloj cucú - iglesia - cerveza artesanal - salchicha alemana - choripán",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "cascadas - reloj cucú - iglesia - cerveza artesanal - salchicha alemana - choripán",
+                "className": ""
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [ "1- El",
+                {
+                    "block": 10,
+                    "color": "orange",
+                    "option": "choripán"
+                },
+                " <span style=' color: purple'>ha sido</span> de las comidas más populares en las calles de Argentina por décadas. <span style= 'color: orange'>Se hizo</span> famoso en los partidos de fútbol, donde los vendedores ambulantes  lo ofrecían con un pan crujiente y salsa chimichurri.<br><br>",
+                "2- Mi tía <span style= 'color: purple'>ha estado</span> en varias provincias de Córdoba, su ultimo viaje <span style=' color: orange'>estuvo</span> en Villa General Belgrano y <span style=' color: orange'>trajo</span> un ",
+                { 
+                    "block": 10,
+                    "color": "orange",
+                    "option": "reloj cucú"
+                },
+                " que es de madera tallada y tiene un ave mecánica en su interior que sale de la caja cada media hora <br><br>",
+                "3- Durante toda esta semana <span style= 'color: purple'>he estado</span> en la Feria de las colectividades, ayer <span style=' color: orange'>vi</span> un show de danzas típicas italianas. <span style=' color: purple'>Han armado</span> puestos de gastronomía tradicional de distintas culturas, <span style=' color: orange'>me gustó</span> mucho el de Alemania, donde <span style=' color: orange'>probé</span> ",
+                {
+                    "block": 10,
+                    "color": "orange",
+                    "option": "salchicha"
+                },
+                " con chucrut."
+            ],
+                "className": "paragraph-complete"
+            }
+        ]
+    },
+    "page7": {
+        "type": "paragraph-complete",
+        "section": {
+            "number":2,
+            "value":"Aprendemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "paragraph",
+                "value": "Completa los siguientes espacios con la palabra correcta: cascadas - reloj cucú - iglesia - cerveza artesanal - salchicha alemana - choripán",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "cascadas - reloj cucú - iglesia - cerveza artesanal - salchicha alemana - choripán",
+                "className": ""
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [ "4- La tendencia a elaborar cervezas <span style=' color: purple'>ha invadido</span> todas las ciudades, comenzando con productores caseros, bares con canillas y sitios exclusivos con variedades de cervezas. La ",
+                {
+                    "block": 10,
+                    "color": "orange",
+                    "option": "cerveza artesanal"
+                },
+                " se <span style=' color: purple'>ha vuelto</span> muy popular en todo el mundo, y Argentina no fue excepción. <br><br>",
+                "5- La ciudad de Córdoba está llena de edificios arquitectónicos históricos. Sin embargo, pocas personas saben que en pleno centro de la ciudad <span style=' color: orange'>fue</span> construida la ",
+                {
+                    "block": 10,
+                    "color": "orange",
+                    "option": "iglesia"
+                },
+                " más antigua del país. Se trata de la Compañía de Jesús.<br><br>",
+                "6- Este verano <span style=' color: purple'>he estado</span> de vacaciones en las Sierras de Córdoba, <span style=' color: orange'>he conocido</span> ríos y ",
+                {
+                    "block": 10,
+                    "color": "orange",
+                    "option": "cascadas"
+                }, 
+                " increíbles con profundas piscinas naturales de agua para refrescarse."
+            ],
+                "className": "paragraph-complete"
+            }
+        ]
+    },
+    "page8": {
+        "type": "video-youtube",
+        "section": {
+            "number":2,
+            "value":"Aprendemos"
+        },
+        "template": "template-video-1",
+        "data": [
+            {
+                "type": "video-youtube",
+                "value": "watch?v=CKezNADLEEE&t=37s",
+                "youtube": "https://www.youtube.com/watch?v=CKezNADLEEE&t=37s",
+                "className": "video"
+            }
+        ]
+    },
+    "page9": {
+        "type": "text",
+        "section": {
+            "number":2,
+            "value":"Aprendemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "text",
+                "value": "Actividades interactivas",
+                "className": ""
+            }
+        ]
+    },
+    "page10": {
+        "type": "text",
+        "section": {
+            "number":2,
+            "value":"Aprendemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--tuwosvE---/v1700170241/images/txjxw9aoz0cwh5lyglke.png",
+                "className": ""
+            },
+            {
+                "type": "text",
+                "value": "¡Hola, Laura! <br>Te escribo desde Córdoba, donde estoy desde hace unos días con mi novio Mateo. Estoy muy emocionada, nuestra estadía acá está siendo muy interesante y divertida. Es uno de los mejores viajes que <span style=' color: purple'>he tenido</span>. <span style=' color: purple'>Hemos bebido</span> distintos tipos de vinos y <span style=' color: purple'>hemos probado</span> cervezas artesanales muy buenas. Desde antes de ayer estamos en Villa Carlos Paz, que se encuentra ubicada a apenas 36 kms de Córdoba Capital. Es una ciudad con muchos turistas de todas partes y <span style=' color: purple'>hemos conocido</span> nuevas personas que nos <span style=' color: purple'>han llevado</span> a visitar distintos lugares. Hasta ahora la <span style=' color: purple'>hemos pasado</span> genial, no <span style=' color: purple'>hemos tenido</span> ninguna mala experiencia. <br> La mayoría de la gente es muy simpática y amable. <br> Ya te contaré todo lo que <span style=' color: purple'>hemos hecho</span> durante nuestro viaje cuando esté en casa. <br> Nos vemos pronto, te mando un abrazo. <br> <strong>Bruna</strong>.",
+                "className": ""
+            }
+        ]
+    },
+    "page11": {
+        "type": "selectsimple",
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Observa las siguientes estructuras destacadas:",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style=' color: purple'>he tenido<br> hemos bebido<br> hemos probado<br> hemos conocido<br> han llevado<br> hemos pasado<br> hemos tenido<br> hemos hecho</span>",
+                "className": ""
+            },
+            {
+                "type": "selectsimple",
+                "value": " <strong>Selecciona la forma verbal en estos ejemplos:</strong>",
+                "option": "Pretérito perfecto compuesto",
+                "options": [
+                    "Pretérito perfecto compuesto",
+                    "Pretérito indefinido"
+                ],
+                "className": "selector-simple"
+            }
+        ]
+    },
+    "page12": {
+        "type": "selectsimple",
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Marca la opción correcta:",
+                "className": "title-white"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<strong>1.  Cuando Bruna le escribe ese email a su amiga Laura, ¿todavía está en Córdoba?</strong>",
+                "option": "sí",
+                "options": [
+                    "No",
+                    "Sí"
+                ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": " <strong>2. No han tenido ninguna mala experiencia.</strong>",
+                "option": "hasta ahora, pero todavía es posible",
+                "options": [
+                    "hasta ahora, pero todavía es posible.",
+                    "no puede tener ninguna mala experiencia porque ya volvió"
+                ],
+                "className": "selector-simple"
+            }
+        ]
+    },
+    "page13": {
+        "type": "text",
+        "section": {
+            "number": 3,
+            "value":"Practiquemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Lee el siguiente fragmento de las notas de la libreta de viaje de Bruna:",
+                "className": "title-white"
+            },
+            {
+                "type": "text",
+                "value": "En mi primer viaje a Argentina <span style=' color: orange'>visité</span> Córdoba, donde <span style=' color: orange'>estuve</span> tres semanas. En el aeropuerto nos <span style=' color: orange'>esperó</span> la guía Erica que nos llevó a nuestro hostel. <span style=' color: orange'>Primero</span> pasamos unos días en Córdoba Capital. Allí <span style=' color: orange'>hicimos</span> un tour por toda la ciudad, <span style=' color: orange'>visitamos</span> varios museos, parques y antiguas iglesias. <br> En el museo de Bellas Artes, <span style=' color: orange'>vimos</span> una variada colección compuesta por 4 secciones: Artes plásticas, Arqueología, Artes decorativas y Artes industriales. En el parque Sarmiento <span style=' color: orange'>disfruté</span> del contacto con la naturaleza, ¡<span style=' color: orange'>subimos</span> 120 escalones! y <span style=' color: orange'>llegamos</span> al punto más alto que tiene el parque con una vista ¡espectacular!, allí nos <span style=' color: orange'>tomamos</span> unas fotos en cuyo fondo se ve la Rueda Eiffel, una rueda gigantesca que tiene un diámetro de 27 metros, la cual <span style=' color: orange'>fue</span> <strong><u>construida</u></strong> por Gustave Eiffel, el mismo arquitecto que <span style=' color: orange'>construyó</span> la Torre Eiffel en París. En pleno centro de la ciudad, <span style=' color: orange'>recorrimos</span> la Manzana Jesuítica, que comprende la Iglesia de la Compañía, la Capilla Doméstica y la Residencia de los padres; el Rectorado de la Universidad Nacional de Córdoba y el Colegio Nacional de Monserrat. Me <span style=' color: orange'>sorprendió</span> saber que en el año 2000 <span style=' color: orange'>fue</span> <strong><u>declarada</u></strong> por la UNESCO como Patrimonio de la Humanidad.",
+                "className": ""
+            }
+        ]
+    },
+    "page14": {
+        "type": "selectsimple",
+        "section": {
+            "number": 3,
+            "value":"Practiquemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Observa los verbos destacados:",
+                "className": "title-white"
+            },
+            {
+                "type": "text",
+                "value": "<strong><span style= 'color: #4CCFEB'> visité / estuve / esperó / pasamos / hicimos / visitamos  / vimos / disfruté  subimos / llegamos / tomamos / construyó/ recorrimos  sorprendió / fue </span></strong>",
+                "className": ""
+            },
+            {
+                "type": "selectsimple",
+                "value": " <strong>Selecciona forma verbal destacada en estos ejemplos:</strong>",
+                "option": "Pretérito indefinido",
+                "options": [
+                    "Pretérito perfecto compuesto",
+                    "Pretérito indefinido"
+                ],
+                "className": "selector-simple"
+            }
+        ]
+    },
+    "page15": {
+        "type": "selectsimple",
+        "section": {
+            "number": 3,
+            "value":"Practiquemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Marca la opción correcta:",
+                "className": "title-white"
+            },
+            {
+                "type": "selectsimple",
+                "value": " <strong>1.  Cuando Bruna le escribe ese email a su amiga Laura, ¿todavía está en Córdoba?</strong>",
+                "option": "no",
+                "options": [
+                    "no",
+                    "sí"
+                ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": " <strong>2.  Primero pasamos unos días en Córdoba Capital.</strong>",
+                "option": "en este punto de la historia, ellos ya terminaron su estancia en Córdoba Capital.",
+                "options": [
+                    "en este punto de la historia, ellos están en Córdoba Capital",
+                    "en este punto de la historia, ellos ya terminaron su estancia en Córdoba Capital."
+                ],
+                "className": "selector-simple"
+            }
+        ]
+    },
+    "page16": {
+        "type": "selectsimple",
+        "section": {
+            "number": 3,
+            "value":"Practiquemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Te presentamos a Erica, la guía turística, que esperó a Bruna en el aeropuerto en Córdoba. <br> Erica casi siempre anda apurada y no tiene tiempo de completar el diario de trabajo.<br> <span style=' color: orange'>¿Quieres ayudarla?</span>",
+                "className": "titleleft-white"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--XYqkwJBG--/v1700170346/images/ghrbf9xejbentwf03hmo.png",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "<strong>Selecciona la opción correcta para que sus notas tengan sentido:</strong>",
+                "className": ""
+            },
+            {
+                "type": "selectsimple",
+                "value": " <strong>1. Taylor y Bob llegaron,</strong>",
+                "option": "pero la exposición ya había empezado.",
+                "options": [
+                    "todavía escucho sus voces.",
+                    "pero la exposición ya había empezado."
+                ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": " <strong>2. Salí para acompañar a los turistas a la estación,</strong>",
+                "option": "pero ya se habían ido.",
+                "options": [
+                    "pero ya se habían ido.",
+                    "están viajando ahora."
+                ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": " <strong>3. Hasta ahora, Bruna ha dejado buenos comentarios,</strong>",
+                "option": "espero que le sigan gustando nuestros paseos.",
+                "options": [
+                    "espero que le sigan gustando nuestros paseos.",
+                    "creo que ya regresó a su país."
+                ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": " <strong>4. João y Laura, dos turistas míos, se han casado este año,</strong>",
+                "option": "y creo que todavía están de luna de miel.",
+                "options": [
+                    "y se divorciaron a los dos meses.",
+                    "y creo que todavía están de luna de miel."
+                ],
+                "className": "selector-simple"
+            }
+        ]
+    },
+    "page17": {
+        "type": "paragraph-complete",
+        "section": {
+            "number": 3,
+            "value":"Practiquemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Lee lo que escribió Erica en su diario en 2012 y completa los espacios en blanco de lo que en 2023 les cuenta a sus compañeros de trabajo sobre lo que hizo con sus turistas esa semana.",
+                "className": "title-white"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--xkhEY4_1--/v1700170440/images/qluovqxhfhcuzaoglrgk.png",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "Selecciona la opción correcta para que sus notas tengan sentido:",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "<i><strong>Julio de 2012</strong><br>Esta semana <span style=' color: orange'>ha venido</span> un grupo de turistas de Estados Unidos.<br> Los <span style=' color: orange'>he acompañado</span> durante toda su estadía acá en Córdoba.<br> <span style=' color: orange'>Hemos ido</span> a ver una exposición en el Museo Provincial de Fotografía.<br> <span style=' color: orange'>Hemos hecho</span> senderismo en Potrero de Garay, <span style=' color: orange'>hemos asistido</span> al festival del chocolate en Villa General Belgrano y <span style=' color: orange'>hemos visitado</span> La Cumbrecita. Piensan quedarse unos días más, así que continuaremos teniendo divertidos paseos.</i>",  
+                "className": ""
+            },
+            {
+                "type": "paragraph-complete",
+                "value": ["Me acuerdo de aquel día ",
+                {
+                    "block": 10,
+                    "color": "orange",
+                    "option": "Vino"
+                },
+                " un grupo de turistas de Estados Unidos. Los ",
+                {
+                    "block": 10,
+                    "color": "orange",
+                    "option": "acompañé"
+                },
+                " durante toda su estadía acá en Córdoba. ",
+                {
+                    "block": 10,
+                    "color": "orange",
+                    "option": " Fuimos"
+                },
+                " a ver una exposición en el Museo Provincial de Fotografía. ",
+                {
+                    "block": 10,
+                    "color": "orange",
+                    "option": "Hicimos"
+                },
+                " senderismo en Potrero de Garay, ",
+                {
+                    "block": 10,
+                    "color": "orange",
+                    "option": "asistimos"
+                },
+                " al festival del chocolate en Villa General Belgrano y ",
+                {
+                    "block": 10,
+                    "color": "orange",
+                    "option": "visitamos"
+                },
+                " La Cumbrecita."
+                ] 
+            }
+        ]
+    },
+    "page18": {
+        "type": "slide",
+        "section": {
+            "number": 4,
+            "value": "Mis Retos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "<span style=' color: #4CCFEB'>Reto Propuesto</span>",
+                "className": ""
+            }
+        ]
+    },
+    "page19": {
+        "type": "text",
+        "section": {
+            "number": 4,
+            "value": "Mis Retos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Piensa en tus viajes:",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "<strong>Intercambia tu experiencia con tu profesor o con tus compañeros.<br> Pídele que te cuenten sus últimos viajes.<br> Cuéntales tus experiencias más emocionantes.<br> ¿Adónde fuiste y cuándo?</strong>",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "¿<span style=' color: orange'>HAS ESTADO</span> <strong>en Córdoba</strong>?<br>No, todavía no <span style=' color: orange'>HE ESTADO</span><br>Si, <span style=' color: orange'>ESTUVE</span> en Córdoba hace ______________________________________.<br><br> ¿<span style=' color: orange'>HAS ESTADO</span> de guía turística? Por ejemplo: para algunos amigos que no conocen tu ciudad.<br> No, no <span style=' color: orange'>HE HECHO</span> de guía turística.<br> Sí, <span style=' color: orange'>HICE</span> ______________________________________.<br><br> ¿<span style=' color: orange'>HAS VIAJADO</span> este año?<br>______________________________________<br> ¿Y el año pasado? ¿Adónde <span style=' color: orange'>FUISTE</span>?<br>______________________________________",
+                "className": ""
+            }
+        ]
+    },
+    "page20": {
+        "type": "text",
+        "section": {
+            "number": 4,
+            "value": "Mis Retos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Mira el siguiente video:",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "<strong>Responde cuáles de las afirmaciones son verdaderas y cuáles son falsas.<br> Discute lo que observas en el video con tu profesor y compañeros.</strong>",
+                "className": ""
+            },
+            {
+                "type": "video-youtube",
+                "value": "watch?v=msbABi9NZLs&t=1s",
+                "className": "video",
+                "youtube": "https://www.youtube.com/watch?v=msbABi9NZLs&t=1s"
+            }
+        ]
+    },
+    "page21": {
+        "type": "paragraph-complete",
+        "section": {
+            "number": 4,
+            "value": "Mis Retos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Verdadero o Falso:",
+                "className": "titleleft-white"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": ["El parque Sarmiento es uno de los más antiguos de Sudamérica y <span style=' color: orange'>fue</span> una de las primeras obras del arquitecto Carlos Thays. ",
+                {
+                    "block": 10,
+                    "color": "orange",
+                    "option": "verdadero"
+                }
+                ],
+                "className": "paragraph-complete"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": ["La construcción del parque Sarmiento se <span style=' color: #4CCFEB'>inició</span> en el año 1883 y <span style=' color: #4CCFEB'>finalizó</span> en 1915. ",
+                {
+                    "block": 10,
+                    "color": "orange",
+                    "option": "falso"
+                }
+                ],
+                "className": "paragraph-complete"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": ["La construcción de la cañada <span style=' color: #4CCFEB'>inició</span> en 1671. Durante muchos años <span style=' color: orange'>ha servido</span> como contención para las crecidas del arroyo La Cañada. ",
+                {
+                    "block": 10,
+                    "color": "orange",
+                    "option": "verdadero"
+                }
+                ],
+                "className": "paragraph-complete"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--YvbQ3I5t--/v1700170547/images/dqpv843uwpy6dk0lyjmr.png",
+                "className": ""
+            }
+        ]
+    },
+    "page22": {
+        "type": "paragraph-complete",
+        "section": {
+            "number": 4,
+            "value": "Mis Retos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Verdadero o Falso:",
+                "className": "titleleft-white"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": ["El Barrio Güemes es un sitio atractivo y pintoresco. ",
+                {
+                    "block": 10,
+                    "color": "orange",
+                    "option": "verdadero"
+                }
+                ],
+                "className": "paragraph-complete"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": ["Se puede ir al paseo de las artes todos los días por las mañanas. ",
+                {
+                    "block": 10,
+                    "color": "orange",
+                    "option": "falso"
+                }
+                ],
+                "className": "paragraph-complete"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": ["En el paseo de las artes se encuentra una de las mejores muestras de anticuarios y artesanos de la República Argentina. ",
+                {
+                    "block": 10,
+                    "color": "orange",
+                    "option": "verdadero"
+                }
+                ],
+                "className": "paragraph-complete"
+            },
+            {
+                "type": "paragraph",
+                "value": "1. ¿Has estado en Córdoba? ¿Has visitado los sitios mostrados en el video? ¿Has visitado sitios parecidos a esos pero en tu país u otras partes del mundo?",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "2. ¿Aún no has estado en Córdoba, pero estás haciendo planes para visitarla? Comenta tus planes con tu profesor",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--YvbQ3I5t--/v1700170547/images/dqpv843uwpy6dk0lyjmr.png",
+                "className": ""
+            }
+        ]
+    },
+    "page23": {
+        "type": "paragraph-complete",
+        "section": {
+            "number": 5,
+            "value": "Evaluemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Evaluación unidad 3 - Nivel B1",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "La siguiente evaluación contiene 20 espacios en blanco los cuales debes completar con la forma verbal correspondiente.",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "Cada verbo que conjugues correctamente vale 01 punto.",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "Para aprobar la evaluación y pasar a la siguiente unidad debes obtener un mínimo de 18 puntos.",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style=' color: orange'>¡Adelante y buena suerte!</span>",
+                "className": ""
+            }
+        ]
+    },
+    "page24": {
+        "type": "text",
+        "section": {
+            "number":5,
+            "value":"Evaluemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--tuwosvE---/v1700170241/images/txjxw9aoz0cwh5lyglke.png",
+                "className": ""
+            },
+            {
+                "type": "text",
+                "value": "¡Hola, Laura!<br> Estoy de viaje por Córdoba con Mateo, mi novio. Llevamos cuatro días acá. Es una provincia preciosa, y la verdad es que la estamos pasando genial. (<strong>alojarse,nosotros</strong>) Nos <span style=' color: orange'>hemos alojado</span> en un hotel del centro de la ciudad muy lindo y barato. (<strong>salir,nosotros</strong>) <span style=' color: orange'>Hemos salido</span> casi todas las noches a bailar y a tomar una marca de cerveza artesanal diferente, así que (<strong>dormir,nosotros</strong>) <span style=' color: orange'>hemos dormido</span> muy poco.<br> Ya (<strong>visitar,nosotros</strong>) <span style=' color: orange'>hemos visitado</span> la Catedral, una iglesia antigua que es preciosa, pero todavía no (<strong>ir,nosotros</strong>) <span style=' color: orange'>hemos ido</span> al Parque Sarmiento a comer choripán en El Dante; todos dicen que son buenísimos, pero es que no (<strong>tener,nosotros</strong>) <span style=' color: orange'>hemos tenido</span> tiempo porque (<strong>conocer,nosotros</strong>) <span style=' color: orange'>hemos conocido</span> a una pareja de Villa General Belgrano muy piola que nos (<strong>llevar,ellos</strong>) <span style=' color: orange'>han llevado</span> a los mejores restaurantes de su ciudad. Creo que (<strong>engordar,yo</strong>) <span style=' color: orange'>he engordado</span> unos cuantos kilos porque no (<strong>parar,yo</strong>) <span style=' color: orange'>he parado</span> de comer y de probar todos los tipos de salchichas alemanas. Así que cuando llegue a casa, me pondré a dieta.<br> ¡Nos vemos pronto, un abrazo!<br> <strong>Rocio</strong>.",
+                "className": ""
+            }
+        ]
+    },
+    "page25": {
+        "type": "paragraph-complete",
+        "section": {
+            "number": 5,
+            "value": "Evaluemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Lee estas conversaciones y completa con los verbos de la lista en la forma correcta: ",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "<strong> hacer - decir - llevar - ir - gustar - llegar - poder - arreglar - caminar - heredar</strong>",
+                "className": ""
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [ "Ayer ",
+                {
+                    "block": 10,
+                    "color": "orange",
+                    "option": "llevé"
+                },
+                " a arreglar el reloj cucú de la abuela, el que ",
+                {
+                    "block": 10,
+                    "color": "orange",
+                    "option": "heredó"
+                },
+                " de su familia."
+                ] 
+            },      
+                    {
+                        "type": "paragraph-complete",
+                        "value": [ "Que bueno que te lo ",
+                        {
+                            "block": 10,
+                            "color": "orange",
+                            "option": "arreglaron"
+                        }] 
+                    },      
+            {
+                "type": "paragraph-complete",
+                "value": [ "El mes pasado se celebró el festival del choripán. ¿Vos ",
+                {
+                    "block": 10,
+                    "color": "orange",
+                    "option": "fuiste"
+                },
+                " ?"
+                ] 
+            },      
+                {
+                    "type": "paragraph-complete",
+                    "value": [ "Sí, fui con mi prima. Lo ",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "hicieron"
+                    },
+                    " en el Parque Sarmiento."
+                    ] 
+                } ,     
+            {
+                "type": "paragraph-complete",
+                "value": [ "El viernes estuve en Río Ceballos con mi hermano y mi cuñada. ",
+                {
+                    "block": 10,
+                    "color": "orange",
+                    "option": "Caminamos"
+                },
+                " por tres horas para llegar a Cascadas Los Hornillos."
+                ] 
+            },      
+                {
+                    "type": "paragraph-complete",
+                    "value": [ "Ah, con razón no te ",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "llegaron"
+                    },
+                    " mis mensajes."
+                    ] 
+                },      
+            {
+                "type": "paragraph-complete",
+                "value": [ "Anoche mi hermana Cami y Juli salieron a ese boliche nuevo que vos les recomendaste. Me ",
+                {
+                    "block": 10,
+                    "color": "orange",
+                    "option": "dijeron"
+                },
+                " que les encantó la cerveza artesanal roja."
+                ] 
+            },      
+                {
+                    "type": "paragraph-complete",
+                    "value": [ "Que genial que ",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "pudieron"
+                    },
+                    " ir. A mí de las que tomé el finde me ",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "gustó"
+                    },
+                    " más la cerveza negra."
+                    ] 
+                }      
+        ]
+    },
+    "page26": {
+        "type": "text",
+        "section": {
+            "number":5,
+            "value":"Evaluemos"
+        },
+        "template": "",
+        "data": [
+            {
+                "type": "title",
+                "value": "¡Gracias por tu atención!",
+                "className": "title-white"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366258/images/logo_etoaae.png",
+                "alt":"Español con E",
+                "className": ""
+            }
+        ]
+    }
+}

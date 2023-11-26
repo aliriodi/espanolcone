@@ -62,7 +62,7 @@ export default function Example() {
 
   if (renders) {
     selectedDayMeetings = renders.user.calendar.filter((meeting) =>
-      isSameDay(parseISO(meeting.startDatetime), selectedDay))
+      isSameDay(parseISO(meeting.userstartDatetime), selectedDay))
   }
 
   //funcion para agregar nuevo calendario a disposicion de estudiantes
@@ -275,16 +275,16 @@ export default function Example() {
                     as */}
                     {/* {renders[i].schedule.some((meeting) => */}
                     {renders?.user?.calendar?.some((meeting) =>
-                      (isSameDay(parseISO(meeting.startDatetime), day) && meeting.assigned) ||
-                      (newcalendar.some((meeting1) => isSameDay(parseISO(meeting1.startDatetime), day) && meeting1.assigned))
+                      (isSameDay(parseISO(meeting.userstartDatetime), day) && meeting.assigned) ||
+                      (newcalendar.some((meeting1) => isSameDay(parseISO(meeting1.userstartDatetime), day) && meeting1.assigned))
                     ) && (
                         <div className="w-1 h-1 rounded-full bg-sky-500"></div>
                       )}
 
                     {/* {renders[i].schedule.some((meeting) => */}
                     {renders?.user?.calendar?.some((meeting) =>
-                      (isSameDay(parseISO(meeting.startDatetime), day) && !meeting.assigned) ||
-                      (newcalendar.some((meeting1) => isSameDay(parseISO(meeting1.startDatetime), day) && !meeting1.assigned)
+                      (isSameDay(parseISO(meeting.userstartDatetime), day) && !meeting.assigned) ||
+                      (newcalendar.some((meeting1) => isSameDay(parseISO(meeting1.userstartDatetime), day) && !meeting1.assigned)
                       )) && (
                         <div className="w-1 h-1 rounded-full bg-success  "></div>
                       )}
@@ -348,17 +348,17 @@ export default function Example() {
                               <button key={index} onClick={() => addNewElement(meeting)}
                                 className={classNames(
                                   'focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 mb-2 text-secondary hover:bg-secondary_light border-solid border-[2px] border-secondary transition-all mx-1',
-                                  selectedDayMeetings.some((meeting1) => meeting1.startDatetime === meeting.startDatetime && meeting1.assigned)
+                                  selectedDayMeetings.some((meeting1) => meeting1.userstartDatetime === meeting.userstartDatetime && meeting1.assigned)
                                   && 'border-red-500 border-solid border-[2px] hover:border-primary',
-                                  newcalendar.some((meeting1) => meeting1.startDatetime === meeting.startDatetime) && 'bg-secondary text-white hover:bg-secondary'
+                                  newcalendar.some((meeting1) => meeting1.userstartDatetime === meeting.userstartDatetime) && 'bg-secondary text-white hover:bg-secondary'
                                 )}
 
                                 //Para deshabilitar el boton cuando haya meeting
                                 disabled={
-                                  selectedDayMeetings.some((meeting1) => meeting1.startDatetime === meeting.startDatetime && meeting1.assigned)
-                                  || newcalendar.some((meeting1) => meeting1.startDatetime === meeting.startDatetime)}
+                                  selectedDayMeetings.some((meeting1) => meeting1.userstartDatetime === meeting.userstartDatetime && meeting1.assigned)
+                                  || newcalendar.some((meeting1) => meeting1.userstartDatetime === meeting.userstartDatetime)}
                               >
-                                <MeetingPlaning key={index} meeting={meeting} assigned={selectedDayMeetings.some((meeting1) => meeting1.startDatetime === meeting.startDatetime && meeting1.assigned)} /></button>
+                                <MeetingPlaning key={index} meeting={meeting} assigned={selectedDayMeetings.some((meeting1) => meeting1.userstartDatetime === meeting.userstartDatetime && meeting1.assigned)} /></button>
                             ))
                           ) : (
                             <p>No hay actividad agendada aún.</p>
@@ -437,8 +437,8 @@ export default function Example() {
 }
 
 function Meeting({ meeting }) {
-  let startDateTime = parseISO(meeting.startDatetime)
-  let endDateTime = parseISO(meeting.endDatetime)
+  let startDateTime = parseISO(meeting.userstartDatetime)
+  let endDateTime = parseISO(meeting.userendDatetime)
 
   useEffect(() => console.log(meeting), [])
 

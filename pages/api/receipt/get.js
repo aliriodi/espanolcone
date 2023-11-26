@@ -1,5 +1,5 @@
 import dbConnect from '../../../config/mongo'
-import Users from '../../../models/Users'
+import Receipt from '../../../models/Receipt'
 
 // /**
 //  * 
@@ -8,7 +8,7 @@ import Users from '../../../models/Users'
 //  */
 
 
-export default async function getAllTechers(req, res) {
+export default async function getAllRecepipt(req, res) {
 
   try {
     // const { first_name, last_name, email } = req.body;
@@ -21,22 +21,23 @@ export default async function getAllTechers(req, res) {
 
 
 
-    console.log('LOOKING TEACHERS');
+    console.log('LOOKING USERS');
 
-    const teachers = await Users.find({ role: 'teacher' }).exec();
+    const receipt = await Receipt.find().exec();
 
-    console.log('TEACHERS FOUND');
+    console.log('Plans READY TO GO!!!');
     
     // Verifica procedencia de solicitud 
+    console.log("/////////////////////////////// ",req.headers.accept == "*/*" ? "Solicitud desde Codigo": "Solicitud desde Navegador"," ///////////////////////////////")
+
     if(req.headers.accept == "*/*"){
       // Solicitud desde el codigo
-      res.status(200).json({ teachers });
+      return res.status(200).json({ receipt });
     }
     else{
       // Solicitud desde el navegador
       res.status(200).json({ message: "Acceso Denegado" });
     }
-
 
   } catch (error) {
     console.log(error);

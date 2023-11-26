@@ -25,7 +25,17 @@ export default async function Idclass(req, res) {
           return res.status(404).json({ message: 'Class not found' });
         }
 
-        return res.status(200).json({class1});
+        
+        // Verifica procedencia de solicitud 
+        if(req.headers.accept == "*/*"){
+          // Solicitud desde el codigo
+          return res.status(200).json({class1});
+        }
+        else{
+          // Solicitud desde el navegador
+          res.status(200).json({ message: "Acceso Denegado" });
+        }
+
       } catch (error) {
         return res.status(500).json({ message: 'Internal Server Error' });
       }
