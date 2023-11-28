@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import Spinner from './Spinner';
 import YouTube from 'react-youtube';
 import { cardsTeachers } from '../public/imgs/images';
+import { useSession } from "next-auth/react";
 import { cardDetail, fetchTeachers } from '../redux/ECEActions'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChalkboardUser } from '@fortawesome/free-solid-svg-icons';
@@ -13,7 +14,7 @@ import { faChalkboardUser } from '@fortawesome/free-solid-svg-icons';
 
 export function TeachersCard() {
   const [selectedStars, setSelectedStars] = useState(0);
-
+  const { data: session, status } = useSession();
   const router = useRouter();
 
   const handleStarClick = (starNumber) => {
@@ -94,8 +95,9 @@ export function TeachersCard() {
 
       {/* Profesores */}
       {cards.length > 0 ? (
-        cards.map((card, index) => (
-          <div key={index}>
+                cards.map((card, index) => (
+                  card.email!==session.user.email?
+          <div key={index}>{console.log(session)}
           <div key={index} className='overflow-hidden relative w-full flex p-[18px] bg-white rounded-[5px] shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000040] mb-[24px]
           md:p-0'>
             
@@ -175,7 +177,7 @@ export function TeachersCard() {
 
           </div>
           </div>
-        ))
+       :null ))
       ) : (
         <Spinner />
       )}
