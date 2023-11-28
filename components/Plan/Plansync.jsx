@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import style from '../../styles/plan.module.css'
 const plan = require('./planes.json');
 
-export default function Plansync({ }) {
+export default function Plansync({ Confirm}) {
   const [valorInput, setValorInput] = useState(4);
   const plan1 = [];
   const numberPlans = Object.keys(plan).length;
@@ -28,7 +28,7 @@ export default function Plansync({ }) {
                      
             </td>
             <td >
-                <button className={style['button']}>Pagar</button>
+                <button onClick={()=>Confirm(plan1[0].ammountUnit)} className={style['button']}>Pagar</button>
             </td>
           </tr>
           <tr>
@@ -47,7 +47,7 @@ export default function Plansync({ }) {
              </td>
             <td >
             <span style={{paddingTop:'30px',    alignItems: 'center', justifyContent: 'center',}}>  monto <strong>{plan1[1].ammountUnit*valorInput}$usd</strong></span>
-                     <button className={style['button']}>Pagar</button>
+                     <button onClick={()=>Confirm(valorInput)} className={style['button']}>Pagar</button>
 
             </td>
           </tr>
