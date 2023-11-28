@@ -6,7 +6,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ message: 'Method not allowed' });
   }
 
-  const { to, subject, text } = req.body;
+  const { to, subject, text, html } = req.body;
   //console.log(req.body)
   try {
 
@@ -14,7 +14,8 @@ export default async function handler(req, res) {
       from: 'espanolconeacademy@aliriodi.com', // Cambia esto a tu dirección de correo electrónico
       to:  to,
       subject: subject,
-      text: text
+      text: text,
+      html: html
     };
 
     await transporter.sendMail(mailOptions);
