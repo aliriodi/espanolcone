@@ -74,6 +74,7 @@ console.log(nuevaclase.length)
                                        level:level,
                                        unit:unit,
                                        description:description,
+                                       
                                        sheets:nuevaclase})
                                        
                                        //mando por el body la nueva clase

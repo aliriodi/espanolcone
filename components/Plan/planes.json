@@ -7,7 +7,7 @@
             {"value":"Biblioteca temática - Diversos tópicos organizados por nivel (A1 - C1)", "include":false},
             {"value":"Actividades interactivas autocorregibles, organizadas por nivel (A1 - C1)", "include":true},
             {"value":"Membresía de la comunidad de <strong>“Viajeros”</strong>", "include":true},
-            {"value":"Clases grupales online de temas específicos (live class)", "include":false},
+            {"value":"Clases grupales online de temas específicos <strong>(live class)</strong>", "include":false},
             {"value":"Certificación por niveles", "include":true}
         ],
         "qty":"1",
@@ -23,7 +23,7 @@
             {"value":"Biblioteca temática - Diversos tópicos organizados por nivel (A1 - C1)", "include":true},
             {"value":"Actividades interactivas autocorregibles, organizadas por nivel (A1 - C1)", "include":true},
             {"value":"Membresía de la comunidad de <strong>“Viajeros”</strong>", "include":true},
-            {"value":"Clases grupales online de temas específicos (live class)", "include":true},
+            {"value":"Clases grupales online de temas específicos <strong>(live class)</strong>", "include":true},
             {"value":"Certificación por niveles", "include":true}
         ],
         "qty":"1",
