@@ -30,7 +30,7 @@ export function TeachersCard() {
 
   }, [dispatch]);
 
-  
+
 
 
   // Obtén la información de cards desde Redux
@@ -73,111 +73,111 @@ export function TeachersCard() {
 
         <p className='text-violet_dark'> Nuestra plataforma es fácil de usar y te va a permitr buscar profesores según tus preferencias</p>
       </div> */}
-      
+
       {/* Encabezado */}
       <div
-            className='flex justify-center py-[30px] rounded-[8.12px] items-center flex-col w-full mb-[20px]'
-            style={{ background: 'linear-gradient(38.12deg, #7834E4 40.17%, #0E98B6 122.83%)' }}>
+        className='flex justify-center py-[30px] rounded-[8.12px] items-center flex-col w-full mb-[20px]'
+        style={{ background: 'linear-gradient(38.12deg, #7834E4 40.17%, #0E98B6 122.83%)' }}>
 
-            {/* Icono */}
-            <FontAwesomeIcon
-              icon={faChalkboardUser}
-              className='text-[28px] text-white p-[21px] bg-primary rounded-full mb-[28px] shadow-[0px_5.410437107086182px_5.410437107086182px_#00000040]'
-            />
+        {/* Icono */}
+        <FontAwesomeIcon
+          icon={faChalkboardUser}
+          className='text-[28px] text-white p-[21px] bg-primary rounded-full mb-[28px] shadow-[0px_5.410437107086182px_5.410437107086182px_#00000040]'
+        />
 
-            <h1 className="text-white text-[28px]
+        <h1 className="text-white text-[28px]
             md:text-[24px]">Encontrá tu profesor</h1>
 
-            {/* Texto */}
-            <p className='text-white text-[21px] mt-[21px] text-center
+        {/* Texto */}
+        <p className='text-white text-[21px] mt-[21px] text-center
             md:text-[14px]'>Nuestra plataforma es fácil de usar y te va a permitr buscar profesores según tus preferencias</p>
-        </div>
+      </div>
 
       {/* Profesores */}
       {cards.length > 0 ? (
-                cards.map((card, index) => (
-                  card.email!==session.user.email?
-          <div key={index}>{console.log(session)}
-          <div key={index} className='overflow-hidden relative w-full flex p-[18px] bg-white rounded-[5px] shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000040] mb-[24px]
+        cards.map((card, index) => (
+          card.email !== session.user.email ?
+            <div key={index}>
+              <div key={index} className='overflow-hidden relative w-full flex p-[18px] bg-white rounded-[5px] shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000040] mb-[24px]
           md:p-0'>
-            
-            {/* Imagen de perfil */}
-            <div className='flex flex-col items-center w-auto '>
 
-              {/* Imagen */}
-              {
-              card?.image?.url || card?.image?
-              <Image
-              alt="photo"
-                width={160}
-                height={160}
-                src={ card ?  // ¿Existe la variable 'card'?
-                card.image ?  // ¿Existe la propiedad 'image' en 'card'?
-                  card.image.url ? card.image.url : card.image // ¿Existe la propiedad 'url' en 'card.image'? Si es cierto, usa 'card.image.url'; de lo contrario, usa 'card.image'.
-                : card.image // Si no existe 'card.image', usa 'card.image'.
-              : null}
-                className="w-[134px] h-[126px] rounded-lg object-cover mb-5 block
+                {/* Imagen de perfil */}
+                <div className='flex flex-col items-center w-auto '>
+
+                  {/* Imagen */}
+                  {
+                    card?.image?.url || card?.image ?
+                      <Image
+                        alt="photo"
+                        width={160}
+                        height={160}
+                        src={card ?  // ¿Existe la variable 'card'?
+                          card.image ?  // ¿Existe la propiedad 'image' en 'card'?
+                            card.image.url ? card.image.url : card.image // ¿Existe la propiedad 'url' en 'card.image'? Si es cierto, usa 'card.image.url'; de lo contrario, usa 'card.image'.
+                            : card.image // Si no existe 'card.image', usa 'card.image'.
+                          : null}
+                        className="w-[134px] h-[126px] rounded-lg object-cover mb-5 block
                 md:m-0 md:rounded-none"
-              />
-              :
-              <div className="w-[134px] h-[126px] rounded-lg object-cover mb-5 bg-gray_clear
+                      />
+                      :
+                      <div className="w-[134px] h-[126px] rounded-lg object-cover mb-5 bg-gray_clear
               md:m-0 md:rounded-none">
-              </div>
-              }
-              
+                      </div>
+                  }
 
-              {/* Estrellas */}
-              <div className="flex items-center space-x-1 text-success
+
+                  {/* Estrellas */}
+                  <div className="flex items-center space-x-1 text-success
               md:hidden">
-                {renderStars()}
-              </div>
-            </div>
+                    {renderStars()}
+                  </div>
+                </div>
 
-            {/* Contenido */}
-            <div className='relative ml-[20px] w-[100%] flex flex-col  justify-between overflow-hidden
+                {/* Contenido */}
+                <div className='relative ml-[20px] w-[100%] flex flex-col  justify-between overflow-hidden
             md:m-0 md:h-[126px] md:p-3'>
 
-              {/* Nombre */}
-              <p className='text-title_color font-semibold text-[21px] '>{card.first_name+' '+card.last_name}</p>
-              
-              {/* Descripcion */}
-              <p className='text-violet_dark
+                  {/* Nombre */}
+                  <p className='text-title_color font-semibold text-[21px] '>{card.first_name + ' ' + card.last_name}</p>
+
+                  {/* Descripcion */}
+                  <p className='text-violet_dark
               md:text-[14px] md:relative md:overflow-hidden'>
-                {card.content}
+                    {card.content}
 
-                {/* Degrade en responsive */}
-                <span className='bg-gradient-to-t from-white  w-full h-full absolute top-0 left-0 hidden
+                    {/* Degrade en responsive */}
+                    <span className='bg-gradient-to-t from-white  w-full h-full absolute top-0 left-0 hidden
                 md:flex'></span>
-              </p>
+                  </p>
 
-              {/* Boton */}
-              <div className='w-full flex justify-end'>
-                <button key={index}
-                    className=" py-[10px] px-[48px] btn-primary
+                  {/* Boton */}
+                  <div className='w-full flex justify-end'>
+                    <button key={index}
+                      className=" py-[10px] px-[48px] btn-primary
                     md:hidden"
-                    onClick={() => handleButtonClick(card)}>
-                    Ver más
-                </button>
-              </div>
+                      onClick={() => handleButtonClick(card)}>
+                      Ver más
+                    </button>
+                  </div>
 
-              
-              {/* Estrellas en el responsive*/}
-              <div className="items-center space-x-1 text-success hidden
+
+                  {/* Estrellas en el responsive*/}
+                  <div className="items-center space-x-1 text-success hidden
               md:flex">
-                {renderStars()}
+                    {renderStars()}
+                  </div>
+                </div>
+
+                {/* Boton en el responsive */}
+                <button
+                  className="hidden
+                    md:flex md:absolute md:w-full md:h-full"
+                  onClick={() => handleButtonClick(card)}>
+                </button>
+
               </div>
             </div>
-
-            {/* Boton en el responsive */}
-            <button
-                    className="hidden
-                    md:flex md:absolute md:w-full md:h-full"
-                    onClick={() => handleButtonClick(card)}>
-            </button>
-
-          </div>
-          </div>
-       :null ))
+            : null))
       ) : (
         <Spinner />
       )}
