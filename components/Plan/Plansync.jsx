@@ -46,7 +46,7 @@ export default function Plansync({ }) {
 ></input>
              </td>
             <td >
-            <span style={{paddingTop:'30px', display: 'flex',   alignItems: 'center', justifyContent: 'center',}}>  monto a  pagar {25*valorInput}$usd</span>
+            <span style={{paddingTop:'30px',    alignItems: 'center', justifyContent: 'center',}}>  monto <strong>{plan1[1].ammountUnit*valorInput}$usd</strong></span>
                      <button className={style['button']}>Pagar</button>
 
             </td>
