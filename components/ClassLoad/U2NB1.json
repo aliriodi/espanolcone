@@ -57,7 +57,7 @@
         "data": [
             {
                 "type": "title",
-                "value": "¿Qué podés hacer en Cordoba para pasarla bien?",
+                "value": "¿Qué podés hacer en Córdoba para pasarla bien?",
                 "className": "titleleft-white"
             },
             {
@@ -269,7 +269,7 @@
             },
             {
                 "type": "title",
-                "value": "¿A dónde le recomendarías ir en cada caso?\nColoca entre paréntesis el numero de la imagen asociada",
+                "value": "¿A dónde le recomendarías ir en cada caso?<br>Coloca entre paréntesis el numero de la imagen asociada",
                 "className": "titleleft-white"
             },
             {
@@ -400,7 +400,7 @@
             },
             {
                 "type": "video-youtube",
-                "value": "watch?v=GyJtkcbSbmw&t=4s",
+                "value": "GyJtkcbSbmw&t=4s",
                 "youtuve": "https://www.youtube.com/watch?v=GyJtkcbSbmw&t=4s",
                 "className": "video"
             }
@@ -426,7 +426,7 @@
             },
             {
                 "type": "paragraph-complete",
-                "value": [ "<span style= 'color: orange'>Bárbara:</span> Es mi segundo día en la ciudad y no conozco casi nada\n<span style= 'color: blue'>Florencia:</span> ¿Qué te apetece hacer?\n<span style= 'color: orange'>Bárbara:</span> Me gustaría conocer algunos sitios culturales o importantes de la ciudad\n<span style= 'color: blue'>Florencia:</span> ¿Querés que hagamos el recorrido de la <i>media legua de oro cultural?</i> Está compuesto de ocho de los lugares más interesantes de acá.\n<span style= 'color: orange'>Bárbara:</span> ¡Dale! ¿En dónde quedamos?\n<span style= 'color: blue'>Florencia:</span> En la Plaza San Martín porque vamos a empezar en el",
+                "value": [ "<span style= 'color: orange'>Bárbara:</span> Es mi segundo día en la ciudad y no conozco casi nada<br><span style= 'color: blue'>Florencia:</span> ¿Qué te apetece hacer?<br><span style= 'color: orange'>Bárbara:</span> Me gustaría conocer algunos sitios culturales o importantes de la ciudad<br><span style= 'color: blue'>Florencia:</span> ¿Querés que hagamos el recorrido de la <i>media legua de oro cultural?</i> Está compuesto de ocho de los lugares más interesantes de acá.<br><span style= 'color: orange'>Bárbara:</span> ¡Dale! ¿En dónde quedamos?<br><span style= 'color: blue'>Florencia:</span> En la Plaza San Martín porque vamos a empezar en el",
                 {
                     "block": 10,
                     "color": "orange",
@@ -438,7 +438,7 @@
                     "color": "orange",
                     "option": "teatro del libertador san martín"
                 },
-                ", en el que se hacen presentaciones de ópera, orquestas y ballet.\n<span style= 'color: orange'>Bárbara:</span> ¡Genial! Suena muy interesante. Después, ¿por cuál seguimos?"
+                ", en el que se hacen presentaciones de ópera, orquestas y ballet.<br><span style= 'color: orange'>Bárbara:</span> ¡Genial! Suena muy interesante. Después, ¿por cuál seguimos?"
             ],
                 "className": "paragraph-complete"
             }
@@ -459,37 +459,42 @@
             },
             {
                 "type": "paragraph",
-                "value": "<li>Para completar los espacios vacíos seleccioná:</li><br>una cárcel de mujeres - Teatro del Libertador San Martín - Ciudad de las Artes - El Origen del Universo - Teatro Real - Plaza España",
+                "value": "<li>Para completar los espacios vacíos seleccioná:</li>una cárcel de mujeres - Teatro del Libertador San Martín - Ciudad de las Artes - El Origen del Universo - Teatro Real - Plaza España",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "una cárcel de mujeres - Teatro del Libertador San Martín - Ciudad de las Artes - El Origen del Universo - Teatro Real - Plaza España",
                 "className": ""
             },
             {
                 "type": "paragraph-complete",
-                "value": [ "<span style= 'color: blue'>Florencia:</span> Después seguimos por el Paseo del Buen Pastor\n<span style= 'color: orange'>Bárbara:</span> Ah, ¿es el que antes era",
+                "value": [ "<span style= 'color: blue'>Florencia:</span> Después seguimos por el Paseo del Buen Pastor<br><span style= 'color: orange'>Bárbara:</span> Ah, ¿es el que antes era",
                 {
                     "block": 10,
                     "color": "orange",
                     "option": "una cárcel de mujeres"
                 },
-                "?\n",
+                "?<br>",
                 "<span style= 'color: blue'>Florencia:</span> Sí, ese. Cuando crucemos la",
                 {
                     "block": 10,
                     "color": "orange",
                     "option": "Plaza España"
                 },
-                " llegamos al Palacio Dionisi, es un museo de fotografía.\n<span style= 'color: orange'>Bárbara:</span> Ese no me llama la atención, prefiero no ir.\n<span style= 'color: blue'>Florencia:</span> Bueno, ¿querés que vayamos directamente al museo de Ciencias Naturales?\n<span style= 'color: orange'>Bárbara:</span> ¿Qué hay ahí?\n<span style= 'color: blue'>Florencia:</span> Exposiciones sobre la megafauna, paleontología y",
+                " llegamos al Palacio Dionisi, es un museo de fotografía.<br><span style= 'color: orange'>Bárbara:</span> Ese no me llama la atención, prefiero no ir.<br><span style= 'color: blue'>Florencia:</span> Bueno, ¿querés que vayamos directamente al museo de Ciencias Naturales?<br><span style= 'color: orange'>Bárbara:</span> ¿Qué hay ahí?<br><span style= 'color: blue'>Florencia:</span> Exposiciones sobre la megafauna, paleontología y",
                 {
                     "block": 10,
                     "color": "orange",
                     "option": "el origen del universo"
                 },
-                "<span style= 'color: orange'>Bárbara:</span> ¡Me copa! Suena muy bueno. ¿En dónde termina el recorrido?\n<span style= 'color: blue'>Florencia:</span> Termina en la",
+                "<span style= 'color: orange'>Bárbara:</span> ¡Me copa! Suena muy bueno. ¿En dónde termina el recorrido?<br><span style= 'color: blue'>Florencia:</span> Termina en la",
                 {
                     "block": 10,
                     "color": "orange",
                     "option": "Ciudad de las artes"
                 },
-                ", que forma parte de la Universidad Provincial de Córdoba\n<span style= 'color: orange'>Bárbara:</span> ¡De una! Me necanta, nos vemos en la Plaza San Martín en un rato."
+                ", que forma parte de la Universidad Provincial de Córdoba<br><span style= 'color: orange'>Bárbara:</span> ¡De una! Me encanta, nos vemos en la Plaza San Martín en un rato."
             ],
                 "className": "paragraph-complete"
             }
@@ -548,42 +553,56 @@
                 "value": "<span style= 'color: orange'>Franco:</span> Uy, disculpá, es que quedé con mi novia para ir al cine a ver una peli.  Me iría mejor si fuera otro día",
                 "className": ""
             },
-            {
-                "type": "sentence-box",
-                "value": "<img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--tVaspz9z--/v1699321484/images/y23w3awsowbgpheclsyz.png' alt='abril' /><p style= 'color: orange; padding-top:1%;padding-left:3%;'><span id='abril' style= 'color: rgba(0, 0, 0, 0); display: inline-block; border: 2px solid orange; '>____________</span></p>",
-                "option": "abril",
-                "className": "image1-boxmove"
-            },
-            {
-                "type": "sentence-box",
-                "value": "<img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--aiG54j1T--/v1699321561/images/rweycoqvt0z8xqmh6cfg.png' alt='franco' /><p style= 'color: orange; padding-top:1%;padding-left:3%;'><span id='franco' style= 'color: rgba(0, 0, 0, 0); display: inline-block; border: 2px solid orange; '>____________</span></p>",
-                "option": "franco",
-                "className": "image2-boxmove"
-            },
-            {
-                "type": "sentence-box",
-                "value": "<img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--Bvt0L8KK--/v1699321595/images/f4h31oqnxp64k5zowxz6.png' alt='morena' /><p style= 'color: orange; padding-top:1%;padding-left:3%;'><span id='morena' style= 'color: rgba(0, 0, 0, 0); display: inline-block; border: 2px solid orange; '>____________</span></p>",
-                "option": "morena",
-                "className": "image3-boxmove"
-            },
-            {
-                "type": "sentence-box",
-                "value": "<img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--aYMk1JfW--/v1699321645/images/lf6ooc8swcpfoypoulqh.png' alt='lucas' /><p style= 'color: orange; padding-top:1%;padding-left:3%;'><span id='lucas' style= 'color: rgba(0, 0, 0, 0); display: inline-block; border: 2px solid orange; '>____________</span></p>",
-                "option": "lucas",
-                "className": "image4-boxmove"
-            },
-            {
-                "type": "options-box",
-                "value": [
-                    {"value":"lucas","id":"value1","x":50,"y":-1100,"xmin":0,"xmax":0,"ymin":0,"ymax":200,"width":130,"height":22},
-                    {"value":"abril","id":"value2","x":200,"y":-1100,"xmin":285,"xmax":410,"ymin":-32,"ymax":-20,"width":130,"height":22},
-                    {"value":"franco","id":"value3","x":350,"y":-1100,"xmin":248,"xmax":339,"ymin":-150,"ymax":-142,"width":130,"height":22},
-                    {"value":"morena","id":"value4","x":500,"y":-1100,"xmin":335,"xmax":432,"ymin":-56,"ymax":-49,"width":130,"height":22}
-                    
-                ],
-                "className": ""
+                {
+                "type": "dragable-box",
+                "value":{
+                "DropUps":
+                    [
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--tVaspz9z--/v1699321484/images/y23w3awsowbgpheclsyz.png",
+                    "value":"abril",
+                    "id":"DropUp1"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--aiG54j1T--/v1699321561/images/rweycoqvt0z8xqmh6cfg.png",
+                    "value":"franco",
+                    "id":"DropUp2"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--Bvt0L8KK--/v1699321595/images/f4h31oqnxp64k5zowxz6.png",
+                    "value":"morena",
+                    "id":"DropUp3"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--aYMk1JfW--/v1699321645/images/lf6ooc8swcpfoypoulqh.png",
+                    "value":"lucas",
+                    "id":"DropUp4"
+                }
+            ],
+                "DragBoxs":[
+                    {
+                        "value":"jóvenes",
+                        "id":"abril"
+                    },
+                    {
+                        "value":"franco",
+                        "id":"DragBox2"
+                    },
+                    {
+                        "value":"morena",
+                        "id":"DragBox3"
+                    },
+                    {
+                        "value":"lucas",
+                        "id":"DragBox4"
+                    }
+                ]
             }
-        ]
+        }]            
     },
     "page13": {
         "type": "text",
@@ -600,7 +619,7 @@
             },
             {
                 "type": "video-youtube",
-                "value": "watch?v=EwtFESvbows",
+                "value": "EwtFESvbows",
                 "className": "",
                 "youtube": "https://www.youtube.com/watch?v=EwtFESvbows"
             },
@@ -611,20 +630,20 @@
             },
             {
                 "type": "video-youtube",
-                "value": "watch?v=tWdt2dgxMM0",
-                "className": "",
-                "youtube": "https://www.youtube.com/watch?v=tWdt2dgxMM0"
+                "value": "tWdt2dgxMM0",
+                "youtube": "https://www.youtube.com/watch?v=tWdt2dgxMM0",
+                "className": "video"
             },
             {
                 "type": "paragraph",
-                "value": "Ilegales o Los Ilegales es una agrupación musical dominicana fundada en 1993 y liderada por Vladimir Dotel. Ha recibido varias nominaciones y premios internacionales, además de llegar a las listas de Billboard Tropical.Género: Pop. Origen: República Dominicana (1993).\nAntonio Enrique Álvarez Cisneros, más conocido por su nombre artístico de El Potro Álvarez, es un exbeisbolista, cantante y político venezolano. Estuvo bajo varias ligas de béisbol tanto venezolanas, como internacionales. Aparte, logró posicionar varios temas musicales dentro del conteo de canciones en Latinoamérica. Wikipedia.\nNacimiento: 10 de mayo de 1979 (edad 44 años), Caracas, Venezuela",
+                "value": "Ilegales o Los Ilegales es una agrupación musical dominicana fundada en 1993 y liderada por Vladimir Dotel. Ha recibido varias nominaciones y premios internacionales, además de llegar a las listas de Billboard Tropical.Género: Pop. Origen: República Dominicana (1993).<br>Antonio Enrique Álvarez Cisneros, más conocido por su nombre artístico de El Potro Álvarez, es un exbeisbolista, cantante y político venezolano. Estuvo bajo varias ligas de béisbol tanto venezolanas, como internacionales. Aparte, logró posicionar varios temas musicales dentro del conteo de canciones en Latinoamérica. Wikipedia.<br>Nacimiento: 10 de mayo de 1979 (edad 44 años), Caracas, Venezuela",
                 "className": ""
             },
             {
                 "type": "video-youtube",
-                "value": "watch?v=TcK47ozBJNQ",
-                "className": "",
-                "youtube": "https://www.youtube.com/watch?v=TcK47ozBJNQ"
+                "value": "TcK47ozBJNQ",
+                "youtube": "https://www.youtube.com/watch?v=TcK47ozBJNQ",
+                "className": ""
             },
             {
                 "type": "paragraph",
