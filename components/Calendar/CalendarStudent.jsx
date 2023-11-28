@@ -167,10 +167,14 @@ export default function Schedule() {
 
   }, [session, id])
 
+  useEffect(()=>{
+    console.log("newMeeting ",newMeeting)
 
-
-
-
+    let startDatetime = newMeeting?.startDatetime;
+    
+    console.log("startDatetime ", startDatetime && startDatetime.slice(0, startDatetime?.indexOf("T")))
+    console.log("startDatetime type ", typeof startDatetime)
+  },[newMeeting])
 
   function selectSchedule(meeting) {
     setNewMeeting(meeting)
@@ -292,11 +296,184 @@ export default function Schedule() {
           // Compare the dates
           return dateA - dateB;
         });
+
+        // Mensajes via Email
+        
+        let massageTeacher = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+        <style>
+            *{
+                font-family: 'Montserrat', sans-serif;
+                color: #fff;
+            }
+            body {
+            /* background-color: #f4f4f4; */
+            margin: 0;
+            padding: 0;
+            }
+
+            .container{
+              background: linear-gradient(to left bottom, #4CCFEB 70%, #33bb99);
+            }
+
+            header {
+            padding: 25px;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 0 0 60px;
+            /*border-radius: 0 0 60% 60%;*/
+            position: relative;
+            }
+            header img{
+              width: 123px;
+              height: 78.25px;
+              margin-bottom: 15px;
+              position: relative;
+              z-index: 90;
+            }
+            header h1{
+              position: relative;
+              font-size: 28px;
+              color: #4CCFEB;
+              margin: 0;
+            }
+
+            .main {   
+              text-align: center;
+              padding: 25px;
+              font-weight: 500;
+            }
+            .main p{
+                margin: 0;
+            }
+            .main .mt{
+                margin-top: 12px;
+            }
+
+            footer {
+            /* background-color: #007bff; */
+            color: #fff;
+            padding: 10px;
+            font-weight: 500;
+            text-align: center;
+            }
+        </style>
+        </head>
+        <body>
+
+          <div class="container">
+            <header>
+              <img src="https://espanolcone-five.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdfddh08q8%2Fimage%2Fupload%2Fs--4NefY4Ug--%2Fv1701173990%2Fimages%2Fl9hxqqm6urwlk6x8qdih.png&w=384&q=75"/>
+              <h1 style=" z-index: 90;">Asignación de clase con ${renders.user.first_name}</h1>
+            </header>
+            
+            <div class="main" style="flex-direction: column; align-items: center; font-size: 18px;">
+              <p>Se te asigno una clase para el día <b>${newMeeting?.startDatetime.slice(0, newMeeting?.startDatetime?.indexOf("T"))}</b>,</p>
+              <p>a partir de las <b>${newMeeting?.startDatetime.slice(newMeeting?.startDatetime?.indexOf("T") + 1)}</b>,</p>
+              <p>y termina a las <b>${newMeeting?.endDatetime.slice(newMeeting?.endDatetime?.indexOf("T") + 1)}</b>,</p> 
+              <p class="mt">El horario del alumno inicia a las <b>${newMeeting?.userstartDatetime?.slice(newMeeting?.userstartDatetime?.indexOf("T") + 1)}</b></p>
+              <p>y termina a las <b>${newMeeting?.userendDatetime.slice(newMeeting?.userendDatetime?.indexOf("T") + 1)}</b></p>
+            </div>
+            
+            <footer style="font-size: 18px;">
+              <p>¡Te deseamos suerte en tu clase!</p>
+            </footer>
+          </div>
+        </body>
+        </html>
+        `
+        let massageStudent = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+        <style>
+            *{
+                font-family: 'Montserrat', sans-serif;
+                color: #fff;
+            }
+            body {
+            /* background-color: #f4f4f4; */
+            margin: 0;
+            padding: 0;
+            }
+
+            .container{
+              background: linear-gradient(to left bottom, #4CCFEB 70%, #33bb99);
+            }
+
+            header {
+            padding: 25px;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 0 0 60px;
+            /*border-radius: 0 0 60% 60%;*/
+            position: relative;
+            }
+            header img{
+              width: 123px;
+              height: 78.25px;
+              margin-bottom: 15px;
+              position: relative;
+              z-index: 90;
+            }
+            header h1{
+              position: relative;
+              font-size: 28px;
+              color: #4CCFEB;
+              margin: 0;
+            }
+
+            .main {   
+              text-align: center;
+              padding: 25px;
+              font-weight: 500;
+            }
+            .main p{
+                margin: 0;
+            }
+            .main .mt{
+                margin-top: 12px;
+            }
+
+            footer {
+            /* background-color: #007bff; */
+            color: #fff;
+            padding: 10px;
+            font-weight: 500;
+            text-align: center;
+            }
+        </style>
+        </head>
+        <body>
+
+          <div class="container">
+            <header>
+              <img src="https://espanolcone-five.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdfddh08q8%2Fimage%2Fupload%2Fs--4NefY4Ug--%2Fv1701173990%2Fimages%2Fl9hxqqm6urwlk6x8qdih.png&w=384&q=75"/>
+              <h1 style=" z-index: 90;">Asignación de clase con ${renders.user.first_name}</h1>
+            </header>
+            
+            <div class="main" style="flex-direction: column; align-items: center; font-size: 18px;">
+              <p>Se te asigno una clase para el día <b>${newMeeting?.startDatetime.slice(0, newMeeting?.startDatetime?.indexOf("T"))}</b>,</p>
+              <p>a partir de las <b>${meeting?.userstartDatetime?.slice(meeting?.userstartDatetime?.indexOf("T") + 1)}</b>,</p>
+              <p>y termina a las <b>${meeting?.userendDatetime?.slice(meeting?.userendDatetime?.indexOf("T") + 1)}</b>,</p> 
+            </div>
+            
+            <footer style="font-size: 18px;">
+              <p>¡Te deseamos suerte en tu clase!</p>
+            </footer>
+          </div>
+        </body>
+        </html>
+        `
+
         //aca va la promesa de cargar en BD el nuevo personSchedule.schedule
         //aca va la promesa de enviar dos correos uno a teacher y uno a profesor
 
         //La promesa del nuevo calendario del profesor la saco del if porque sino la
         //promesa sale sin todo los calendarios actualizados tenia un problema de logica
+        
         try {
           //envio email a teacher
           await
@@ -307,11 +484,9 @@ export default function Schedule() {
                   "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                  to: personSchedule.email, subject: 'Asignación de nueva clase con: ' + renders.user.first_name + ' ' + renders.user.last_name,
-                  text: `Asignación de clase para el día ${newMeeting.startDatetime} 
-                     y termina en hora ${newMeeting.endDatetime}, 
-                     El horario del alumno inicia en: ${newMeeting.userstartDatetime}
-                     y termina en ${newMeeting.userendDatetime}`
+                  to: personSchedule.email,
+                  subject: 'Asignación de nueva clase con: ' + renders.user.first_name + ' ' + renders.user.last_name,
+                  html: massageTeacher
 
                   // 'Asignación de clase para el día ' + newMeeting.startDatetime + ' y termina en hora ' + newMeeting.endDatetime+', El horario del alumno inicia en: '+
                   // format(new Date(parseISO(meeting.startDatetime).getTime()+deltaTime),"dd-MM'T'HH:mm") +
@@ -332,7 +507,7 @@ export default function Schedule() {
                 body: JSON.stringify({
                   to: renders.user.email,
                   subject: 'Asignación de nueva clase con: ' + personSchedule.first_name + ' ' + personSchedule.last_name,
-                  text: 'Asignación de clase para el día ' + meeting.userstartDatetime + ' y termina en hora ' + meeting.userendDatetime
+                  html: massageStudent
                 })
               })
         } catch (error) {
@@ -421,37 +596,77 @@ export default function Schedule() {
 
 
   return (
-    <div className="pt-24">
-      <div className=" max-w-4xl px-4 mx-auto sm:px-7 md:max-w-4xl md:px-4">
-        <div className="md:grid md:grid-cols-2  md:divide-x md:divide-gray-200 grid grid-cols-2">
-          <div className="md:pr-14">
+    <div className="pt-24 mx-[60px]">
 
-            {renders ? <div>
-              <Image alt={'student'} width={100} height={100} src={personSchedule?.image?.url || personSchedule?.image}></Image>
+      <div className="bg-white w-full px-[22px] py-[26px]  rounded-[10px] shadow-[0px_4px_24px_#0000000F]
+      sm:px-7 md:max-w-4xl md:px-4">
+
+        {/* Titulo */}
+        <h3 className='border-b-2 pb-[25px]'>¿Qué día queres realizar tu reserva?</h3>
+
+        {/* Contenido */}
+        <div className="py-[25px] flex justify-between ">
+          
+          {/* Imagen de perfil */}
+          <div className='relative flex flex-col items-center w-[20%]'>
+            {renders ? 
+            <div className=' h-[140px] w-[140px] relative  flex items-center flex-col'>
+
+              {/* Imagen */}
+              <Image
+              className='w-full h-full rounded-[10px] overflow-hidden shadow-[0_5px_20px_#00000033]'
+              alt={'student'}
+              width={100}
+              height={100}
+              src={personSchedule?.image?.url || personSchedule?.image}/>
+
+              {/* Nombre */}
+              <p className='bg-success text-center text-white rounded-[5px] min-w-[110px] absolute bottom-[-12px]' >{personSchedule?.first_name} {personSchedule?.last_name}</p>
+
             </div> : null}
-            <div className="flex items-center">
-              <h2 className="flex-auto font-semibold text-gray-900">
-                {/* Aca esta el mes  del calendario */}
+
+
+          </div>
+
+          {/* Calendario */}
+          <div className="w-[60%]">
+
+            {/* Mes y botones de cambio de mes */}
+            <div className='flex mt-[16px]'>
+
+              {/* Botones para cambiar de Mes */}
+              <div className='flex mr-3'>
+
+                {/* Boton para Anterior mes */}
+                <button
+                  type="button"
+                  onClick={previousMonth}
+                  className="-my-1.5 flex flex-none items-center justify-center  text-gray-400 hover:text-gray-500"
+                >
+                  <span className="sr-only">Previous month</span>
+                  <ChevronLeftIcon className="w-5 h-5" aria-hidden="true" />
+                </button>
+
+                {/* Boton para Siguiente mes */}
+                <button
+                  onClick={nextMonth}
+                  type="button"
+                  className="-my-1.5 -mr-1.5 ml-2 flex flex-none items-center justify-center text-gray-400 hover:text-gray-500"
+                >
+                  <span className="sr-only">Next month</span>
+                  <ChevronRightIcon className="w-5 h-5" aria-hidden="true" />
+                </button>
+
+              </div>
+
+              {/* Mes del calendario */}
+              <h3 className="font-semibold text-[14px] text-violet_dark">
                 {format(firstDayCurrentMonth, 'MMMM yyyy', { locale: es }).charAt(0).toUpperCase() + format(firstDayCurrentMonth, 'MMMM yyyy', { locale: es }).slice(1)}
-              </h2>
-              <button
-                type="button"
-                onClick={previousMonth}
-                className="-my-1.5 flex flex-none items-center justify-center p-1.5 text-gray-400 hover:text-gray-500"
-              >
-                <span className="sr-only">Previous month</span>
-                <ChevronLeftIcon className="w-5 h-5" aria-hidden="true" />
-              </button>
-              <button
-                onClick={nextMonth}
-                type="button"
-                className="-my-1.5 -mr-1.5 ml-2 flex flex-none items-center justify-center p-1.5 text-gray-400 hover:text-gray-500"
-              >
-                <span className="sr-only">Next month</span>
-                <ChevronRightIcon className="w-5 h-5" aria-hidden="true" />
-              </button>
+              </h3>
+
             </div>
-            <div className="grid grid-cols-7 mt-10 text-base leading-6 text-center text-white bg-primary">
+
+            <div className="grid grid-cols-7 mt-[15px] text-base leading-6 text-center text-white bg-primary">
               <div>Dom</div>
               <div>Lun</div>
               <div>Mar</div>
@@ -460,6 +675,7 @@ export default function Schedule() {
               <div>Vie</div>
               <div>Sáb</div>
             </div>
+            
             <div className="grid grid-cols-7 mt-2 text-sm">
               {days.map((day, dayIdx) => (
                 <div
@@ -473,6 +689,7 @@ export default function Schedule() {
                     type="button"
                     onClick={() => setSelectedDay(day)}
                     className={classNames(
+                      isBefore(day, startOfToday(new Date()))  && 'opacity-[50%] pointer-events-none',
                       isEqual(day, selectedDay) && 'text-white',
                       !isEqual(day, selectedDay) && isToday(day) && 'text-primary text-lg ',
                       !isEqual(day, selectedDay) && !isToday(day) && isSameMonth(day, firstDayCurrentMonth) && 'text-gray-900',
@@ -500,32 +717,37 @@ export default function Schedule() {
               ))}
             </div>
           </div>
-
+          
           {/* Seccion asignacion de calendarios de acuerdo a disponibildiad */}
-
-          <section className=''>
+          <section className='w-[20%] relative flex justify-start flex-col mt-[50px]'>
 
             <time dateTime={format(selectedDay, "yyyy-MM-dd'T'HH:00:00")} />
-            <div className='max-w-fit pt-36 pl-14 grid grid-cols-1 divide-x object-none object-right-top  border-red-500 border-solid-4'>
+
+            <div className='grid grid-cols-1 divide-x object-none object-right-top w-full px-3'>
               {/* {Section Alumnos} */}
 
               {renders?.user?.role === 'user' || renders?.user?.role.includes('user') || true ?
-                <>
+                <ul>
                   {/* de aca viene el id del usuario donde va a renderizar el estado del teacher o guias
                   con los datos del teacher o guia turistico, viene por redux  y por BD en caso de dar f5*/}
-                  <div><strong> {personSchedule?.first_name}</strong></div>
 
                   {isAfter(selectedDay, today) && personSchedule?.calendar?.map((meeting, index) => {
                     if (!meeting.assigned && isSameDay(parseISO(meeting.userstartDatetime), selectedDay)) {
                       return (
 
-                        <p key={index}>
+                        <li key={index}>
+
                           <button onClick={() => setNewMeeting(meeting)}
+                            // className={classNames(
+                            //   'focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 mb-2 w-full border-solid border-[2px] border-primary',
+                            //   newMeeting ? newMeeting.userstartDatetime === meeting.userstartDatetime ? 'bg-success text-white border-none' : '   text-primary hover:border-none border-primary hover:text-white' : ' text-primary hover:border-none border-primary hover:text-white',
+                            //   newMeeting ? newMeeting.userstartDatetime !== meeting.userstartDatetime ? ' text-primary hover:border-none border-primary hover:text-white' : 'bg-success text-white ' : null,
+                            // )}
                             className={classNames(
-                              'focus:outline-none  hover:bg-success  font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900',
-                              newMeeting ? newMeeting.userstartDatetime === meeting.userstartDatetime ? 'bg-success text-white ' : '  ring-2 text-primary hover:border-none border-primary hover:text-white' : 'ring-2 text-primary hover:border-none border-primary hover:text-white',
-                              newMeeting ? newMeeting.userstartDatetime !== meeting.userstartDatetime ? 'ring-2 text-primary hover:border-none border-primary hover:text-white' : 'bg-success text-white ' : null,
-                            )} >
+                              'focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 mb-2 w-full border-solid border-[2px] border-primary hover:bg-primary transition-all',
+                              newMeeting && newMeeting.userstartDatetime === meeting.userstartDatetime ? 'bg-success text-white border-none hover:bg-success_hover' : '   text-primary border-primary hover:text-white',
+                            )}
+                            >
 
                             <time dateTime={meeting.userstartDatetime}>
                               {format(parseISO(meeting.userstartDatetime), 'h:mm a')}
@@ -534,8 +756,10 @@ export default function Schedule() {
                             <time dateTime={meeting.userendDatetime}>
                               {format(parseISO(meeting.userendDatetime), 'h:mm a')}
                             </time>
+
                           </button>
-                        </p>
+
+                        </li>
 
                       );
                     }
@@ -546,20 +770,17 @@ export default function Schedule() {
                   {/* Si existe un meeting para asignar y el pago ha sido confirmado, renderiza el botón de confirmar citas */}
 
                   {isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.userstartDatetime), selectedDay) && !meeting.assigned) &&// isPaymentConfirmed &&!isPaymentConfirmed&&
-                    <button type="button" onClick={() => Confirm()} className='focus:outline-none bg-primary text-white font-medium rounded-lg text-sm px-5 py-2.5 mb-2'>Confirma</button>
+                    <button
+                    type="button"
+                    onClick={() => Confirm()}
+                    className='btn-primary px-5 py-2.5 mb-2 w-full text-[16px]'>
+                      Confirmar
+                    </button>
                   }
 
                   {
                     !isPaymentConfirmed && isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) &&
                     <div>
-                      {/* Botón para abrir el modal de PayPal */}
-                      {/* <button
-      onClick={openPaypalModal}
-      className="flex w-full items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all bg-primary text-white hover:bg-primary hover:text-white"
-    >
-      <FontAwesomeIcon icon={faMoneyBill} className="mr-[10px]" />
-      <span>Reserva tu Cita</span>
-    </button> */}
 
                       {/* Modal de Pago */}
                       <ModalPago
@@ -571,7 +792,7 @@ export default function Schedule() {
                     </div>
                   }
 
-                </>
+                </ul>
 
                 : null}
             </div>
@@ -581,14 +802,19 @@ export default function Schedule() {
           </section>
 
         </div>
-        <div className='pt-10 text'>Recuerda:</div>
-        <div className='pt-6 max-w-prose text-justify' ><p>
+        
+      </div>
+
+      {/* Recuerda */}
+      <div className='bg-white w-full px-[22px] py-[26px]  rounded-[10px] shadow-[0px_4px_24px_#0000000F] my-[24px] text-violet_dark'>
+        <p className='mb-[12px] font-semibold'>Recuerda:</p>
+        <p>
           La cancelación o modificación de horario se realiza de manera sencilla a través de la agenda de la aplicación.
           Simplemente acceda a su cuenta, navegue hasta la sección de agenda y seleccione la fecha y hora que desea cambiar.
           Luego, seguí las instrucciones proporcionadas para cancelar o modificar tu reserva según sus necesidades.
           Esto le brindará la flexibilidad de gestionar sus clases de español de manera conveniente y eficiente,
-          adaptándolas a tu agenda y preferencias.</p>
-        </div>
+          adaptándolas a tu agenda y preferencias.
+        </p>
       </div>
     </div>
   )
