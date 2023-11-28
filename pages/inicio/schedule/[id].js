@@ -1,8 +1,9 @@
-import React , {useEffect} from 'react'
-import Schedule from '../../../components/Calendar/CalendarStudent'
-import Menu from '../../../components/Menu'
-import { cardDetail, fetchTeachers } from '../../../redux/ECEActions'
+import React , {useEffect} from 'react';
+import { cardDetail, fetchTeachers } from '../../../redux/ECEActions';
 import {  useDispatch } from 'react-redux';
+import Schedule from '../../../components/Calendar/CalendarStudent';
+import Menu from '../../../components/Menu';
+
 
 export default function CalendarforStudentPlaning()
    {

@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import Spinner from '../Spinner';
 import styles from '../../styles/navbar.module.css';
+import Plan from '../Plan/Plansync';
 import { es } from 'date-fns/locale';
 import {
   add,
@@ -55,6 +56,7 @@ export default function Schedule() {
 
   const [isPaymentConfirmed, setIsPaymentConfirmed] = useState(false);
   const [paymentCancelled, setPaymentCancelled] = useState(false);
+  const [OpenP, setOpenP] = useState(false);
 
   const handlePaymentSuccess = () => {
     setIsPaymentConfirmed(true);
@@ -193,11 +195,15 @@ export default function Schedule() {
 
 
   //Function que asigna el horario al alumno en el calendario de profesor y del alumno
-  async function Confirm() {
+  function openPlan(){
+    setOpenP(true)
+  }
+  async function Confirm(VALUE) {
     //sb-x747sj28200220@personal.example.com
     //Px4q]_[X
     //https://sandbox.paypal.com
 
+    console.log(VALUE)
 
     const newcalendar = [];
     const newcalendarS = [];
@@ -384,7 +390,7 @@ export default function Schedule() {
 
     alert('Su clase ha sido asignada')
 
-
+    setOpenP(false)
 
     router.push('/inicio/calendar');
   }
@@ -546,9 +552,9 @@ export default function Schedule() {
                   {/* Si existe un meeting para asignar y el pago ha sido confirmado, renderiza el botón de confirmar citas */}
 
                   {isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.userstartDatetime), selectedDay) && !meeting.assigned) &&// isPaymentConfirmed &&!isPaymentConfirmed&&
-                    <button type="button" onClick={() => Confirm()} className='focus:outline-none bg-primary text-white font-medium rounded-lg text-sm px-5 py-2.5 mb-2'>Confirma</button>
+                    <button type="button" onClick={() => openPlan()} className='focus:outline-none bg-primary text-white font-medium rounded-lg text-sm px-5 py-2.5 mb-2'>Confirma</button>
                   }
-
+                  {OpenP && <Plan Confirm={Confirm} newMeeting={newMeeting}  />}
                   {
                     !isPaymentConfirmed && isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) &&
                     <div>
