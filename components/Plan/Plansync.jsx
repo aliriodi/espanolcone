@@ -10,10 +10,10 @@ export default function Plansync({ }) {
     plan[planX].type.includes('Sinc') ? plan1.push(plan[planX]) : null
   );
   function validarEntrada(event) {
-    console.log(typeof(event.target.value))
-    console.log(typeof(parseInt(event.target.value, 10)))    
-    console.log(parseInt(event.target.value, 10))
-    console.log(isNaN(parseInt(event.target.value, 10)))
+    // console.log(typeof(event.target.value))
+    // console.log(typeof(parseInt(event.target.value, 10)))    
+    // console.log(parseInt(event.target.value, 10))
+    // console.log(isNaN(parseInt(event.target.value, 10)))
     if(isNaN(parseInt(event.target.value, 10))){setValorInput(4)}
     else(setValorInput(event.target.value))
    }
