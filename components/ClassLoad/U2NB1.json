@@ -11,12 +11,12 @@
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366262/images/logo-primary_qoagkg.png",
                 "alt": "EspañolconE",
-                "className": "Portadaimg"
+                "className": ""
             },
             {
                 "type": "title",
                 "value": "QUIERO PASARLA BIEN EN CÓRDOBA",
-                "className": "Portadatil"
+                "className": "titleBlack"
             },
             {
                 "type": "level",
@@ -41,7 +41,7 @@
             {
                 "type": "paragraph",
                 "value": "<table style='width: 80%;'><th style= 'border: 1px solid black; width: 25%; background-color: #00CDE5' ><h3><strong>Comunicación</strongyle=></h3></th><th style= ' border: 1px solid black; width: 25%; background-color: #00CDE5;' ><h3><strong>Vocabulario</strong></h3></th><th style= 'border: 1px solid black;width: 30%; background-color: #00CDE5;'><h3><strong>Gramática</strong></h3></th><tr><td style= 'border: 1px solid black; padding: 4px'>*Expresar gustos y preferencias sobre actividades de ocio.<br>*Describir y valorar sitios, eventos y espectáculos.<br>*Describir y recomendar lugares y locales de ocio.<br>Expresar deseos de hacer algo.<br>*Proponer, aceptar y rechazar invitaciones y propuestas.<br>*Concertar citas y excusarse.<br>Planificar una actividad para compartir y un dia de paseo.<br>*Recursos y herramientas para ponerse de acuerdo para hacer alguna actividad.<br>*Buscar información sobre ofertas culturales y de ocio.</td><td style= 'border: 1px solid black;padding: 4px'>*Lugares y actividades de ocio.<br>*Adjetivos descriptivos.<br>*Adjetivos para valorar lugares, eventos y espectáculos.<br>*Descripción de sitios de Córdoba.<br>*Vocabulario asociado a ofertas culturales, espectáculos, ofertas gastronómicas y monumentos.<br>*Algunas palabras sencillas y frases cortas del argot cordobés.</td><td style= 'border: 1px solid black;padding: 4px;'>*Pronombres me / te / le / nos / les.<br>*Interrogativas: ¿Qué te / le / os apetece hacer?<br>*Aceptar una invitación o propuesta: Vale. Dale. Buena idea. Me apetece.<br>*Rechazar una invitación o propuesta. Excusarse: Es que  ... / Es que + expresión de tiempo + no puedo.<br>*Interrogativas: ¿Dónde quedamos? / ¿A qué hora? / ¿Cuándo? / ¿Con quién o quienes? / ¿Cómo? + te;les + va bien ...?<br>*Verbo quedar.<br>Condicionales: me iría mejor / me gustaría / nos convendría / preferiría.</td></table>",
-                "className": ""
+                "className": "table"
             },
             {"type": "text", "value": "Creado por Virginia"}
 
@@ -257,8 +257,8 @@
     "page6": {
         "type": "paragraph-complete",
         "section": {
-            "number":3,
-            "value":"Practiquemos"
+            "number":1,
+            "value":"Comencemos"
         },
         "template": "template-title-right-1",
         "data": [
@@ -275,52 +275,52 @@
             {
                 "type": "paragraph-complete",
                 "value": [
-                    "Si querés conectar con la naturaleza y recorrer senderos naturales que te lleven a un lugar relajado y tranquilo, deber ir (",
+                    "<li>Si querés conectar con la naturaleza y recorrer senderos naturales que te lleven a un lugar relajado y tranquilo, deber ir (",
                     {
                         "block": 1,
                         "color": "orange",
                         "option": "4"
                     },
-                    ")"
+                    ")</li>"
                     ],
                 "className": "paragraph-complete"
             },
             {
                 "type": "paragraph-complete",
                 "value": [
-                    "Si querés disfrutar de un espectáculo de teatro, tienes que ir a (",
+                    "<li>Si querés disfrutar de un espectáculo de teatro, tienes que ir a (",
                     {
                         "block": 1,
                         "color": "orange",
                         "option": "3"
                     },
-                    ")"
+                    ")</li>"
                     ],
                 "className": "paragraph-complete"
             },
             {
                 "type": "paragraph-complete",
                 "value": [
-                    "Si querés experimentar una tradición traída por inmigrantes a Argentina, deberías que ir a (",
+                    "<li>Si querés experimentar una tradición traída por inmigrantes a Argentina, deberías que ir a (",
                     {
                         "block": 1,
                         "color": "orange",
                         "option": "1"
                     },
-                    ")"
+                    ")</li>"
                     ],
                 "className": "paragraph-complete"
             },
             {
                 "type": "paragraph-complete",
                 "value": [
-                    "Si querés aprender sobre flora y fauna tradicional y a la vez vivir un momento mágico al atardecer, debés visitar (",
+                    "<li>Si querés aprender sobre flora y fauna tradicional y a la vez vivir un momento mágico al atardecer, debés visitar (",
                     {
                         "block": 1,
                         "color": "orange",
                         "option": "2"
                     },
-                    ")"
+                    ")</li>"
                     ],
                 "className": "paragraph-complete"
             },
@@ -371,17 +371,18 @@
         ]
     },
     "page7": {
-        "type": "slide",
+        "type": "video",
         "section": {
-            "number":3,
-            "value":"Practiquemos"
+            "number":2,
+            "value":"Aprendemos"
         },
-        "template": "template-title-top-1",
+        "template": "template-video-1",
         "data": [
             {
-                "type": "title",
-                "value": "Actividades interactivas",
-                "className": "p1title"
+                "type": "video-youtube",
+                "value": "FEn0u4iTafA",
+                "youtuve": "https://www.youtube.com/watch?v=FEn0u4iTafA",
+                "className": "video"
             }
         ]
     },
@@ -391,17 +392,17 @@
             "number":3,
             "value":"Practiquemos"
         },
-        "template": "",
+        "template": "template-video-1",
         "data": [
             {
                 "type": "paragraph",
-                "value": "Vamos a conocer más en profundidad de qué se trata<br><span style= 'color: purple; font-size: 24px;'>La Media Legua de Oro Cultural</span><br>un recorrido que se puede hacer en la capital de la provincia",
-                "className": ""
+                "value": "<strong>Vamos a conocer más en profundidad de qué se trata<br><span style= 'color: purple; font-size: 24px;'>La Media Legua de Oro Cultural</span><br>un recorrido que se puede hacer en la capital de la provincia</strong>",
+                "className": "paragraph1"
             },
             {
                 "type": "video-youtube",
-                "value": "GyJtkcbSbmw&t=4s",
-                "youtuve": "https://www.youtube.com/watch?v=GyJtkcbSbmw&t=4s",
+                "value": "GyJtkcbSbmw",
+                "youtuve": "https://www.youtube.com/watch?v=GyJtkcbSbmw",
                 "className": "video"
             }
         ]
@@ -421,7 +422,12 @@
             },
             {
                 "type": "paragraph",
-                "value": "<li>Para completar los espacios vacíos selecciona:</li><br>una cárcel de mujeres - Teatro del Libertador San Martín - Ciudad de las Artes - El Origen del Universo - Teatro Real - Plaza España</li>",
+                "value": "<li><strong>Para completar los espacios vacíos seleccioná:</strong></li>",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "<strong>una cárcel de mujeres - Teatro del Libertador San Martín - Ciudad de las Artes - El Origen del Universo - Teatro Real - Plaza España</strong>",
                 "className": ""
             },
             {
@@ -430,13 +436,13 @@
                 {
                     "block": 10,
                     "color": "orange",
-                    "option": "teatro real"
+                    "option": "Teatro real"
                 },
                 " y luego vamos a otro teatro, el ",
                 {
                     "block": 10,
                     "color": "orange",
-                    "option": "teatro del libertador san martín"
+                    "option": "Teatro del libertador san martín"
                 },
                 ", en el que se hacen presentaciones de ópera, orquestas y ballet.<br><span style= 'color: orange'>Bárbara:</span> ¡Genial! Suena muy interesante. Después, ¿por cuál seguimos?"
             ],
@@ -459,12 +465,12 @@
             },
             {
                 "type": "paragraph",
-                "value": "<li>Para completar los espacios vacíos seleccioná:</li>una cárcel de mujeres - Teatro del Libertador San Martín - Ciudad de las Artes - El Origen del Universo - Teatro Real - Plaza España",
+                "value": "<li><strong>Para completar los espacios vacíos seleccioná:</strong></li>",
                 "className": ""
             },
             {
                 "type": "paragraph",
-                "value": "una cárcel de mujeres - Teatro del Libertador San Martín - Ciudad de las Artes - El Origen del Universo - Teatro Real - Plaza España",
+                "value": "<strong>una cárcel de mujeres - Teatro del Libertador San Martín - Ciudad de las Artes - El Origen del Universo - Teatro Real - Plaza España</strong>",
                 "className": ""
             },
             {
@@ -516,13 +522,13 @@
             {
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--N1mOzWkx--/v1699321267/images/lfuws2zfuozv9ie6mj3x.png",
-                "className": "Portadaimg",
-                "alt":"boliche"
+                "className": "",
+                "alt": "Boliche"
             }
         ]
     },
     "page12": {
-        "type": "boxmove",
+        "type": "dragablebox",
         "section": {
             "number":3,
             "value":"Practiquemos"
@@ -562,43 +568,43 @@
                 {
                     "type":"image",
                     "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--tVaspz9z--/v1699321484/images/y23w3awsowbgpheclsyz.png",
-                    "value":"abril",
+                    "value":"Abril",
                     "id":"DropUp1"
                 },
                 {
                     "type":"image",
                     "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--aiG54j1T--/v1699321561/images/rweycoqvt0z8xqmh6cfg.png",
-                    "value":"franco",
+                    "value":"Franco",
                     "id":"DropUp2"
                 },
                 {
                     "type":"image",
                     "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--Bvt0L8KK--/v1699321595/images/f4h31oqnxp64k5zowxz6.png",
-                    "value":"morena",
+                    "value":"Morena",
                     "id":"DropUp3"
                 },
                 {
                     "type":"image",
                     "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--aYMk1JfW--/v1699321645/images/lf6ooc8swcpfoypoulqh.png",
-                    "value":"lucas",
+                    "value":"Lucas",
                     "id":"DropUp4"
                 }
             ],
                 "DragBoxs":[
                     {
-                        "value":"jóvenes",
-                        "id":"abril"
+                        "value":"Abril",
+                        "id":"DragBox1"
                     },
                     {
-                        "value":"franco",
+                        "value":"Franco",
                         "id":"DragBox2"
                     },
                     {
-                        "value":"morena",
+                        "value":"Morena",
                         "id":"DragBox3"
                     },
                     {
-                        "value":"lucas",
+                        "value":"Lucas",
                         "id":"DragBox4"
                     }
                 ]
@@ -615,45 +621,373 @@
         "data": [
             {
                 "type": "title",
-                "value": "Idea para el RETO",
+                "value": "Reto Propuesto",
                 "className": "title-white"
             },
             {
-                "type": "video-youtube",
-                "value": "EwtFESvbows",
-                "className": "",
-                "youtube": "https://www.youtube.com/watch?v=EwtFESvbows"
+                "type": "paragraph",
+                "value": "<span style= 'color: orange'>Mira el video que se muestra a continuación, contesta las siguientes preguntas y envíale tus respuestas a tu profesor.</span>",
+                "className": "parragraph1"
             },
             {
                 "type": "paragraph",
-                "value": "Fidel Ernesto Nadal es un músico y cantante argentino. En los años 1980, integró la banda Todos Tus Muertos grupo de rock, punk y reggae de Argentina, donde publicaron un total de ocho álbumes. Nacimiento: 21 de Septiembre de 1965 (edad 58 años), Buenos Aires. Genero: Reggae" ,
-                "className": ""
-            },
-            {
-                "type": "video-youtube",
-                "value": "tWdt2dgxMM0",
-                "youtube": "https://www.youtube.com/watch?v=tWdt2dgxMM0",
-                "className": "video"
-            },
-            {
-                "type": "paragraph",
-                "value": "Ilegales o Los Ilegales es una agrupación musical dominicana fundada en 1993 y liderada por Vladimir Dotel. Ha recibido varias nominaciones y premios internacionales, además de llegar a las listas de Billboard Tropical.Género: Pop. Origen: República Dominicana (1993).<br>Antonio Enrique Álvarez Cisneros, más conocido por su nombre artístico de El Potro Álvarez, es un exbeisbolista, cantante y político venezolano. Estuvo bajo varias ligas de béisbol tanto venezolanas, como internacionales. Aparte, logró posicionar varios temas musicales dentro del conteo de canciones en Latinoamérica. Wikipedia.<br>Nacimiento: 10 de mayo de 1979 (edad 44 años), Caracas, Venezuela",
-                "className": ""
-            },
-            {
-                "type": "video-youtube",
-                "value": "TcK47ozBJNQ",
-                "youtube": "https://www.youtube.com/watch?v=TcK47ozBJNQ",
-                "className": ""
-            },
-            {
-                "type": "paragraph",
-                "value": "Márama es un grupo musical uruguayo de cumbia pop, formado en 2014.​ Género: Pop. Origen: Montevideo, Uruguay (2014)" ,
+                "value": "<li>¿Qué quiere decir “pasarla bien”?</li><br><br><li>Explica la frase: “la vida es una sola y hay que disfrutarla”.</li><br><br><li>¿Cómo la pasan bien las personas en el video?</li><br><br><li>¿Y a ti, qué te gusta hacer para pasarla bien?</li><br><br><li>Escoge un sitio o una actividad para pasarla bien el próximo fin de semana y luego comparte tu experiencia en clases.</li>",
                 "className": ""
             }
         ]
     },
     "page14": {
+        "type": "video",
+        "section": {
+            "number":4,
+            "value":"Mis retos"
+        },
+        "template": "template-video-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Pasarla bien",
+                "className": ""
+            },
+            {
+                "type": "video-youtube",
+                "value": "tWdt2dgxMM0",
+                "youtuve": "https://www.youtube.com/watch?v=tWdt2dgxMM0",
+                "className": "video"
+            }
+        ]
+    },
+    "page15": {
+        "type": "paragraph-complete",
+        "section": {
+            "number": 5,
+            "value": "Evaluemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Evaluación unidad 2 - Nivel B1",
+                "className": "titleBlack"
+            },
+            {
+                "type": "paragraph",
+                "value": "A continuación verás 20 imágenes que muestran lugares y actividades para pasarla bien. Tendrá una lista para identificar los distintos lugares y actividades, posiciona cada elemento de la lista en la imagen que identifica.",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "Cada asociación correcta te sumará un punto, para un total de 20 puntos.<br>Recuerda que apruebas el tes sumando mínimo 18 puntos.",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style=' color: orange'>¡Adelante y buena suerte!</span>",
+                "className": ""
+            }
+        ]
+    },
+    "page16": {
+        "type": "dragablebox",
+        "section": {
+            "number":5,
+            "value":"Evaluemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Para pasarla bien puedes ir …",
+                "className": "titleleft-white"
+            },
+            
+                {
+                "type": "dragable-box",
+                "value":{
+                "DropUps":
+                    [
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--Dqy6TBEm--/v1701293231/images/zoddbzk2ulkljsljecfs.png",
+                    "value":"a la playa",
+                    "id":"DropUp1"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--7i8S0WT4--/v1701293285/images/qnfiamvo3nyfkz4hauba.png",
+                    "value":"al parque mecánico",
+                    "id":"DropUp2"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--2FUOw9cI--/v1701293326/images/wbb4pxgoersqm5qq7ia7.png",
+                    "value":"al cine",
+                    "id":"DropUp3"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--jbRkvSzL--/v1701293370/images/yxyfyjbigfuoua9tg4qe.png",
+                    "value":"a un boliche",
+                    "id":"DropUp4"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--cpAE11NW--/v1701293409/images/qwyunixi8jnfiogygkor.png",
+                    "value":"a un restaurante",
+                    "id":"DropUp5"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--en2PDtQ8--/v1701293445/images/bhsfb0eeas7svrvvueeg.png",
+                    "value":"al teatro",
+                    "id":"DropUp6"
+                }
+            ],
+                "DragBoxs":[
+                    {
+                        "value":"al cine",
+                        "id":"DragBox1"
+                    },
+                    {
+                        "value":"a un boliche",
+                        "id":"DragBox2"
+                    },
+                    {
+                        "value":"a la playa",
+                        "id":"DragBox3"
+                    },
+                    {
+                        "value":"a un restaurante",
+                        "id":"DragBox4"
+                    },
+                    {
+                        "value":"al teatro",
+                        "id":"DragBox4"
+                    },
+                    {
+                        "value":"al parque mecánico",
+                        "id":"DragBox4"
+                    }
+                ]
+            }
+        }]            
+    },
+    "page17": {
+        "type": "dragablebox",
+        "section": {
+            "number":5,
+            "value":"Evaluemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Para pasarla bien puedes …",
+                "className": "titleleft-white"
+            },
+            
+                {
+                "type": "dragable-box",
+                "value":{
+                "DropUps":
+                    [
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--geMabp_V--/v1701294226/images/w9lukw8gya7fumrypins.png",
+                    "value":"usar las redes sociales",
+                    "id":"DropUp1"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--VaalNIUC--/v1701294300/images/uurgsz5vmqgc5glz8mzk.png",
+                    "value":"ver una película o una serie",
+                    "id":"DropUp2"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--y2Ej_ewU--/v1701294350/images/sswktrzmgvxjffiguk5w.png",
+                    "value":"compartir en familia",
+                    "id":"DropUp3"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--MXpElsoh--/v1701294395/images/sew0bdupffqwmohkjjkr.png",
+                    "value":"hacer ejercicio",
+                    "id":"DropUp4"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--2gRyc8cx--/v1701294433/images/imcx6ulh0rkrvqumi6qe.png",
+                    "value":"cocinar",
+                    "id":"DropUp5"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--iyiE3io2--/v1701294466/images/ptex4vv9hjzjycvao8c8.png",
+                    "value":"leer",
+                    "id":"DropUp6"
+                }
+            ],
+                "DragBoxs":[
+                    {
+                        "value":"compartir en familia",
+                        "id":"DragBox1"
+                    },
+                    {
+                        "value":"hacer ejercicio",
+                        "id":"DragBox2"
+                    },
+                    {
+                        "value":"ver una película o una serie",
+                        "id":"DragBox3"
+                    },
+                    {
+                        "value":"cocinar",
+                        "id":"DragBox4"
+                    },
+                    {
+                        "value":"leer",
+                        "id":"DragBox4"
+                    },
+                    {
+                        "value":"usar las redes sociales",
+                        "id":"DragBox4"
+                    }
+                ]
+            }
+            }]            
+    },   
+    "page18": {
+        "type": "dragablebox",
+        "section": {
+            "number":5,
+            "value":"Evaluemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Para pasarla bien puedes ver los siguientes tipos de programas …",
+                "className": "titleleft-white"
+            },
+            
+                {
+                "type": "dragable-box",
+                "value":{
+                "DropUps":
+                    [
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--XThrutsq--/v1701295103/images/fiybga50bo1zhux7bs7z.png",
+                    "value":"series",
+                    "id":"DropUp1"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--HYuDFhHq--/v1701295163/images/yvf2dimxbyrewawoz6dy.png",
+                    "value":"novelas",
+                    "id":"DropUp2"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--H6MQFejA--/v1701295235/images/dchastff6twr8o7hbplq.png",
+                    "value":"programas de música",
+                    "id":"DropUp3"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--kP5UCymE--/v1701295287/images/o1aw6ykw3bo3n7iinum4.png",
+                    "value":"programas de deportes",
+                    "id":"DropUp4"
+                }
+            ],
+                "DragBoxs":[
+                    {
+                        "value":"programas de deportes",
+                        "id":"DragBox1"
+                    },
+                    {
+                        "value":"novelas",
+                        "id":"DragBox2"
+                    },
+                    {
+                        "value":"programas de música",
+                        "id":"DragBox3"
+                    },
+                    {
+                        "value":"series",
+                        "id":"DragBox4"
+                    }
+                ]
+            }
+        }]            
+    },
+    "page19": {
+        "type": "dragablebox",
+        "section": {
+            "number":5,
+            "value":"Evaluemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Para pasarla bien puedes ver los siguientes tipos de películas …",
+                "className": "titleleft-white"
+            },
+            
+                {
+                "type": "dragable-box",
+                "value":{
+                "DropUps":
+                    [
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--vJEyrGdr--/v1701295787/images/uffktqltgzteqy6byudo.png",
+                    "value":"comedias",
+                    "id":"DropUp1"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--xKtVdh3S--/v1701295882/images/omslbd3tlnt75omwnqtr.png",
+                    "value":"románticas",
+                    "id":"DropUp2"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--cnjVcmQ2--/v1701295892/images/be8usbi5trorxgy4xv23.png",
+                    "value":"de guerra",
+                    "id":"DropUp3"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--cLrqWGk5--/v1701295937/images/s0w2zqmrztananilvlig.png",
+                    "value":"de acción",
+                    "id":"DropUp4"
+                }
+            ],
+                "DragBoxs":[
+                    {
+                        "value":"románticas",
+                        "id":"DragBox1"
+                    },
+                    {
+                        "value":"de guerra",
+                        "id":"DragBox2"
+                    },
+                    {
+                        "value":"comedias",
+                        "id":"DragBox3"
+                    },
+                    {
+                        "value":"de acción",
+                        "id":"DragBox4"
+                    }
+                ]
+            }
+        }]            
+    },
+    "page20": {
         "type": "text",
         "section": {
             "number":5,
@@ -663,7 +997,7 @@
         "data": [
             {
                 "type": "title",
-                "value": "¡Gracias por tu atención!",
+                "value": "¡GRACIAS POR TU ATENCIÓN!",
                 "className": ""
             },
             {
