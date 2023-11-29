@@ -14,8 +14,8 @@ export default function Plansync({ Confirm}) {
     // console.log(typeof(parseInt(event.target.value, 10)))    
     // console.log(parseInt(event.target.value, 10))
     // console.log(isNaN(parseInt(event.target.value, 10)))
-    if(isNaN(parseInt(event.target.value, 10))){setValorInput(4)}
-    else(setValorInput(event.target.value))
+    if(isNaN(parseInt(event.target.value, 10))){setValorInput(parseInt(4,10))}
+    else(setValorInput(parseInt(event.target.value,10)))
    }
 
   return (
@@ -39,10 +39,10 @@ export default function Plansync({ Confirm}) {
   type="number" 
   id="numeroInput" 
   name="numeroInput" 
-  min="4" 
-  onInput={validarEntrada}
+  min={4}
+  onChange={validarEntrada}
   value={valorInput}
-  defaultValue={valorInput}
+  
 ></input>
              </td>
             <td >

@@ -193,10 +193,6 @@ export default function Schedule() {
     setPaypalModal(data)
   }
 
-  //Declaro diferencial de horario
-
-
-
 
   //Function que asigna el horario al alumno en el calendario de profesor y del alumno
   function openPlan(){
@@ -208,7 +204,7 @@ export default function Schedule() {
     //https://sandbox.paypal.com
 
     console.log(VALUE)
-
+    
     const newcalendar = [];
     const newcalendarS = [];
     //Teacher o guia turistico apeando las citas del calendario para asignarlo
@@ -778,7 +774,7 @@ export default function Schedule() {
                   {isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.userstartDatetime), selectedDay) && !meeting.assigned) &&// isPaymentConfirmed &&!isPaymentConfirmed&&
                     <button
                     type="button"
-                    onClick={() => Confirm()}
+                    onClick={() => openPlan()}
                     className='btn-primary px-5 py-2.5 mb-2 w-full text-[16px]'>
                       Confirmar
                     </button>
