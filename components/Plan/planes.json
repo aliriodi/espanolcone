@@ -1,0 +1,55 @@
+{
+    "plan1":{
+        "type":"Asinc1",
+        "items":[
+            {"value":"Curso completo asincrónico de español basado en el MCER de A1 a C1:  <strong>Conocé Córdoba Argentina</strong>", "include":true},
+            {"value":"Descuento en las clases sincrónicas con el profesor de tu elección", "include":true},
+            {"value":"Biblioteca temática - Diversos tópicos organizados por nivel (A1 - C1)", "include":false},
+            {"value":"Actividades interactivas autocorregibles, organizadas por nivel (A1 - C1)", "include":true},
+            {"value":"Membresía de la comunidad de <strong>“Viajeros”</strong>", "include":true},
+            {"value":"Clases grupales online de temas específicos <strong>(live class)</strong>", "include":false},
+            {"value":"Certificación por niveles", "include":true}
+        ],
+        "qty":"1",
+        "ammountUnit":"20",
+        "decription":"Clase asincrónica, periodo 1 MES, todo lo que el usuario pueda hacer autodidacticamente",
+        "obs":null
+    },
+    "plan2":{
+        "type":"Asinc2",
+        "items":[
+            {"value":"Curso completo asincrónico de español basado en el MCER de A1 a C1:  <strong>Conocé Córdoba Argentina</strong>", "include":true},
+            {"value":"Descuento en las clases sincrónicas con el profesor de tu elección", "include":true},
+            {"value":"Biblioteca temática - Diversos tópicos organizados por nivel (A1 - C1)", "include":true},
+            {"value":"Actividades interactivas autocorregibles, organizadas por nivel (A1 - C1)", "include":true},
+            {"value":"Membresía de la comunidad de <strong>“Viajeros”</strong>", "include":true},
+            {"value":"Clases grupales online de temas específicos <strong>(live class)</strong>", "include":true},
+            {"value":"Certificación por niveles", "include":true}
+        ],
+        "qty":"1",
+        "ammountUnit":"200",
+        "decription":"Clase asincrónica, periodo 1 AÑO, todo lo que el usuario pueda hacer autodidacticamente",
+        "obs":" <span style= 'color: orange;><strong>MEJOR PRECIO</strong></span>"
+    },
+    "plan3":{
+        "type":"Sinc1",
+        "items":[
+            {"value":"1 clase", "include":true}
+                ],
+        "qty":"1",
+        "ammountUnit":"30",
+        "decription":"Plan asistencia de 1 sola clase individual 1 hora",
+        "obs": null
+    },
+    "plan4":{
+        "type":"Sinc2",
+        "items":[
+            {"value":"A partir de 4 clases", "include":true}
+            
+         ],
+        "qty":"1",
+        "ammountUnit":"25",
+        "decription":"Plan asistencia de al menos 4 clase individuales clase 1 hora",
+        "obs": null
+    }
+}

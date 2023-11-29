@@ -175,7 +175,7 @@
             },
             {
                 "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--2pjIQK3Q--/v1699320360/images/gwsaejtn8akklna9ix64.pn",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--2pjIQK3Q--/v1699320360/images/gwsaejtn8akklna9ix64.png",
                 "alt": "Paseo en lancha en Miramar de Ansenuza",
                 "className": ""
             },
@@ -222,7 +222,7 @@
             },
             {
                 "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s---aLVkjMh--/v1699320400/images/f1s8uxga3wl6771dywvc.pn",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s---aLVkjMh--/v1699320400/images/f1s8uxga3wl6771dywvc.png",
                 "alt": "Cerro Champaquí",
                 "className": ""  
             },
@@ -279,7 +279,7 @@
                     {
                         "block": 1,
                         "color": "orange",
-                        "option": 4
+                        "option": "4"
                     },
                     ")"
                     ],
@@ -292,7 +292,7 @@
                     {
                         "block": 1,
                         "color": "orange",
-                        "option": 3
+                        "option": "3"
                     },
                     ")"
                     ],
@@ -305,7 +305,7 @@
                     {
                         "block": 1,
                         "color": "orange",
-                        "option": 1
+                        "option": "1"
                     },
                     ")"
                     ],
@@ -318,7 +318,7 @@
                     {
                         "block": 1,
                         "color": "orange",
-                        "option": 2
+                        "option": "2"
                     },
                     ")"
                     ],
@@ -421,7 +421,7 @@
             },
             {
                 "type": "paragraph",
-                "value": "<li>Para completar los espacios vacíos selecciona:</li><br>una cárcel de mujeres - Teatro del Libertador San Martín - Ciudad de las Artes - El Origen del Universo - Teatro Real - Plaza España",
+                "value": "<li>Para completar los espacios vacíos selecciona:</li><br>una cárcel de mujeres - Teatro del Libertador San Martín - Ciudad de las Artes - El Origen del Universo - Teatro Real - Plaza España</li>",
                 "className": ""
             },
             {
@@ -475,8 +475,8 @@
                     "color": "orange",
                     "option": "una cárcel de mujeres"
                 },
-                "?<br>",
-                "<span style= 'color: blue'>Florencia:</span> Sí, ese. Cuando crucemos la",
+                "?<br> <span style= 'color: blue'>Florencia:</span> Sí, ese. Cuando crucemos la",
+
                 {
                     "block": 10,
                     "color": "orange",
@@ -510,13 +510,14 @@
         "data": [
             {
                 "type": "title",
-                "value": "Juliana se ha ganado entradas para ir a un boliche y ha invitado a sus amigos a ir con ella, porque tiene cinco entradas. paero, la mayoría de sus amigos ya tienen planes para el fin de semana ...",
+                "value": "Juliana se ha ganado entradas para ir a un boliche y ha invitado a sus amigos a ir con ella, porque tiene cinco entradas, pero la mayoría de sus amigos ya tienen planes para el fin de semana ...",
                 "className": "titleBlack"
             },
             {
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--N1mOzWkx--/v1699321267/images/lfuws2zfuozv9ie6mj3x.png",
-                "className": "Portadaimg"
+                "className": "Portadaimg",
+                "alt":"boliche"
             }
         ]
     },

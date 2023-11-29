@@ -1,0 +1,45 @@
+.location{
+    z-index: 3;
+}
+.table1{ 
+     margin: auto;
+     border-collapse: collapse;
+     width: 50%; }
+
+.table2{
+     border-collapse: collapse;
+     width: 30%;
+     margin: auto; }
+.th{
+     border: 1px solid black; 
+     padding: 8px; 
+     text-align: center;
+}
+.td{
+    border: 1px solid black; 
+    padding: 8px; 
+    text-align: center;
+}
+.tdo{
+    border: 1px solid black; 
+    padding: 8px; 
+    text-align: center;
+    color:orange;
+}
+.tdleft{
+    border: 1px solid black; 
+    padding: 8px; 
+    }
+.tdnoborder{
+    padding: 8px; 
+    text-align: center;
+    }
+.button{
+        width: 100px;
+        background-color: green;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        cursor: pointer;
+      }
+      
