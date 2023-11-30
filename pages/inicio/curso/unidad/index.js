@@ -9,7 +9,7 @@ import Select from 'react-select'
 import { setClassPage } from '../../../../redux/ECEActions'
 import { useSelector,useDispatch } from "react-redux";
 import Result from "postcss/lib/result";
-import Confetti from "../../../../components/confetti";
+import Confetti from '../../../../components/Confetti'
 import { useRouter } from 'next/router';
 
 
@@ -557,7 +557,8 @@ export default function Unidad(){
                     onClick={()=>setSection(5)}
                     href={`/inicio/curso/unidad/${classId}`}
                     className={`
-                    ${(maxSessionReached + 1) < 5  && "opacity-[50%] pointer-events-none"}
+                    ${(maxSessionReached + 1) < 5 && "opacity-[50%] pointer-events-none"}
+                    ${maxSessionReached >= 5 && "opacity-[50%] pointer-events-none"}
                     mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
                     hover:bg-[#3331] transition-colors
                     md:w-full`}>
