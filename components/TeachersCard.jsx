@@ -94,7 +94,7 @@ export function TeachersCard() {
       </div>
 
       {/* Profesores */}
-      {cards.length > 0 ? (
+      {cards.length > 0 && session? (
         cards.map((card, index) => (
           card.email !== session.user.email ?
             <div key={index}>

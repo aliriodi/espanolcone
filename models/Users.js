@@ -132,9 +132,14 @@ const UserSchema = new Schema(
     youtube: {
       type: String
     },
-    plan:{
-      type: [{}]
-    }
+    planAsync:{
+      type: [{ }],
+     
+    },
+    planSync:{
+      type: [{ }],
+     
+    },
     
 
   },
