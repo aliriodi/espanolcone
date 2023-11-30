@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import Class from '../components/Class/Class'
-import Menu from '../components/Menu'
+import Class from '../../../../components/Class/Class'
+import Menu from '../../../../components/Menu'
 import Link from 'next/link'
 import { faAngleLeft, faAngleRight, faHouse, faPersonHiking, faChalkboardUser, faLaptop, faAddressCard } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useSelector, useDispatch } from 'react-redux'
-import Spinner from '../components/Spinner'
-import style from "../styles/courses.module.css"
+import Spinner from '../../../../components/Spinner'
+import style from "../../../../styles/courses.module.css"
 import Head from 'next/head'
+import { useRouter } from 'next/router';
 
 export default function Courses() {
 
   const dispatch = useDispatch();
 
-
-  const id = useSelector((state) => state.datos.classid);
+  const router = useRouter();
+  const { id } = router.query;
+  // const id = useSelector((state) => state.datos.classid);
   const page = useSelector((state) => state.datos.classPage);
 
   const [title, setTitle] = useState(null);

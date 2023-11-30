@@ -45,7 +45,7 @@ export default function DropContainer({
                     // Tipo Imagen
                     type=="image" &&
                     <div
-                    ref={setNodeRef}
+                    // ref={setNodeRef}
                     style={style}
                     className="flex flex-col my-[60px] items-center">
 
