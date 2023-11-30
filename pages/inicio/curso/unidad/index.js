@@ -23,8 +23,10 @@ export default function Unidad(){
     const [congratulationsModal, setCongratulationsModal] = useState(false)
 
     const [currentClass, setCurrentClass] = useState(null)
-    const [level, setLevel] = useState(null)
     const [unit, setUnit] = useState(null)
+
+    const [level, setLevel] = useState(null)
+    const [nextLevelLabel, setNextLevelLabel] = useState(null)
 
     const dispatch = useDispatch();
     
@@ -32,9 +34,6 @@ export default function Unidad(){
     
     // const classId = useSelector((state) => state.datos.classid);
 
-    useEffect(()=>{
-        console.log(("maxSessionReached ",typeof maxSessionReached) )
-    },[maxSessionReached])
     async function updateUser(updates) {
         // Esta funcion se encarga de actualizar las "classes" del usuario
         // en funcion de lo que se le pase por el parametro "updates"
@@ -96,16 +95,15 @@ export default function Unidad(){
         .catch((error) => console.log(error));
     }
 
-    function updatePosition(){
+    async function updatePosition(){
         // Esta funcion se encarga de actualizar el position a la siguiente unidad 
         // y actualizar la unidad actual marcandola como echa
-        setCongratulationsModal(true)
-        
         let newUpdatesUser = {...session?.user};
 
         let currentLevel;
         let currentUnit;
 
+        // Busca al actual unidad y nivel
         newUpdatesUser?.classes.map((level)=>{
             level?.units?.map((unit)=>{
                 if(unit?.unitID == classId){
@@ -128,30 +126,28 @@ export default function Unidad(){
         }
 
         let newUnit = newUpdatesUser?.classes[newIndexlevel].units[newIndexUnit];
-        let newClass;
         newUnit.enable = true;
-        
-        fetch(`/api/class/${newUnit?.unitID}`)
-            .then((response) => response.json())
-            .then((json) =>{ 
 
-                newClass = json.class1.sheets
-
-                return;
-            })
+        let newClassLength = fetch(`/api/class/${newUnit?.unitID}`).then((response) => response.json())
+        .then(async (json) =>{return json.class1.sheets.length;})
         .catch((error) => console.log(error));
-
+        
+        // Se le aplican los cambios al "newUpdatesUser"
         newUpdatesUser = {
             ...newUpdatesUser,
             position:{
                 ...newUpdatesUser.position,
                 id:newUnit?.unitID,
-                index: -1,
-                maxpages: newClass?.length - 1
+                index: 0,
+                maxpages: await newClassLength > 0 ? await newClassLength - 1 : 0
             }
         }
 
-        updateUser(newUpdatesUser)
+        // Se asigna el siguiente Nivel
+        setNextLevelLabel(newUpdatesUser?.classes[newIndexlevel]?.level?.slice(newUpdatesUser?.classes[newIndexlevel]?.level?.length - 2, newUpdatesUser?.classes[newIndexlevel]?.level?.length))
+
+        await updateUser(newUpdatesUser)
+        setCongratulationsModal(true)
     }
 
     useEffect(()=>{
@@ -159,7 +155,7 @@ export default function Unidad(){
 
         // Primero se comprueba si la ultima clase realizada es igual a la ultima que hizo el usuario
         // en caso de ser asi a maxSessionReached se le asigna hasta que seccion llego el usuario
-        if(session?.user?.position?.id == classId){
+        if(session && classId && session?.user?.position?.id == classId){
             fetch(`/api/class/${classId}`)
             .then((response) => response.json())
             .then((json) =>{ 
@@ -199,13 +195,15 @@ export default function Unidad(){
     useEffect(()=>{
         
         // Este fetch se encarga de actualizar "currentClass"
-        fetch(`/api/class/${classId}`)
-            .then((response) => response.json())
-            .then((json) =>{ 
-                setCurrentClass(json.class1.sheets)
-                return;
-            })
-        .catch((error) => console.log(error));
+        if(classId){
+            fetch(`/api/class/${classId}`)
+                .then((response) => response.json())
+                .then((json) =>{ 
+                    setCurrentClass(json.class1.sheets)
+                    return;
+                })
+            .catch((error) => console.log(error));
+        }
 
         // Comprueba si session.user.position tiene asignada la clase correcta
         let currentUnit = {};
@@ -221,15 +219,15 @@ export default function Unidad(){
         })
 
         // En caso de no tener la clase correcta se actualiza a la correspondiente
-        if(!currentUnit?.done && currentUnit?.enable && session?.user?.position?.id != classId){
+        if(!currentUnit?.done && currentUnit?.enable && session?.user?.position?.id != classId && currentClass){
 
             let newUser = {
                 ...session?.user,
                 position:{
                     ...session?.user.position,
                     id:currentUnit?.unitID,
-                    index:-1,
-                    maxpages:currentClass.length > 0 ? currentClass.length - 1 : 0,
+                    index:0,
+                    maxpages:currentClass?.length > 0 ? currentClass?.length - 1 : 0,
                 }
             }
 
@@ -286,7 +284,7 @@ export default function Unidad(){
                             Finalizaste la <b>{unit?.name}</b> del <b>{level?.level}</b>
                         </p>
 
-                        <Link href={"/inicio/curso"} className="btn-primary p-2 w-full text-[21px]
+                        <Link href={`/inicio/curso?level=${nextLevelLabel}`} className="btn-primary p-2 w-full text-[21px]
                         md:text-[14px]">
                             Continuar
                         </Link>
@@ -357,7 +355,7 @@ export default function Unidad(){
                     onClick={(e)=>setSection(0)}
                     href={`/inicio/curso/unidad/${classId}`}
                     className={`
-                    ${(maxSessionReached + 1) < 0 && "opacity-[50%] pointer-events-none"}
+                    ${(maxSessionReached) < 0 && "opacity-[50%] pointer-events-none"}
                     mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
                     hover:bg-[#3331] transition-colors
                     md:w-full`}>
@@ -381,7 +379,7 @@ export default function Unidad(){
                             </div>
 
                             {/* Check */}
-                            {maxSessionReached >= 0 && (
+                            {maxSessionReached > 0 && (
                                 <span>
                                     <FontAwesomeIcon
                                     className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
@@ -397,7 +395,7 @@ export default function Unidad(){
                     onClick={()=>setSection(1)}
                     href={`/inicio/curso/unidad/${classId}`}
                     className={`
-                    ${(maxSessionReached + 1) < 1 && "opacity-[50%] pointer-events-none"}
+                    ${(maxSessionReached) < 1 && "opacity-[50%] pointer-events-none"}
                     mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
                     hover:bg-[#3331] transition-colors
                     md:w-full`}>
@@ -421,7 +419,7 @@ export default function Unidad(){
                             </div>
 
                             {/* Check */}
-                            {maxSessionReached >= 1 && (
+                            {maxSessionReached > 1 && (
                                 <span>
                                     <FontAwesomeIcon
                                     className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
@@ -437,7 +435,7 @@ export default function Unidad(){
                     onClick={()=>setSection(2)}
                     href={`/inicio/curso/unidad/${classId}`}
                     className={`
-                    ${(maxSessionReached + 1) < 2 && "opacity-[50%] pointer-events-none"}
+                    ${(maxSessionReached) < 2 && "opacity-[50%] pointer-events-none"}
                     mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
                     hover:bg-[#3331] transition-colors
                     md:w-full`}>
@@ -461,7 +459,7 @@ export default function Unidad(){
                             </div>
 
                             {/* Check */}
-                            {maxSessionReached >= 2 && (
+                            {maxSessionReached > 2 && (
                                 <span>
                                     <FontAwesomeIcon
                                     className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
@@ -477,7 +475,7 @@ export default function Unidad(){
                     onClick={()=>setSection(3)}
                     href={`/inicio/curso/unidad/${classId}`}
                     className={`
-                    ${(maxSessionReached + 1) < 3 && "opacity-[50%] pointer-events-none"}
+                    ${(maxSessionReached) < 3 && "opacity-[50%] pointer-events-none"}
                     mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
                     hover:bg-[#3331] transition-colors
                     md:w-full`}>
@@ -517,7 +515,7 @@ export default function Unidad(){
                     onClick={()=>setSection(4)}
                     href={`/inicio/curso/unidad/${classId}`}
                     className={`
-                    ${(maxSessionReached + 1) < 4 && "opacity-[50%] pointer-events-none"}
+                    ${(maxSessionReached) < 4 && "opacity-[50%] pointer-events-none"}
                     mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
                     hover:bg-[#3331] transition-colors
                     md:w-full`}>
@@ -541,7 +539,7 @@ export default function Unidad(){
                             </div>
 
                             {/* Check */}
-                            {maxSessionReached >= 4 && (
+                            {maxSessionReached > 4 && (
                                 <span>
                                     <FontAwesomeIcon
                                     className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
@@ -557,8 +555,8 @@ export default function Unidad(){
                     onClick={()=>setSection(5)}
                     href={`/inicio/curso/unidad/${classId}`}
                     className={`
-                    ${(maxSessionReached + 1) < 5 && "opacity-[50%] pointer-events-none"}
-                    ${maxSessionReached >= 5 && "opacity-[50%] pointer-events-none"}
+                    ${(maxSessionReached) < 5 && "opacity-[50%] pointer-events-none"}
+                    ${maxSessionReached > 5 && "opacity-[50%] pointer-events-none"}
                     mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
                     hover:bg-[#3331] transition-colors
                     md:w-full`}>
@@ -582,7 +580,7 @@ export default function Unidad(){
                             </div>
 
                             {/* Check */}
-                            {maxSessionReached >= 5 && (
+                            {maxSessionReached > 5 && (
                                 <span>
                                     <FontAwesomeIcon
                                     className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"

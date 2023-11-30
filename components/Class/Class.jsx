@@ -167,7 +167,7 @@ export default function Class(props) {
     }
   }
 
-  async function updateIndexPosition(){
+  async function updateIndexPosition(nextIndex){
 
     // En caso de que la actual unidad este echa o el indice actual en menor al indice indicad en "position"
     // no hay necesidad de actualizar el "position"
@@ -175,11 +175,15 @@ export default function Class(props) {
     
     let newIndex = data?.sheets.indexOf(sheetsOfSection[i])
 
+    newIndex = nextIndex && newIndex + nextIndex <= session?.user?.position?.maxpages ? 
+    newIndex + nextIndex :
+    newIndex
+
     let updates = {
       ...session?.user,
       position:{
           ...session?.user.position,
-          index:newIndex,
+          index:newIndex 
       }
     }
     console.log("POSICION ACTUALIZADA ", updates)
@@ -211,27 +215,23 @@ export default function Class(props) {
       ){
 
         // "allowFollow" va a permitir que el boton de forward este activo en caso de que no sea alguno de estos tipos de elementos
-        let allowFollow = (date.type == "paragraph-complete" || date.type == "complete-li-personal" || date.type == "complete-li" || date.type == 'videoi-youtube') && data?.sheets[i].section.number != 5;
-
+        let allowFollow = (date.type == "paragraph-complete" || date.type == "complete-li-personal" || date.type == "complete-li" || date.type == 'videoi-youtube') && data?.sheets[props.page].section?.number != 5;
         newTypeActivitys.push({
           id:index,
           type:data.type,
           done:false
         })
-
+        
         setCanFollow(allowFollow)
       }
-
+      
     })
 
     // Se asignan las nuevas actividades
     setTypeActivitys(newTypeActivitys)
 
-    // console.log("position ID", session?.user?.position)
-    // console.log("Done? ", data)
-
     // En caso de estar en una Evaluacion
-    if(data?.sheets[i].section.number == 5){
+    if(data?.sheets[props.page].section?.number == 5){
       // setCanFollow(true)
       setCanBack(false)
     }
@@ -381,7 +381,7 @@ export default function Class(props) {
   }); 
 
   function sectionDone(){
-    console.log()
+    updateIndexPosition(1)
 
     window.history.back()
   }
@@ -431,12 +431,13 @@ export default function Class(props) {
             <button
             onClick={()=> {
               sectionDone()
-              updateIndexPosition()
             }}
             className={`
-            ${sheetsOfSection &&  (sheetsOfSection.length - 1) == i && canFollow ? "bottom-0" : "bottom-[-15%]" }
-            bg-white z-50 fixed  text-title_color text-[18px] left-1/2 translate-x-[-50%] px-10 py-8 rounded-[70%_70%_0_0] transition-all shadow-[0px_4px_26px_#00000040] flex flex-col items-center
-            hover:bg-primary_hover hover:text-white`}>
+            ${sheetsOfSection &&  (sheetsOfSection.length - 1) == i && canFollow ? "bottom-0" : "bottom-[-25%]" }
+            ${ successActivitys ? "bg-secondary text-white" : "bg-white"}
+            z-50 fixed  text-title_color text-[18px] left-1/2 translate-x-[-50%] px-10 py-8 rounded-[70%_70%_0_0] transition-all shadow-[0px_4px_26px_#00000040] flex flex-col items-center
+            hover:bg-primary_hover hover:text-white
+            md:text-[16px] md:px-7`}>
               <FontAwesomeIcon icon={faAngleUp}/>
               Finalizar
             </button>
@@ -449,7 +450,8 @@ export default function Class(props) {
               className={`
               ${ !canBack && "opacity-[50%] pointer-events-none"}
               transition-all fixed bottom-0 left-0 z-[90] bg-white rounded-[0_70%_0_0] py-8 px-10 shadow-[0px_4px_26px_#00000040] text-title_color text-left text-[18px]
-              hover:bg-primary_hover hover:text-white`}
+              hover:bg-primary_hover hover:text-white
+              md:text-[16px] md:px-7`}
               onClick={() => Back(i)}>
               <FontAwesomeIcon icon={faAngleLeft}/> Prev
             </button>
@@ -463,7 +465,8 @@ export default function Class(props) {
               ${ !canFollow && "opacity-[50%] pointer-events-none"}
               ${ successActivitys ? "bg-secondary text-white" : "bg-white"}
               transition-all fixed bottom-0 right-0 z-[90]  rounded-[70%_0_0_0] py-8 px-10 shadow-[0px_4px_26px_#00000040] text-title_color text-right text-[18px]
-              hover:bg-primary_hover hover:text-white`}
+              hover:bg-primary_hover hover:text-white
+              md:text-[16px] md:px-7`}
               onClick={() => {
                 Forward(i);
                 updateIndexPosition()
