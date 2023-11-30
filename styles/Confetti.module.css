@@ -1,0 +1,36 @@
+/* Confetti.module.css */
+.container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 500;
+}
+
+.confetti {
+    width: 13px;
+    height: 13px;
+    position: absolute;
+}
+
+.animate {
+animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+@media (max-width: 768px) {
+    
+    .confetti {
+        width: 5px;
+        height: 5px;
+    }
+
+}
+  

@@ -263,10 +263,10 @@ export default function Home() {
             {/* Ir a curso */}
             <div className='w-full flex justify-end'>
               <Link
-                onClick={dispatch(classid(session?.user.position?.id))}
+                // onClick={dispatch(classid(session?.user.position?.id))}
                 className='btn-primary px-[70px] py-[9px] text-[14px] mt-[21px] shadow-[0px_5.410437107086182px_5.410437107086182px_#00000040]
             md:w-full md:mt-0 md:text-center'
-                href={'./unidad'}
+                href={`/inicio/curso/unidad?classId=${session?.user.position?.id}`}
                 style={{ display: 'inline-block' }}>
                 Ir al curso
               </Link>

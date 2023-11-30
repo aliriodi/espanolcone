@@ -4,20 +4,25 @@ import { faMedal, faBookOpen, faCheck, faListCheck } from '@fortawesome/free-sol
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Menu from "../../components/Menu";
+import Menu from "../../../components/Menu";
 import Select from 'react-select'
-import { classid } from '../../redux/ECEActions'
+import { classid } from '../../../redux/ECEActions'
 import { useDispatch } from "react-redux";
+import { useRouter } from 'next/router';
 
 
 export default function Curso(){
     const {data: session,status} = useSession();
+    
+    const router = useRouter();
+    const { level } = router.query;
 
     const [levels, setLevels] = useState()
 
     const [currentLevel, setCurrentLevel] = useState()
 
     const dispatch = useDispatch()
+    
 
     useEffect(()=>{
         // Actualiza Niveles
@@ -36,11 +41,14 @@ export default function Curso(){
     useEffect(()=>
     {
         // Actualiza Nivel Actual si no tiene un valor
-        if(!currentLevel && levels)setCurrentLevel(levels[0])
+        let newLevel = levels?.find((l)=> l.label == `Nivel ${level}`)
+        if(!currentLevel && levels)setCurrentLevel(newLevel ? newLevel : levels[0])
+        
     },[levels])
 
     function handleChangeSelect(e){
         setCurrentLevel(e)
+        router.push(`/inicio/curso?level=${e?.value?.slice(e?.value?.length - 2, e?.value?.length)}`)
     }
 
     return(
@@ -119,9 +127,9 @@ export default function Curso(){
                 // Modulo
                 currentLevel?.modules.map((module)=>(
                     <Link
-                    onClick={()=>dispatch(classid(module.unitID))}
+                    // onClick={()=>dispatch(classid(module.unitID))}
                     key={module.number}
-                    href={'/inicio/unidad'}
+                    href={`/inicio/curso/unidad?classId=${module.unitID}`}
                     className={`bg-white flex flex-col shadow-[0px_0px_4px_#00000040] rounded-[8px] py-[12px] justify-center min-w-[145px] items-center mx-[20px] mb-[50px] relative
                     transition-all hover:min-w-[160px]
                     md:py-[8px] md:px-[10px] md:mb-[10px]
