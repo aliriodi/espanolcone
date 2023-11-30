@@ -29,6 +29,7 @@ import { Fragment, useState, useEffect } from 'react'
 import ModalPago from '../ModalPago';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoneyBill } from '@fortawesome/free-solid-svg-icons';
+import { apiBaseUrl } from 'next-auth/client/_utils';
 
 
 
@@ -204,7 +205,25 @@ export default function Schedule() {
     //https://sandbox.paypal.com
 
     console.log(VALUE)
+    //api pago unico
+
+    //fin api
+
+    try{
+    fetch('/api/users/update',
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: renders.user.email, updates: { Plan: VALUE } }),
+    }).then(response => console.log(response.json()))
     
+  }catch (error) {
+    console.error(error);
+  }
+
+
     const newcalendar = [];
     const newcalendarS = [];
     //Teacher o guia turistico apeando las citas del calendario para asignarlo
