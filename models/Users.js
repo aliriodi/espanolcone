@@ -59,17 +59,24 @@ const UserSchema = new Schema(
       
     },
     classes: {
-      type: [{level: String,
-              units:[{
-                number:Number,
-                name:String,
-                unitID:String,
-                description: String,
-                done:Boolean,
-                enable:Boolean
-            }],
+      type: [
+        {
+          level: String,
+          units:[
+            {
+              number:Number,
+              name:String,
+              unitID:String,
+              description: String,
+              done:Boolean,
+              enable:Boolean,
+              points:Number,
+              maxPoints:Number
+            }
+          ],
               
-              }],
+        }
+      ],
     },
     position: {
       type:{
