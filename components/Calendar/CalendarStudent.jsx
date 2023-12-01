@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import Spinner from '../Spinner';
 import styles from '../../styles/navbar.module.css';
+import unipago from "./unipago"
 import Plan from '../Plan/Plansync';
 import { es } from 'date-fns/locale';
 import {
@@ -213,10 +214,17 @@ export default function Schedule() {
     //https://sandbox.paypal.com
 
     console.log(VALUE)
-    //api pago unico
-
-    //fin api
+   
 if(VALUE){
+     //api pago unico
+     router.push(unipago({ type:'plansync',
+     qty:VALUE.qty,
+     cost:VALUE.cost,
+     planing:1,
+     classview:1}))
+   
+//fin api
+
     try{
     fetch('/api/users/update',
     {
