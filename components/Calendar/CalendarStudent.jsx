@@ -31,6 +31,7 @@ import ModalPago from '../ModalPago';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoneyBill } from '@fortawesome/free-solid-svg-icons';
 import { apiBaseUrl } from 'next-auth/client/_utils';
+import Link from 'next/link';
 
 
 
@@ -215,58 +216,62 @@ export default function Schedule() {
 
     console.log(VALUE)
    
-if(VALUE){
-     //api pago unico
-     router.push(unipago({ type:'plansync',
-     qty:VALUE.qty,
-     cost:VALUE.cost,
-     planing:1,
-     classview:1}))
-   
-//fin api
+    if(VALUE){
+      //api pago unico
+      router.push(unipago(
+        { 
+          type:'plansync',
+          qty:VALUE.qty,
+          cost:VALUE.cost,
+          planing:1,
+          classview:1
+        }
+      ))
+      //fin api
 
-    try{
-    fetch('/api/users/update',
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email: renders.user.email, updates: { planSync:[...session.user.planSync,
-                                                                         { type:'plansync',
-                                                                           qty:VALUE.qty,
-                                                                           cost:VALUE.cost,
-                                                                           planing:1,
-                                                                           classview:1}] } }),
-    }).then(response => console.log(response.json()))
+      try{
+      fetch('/api/users/update',
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: renders.user.email, updates: { planSync:[...session.user.planSync,
+                                                                          { type:'plansync',
+                                                                            qty:VALUE.qty,
+                                                                            cost:VALUE.cost,
+                                                                            planing:1,
+                                                                            classview:1}] } }),
+      }).then(response => console.log(response.json()))
+        
+      }catch (error) {
+        console.error(error);
+      }
+    }
+
+
+    else {
+
+      const newplan=[];
+      renders.user.planSync.map(plan=>newplan.push(plan));
+      const length = newplan.length;
+      newplan[length-1].classview=newplan[length-1].classview+1;
+      try{
+        fetch('/api/users/update',
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email: renders.user.email, updates: { planSync: newplan } }),
+        }).then(response => console.log(response.json()))
+        
+      }catch (error) {
+        console.error(error);
+      }
+    }
+
     
-  }catch (error) {
-    console.error(error);
-  }
-}
-
-else {
-
-  const newplan=[];
-  renders.user.planSync.map(plan=>newplan.push(plan));
-  const length = newplan.length;
-  newplan[length-1].classview=newplan[length-1].classview+1;
-  try{
-    fetch('/api/users/update',
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email: renders.user.email, updates: { planSync: newplan } }),
-    }).then(response => console.log(response.json()))
-    
-  }catch (error) {
-    console.error(error);
-  }
-}
-
-
     const newcalendar = [];
     const newcalendarS = [];
     //Teacher o guia turistico apeando las citas del calendario para asignarlo
@@ -664,12 +669,13 @@ else {
       sm:px-7 md:max-w-4xl md:px-4">
 
         {/* Titulo */}
-        <h3 className='md:text-[18px]'>{session?.user?.first_name} posee(s) {' '}
+        {/* <h3 className='md:text-[18px]'>{session?.user?.first_name} posee(s) {' '}
                                         {session?.user?.planSync?.length? 
                                         session.user.planSync[session.user.planSync.length-1].qty
                                         -session.user.planSync[session.user.planSync.length-1].classview
                                         :0} {' '}
-                                        clases para agendar</h3>
+                                        clases para agendar</h3> */}
+        
         <h3 className='border-b-2 pb-[25px]'>¿Qué día queres realizar tu reserva?</h3>
         
 
@@ -788,7 +794,15 @@ else {
           </div>
           
           {/* Seccion asignacion de calendarios de acuerdo a disponibildiad */}
-          <section className='w-[20%] relative flex justify-start flex-col mt-[50px]'>
+          <section className='w-[20%] relative flex justify-start flex-col'>
+            {session?.user?.planSync?.length > 0 ?
+              <p className='font-medium mt-[17px] mb-[15px] text-center text-[14px] text-violet_dark'>
+                Posees <b>{session?.user?.planSync?.length}</b> {session?.user?.planSync?.length > 1 ? "clases" : "clase"} para agendar
+              </p>:
+              <p className='font-medium mt-[17px] mb-[15px] text-center text-[14px] text-violet_dark'>
+                No posees clases para agendar 
+              </p>
+            }
 
             <time dateTime={format(selectedDay, "yyyy-MM-dd'T'HH:00:00")} />
 
@@ -873,6 +887,24 @@ else {
 
         </div>
         
+        <button
+        onClick={
+          async ()=>{
+            let url = unipago(
+              // { 
+              //   "type":'plansync',
+              //   "qty":"2",
+              //   "cost":"2",
+              //   "planing":"1",
+              //   "classview":"1"
+              // }
+              "Cliente 1000 - Alberto Gomez o Pedido 0001-0000112334"
+            )
+            console.log("Ruta final ",await url)
+            router.push(await url)
+          }
+        }
+        className='bg-red-500 p-3 rounded-[5px] text-white'>Pago</button>
       </div>
 
       {/* Recuerda */}
