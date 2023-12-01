@@ -48,7 +48,6 @@ export default function Schedule() {
   const { data: session, status, update } = useSession();
 
   const cardDetail = useSelector((state) => state.datos.cardDetail);
-  const [firstTime, setfirstTime] = useState(true)
   const [deltaTime, setDeltaTime] = useState(0)
   let [renders, setRenders] = useState('')
   let [personSchedule, setPersonSchedule] = useState({})
@@ -171,12 +170,12 @@ export default function Schedule() {
   }, [session, id])
 
   useEffect(()=>{
-    console.log("newMeeting ",newMeeting)
+    //console.log("newMeeting ",newMeeting)
 
     let startDatetime = newMeeting?.startDatetime;
     
-    console.log("startDatetime ", startDatetime && startDatetime.slice(0, startDatetime?.indexOf("T")))
-    console.log("startDatetime type ", typeof startDatetime)
+    //console.log("startDatetime ", startDatetime && startDatetime.slice(0, startDatetime?.indexOf("T")))
+    //console.log("startDatetime type ", typeof startDatetime)
   },[newMeeting])
 
   
@@ -628,6 +627,17 @@ else {
     let firstDayNextMonth = add(firstDayCurrentMonth, { months: 1 })
     setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'))
   }
+//ubico y asigno el primer dia del meeting en caso de existir
+  function firstMeetingDay(day){
+    const firstMeeting=[]
+    isAfter(day, today) && personSchedule?.calendar?.map((meeting) => {
+     
+    if (!meeting.assigned && isSameDay(parseISO(meeting.userstartDatetime), day)) {
+     firstMeeting.push(meeting) }  })
+      //console.log(firstMeeting.length)
+   setNewMeeting(firstMeeting.find(meeting=>!meeting.assigned))
+  }
+
 
 
   if (!personSchedule || Object.keys(personSchedule).length === 0) {
@@ -738,7 +748,7 @@ else {
                 >
                   <button
                     type="button"
-                    onClick={() => setSelectedDay(day)}
+                    onClick={() => {setSelectedDay(day);firstMeetingDay(day) }}
                     className={classNames(
                       isBefore(day, startOfToday(new Date()))  && 'opacity-[50%] pointer-events-none',
                       isEqual(day, selectedDay) && 'text-white',
@@ -751,7 +761,7 @@ else {
                       (isEqual(day, selectedDay) || isToday(day)) && 'font-semibold',
                       personSchedule?.calendar?.some((meeting) =>
                         //Los dias de meetings deben ser despues de la fecha de hoy y deben tener disponibilidad
-                        (isAfter(parseISO(meeting.userstartDatetime), today)) && isSameDay(parseISO(meeting.userstartDatetime), day) && !meeting.assigned) && "rounded-full bg-gray-200 text-primary text-lg",
+                        (isAfter(parseISO(meeting.userstartDatetime), today)) && isSameDay(parseISO(meeting.userstartDatetime), day) && !meeting.assigned) &&  !isEqual(day, today)&& "rounded-full bg-gray-200 text-primary text-lg",
                       'mx-auto flex h-8 w-8 items-center justify-center rounded-full'
                     )}
                   >
@@ -783,7 +793,7 @@ else {
                   con los datos del teacher o guia turistico, viene por redux  y por BD en caso de dar f5*/}
 
                   {isAfter(selectedDay, today) && personSchedule?.calendar?.map((meeting, index) => {
-                      if(firstTime){setNewMeeting(meeting) ;setfirstTime(false) }
+                     
                     if (!meeting.assigned && isSameDay(parseISO(meeting.userstartDatetime), selectedDay)) {
                       return (
 
