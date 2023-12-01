@@ -1,10 +1,12 @@
 import React from 'react';
-import style from '../../styles/plan.module.css'
+import style from '../../styles/plan.module.css';
+import { useSession } from "next-auth/react";
 const plan = require('./planes.json');
 
 export default function Planasync({}) {
   const plan1 = [];
-  const numberPlans = Object.keys(plan).length;
+  const { data: session, status, update } = useSession();
+  //recorro y asigno los planes ASINCRONOS al Array plan1
   Object.keys(plan).map((planX) =>
     plan[planX].type.includes('Asinc') ? plan1.push(plan[planX]) : null
   );

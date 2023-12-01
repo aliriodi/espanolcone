@@ -41,6 +41,7 @@ export default function Paragragraphcomplete(props) {
 
   useEffect(()=>{
     activityCheck()
+    console.log(props)
   },[inputValues])
 
   return (

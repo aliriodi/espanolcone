@@ -41,7 +41,7 @@
             {
                 "type": "paragraph",
                 "value": "<table style='width: 80%;'><th style= 'border: 1px solid black; width: 25%; background-color: #00CDE5' ><h3><strong>Comunicación</strongyle=></h3></th><th style= ' border: 1px solid black; width: 25%; background-color: #00CDE5;' ><h3><strong>Vocabulario</strong></h3></th><th style= 'border: 1px solid black;width: 30%; background-color: #00CDE5;'><h3><strong>Gramática</strong></h3></th></tr><td style= 'border: 1px solid black; padding: 4px'>*Evocar y relatar hechos, circunstancias o acciones pasadas recientes y lejanas.<br>*Describir un sitio para pasar vacaciones y actividades que se pueden hacer en él.<br>*Expresar sorpresa:<br>-¡Que sorpresa!<br>-¿De verdad?<br>-¿En serio?<br>-¿Ah sì?<br>-¡No lo puedo creer!<br>*Expresar admiración:<br>-¡Qué lugar tan hermoso!<br>-¡Qué maravilla!<br>-Estoy impresionado con...</td><td style= 'border: 1px solid black;padding: 4px'>*Vocabulario asociado a conocimiento sociocultural de Córdoba.<br>*Vocabulario sobre viajes, transporte, alojamiento y naturaleza.<br>*Nombres de calles y lugares de interés.<br>*Tipos de hospedajes.<br>*Adjetivos para describir un sitio para alojarse..<br>*Formas, estilos y materiales.</td><td style= 'border: 1px solid black;padding: 4px;'>*Pretérito indefinido y pretérito perfecto compuesto.<br>*Diferencias y complementariedad entre los pretéritos perfecto compuesto e indefinido.<br>*Los participios regulares e irregulares.<br>*Conectores temporales: en aquel momento, un rato antes, al cabo de un rato…<br>*Preguntas sobre el pasado: ¿Qué; dónde; cuándo?<br>*Nunca he estado allí [en mi vida]. / Nunca estuve allí [en aquella época].<br>-Acciones realizadas en pasado que se extiende hasta el presente (esta…, hoy).<br>-Coincidencia con una acción pasada.<br>*Conectores para relatar: de repente/de pronto, (y) entonces, al final, al cabo de un rato, etc</td></table>",
-                "className": ""
+                "className": "table"
             },
             {"type": "text", "value": "Creado por Virginia"}
         ]
@@ -67,7 +67,7 @@
         ]
     },
     "page4": {
-        "type": "text",
+        "type": "dragablebox",
         "section": {
             "number":1,
             "value":"Comencemos"
@@ -76,7 +76,12 @@
         "data": [
             {
                 "type": "title",
-                "value": "¿Conoces estas palabras? <br> ¿Sabes qué significan?",
+                "value": "¿Conoces estas palabras?",
+                "className": "titleleft-white"
+            },
+            {
+                "type": "title",
+                "value": "¿Sabes qué significan?",
                 "className": "titleleft-white"
             },
             {
@@ -84,47 +89,59 @@
                 "value": "Relaciónalas con las siguientes imágenes",
                 "className": "titleleft-black"
             },
-            {
-                "type": "sentence-box",
-                "value": "<img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--_ZQVUewx--/v1699580858/images/eiamjwgudxg9o3buzoir.png' alt='el reloj cucú' /><p style= 'color: orange; padding-top:1%;padding-left:3%;'><span id='el_reloj_cucú' style= 'color: rgba(0, 0, 0, 0); display: inline-block; border: 2px solid orange; '>______________</span></p>",
-                "option": "el reloj cucú",
-                "className": ""
-            },
-            {
-                "type": "sentence-box",
-                "value": "<img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--ns6_oNE_--/v1699581119/images/l5a9wwajr0zjkc5iityd.png' alt='la cascada' /><p style= 'color: orange; padding-top:1%;padding-left:3%;'><span id='la_cascada' style= 'color: rgba(0, 0, 0, 0); display: inline-block; border: 2px solid orange; '>______________</span></p>",
-                "option": "la cascada",
-                "className": ""
-            },
-            {
-                "type": "sentence-box",
-                "value": "<img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--wgTRPfrU--/v1699581246/images/wdcp459yvyfzgnoyqrcn.png' alt='la iglesia antigua' /><p style= 'color: orange; padding-top:1%;padding-left:3%;'><span id='la_iglesia_antigua' style= 'color: rgba(0, 0, 0, 0); display: inline-block; border: 2px solid orange; '>______________</span></p>",
-                "option": "la iglesia antigua",
-                "className": ""
-            },
-            {
-                "type": "options-box",
-                "value": [
-                    {"value":"la cascada","id":"value1","x":50,"y":-1100,"xmin":0,"xmax":0,"ymin":0,"ymax":200,"width":130,"height":22},
-                    {"value":"la iglesia antigua","id":"value2","x":200,"y":-1100,"xmin":285,"xmax":410,"ymin":-32,"ymax":-20,"width":130,"height":22},
-                    {"value":"el reloj cucú","id":"value3","x":350,"y":-1100,"xmin":248,"xmax":339,"ymin":-150,"ymax":-142,"width":130,"height":22}
-                ],
-                "className": ""
-            },
-            {
-                "type": "url",
-                "value": "https://villacarlospaz.tur.ar",
-                "className": ""
-            },
-            {
-                "type": "url",
-                "value": "https://www.cordobaturismo.gov.ar",
-                "className": ""
+                {
+                "type": "dragable-box",
+                "value":{
+                "DropUps":
+                    [
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--_ZQVUewx--/v1699580858/images/eiamjwgudxg9o3buzoir.png",
+                    "value":"el Reloj Cucú",
+                    "id":"DropUp1"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--ns6_oNE_--/v1699581119/images/l5a9wwajr0zjkc5iityd.png",
+                    "value":"la cascada",
+                    "id":"DropUp2"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--wgTRPfrU--/v1699581246/images/wdcp459yvyfzgnoyqrcn.png",
+                    "value":"la iglesia antigua",
+                    "id":"DropUp3"
+                }
+            ],
+                "DragBoxs":[
+                    {
+                        "value":"la cascada",
+                        "id":"DragBox1"
+                    },
+                    {
+                        "value":"la iglesia antigua",
+                        "id":"DragBox2"
+                    },
+                    {
+                        "value":"el Reloj Cucú",
+                        "id":"DragBox3"
+                    }
+                ]
             }
-        ]
+        },
+        {
+            "type": "text",
+            "value": "https://villacarlospaz.tur.ar",
+            "className": ""
+        },
+        {
+            "type": "text",
+            "value": "https://www.cordobaturismo.gov.ar",
+            "className": ""
+        }]            
     },
     "page5": {
-        "type": "text",
+        "type": "dragablebox",
         "section": {
             "number":1,
             "value":"Comencemos"
@@ -133,7 +150,12 @@
         "data": [
             {
                 "type": "title",
-                "value": "¿Conoces estas palabras? <br> ¿Sabes qué Significan?",
+                "value": "¿Conoces estas palabras?",
+                "className": "titleleft-white"
+            },
+            {
+                "type": "title",
+                "value": "¿Sabes qué significan?",
                 "className": "titleleft-white"
             },
             {
@@ -141,52 +163,64 @@
                 "value": "Relaciónalas con las siguientes imágenes",
                 "className": "titleleft-black"
             },
-            {
-                "type": "sentence-box",
-                "value": "<img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--6vo5M0S1--/v1699582438/images/m3mgpzydjcyjav1ezjud.png' alt='las salchichas alemanas' /><p style= 'color: orange; padding-top:1%;padding-left:3%;'><span id='las_salchichas_alemanas' style= 'color: rgba(0, 0, 0, 0); display: inline-block; border: 2px solid orange; '>______________</span></p>",
-                "option": "las salchichas alemanas",
-                "className": ""
-            },
-            {
-                "type": "sentence-box",
-                "value": "<img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--rdP4J29w--/v1699582561/images/nwo3gcpe7kdpldhk14de.png' alt='las cervezas artesanales' /><p style= 'color: orange; padding-top:1%;padding-left:3%;'><span id='las_cervezas artesanales' style= 'color: rgba(0, 0, 0, 0); display: inline-block; border: 2px solid orange; '>______________</span></p>",
-                "option": "las cervezas artesanales",
-                "className": ""
-            },
-            {
-                "type": "sentence-box",
-                "value": "<img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--DBllW7F---/v1699582653/images/dpchouaemabaqnq26rlm.png' alt='el choripan' /><p style= 'color: orange; padding-top:1%;padding-left:3%;'><span id='el_choripan' style= 'color: rgba(0, 0, 0, 0); display: inline-block; border: 2px solid orange; '>______________</span></p>",
-                "option": "el choripan",
-                "className": ""
-            },
-            {
-                "type": "options-box",
-                "value": [
-                    {"value":"la cerveza artesanal","id":"value4","x":50,"y":-1100,"xmin":0,"xmax":0,"ymin":0,"ymax":200,"width":130,"height":22},
-                    {"value":"el choripan","id":"value5","x":200,"y":-1100,"xmin":285,"xmax":410,"ymin":-32,"ymax":-20,"width":130,"height":22},
-                    {"value":"las salchichas alemanas","id":"value6","x":350,"y":-1100,"xmin":248,"xmax":339,"ymin":-150,"ymax":-142,"width":130,"height":22}
-                ],
-                "className": ""
+                {
+                "type": "dragable-box",
+                "value":{
+                "DropUps":
+                    [
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--6vo5M0S1--/v1699582438/images/m3mgpzydjcyjav1ezjud.png",
+                    "value":"las salchichas alemanas",
+                    "id":"DropUp1"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--rdP4J29w--/v1699582561/images/nwo3gcpe7kdpldhk14de.png",
+                    "value":"las cervezas artesanales",
+                    "id":"DropUp2"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--DBllW7F---/v1699582653/images/dpchouaemabaqnq26rlm.png",
+                    "value":"el choripán",
+                    "id":"DropUp3"
+                }
+            ],
+                "DragBoxs":[
+                    {
+                        "value":"las cervezas artesanales",
+                        "id":"DragBox1"
+                    },
+                    {
+                        "value":"las salchichas alemanas",
+                        "id":"DragBox2"
+                    },
+                    {
+                        "value":"el choripán",
+                        "id":"DragBox3"
+                    }
+                ]
             }
-        ]
+        }]            
     },
     "page6": {
         "type": "paragraph-complete",
         "section": {
-            "number":2,
-            "value":"Aprendemos"
+            "number":1,
+            "value":"Comencemos"
         },
         "template": "template-title-top-1",
         "data": [
             {
                 "type": "paragraph",
-                "value": "Completa los siguientes espacios con la palabra correcta: cascadas - reloj cucú - iglesia - cerveza artesanal - salchicha alemana - choripán",
+                "value": "Completa los siguientes espacios con la palabra correcta:",
                 "className": "title-white"
             },
             {
                 "type": "paragraph",
-                "value": "cascadas - reloj cucú - iglesia - cerveza artesanal - salchicha alemana - choripán",
-                "className": ""
+                "value": "cascadas - reloj cucú - iglesia - cerveza artesanal - salchicha - choripán",
+                "className": "titleblack"
             },
             {
                 "type": "paragraph-complete",
@@ -219,20 +253,20 @@
     "page7": {
         "type": "paragraph-complete",
         "section": {
-            "number":2,
-            "value":"Aprendemos"
+            "number":1,
+            "value":"Comencemos"
         },
         "template": "template-title-top-1",
         "data": [
             {
                 "type": "paragraph",
-                "value": "Completa los siguientes espacios con la palabra correcta: cascadas - reloj cucú - iglesia - cerveza artesanal - salchicha alemana - choripán",
+                "value": "Completa los siguientes espacios con la palabra correcta:",
                 "className": "title-white"
             },
             {
                 "type": "paragraph",
-                "value": "cascadas - reloj cucú - iglesia - cerveza artesanal - salchicha alemana - choripán",
-                "className": ""
+                "value": "cascadas - reloj cucú - iglesia - cerveza artesanal - salchicha - choripán",
+                "className": "titleblack"
             },
             {
                 "type": "paragraph-complete",
@@ -272,8 +306,8 @@
         "data": [
             {
                 "type": "video-youtube",
-                "value": "watch?v=CKezNADLEEE&t=37s",
-                "youtube": "https://www.youtube.com/watch?v=CKezNADLEEE&t=37s",
+                "value": "CKezNADLEEE",
+                "youtube": "https://www.youtube.com/watch?v=CKezNADLEEE",
                 "className": "video"
             }
         ]
@@ -281,23 +315,8 @@
     "page9": {
         "type": "text",
         "section": {
-            "number":2,
-            "value":"Aprendemos"
-        },
-        "template": "template-title-top-1",
-        "data": [
-            {
-                "type": "text",
-                "value": "Actividades interactivas",
-                "className": ""
-            }
-        ]
-    },
-    "page10": {
-        "type": "text",
-        "section": {
-            "number":2,
-            "value":"Aprendemos"
+            "number":3,
+            "value":"Practiquemos"
         },
         "template": "template-title-top-1",
         "data": [
@@ -313,7 +332,7 @@
             }
         ]
     },
-    "page11": {
+    "page10": {
         "type": "selectsimple",
         "section": {
             "number":3,
@@ -343,7 +362,7 @@
             }
         ]
     },
-    "page12": {
+    "page11": {
         "type": "selectsimple",
         "section": {
             "number":3,
@@ -361,8 +380,8 @@
                 "value": "<strong>1.  Cuando Bruna le escribe ese email a su amiga Laura, ¿todavía está en Córdoba?</strong>",
                 "option": "sí",
                 "options": [
-                    "No",
-                    "Sí"
+                    "no",
+                    "sí"
                 ],
                 "className": "selector-simple"
             },
@@ -371,14 +390,14 @@
                 "value": " <strong>2. No han tenido ninguna mala experiencia.</strong>",
                 "option": "hasta ahora, pero todavía es posible",
                 "options": [
-                    "hasta ahora, pero todavía es posible.",
+                    "hasta ahora, pero todavía es posible",
                     "no puede tener ninguna mala experiencia porque ya volvió"
                 ],
                 "className": "selector-simple"
             }
         ]
     },
-    "page13": {
+    "page12": {
         "type": "text",
         "section": {
             "number": 3,
@@ -398,7 +417,7 @@
             }
         ]
     },
-    "page14": {
+    "page13": {
         "type": "selectsimple",
         "section": {
             "number": 3,
@@ -428,7 +447,7 @@
             }
         ]
     },
-    "page15": {
+    "page14": {
         "type": "selectsimple",
         "section": {
             "number": 3,
@@ -463,7 +482,7 @@
             }
         ]
     },
-    "page16": {
+    "page15": {
         "type": "selectsimple",
         "section": {
             "number": 3,
@@ -477,13 +496,13 @@
                 "className": "titleleft-white"
             },
             {
-                "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--XYqkwJBG--/v1700170346/images/ghrbf9xejbentwf03hmo.png",
+                "type": "paragraph",
+                "value": "<strong>Selecciona la opción correcta para que sus notas tengan sentido:</strong>",
                 "className": ""
             },
             {
-                "type": "paragraph",
-                "value": "<strong>Selecciona la opción correcta para que sus notas tengan sentido:</strong>",
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--XYqkwJBG--/v1700170346/images/ghrbf9xejbentwf03hmo.png",
                 "className": ""
             },
             {
@@ -528,7 +547,7 @@
             }
         ]
     },
-    "page17": {
+    "page16": {
         "type": "paragraph-complete",
         "section": {
             "number": 3,
@@ -599,22 +618,7 @@
             }
         ]
     },
-    "page18": {
-        "type": "slide",
-        "section": {
-            "number": 4,
-            "value": "Mis Retos"
-        },
-        "template": "template-title-top-1",
-        "data": [
-            {
-                "type": "title",
-                "value": "<span style=' color: #4CCFEB'>Reto Propuesto</span>",
-                "className": ""
-            }
-        ]
-    },
-    "page19": {
+    "page17": {
         "type": "text",
         "section": {
             "number": 4,
@@ -639,7 +643,7 @@
             }
         ]
     },
-    "page20": {
+    "page18": {
         "type": "text",
         "section": {
             "number": 4,
@@ -659,13 +663,13 @@
             },
             {
                 "type": "video-youtube",
-                "value": "watch?v=msbABi9NZLs&t=1s",
+                "value": "msbABi9NZLs",
                 "className": "video",
-                "youtube": "https://www.youtube.com/watch?v=msbABi9NZLs&t=1s"
+                "youtube": "https://www.youtube.com/watch?v=msbABi9NZLs"
             }
         ]
     },
-    "page21": {
+    "page19": {
         "type": "paragraph-complete",
         "section": {
             "number": 4,
@@ -718,7 +722,7 @@
             }
         ]
     },
-    "page22": {
+    "page20": {
         "type": "paragraph-complete",
         "section": {
             "number": 4,
@@ -781,7 +785,7 @@
             }
         ]
     },
-    "page23": {
+    "page21": {
         "type": "paragraph-complete",
         "section": {
             "number": 5,
@@ -816,7 +820,7 @@
             }
         ]
     },
-    "page24": {
+    "page22": {
         "type": "text",
         "section": {
             "number":5,
@@ -831,12 +835,12 @@
             },
             {
                 "type": "text",
-                "value": "¡Hola, Laura!<br> Estoy de viaje por Córdoba con Mateo, mi novio. Llevamos cuatro días acá. Es una provincia preciosa, y la verdad es que la estamos pasando genial. (<strong>alojarse,nosotros</strong>) Nos <span style=' color: orange'>hemos alojado</span> en un hotel del centro de la ciudad muy lindo y barato. (<strong>salir,nosotros</strong>) <span style=' color: orange'>Hemos salido</span> casi todas las noches a bailar y a tomar una marca de cerveza artesanal diferente, así que (<strong>dormir,nosotros</strong>) <span style=' color: orange'>hemos dormido</span> muy poco.<br> Ya (<strong>visitar,nosotros</strong>) <span style=' color: orange'>hemos visitado</span> la Catedral, una iglesia antigua que es preciosa, pero todavía no (<strong>ir,nosotros</strong>) <span style=' color: orange'>hemos ido</span> al Parque Sarmiento a comer choripán en El Dante; todos dicen que son buenísimos, pero es que no (<strong>tener,nosotros</strong>) <span style=' color: orange'>hemos tenido</span> tiempo porque (<strong>conocer,nosotros</strong>) <span style=' color: orange'>hemos conocido</span> a una pareja de Villa General Belgrano muy piola que nos (<strong>llevar,ellos</strong>) <span style=' color: orange'>han llevado</span> a los mejores restaurantes de su ciudad. Creo que (<strong>engordar,yo</strong>) <span style=' color: orange'>he engordado</span> unos cuantos kilos porque no (<strong>parar,yo</strong>) <span style=' color: orange'>he parado</span> de comer y de probar todos los tipos de salchichas alemanas. Así que cuando llegue a casa, me pondré a dieta.<br> ¡Nos vemos pronto, un abrazo!<br> <strong>Rocio</strong>.",
+                "value": "¡Hola, Laura!<br> Estoy de viaje por Córdoba con Mateo, mi novio. Llevamos cuatro días acá. Es una provincia preciosa, y la verdad es que la estamos pasando genial. (<strong>alojarse,nosotros</strong>) Nos <span style=' color: orange'><u>hemos alojado</u></span> en un hotel del centro de la ciudad muy lindo y barato. (<strong>salir,nosotros</strong>) <span style=' color: orange'><u>Hemos salido</u></span> casi todas las noches a bailar y a tomar una marca de cerveza artesanal diferente, así que (<strong>dormir,nosotros</strong>) <span style=' color: orange'><u>hemos dormido</u></span> muy poco.<br> Ya (<strong>visitar,nosotros</strong>) <span style=' color: orange'><u>hemos visitado</u></span> la Catedral, una iglesia antigua que es preciosa, pero todavía no (<strong>ir,nosotros</strong>) <span style=' color: orange'><u>hemos ido</u></span> al Parque Sarmiento a comer choripán en El Dante; todos dicen que son buenísimos, pero es que no (<strong>tener,nosotros</strong>) <span style=' color: orange'><u>hemos tenido</u></span> tiempo porque (<strong>conocer,nosotros</strong>) <span style=' color: orange'><u>hemos conocido</u></span> a una pareja de Villa General Belgrano muy piola que nos (<strong>llevar,ellos</strong>) <span style=' color: orange'><u>han llevado</u></span> a los mejores restaurantes de su ciudad. Creo que (<strong>engordar,yo</strong>) <span style=' color: orange'><u>he engordado</u></span> unos cuantos kilos porque no (<strong>parar,yo</strong>) <span style=' color: orange'><u>he parado</u></span> de comer y de probar todos los tipos de salchichas alemanas. Así que cuando llegue a casa, me pondré a dieta.<br> ¡Nos vemos pronto, un abrazo!<br> <strong>Rocio</strong>.",
                 "className": ""
             }
         ]
     },
-    "page25": {
+    "page23": {
         "type": "paragraph-complete",
         "section": {
             "number": 5,
@@ -856,7 +860,7 @@
             },
             {
                 "type": "paragraph-complete",
-                "value": [ "Ayer ",
+                "value": [ "<li>Ayer ",
                 {
                     "block": 10,
                     "color": "orange",
@@ -868,7 +872,7 @@
                     "color": "orange",
                     "option": "heredó"
                 },
-                " de su familia."
+                " de su familia.</li>"
                 ] 
             },      
                     {
@@ -882,13 +886,13 @@
                     },      
             {
                 "type": "paragraph-complete",
-                "value": [ "El mes pasado se celebró el festival del choripán. ¿Vos ",
+                "value": [ "<li>El mes pasado se celebró el festival del choripán. ¿Vos ",
                 {
                     "block": 10,
                     "color": "orange",
                     "option": "fuiste"
                 },
-                " ?"
+                " ?</li>"
                 ] 
             },      
                 {
@@ -904,13 +908,13 @@
                 } ,     
             {
                 "type": "paragraph-complete",
-                "value": [ "El viernes estuve en Río Ceballos con mi hermano y mi cuñada. ",
+                "value": [ "<li>El viernes estuve en Río Ceballos con mi hermano y mi cuñada. ",
                 {
                     "block": 10,
                     "color": "orange",
                     "option": "Caminamos"
                 },
-                " por tres horas para llegar a Cascadas Los Hornillos."
+                " por tres horas para llegar a Cascadas Los Hornillos.</li>"
                 ] 
             },      
                 {
@@ -926,13 +930,13 @@
                 },      
             {
                 "type": "paragraph-complete",
-                "value": [ "Anoche mi hermana Cami y Juli salieron a ese boliche nuevo que vos les recomendaste. Me ",
+                "value": [ "<li>Anoche mi hermana Cami y Juli salieron a ese boliche nuevo que vos les recomendaste. Me ",
                 {
                     "block": 10,
                     "color": "orange",
                     "option": "dijeron"
                 },
-                " que les encantó la cerveza artesanal roja."
+                " que les encantó la cerveza artesanal roja.</li>"
                 ] 
             },      
                 {
@@ -954,7 +958,7 @@
                 }      
         ]
     },
-    "page26": {
+    "page24": {
         "type": "text",
         "section": {
             "number":5,

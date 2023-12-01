@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import Spinner from '../Spinner';
 import styles from '../../styles/navbar.module.css';
+import unipago from "./unipago"
 import Plan from '../Plan/Plansync';
 import { es } from 'date-fns/locale';
 import {
@@ -29,6 +30,8 @@ import { Fragment, useState, useEffect } from 'react'
 import ModalPago from '../ModalPago';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoneyBill } from '@fortawesome/free-solid-svg-icons';
+import { apiBaseUrl } from 'next-auth/client/_utils';
+import Link from 'next/link';
 
 
 
@@ -47,7 +50,6 @@ export default function Schedule() {
   const { data: session, status, update } = useSession();
 
   const cardDetail = useSelector((state) => state.datos.cardDetail);
-
   const [deltaTime, setDeltaTime] = useState(0)
   let [renders, setRenders] = useState('')
   let [personSchedule, setPersonSchedule] = useState({})
@@ -170,13 +172,15 @@ export default function Schedule() {
   }, [session, id])
 
   useEffect(()=>{
-    console.log("newMeeting ",newMeeting)
+    //console.log("newMeeting ",newMeeting)
 
     let startDatetime = newMeeting?.startDatetime;
     
-    console.log("startDatetime ", startDatetime && startDatetime.slice(0, startDatetime?.indexOf("T")))
-    console.log("startDatetime type ", typeof startDatetime)
+    //console.log("startDatetime ", startDatetime && startDatetime.slice(0, startDatetime?.indexOf("T")))
+    //console.log("startDatetime type ", typeof startDatetime)
   },[newMeeting])
+
+  
 
   function selectSchedule(meeting) {
     setNewMeeting(meeting)
@@ -193,14 +197,17 @@ export default function Schedule() {
     setPaypalModal(data)
   }
 
-  //Declaro diferencial de horario
-
-
-
 
   //Function que asigna el horario al alumno en el calendario de profesor y del alumno
   function openPlan(){
-    setOpenP(true)
+    //Chequeo si tengo clases disponibles para ver si renderizo compras de clases de acuerdo  
+    //a la ultima compra
+    const last = session.user.planSync.length;
+    
+    if(!last||(session.user.planSync[last-1].qty-session.user.planSync[last-1].classview<1))
+    {setOpenP(true)}
+    else{Confirm()}
+
   }
   async function Confirm(VALUE) {
     //sb-x747sj28200220@personal.example.com
@@ -208,7 +215,63 @@ export default function Schedule() {
     //https://sandbox.paypal.com
 
     console.log(VALUE)
+   
+    if(VALUE){
+      //api pago unico
+      router.push(unipago(
+        { 
+          type:'plansync',
+          qty:VALUE.qty,
+          cost:VALUE.cost,
+          planing:1,
+          classview:1
+        }
+      ))
+      //fin api
 
+      try{
+      fetch('/api/users/update',
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: renders.user.email, updates: { planSync:[...session.user.planSync,
+                                                                          { type:'plansync',
+                                                                            qty:VALUE.qty,
+                                                                            cost:VALUE.cost,
+                                                                            planing:1,
+                                                                            classview:1}] } }),
+      }).then(response => console.log(response.json()))
+        
+      }catch (error) {
+        console.error(error);
+      }
+    }
+
+
+    else {
+
+      const newplan=[];
+      renders.user.planSync.map(plan=>newplan.push(plan));
+      const length = newplan.length;
+      newplan[length-1].classview=newplan[length-1].classview+1;
+      try{
+        fetch('/api/users/update',
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email: renders.user.email, updates: { planSync: newplan } }),
+        }).then(response => console.log(response.json()))
+        
+      }catch (error) {
+        console.error(error);
+      }
+    }
+
+    
     const newcalendar = [];
     const newcalendarS = [];
     //Teacher o guia turistico apeando las citas del calendario para asignarlo
@@ -376,7 +439,7 @@ export default function Schedule() {
             </header>
             
             <div class="main" style="flex-direction: column; align-items: center; font-size: 18px;">
-              <p>Se te asigno una clase para el día <b>${newMeeting?.startDatetime.slice(0, newMeeting?.startDatetime?.indexOf("T"))}</b>,</p>
+              <p>Se te asignó una clase para el día <b>${newMeeting?.startDatetime.slice(0, newMeeting?.startDatetime?.indexOf("T"))}</b>,</p>
               <p>a partir de las <b>${newMeeting?.startDatetime.slice(newMeeting?.startDatetime?.indexOf("T") + 1)}</b>,</p>
               <p>y termina a las <b>${newMeeting?.endDatetime.slice(newMeeting?.endDatetime?.indexOf("T") + 1)}</b>,</p> 
               <p class="mt">El horario del alumno inicia a las <b>${newMeeting?.userstartDatetime?.slice(newMeeting?.userstartDatetime?.indexOf("T") + 1)}</b></p>
@@ -461,7 +524,7 @@ export default function Schedule() {
             </header>
             
             <div class="main" style="flex-direction: column; align-items: center; font-size: 18px;">
-              <p>Se te asigno una clase para el día <b>${newMeeting?.startDatetime.slice(0, newMeeting?.startDatetime?.indexOf("T"))}</b>,</p>
+              <p>Se te asignó una clase para el día <b>${newMeeting?.startDatetime.slice(0, newMeeting?.startDatetime?.indexOf("T"))}</b>,</p>
               <p>a partir de las <b>${meeting?.userstartDatetime?.slice(meeting?.userstartDatetime?.indexOf("T") + 1)}</b>,</p>
               <p>y termina a las <b>${meeting?.userendDatetime?.slice(meeting?.userendDatetime?.indexOf("T") + 1)}</b>,</p> 
             </div>
@@ -493,15 +556,8 @@ export default function Schedule() {
                   to: personSchedule.email,
                   subject: 'Asignación de nueva clase con: ' + renders.user.first_name + ' ' + renders.user.last_name,
                   html: massageTeacher
-
-                  // 'Asignación de clase para el día ' + newMeeting.startDatetime + ' y termina en hora ' + newMeeting.endDatetime+', El horario del alumno inicia en: '+
-                  // format(new Date(parseISO(meeting.startDatetime).getTime()+deltaTime),"dd-MM'T'HH:mm") +
-                  //  'y termina en  ' + format(new Date(parseISO(meeting.endDatetime).getTime()+deltaTime),"dd-MM'T'HH:mm")
                 })
               })
-
-
-
           //Envio email a alumno
           await
             fetch('/api/mail/',
@@ -526,10 +582,6 @@ export default function Schedule() {
       }
 
     })
-    // const contentLength =   new TextEncoder().encode(renders.user.calendar).length;
-    // console.log(`Tamaño de datos: ${contentLength} bytes`);
-    // const contentLength2 =   new TextEncoder().encode(newcalendar).length;
-    // console.log(`Tamaño de datos: ${contentLength2} bytes`);
     // console.log(newcalendar)
     //aca actualizo el calendario del profesor con alumno en BD
     try {
@@ -539,8 +591,7 @@ export default function Schedule() {
           headers: {
             "Content-Type": "application/json",
           },
-          // body: JSON.stringify({ email: personSchedule.email, updates: { calendar: personSchedule.schedule } }),
-          body: JSON.stringify({ email: personSchedule.email, updates: { calendar: newcalendar } })
+             body: JSON.stringify({ email: personSchedule.email, updates: { calendar: newcalendar } })
         }).then(response => console.log(response.json()))
 
       //aca actualizo el calendario del alumno en BD
@@ -561,8 +612,7 @@ export default function Schedule() {
     }
     update({ ...session, user: { ...session.user, calendar: newcalendarS } });
 
-    //Ejecuto todas las promesas
-
+    
     alert('Su clase ha sido asignada')
 
     setOpenP(false)
@@ -590,6 +640,17 @@ export default function Schedule() {
     let firstDayNextMonth = add(firstDayCurrentMonth, { months: 1 })
     setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'))
   }
+//ubico y asigno el primer dia del meeting en caso de existir
+  function firstMeetingDay(day){
+    const firstMeeting=[]
+    isAfter(day, today) && personSchedule?.calendar?.map((meeting) => {
+     
+    if (!meeting.assigned && isSameDay(parseISO(meeting.userstartDatetime), day)) {
+     firstMeeting.push(meeting) }  })
+      //console.log(firstMeeting.length)
+   setNewMeeting(firstMeeting.find(meeting=>!meeting.assigned))
+  }
+
 
 
   if (!personSchedule || Object.keys(personSchedule).length === 0) {
@@ -608,7 +669,15 @@ export default function Schedule() {
       sm:px-7 md:max-w-4xl md:px-4">
 
         {/* Titulo */}
+        {/* <h3 className='md:text-[18px]'>{session?.user?.first_name} posee(s) {' '}
+                                        {session?.user?.planSync?.length? 
+                                        session.user.planSync[session.user.planSync.length-1].qty
+                                        -session.user.planSync[session.user.planSync.length-1].classview
+                                        :0} {' '}
+                                        clases para agendar</h3> */}
+        
         <h3 className='border-b-2 pb-[25px]'>¿Qué día queres realizar tu reserva?</h3>
+        
 
         {/* Contenido */}
         <div className="py-[25px] flex justify-between ">
@@ -693,7 +762,7 @@ export default function Schedule() {
                 >
                   <button
                     type="button"
-                    onClick={() => setSelectedDay(day)}
+                    onClick={() => {setSelectedDay(day);firstMeetingDay(day) }}
                     className={classNames(
                       isBefore(day, startOfToday(new Date()))  && 'opacity-[50%] pointer-events-none',
                       isEqual(day, selectedDay) && 'text-white',
@@ -706,7 +775,7 @@ export default function Schedule() {
                       (isEqual(day, selectedDay) || isToday(day)) && 'font-semibold',
                       personSchedule?.calendar?.some((meeting) =>
                         //Los dias de meetings deben ser despues de la fecha de hoy y deben tener disponibilidad
-                        (isAfter(parseISO(meeting.userstartDatetime), today)) && isSameDay(parseISO(meeting.userstartDatetime), day) && !meeting.assigned) && "rounded-full bg-gray-200 text-primary text-lg",
+                        (isAfter(parseISO(meeting.userstartDatetime), today)) && isSameDay(parseISO(meeting.userstartDatetime), day) && !meeting.assigned) &&  !isEqual(day, today)&& "rounded-full bg-gray-200 text-primary text-lg",
                       'mx-auto flex h-8 w-8 items-center justify-center rounded-full'
                     )}
                   >
@@ -725,7 +794,15 @@ export default function Schedule() {
           </div>
           
           {/* Seccion asignacion de calendarios de acuerdo a disponibildiad */}
-          <section className='w-[20%] relative flex justify-start flex-col mt-[50px]'>
+          <section className='w-[20%] relative flex justify-start flex-col'>
+            {session?.user?.planSync?.length > 0 ?
+              <p className='font-medium mt-[17px] mb-[15px] text-center text-[14px] text-violet_dark'>
+                Posees <b>{session?.user?.planSync?.length}</b> {session?.user?.planSync?.length > 1 ? "clases" : "clase"} para agendar
+              </p>:
+              <p className='font-medium mt-[17px] mb-[15px] text-center text-[14px] text-violet_dark'>
+                No posees clases para agendar 
+              </p>
+            }
 
             <time dateTime={format(selectedDay, "yyyy-MM-dd'T'HH:00:00")} />
 
@@ -738,6 +815,7 @@ export default function Schedule() {
                   con los datos del teacher o guia turistico, viene por redux  y por BD en caso de dar f5*/}
 
                   {isAfter(selectedDay, today) && personSchedule?.calendar?.map((meeting, index) => {
+                     
                     if (!meeting.assigned && isSameDay(parseISO(meeting.userstartDatetime), selectedDay)) {
                       return (
 
@@ -752,8 +830,7 @@ export default function Schedule() {
                             className={classNames(
                               'focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 mb-2 w-full border-solid border-[2px] border-primary hover:bg-primary transition-all',
                               newMeeting && newMeeting.userstartDatetime === meeting.userstartDatetime ? 'bg-success text-white border-none hover:bg-success_hover' : '   text-primary border-primary hover:text-white',
-                            )}
-                            >
+                            )}>
 
                             <time dateTime={meeting.userstartDatetime}>
                               {format(parseISO(meeting.userstartDatetime), 'h:mm a')}
@@ -776,12 +853,13 @@ export default function Schedule() {
                   {/* Si existe un meeting para asignar y el pago ha sido confirmado, renderiza el botón de confirmar citas */}
 
                   {isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.userstartDatetime), selectedDay) && !meeting.assigned) &&// isPaymentConfirmed &&!isPaymentConfirmed&&
-                    <button
+                  
+                  <button
                     type="button"
-                    onClick={() => Confirm()}
+                    onClick={() => openPlan()}
                     className='btn-primary px-5 py-2.5 mb-2 w-full text-[16px]'>
                       Confirmar
-                    </button>
+                      </button>
                   }
                   {OpenP && <Plan Confirm={Confirm} newMeeting={newMeeting}  />}
                   {
@@ -809,6 +887,24 @@ export default function Schedule() {
 
         </div>
         
+        <button
+        onClick={
+          async ()=>{
+            let url = unipago(
+              // { 
+              //   "type":'plansync',
+              //   "qty":"2",
+              //   "cost":"2",
+              //   "planing":"1",
+              //   "classview":"1"
+              // }
+              "Cliente 1000 - Alberto Gomez o Pedido 0001-0000112334"
+            )
+            console.log("Ruta final ",await url)
+            router.push(await url)
+          }
+        }
+        className='bg-red-500 p-3 rounded-[5px] text-white'>Pago</button>
       </div>
 
       {/* Recuerda */}

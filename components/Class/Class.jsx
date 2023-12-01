@@ -9,7 +9,7 @@ import SELECTSIMPLE from './Selectsimple';
 import PARAGGRAPHCOMPLETE from './paragragraphcomplete';
 import style from '../../styles/class.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faAngleRight, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faAngleRight, faAngleUp, faCheck } from '@fortawesome/free-solid-svg-icons';
 import DragablesBox from './DragableBox/DragablesBox';
 import Selectsimple from './Selectsimple';
 import { useSpring, animated } from 'react-spring';
@@ -19,23 +19,35 @@ export default function Class(props) {
   //elemento a renderizar  
   const [data, setData] = useState(null);
 
+  // Las paginas que hay en la seccion
+  const [sheetsOfSection, setSheetsOfSection] = useState([])
+
   //numero de pagina
   const [i, setI] = useState(0);
 
   //cantidad de paginas de la leccion
   const [length, setL] = useState(1);
 
+  // Botones de paginado
   const [canFollow, setCanFollow] = useState(true)
   const [canBack, setCanBack] = useState(true)
 
+  // listado de actividades que estan en la hoja
   const [typeActivitys, setTypeActivitys] = useState([])
 
   const [successActivitys, setSuccessActivitys] = useState(false)
 
-  const {data: session,status} = useSession();
-
   // Opciones de Youtube
   const iframeRef = useRef(null);
+
+  const [currentUnitDone, setCurrentUnitDone] = useState(true)
+  
+  const {data: session,status, update} = useSession();
+
+  // Segundos usados para las actividades dificiles
+  const [seconds, setSeconds] = useState(60);
+
+  const [activeChronometer, setActiveChronometer] = useState(false)
 
   const opts = {
     playerVars: {
@@ -47,7 +59,6 @@ export default function Class(props) {
     }
   }
 
-  // Fetch data when the component mounts 
   //me traigo todas las clase de base de datos por _id trida por props.id
   useEffect(() => {
     fetch('/api/class/'+props.id)
@@ -63,8 +74,6 @@ export default function Class(props) {
         //Para colocar el indice de pagina en 0 porque nos paso que estabamos en la pagina 20
         //y cuando se llamaba otra clase con menos paginas quedaba en la pagina 20 y se rompia
         //el render aca garantizamos que al entrar a la promesa se va a 0 el index
-        
-       // alert(typeof(response.class1))
         setData(response.class1);
         setL(response.class1.sheets.length)
         // props.updateTitle(`${response.class1?.level} - ${response.class1?.unit}`)
@@ -74,42 +83,133 @@ export default function Class(props) {
         // Handle any errors
         console.error('Fetch error:', error);
       });
+
+      // Comprueba si session.user.position tiene asignada la clase correcta
+      let currentUnit = {};
+      session?.user?.classes?.map((level)=>{
+          level?.units?.find((unit)=>{
+              if(unit?.unitID == props.id){
+                  currentUnit = unit;
+              }
+          })
+      })
+
+      // En caso de que la unidad actual no este echa se va indicar en "currentUnitDone"
+      if(!currentUnit?.done && currentUnit?.enable){
+        console.log("!!!!!!!!!!!!!!!!!!!!!!!!!! Unidad Incompleta !!!!!!!!!!!!!!!!!!!!!!!!!!")
+        setCurrentUnitDone(false)
+      }
+
+      // console.log("Actual unidad ",currentUnit)
   }, [props.id]);
+
+  useEffect(()=>{
+    console.log(currentUnitDone)
+  },[currentUnitDone])
   
   useEffect(()=>{
-    setI(props.page)
-  },[props.page])
+    // setI(props.page)
+    console.log("props.page ",props.page)
 
+  },[props.page])
+  
+  useEffect(()=>{
+    // Se asignan las paginas segun la seccion indicada en "props.page"
+    setSheetsOfSection(data?.sheets.filter((sheet)=> sheet?.section?.number == data?.sheets[props.page].section?.number))
+    
+  },[data, props])
+
+  async function updateUser(updates) {
+    // Esta funcion se encarga de actualizar las "classes" del usuario
+    // en funcion de lo que se le pase por el parametro "updates"
+    try {
+        
+        const response = await fetch('/api/users/update', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email:session?.user?.email, updates: updates}),
+        });
+  
+        if (response.ok) {
+            const data = await response.json();
+
+            if (data.message) {
+                // Se Actualiza el usuario
+                await update({
+                    ...session?.user,
+                    accessToken:"dddd"
+                })
+
+                console.log('Usuario actualizado con éxito');
+            } else {
+                console.error('Error al actualizar el usuario:', data.error);
+            }
+        } else {
+            console.error('Error al realizar la solicitud:', response.status);
+        }
+
+    } catch (error) {
+        console.error('Error al realizar la solicitud:', error);
+    }
+  }
 
   //#region Pagination
   //como son n sheets avanzo con el boton de forward
   function Forward(i) {
     if (data) {
-      if (data) { if (data.sheets) { if (data.sheets.length) setL(data.sheets.length) } }
-      if (i < data.sheets.length - 1) setI(++i)
+      if (data) { if (sheetsOfSection) { if (sheetsOfSection.length) setL(sheetsOfSection.length) } }
+      if (i < sheetsOfSection.length - 1) setI(++i)
     }
   }
   //como son n sheets retrocedo con el boton de forward
   function Back(i) {
     if (data) {
-      if (data) { if (data.sheets) { if (data.sheets.length) setL(data.sheets.length) } }
+      if (data) { if (sheetsOfSection) { if (sheetsOfSection.length) setL(sheetsOfSection.length) } }
       if (i > 0) setI(--i)
     }
+  }
+
+  async function updateIndexPosition(nextIndex){
+
+    // En caso de que la actual unidad este echa o el indice actual en menor al indice indicad en "position"
+    // no hay necesidad de actualizar el "position"
+    if(currentUnitDone || data?.sheets?.indexOf(sheetsOfSection[i]) < session?.user?.position?.index) return
+    
+    let newIndex = data?.sheets.indexOf(sheetsOfSection[i])
+
+    newIndex = nextIndex && newIndex + nextIndex <= session?.user?.position?.maxpages ? 
+    newIndex + nextIndex :
+    newIndex
+
+    let updates = {
+      ...session?.user,
+      position:{
+          ...session?.user.position,
+          index:newIndex 
+      }
+    }
+    console.log("POSICION ACTUALIZADA ", updates)
+
+    updateUser(updates)
   }
   //#endregion
   
   //#region Verificacion de Actividades
   useEffect(()=>{
-    console.log(data?.sheets[i])
+    console.log(data?.sheets)
     console.log("Type ",data?.sheets[i].type)
+    console.log("Section pages ",sheetsOfSection)
 
     window.scrollTo({top: 0});
     setCanFollow(true)
+    stopChronometer()
 
     // Se Asigna los tipos de actividades a "typeActivitys"
     let newTypeActivitys = [];
 
-    data?.sheets[i].data?.map((date,index)=>{
+    sheetsOfSection[i]?.data?.map((date,index)=>{
 
       if(date.type == "selectsimple" ||
         date.type == "paragraph-complete" ||
@@ -119,43 +219,84 @@ export default function Class(props) {
         date.type == 'videoi-youtube'
       ){
 
-        // "allowFollow" va a permitir que el boton de forward este activo en caso de que no sea alguno de estos tipos de elementos
-        let allowFollow = (date.type == "paragraph-complete" || date.type == "complete-li-personal" || date.type == "complete-li" || date.type == 'videoi-youtube') && data?.sheets[i].section.number != 5;
-
+        // Va a activar el cronometro en caso de que no sea alguno de estos tipos de elementos
+        (
+          date.type == "paragraph-complete" ||
+          date.type == "complete-li-personal" ||
+          date.type == "complete-li" ||
+          date.type == 'videoi-youtube') &&
+        data?.sheets[props.page].section?.number != 5 &&
+        startChronometer() 
+        
+        // Se agrega la actividad a "typeActivitys"         
         newTypeActivitys.push({
           id:index,
           type:data.type,
           done:false
         })
-
-        setCanFollow(allowFollow)
+        
+        setCanFollow(false)
       }
-
+      
     })
 
     // Se asignan las nuevas actividades
     setTypeActivitys(newTypeActivitys)
 
-    console.log("position ID", session?.user?.position)
-    console.log("Done? ", data)
-
     // En caso de estar en una Evaluacion
-    if(data?.sheets[i].section.number == 5){
+    if(data?.sheets[props.page].section?.number == 5){
       // setCanFollow(true)
       setCanBack(false)
     }
     else setCanBack(true)
 
   },[i])
+  
+  useEffect(() => {
+    let interval;
+
+    if(activeChronometer){
+      interval = setInterval(() => {
+        setSeconds(prevSeconds => prevSeconds <= 0 ? 0 : prevSeconds - 1);
+      }, 1000);
+    }
+
+    // Limpia el intervalo cuando el componente se desmonta
+    return () => clearInterval(interval);
+
+  }, [activeChronometer]); 
+
+  useEffect(()=>{
+    if(activeChronometer && seconds == 0){
+      stopChronometer()
+      allowFollow()
+    }
+  },[seconds])
+
+  const formatTime = (timeInSeconds) => {
+    const minutes = Math.floor(timeInSeconds / 60);
+    const remainingSeconds = timeInSeconds % 60;
+    return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+  };
+
+  function startChronometer(){
+    // Esta funcion se encarga de iniciar el cronometro
+    setSeconds(30)
+    setActiveChronometer(true)    
+  }
+  function stopChronometer(){
+    // Esta funcion se encarga de parar el cronometro
+    setActiveChronometer(false)
+    if(seconds != 0) setSeconds(0)
+  }
 
   function allowFollow(){
     // Esta funcion es usada desde los componentes actividades para activar el boton de follow
     setCanFollow(true)
   }
-
   //#endregion
 
-  //#region Activity
+  //#region Actividades
   function allActivitysDone(){
     // Esta funcion devuelve un Boolean indicando si todas las actividades en "typeActivitys" estan echas
     let result = true;
@@ -190,6 +331,50 @@ export default function Class(props) {
     setCanFollow(true)
     setSuccessActivitys(true)
   }
+
+  
+  async function updateClasses(updates) {
+    // Esta funcion se encarga de actualizar las "classes" del usuario
+    // en funcion de lo que se le pase por el parametro "updates"
+
+    setLoading(true);
+
+    try {
+        
+       let newUpdates = {...session?.user, classes: updates}
+
+        const response = await fetch('/api/users/update', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email:session?.user?.email, updates: newUpdates}),
+        });
+  
+        if (response.ok) {
+            const data = await response.json();
+
+            if (data.message) {
+                // Se Actualiza el usuario
+                await update({
+                    ...session?.user,
+                    accessToken:"dddd"
+                })
+
+                console.log('Usuario actualizado con éxito');
+            } else {
+                console.error('Error al actualizar el usuario:', data.error);
+            }
+        } else {
+            console.error('Error al realizar la solicitud:', response.status);
+        }
+
+        setLoading(false)
+    } catch (error) {
+        setLoading(false)
+        console.error('Error al realizar la solicitud:', error);
+    }
+}
   
   // Animaciones de Check 
   const [shakesCheck, setShakesCheck] = useState(false)
@@ -245,6 +430,12 @@ export default function Class(props) {
 
     config: { duration: 100 }, // Configuración de animación,
   }); 
+
+  function sectionDone(){
+    updateIndexPosition(1)
+
+    window.history.back()
+  }
   
   useEffect(()=> {
 
@@ -273,14 +464,32 @@ export default function Class(props) {
 
         {/* Paginacion */}
 
-          {/* Empezemos */}
+          {/* Boton de Empezemos */}
           {
-            i == 0 &&
+            sheetsOfSection &&  data?.sheets[0] == sheetsOfSection[i]  &&
             <button
             className='bg-gradient-to-r from-primary to-secondary z-50 absolute bottom-[20%] text-white text-[28px] right-[30%] p-3 rounded-[5px] transition-all
             hover:shadow-[0px_4px_26px] hover:shadow-primary'
             onClick={() => Forward(i)}>
               ¡Empezemos!
+            </button>
+          }
+
+          {/* Boton de Finalizar */}
+          {
+            
+            <button
+            onClick={()=> {
+              sectionDone()
+            }}
+            className={`
+            ${sheetsOfSection &&  (sheetsOfSection.length - 1) == i && canFollow ? "bottom-0" : "bottom-[-25%]" }
+            ${ successActivitys ? "bg-secondary text-white" : "bg-white"}
+            z-50 fixed  text-title_color text-[18px] left-1/2 translate-x-[-50%] px-10 py-8 rounded-[70%_70%_0_0] transition-all shadow-[0px_4px_26px_#00000040] flex flex-col items-center
+            hover:bg-primary_hover hover:text-white
+            md:text-[16px] md:px-7`}>
+              <FontAwesomeIcon icon={faAngleUp}/>
+              Finalizar
             </button>
           }
 
@@ -291,7 +500,8 @@ export default function Class(props) {
               className={`
               ${ !canBack && "opacity-[50%] pointer-events-none"}
               transition-all fixed bottom-0 left-0 z-[90] bg-white rounded-[0_70%_0_0] py-8 px-10 shadow-[0px_4px_26px_#00000040] text-title_color text-left text-[18px]
-              hover:bg-primary_hover hover:text-white`}
+              hover:bg-primary_hover hover:text-white
+              md:text-[16px] md:px-7`}
               onClick={() => Back(i)}>
               <FontAwesomeIcon icon={faAngleLeft}/> Prev
             </button>
@@ -299,34 +509,37 @@ export default function Class(props) {
 
           {/* Boton de Siguiente */}
           {
-            i != 0 &&
+            i != sheetsOfSection?.length - 1 && sheetsOfSection && data?.sheets[0] != sheetsOfSection[i]  &&
             <button
               className={`
               ${ !canFollow && "opacity-[50%] pointer-events-none"}
               ${ successActivitys ? "bg-secondary text-white" : "bg-white"}
               transition-all fixed bottom-0 right-0 z-[90]  rounded-[70%_0_0_0] py-8 px-10 shadow-[0px_4px_26px_#00000040] text-title_color text-right text-[18px]
-              hover:bg-primary_hover hover:text-white`}
-              onClick={() => Forward(i)}>
-              Next <FontAwesomeIcon icon={faAngleRight}/> 
+              hover:bg-primary_hover hover:text-white
+              md:text-[16px] md:px-7`}
+              onClick={() => {
+                Forward(i);
+                updateIndexPosition()
+              }}>
+              { activeChronometer ? formatTime(seconds) : <>Next <FontAwesomeIcon icon={faAngleRight}/></>}  
             </button>
           }
-
         {
-          data && data.sheets[i]?.data ?
+          data && sheetsOfSection ?
 
           
-          data.sheets[i].template && i == 0 ||
-          data.sheets[i].template && (i + 1) == data.sheets.length?
+          sheetsOfSection.template && i == 0 ||
+          sheetsOfSection.template && (i + 1) == sheetsOfSection.length?
 
           // En caso de que sea la primera o ultima sheets
-          data.sheets[i].data.map((c, index) =>
+          sheetsOfSection[i].data.map((c, index) =>
           <>
 
             {/* Fondo */}
             <div style={{width:80,heigth:40}}>
               <Image
                 key={index+1}
-                src={data.sheets[i].template}
+                src={sheetsOfSection[i].template}
                 alt="Background Image"
                 layout="fill"
                 objectFit="cover"
@@ -352,12 +565,12 @@ export default function Class(props) {
           // En el caso contrario se muestra el resto sheets
           <>
             {/* Teample */}
-            <div className={style[data.sheets[i].template]}>
+            <div className={style[sheetsOfSection[i]?.template]}>
 
               {/* Titulo */}
               <div className={style['title']}>
                 {
-                data.sheets[i].data.map((c, index) =>
+                sheetsOfSection[i].data.map((c, index) =>
                 <>
                   {c.type === 'title' && 
                     <div className={style[c.className]}>
@@ -379,7 +592,7 @@ export default function Class(props) {
               {/* Contenido */}
               <div className={style['content']}>
                 {
-                data.sheets[i].data.map((c, index) =>
+                sheetsOfSection[i].data.map((c, index) =>
                   <>
                     {/* Level */}
                     {c.type === 'level' &&
