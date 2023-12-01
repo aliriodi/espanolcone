@@ -217,12 +217,17 @@ export default function Schedule() {
    
 if(VALUE){
      //api pago unico
-     router.push(unipago({ type:'plansync',
+     router.push( unipago({ type:'plansync',
      qty:VALUE.qty,
      cost:VALUE.cost,
      planing:1,
      classview:1}))
-   
+    console.log('unipago') 
+   console.log( unipago({ type:'plansync',
+   qty:VALUE.qty,
+   cost:VALUE.cost,
+   planing:1,
+   classview:1}))
 //fin api
 
     try{
