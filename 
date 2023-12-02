@@ -5,7 +5,7 @@
             "number":0,
             "value":"Mis Metas"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697578474/images/template3_hdoriw.png",
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1700352854/images/figvqbupbtledti8qf5k.png",
         "data": [
             {
                 "type": "image",
@@ -59,7 +59,7 @@
                 "className": "title-white"
             },
             {
-                "type": "videoi-youtube",
+                "type": "video-youtube",
                 "id": "iOI1pcA0Aks",
                 "value": "iOI1pcA0Aks",
                 "youtuve": "https://youtu.be/iOI1pcA0Aks",
@@ -487,45 +487,25 @@
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1700088731/images/cfoiyfoexwkcn1ozkyuk.jpg",
                 "alt": "Cascada Los Hornillos, Río Ceballos",
-                "className": "img-c-position"
-            },
-            {
-                "type": "text",
-                "value": "Cascada Los Hornillos, Río Ceballos",
-                "className": "citydown"
+                "className": "className"
             },
             {
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1700089568/images/uunrxurnntxd8jds43kd.jpg",
                 "alt": "Cascada Los Chorrillos, Tanti",
-                "className": "img-c-position"
-            },
-            {
-                "type": "text",
-                "value": "Cascada Los Chorrillos, Tanti",
-                "className": "citydown"
+                "className": "className"
             },
             {
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1700089663/images/h49abdmx48cd7epojtz2.jpg",
                 "alt": "Reserva Hídrica, Los Quebrachitos, Unquillo",
-                "className": "img-rows-position"
-            },
-            {
-                "type": "text",
-                "value": "Reserva Hídrica, Los Quebrachitos, Unquillo",
-                "className": "citydown"
+                "className": "className"
             },
             {
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1700089752/images/k5tg5hx3kzspf8ctrxkr.jpg",
                 "alt": "Reserva Natural Vaquerías, Valle Hermoso",
-                "className": "img-rows-position"
-            },
-            {
-                "type": "text",
-                "value": "Reserva Natural Vaquerías, Valle Hermoso",
-                "className": "citydown"
+                "className": "className"
             }
         ]
     },
@@ -579,11 +559,6 @@
                 "className": "title-white"
             },
             {
-                "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1700494306/images/zke98stafjs6hp7ywyrp.avif",
-                "className": ""
-            },
-            {
                 "type": "text",
                 "value": "FICHA TÉCNICA",
                 "className": "subtitle-default"
@@ -592,36 +567,6 @@
                 "type": "text",
                 "value": "<ul><li><span style='color:orange'>Dificultad:</span>Media</li><li><span style='color:orange'>Distancia y tiempo aproximado de circuito:</span>12 km en 7 hs (ascenso y descenso)</li><li><span style='color:orange'>Altitud máxima:</span>1979 msnm</li><li><span style='color:orange'>¿Hay cruces de vertientes y lagunillas?:</span>Sí</li><li><span style='color:orange'>¿Obstáculos en el camino?:</span>Sí, piedras y diversa vegetación</li><li><span style='color:orange'>¿Es gratuito?:</span>No, hay que pagar al ingresar</li><li><span style='color:orange'>Otras actividades:</span>Camping en el río Calabalumba. Otros senderos cercanos y de baja dificultad</li></ul>",
                 "className": "paragraph-default"
-            }
-        ]
-    },
-    "page13": {
-        "type": "text",
-        "section": {
-            "number":5,
-            "value": "Evaluemos"
-        },
-        "template": "template-title-right-1",
-        "data": [
-            {
-                "type": "title",
-                "value": "Esta es la conversación que tienen María y sus amigas, en la que están planeando si hacer o no trekking en el cerro Uritorco. <span style='color:black'>Completa el texto con la opción que corresponda<span>",
-                "className": "title-white"
-            }
-        ]
-    },
-    "page14": {
-        "type": "text",
-        "section": {
-            "number":5,
-            "value": "Evaluemos"
-        },
-        "template": "template-title-right-1",
-        "data": [
-            {
-                "type": "title",
-                "value": "Esta es la conversación que tienen María y sus amigas, en la que están planeando si hacer o no trekking en el cerro Uritorco. <span style='color:black'>Completa el texto con la opción que corresponda<span>",
-                "className": "title-white"
             }
         ]
     },

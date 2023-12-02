@@ -44,6 +44,11 @@ export default function Class(props) {
   
   const {data: session,status, update} = useSession();
 
+  // Segundos usados para las actividades dificiles
+  const [seconds, setSeconds] = useState(60);
+
+  const [activeChronometer, setActiveChronometer] = useState(false)
+
   const opts = {
     playerVars: {
       rel: 0, // Evitar videos relacionados al final
@@ -54,7 +59,6 @@ export default function Class(props) {
     }
   }
 
-  // Fetch data when the component mounts 
   //me traigo todas las clase de base de datos por _id trida por props.id
   useEffect(() => {
     fetch('/api/class/'+props.id)
@@ -171,7 +175,7 @@ export default function Class(props) {
 
     // En caso de que la actual unidad este echa o el indice actual en menor al indice indicad en "position"
     // no hay necesidad de actualizar el "position"
-    if(currentUnitDone || i <= session?.user?.position) return
+    if(currentUnitDone || data?.sheets?.indexOf(sheetsOfSection[i]) < session?.user?.position?.index) return
     
     let newIndex = data?.sheets.indexOf(sheetsOfSection[i])
 
@@ -200,6 +204,7 @@ export default function Class(props) {
 
     window.scrollTo({top: 0});
     setCanFollow(true)
+    stopChronometer()
 
     // Se Asigna los tipos de actividades a "typeActivitys"
     let newTypeActivitys = [];
@@ -214,15 +219,23 @@ export default function Class(props) {
         date.type == 'videoi-youtube'
       ){
 
-        // "allowFollow" va a permitir que el boton de forward este activo en caso de que no sea alguno de estos tipos de elementos
-        let allowFollow = (date.type == "paragraph-complete" || date.type == "complete-li-personal" || date.type == "complete-li" || date.type == 'videoi-youtube') && data?.sheets[props.page].section?.number != 5;
+        // Va a activar el cronometro en caso de que no sea alguno de estos tipos de elementos
+        (
+          date.type == "paragraph-complete" ||
+          date.type == "complete-li-personal" ||
+          date.type == "complete-li" ||
+          date.type == 'videoi-youtube') &&
+        data?.sheets[props.page].section?.number != 5 &&
+        startChronometer() 
+        
+        // Se agrega la actividad a "typeActivitys"         
         newTypeActivitys.push({
           id:index,
           type:data.type,
           done:false
         })
         
-        setCanFollow(allowFollow)
+        setCanFollow(false)
       }
       
     })
@@ -238,6 +251,44 @@ export default function Class(props) {
     else setCanBack(true)
 
   },[i])
+  
+  useEffect(() => {
+    let interval;
+
+    if(activeChronometer){
+      interval = setInterval(() => {
+        setSeconds(prevSeconds => prevSeconds <= 0 ? 0 : prevSeconds - 1);
+      }, 1000);
+    }
+
+    // Limpia el intervalo cuando el componente se desmonta
+    return () => clearInterval(interval);
+
+  }, [activeChronometer]); 
+
+  useEffect(()=>{
+    if(activeChronometer && seconds == 0){
+      stopChronometer()
+      allowFollow()
+    }
+  },[seconds])
+
+  const formatTime = (timeInSeconds) => {
+    const minutes = Math.floor(timeInSeconds / 60);
+    const remainingSeconds = timeInSeconds % 60;
+    return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+  };
+
+  function startChronometer(){
+    // Esta funcion se encarga de iniciar el cronometro
+    setSeconds(30)
+    setActiveChronometer(true)    
+  }
+  function stopChronometer(){
+    // Esta funcion se encarga de parar el cronometro
+    setActiveChronometer(false)
+    if(seconds != 0) setSeconds(0)
+  }
 
   function allowFollow(){
     // Esta funcion es usada desde los componentes actividades para activar el boton de follow
@@ -399,7 +450,6 @@ export default function Class(props) {
 
   return (
     <>
-
         {/* Check */}
         <animated.div
         className='fixed left-1/2 translate-x-[-50%] rounded-full bg-white w-[100px] h-[100px] flex justify-center items-center border-solid border-[4px] border-secondary z-50'
@@ -471,7 +521,7 @@ export default function Class(props) {
                 Forward(i);
                 updateIndexPosition()
               }}>
-              Next <FontAwesomeIcon icon={faAngleRight}/> 
+              { activeChronometer ? formatTime(seconds) : <>Next <FontAwesomeIcon icon={faAngleRight}/></>}  
             </button>
           }
         {
