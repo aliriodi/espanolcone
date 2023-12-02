@@ -1,0 +1,294 @@
+{
+    "page1": {
+        "type": "text",
+        "section": {
+            "number":0,
+            "value":"Mis Metas"
+        },
+        "template": "",
+        "data": [
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366262/images/logo-primary_qoagkg.png",
+                "alt": "EspañolconE",
+                "className": "Portadaimg"
+            },
+            {
+                "type": "title",
+                "value": "EN EL AEROPUERTO",
+                "className": "Portadatil"
+            },
+            {
+                "type": "level",
+                "value": "NIVEL A1",
+                "className": "Portadalev"
+            }
+        ]
+    },
+    "page2": {
+        "type": "text",
+        "section": {
+            "number":0,
+            "value":"Mis Metas"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "¿Qué voy a aprender en esta unidad?",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "<table style='width: 80%;'><th style= 'border: 1px solid black; width: 25%; background-color: #FF7530'><h3><strong>Comunicación</strongyle=></h3></th><th style= ' border: 1px solid black; width: 25%; background-color: #FF7530'><h3><strong>Vocabulario</strong></h3></th><th style= 'border: 1px solid black;width: 30%; background-color: #FF7530;'><h3><strong>Gramática</strong></h3></th></tr><td style= 'border: 1px solid black; padding: 4px'>*Dar y pedir información sobre otras personas, acerca de nombre, profesiones y gentilicios.<br>*Presentar a otros.<br>*Presentaciones y saludos formales e informales.<br><td style= 'border: 1px solid black;padding: 4px'>*Datos personales: nombre, apellido, edad, nacionalidad y profesiones.<br>*Nombres propios masculinos y femeninos.<br>*Números usados para indicar la edad.<br>*Miembros de la familia.<br>*Vocabulario de aeropuerto.<br><td style= 'border: 1px solid black;padding: 4px;'>*El verbo llamarse.<br>*Pronombres personales como sujetos.<br>*Verbo tener: edad; familia; hijos y mascota<br>*Verbo ser para identificar; nacionalidad y profesión.<br>*Pronombres interrogativos: ¿cómo?; ¿quién?; ¿qué?; cuántos?; ¿cuál? y ¿dónde?<br>*Verbos tener trabajar y vivir para dar información.<br></td></table>",
+                "className": "table"
+            },
+            {"type": "text", "value": "Creado por Virginia"}
+        ]
+    },
+    "page3": {
+        "type": "text",
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Este es el aeropuerto internacional de Córdoba - Argentina",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "“Ingeniero Aeronáutico Ambrosio Taravella”",
+                "className": "title-white"
+            },
+            {
+                "type":"Image",
+                "value":"https://res.cloudinary.com/dfddh08q8/image/upload/s--dlRN45CN--/v1701363238/images/k0ukpuk4jwiwlxgywddj.png",
+                "alt":"Ingeniero Aeronáutico Ambrosio Taravella",
+                "className":""
+            }
+        ]
+    },
+    "page4": {
+        "type": "text",
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "En el aeropuerto de Córdoba, Argentina, una familia brasileña pierde su maleta",
+                "className": "title-white"
+            },
+            {
+                "type":"Image",
+                "value":"https://res.cloudinary.com/dfddh08q8/image/upload/s--UG-jV33h--/v1701481453/images/sbkz5ykwghz6cpeywynx.png",
+                "alt":"Familia brasileña pierde su maleta",
+                "className":""
+            }
+        ]
+    },
+    "page5": {
+        "type": "text",
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "En el aeropuerto de Córdoba, Argentina, una familia brasileña pierde su maleta y tiene una entrevista en migraciones para tomar sus datos. ",
+                "className": "title-white"
+            },
+            {
+                "type":"Image",
+                "value":"https://res.cloudinary.com/dfddh08q8/image/upload/s--Gxl8CQfv--/v1701481670/images/on8dmpadmlftrt3kq8id.png",
+                "alt":"Familia brasileña pierde su maleta",
+                "className":""
+            },
+            {
+                "type": "paragraph",
+                "value": "<strong style='color: purple'>Empleada de Migraciones:</strong> <strong>Buenas tardes, mi nombre es</strong> <u>María González</u>, bienvenidos a Argentina. <strong>¿Cómo se llaman?</strog><br><strong style=' color: orange>Papá:</strong> <strong>Mi nombre es</strong> <u>Pedro Soares</u>, <strong>mi esposa se llama</strong> <u>Thainá Rezende.</u><br><strong style='color: purple'>Empleada de Migraciones:</strong> <strong>¿Cómo se deletrea el apellido de su esposa?</strong><strong style='color: orange'>Papá:</strong> <strong>R-E-Z-E-N-D-E</strong><strong style='color: purple'>Empleada de Migraciones:</strong> <strong>¿Y sus hijos, cómo se llaman?</strong><br><strong style='color: orange'>Papá:</strong> <u>Thiago Rezende Soares<u><strong>y</strong> <u>Thainara Rezende Soares</u><br><strong><span style=' color; purple'>Empleada de Migraciones:</span> ¿Cuántos años tienen?<br> <span style='color: #00CCE3'>Mamá:</span> Mi esposo tiene 43 años, yo tengo 42 años, Thiago tiene 13 años y Thainara tiene 9 años.<br><span style=' color; purple'>Empleada de Migraciones:</span> ¿De dónde vienen?<br><span style='color: orange'>Papá:</span> Venimos de Santos, Brasil.</strong>",
+                "className": ""
+            }
+        ]
+    },
+    "page6": {
+        "type": "text",
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "En el aeropuerto de Córdoba, Argentina, una familia brasileña pierde su maleta y tiene una entrevista en migraciones para tomar sus datos. ",
+                "className": "title-white"
+            },
+            {
+                "type":"Image",
+                "value":"https://res.cloudinary.com/dfddh08q8/image/upload/s--A8PkgE5z--/v1701483062/images/cflhp2kmbtadpejvrqy4.png",
+                "alt":"Familia brasileña pierde su maleta",
+                "className":""
+            },
+            {
+                "type": "paragraph",
+                "value": "<strong><span style='color: purple'>Empleada de Migraciones:</span> ¿Cuál es el motivo de su viaje?<br><span style='color: #00CCE3'>Mamá: </span></strong>Visita familiar, mi hermano está casado con una argentina y <strong>viven</strong> acá desde hace 10 años.<br><strong style='color: #33BB99'>Irenise:</strong> También venimos a visitar a nuestros abuelos, <strong>ellos viven</strong> con mis tíos en Córdoba.<br><strong style='color: purple'>Empleada de Migraciones:</strong> Ah, ¡muy bien! Un viaje familiar entonces, <strong>¿por cuánto tiempo se quedan?</strong><br><strong style='color: orange'>Papá: </strong>cuatro semanas<br><strong><span style=' color: purple'>Empleada de Migraciones: </span>¿A qué se dedican en Brasil?<br><span style='color: #00CCE3'>Mamá: </span></strong> Mi marido <strong>es contador </strong> y yo <strong>soy psicóloga</strong><br><strong style=' color: purple'>Empleada de Migraciones: </strong>Perfecto, ¿pueden dejarme algun dato de contacto?<br><strong style='color: #00CCE3'>Mamá: </strong> Sí, mi número de teléfono es 5 5 8 3 2 6 5 4 4 1 0 y mi correo electrónico es thairezende@mail.com<br><strong style=' color: purple'>Empleada de Migraciones: </strong> Muchas gracias, estamos en contacto, disfruten de su estadía en Córdoba.<br> <strong style='color: orange'>Papá: </strong>Muchas gracias por su atención.",
+                "className": ""
+            }
+        ]
+    },
+    "page7": {
+        "type": "selectsimple",
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "<span style='color: black'>Después de leer la conversación:</span>",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "Selecciona la opción que corresponda en cada pregunta según lo que leíste en el diálogo anterior",
+                "className": "title-white"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<strong><span style='color: #00CCE3'>1.</span> La familia está compuesta por:</strong>",
+                "option": "papá, mamá y dos hijas",
+                "options": [
+                    "papá, mamá y dos hijos",
+                    "papá, mamá y dos hijas",
+                    "papá, mamá y tres hijas"
+                ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<strong><span style='color: #00CCE3'>2.</span> La familia es:</strong>",
+                "option": "brasileña",
+                "options": [
+                    "colombiana",
+                    "peruana",
+                    "brasileña"
+                ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<strong><span style='color: #00CCE3'>3.</span> El motivo de su viaje es:</strong>",
+                "option": "familiar",
+                "options": [
+                    "familiar",
+                    "por trabajo",
+                    "por estudios"
+                ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<strong><span style='color: #00CCE3'>4.</span> Tiempo que se quedan en Córdoba:</strong>",
+                "option": "cuatro semanas",
+                "options": [
+                    "cuatro meses",
+                    "dos meses",
+                    "por estudios"
+                ],
+                "className": "selector-simple"
+            }
+        ]
+    },
+    "page8": {
+        "type": "selectsimple",
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "<span style='color: black'>Después de leer la conversación:</span>",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "Selecciona la opción que corresponda en cada pregunta según lo que leíste en el diálogo anterior",
+                "className": "title-white"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<strong><span style='color: #00CCE3'>5.</span> En Córdoba viven</strong>",
+                "option": "su tío, su tía y sus abuelos",
+                "options": [
+                    "su tío, su tía y sus primos",
+                    "su tío, su tía y sus abuelos",
+                    "su tío y su tía"
+                ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<strong><span style='color: #00CCE3'>6.</span> Las profesiones de los padres son:</strong>",
+                "option": "él es contador y ella es psicóloga",
+                "options": [
+                    "él es administrador de empresas y ella es contadora",
+                    "él es psicólogo y ella es contadora",
+                    "él es contador y ella es psicóloga"
+                ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<strong><span style='color: #00CCE3'>7.</span> Los datos para contacto son:</strong>",
+                "option": "número de teléfono y correo electrónico",
+                "options": [
+                    "número de teléfono y correo electrónico",
+                    "correo electrónico y dirección",
+                    "dirección y número de teléfono"
+                ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<strong><span style='color: #00CCE3'>8.</span> ¿Cómo se llaman los hijos?:</strong>",
+                "option": "Thainá y Thiago",
+                "options": [
+                    "Mateo y Thainá",
+                    "Thiago y Larissa",
+                    "Thainá y Thiago"
+                ],
+                "className": "selector-simple"
+            }
+        ]
+    },
+    "page9": {
+        "type": "video-youtube",
+        "section": {
+            "number":2,
+            "value":"Aprendemos"
+        },
+        "template": "template-video-1",
+        "data": [
+            {
+                "type": "video-youtube",
+                "value": "0OdzVcricDI",
+                "youtube": "https://www.youtube.com/watch?v=0OdzVcricDI",
+                "className": "youtube"
+            }
+        ]
+    }
+    
+
+}
