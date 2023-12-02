@@ -76,18 +76,8 @@
         "data": [
             {
                 "type": "title",
-                "value": "¿Conoces estas palabras?",
-                "className": "titleleft-white"
-            },
-            {
-                "type": "title",
-                "value": "¿Sabes qué significan?",
-                "className": "titleleft-white"
-            },
-            {
-                "type": "title",
-                "value": "Relaciónalas con las siguientes imágenes",
-                "className": "titleleft-black"
+                "value": "¿Conoces estas palabras?<br>¿Sabes qué significan?<br><br><br><span style=' color: black'>Relaciónalas con las siguientes imágenes</span>",
+                "className": "title-white"
             },
                 {
                 "type": "dragable-box",
@@ -150,18 +140,8 @@
         "data": [
             {
                 "type": "title",
-                "value": "¿Conoces estas palabras?",
-                "className": "titleleft-white"
-            },
-            {
-                "type": "title",
-                "value": "¿Sabes qué significan?",
-                "className": "titleleft-white"
-            },
-            {
-                "type": "title",
-                "value": "Relaciónalas con las siguientes imágenes",
-                "className": "titleleft-black"
+                "value": "¿Conoces estas palabras?<br>¿Sabes qué significan?<br><br><br><span style=' color: black'>Relaciónalas con las siguientes imágenes</span>",
+                "className": "title-white"
             },
                 {
                 "type": "dragable-box",
@@ -308,7 +288,7 @@
                 "type": "video-youtube",
                 "value": "CKezNADLEEE",
                 "youtube": "https://www.youtube.com/watch?v=CKezNADLEEE",
-                "className": "video"
+                "className": "youtube"
             }
         ]
     },
@@ -493,7 +473,7 @@
             {
                 "type": "title",
                 "value": "Te presentamos a Erica, la guía turística, que esperó a Bruna en el aeropuerto en Córdoba. <br> Erica casi siempre anda apurada y no tiene tiempo de completar el diario de trabajo.<br> <span style=' color: orange'>¿Quieres ayudarla?</span>",
-                "className": "titleleft-white"
+                "className": "title-white"
             },
             {
                 "type": "paragraph",
@@ -664,7 +644,7 @@
             {
                 "type": "video-youtube",
                 "value": "msbABi9NZLs",
-                "className": "video",
+                "className": "youtube",
                 "youtube": "https://www.youtube.com/watch?v=msbABi9NZLs"
             }
         ]
@@ -680,7 +660,7 @@
             {
                 "type": "title",
                 "value": "Verdadero o Falso:",
-                "className": "titleleft-white"
+                "className": "title-white"
             },
             {
                 "type": "paragraph-complete",
@@ -733,7 +713,7 @@
             {
                 "type": "title",
                 "value": "Verdadero o Falso:",
-                "className": "titleleft-white"
+                "className": "title-white"
             },
             {
                 "type": "paragraph-complete",
@@ -795,8 +775,8 @@
         "data": [
             {
                 "type": "title",
-                "value": "Evaluación unidad 3 - Nivel B1",
-                "className": ""
+                "value": "<span style= 'color: black'>Evaluación unidad 2 - Nivel B1</span>",
+                "className": "title-white"
             },
             {
                 "type": "paragraph",

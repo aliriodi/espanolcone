@@ -58,7 +58,7 @@
             {
                 "type": "title",
                 "value": "¿Qué podés hacer en Córdoba para pasarla bien?",
-                "className": "titleleft-white"
+                "className": "title-white"
             },
             {
                 "type": "image",
@@ -139,7 +139,7 @@
             {
                 "type": "title",
                 "value": "¿De qué se trata cada propuesta?",
-                "className": "titleleft-white"
+                "className": "title-white"
             },
             {
                 "type": "image",
@@ -202,7 +202,7 @@
             {
                 "type": "title",
                 "value": "¿De qué se trata cada propuesta?",
-                "className": "titleleft-white"
+                "className": "title-white"
             },
             {
                 "type": "image",
@@ -264,18 +264,18 @@
         "data": [
             {
                 "type": "title",
-                "value": "Un amigo te pide recomendaciones para hacer algunas actividades en sus vacaciones en Córdoba, ahora que ya conoces varias opciones...",
-                "className": "titleleft-black"
+                "value": "<span style= 'color: black'>Un amigo te pide recomendaciones para hacer algunas actividades en sus vacaciones en Córdoba, ahora que ya conoces varias opciones...</span>",
+                "className": "title-white"
             },
             {
                 "type": "title",
                 "value": "¿A dónde le recomendarías ir en cada caso?<br>Coloca entre paréntesis el numero de la imagen asociada",
-                "className": "titleleft-white"
+                "className": "title-white"
             },
             {
                 "type": "paragraph-complete",
                 "value": [
-                    "<li>Si querés conectar con la naturaleza y recorrer senderos naturales que te lleven a un lugar relajado y tranquilo, deber ir (",
+                    "<li>Si querés conectar con la naturaleza y recorrer senderos naturales que te lleven a un lugar relajado y tranquilo, deber ir ( ",
                     {
                         "block": 1,
                         "color": "orange",
@@ -382,7 +382,7 @@
                 "type": "video-youtube",
                 "value": "FEn0u4iTafA",
                 "youtuve": "https://www.youtube.com/watch?v=FEn0u4iTafA",
-                "className": "video"
+                "className": "youtube"
             }
         ]
     },
@@ -396,14 +396,14 @@
         "data": [
             {
                 "type": "paragraph",
-                "value": "<strong>Vamos a conocer más en profundidad de qué se trata<br><span style= 'color: purple; font-size: 24px;'>La Media Legua de Oro Cultural</span><br>un recorrido que se puede hacer en la capital de la provincia</strong>",
-                "className": "paragraph1"
+                "value": "<strong>Vamos a conocer más en profundidad de qué se trata<br><span style= 'color: purple;'>La Media Legua de Oro Cultural</span><br>un recorrido que se puede hacer en la capital de la provincia</strong>",
+                "className": "title-white"
             },
             {
                 "type": "video-youtube",
                 "value": "GyJtkcbSbmw",
                 "youtuve": "https://www.youtube.com/watch?v=GyJtkcbSbmw",
-                "className": "video"
+                "className": "youtube"
             }
         ]
     },
@@ -418,7 +418,7 @@
             {
                 "type": "title",
                 "value": "Después de mirar el video, completá el diálogo entre Bárbara, una mexicana, y Florencia, una cordobesa, que están planeando hacer el recorrido.",
-                "className": "titleleft-white"
+                "className": "title-white"
             },
             {
                 "type": "paragraph",
@@ -461,7 +461,7 @@
             {
                 "type": "title",
                 "value": "Después de mirar el video, completá el diálogo entre Bárbara, una mexicana, y Florencia, una cordobesa, que están planeando hacer el recorrido.",
-                "className": "titleleft-white"
+                "className": "title-white"
             },
             {
                 "type": "paragraph",
@@ -482,7 +482,6 @@
                     "option": "una cárcel de mujeres"
                 },
                 "?<br> <span style= 'color: blue'>Florencia:</span> Sí, ese. Cuando crucemos la",
-
                 {
                     "block": 10,
                     "color": "orange",
@@ -538,7 +537,7 @@
             {
                 "type": "title",
                 "value": "Relaciona las respuestas que le dan sus amigos, colocando el nombre con la imagen que corresponda.",
-                "className": "titleleft-white"
+                "className": "title-white"
             },
             {
                 "type": "paragraph",
@@ -592,15 +591,15 @@
             ],
                 "DragBoxs":[
                     {
-                        "value":"Abril",
+                        "value":"Franco",
                         "id":"DragBox1"
                     },
                     {
-                        "value":"Franco",
+                        "value":"Morena",
                         "id":"DragBox2"
                     },
                     {
-                        "value":"Morena",
+                        "value":"Abril",
                         "id":"DragBox3"
                     },
                     {
@@ -653,7 +652,7 @@
                 "type": "video-youtube",
                 "value": "tWdt2dgxMM0",
                 "youtuve": "https://www.youtube.com/watch?v=tWdt2dgxMM0",
-                "className": "video"
+                "className": "youtube"
             }
         ]
     },
@@ -667,8 +666,8 @@
         "data": [
             {
                 "type": "title",
-                "value": "Evaluación unidad 2 - Nivel B1",
-                "className": "titleBlack"
+                "value": "<span style= 'color: black'>Evaluación unidad 2 - Nivel B1</span>",
+                "className": "title-white"
             },
             {
                 "type": "paragraph",
@@ -698,7 +697,7 @@
             {
                 "type": "title",
                 "value": "Para pasarla bien puedes ir …",
-                "className": "titleleft-white"
+                "className": "title-white"
             },
             
                 {
@@ -762,11 +761,11 @@
                     },
                     {
                         "value":"al teatro",
-                        "id":"DragBox4"
+                        "id":"DragBox5"
                     },
                     {
                         "value":"al parque mecánico",
-                        "id":"DragBox4"
+                        "id":"DragBox6"
                     }
                 ]
             }
@@ -783,7 +782,7 @@
             {
                 "type": "title",
                 "value": "Para pasarla bien puedes …",
-                "className": "titleleft-white"
+                "className": "title-white"
             },
             
                 {
@@ -847,11 +846,11 @@
                     },
                     {
                         "value":"leer",
-                        "id":"DragBox4"
+                        "id":"DragBox5"
                     },
                     {
                         "value":"usar las redes sociales",
-                        "id":"DragBox4"
+                        "id":"DragBox6"
                     }
                 ]
             }
@@ -868,7 +867,7 @@
             {
                 "type": "title",
                 "value": "Para pasarla bien puedes ver los siguientes tipos de programas …",
-                "className": "titleleft-white"
+                "className": "title-white"
             },
             
                 {
@@ -933,7 +932,7 @@
             {
                 "type": "title",
                 "value": "Para pasarla bien puedes ver los siguientes tipos de películas …",
-                "className": "titleleft-white"
+                "className": "title-white"
             },
             
                 {
