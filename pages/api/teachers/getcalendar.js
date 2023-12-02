@@ -27,8 +27,8 @@ export default async function getTeachersWithAgendaFromTomorrow(req, res) {
           &&!calendar1.assigned?
           output.push(teacher):null)))
 
-console.log(output.length,teachersWithAgenda.length)
-console.log(teachersWithAgenda)
+//console.log(output.length,teachersWithAgenda.length)
+//console.log(teachersWithAgenda)
 
     console.log('TEACHERS WITH SCHEDULE FROM TOMORROW FOUND');
 //console.log(teachersWithAgenda)
