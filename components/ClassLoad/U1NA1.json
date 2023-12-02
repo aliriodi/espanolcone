@@ -51,22 +51,27 @@
             "number": 1,
             "value": "Comencemos"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697582910/images/template-title-right-1.png",
+        "template": "template-title-right-1",
         "data": [
             {
                 "type": "title",
                 "value": "Veamos el video",
-                "className": "leftWhite"
+                "className": "title-white"
             },
             {
                 "type": "paragraph",
-                "value": "¡Hola! ¿Qué tal?",
-                "className": "paragraph8"
+                "value": "<p> <u>Video con presentación:</u> </p>",
+                "className": "className1"
+            },
+            {
+                "type": "paragraph",
+                "value": "<p>¡Hola! ¿Qué tal?</p>",
+                "className": "className1"
             },
             {
                 "type": "paragraph",
                 "value": "¿Cómo estás?",
-                "className": "className2"
+                "className": "className1"
             },
             {
                 "type": "paragraph",
@@ -315,7 +320,7 @@
             {
                 "type": "paragraph-complete",
                 "value": [
-                    "<div class='w-1/2 p-2 text-center bg-blue-400'><Image alt='imagen1' src='https://espanolcone-five.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdfddh08q8%2Fimage%2Fupload%2Fs--qA9L-WwV--%2Fv1700606516%2Fimages%2Fwlngh0vmnrxit0cpiq77.png&w=384&q=75' />  Yo soyS",
+                    "<div class='w-1/2 p-2 text-center bg-blue-400'><Image alt='imagen1' src='https://espanolcone-five.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdfddh08q8%2Fimage%2Fupload%2Fs--qA9L-WwV--%2Fv1700606516%2Fimages%2Fwlngh0vmnrxit0cpiq77.png&w=384&q=75' />  Yo soy",
                     {
                         "block": 12,
                         "color": "orange",
@@ -375,39 +380,193 @@
                 "className": "title-white "
             },
             {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--0GcsPTej--/v1701369397/images/jetsyyur4bjo8n4ayjzn.png",
+                "alt": "manos",
+                "className": "className"
+            },
+            {
                 "type": "selectsimple",
-                "value": "",
-                "option": "Apreton de manos",
+                "value": "Apreton de manos",
+                "option": "Es un placer conocerte",
                 "options": [
-                    "Apreton de manos",
+                    "Es un placer conocerte",
                     "Buenas noches"
                 ],
                 "className": "selector-simple"
             },
             {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--PjK3ReP_--/v1701369332/images/g4ztgbygnfiggwai8q4a.png",
+                "alt": "hola",
+                "className": "className"
+            },
+            {
                 "type": "selectsimple",
-                "value": "2. Yo vivo en:",
-                "option": "a. Argentina.",
+                "value": "Saludo inicial",
+                "option": "¡Hola!",
                 "options": [
-                    "a. Argentina.",
-                    "b. Venezuela.",
-                    "c. Colombia."
+                    "Es un placer conocerte",
+                    "¡Hola!"
+                ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--QukU8qRA--/v1701369440/images/xyca5tjgg0ixacxwaihb.png",
+                "alt": "chao",
+                "className": "className"
+            },
+            {
+                "type": "selectsimple",
+                "value": "Despedida",
+                "option": "¡Adiós!",
+                "options": [
+                    "¡Adiós!",
+                    "¿Cómo estás?"
+                ],
+                "className": "selector-simple"
+            }
+        ]
+    },
+    "page11": {
+        "type": "selectsimple",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Actividades interactivas",
+                "className": "title-white"
+            },
+            {
+                "type": "selectsimple",
+                "value": "1. Tiempo 0:31 ¿Qué observas?",
+                "option": "b. beso entre hombres",
+                "options": [
+                    "a. apretón de manos",
+                    "b. beso entre hombres",
+                    "c. beso entre mujeres"
                 ],
                 "className": "selector-simple"
             },
             {
                 "type": "selectsimple",
-                "value": "3. Tengo 27 años:",
-                "option": "b. Falso.",
+                "value": "2. Tiempo 1:12 ¿Es común en Argentina los besos entre hombres?",
+                "option": "b. Sí",
                 "options": [
-                    "a. Verdadero.",
-                    "b. Falso."
+                    "a. No",
+                    "b. Sí"
                 ],
                 "className": "selector-simple"
-            }  
+            },
+            {
+                "type": "selectsimple",
+                "value": "3. Tiempo 1:31 ¿Qué observas?",
+                "option": "a. apretón de manos",
+                "options": [
+                    "a. apretón de manos",
+                    "b. beso entre hombres",
+                    "c. beso entre mujeres"
+                ],
+                "className": "selector-simple"
+            }
         ]
     },
-    "page11": {
+    "page12": {
+        "type": "paragraph",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Reto propuesto",
+                "className": "paragraph3"
+            }
+        ]
+    },
+    "page13": {
+        "type": "paragraph",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Reto propuesto",
+                "className": "paragraph3"
+            },
+            {
+                "type": "paragraph",
+                "value": "Construye una infografía con tu presentación, usando las herramientas que  quieras, puedes seguir el modelo. Luego graba un video presentándote y dando tu información personal.",
+                "className": "paragraph8"
+            }
+        ]
+    },
+    "page14": {
+        "type": "paragraph",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "¡Vamos a conocernos!",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": " <span style= 'color: orange;' > <strong >es</strong ></span> ¡Hola! ¿Cómo estás?",
+                "className": "title-white"
+            },
+            {
+                "type": "text",
+                "value": "Mi nombre es Eucaris Rodríguez.Soy de Venezuela.",
+                "className": "title-black"
+            },
+            {
+                "type": "text",
+                "value": "Soy profesora de español.",
+                "className": "title-black"
+            },
+            {
+                "type": "text",
+                "value": "Mi lengua materna es el español, también puedo hablar inglés y un poco de portugués.",
+                "className": "title-black"
+            },
+            {
+                "type": "text",
+                "value": "Vivo con mi familia, y tengo una perrita llamada Honey.",
+                "className": "title-black"
+            },
+            {
+                "type": "text",
+                "value": "Vivo en Argentina, mi dirección es Sarajevo 1432, Barrio Buenaventura",
+                "className": "title-black"
+            },
+            {
+                "type": "text",
+                "value": "Mi dirección de email es eucarisr@espanolcone.com",
+                "className": "title-black"
+            },
+            {
+                "type": "text",
+                "value": "Mi número de teléfono es 351763219",
+                "className": "title-black"
+            }
+        ]
+    },
+    "page15": {
         "type": "paragraph",
         "section": {
             "number": 1,
