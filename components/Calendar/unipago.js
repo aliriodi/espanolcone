@@ -4,7 +4,9 @@ export default async function unipago(referencia){
         "comercio": "EspañolconE", 
         "mail":  "espanolconeacademy@gmail.com",
         "dominio": "espanolcone-five.vercel.app",//"localhost:3000", 
-        "referencia":JSON.stringify(referencia), }
+        "referencia":"JSON.stringify(referencia)", 
+       "moneda":'usd',
+       "monto":1000}
 
     // Convierte el ARRAY en un JSON y lo pone en un buffer para luego convertirlo
     const bParamDat1 = Buffer.from(JSON.stringify(cJSONFinal))
