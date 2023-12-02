@@ -1,11 +1,11 @@
 export default async function unipago(){
     const cJSONFinal = {
-        "tipo": 2, 
+        "tipo": 3, 
         "comercio": "EspañolconE", 
         "mail":  "espanolconeacademy@gmail.com",
         "dominio": "espanolcone-five.vercel.app", //"espanolcone-five.vercel.app",
         "referencia":"Cliente 1000 - Alberto Gomez o Pedido 0001-0000112334",
-        "monto": 11703.00       
+        "monto": 11703.00        
        
     }
 
@@ -14,7 +14,7 @@ export default async function unipago(){
     // Convierte el JSON en un string cifrado en base 64
     const cRetornoArray = bParamDat1.toString("base64")
     // Creo una URL concatenando el código base64 recien obtenido
-    const cRutaContenidoArray = "https://mi.unipago.app/pagar/" + cRetornoArray 
+    const cRutaContenidoArray = "https://mi.unipago.app/pagar/" + cRetornoArray + "/possum-false"
 
     return cRutaContenidoArray
 
