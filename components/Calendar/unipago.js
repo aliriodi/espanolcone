@@ -3,12 +3,10 @@ export default async function unipago(){
         "tipo": 2, 
         "comercio": "EspañolconE", 
         "mail":  "espanolconeacademy@gmail.com",
-        "dominio": "localhost:3000", //"espanolcone-five.vercel.app",
+        "dominio": "espanolcone-five.vercel.app", //"espanolcone-five.vercel.app",
         "referencia":"Cliente 1000 - Alberto Gomez o Pedido 0001-0000112334",
-        "monto": 11703.00,
-        
-        "idcliente":1566,
-        "token":"inv-61a04c6a4a41961a04c6a4a41f"
+        "monto": 11703.00       
+       
     }
 
     // Convierte el ARRAY en un JSON y lo pone en un buffer para luego convertirlo
