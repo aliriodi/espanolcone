@@ -209,6 +209,10 @@ export default function Schedule() {
     else{Confirm()}
 
   }
+  function closePlan(){
+    setOpenP(false)
+  }
+
   async function Confirm(VALUE) {
     //sb-x747sj28200220@personal.example.com
     //Px4q]_[X
@@ -663,10 +667,11 @@ export default function Schedule() {
 
 
   return (
-    <div className="pt-24 mx-[60px]">
+    <div className="pt-24 mx-[60px]
+    md:mx-[25px]">
 
       <div className="bg-white w-full px-[22px] py-[26px]  rounded-[10px] shadow-[0px_4px_24px_#0000000F]
-      sm:px-7 md:max-w-4xl md:px-4">
+      sm:px-7 ">
 
         {/* Titulo */}
         {/* <h3 className='md:text-[18px]'>{session?.user?.first_name} posee(s) {' '}
@@ -680,10 +685,12 @@ export default function Schedule() {
         
 
         {/* Contenido */}
-        <div className="py-[25px] flex justify-between ">
+        <div className="py-[25px] flex justify-between
+        md:flex-col">
           
           {/* Imagen de perfil */}
-          <div className='relative flex flex-col items-center w-[20%]'>
+          <div className='relative flex flex-col items-center w-[20%]
+          md:w-full' onClick={()=>console.log(session?.user?.planSync)}>
             {renders ? 
             <div className=' h-[140px] w-[140px] relative  flex items-center flex-col'>
 
@@ -704,13 +711,16 @@ export default function Schedule() {
           </div>
 
           {/* Calendario */}
-          <div className="w-[60%]">
+          <div className="w-[60%]
+          md:w-full">
 
             {/* Mes y botones de cambio de mes */}
-            <div className='flex mt-[16px]'>
+            <div className='flex mt-[16px]
+            md:mt-[30px]'>
 
               {/* Botones para cambiar de Mes */}
-              <div className='flex mr-3'>
+              <div className='flex mr-3
+              md:w-full md:justify-between'>
 
                 {/* Boton para Anterior mes */}
                 <button
@@ -721,6 +731,13 @@ export default function Schedule() {
                   <span className="sr-only">Previous month</span>
                   <ChevronLeftIcon className="w-5 h-5" aria-hidden="true" />
                 </button>
+
+                
+                {/* Mes del calendario Responsive */}
+                <h3 className="font-semibold text-[14px] text-violet_dark hidden
+                md:flex">
+                  {format(firstDayCurrentMonth, 'MMMM yyyy', { locale: es }).charAt(0).toUpperCase() + format(firstDayCurrentMonth, 'MMMM yyyy', { locale: es }).slice(1)}
+                </h3>
 
                 {/* Boton para Siguiente mes */}
                 <button
@@ -735,13 +752,16 @@ export default function Schedule() {
               </div>
 
               {/* Mes del calendario */}
-              <h3 className="font-semibold text-[14px] text-violet_dark">
+              <h3 className="font-semibold text-[14px] text-violet_dark
+              md:hidden">
                 {format(firstDayCurrentMonth, 'MMMM yyyy', { locale: es }).charAt(0).toUpperCase() + format(firstDayCurrentMonth, 'MMMM yyyy', { locale: es }).slice(1)}
               </h3>
 
+
             </div>
 
-            <div className="grid grid-cols-7 mt-[15px] text-base leading-6 text-center text-white bg-primary">
+            <div className="grid grid-cols-7 mt-[15px] text-base leading-6 text-center text-white bg-primary
+            md:text-[14px]">
               <div>Dom</div>
               <div>Lun</div>
               <div>Mar</div>
@@ -794,8 +814,11 @@ export default function Schedule() {
           </div>
           
           {/* Seccion asignacion de calendarios de acuerdo a disponibildiad */}
-          <section className='w-[20%] relative flex justify-start flex-col'>
-            {session?.user?.planSync?.length > 0 ?
+          <section className='w-[20%] relative flex justify-start flex-col
+          md:w-full'>
+            {
+              personSchedule?.calendar?.length &&
+              session?.user?.planSync?.length > 0 ?
               <p className='font-medium mt-[17px] mb-[15px] text-center text-[14px] text-violet_dark'>
                 Posees <b>{session?.user?.planSync?.length}</b> {session?.user?.planSync?.length > 1 ? "clases" : "clase"} para agendar
               </p>:
@@ -861,7 +884,9 @@ export default function Schedule() {
                       Confirmar
                       </button>
                   }
-                  {OpenP && <Plan Confirm={Confirm} newMeeting={newMeeting}  />}
+
+                  {OpenP && <Plan Confirm={Confirm} newMeeting={newMeeting} closePlan={closePlan} />}
+
                   {
                     !isPaymentConfirmed && isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) &&
                     <div>
@@ -888,30 +913,17 @@ export default function Schedule() {
         </div>
         
         <button
-        onClick={
-          async ()=>{
-            let url = unipago(
-               { 
-              //   "type":'plansync',
-              //   "qty":"2",
-              //   "cost":"2",
-              //   "planing":"1",
-                 classview:1,
-                 monto:30
-               }
-           //   "Cliente 1000 - Alberto Gomez o Pedido 0001-0000112334"
-            )
-            console.log("Ruta final ",await url)
-            router.push(await url)
-          }
-        }
-        className='bg-red-500 p-3 rounded-[5px] text-white'>Pago</button>
+        onClick={async ()=>router.push(await unipago())}
+        className='bg-red-500 p-3 rounded-[5px] text-white'>
+          Pago
+        </button>
+        
       </div>
 
       {/* Recuerda */}
       <div className='bg-white w-full px-[22px] py-[26px]  rounded-[10px] shadow-[0px_4px_24px_#0000000F] my-[24px] text-violet_dark'>
         <p className='mb-[12px] font-semibold'>Recuerda:</p>
-        <p>
+        <p className="md:text-[14px]">
           La cancelación o modificación de horario se realiza de manera sencilla a través de la agenda de la aplicación.
           Simplemente acceda a su cuenta, navegue hasta la sección de agenda y seleccione la fecha y hora que desea cambiar.
           Luego, seguí las instrucciones proporcionadas para cancelar o modificar tu reserva según sus necesidades.
