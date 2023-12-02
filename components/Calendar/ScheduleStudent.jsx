@@ -188,7 +188,8 @@ export default function Example() {
 
               <h2 className='md:text-[18px]'>Selecciona una fecha</h2>
               
-              <h3 className='md:text-[18px]'>{session?.user?.first_name} posee(s)  {session?.user?.planSync?.length? session.user.planSync[session.user.planSync.length-1].qty-session.user.planSync[session.user.planSync.length-1].classview:0} clases para agendar</h3>
+              <h3 className='md:text-[18px]'>{session?.user?.first_name} posee(s)  {session?.user?.planSync?.length? session.user.planSync[session.user.planSync.length-1].qty:0} clases para agendar</h3>
+                                                                                                                                                                                            {/* -session.user.planSync[session.user.planSync.length-1].classview   */}
               
               <div className='flex mt-[16px]'>
 
