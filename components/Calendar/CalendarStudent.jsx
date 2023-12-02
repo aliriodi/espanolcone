@@ -891,14 +891,15 @@ export default function Schedule() {
         onClick={
           async ()=>{
             let url = unipago(
-              // { 
+               { 
               //   "type":'plansync',
               //   "qty":"2",
               //   "cost":"2",
               //   "planing":"1",
-              //   "classview":"1"
-              // }
-              "Cliente 1000 - Alberto Gomez o Pedido 0001-0000112334"
+                 classview:1,
+                 monto:30
+               }
+           //   "Cliente 1000 - Alberto Gomez o Pedido 0001-0000112334"
             )
             console.log("Ruta final ",await url)
             router.push(await url)
