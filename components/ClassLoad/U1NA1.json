@@ -526,7 +526,7 @@
             },
             {
                 "type": "title",
-                "value": " <span style= 'color: orange;' > <strong >es</strong ></span> ¡Hola! ¿Cómo estás?",
+                "value": "¡Hola! ¿Cómo estás?",
                 "className": "title-white"
             },
             {
@@ -563,10 +563,195 @@
                 "type": "text",
                 "value": "Mi número de teléfono es 351763219",
                 "className": "title-black"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--Iwwwj8PS--/v1701524572/images/xoicpr7hprfe97r0nzuz.png",
+                "alt": "chao",
+                "className": "className"
             }
         ]
     },
     "page15": {
+        "type": "paragraph",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "¡Es tu turno!",
+                "className": "title-white"
+            },
+            {
+                "type": "text",
+                "value": "¿Cómo te llamas?<br>Mi nombre es…",
+                "className": "title-black"
+            },
+            {
+                "type": "text",
+                "value": "¿A qué te dedicas?<br>Soy…<br>¿Dónde trabajas?<br>Trabajo en…",
+                "className": "title-black"
+            },
+            {
+                "type": "text",
+                "value": "¿Qué idiomas hablas?<br>Mi lengua materna es…<br>y también puedo<br>hablar…",
+                "className": "title-black"
+            },
+            {
+                "type": "text",
+                "value": "¿Con quién vives?<br>Vivo con… y ___<br>tengo mascota.",
+                "className": "title-black"
+            },
+            {
+                "type": "text",
+                "value": "¿Dónde vives?<br>Vivo en…<br>Mi dirección es…",
+                "className": "title-black"
+            },
+            {
+                "type": "text",
+                "value": "¿Cuál es tu dirección de email?<br>Mi dirección de email es...",
+                "className": "title-black"
+            },
+            {
+                "type": "text",
+                "value": "¿Cuál es tu número de teléfono?<br>Mi número de teléfono es…",
+                "className": "title-black"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--h1BKN1n2--/v1701527937/images/vadogk2dhmyfa2c7s6eg.png",
+                "alt": "tu",
+                "className": "className"
+            }
+        ]
+    },
+    "page16": {
+        "type": "paragraph",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Evaluación unidad 1",
+                "className": "paragraph3"
+            },
+            {
+                "type": "paragraph",
+                "value": "La siguiente evaluación contiene 20 ejercicios propuestos.",
+                "className": "paragraph8"
+            },
+            {
+                "type": "paragraph",
+                "value": "Cada uno que respondas correctamente vale 01 punto.",
+                "className": "paragraph8"
+            },
+            {
+                "type": "paragraph",
+                "value": "Para aprobar la evaluación y pasar a la siguiente unidad debes obtener un mínimo de 18 puntos.",
+                "className": "paragraph8"
+            },
+            {
+                "type": "paragraph",
+                "value": "¡Adelante y buena suerte!",
+                "className": "paragraph8"
+            }
+        ]
+    },
+    "page17": {
+        "type": "boxmove",
+        "section": {
+            "number": 3,
+            "value": "Aprendemos"
+        },
+        "template": "template-title-right-1",
+        "title": "Actividad",
+        "data": [
+            {
+                "type": "title",
+                "value": "Ordena las frases de forma correcta",
+                "className": "centerRightWhite"
+            },
+            {
+                "type": "dragable-box",
+                "value": {
+                    "DropUps": [
+                        {
+                            "type": "dropup-end",
+                            "content": "1. Me llamo...",
+                            "value": "Camila",
+                            "id": "DropUp1"
+                        },
+                        {
+                            "type": "dropup-end",
+                            "content": "2.¿Cómo...",
+                            "value": "estás?",
+                            "id": "DropUp2"
+                        },
+                        {
+                            "type": "dropup-end",
+                            "content": "3.¿Qué...",
+                            "value": "tal?",
+                            "id": "DropUp3"
+                        },
+                        {
+                            "type": "dropup-end",
+                            "content": "4. Buenos...",
+                            "value": "días",
+                            "id": "DropUp4"
+                        },
+                        {
+                            "type": "dropup-end",
+                            "content": "5. Hasta...",
+                            "value": "luego",
+                            "id": "DropUp5"
+                        },
+                        {
+                            "type": "dropup-end",
+                            "content": "6.Soy de...",
+                            "value": "Argentina",
+                            "id": "DropUp6"
+                        }
+                    ],
+                    "DragBoxs": [
+                        {
+                            "value":  "días",
+                            "id": "DragBox4"
+                        },
+                        {
+                            "value": "tal?",
+                            "id": "DragBox3"
+                        },
+                        {
+                            "value": "Camila",
+                            "id": "DragBox1"
+                        },
+                        {
+                            "value": "luego",
+                            "id": "DragBox5"
+                        },
+                        {
+                            "value": "estás?",
+                            "id": "DragBox2"
+                        },
+                       
+                        {
+                            "value": "Argentina",
+                            "id": "DragBox6"
+                        }
+                       
+                    ],
+                    "className": "dragable-box"
+                }
+            }
+        ]
+    },
+    "page18": {
         "type": "paragraph",
         "section": {
             "number": 1,
