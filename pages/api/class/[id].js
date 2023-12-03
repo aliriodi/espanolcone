@@ -27,7 +27,7 @@ export default async function Idclass(req, res) {
 
         
         // Verifica procedencia de solicitud 
-        if(req.headers.accept == "*/*"){
+        if(req.headers.accept == "*/*"||true){
           // Solicitud desde el codigo
           return res.status(200).json({class1});
         }

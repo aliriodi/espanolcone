@@ -524,7 +524,7 @@ export default function Schedule() {
           <div class="container">
             <header>
               <img src="https://espanolcone-five.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdfddh08q8%2Fimage%2Fupload%2Fs--4NefY4Ug--%2Fv1701173990%2Fimages%2Fl9hxqqm6urwlk6x8qdih.png&w=384&q=75"/>
-              <h1 style=" z-index: 90;">Asignación de clase con ${renders.user.first_name}</h1>
+              <h1 style=" z-index: 90;">Asignación de clase con ${personSchedule.first_name}</h1>
             </header>
             
             <div class="main" style="flex-direction: column; align-items: center; font-size: 18px;">
