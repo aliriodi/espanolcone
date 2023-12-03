@@ -3,9 +3,11 @@ export default async function unipago(){
         "tipo": 3, 
         "comercio": "EspañolconE", 
         "mail":  "espanolconeacademy@gmail.com",
-        "dominio": "espanolcone-five.vercel.app/inicio/calendar", //"espanolcone-five.vercel.app",
+        "dominio": "localhost:3000/inicio/home", //"espanolcone-five.vercel.app",
         "referencia":"Cliente 1000 - Alberto Gomez o Pedido 0001-0000112334",
-        "monto": 11703.00        
+        "monto": 11703.00,
+        "telefono":543156132710,
+        "email":"aliriodi@gmail.com"     
        
     }
 
