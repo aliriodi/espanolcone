@@ -333,7 +333,7 @@
 /* template Title Right 1 ( Teample para Select Simple )*/
 .template-title-right-1{
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .template-title-right-1 .title{

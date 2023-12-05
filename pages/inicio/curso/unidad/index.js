@@ -85,7 +85,13 @@ export default function Unidad(){
             for(let i = 0;i < sheets.length; i++){
 
                 if(sheets[i].section.number == section){
-                    dispatch(setClassPage(i))
+
+                    session &&
+                    classId &&
+                    section == 5 &&
+                    session?.user?.position?.id == classId &&
+                    i < session?.user?.position?.index ? dispatch(setClassPage(session?.user?.position?.index)) : dispatch(setClassPage(i))
+
                     break;
                 }
                 
