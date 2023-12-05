@@ -185,10 +185,10 @@ export default function DragableBox( props ){
             onDragEnd={handleDragEnd}>
 
                 
-                <div className='w-full mb-[100px]'>
+                <div className='w-full mb-[100px] flex flex-wrap'>
                     
 
-                    <div className={`flex flex-wrap relative justify-between 
+                    <div className={`flex flex-wrap relative justify-between w-full
                     ${dropUpContainer[0].type == "dropup-end" && "flex-col"}`}>
                          
                     <SortableContext
@@ -217,7 +217,8 @@ export default function DragableBox( props ){
                     {
                         // Caja arrastrable 
                         <DragOverlay>
-                            <div className=' bg-primary rounded-md text-white p-4 m-2 text-center inline-block cursor-grabbing
+                            <div
+                            className=' bg-primary rounded-md text-white p-4 m-2 text-center inline-block cursor-grabbing
                             md:text-[12px] md:flex md:justify-center md:items-center md:py-0 md:h-[45px] md:w-fit'>
                                 {currentOptionDrag?.value}
                             </div>

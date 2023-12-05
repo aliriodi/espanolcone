@@ -53,17 +53,20 @@ export default function DropContainer({
                         dropUp?.src
                         ?
                         <Image
-                        className="rounded-[5px] w-[160px] h-[160px] bg-light shadow-[0px_4px_26px_#00000040] mb-2 object-cover"
+                        className="rounded-[5px] w-[250px] h-[250px] bg-light shadow-[0px_4px_26px_#00000040] mb-2 object-cover
+                        md:w-[180px] md:h-[180px]"
                         alt="Image"
                         src={dropUp?.src} width={250} height={250}/>
                         :
-                        <span className="rounded-[5px] w-[160px] h-[160px] bg-light shadow-[0px_4px_26px_#00000040] mb-2 object-cover"></span>
+                        <span className="rounded-[5px] w-[250px] h-[250px] bg-light shadow-[0px_4px_26px_#00000040] mb-2 object-cover
+                        md:w-[180px] md:h-[180px]"></span>
 
                         }
 
                         <div
                         ref={setNodeRef}
-                        className="rounded-[5px] w-[160px] border-solid border-[2px] bg-primary_flat_hover border-primary  min-h-[78px] flex justify-center">
+                        className="rounded-[5px] w-[250px] border-solid border-[2px] bg-primary_flat_hover border-primary  min-h-[78px] flex justify-center
+                        md:w-[180px]">
                             {dragBoxs?.map((dragBox) => (
                                 <DragBox
                                     dropUpValue={dropUp?.value} 
@@ -124,7 +127,7 @@ export default function DropContainer({
                         ${typesDropsUps != "image" ?
                         "absolute right-0 flex-col translate-y-[-50%] top-1/2 rounded-[5px] border-solid border-[2px] bg-primary_flat_hover border-primary min-w-[78px] min-h-[100%] flex justify-center   md:relative md:min-h-[78px] md:mt-6 md:translate-y-0 md:flex-row md:flex-wrap"
                         :
-                        "rounded-[5px] border-solid border-[2px] bg-primary_flat_hover border-primary w-full min-h-[78px] flex justify-center my-[30px]"}
+                        "rounded-[5px] border-solid border-[2px] bg-primary_flat_hover border-primary w-full min-h-[78px] flex justify-center my-[30px] flex-wrap"}
                         `
                     }
                     >
