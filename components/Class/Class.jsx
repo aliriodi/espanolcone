@@ -59,8 +59,11 @@ export default function Class(props) {
     }
   }
 
-  //me traigo todas las clase de base de datos por _id trida por props.id
+  // Tests
+  const [isTest, setIsTest] = useState(false)
+
   useEffect(() => {
+    //me traigo todas las clase de base de datos por _id trida por props.id
     fetch('/api/class/'+props.id)
       .then((response) => {
         if (!response.ok) {
@@ -95,27 +98,63 @@ export default function Class(props) {
       })
 
       // En caso de que la unidad actual no este echa se va indicar en "currentUnitDone"
-      if(!currentUnit?.done && currentUnit?.enable){
-        console.log("!!!!!!!!!!!!!!!!!!!!!!!!!! Unidad Incompleta !!!!!!!!!!!!!!!!!!!!!!!!!!")
-        setCurrentUnitDone(false)
-      }
-
-      // console.log("Actual unidad ",currentUnit)
+      if(!currentUnit?.done && currentUnit?.enable) setCurrentUnitDone(false)
   }, [props.id]);
-
-  useEffect(()=>{
-    console.log(currentUnitDone)
-  },[currentUnitDone])
   
   useEffect(()=>{
-    // setI(props.page)
-    console.log("props.page ",props.page)
+    
+    // En caso de estar en una lo posiciona en el ultimo lugar al que llego
+    if(session && props?.id && session?.user?.position?.id == props?.id && data?.sheets[props.page].section?.number == 5){
+      
+      setI(session?.user?.position?.index - data?.sheets.filter((sheet)=> sheet?.section?.number != data?.sheets[props.page].section?.number).length)
 
-  },[props.page])
-  
-  useEffect(()=>{
+    }
+
     // Se asignan las paginas segun la seccion indicada en "props.page"
     setSheetsOfSection(data?.sheets.filter((sheet)=> sheet?.section?.number == data?.sheets[props.page].section?.number))
+    
+    // En caso de estar en la Evaluacion comprueba la cantidad de actividades que hay
+    if(data?.sheets && data?.sheets[props.page].section?.number == 5){
+      
+      setIsTest(true)
+
+      let cantOfActivitys = 0
+      
+      data?.sheets?.map((sheet)=>{
+
+        if(sheet.section?.number == 5){
+
+          // Busca actividades
+          let activityFound = sheet?.data?.find((date)=> {
+            if(
+              date.type == "selectsimple" ||
+              date.type == "paragraph-complete" ||
+              date.type == "complete-li-personal" ||
+              date.type == "complete-li" ||
+              date.type == "dragable-box" ||
+              date.type == 'videoi-youtube'
+            ) return true;  
+          })
+          
+          // Suma 1 a "cantOfActivitys" en caso de haber una actividad en esta "activityFound" 
+          activityFound != undefined ? cantOfActivitys = cantOfActivitys + 1 : null
+
+        }
+      })
+
+      // Se actualiza el "maxPoints" de la unidad actual
+      let updates = { ...session?.user }
+
+      let currentUnit;
+      updates?.classes?.map((level)=>{
+        let newUnit = level?.units?.find((unit)=> unit?.unitID == props?.id)
+        if(newUnit) currentUnit = newUnit;
+      })
+
+      currentUnit.maxPoints = cantOfActivitys
+
+      updateUser(updates)
+    }
     
   },[data, props])
 
@@ -330,6 +369,19 @@ export default function Class(props) {
   function activitysDone(){
     setCanFollow(true)
     setSuccessActivitys(true)
+
+    // Se actualiza el "maxPoints" de la unidad actual
+    let updates = { ...session?.user }
+
+    let currentUnit;
+    updates?.classes?.map((level)=>{
+      let newUnit = level?.units?.find((unit)=> unit?.unitID == props?.id)
+      if(newUnit) currentUnit = newUnit;
+    })
+
+    currentUnit.points = currentUnit.points ? currentUnit.points + 1 : 1
+
+    updateUser(updates)
   }
 
   
@@ -445,6 +497,11 @@ export default function Class(props) {
   },[typeActivitys])
   //#endregion
 
+
+  
+  useEffect(()=>{
+
+  },[isTest])
   //https://docs.google.com/presentation/d/10lxVnbNdlLZ6OlsXJTU9-uZ3GDJPz140/edit#slide=id.g27c3e69a393_0_0
   //https://www.figma.com/file/JZZzrLkQhTDEuUPkAsacuB/ECE-%2F-Prototipos?type=design&node-id=403-9008&mode=design&t=RIjgbE4EDSxOXwZ9-0
 
@@ -600,6 +657,14 @@ export default function Class(props) {
                     
                     {/* Imagen */}
                     {c.type === 'image' &&<Image width='100' height='100' className={style[c.className]} src={c.value} alt={c.alt} />}
+
+                    {/* Imagen con Texto */}
+                    {/* {c.type === 'image' &&
+                      <div>
+                        <Image width='100' height='100' src={c.value} alt={c.alt} />
+                        <p>pepa</p>
+                      </div>
+                    } */}
                     
                     {/* Video Youtube */}
                     {c.type === 'video-youtube' &&
@@ -610,10 +675,12 @@ export default function Class(props) {
                     <div className={`${style[c.className]}`}><YOUTUVEPOPUP titlep={null} popups={c.popups} videoId={c.value} className='youtube' /></div> }
 
                     {/* Box? */}
-                    <div className={styles['box']}>
-                    <div className='className'>
-                      {c.type === 'options-box' ? c.value.map(value => <BOXMOMVE key={c.id} option={value} id={c.id}  />): null}
-                    </div></div>
+                    {c.type === 'options-box' &&
+                      <div className={styles['box']}>
+                      <div className='className'>
+                        {c.type === 'options-box' ? c.value.map(value => <BOXMOMVE key={c.id} option={value} id={c.id}  />): null}
+                      </div></div>
+                    }
 
                     {/* Caja de Oraciones */}
                     {c.type === 'sentence-box' &&
@@ -646,10 +713,11 @@ export default function Class(props) {
                     <div className={style[c.className]} dangerouslySetInnerHTML={{ __html: c.value }}></div>
                     }
                     
-                    
+                    {/* Parrafo a Completar de lista */}
                     {c.type === 'complete-li' &&
                     <div className={style[c.className]}><PARAGGRAPHCOMPLETE id={index} onChangeActivityDone={handleChangeActivityDone} data={c}/> </div> }
                     
+                    {/* Parrafo a Completar de lista con persona*/}
                     {c.type === 'complete-li-personal' &&
                     <div className={style[c.className]}><PARAGGRAPHCOMPLETE id={index} onChangeActivityDone={handleChangeActivityDone} data={c}/> </div> }
                     
