@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import Image from 'next/image';
 
-export default function currentImagesGrid({ images }){
+export default function ImagesGrid({ images }){
 
     const [currentImages, setCurrentImages] = useState([])
 
