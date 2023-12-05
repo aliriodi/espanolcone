@@ -61,70 +61,33 @@
                 "className": "title-white"
             },
             {
-                "type": "image",
-				"value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--EY-Oe4h---/v1699320089/images/atkgrfy91npt1fmjtpgu.png",
-                "alt": "Media Legua de Oro Cultural",
-				"className": ""
-			},
-            {
-                "type": "paragraph",
-                "value": "Media Legua de Oro Cultural en Córdoba Capital",
-                "className": ""
-            },
-            {
-                "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--kI-dwj7G--/v1699320314/images/ndq1hnopetytoyy7uxye.png",
-                "alt": "Oktoberfest",
-                "className": ""  
-            },
-            {
-                "type": "paragraph",
-                "value": "Oktoberfest en Villa General Belgrano",
-                "className": ""
-            },
-            {
-                "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--2pjIQK3Q--/v1699320360/images/gwsaejtn8akklna9ix64.png",
-                "alt": "Paseo en lancha en Miramar de Ansenuza",
-                "className": ""  
-            },
-            {
-                "type": "paragraph",
-                "value": "Paseo en lancha en Miramar de Ansenuza",
-                "className": ""
-            },
-            {
-                "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--zEk5a0Xv--/v1699319855/images/oeyswfp4lxvaxglkwbsw.png",
-                "alt": "Villa Carlos Paz",
-                "className": ""  
-            },
-            {
-                "type": "paragraph",
-                "value": "Visitar Villa Carlos Paz",
-                "className": ""
-            },
-            {
-                "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s---aLVkjMh--/v1699320400/images/f1s8uxga3wl6771dywvc.png",
-                "alt": "Cerro Champaquí",
-                "className": ""  
-            },
-            {
-                "type": "paragraph",
-                "value": "Escalar el Cerro Champaquí",
-                "className": ""
-            },
-            {
-                "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--SltW_icM--/v1699320493/images/ikcwxiuurolqvtf46620.png",
-                "alt": "Cascada de Santa Rosa de Calamuchita",
-                "className": ""  
-            },
-            {
-                "type": "paragraph",
-                "value": "La Cascada de Santa Rosa de Calamuchita",
-                "className": ""
+                "type": "image-grid",
+                "value":[
+                    {
+                        "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--EY-Oe4h---/v1699320089/images/atkgrfy91npt1fmjtpgu.png",
+                        "text":"Media Legua de Oro Cultural en Córdoba Capital"
+                    },
+                    {
+                        "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--kI-dwj7G--/v1699320314/images/ndq1hnopetytoyy7uxye.png",
+                        "text":"Oktoberfest en Villa General Belgrano"
+                    },
+                    {
+                        "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--2pjIQK3Q--/v1699320360/images/gwsaejtn8akklna9ix64.png",
+                        "text":"Paseo en lancha en Miramar de Ansenuza"
+                    },
+                    {
+                        "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--zEk5a0Xv--/v1699319855/images/oeyswfp4lxvaxglkwbsw.png",
+                        "text":"Visitar Villa Carlos Paz"
+                    },
+                    {
+                        "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s---aLVkjMh--/v1699320400/images/f1s8uxga3wl6771dywvc.png",
+                        "text":"Escalar el Cerro Champaquí"
+                    },
+                    {
+                        "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--SltW_icM--/v1699320493/images/ikcwxiuurolqvtf46620.png",
+                        "text":"La Cascada de Santa Rosa de Calamuchita"
+                    }
+                ]
             }
         ]
     },
