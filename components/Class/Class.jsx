@@ -657,7 +657,7 @@ export default function Class(props) {
                     <p className={style[c.className]} dangerouslySetInnerHTML={{ __html: c.value }}></p> }
                     
                     {/* Imagen */}
-                    {/* {c.type === 'image' &&<Image width='100' height='100' className={style[c.className]} src={c.value} alt={c.alt} />} */}
+                    {c.type === 'image' &&<Image width='100' height='100' className={style[c.className]} src={c.value} alt={c.alt} />}
 
                     {/* Cuadricula de Imagenes */}
                     {c.type === 'image-grid' &&

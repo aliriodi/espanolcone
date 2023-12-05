@@ -10,7 +10,7 @@ export default function currentImagesGrid({ images }){
     return(
         <div className='w-full flex flex-wrap justify-evenly my-10'>
 
-            { currentImages?.length > 0 && currentImages?.map((image)=>
+            { currentImages?.length > 0 && currentImages?.map((image, index)=>
 
                 <div className="relative mb-[70px] mx-2
                 md:w-full">
@@ -21,7 +21,7 @@ export default function currentImagesGrid({ images }){
                         
                         {
                             image?.src &&
-                            <Image className="w-full h-full object-cover" src={image?.src} width='100' height='100' alt="Image"/>
+                            <Image className="w-full h-full object-cover" src={image?.src} width='100' height='100' alt={`Image ${index}`}/>
                         }
                         
                     </div>
