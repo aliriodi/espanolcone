@@ -12,7 +12,9 @@ export default function currentImagesGrid({ images }){
 
             { currentImages?.length > 0 && currentImages?.map((image, index)=>
 
-                <div className="relative mb-[70px] mx-2
+                <div
+                key={index}
+                className="relative mb-[70px] mx-2
                 md:w-full">
 
                     {/* Imagen */}
