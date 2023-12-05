@@ -288,7 +288,431 @@
                 "className": "youtube"
             }
         ]
+    },
+    "page10": {
+        "type": "text",
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Thainá habla con su hermano por teléfono mientras están en el aeropuerto.<br>Completa el diálogo arrastrando la opción adecuada en cada caso.",
+                "className": "title-white"
+            },
+            {
+                "type":"title",
+                "value":"<span style='color: orange'>Recordá que es una conversación informal entre dos hermanos</span>",
+                "className":"title-white"
+            }
+        ]
+    },
+    "page11": {
+        "type": "text",
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Thainá habla con su hermano por teléfono mientras están en el aeropuerto.<br>Completa el diálogo arrastrando la opción adecuada en cada caso.",
+                "className": "title-white"
+            },
+            {
+                "type":"title",
+                "value":"<span style='color: orange'>Recordá que es una conversación informal entre dos hermanos</span>",
+                "className":"title-white"
+            }
+        ]
+    },
+    "page12": {
+        "type": "text",
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "¡Vamos a jugar <span style='color: orange'>Kahoot</span>!",
+                "className": "title-white"
+            }
+            
+        ]
+    },
+    "page13": {
+        "type": "text",
+        "section": {
+            "number":4,
+            "value":"Mis retos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "“Un viaje de mil millas comienza con un primer paso”<br> <span style='color: black'>(Lao Tzu)</span>!",
+                "className": "title-white"
+            },
+            {
+                "type":"Image",
+                "value":"",
+                "alt":"",
+                "className":""
+            }
+        ]
+    },
+    "page14": {
+        "type": "text",
+        "section": {
+            "number":4,
+            "value":"Mis retos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "¡Vamos a imaginar que su viaje a Córdoba empieza ahora!",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "Vamos a crear diálogos, pasando por las diferentes áreas del aeropuerto:",
+                "className": "" 
+            },
+            {
+                "type": "paragraph",
+                "value": "1.  LLEGADA AL AEROPUERTO<br>2. REGISTRO<br>3. ADUANA Y POLICÍA AEROPORTUARIA MIGRACIÓN<br>4. PUERTA DE EMBARQUE<br>5. LLEGAR A DESTINO, RECOGER EL EQUIPAJE",
+                "className": "" 
+            }
+        ]
+    },
+    "page15": {
+        "type": "text",
+        "section": {
+            "number": 5,
+            "value": "Evaluemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "<span style= 'color: orange'>Evaluación unidad 2 - Nivel A1</span>",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "La siguiente evaluación contiene 20 ejercicios propuestos",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "Cada uno que respondas correctamente vale 01 punto.",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "Para aprobar la evaluación y pasar a la siguiente unidad debes obtener un mínimo de 18 puntos.",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style=' color: orange'>¡Adelante y buena suerte!</span>",
+                "className": ""
+            }
+        ]
+    },
+    "page16": {
+        "type": "DragableBox",
+        "section": {
+            "number": 5,
+            "value": "Evaluemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Selecciona la opción que corresponda en cada espacio vacío, según lo que lees en el diálogo",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style='orange'>Completa los diálogos con las siguientes palabras:</span>",
+                "className": ""
+            }
+        ]
+    },
+    "page17": {
+        "type": "selectsimple",
+        "section": {
+            "number": 5,
+            "value": "Evaluemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Selecciona la opción que corresponda en cada pregunta",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style='orange'>Completa los diálogos con las siguientes palabras:</span>",
+                "className": ""
+            },
+            {
+                "type": "selectsimple",
+                "value": "<strong><span style='color: #00CCE3'>1.</span> ¿Quienes viajan con usted?:</strong>",
+                "option": "Mi esposo y mis dos hijos",
+                "options": [
+                    "Vamos a Córdoba",
+                    "Mi esposo y mis dos hijos"
+                ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<strong><span style='color: #00CCE3'>2.</span> ¿Cómo se deletrea su apellido?</strong>",
+                "option": "W - I - L -L - I - A - M - S",
+                "options": [
+                    "Mi nombre es Mike",
+                    "W - I - L -L - I - A - M - S"
+                ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<strong><span style='color: #00CCE3'>3.</span> ¿Cuál es el motivo de su viaje?</strong>",
+                "option": "familiar",
+                "options": [
+                    "familiar",
+                    "Me llamo Thainá"
+                ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<strong><span style='color: #00CCE3'>4.</span> ¿Hacia dónde se dirigen? ¿A dónde van a llegar?</strong>",
+                "option": "A Córdoba",
+                "options": [
+                    "A Córdoba",
+                    "dos meses"
+                ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<strong><span style='color: #00CCE3'>5.</span> ¿De dónde vienen?</strong>",
+                "option": "Venimos de Colorado, Estados Unidos",
+                "options": [
+                    "Vamos a Córdoba",
+                    "Venimos de Colorado, Estados Unidos"
+                ],
+                "className": "selector-simple"
+            }
+        ]
+    },
+    "page18": {
+        "type": "dragablebox",
+        "section": {
+            "number":5,
+            "value":"Evaluemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Observa las imágenes y arrastra hacia cada una la identificación correcta",
+                "className": "title-white"
+            },
+                {
+                "type": "dragable-box",
+                "value":{
+                "DropUps":
+                    [
+                {
+                    "type":"image",
+                    "src":"",
+                    "value":"el aeropuerto",
+                    "id":"DropUp1"
+                },
+                {
+                    "type":"image",
+                    "src":"",
+                    "value":"el pasaporte",
+                    "id":"DropUp2"
+                },
+                {
+                    "type":"image",
+                    "src":"",
+                    "value":"el avión",
+                    "id":"DropUp3"
+                },
+                {
+                    "type":"image",
+                    "src":"",
+                    "value":"la mascara de oxigeno",
+                    "id":"DropUp4"
+                }
+            ],
+                "DragBoxs":[
+                    {
+                        "value":"el avión",
+                        "id":"DragBox1"
+                    },
+                    {
+                        "value":"el pasaporte",
+                        "id":"DragBox2"
+                    },
+                    {
+                        "value":"la mascara de oxigeno",
+                        "id":"DragBox3"
+                    },
+                    {
+                        "value":"el aeropuerto",
+                        "id":"DragBox4"
+                    }
+                ]
+            }
+        }]
+    },
+    "page19": {
+        "type": "dragablebox",
+        "section": {
+            "number":5,
+            "value":"Evaluemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Observa las imágenes y arrastra hacia cada una la identificación correcta",
+                "className": "title-white"
+            },
+                {
+                "type": "dragable-box",
+                "value":{
+                "DropUps":
+                    [
+                {
+                    "type":"image",
+                    "src":"",
+                    "value":"la aeromoza",
+                    "id":"DropUp1"
+                },
+                {
+                    "type":"image",
+                    "src":"",
+                    "value":"la sala de espera",
+                    "id":"DropUp2"
+                },
+                {
+                    "type":"image",
+                    "src":"",
+                    "value":"el cinturón de seguridad",
+                    "id":"DropUp3"
+                },
+                {
+                    "type":"image",
+                    "src":"",
+                    "value":"el piloto",
+                    "id":"DropUp4"
+                }
+            ],
+                "DragBoxs":[
+                    {
+                        "value":"el piloto",
+                        "id":"DragBox1"
+                    },
+                    {
+                        "value":"el cinturón de seguridad",
+                        "id":"DragBox2"
+                    },
+                    {
+                        "value":"la aeromoza",
+                        "id":"DragBox3"
+                    },
+                    {
+                        "value":"la sala de espera",
+                        "id":"DragBox4"
+                    }
+                ]
+            }
+        }]
+    },
+    "page20": {
+        "type": "dragablebox",
+        "section": {
+            "number":5,
+            "value":"Evaluemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Observa las imágenes y arrastra hacia cada una la identificación correcta",
+                "className": "title-white"
+            },
+                {
+                "type": "dragable-box",
+                "value":{
+                "DropUps":
+                    [
+                {
+                    "type":"image",
+                    "src":"",
+                    "value":"el equipaje",
+                    "id":"DropUp1"
+                },
+                {
+                    "type":"image",
+                    "src":"",
+                    "value":"el boleto de avión",
+                    "id":"DropUp2"
+                }
+            ],
+                "DragBoxs":[
+                    {
+                        "value":"el boleto de avión",
+                        "id":"DragBox1"
+                    },
+                    {
+                        "value":"el equipaje",
+                        "id":"DragBox2"
+                    }
+                ]
+            }
+        }]
+    },
+    "page21": {
+        "type": "text",
+        "section": {
+            "number":5,
+            "value":"Evaluemos"
+        },
+        "template": "",
+        "data": [
+            {
+                "type": "title",
+                "value": "NOS VEMOS EN LA PRÓXIMA CLASE",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "<span style='black'>¡Gracias por tu atención!</span>",
+                "className": "title-white"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366258/images/logo_etoaae.png",
+                "alt":"Español con E",
+                "className": ""
+            }
+        ]
     }
-    
 
 }
