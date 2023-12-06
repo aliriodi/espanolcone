@@ -14,7 +14,7 @@ export default function ImagesGrid({ images }){
 
                 <div
                 key={index}
-                className="relative mb-[70px] mx-2
+                className="relative mb-[70px] mx-8
                 md:w-full">
 
                     {/* Imagen */}
