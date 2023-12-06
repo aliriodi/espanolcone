@@ -388,7 +388,8 @@ export default function Unidad(){
                         onClick={(e)=>setSection(0)}
                         href={`/inicio/curso/unidad/${classId}`}
                         className={`
-                        ${(maxSessionReached) < 0 && "opacity-[50%] pointer-events-none"}
+                        ${(maxSessionReached) < 0 && "opacity-[50%]"}
+                        ${(maxSessionReached) < 0 && session && !session?.user?.role?.includes("admin") && "pointer-events-none"}
                         mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
                         hover:bg-[#3331] transition-colors
                         md:w-full`}>
@@ -428,7 +429,8 @@ export default function Unidad(){
                         onClick={()=>setSection(1)}
                         href={`/inicio/curso/unidad/${classId}`}
                         className={`
-                        ${(maxSessionReached) < 1 && "opacity-[50%] pointer-events-none"}
+                        ${(maxSessionReached) < 1 && "opacity-[50%]"}
+                        ${(maxSessionReached) < 1 && session && !session?.user?.role?.includes("admin") && "pointer-events-none"}
                         mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
                         hover:bg-[#3331] transition-colors
                         md:w-full`}>
@@ -468,7 +470,8 @@ export default function Unidad(){
                         onClick={()=>setSection(2)}
                         href={`/inicio/curso/unidad/${classId}`}
                         className={`
-                        ${(maxSessionReached) < 2 && "opacity-[50%] pointer-events-none"}
+                        ${(maxSessionReached) < 2 && "opacity-[50%]"}
+                        ${(maxSessionReached) < 2 && session && !session?.user?.role?.includes("admin") && "pointer-events-none"}
                         mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
                         hover:bg-[#3331] transition-colors
                         md:w-full`}>
@@ -508,7 +511,8 @@ export default function Unidad(){
                         onClick={()=>setSection(3)}
                         href={`/inicio/curso/unidad/${classId}`}
                         className={`
-                        ${(maxSessionReached) < 3 && "opacity-[50%] pointer-events-none"}
+                        ${(maxSessionReached) < 3 && "opacity-[50%]"}
+                        ${(maxSessionReached) < 3 && session && !session?.user?.role?.includes("admin") && "pointer-events-none"}
                         mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
                         hover:bg-[#3331] transition-colors
                         md:w-full`}>
@@ -548,7 +552,8 @@ export default function Unidad(){
                         onClick={()=>setSection(4)}
                         href={`/inicio/curso/unidad/${classId}`}
                         className={`
-                        ${(maxSessionReached) < 4 && "opacity-[50%] pointer-events-none"}
+                        ${(maxSessionReached) < 4 && "opacity-[50%]"}
+                        ${(maxSessionReached) < 4 && session && !session?.user?.role?.includes("admin") && "pointer-events-none"}
                         mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
                         hover:bg-[#3331] transition-colors
                         md:w-full`}>
@@ -588,8 +593,8 @@ export default function Unidad(){
                         onClick={()=>setSection(5)}
                         href={`/inicio/curso/unidad/${classId}`}
                         className={`
-                        ${(maxSessionReached) < 5 && "opacity-[50%] pointer-events-none"}
-                        ${maxSessionReached > 5 && "opacity-[50%] pointer-events-none"}
+                        ${(maxSessionReached) < 5 || maxSessionReached > 5 && "opacity-[50%]"}
+                        ${(maxSessionReached) < 5 || maxSessionReached > 5 && session && !session?.user?.role?.includes("admin") && "pointer-events-none"}
                         mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
                         hover:bg-[#3331] transition-colors
                         md:w-full`}>
@@ -620,6 +625,7 @@ export default function Unidad(){
                                         icon={faCheck}/>
                                     </span>
                                 )}
+
                         </Link>
                         }
 
