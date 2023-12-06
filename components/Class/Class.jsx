@@ -14,6 +14,7 @@ import DragablesBox from './DragableBox/DragablesBox';
 import Selectsimple from './Selectsimple';
 import { useSpring, animated } from 'react-spring';
 import { useSession } from 'next-auth/react';
+import ImagesGrid from './ImagesGrid/ImagesGrid';
 
 export default function Class(props) {
   //elemento a renderizar  
@@ -589,7 +590,7 @@ export default function Class(props) {
           sheetsOfSection.template && (i + 1) == sheetsOfSection.length?
 
           // En caso de que sea la primera o ultima sheets
-          sheetsOfSection[i].data.map((c, index) =>
+          sheetsOfSection[i]?.data?.map((c, index) =>
           <>
 
             {/* Fondo */}
@@ -627,7 +628,7 @@ export default function Class(props) {
               {/* Titulo */}
               <div className={style['title']}>
                 {
-                sheetsOfSection[i].data.map((c, index) =>
+                sheetsOfSection[i]?.data?.map((c, index) =>
                 <>
                   {c.type === 'title' && 
                     <div className={style[c.className]}>
@@ -649,7 +650,7 @@ export default function Class(props) {
               {/* Contenido */}
               <div className={style['content']}>
                 {
-                sheetsOfSection[i].data.map((c, index) =>
+                sheetsOfSection[i]?.data?.map((c, index) =>
                   <>
                     {/* Level */}
                     {c.type === 'level' &&
@@ -658,13 +659,9 @@ export default function Class(props) {
                     {/* Imagen */}
                     {c.type === 'image' &&<Image width='100' height='100' className={style[c.className]} src={c.value} alt={c.alt} />}
 
-                    {/* Imagen con Texto */}
-                    {/* {c.type === 'image' &&
-                      <div>
-                        <Image width='100' height='100' src={c.value} alt={c.alt} />
-                        <p>pepa</p>
-                      </div>
-                    } */}
+                    {/* Cuadricula de Imagenes */}
+                    {c.type === 'image-grid' &&
+                    <ImagesGrid images={c.value}/>}
                     
                     {/* Video Youtube */}
                     {c.type === 'video-youtube' &&
@@ -725,9 +722,8 @@ export default function Class(props) {
 
                     
                   </>)
-                  } 
+                  }                  
               </div>
-              
             </div>
           </>
 

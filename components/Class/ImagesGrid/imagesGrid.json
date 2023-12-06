@@ -1,0 +1,13 @@
+{
+    "type": "image-grid",
+    "value":[
+        {
+            "src":"url-de-imagen",
+            "text":"Texto que se va a ver en la parte inferior de la imagen"
+        },
+        {
+            "src":"url-de-imagen",
+            "text":"Texto que se va a ver en la parte inferior de la imagen"
+        }
+    ]
+}

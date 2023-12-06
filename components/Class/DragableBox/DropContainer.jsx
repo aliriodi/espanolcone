@@ -82,19 +82,20 @@ export default function DropContainer({
                     </div>
                 }
 
-{
+                {
                     // Tipo Dropup End
                     type=="dropup-end" &&
                     <div
                     // ref={setNodeRef}
                     className="flex my-[5px] items-center">
 
+                        {/* Texto */}
                         <p
                         className="text-[#6E6B7B] text-[1.33rem]
                         md:text-[14px]"
                         dangerouslySetInnerHTML={{ __html: dropUp?.content }}></p>
 
-
+                        {/* DragBox */}
                         <div
                         ref={setNodeRef}
                         style={style}
@@ -112,6 +113,80 @@ export default function DropContainer({
                                 
                             ))}
                         </div>
+                    </div>
+                }
+
+                {
+                    // Tipo Dropup Start
+                    type=="dropup-start" &&
+                    <div
+                    className="flex my-[5px] items-center">
+
+                        {/* DragBox */}
+                        <div
+                        ref={setNodeRef}
+                        style={style}
+                        className="rounded-[5px] w-[160px] border-solid border-[2px] bg-primary_flat_hover border-primary  min-h-[78px] flex justify-center
+                        md:min-h-[50px]">
+                            
+                            {dragBoxs?.map((dragBox) => (
+                                <DragBox
+                                    dropUpValue={dropUp?.value} 
+                                    key={dragBox.id}
+                                    dragBox={dragBox}
+                                    handleDoneOption={handleDoneOption}
+                                    canCheck={canCheck}
+                                />
+                                
+                            ))}
+                        </div>
+                        
+                        {/* Texto */}
+                        <p
+                        className="text-[#6E6B7B] text-[1.33rem]
+                        md:text-[14px]"
+                        dangerouslySetInnerHTML={{ __html: dropUp?.content }}></p>
+                        
+                    </div>
+                }
+
+                {
+                    // Tipo Dropup Center
+                    type=="dropup-center" &&
+                    <div
+                    className="flex my-[5px] items-center w-full">
+                        
+                        {/* Texto del Principio */}
+                        <p
+                        className="text-[#6E6B7B] text-[1.33rem]
+                        md:text-[14px]"
+                        dangerouslySetInnerHTML={{ __html: dropUp?.content_start }}></p>
+
+                        {/* DragBox */}
+                        <div
+                        ref={setNodeRef}
+                        style={style}
+                        className="rounded-[5px] w-[160px] border-solid border-[2px] bg-primary_flat_hover border-primary  min-h-[78px] flex justify-center
+                        md:min-h-[50px]">
+                            
+                            {dragBoxs?.map((dragBox) => (
+                                <DragBox
+                                    dropUpValue={dropUp?.value} 
+                                    key={dragBox.id}
+                                    dragBox={dragBox}
+                                    handleDoneOption={handleDoneOption}
+                                    canCheck={canCheck}
+                                />
+                                
+                            ))}
+                        </div>
+                        
+                        {/* Texto del Final*/}
+                        <p
+                        className="text-[#6E6B7B] text-[1.33rem]
+                        md:text-[14px]"
+                        dangerouslySetInnerHTML={{ __html: dropUp?.content_end }}></p>
+                        
                     </div>
                 }
 

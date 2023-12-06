@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Logo from '../public/imgs/logo-gradient.png';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faAngleRight,faCalendarDays, faHouse, faPersonHiking, faChalkboardUser, faLaptop, faAddressCard, faPen, faBell, faBars, faUser, faMoneyBill } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faAngleRight,faCalendarDays, faHouse, faPersonHiking, faChalkboardUser, faLaptop, faAddressCard, faPen, faBell, faBars, faUser, faMoneyBill, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import SignOutBtn from './signOut/SignOutBtn';
 import { setshowClass } from '../redux/ECEActions';
 import { useSession } from "next-auth/react";
@@ -94,81 +94,93 @@ const Menu = (props) => {
 
     return (
         <>
-        {/* Nav Bar */}
-        {
-            !props.onlyMenu ?
-            (
-            <div className='w-full absolute px-[60px] py-[20px] z-50
-            md:px-[25px]'>
-                <div className='bg-white shadow-[0px_4px_24px_#18292F1A] flex justify-between px-[18px] py-[12px] rounded-[8px] items-center'>
+            {/* Nav Bar */}
+            {
+                !props.onlyMenu ?
+                (
+                <div className={`w-full absolute px-[60px] py-[20px] z-50
+                md:px-[25px]`}>
+                    <div className='bg-white shadow-[0px_4px_24px_#18292F1A] flex justify-between px-[18px] py-[12px] rounded-[8px] items-center'>
 
-                    {/* Boton de Menu */}
-                    <button 
-                    ref={menuRef}
-                    onClick={() => setIsOpen(!isOpen)}>
-                        <FontAwesomeIcon
-                        icon={faBars}
-                        className='text-[20px] text-violet_dark cursor-pointer'/>
-                    </button>
+                        {/* Boton de Menu */}
+                        <button 
+                        ref={menuRef}
+                        onClick={() => setIsOpen(!isOpen)}>
+                            <FontAwesomeIcon
+                            icon={faBars}
+                            className='text-[20px] text-violet_dark cursor-pointer'/>
+                        </button>
 
-                    {/* Datos de Usuario */}
-                    <div className='flex items-center'>
-                        {/* Notificaciones */}
-                        <FontAwesomeIcon
-                        className='mr-[22px] text-[20px] text-violet_dark'
-                        icon={faBell}/>
+                        {/* Datos de Usuario */}
+                        <div className='flex items-center'>
+                            {/* Notificaciones */}
+                            <FontAwesomeIcon
+                            className='mr-[22px] text-[20px] text-violet_dark'
+                            icon={faBell}/>
 
-                        {/* Nombre y Rol de Usuario */}
-                        <div className='mr-[14px]'>
-                            {/* Nombre */}
-                            <p className='text-end text-violet_dark text-[14px]'>{session?.user?.first_name}</p>
+                            {/* Nombre y Rol de Usuario */}
+                            <div className='mr-[14px]'>
+                                {/* Nombre */}
+                                <p className='text-end text-violet_dark text-[14px]'>{session?.user?.first_name}</p>
 
-                            {/* Rol */}
-                            <p className='text-end text-[#B9B9C3] text-[12px]'>{session?.user?.role[0]}</p>
+                                {/* Rol */}
+                                <p className='text-end text-[#B9B9C3] text-[12px]'>{session?.user?.role[0]}</p>
+                            </div>
+
+                            {/* Imagen de Usuario */}
+                            <Link
+                            href={"/inicio/profile"}
+                            className='w-[38px] h-[38px] rounded-full bg-[#B9B9C3] flex justify-center items-center '>
+                                {
+                                    session?.user?.image?
+                                    <Image
+                                    alt="session.user.image"
+                                    className='w-[38px] h-[38px] bg-primary rounded-full object-cover'
+                                    src={session.user.image.url?
+                                                            session.user.image.url:
+                                                            session.user.image }
+                                    width={38}
+                                    height={38}/> 
+                                    :
+                                    <FontAwesomeIcon className="text-violet_dark" icon={faUser}/>
+
+                                }
+                            </Link>
                         </div>
 
-                        {/* Imagen de Usuario */}
-                        <Link
-                        href={"./profile"}
-                        className='w-[38px] h-[38px] rounded-full bg-[#B9B9C3] flex justify-center items-center '>
-                            {
-                                session?.user?.image?
-                                <Image
-                                alt="session.user.image"
-                                className='w-[38px] h-[38px] bg-primary rounded-full object-cover'
-                                src={session.user.image.url?
-                                                           session.user.image.url:
-                                                           session.user.image }
-                                width={38}
-                                height={38}/> 
-                                :
-                                <FontAwesomeIcon className="text-violet_dark" icon={faUser}/>
-
-                            }
-                        </Link>
                     </div>
-
                 </div>
-            </div>
-            )
-            :
-            (
-                <button 
-                    className='bg-white shadow-[0px_4px_24px_#18292F1A] absolute top-[20px] left-[50px] h-[50px] w-[50px] rounded-full flex items-center justify-center
-                    hover:bg-gray_light transition-all
-                    md:top-[10px] md:left-[10px]'
-                    ref={menuRef}
-                    onClick={() => setIsOpen(!isOpen)}>
-                        <FontAwesomeIcon
-                        icon={faBars}
-                        className='text-[20px] text-violet_dark cursor-pointer'/>
-                </button>
-            )
+                )
+                :
+                (
+                    <button 
+                        className='bg-white shadow-[0px_4px_24px_#18292F1A] absolute top-[20px] left-[50px] h-[50px] w-[50px] rounded-full flex items-center justify-center
+                        hover:bg-gray_light transition-all
+                        md:top-[10px] md:left-[10px]'
+                        ref={menuRef}
+                        onClick={() => setIsOpen(!isOpen)}>
+                            <FontAwesomeIcon
+                            icon={faBars}
+                            className='text-[20px] text-violet_dark cursor-pointer'/>
+                    </button>
+                )
 
-        }
+            }
+
+            {/* Volver a Atras */}
+            {/* <div className='bg-white shadow-[0px_4px_24px_#18292F1A] absolute top-[100px] left-[60px] h-[50px] w-[50px] rounded-full flex items-center justify-center z-50 cursor-pointer opacity-[0.7]
+                        hover:opacity-[1] transition-all
+                        md:top-[10px] md:left-[10px]'>
+                <FontAwesomeIcon
+                className='text-violet_dark text-[20px]'
+                icon={faArrowLeft}/>
+            </div> */}
 
             {/* Menu */}
-            <div className={`bg-white fixed ${!isOpen ? "left-[-300px]" : "left-0"} max-w-[277px] px-1 py-1 h-screen z-[60] shadow-[0px_0px_15px_#0000000D] transition-all
+            <div className={`
+            ${!props?.permanentOpen && "fixed"}  
+            ${!isOpen ? "left-[-300px]" : "left-0"}
+            bg-white  max-w-[277px] px-1 py-1 h-screen z-[60] shadow-[0px_0px_15px_#0000000D] transition-all
             md:text-[14px]`}>
 
                 {/* Opciones */}
