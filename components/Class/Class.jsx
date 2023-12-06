@@ -722,8 +722,7 @@ export default function Class(props) {
 
                     
                   </>)
-                  } 
-                 
+                  }                  
               </div>
             </div>
           </>

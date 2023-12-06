@@ -54,7 +54,7 @@
     "className": "dragable-box"
 },
 
-"/////////////////////////// DropUp al final ///////////////////////////",
+"/////////////////////////// DropUp al final del Texto ///////////////////////////",
 {
     "type": "dragable-box",
     "value":{
@@ -93,6 +93,160 @@
             {
                 "type":"dropup-end",
                 "content":"<span style= 'color: orange;'>Le cuesta</span> bastante la pronunciación. ",
+                "value":"costar",
+                "id":"DropUp6"
+            }
+        ],
+
+        "DragBoxs":[
+            {
+                "value":"trabajar",
+                "id":"DragBox1"
+            },
+            {
+                "value":"pensar",
+                "id":"DragBox2"
+            },
+            {
+                "value":"reconocer",
+                "id":"DragBox3"
+            },
+            {
+                "value":"estudiar",
+                "id":"DragBox4"
+            },
+            {
+                "value":"entender",
+                "id":"DragBox5"
+            },
+            {
+                "value":"costar",
+                "id":"DragBox6"
+            }
+        ]
+    },
+    "className": "dragable-box"
+},
+
+"/////////////////////////// DropUp al principio del Texto ///////////////////////////",
+{
+    "type": "dragable-box",
+    "value":{
+        "DropUps":
+        [
+            {
+                "type":"dropup-start",
+                "content":"David <span style= 'color: orange;'>trabaja</span> muchas horas al día. ",
+                "value":"trabajar",
+                "id":"DropUp1"
+            },
+            {
+                "type":"dropup-start",
+                "content":"No <span style= 'color: orange;'>piensa</span> volver a su país. <span id='pensar'  ",
+                "value":"pensar",
+                "id":"DropUp2"
+            },
+            {
+                "type":"dropup-start",
+                "content":"<span style= 'color: orange;'>Reconozco</span> que aún tengo problemas con la lengua. ",
+                "value":"reconocer",
+                "id":"DropUp3"
+            },
+            {
+                "type":"dropup-start",
+                "content":"Bruna <span style= 'color: orange;'>estudia</span> medicina en la UNC. ",
+                "value":"estudiar",
+                "id":"DropUp4"
+            },
+            {
+                "type":"dropup-start",
+                "content":"Todavía no <span style= 'color: orange;'>entiende</span> perfectamente el  español.",
+                "value":"entender",
+                "id":"DropUp5"
+            },
+            {
+                "type":"dropup-start",
+                "content":"<span style= 'color: orange;'>Le cuesta</span> bastante la pronunciación. ",
+                "value":"costar",
+                "id":"DropUp6"
+            }
+        ],
+
+        "DragBoxs":[
+            {
+                "value":"trabajar",
+                "id":"DragBox1"
+            },
+            {
+                "value":"pensar",
+                "id":"DragBox2"
+            },
+            {
+                "value":"reconocer",
+                "id":"DragBox3"
+            },
+            {
+                "value":"estudiar",
+                "id":"DragBox4"
+            },
+            {
+                "value":"entender",
+                "id":"DragBox5"
+            },
+            {
+                "value":"costar",
+                "id":"DragBox6"
+            }
+        ]
+    },
+    "className": "dragable-box"
+},
+
+"/////////////////////////// DropUp en el centro del Texto ///////////////////////////",
+{
+    "type": "dragable-box",
+    "value":{
+        "DropUps":
+        [
+            {
+                "type":"dropup-center",
+                "content_start":"Principio del texto",
+                "content_end":"Final del texto",
+                "value":"trabajar",
+                "id":"DropUp1"
+            },
+            {
+                "type":"dropup-center",
+                "content_start":"Principio del texto",
+                "content_end":"Final del texto",
+                "value":"pensar",
+                "id":"DropUp2"
+            },
+            {
+                "type":"dropup-center",
+                "content_start":"<Principio del texto",
+                "content_end":"<Principio del texto",
+                "value":"reconocer",
+                "id":"DropUp3"
+            },
+            {
+                "type":"dropup-center",
+                "content_start":"Principio del texto",
+                "content_end":"Final del texto",
+                "value":"estudiar",
+                "id":"DropUp4"
+            },
+            {
+                "type":"dropup-center",
+                "content_start":"Principio del texto",
+                "content_end":"Final del texto",
+                "value":"entender",
+                "id":"DropUp5"
+            },
+            {
+                "type":"dropup-center",
+                "content_start":"<Principio del texto",
+                "content_end":"<Principio del texto",
                 "value":"costar",
                 "id":"DropUp6"
             }
