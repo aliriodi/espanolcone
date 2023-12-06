@@ -12,31 +12,38 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import Spinner from '../../../components/Spinner';
 
 export default function TeacherDetailPage() {
-  const cardDetail2 = useSelector((state) => state.datos.cardDetail);
+  // const cardDetail2 = useSelector((state) => state.datos.cardDetail);
   const [isCardAvailable, setIsCardAvailable] = useState(false);
-  const [cardDetail, setcardDetail] = useState({});
+  const [cardDetail, setcardDetail] = useState(null);
   const router = useRouter();
   const { id } = router.query;
   // Opciones de Youtube
   const iframeRef = useRef(null);
 
   useEffect(() => {
-    if (cardDetail2.length!==0) {
-      setIsCardAvailable(true);
-      setcardDetail(cardDetail2)
-    }
-     else{
-        async function carDet() {
-          try {
+    
+    // if (cardDetail2?.length!==0) {
+    //   setIsCardAvailable(true);
+    //   setcardDetail(cardDetail2)
+    // }
+
+    if(!cardDetail) {
+      async function carDet() {
+        try {
+
           const details = await fetch('/api/users/'+id ).then(response => response.json());
-          setcardDetail(details.userid);
+          console.log("DETAIL ",await details)
+          setcardDetail(await details?.userid);
+
         } catch (error) {
+
           console.error('Error fetching user details:', error);
-        }}
-        carDet()
-      
-             }
-  }, [cardDetail2,id]);
+          
+        }
+      }
+      carDet()  
+    }
+  }, [id]);
 
   if (!cardDetail||cardDetail.length===0 || Object.keys(cardDetail).length===0) {
     return (
@@ -62,18 +69,22 @@ export default function TeacherDetailPage() {
     <>
     <Menu />
 
-    <div className="px-[60px] py-[119px] flex bg-slate-200">
+    <div
+    className="px-[60px] py-[119px] flex bg-slate-200
+    md:px-[25px] md:flex-col">
 
       {/* Seccion de Datos */}
-      <div className="w-3/4 mr-[13px]">
+      <div className="w-3/4 mr-[13px]
+      md:w-full md:mr-0">
 
         <div className="flex flex-col">
 
           {/* Encabezado */}
-          <div className='flex flex-row p-2 border bg-white rounded-md shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] mb-[12px]'>
+          <div className='flex flex-row p-2 border bg-white rounded-md shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] mb-[12px] flex-wrap'>
 
              {/*Imagen de Profesor  */}
-            <div className="w-1/5 flex flex-col items-center ">
+            <div className="w-1/5 flex flex-col items-center 
+            md:w-2/5">
               {cardDetail?.image ? (
                 
                 <Image
@@ -81,7 +92,8 @@ export default function TeacherDetailPage() {
                 width={160}
                   height={160}
                   src={cardDetail?.image?.url? cardDetail.image.url:cardDetail.image}
-                  className="w-100% p-5 mb-2 rounded-full object-cover drop-shadow-[2px_3px_2px_rgba(255,255,255,.4)] dark:drop-shadow-[2px_3px_2px_rgba(0,0,0,.4)]"
+                  className="w-100% p-5 mb-2 rounded-[25px] object-cover drop-shadow-[2px_3px_2px_rgba(255,255,255,.4)] dark:drop-shadow-[2px_3px_2px_rgba(0,0,0,.4)]
+                  md:p-0 md:rounded-[5px]"
                 />
               ) : (
                 <Image
@@ -89,40 +101,79 @@ export default function TeacherDetailPage() {
                   width={160}
                   height={160}
                   src={blanc_profile}
-                  className="w-100% p-5 mb-2 rounded-full object-cover drop-shadow-[2px_3px_2px_rgba(255,255,255,.4)] dark:drop-shadow-[2px_3px_2px_rgba(0,0,0,.4)]"
+                  className="w-100% p-5 mb-2 rounded-[25px] object-cover drop-shadow-[2px_3px_2px_rgba(255,255,255,.4)] dark:drop-shadow-[2px_3px_2px_rgba(0,0,0,.4)]
+                  md:p-0 md:rounded-[5px]"
                 />
               )}
 
               {/* Nivel de Español */}
-              <div className='flex justify-evenly mt-2 text-violet_dark'>
+              <div className='flex justify-evenly mt-2 text-violet_dark flex-wrap 
+              md:hidden'>
                 <p className='mr-[5px]'>Español: </p>
                 {cardDetail?.hablante ? (
                   <strong>{cardDetail.hablante}</strong>
                 ) : (
-                  <strong>No hay idioma detectado</strong>
+                  <strong>Ninguno</strong>
                 )}
               </div>
             </div>
             
             {/* Descripcion de Profesor */}
-            <div className="w-4/5 flex flex-col">
+            <div className="w-4/5 flex flex-col relative
+            md:w-3/5 md:px-2">
 
-              <div className='py-5'>
+              <div className='py-5
+              md:py-1'>
                 {/* Nombre */}
                 {cardDetail?.first_name   ? (
-                  <p className='pb-5 text-title_color font-semibold text-[28px]'>{cardDetail.first_name+' '+cardDetail.last_name}</p>
+                  <p className='pb-5 text-title_color font-semibold text-[28px]
+                  md:text-[21px] md:pb-0'>{cardDetail.first_name+' '+cardDetail.last_name}</p>
                 ) : (
-                  <p className='pb-5 text-title_color font-semibold text-[28px]'>No hay datos personales</p>
+                  <p className='pb-5 text-title_color font-semibold text-[28px]
+                  md:text-[21px] md:pb-0'>No hay datos personales</p>
                 )}
 
                 {/* Descripcion */}
-                <p className=' text-violet_dark'>{cardDetail.intro}</p>
+                <p className=' text-violet_dark
+                md:hidden'>
+                  {cardDetail?.content}
+                </p>
+                
+                {/* Nivel de Español Responsive */}
+                <div className='text-violet_dark flex-wrap hidden
+                md:flex'>
+                  <p className='text-[14px] mr-1'>Español: </p>
+                  {cardDetail?.hablante ? (
+                    <strong>{cardDetail.hablante}</strong>
+                  ) : (
+                    <strong className='text-[14px]'>Ninguno</strong>
+                  )}
+                </div>
+                
+                {/* Reservar Responsive */}
+                <div className='hidden
+                md:flex'>
+                  <Link
+                    className="py-2 px-[26px] rounded absolute bottom-2 left-2 w-[90%] btn-primary"
+                    href={"#reservar"}
+                  >
+                    Reservar
+                  </Link>
+                </div>
               </div>
             </div>
+
+            
+            {/* Descripcion Responsive */}
+            <p className=' hidden text-violet_dark text-[14px] py-4 mt-4 border-t-2
+            md:flex'>
+              {cardDetail?.content}
+            </p>
           </div>
           
           {/* Habilidades */}
-          <div className='px-[22px] py-[26px] border bg-white rounded-md shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] mb-[12px]'>
+          <div className='px-[22px] py-[26px] border bg-white rounded-md shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] mb-[12px] text-[14px]
+          md:px-2'>
 
             {/* Titulo */}
             <p className='text-[18px] text-title_color font-medium border-b-2 py-2'>Metodología:{console.log('/inicio/teachers/[id] 128',cardDetail)}</p>
@@ -155,7 +206,8 @@ export default function TeacherDetailPage() {
           </div>
 
           {/* Reseñas */}
-          <div className='px-[22px] py-[26px] border bg-white rounded-md shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] mb-[12px]'>
+          <div className='px-[22px] py-[26px] border bg-white rounded-md shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] mb-[12px] text-[14px]
+          md:px-2'>
             {/* Titulo */}
             <p className='text-[18px] text-title_color font-medium border-b-2 py-2'>Reseñas:</p>
             
@@ -178,7 +230,8 @@ export default function TeacherDetailPage() {
                   </li>
                 ))
               ) : (
-                <li className='m-5 p-2 w-full flex justify-center text-light'>
+                <li className='m-5 p-2 w-full flex justify-center text-light
+                md:m-0'>
                   No hay Reseñas
                 </li>
               )}
@@ -190,7 +243,8 @@ export default function TeacherDetailPage() {
       </div>
 
       {/* Seccion de Video */}
-      <div className="w-1/4 ml-[13px]">
+      <div className="w-1/4 ml-[13px]
+      md:w-full md:ml-0">
         
         <div className='bg-white  px-[8px] py-[14px] flex flex-col items-center shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-md'>
           <YouTube 
@@ -204,6 +258,7 @@ export default function TeacherDetailPage() {
 
           {/* Reservar Cita */}
           <button
+            id='reservar'
             className="btn-primary py-2 px-[26px] rounded"
             onClick={handleButton}
           >
