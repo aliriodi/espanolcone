@@ -191,6 +191,21 @@ export default function DropContainer({
                 }
 
                 {
+                    // Tipo Comentarios
+                    type=="text" &&
+                    <div
+                    className="flex my-[5px] items-center w-full">
+                        
+                        {/* Texto  */}
+                        <p
+                        className="text-[#6E6B7B] text-[1.33rem]
+                        md:text-[14px]"
+                        dangerouslySetInnerHTML={{ __html: dropUp?.content }}></p>
+                        
+                    </div>
+                }
+
+                {
                     // Tipo Contenedor
                     type=="container" &&
                     <div
