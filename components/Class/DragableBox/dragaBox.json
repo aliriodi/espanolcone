@@ -280,5 +280,20 @@
         ]
     },
     "className": "dragable-box"
+},
+
+"/////////////////////////// Texto sin DropUp ///////////////////////////",
+{
+    "type": "dragable-box",
+    "value":{
+        "DropUps":
+        [
+            {
+                "type":"text",
+                "content":"Comentario"
+            }
+        ]
+    },
+    "className": "dragable-box"
 }
 ]
