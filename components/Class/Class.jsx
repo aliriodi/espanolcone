@@ -570,7 +570,8 @@ export default function Class(props) {
             i != sheetsOfSection?.length - 1 && sheetsOfSection && data?.sheets[0] != sheetsOfSection[i]  &&
             <button
               className={`
-              ${ !canFollow && "opacity-[50%] pointer-events-none"}
+              ${ !canFollow && "opacity-[50%] bg-white hover:bg-white hover:text-title_color"}
+              ${ !canFollow && session && !session?.user?.role?.includes("admin") && "pointer-events-none" }
               ${ successActivitys ? "bg-secondary text-white" : "bg-white"}
               transition-all fixed bottom-0 right-0 z-[90]  rounded-[70%_0_0_0] py-8 px-10 shadow-[0px_4px_26px_#00000040] text-title_color text-right text-[18px]
               hover:bg-primary_hover hover:text-white
