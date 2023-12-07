@@ -17,7 +17,7 @@ import { useSession } from 'next-auth/react';
 import ImagesGrid from './ImagesGrid/ImagesGrid';
 import Logo from '../../public/imgs/logo.png'
 import LogoPrimary from '../../public/imgs/logo-primary.png'
-// import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
 
 export default function Class(props) {
   //elemento a renderizar  
@@ -673,7 +673,7 @@ export default function Class(props) {
                 md:w-[90%] md:text-[21px]'
                 onClick={() => Forward(i)}>
                   ¡Empezemos! 
-                  {/* <ChevronRightIcon className="ml-5 w-[28px] h-[28px]" aria-hidden="true" /> */}
+                  <ChevronRightIcon className="ml-5 w-[28px] h-[28px]" aria-hidden="true" />
                 </animated.button>
               }
             </div>
