@@ -19,11 +19,12 @@ export default function ModalPago(props) {
 
   return (
     <>
+
       {isOpen &&
       <>
         <div
         onClick={closeModal}
-        className='fixed w-screen min-h-screen top-0 left-0 bg-[#000000aa] flex flex-col justify-center items-center'>
+        className='fixed w-screen min-h-screen top-0 left-0 bg-[#000000aa] flex flex-col justify-center items-center z-50'>
 
           <div
           onClick={(e)=>e.stopPropagation()}
@@ -42,8 +43,6 @@ export default function ModalPago(props) {
             className='w-[750px] max-h-[70vh]  flex justify-center p-3 mt-7
             overflow-y-scroll modal-paypal'>
               
-
-
               <div className='w-full m-auto'>
                 {
                   <PayPalScriptProvider
@@ -67,7 +66,8 @@ export default function ModalPago(props) {
                                 method: "POST",
                                 headers:{
                                   "Content-Type": "application/json"
-                                }
+                                },
+                                data: props?.dates
                               })
                               return res.data.id
                             } catch{
@@ -79,7 +79,7 @@ export default function ModalPago(props) {
                             props.onPaymentCancel();
                           }}
                           onApprove={(data, actions)=>{
-                            console.log(data)
+                            console.log("Data ",data)
                             actions.order.capture().then(() => {
                             props.onPaymentSuccess(); 
                             closeModal();

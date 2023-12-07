@@ -12,14 +12,14 @@ let client = new paypal.core.PayPalHttpClient(environment);
 export default async function handler(req,res){
     if(req.method === 'POST'){
         const request = new paypal.orders.OrdersCreateRequest();
-   
+
         request.requestBody({
             "intent": "CAPTURE",
             "purchase_units": [
                 {
                     "amount": {
                         "currency_code": "USD",
-                        "value": "100.00"
+                        "value": req.body.cost
                     }
                 }
              ]
