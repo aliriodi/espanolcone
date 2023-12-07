@@ -478,54 +478,31 @@
                 "value": "4 senderos de trekking ideales para principiantes en Córdoba.",
                 "className": "subtitle--complete-li"
             },
-            {
+                        {
                 "type": "text",
                 "value": "https://www.cadena3.com/noticia/cordoba/4-senderos-de-trekking-ideales-para-principiantes-en-cordoba_288907",
                 "className": "paragraph3"
             },
             {
-                "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1700088731/images/cfoiyfoexwkcn1ozkyuk.jpg",
-                "alt": "Cascada Los Hornillos, Río Ceballos",
-                "className": "img-c-position"
-            },
-            {
-                "type": "text",
-                "value": "Cascada Los Hornillos, Río Ceballos",
-                "className": "citydown"
-            },
-            {
-                "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1700089568/images/uunrxurnntxd8jds43kd.jpg",
-                "alt": "Cascada Los Chorrillos, Tanti",
-                "className": "img-c-position"
-            },
-            {
-                "type": "text",
-                "value": "Cascada Los Chorrillos, Tanti",
-                "className": "citydown"
-            },
-            {
-                "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1700089663/images/h49abdmx48cd7epojtz2.jpg",
-                "alt": "Reserva Hídrica, Los Quebrachitos, Unquillo",
-                "className": "img-rows-position"
-            },
-            {
-                "type": "text",
-                "value": "Reserva Hídrica, Los Quebrachitos, Unquillo",
-                "className": "citydown"
-            },
-            {
-                "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1700089752/images/k5tg5hx3kzspf8ctrxkr.jpg",
-                "alt": "Reserva Natural Vaquerías, Valle Hermoso",
-                "className": "img-rows-position"
-            },
-            {
-                "type": "text",
-                "value": "Reserva Natural Vaquerías, Valle Hermoso",
-                "className": "citydown"
+                "type": "image-grid",
+                "value": [
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/v1700088731/images/cfoiyfoexwkcn1ozkyuk.jpg",
+                        "text": "Cascada Los Hornillos, Río Ceballos"
+                    },
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/v1700089568/images/uunrxurnntxd8jds43kd.jpg",
+                        "text": "Cascada Los Chorrillos, Tanti"
+                    },
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/v1700089663/images/h49abdmx48cd7epojtz2.jpg",
+                        "text": "Reserva Hídrica, Los Quebrachitos, Unquillo"
+                    },
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/v1700089752/images/k5tg5hx3kzspf8ctrxkr.jpg",
+                        "text": "Reserva Natural Vaquerías, Valle Hermoso"
+                    }
+                ]
             }
         ]
     },
@@ -568,7 +545,7 @@
     "page12": {
         "type": "text",
         "section": {
-            "number":5,
+            "number": 5,
             "value": "Evaluemos"
         },
         "template": "template-title-right-1",
@@ -607,10 +584,86 @@
                 "type": "title",
                 "value": "Esta es la conversación que tienen María y sus amigas, en la que están planeando si hacer o no trekking en el cerro Uritorco. <span style='color:black'>Completa el texto con la opción que corresponda<span>",
                 "className": "title-white"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "<strong>María:</strong> ¿Y? ¿Ya pensaron si me <strong>(1)</strong> ",
+                    {
+                        "block": 12,
+                        "color": "orange",
+                        "option": "acompañan"
+                    },
+                    " (acompañan - acompañaron)?<br>",
+                    "<strong>Lupe:</strong> No sé, acuérdate de que hace unos años tuve un esguince en mi <span style='color:blue'>rodilla izquierda.</span><br>",
+                    "<strong>María:</strong> Anda al médico y <strong>(2)</strong> ",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "consulta"
+                    },
+                    " si puedes hacerlo.<br>",
+                    "<strong>Julia:</strong> Sí, no creo que después de tanto tiempo no puedas ir. Como mucho, <strong>(3) ",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "haz"
+                    },
+                    "(haz - hicieron) ejercicios para entrenar.<br>",
+                    "<strong>Micaela:</strong> ¡Eso! ¿Tenemos que <strong>(4)</strong> ",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "entrenar"
+                    },
+                    " (entrena - entrenar) para ir? <br>",
+                    "<strong>María:</strong> No, necesariamente.<br>",
+                    "<strong>Julia:</strong> Pero tampoco creo que puedas hacerlo si no <strong>(5)</strong> ",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "entrenas"
+                    },
+                    "(entrenar - entrenas) nada. Yo fui hace unos meses a La Quebrada del Condorito y me costó un poco porque era muy sedentaria. El Cerro Uritorco es más difícil, <strong>(6)</strong> ",
+                    {
+                        "block": 14,
+                        "color": "orange",
+                        "option": "por lo tanto"
+                    },
+                    " (sin embargo - por lo tanto), creo que <strong>(7)</strong> ",
+                    {
+                        "block": 14,
+                        "color": "orange",
+                        "option": "deberíamos"
+                    },
+                    " (deberíamos - no deberíamos) hacer actividad física las semanas anteriores.<br>",
+                    "<strong>Micaela:</strong> ¿Qué puedo hacer?<br>",
+                    "<strong>Lupe:</strong> Puedes <strong>(8)</strong> ",
+                    {
+                        "block": 8,
+                        "color": "orange",
+                        "option": "andar"
+                    },
+                    "(andar - caminar) en bicicleta todos los días, por unos 45 minutos creo que está bien.<br>",
+                    "<strong>Julia:</strong> De esa forma puedes <strong>(9)</strong> ",
+                    {
+                        "block": 12,
+                        "color": "orange",
+                        "option": "fortalecer"
+                    },
+                    " (fortaleza - fortalecer) <span style='color:blue'> las rodillas, las piernas, el abdomen </span>y trabajar en tu respiración.<br>",
+                    "<strong>María:</strong> Bueno, a partir de mañana, <strong>(10)</strong> ",
+                    {
+                        "block": 6,
+                        "color": "orange",
+                        "option": "vayan"
+                    },
+                    " (ir - vayan) a andar en bicicleta así agarran buen estado físico.<br>"
+                ]
             }
         ]
     },
-    "page14": {
+        "page14": {
         "type": "text",
         "section": {
             "number":5,
@@ -622,6 +675,79 @@
                 "type": "title",
                 "value": "Esta es la conversación que tienen María y sus amigas, en la que están planeando si hacer o no trekking en el cerro Uritorco. <span style='color:black'>Completa el texto con la opción que corresponda<span>",
                 "className": "title-white"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "<strong>Micaela:</strong> ¿Vos no <strong>(11)</strong> ",
+                    {
+                        "block": 4,
+                        "color": "orange",
+                        "option": "vas"
+                    },
+                    " (voy - vas) a ir?<br>",
+                    "<strong>María:</strong> No lo necesito<br>",
+                    "<strong>Julia: (12) </strong>",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "Deberías"
+                    },
+                    " (Deberías - anda) ir, ya que después de hacer trekking te duele todo el cuerpo. Te va a costar caminar porque te van a doler <span style='color:blue'>los glúteos</span>, y te va a costar levantar <span style='color:blue'>los brazos</span> porque te va a doler <strong>(13)</strong> ",
+                    {
+                        "block": 2,
+                        "color": "orange",
+                        "option": "el"
+                    },
+                    " (la - el)  abdomen, los pectorales y <strong>(14)</strong>",
+                    {
+                        "block": 4,
+                        "color": "orange",
+                        "option": "los"
+                    },
+                    " (los - el) brazos<br>",
+                    "<strong>Lupe: (15)</strong> ",
+                    {
+                        "block": 8,
+                        "color": "orange",
+                        "option": "Déjenla"
+                    },
+                    "(Dejarla - Déjenla) tranquila, si ella quiere que le duela todo, eso es problema de ella. <br>",
+                    "<strong>Micaela:</strong> En el camino <strong>(16)</strong> ",
+                    {
+                        "block": 12,
+                        "color": "orange",
+                        "option": "tenemos"
+                    },
+                    " (tenemos - tenemos que) piedras y <strong>(17)</strong> ",
+                    {
+                        "block": 14,
+                        "color": "orange",
+                        "option": "tenemos que"
+                    },
+                    "  (tenemos - tenemos que) cruzar cauces de agua. Va a ser difícil.<br>",
+                    "<strong>María:</strong> Bueno, es bien, voy a ir con ustedes a andar en bicicleta <br><strong>Lupe:</strong> No la <strong>(18)</strong> ",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "obliguen"
+                    },
+                    " (obligar - obliguen) si no quiere. Además la idea ha sido suya.<br>",
+                    "<strong>María:</strong> Ustedes tienen razón. <strong>(19)</strong> ",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "tengo que"
+                    },
+                    " (tengo que - tengo) ejercitarme, si no, no voy a poder hacerlo y quiero llegar hasta la cima del cerro.<br>",
+                    "<strong>Micaela:</strong> ¡Genial! Entonces podemos <strong>(20)</strong> ",
+                    {
+                        "block": 12,
+                        "color": "orange",
+                        "option": "ejercitarnos"
+                    },
+                    " (ejercicios- ejercitarnos) las próximas tres semanas y para tu cumpleaños vamos a estar preparadas para subir hasta la cima <br><strong>María:</strong> ¡Muchas gracias por acompañarme! "
+                ]
             }
         ]
     },

@@ -28,7 +28,7 @@ export default async function getAllClass(req, res) {
     console.log('CLASS TAKEN');
     
     // Verifica procedencia de solicitud 
-    if(req.headers.accept == "*/*"||true){
+    if(req.headers.accept == "*/*"){
       // Solicitud desde el codigo
       res.status(200).json({ class1 });
     }
