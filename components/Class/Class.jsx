@@ -17,7 +17,7 @@ import { useSession } from 'next-auth/react';
 import ImagesGrid from './ImagesGrid/ImagesGrid';
 import Logo from '../../public/imgs/logo.png'
 import LogoPrimary from '../../public/imgs/logo-primary.png'
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
+// import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
 
 export default function Class(props) {
   //elemento a renderizar  
@@ -639,6 +639,7 @@ export default function Class(props) {
                 <Image
                 className='ml-[15%] mt-[10%] 
                 md:mx-auto md:w-[100px]'
+                alt="Logo"
                 width={158}
                 height={158}
                 src={Logo}/>
@@ -649,6 +650,7 @@ export default function Class(props) {
                     sheetsOfSection[i]?.data?.map((c, index) =>
                     c.type === 'image' &&
                     <Image
+                    key={"index"}
                     width='100'
                     height='100'
                     className="w-[90%] h-[90%] rounded-full object-cover"
@@ -671,7 +673,7 @@ export default function Class(props) {
                 md:w-[90%] md:text-[21px]'
                 onClick={() => Forward(i)}>
                   ¡Empezemos! 
-                  <ChevronRightIcon className="ml-5 w-[28px] h-[28px]" aria-hidden="true" />
+                  {/* <ChevronRightIcon className="ml-5 w-[28px] h-[28px]" aria-hidden="true" /> */}
                 </animated.button>
               }
             </div>
@@ -714,6 +716,7 @@ export default function Class(props) {
                 md:h-[30%] md:w-full md:justify-center  md:items-center'>
 
                   <Image
+                  alt="Logo"
                   className='md:w-[100px]'
                   width={200}
                   height={200}
@@ -738,14 +741,14 @@ export default function Class(props) {
                 sheetsOfSection[i]?.data?.map((c, index) =>
                 <>
                   {c.type === 'title' && 
-                    <div className={style[c.className]}>
+                    <div className={style[c.className]} key={index}>
                       <p dangerouslySetInnerHTML={{ __html: c.value }}></p>
                     </div>
                   }
 
                   {/* PopUp de Dialogos */}
                   {c.type === 'popup' &&
-                    <div className={style[c.className]}> <p dangerouslySetInnerHTML={{ __html: c.value }}></p></div>
+                    <div className={style[c.className]} key={index}> <p dangerouslySetInnerHTML={{ __html: c.value }}></p></div>
                   }
 
 
@@ -761,42 +764,42 @@ export default function Class(props) {
                   <>
                     {/* Level */}
                     {c.type === 'level' &&
-                    <p className={style[c.className]} dangerouslySetInnerHTML={{ __html: c.value }}></p> }
+                    <p key={index} className={style[c.className]} dangerouslySetInnerHTML={{ __html: c.value }}></p> }
                     
                     {/* Imagen */}
-                    {c.type === 'image' &&<Image width='100' height='100' className={style[c.className]} src={c.value} alt={c.alt} />}
+                    {c.type === 'image' &&<Image key={index} width='100' height='100' className={style[c.className]} src={c.value} alt={c.alt} />}
 
                     {/* Cuadricula de Imagenes */}
                     {c.type === 'image-grid' &&
-                    <ImagesGrid images={c.value}/>}
+                    <ImagesGrid key={index} images={c.value}/>}
                     
                     {/* Video Youtube */}
                     {c.type === 'video-youtube' &&
-                    <div className={`${style[c.className]} youtube`}> <YouTube ref={iframeRef} opts={opts} videoId={c.value} className='youtube' /> </div>}
+                    <div className={`${style[c.className]} youtube`}> <YouTube key={index} ref={iframeRef} opts={opts} videoId={c.value} className='youtube' /> </div>}
                     
                     {/* Video Youtube con PopUps */}
                     {c.type === 'videoi-youtube' &&
-                    <div className={`${style[c.className]}`}><YOUTUVEPOPUP titlep={null} popups={c.popups} videoId={c.value} className='youtube' /></div> }
+                    <div className={`${style[c.className]}`}><YOUTUVEPOPUP key={index} titlep={null} popups={c.popups} videoId={c.value} className='youtube' /></div> }
 
                     {/* Box? */}
                     {c.type === 'options-box' &&
                       <div className={styles['box']}>
                       <div className='className'>
-                        {c.type === 'options-box' ? c.value.map(value => <BOXMOMVE key={c.id} option={value} id={c.id}  />): null}
+                        {c.type === 'options-box' ? c.value.map(value => <BOXMOMVE key={index} key={c.id} option={value} id={c.id}  />): null}
                       </div></div>
                     }
 
                     {/* Caja de Oraciones */}
                     {c.type === 'sentence-box' &&
-                    <div className={style[c.className]}><p dangerouslySetInnerHTML={{ __html: c.value }}></p> </div>}
+                    <div className={style[c.className]}><p key={index} dangerouslySetInnerHTML={{ __html: c.value }}></p> </div>}
                     
                     {/* Drag Box */}
                     {c.type === 'dragable-box' &&
-                    <DragablesBox allowFollow={allowFollow} options={c.value} id={index} onChangeActivityDone={handleChangeActivityDone}/>}
+                    <DragablesBox key={index} allowFollow={allowFollow} options={c.value} id={index} onChangeActivityDone={handleChangeActivityDone}/>}
                     
                     {/* Parrafo */}
                     {c.type === 'paragraph' &&
-                    <p className={style[c.className]} dangerouslySetInnerHTML={{ __html: c.value }}></p>}
+                    <p key={index} className={style[c.className]} dangerouslySetInnerHTML={{ __html: c.value }}></p>}
                     
                     
                     {/* SelectSimple */}
@@ -810,20 +813,20 @@ export default function Class(props) {
                     
                     {/* Parrafo a Completar */}
                     {c.type === 'paragraph-complete' &&
-                    <div className={style[c.className]}><PARAGGRAPHCOMPLETE id={index} onChangeActivityDone={handleChangeActivityDone} data={c}/></div> }
+                    <div key={index} className={style[c.className]}><PARAGGRAPHCOMPLETE id={index} onChangeActivityDone={handleChangeActivityDone} data={c}/></div> }
                     
                     {/* PopUp de Dialogos */}
                     {c.type === 'popUp-dialogues' &&
-                    <div className={style[c.className]} dangerouslySetInnerHTML={{ __html: c.value }}></div>
+                    <div key={index} className={style[c.className]} dangerouslySetInnerHTML={{ __html: c.value }}></div>
                     }
                     
                     {/* Parrafo a Completar de lista */}
                     {c.type === 'complete-li' &&
-                    <div className={style[c.className]}><PARAGGRAPHCOMPLETE id={index} onChangeActivityDone={handleChangeActivityDone} data={c}/> </div> }
+                    <div key={index} className={style[c.className]}><PARAGGRAPHCOMPLETE id={index} onChangeActivityDone={handleChangeActivityDone} data={c}/> </div> }
                     
                     {/* Parrafo a Completar de lista con persona*/}
                     {c.type === 'complete-li-personal' &&
-                    <div className={style[c.className]}><PARAGGRAPHCOMPLETE id={index} onChangeActivityDone={handleChangeActivityDone} data={c}/> </div> }
+                    <div key={index} className={style[c.className]}><PARAGGRAPHCOMPLETE id={index} onChangeActivityDone={handleChangeActivityDone} data={c}/> </div> }
                     
                     {/* <p dangerouslySetInnerHTML={{ __html: c.value }}></p> */}
 
