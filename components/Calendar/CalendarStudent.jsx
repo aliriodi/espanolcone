@@ -62,12 +62,14 @@ export default function Schedule() {
 
   const handlePaymentSuccess = () => {
     setIsPaymentConfirmed(true);
+    PAYOK();
     setPaymentCancelled(false); // Asegúrate de restablecer el otro estado
     Confirm()
   };
 
   const handlePaymentCancel = () => {
     setIsPaymentConfirmed(false);
+    PAYNOK();
     setPaymentCancelled(true); // Asegúrate de restablecer el otro estado
   };
 
@@ -189,7 +191,7 @@ export default function Schedule() {
 
   const [paypalModal, setPaypalModal] = useState(false)
 
-  const openPaypalModal = () => {
+  const openPaypalModal = (VALUE) => {
     setPaypalModal(true)
   }
 
@@ -214,26 +216,50 @@ export default function Schedule() {
   }
 
   async function Confirm(VALUE) {
-    //sb-x747sj28200220@personal.example.com
-    //Px4q]_[X
+    //sb-dgdvf28637629@personal.example.com
+    //123456789
     //https://sandbox.paypal.com
 
     console.log(VALUE)
    
     if(VALUE){
-      //api pago unico
-      router.push(unipago(
-        { 
-          type:'plansync',
-          qty:VALUE.qty,
-          cost:VALUE.cost,
-          planing:1,
-          classview:1
-        }
-      ))
-      //fin api
+      //api pago 
 
+      //El valor de value creo que hay que ponerlo en un estado 
+      //para irlo pasando entre las funciones
+      openPaypalModal(VALUE)
+      //fin api
+    }
+
+
+    else {
+
+      const newplan=[];
+      renders.user.planSync.map(plan=>newplan.push(plan));
+
+      const length = newplan.length;
+      newplan[length-1].classview=newplan[length-1].classview+1;
       try{
+        fetch('/api/users/update',
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email: renders.user.email, updates: { planSync: newplan } }),
+        }).then(response => console.log(response.json()))
+        
+      }catch (error) {
+        console.error(error);
+      }
+      AssingingClass();
+    }
+  }
+
+  //si el pago es ok envio a la BD el pago
+  async function PAYOK(VALUE){
+    
+    try{
       fetch('/api/users/update',
       {
         method: "POST",
@@ -251,379 +277,362 @@ export default function Schedule() {
       }catch (error) {
         console.error(error);
       }
-    }
+  }
+  //si el pago es no OK
+   function PAYNOK() {
+    alert('Su pago no ha sido procesado intente nuevamente')
+  }
+// Asignando clases a la BD y enviando correos
+async function AssingingClass(){
+    
+  const newcalendar = [];
+  const newcalendarS = [];
+  //Teacher o guia turistico apeando las citas del calendario para asignarlo
+  // a un nuevo calendario asignado la fecha
+  personSchedule.calendar.map(async meeting => {
+    if (meeting.startDatetime === newMeeting.startDatetime) {
 
+      // Desplazamiento horario en minutos (ejemplo para GMT-03)
+      const offsetMinutes1 = meeting.utnCreated * 60;
+      // Obtén el UTN actual en UTC
+      const nowUTC = new Date().getTime();
+      // Calcula el nuevo UTN ajustado
+      const adjustedUTN = nowUTC + (offsetMinutes1 * 60000); // 1 minuto = 60,000 ms
+      // Crea una nueva fecha en la zona horaria deseada
+      const adjustedDate = new Date(adjustedUTN);
+      console.log(adjustedDate); // Esto mostrará la hora ajustada según el desplazamiento horario.
 
-    else {
+      // Obtener el UTN de la fecha
+      const fecha = today; Fragment
+      const offsetMinutes = fecha.getTimezoneOffset();
+      const offsetHours = offsetMinutes / 60;
+      const offsetSign = offsetHours > 0 ? '-' : '+';
+      const offsetHoursAbs = Math.abs(offsetHours);
+      const formattedOffset = `${offsetSign}${String(offsetHoursAbs).padStart(2, '')}`;
+      const offsetNumber = parseInt(formattedOffset, 10);
+      //Para obteneer el pais donde cargamos la fecha
+      const options = { timeZoneName: 'long' };
+      const timeZoneName = new Intl.DateTimeFormat('es', options).formatToParts(today);
 
-      const newplan=[];
-      renders.user.planSync.map(plan=>newplan.push(plan));
-      const length = newplan.length;
-      newplan[length-1].classview=newplan[length-1].classview+1;
-      try{
-        fetch('/api/users/update',
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email: renders.user.email, updates: { planSync: newplan } }),
-        }).then(response => console.log(response.json()))
-        
-      }catch (error) {
+      let country = '';
+      for (const part of timeZoneName) {
+        if (part.type === 'timeZoneName') {
+          country = part.value.trim();
+          break;
+        }
+      }
+
+      //renders es el usuario que sera asignado al teacher
+      newcalendar.push({
+        assigned: true,
+        id: personSchedule['_id'],
+        iduser: renders.user['_id'],
+        nameuser: renders.user.first_name + ' ' + renders.user.last_name,
+        first_name: renders.user.first_name,
+        last_name: renders.user.last_name,
+        image: renders.user.image,
+        email: renders.user.email,
+        role: renders.user.role,
+        locationscheduled: country,
+        locationCreated: meeting.locationCreated, //profesor o guia que creo el calendario ubicacion
+        utnCreated: meeting.utnCreated, //profesor o guia que creo el calendario horas
+        utnscheduled: offsetNumber,
+        startDatetime: meeting.startDatetime,
+        endDatetime: meeting.endDatetime,
+        userstartDatetime: meeting.userstartDatetime,
+        userendDatetime: meeting.userendDatetime
+      })
+      //aca asigno el profesor al calendario del alumno
+      renders.user.calendar.map(calendar => newcalendarS.push(calendar))
+      newcalendarS.push({
+        id: personSchedule['_id'],
+        iduser: renders.user._id,
+        assigned: true,
+        first_name: personSchedule.first_name,
+        last_name: personSchedule.last_name,
+        email: personSchedule.email,
+        role: personSchedule.role,
+        image: personSchedule.image,
+        iduser: personSchedule.id,
+        startDatetime: meeting.startDatetime,
+        endDatetime: meeting.endDatetime,
+        utnCreated: meeting.utnCreated,
+        utnscheduled: offsetNumber,
+        locationCreated: meeting.locationCreated,
+        locationscheduled: country,
+        userstartDatetime: meeting.userstartDatetime,
+        userendDatetime: meeting.userendDatetime
+      })
+
+      newcalendarS.sort((a, b) => {
+        const dateA = new Date(a.startDatetime);
+        const dateB = new Date(b.startDatetime);
+
+        // Compare the dates
+        return dateA - dateB;
+      });
+      newcalendar.sort((a, b) => {
+        const dateA = new Date(a.startDatetime);
+        const dateB = new Date(b.startDatetime);
+
+        // Compare the dates
+        return dateA - dateB;
+      });
+
+      // Mensajes via Email
+      
+      let massageTeacher = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+      <style>
+          *{
+              font-family: 'Montserrat', sans-serif;
+              color: #fff;
+          }
+          body {
+          /* background-color: #f4f4f4; */
+          margin: 0;
+          padding: 0;
+          }
+
+          .container{
+            background: linear-gradient(to left bottom, #4CCFEB 70%, #33bb99);
+          }
+
+          header {
+          padding: 25px;
+          text-align: center;
+          background-color: #fff;
+          border-radius: 0 0 60px;
+          /*border-radius: 0 0 60% 60%;*/
+          position: relative;
+          }
+          header img{
+            width: 123px;
+            height: 78.25px;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 90;
+          }
+          header h1{
+            position: relative;
+            font-size: 28px;
+            color: #4CCFEB;
+            margin: 0;
+          }
+
+          .main {   
+            text-align: center;
+            padding: 25px;
+            font-weight: 500;
+          }
+          .main p{
+              margin: 0;
+          }
+          .main .mt{
+              margin-top: 12px;
+          }
+
+          footer {
+          /* background-color: #007bff; */
+          color: #fff;
+          padding: 10px;
+          font-weight: 500;
+          text-align: center;
+          }
+      </style>
+      </head>
+      <body>
+
+        <div class="container">
+          <header>
+            <img src="https://espanolcone-five.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdfddh08q8%2Fimage%2Fupload%2Fs--4NefY4Ug--%2Fv1701173990%2Fimages%2Fl9hxqqm6urwlk6x8qdih.png&w=384&q=75"/>
+            <h1 style=" z-index: 90;">Asignación de clase con ${renders.user.first_name}</h1>
+          </header>
+          
+          <div class="main" style="flex-direction: column; align-items: center; font-size: 18px;">
+            <p>Se te asignó una clase para el día <b>${newMeeting?.startDatetime.slice(0, newMeeting?.startDatetime?.indexOf("T"))}</b>,</p>
+            <p>a partir de las <b>${newMeeting?.startDatetime.slice(newMeeting?.startDatetime?.indexOf("T") + 1)}</b>,</p>
+            <p>y termina a las <b>${newMeeting?.endDatetime.slice(newMeeting?.endDatetime?.indexOf("T") + 1)}</b>,</p> 
+            <p class="mt">El horario del alumno inicia a las <b>${newMeeting?.userstartDatetime?.slice(newMeeting?.userstartDatetime?.indexOf("T") + 1)}</b></p>
+            <p>y termina a las <b>${newMeeting?.userendDatetime.slice(newMeeting?.userendDatetime?.indexOf("T") + 1)}</b></p>
+          </div>
+          
+          <footer style="font-size: 18px;">
+            <p>¡Te deseamos suerte en tu clase!</p>
+          </footer>
+        </div>
+      </body>
+      </html>
+      `
+      let massageStudent = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+      <style>
+          *{
+              font-family: 'Montserrat', sans-serif;
+              color: #fff;
+          }
+          body {
+          /* background-color: #f4f4f4; */
+          margin: 0;
+          padding: 0;
+          }
+
+          .container{
+            background: linear-gradient(to left bottom, #4CCFEB 70%, #33bb99);
+          }
+
+          header {
+          padding: 25px;
+          text-align: center;
+          background-color: #fff;
+          border-radius: 0 0 60px;
+          /*border-radius: 0 0 60% 60%;*/
+          position: relative;
+          }
+          header img{
+            width: 123px;
+            height: 78.25px;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 90;
+          }
+          header h1{
+            position: relative;
+            font-size: 28px;
+            color: #4CCFEB;
+            margin: 0;
+          }
+
+          .main {   
+            text-align: center;
+            padding: 25px;
+            font-weight: 500;
+          }
+          .main p{
+              margin: 0;
+          }
+          .main .mt{
+              margin-top: 12px;
+          }
+
+          footer {
+          /* background-color: #007bff; */
+          color: #fff;
+          padding: 10px;
+          font-weight: 500;
+          text-align: center;
+          }
+      </style>
+      </head>
+      <body>
+
+        <div class="container">
+          <header>
+            <img src="https://espanolcone-five.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdfddh08q8%2Fimage%2Fupload%2Fs--4NefY4Ug--%2Fv1701173990%2Fimages%2Fl9hxqqm6urwlk6x8qdih.png&w=384&q=75"/>
+            <h1 style=" z-index: 90;">Asignación de clase con ${personSchedule.first_name}</h1>
+          </header>
+          
+          <div class="main" style="flex-direction: column; align-items: center; font-size: 18px;">
+            <p>Se te asignó una clase para el día <b>${newMeeting?.startDatetime.slice(0, newMeeting?.startDatetime?.indexOf("T"))}</b>,</p>
+            <p>a partir de las <b>${meeting?.userstartDatetime?.slice(meeting?.userstartDatetime?.indexOf("T") + 1)}</b>,</p>
+            <p>y termina a las <b>${meeting?.userendDatetime?.slice(meeting?.userendDatetime?.indexOf("T") + 1)}</b>,</p> 
+          </div>
+          
+          <footer style="font-size: 18px;">
+            <p>¡Te deseamos suerte en tu clase!</p>
+          </footer>
+        </div>
+      </body>
+      </html>
+      `
+
+      //aca va la promesa de cargar en BD el nuevo personSchedule.schedule
+      //aca va la promesa de enviar dos correos uno a teacher y uno a profesor
+
+      //La promesa del nuevo calendario del profesor la saco del if porque sino la
+      //promesa sale sin todo los calendarios actualizados tenia un problema de logica
+      
+      try {
+        //envio email a teacher
+        await
+          fetch('/api/mail/',
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                to: personSchedule.email,
+                subject: 'Asignación de nueva clase con: ' + renders.user.first_name + ' ' + renders.user.last_name,
+                html: massageTeacher
+              })
+            })
+        //Envio email a alumno
+        await
+          fetch('/api/mail/',
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                to: renders.user.email,
+                subject: 'Asignación de nueva clase con: ' + personSchedule.first_name + ' ' + personSchedule.last_name,
+                html: massageStudent
+              })
+            })
+      } catch (error) {
         console.error(error);
       }
+
+
+    } else {
+      newcalendar.push(meeting)
     }
 
-    
-    const newcalendar = [];
-    const newcalendarS = [];
-    //Teacher o guia turistico apeando las citas del calendario para asignarlo
-    // a un nuevo calendario asignado la fecha
-    personSchedule.calendar.map(async meeting => {
-      if (meeting.startDatetime === newMeeting.startDatetime) {
+  })
+  // console.log(newcalendar)
+  //aca actualizo el calendario del profesor con alumno en BD
+  try {
+    await fetch('/api/users/update',
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+           body: JSON.stringify({ email: personSchedule.email, updates: { calendar: newcalendar } })
+      }).then(response => console.log(response.json()))
 
-        // Desplazamiento horario en minutos (ejemplo para GMT-03)
-        const offsetMinutes1 = meeting.utnCreated * 60;
-        // Obtén el UTN actual en UTC
-        const nowUTC = new Date().getTime();
-        // Calcula el nuevo UTN ajustado
-        const adjustedUTN = nowUTC + (offsetMinutes1 * 60000); // 1 minuto = 60,000 ms
-        // Crea una nueva fecha en la zona horaria deseada
-        const adjustedDate = new Date(adjustedUTN);
-        console.log(adjustedDate); // Esto mostrará la hora ajustada según el desplazamiento horario.
-
-        // Obtener el UTN de la fecha
-        const fecha = today; Fragment
-        const offsetMinutes = fecha.getTimezoneOffset();
-        const offsetHours = offsetMinutes / 60;
-        const offsetSign = offsetHours > 0 ? '-' : '+';
-        const offsetHoursAbs = Math.abs(offsetHours);
-        const formattedOffset = `${offsetSign}${String(offsetHoursAbs).padStart(2, '')}`;
-        const offsetNumber = parseInt(formattedOffset, 10);
-        //Para obteneer el pais donde cargamos la fecha
-        const options = { timeZoneName: 'long' };
-        const timeZoneName = new Intl.DateTimeFormat('es', options).formatToParts(today);
-
-        let country = '';
-        for (const part of timeZoneName) {
-          if (part.type === 'timeZoneName') {
-            country = part.value.trim();
-            break;
-          }
-        }
-
-        //renders es el usuario que sera asignado al teacher
-        newcalendar.push({
-          assigned: true,
-          id: personSchedule['_id'],
-          iduser: renders.user['_id'],
-          nameuser: renders.user.first_name + ' ' + renders.user.last_name,
-          first_name: renders.user.first_name,
-          last_name: renders.user.last_name,
-          image: renders.user.image,
-          email: renders.user.email,
-          role: renders.user.role,
-          locationscheduled: country,
-          locationCreated: meeting.locationCreated, //profesor o guia que creo el calendario ubicacion
-          utnCreated: meeting.utnCreated, //profesor o guia que creo el calendario horas
-          utnscheduled: offsetNumber,
-          startDatetime: meeting.startDatetime,
-          endDatetime: meeting.endDatetime,
-          userstartDatetime: meeting.userstartDatetime,
-          userendDatetime: meeting.userendDatetime
-        })
-        //aca asigno el profesor al calendario del alumno
-        renders.user.calendar.map(calendar => newcalendarS.push(calendar))
-        newcalendarS.push({
-          id: personSchedule['_id'],
-          iduser: renders.user._id,
-          assigned: true,
-          first_name: personSchedule.first_name,
-          last_name: personSchedule.last_name,
-          email: personSchedule.email,
-          role: personSchedule.role,
-          image: personSchedule.image,
-          iduser: personSchedule.id,
-          startDatetime: meeting.startDatetime,
-          endDatetime: meeting.endDatetime,
-          utnCreated: meeting.utnCreated,
-          utnscheduled: offsetNumber,
-          locationCreated: meeting.locationCreated,
-          locationscheduled: country,
-          userstartDatetime: meeting.userstartDatetime,
-          userendDatetime: meeting.userendDatetime
-        })
-
-        newcalendarS.sort((a, b) => {
-          const dateA = new Date(a.startDatetime);
-          const dateB = new Date(b.startDatetime);
-
-          // Compare the dates
-          return dateA - dateB;
-        });
-        newcalendar.sort((a, b) => {
-          const dateA = new Date(a.startDatetime);
-          const dateB = new Date(b.startDatetime);
-
-          // Compare the dates
-          return dateA - dateB;
-        });
-
-        // Mensajes via Email
-        
-        let massageTeacher = `
-        <!DOCTYPE html>
-        <html>
-        <head>
-        <style>
-            *{
-                font-family: 'Montserrat', sans-serif;
-                color: #fff;
-            }
-            body {
-            /* background-color: #f4f4f4; */
-            margin: 0;
-            padding: 0;
-            }
-
-            .container{
-              background: linear-gradient(to left bottom, #4CCFEB 70%, #33bb99);
-            }
-
-            header {
-            padding: 25px;
-            text-align: center;
-            background-color: #fff;
-            border-radius: 0 0 60px;
-            /*border-radius: 0 0 60% 60%;*/
-            position: relative;
-            }
-            header img{
-              width: 123px;
-              height: 78.25px;
-              margin-bottom: 15px;
-              position: relative;
-              z-index: 90;
-            }
-            header h1{
-              position: relative;
-              font-size: 28px;
-              color: #4CCFEB;
-              margin: 0;
-            }
-
-            .main {   
-              text-align: center;
-              padding: 25px;
-              font-weight: 500;
-            }
-            .main p{
-                margin: 0;
-            }
-            .main .mt{
-                margin-top: 12px;
-            }
-
-            footer {
-            /* background-color: #007bff; */
-            color: #fff;
-            padding: 10px;
-            font-weight: 500;
-            text-align: center;
-            }
-        </style>
-        </head>
-        <body>
-
-          <div class="container">
-            <header>
-              <img src="https://espanolcone-five.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdfddh08q8%2Fimage%2Fupload%2Fs--4NefY4Ug--%2Fv1701173990%2Fimages%2Fl9hxqqm6urwlk6x8qdih.png&w=384&q=75"/>
-              <h1 style=" z-index: 90;">Asignación de clase con ${renders.user.first_name}</h1>
-            </header>
-            
-            <div class="main" style="flex-direction: column; align-items: center; font-size: 18px;">
-              <p>Se te asignó una clase para el día <b>${newMeeting?.startDatetime.slice(0, newMeeting?.startDatetime?.indexOf("T"))}</b>,</p>
-              <p>a partir de las <b>${newMeeting?.startDatetime.slice(newMeeting?.startDatetime?.indexOf("T") + 1)}</b>,</p>
-              <p>y termina a las <b>${newMeeting?.endDatetime.slice(newMeeting?.endDatetime?.indexOf("T") + 1)}</b>,</p> 
-              <p class="mt">El horario del alumno inicia a las <b>${newMeeting?.userstartDatetime?.slice(newMeeting?.userstartDatetime?.indexOf("T") + 1)}</b></p>
-              <p>y termina a las <b>${newMeeting?.userendDatetime.slice(newMeeting?.userendDatetime?.indexOf("T") + 1)}</b></p>
-            </div>
-            
-            <footer style="font-size: 18px;">
-              <p>¡Te deseamos suerte en tu clase!</p>
-            </footer>
-          </div>
-        </body>
-        </html>
-        `
-        let massageStudent = `
-        <!DOCTYPE html>
-        <html>
-        <head>
-        <style>
-            *{
-                font-family: 'Montserrat', sans-serif;
-                color: #fff;
-            }
-            body {
-            /* background-color: #f4f4f4; */
-            margin: 0;
-            padding: 0;
-            }
-
-            .container{
-              background: linear-gradient(to left bottom, #4CCFEB 70%, #33bb99);
-            }
-
-            header {
-            padding: 25px;
-            text-align: center;
-            background-color: #fff;
-            border-radius: 0 0 60px;
-            /*border-radius: 0 0 60% 60%;*/
-            position: relative;
-            }
-            header img{
-              width: 123px;
-              height: 78.25px;
-              margin-bottom: 15px;
-              position: relative;
-              z-index: 90;
-            }
-            header h1{
-              position: relative;
-              font-size: 28px;
-              color: #4CCFEB;
-              margin: 0;
-            }
-
-            .main {   
-              text-align: center;
-              padding: 25px;
-              font-weight: 500;
-            }
-            .main p{
-                margin: 0;
-            }
-            .main .mt{
-                margin-top: 12px;
-            }
-
-            footer {
-            /* background-color: #007bff; */
-            color: #fff;
-            padding: 10px;
-            font-weight: 500;
-            text-align: center;
-            }
-        </style>
-        </head>
-        <body>
-
-          <div class="container">
-            <header>
-              <img src="https://espanolcone-five.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdfddh08q8%2Fimage%2Fupload%2Fs--4NefY4Ug--%2Fv1701173990%2Fimages%2Fl9hxqqm6urwlk6x8qdih.png&w=384&q=75"/>
-              <h1 style=" z-index: 90;">Asignación de clase con ${personSchedule.first_name}</h1>
-            </header>
-            
-            <div class="main" style="flex-direction: column; align-items: center; font-size: 18px;">
-              <p>Se te asignó una clase para el día <b>${newMeeting?.startDatetime.slice(0, newMeeting?.startDatetime?.indexOf("T"))}</b>,</p>
-              <p>a partir de las <b>${meeting?.userstartDatetime?.slice(meeting?.userstartDatetime?.indexOf("T") + 1)}</b>,</p>
-              <p>y termina a las <b>${meeting?.userendDatetime?.slice(meeting?.userendDatetime?.indexOf("T") + 1)}</b>,</p> 
-            </div>
-            
-            <footer style="font-size: 18px;">
-              <p>¡Te deseamos suerte en tu clase!</p>
-            </footer>
-          </div>
-        </body>
-        </html>
-        `
-
-        //aca va la promesa de cargar en BD el nuevo personSchedule.schedule
-        //aca va la promesa de enviar dos correos uno a teacher y uno a profesor
-
-        //La promesa del nuevo calendario del profesor la saco del if porque sino la
-        //promesa sale sin todo los calendarios actualizados tenia un problema de logica
-        
-        try {
-          //envio email a teacher
-          await
-            fetch('/api/mail/',
-              {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                  to: personSchedule.email,
-                  subject: 'Asignación de nueva clase con: ' + renders.user.first_name + ' ' + renders.user.last_name,
-                  html: massageTeacher
-                })
-              })
-          //Envio email a alumno
-          await
-            fetch('/api/mail/',
-              {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                  to: renders.user.email,
-                  subject: 'Asignación de nueva clase con: ' + personSchedule.first_name + ' ' + personSchedule.last_name,
-                  html: massageStudent
-                })
-              })
-        } catch (error) {
-          console.error(error);
-        }
-
-
-      } else {
-        newcalendar.push(meeting)
-      }
-
-    })
-    // console.log(newcalendar)
-    //aca actualizo el calendario del profesor con alumno en BD
-    try {
-      await fetch('/api/users/update',
+    //aca actualizo el calendario del alumno en BD
+    //fuera del map para que se declare una sola promesa y con el recorrido completo
+    await
+      fetch('/api/users/update',
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-             body: JSON.stringify({ email: personSchedule.email, updates: { calendar: newcalendar } })
+          body: JSON.stringify({ email: renders.user.email, updates: { calendar: newcalendarS } }),
         }).then(response => console.log(response.json()))
+    console.log(newcalendarS)
 
-      //aca actualizo el calendario del alumno en BD
-      //fuera del map para que se declare una sola promesa y con el recorrido completo
-      await
-        fetch('/api/users/update',
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ email: renders.user.email, updates: { calendar: newcalendarS } }),
-          }).then(response => console.log(response.json()))
-      console.log(newcalendarS)
-
-    } catch (error) {
-      console.error(error);
-    }
-    update({ ...session, user: { ...session.user, calendar: newcalendarS } });
-
-    
-    alert('Su clase ha sido asignada')
-
-    setOpenP(false)
-
-    router.push('/inicio/calendar');
+  } catch (error) {
+    console.error(error);
   }
+  update({ ...session, user: { ...session.user, calendar: newcalendarS } });
 
+  
+  alert('Su clase ha sido asignada')
+
+  setOpenP(false)
+
+  router.push('/inicio/calendar');
+
+}
   //Inicia el calendario
   let today = startOfToday()
   let [selectedDay, setSelectedDay] = useState(today)
