@@ -15,6 +15,9 @@ import Selectsimple from './Selectsimple';
 import { useSpring, animated } from 'react-spring';
 import { useSession } from 'next-auth/react';
 import ImagesGrid from './ImagesGrid/ImagesGrid';
+import Logo from '../../public/imgs/logo.png'
+import LogoPrimary from '../../public/imgs/logo-primary.png'
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
 
 export default function Class(props) {
   //elemento a renderizar  
@@ -290,6 +293,8 @@ export default function Class(props) {
     }
     else setCanBack(true)
 
+    console.log("Principio ", data?.sheets?.indexOf(sheetsOfSection[i]) == 0)
+    console.log("Final ", data?.sheets?.indexOf(sheetsOfSection[i])+ 1 == data?.sheets?.length)
   },[i])
   
   useEffect(() => {
@@ -494,11 +499,27 @@ export default function Class(props) {
 
     if(typeActivitys.length > 0 && allActivitysDone()) activitysDone()
 
-    console.log(typeActivitys)
   },[typeActivitys])
   //#endregion
 
-
+  const startButtonAnimation =  useSpring({
+    from: {
+      right: "-5%"
+    },
+    to: async (next) => {
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      await next({ right: "-15%" }); 
+      
+      await next({ right: "0%" });
+      
+      await next({ right: "-15%" }); 
+      
+      await next({ right: "-5%" });
+      
+      await new Promise((resolve) => setTimeout(resolve, 500));
+    },
+    config: { duration: 100 },
+  })
   
   useEffect(()=>{
 
@@ -522,103 +543,191 @@ export default function Class(props) {
 
         {/* Paginacion */}
 
-          {/* Boton de Empezemos */}
-          {
-            sheetsOfSection &&  data?.sheets[0] == sheetsOfSection[i]  &&
-            <button
-            className='bg-gradient-to-r from-primary to-secondary z-50 absolute bottom-[20%] text-white text-[28px] right-[30%] p-3 rounded-[5px] transition-all
-            hover:shadow-[0px_4px_26px] hover:shadow-primary'
-            onClick={() => Forward(i)}>
-              ¡Empezemos!
-            </button>
-          }
+        {/* Boton de Finalizar */}
+        {
+          
+          <button
+          onClick={()=> {
+            sectionDone()
+          }}
+          className={`
+          ${sheetsOfSection &&  (sheetsOfSection.length - 1) == i && canFollow ? "bottom-0" : "bottom-[-25%]" }
+          ${ successActivitys ? "bg-secondary text-white" : "bg-white"}
+          z-50 fixed  text-title_color text-[18px] left-1/2 translate-x-[-50%] px-10 py-8 rounded-[70%_70%_0_0] transition-all shadow-[0px_4px_26px_#00000040] flex flex-col items-center
+          hover:bg-primary_hover hover:text-white
+          md:text-[16px] md:px-7`}>
+            <FontAwesomeIcon icon={faAngleUp}/>
+            Finalizar
+          </button>
+        }
 
-          {/* Boton de Finalizar */}
-          {
-            
-            <button
-            onClick={()=> {
-              sectionDone()
-            }}
+        {/* Boton de Previo */}
+        {
+          i != 0 &&
+          <button
             className={`
-            ${sheetsOfSection &&  (sheetsOfSection.length - 1) == i && canFollow ? "bottom-0" : "bottom-[-25%]" }
-            ${ successActivitys ? "bg-secondary text-white" : "bg-white"}
-            z-50 fixed  text-title_color text-[18px] left-1/2 translate-x-[-50%] px-10 py-8 rounded-[70%_70%_0_0] transition-all shadow-[0px_4px_26px_#00000040] flex flex-col items-center
+            ${ !canBack && "opacity-[50%] pointer-events-none"}
+            transition-all fixed bottom-0 left-0 z-[90] bg-white rounded-[0_70%_0_0] py-8 px-10 shadow-[0px_4px_26px_#00000040] text-title_color text-left text-[18px]
             hover:bg-primary_hover hover:text-white
-            md:text-[16px] md:px-7`}>
-              <FontAwesomeIcon icon={faAngleUp}/>
-              Finalizar
-            </button>
-          }
+            md:text-[16px] md:px-7`}
+            onClick={() => Back(i)}>
+            <FontAwesomeIcon icon={faAngleLeft}/> Prev
+          </button>
+        } 
 
-          {/* Boton de Previo */}
-          {
-            i != 0 &&
-            <button
-              className={`
-              ${ !canBack && "opacity-[50%] pointer-events-none"}
-              transition-all fixed bottom-0 left-0 z-[90] bg-white rounded-[0_70%_0_0] py-8 px-10 shadow-[0px_4px_26px_#00000040] text-title_color text-left text-[18px]
-              hover:bg-primary_hover hover:text-white
-              md:text-[16px] md:px-7`}
-              onClick={() => Back(i)}>
-              <FontAwesomeIcon icon={faAngleLeft}/> Prev
-            </button>
-          } 
-
-          {/* Boton de Siguiente */}
-          {
-            i != sheetsOfSection?.length - 1 && sheetsOfSection && data?.sheets[0] != sheetsOfSection[i]  &&
-            <button
-              className={`
-              ${ !canFollow && "opacity-[50%] bg-white hover:bg-white hover:text-title_color"}
-              ${ !canFollow && session && !session?.user?.role?.includes("admin") && "pointer-events-none" }
-              ${ successActivitys ? "bg-secondary text-white" : "bg-white"}
-              transition-all fixed bottom-0 right-0 z-[90]  rounded-[70%_0_0_0] py-8 px-10 shadow-[0px_4px_26px_#00000040] text-title_color text-right text-[18px]
-              hover:bg-primary_hover hover:text-white
-              md:text-[16px] md:px-7`}
-              onClick={() => {
-                Forward(i);
-                updateIndexPosition()
-              }}>
-              { activeChronometer ? formatTime(seconds) : <>Next <FontAwesomeIcon icon={faAngleRight}/></>}  
-            </button>
-          }
+        {/* Boton de Siguiente */}
+        {
+          i != sheetsOfSection?.length - 1 && sheetsOfSection && data?.sheets[0] != sheetsOfSection[i]  &&
+          <button
+            className={`
+            ${ !canFollow && "opacity-[50%] bg-white hover:bg-white hover:text-title_color"}
+            ${ !canFollow && session && !session?.user?.role?.includes("admin") && "pointer-events-none" }
+            ${ successActivitys ? "bg-secondary text-white" : "bg-white"}
+            transition-all fixed bottom-0 right-0 z-[90]  rounded-[70%_0_0_0] py-8 px-10 shadow-[0px_4px_26px_#00000040] text-title_color text-right text-[18px]
+            hover:bg-primary_hover hover:text-white
+            md:text-[16px] md:px-7`}
+            onClick={() => {
+              Forward(i);
+              updateIndexPosition()
+            }}>
+            { activeChronometer ? formatTime(seconds) : <>Next <FontAwesomeIcon icon={faAngleRight}/></>}  
+          </button>
+        }
+        
         {
           data && sheetsOfSection ?
 
-          
-          sheetsOfSection.template && i == 0 ||
-          sheetsOfSection.template && (i + 1) == sheetsOfSection.length?
-
+          data?.sheets[0] == sheetsOfSection[i] ||
+          data?.sheets[data?.sheets?.length - 1] == sheetsOfSection[i]
+          ?
           // En caso de que sea la primera o ultima sheets
-          sheetsOfSection[i]?.data?.map((c, index) =>
           <>
+            {/* Portada */}
+            {data?.sheets[0] == sheetsOfSection[i] &&
+            (
+            <div
+            // className={style["template-front-default"]}
+            className="flex h-screen w-full justify-end items-center relative overflow-hidden">
 
-            {/* Fondo */}
-            <div style={{width:80,heigth:40}}>
-              <Image
-                key={index+1}
-                src={sheetsOfSection[i].template}
-                alt="Background Image"
-                layout="fill"
-                objectFit="cover"
-                objectPosition="center"
-                style={{zIndex: -10}}
-                className="z-10"
-              />
-            </div>
+              {
+              sheetsOfSection[i]?.data?.map((c, index) =>
+              <>
+                  {/* Titulo */}
+                  {c.type === 'title' && 
+                    <h1
+                    key={index}
+                    className='mr-5 border-r-[10px] border-success p-3 font-semibold max-w-[48%] text-right
+                    md:max-w-full md:text-[21px]'
+                    dangerouslySetInnerHTML={{ __html: c.value }}></h1>
+                  }
+                  
+                  {/* Nivel */}
+                  {c.type === 'paragraph' &&
+                  <p
+                  key={index}
+                  className='absolute bottom-5 right-8 text-[25px] text-violet_dark font-semibold '
+                  dangerouslySetInnerHTML={{ __html: c.value }}></p>
+                  }
+              </>)
+              }
 
-            {/* Contenido */}
-            <div className={style[c.className]} key={index}>
+              {/* Ellipse */}
+              <div className='w-[58%] h-screen bg-gradient-to-r from-primary to-success absolute top-0 left-0 rounded-[0_0_100%_0] shadow-[0px_4.982935428619385px_29.897613525390625px_#0000009F]
+              md:w-full md:h-[200px] md:rounded-[0_0_100%_100%]'>
 
-              {c.type === 'title' ? <div className='className'><p dangerouslySetInnerHTML={{ __html: c.value }}></p></div> : null}
+                {/* Logo */}
+                <Image
+                className='ml-[15%] mt-[10%] 
+                md:mx-auto md:w-[100px]'
+                alt="Logo"
+                width={158}
+                height={158}
+                src={Logo}/>
+
+                <div className='shadow-[0px_4.982935428619385px_29.897613525390625px_#0000003F] bg-white w-[450px] h-[450px] absolute rounded-full  transform translate-y-[-50%] top-[50%] right-[8%] flex justify-center items-center
+                md:w-[120px] md:h-[120px] md:translate-y-0 md:right-[50%] md:translate-x-[50%] md:top-[70%]'>
+                  {
+                    sheetsOfSection[i]?.data?.map((c, index) =>
+                    c.type === 'image' &&
+                    <Image
+                    key={"index"}
+                    width='100'
+                    height='100'
+                    className="w-[90%] h-[90%] rounded-full object-cover"
+                    src={c.value}
+                    alt={c.alt} />
+                    )
+                  }
+                </div>
+
+              </div>
+
               
-              {c.type === 'paragraph' ? <div className='className'><p dangerouslySetInnerHTML={{ __html: c.value }}></p> </div>: null}
-              
+              {/* Boton de Empezemos */}
+              {
+                sheetsOfSection &&  data?.sheets[0] == sheetsOfSection[i]  &&
+                <animated.button
+                style={{right: startButtonAnimation.right}}
+                className='bg-gradient-to-r from-success to-primary z-50 absolute bottom-[20%] text-white text-[28px] py-3 px-10 rounded-[100px_0_0_100px] text-left w-[30%] flex items-center transition-all
+                hover:shadow-[0px_4px_26px] hover:shadow-success
+                md:w-[90%] md:text-[21px]'
+                onClick={() => Forward(i)}>
+                  ¡Empezemos! 
+                  <ChevronRightIcon className="ml-5 w-[28px] h-[28px]" aria-hidden="true" />
+                </animated.button>
+              }
             </div>
+            )}
 
-          </>)
+            {/* Contra portada */}
+            {data?.sheets[data?.sheets?.length - 1] == sheetsOfSection[i] &&
+            (
+              <div className='flex h-screen w-full justify-between items-center relative
+              md:flex-col'>
 
+                {/* Ellipse */}
+                <div className='w-[80%] h-screen bg-gradient-to-r from-primary to-success top-0 left-0 rounded-[0_0_90%_0] flex justify-center items-center flex-col shadow-[0px_4.982935428619385px_29.897613525390625px_#0000009F]
+                md:w-full md:h-[60%] md:rounded-[0_0_45%_45%]'>
+                  {
+                  sheetsOfSection[i]?.data?.map((c, index) =>
+                  <>
+                      {/* Titulo */}
+                      {c.type === 'title' && 
+                        <h1
+                        key={index}
+                        className=' p-3 font-semibold text-center text-white text-[35px] drop-shadow-lg
+                        md:max-w-full md:text-[21px]'
+                        dangerouslySetInnerHTML={{ __html: c.value }}></h1>
+                      }
+                      
+                      {/* Texto */}
+                      {c.type === 'paragraph' &&
+                      <p
+                      key={index}
+                      className='absolute bottom-5 right-8 text-[25px] text-white font-semibold '
+                      dangerouslySetInnerHTML={{ __html: c.value }}></p>
+                      }
+                  </>)
+                  }
+                </div>
+
+                {/* Logo */}
+                <div className='w-[40%] h-screen relative flex items-end mb-[100px]
+                md:h-[30%] md:w-full md:justify-center  md:items-center'>
+
+                  <Image
+                  alt="Logo"
+                  className='md:w-[100px]'
+                  width={200}
+                  height={200}
+                  src={LogoPrimary}/>
+
+                </div>
+              </div>
+            )
+            }
+          </>
+          
           :
 
           // En el caso contrario se muestra el resto sheets
@@ -632,14 +741,14 @@ export default function Class(props) {
                 sheetsOfSection[i]?.data?.map((c, index) =>
                 <>
                   {c.type === 'title' && 
-                    <div className={style[c.className]}>
+                    <div className={style[c.className]} key={index}>
                       <p dangerouslySetInnerHTML={{ __html: c.value }}></p>
                     </div>
                   }
 
                   {/* PopUp de Dialogos */}
                   {c.type === 'popup' &&
-                    <div className={style[c.className]}> <p dangerouslySetInnerHTML={{ __html: c.value }}></p></div>
+                    <div className={style[c.className]} key={index}> <p dangerouslySetInnerHTML={{ __html: c.value }}></p></div>
                   }
 
 
@@ -655,42 +764,42 @@ export default function Class(props) {
                   <>
                     {/* Level */}
                     {c.type === 'level' &&
-                    <p className={style[c.className]} dangerouslySetInnerHTML={{ __html: c.value }}></p> }
+                    <p key={index} className={style[c.className]} dangerouslySetInnerHTML={{ __html: c.value }}></p> }
                     
                     {/* Imagen */}
-                    {c.type === 'image' &&<Image width='100' height='100' className={style[c.className]} src={c.value} alt={c.alt} />}
+                    {c.type === 'image' &&<Image key={index} width='100' height='100' className={style[c.className]} src={c.value} alt={c.alt} />}
 
                     {/* Cuadricula de Imagenes */}
                     {c.type === 'image-grid' &&
-                    <ImagesGrid images={c.value}/>}
+                    <ImagesGrid key={index} images={c.value}/>}
                     
                     {/* Video Youtube */}
                     {c.type === 'video-youtube' &&
-                    <div className={`${style[c.className]} youtube`}> <YouTube ref={iframeRef} opts={opts} videoId={c.value} className='youtube' /> </div>}
+                    <div className={`${style[c.className]} youtube`}> <YouTube key={index} ref={iframeRef} opts={opts} videoId={c.value} className='youtube' /> </div>}
                     
                     {/* Video Youtube con PopUps */}
                     {c.type === 'videoi-youtube' &&
-                    <div className={`${style[c.className]}`}><YOUTUVEPOPUP titlep={null} popups={c.popups} videoId={c.value} className='youtube' /></div> }
+                    <div className={`${style[c.className]}`}><YOUTUVEPOPUP key={index} titlep={null} popups={c.popups} videoId={c.value} className='youtube' /></div> }
 
                     {/* Box? */}
                     {c.type === 'options-box' &&
                       <div className={styles['box']}>
                       <div className='className'>
-                        {c.type === 'options-box' ? c.value.map(value => <BOXMOMVE key={c.id} option={value} id={c.id}  />): null}
+                        {c.type === 'options-box' ? c.value.map(value => <BOXMOMVE key={index} option={value} id={c.id}  />): null}
                       </div></div>
                     }
 
                     {/* Caja de Oraciones */}
                     {c.type === 'sentence-box' &&
-                    <div className={style[c.className]}><p dangerouslySetInnerHTML={{ __html: c.value }}></p> </div>}
+                    <div className={style[c.className]}><p key={index} dangerouslySetInnerHTML={{ __html: c.value }}></p> </div>}
                     
                     {/* Drag Box */}
                     {c.type === 'dragable-box' &&
-                    <DragablesBox allowFollow={allowFollow} options={c.value} id={index} onChangeActivityDone={handleChangeActivityDone}/>}
+                    <DragablesBox key={index} allowFollow={allowFollow} options={c.value} id={index} onChangeActivityDone={handleChangeActivityDone}/>}
                     
                     {/* Parrafo */}
                     {c.type === 'paragraph' &&
-                    <p className={style[c.className]} dangerouslySetInnerHTML={{ __html: c.value }}></p>}
+                    <p key={index} className={style[c.className]} dangerouslySetInnerHTML={{ __html: c.value }}></p>}
                     
                     
                     {/* SelectSimple */}
@@ -704,20 +813,20 @@ export default function Class(props) {
                     
                     {/* Parrafo a Completar */}
                     {c.type === 'paragraph-complete' &&
-                    <div className={style[c.className]}><PARAGGRAPHCOMPLETE id={index} onChangeActivityDone={handleChangeActivityDone} data={c}/></div> }
+                    <div key={index} className={style[c.className]}><PARAGGRAPHCOMPLETE id={index} onChangeActivityDone={handleChangeActivityDone} data={c}/></div> }
                     
                     {/* PopUp de Dialogos */}
                     {c.type === 'popUp-dialogues' &&
-                    <div className={style[c.className]} dangerouslySetInnerHTML={{ __html: c.value }}></div>
+                    <div key={index} className={style[c.className]} dangerouslySetInnerHTML={{ __html: c.value }}></div>
                     }
                     
                     {/* Parrafo a Completar de lista */}
                     {c.type === 'complete-li' &&
-                    <div className={style[c.className]}><PARAGGRAPHCOMPLETE id={index} onChangeActivityDone={handleChangeActivityDone} data={c}/> </div> }
+                    <div key={index} className={style[c.className]}><PARAGGRAPHCOMPLETE id={index} onChangeActivityDone={handleChangeActivityDone} data={c}/> </div> }
                     
                     {/* Parrafo a Completar de lista con persona*/}
                     {c.type === 'complete-li-personal' &&
-                    <div className={style[c.className]}><PARAGGRAPHCOMPLETE id={index} onChangeActivityDone={handleChangeActivityDone} data={c}/> </div> }
+                    <div key={index} className={style[c.className]}><PARAGGRAPHCOMPLETE id={index} onChangeActivityDone={handleChangeActivityDone} data={c}/> </div> }
                     
                     {/* <p dangerouslySetInnerHTML={{ __html: c.value }}></p> */}
 

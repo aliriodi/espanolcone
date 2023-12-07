@@ -55,7 +55,7 @@ export default function Courses() {
             //  updateTitle={updateTitle}
              ></Class></div> 
             :
-            <div classname='flex items-center justify-center h-screen'>
+            <div className='flex items-center justify-center h-screen'>
               <Spinner className="mx-auto my-auto" />
             </div>
           }

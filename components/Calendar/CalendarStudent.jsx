@@ -62,12 +62,14 @@ export default function Schedule() {
 
   const handlePaymentSuccess = () => {
     setIsPaymentConfirmed(true);
+    PAYOK(paypalDates);
     setPaymentCancelled(false); // Asegúrate de restablecer el otro estado
     Confirm()
   };
 
   const handlePaymentCancel = () => {
     setIsPaymentConfirmed(false);
+    PAYNOK();
     setPaymentCancelled(true); // Asegúrate de restablecer el otro estado
   };
 
@@ -188,9 +190,11 @@ export default function Schedule() {
   }
 
   const [paypalModal, setPaypalModal] = useState(false)
+  const [paypalDates, setPaypalDates] = useState(null)
 
-  const openPaypalModal = () => {
+  const openPaypalModal = (VALUE) => {
     setPaypalModal(true)
+    setPaypalDates(VALUE)
   }
 
   const handleChangePaypalModal = (data) => {
@@ -204,53 +208,27 @@ export default function Schedule() {
     //a la ultima compra
     const last = session.user.planSync.length;
     
-    if(!last||(session.user.planSync[last-1].qty-session.user.planSync[last-1].classview<1))
-    {setOpenP(true)}
-    else{Confirm()}
+    if(!last || ( session.user.planSync[last-1].qty - session.user.planSync[last-1].classview < 1 ))setOpenP(true)
+    else Confirm()
 
   }
+
   function closePlan(){
     setOpenP(false)
   }
 
   async function Confirm(VALUE) {
-    //sb-x747sj28200220@personal.example.com
-    //Px4q]_[X
+    //sb-dgdvf28637629@personal.example.com
+    //123456789
     //https://sandbox.paypal.com
 
-    console.log(VALUE)
-   
+    
     if(VALUE){
-      //api pago unico
-      router.push(unipago(
-        { 
-          type:'plansync',
-          qty:VALUE.qty,
-          cost:VALUE.cost,
-          planing:1,
-          classview:1
-        }
-      ))
+      //api pago 
+      //El valor de value creo que hay que ponerlo en un estado 
+      //para irlo pasando entre las funciones
+      openPaypalModal(VALUE)
       //fin api
-
-      try{
-      fetch('/api/users/update',
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email: renders.user.email, updates: { planSync:[...session.user.planSync,
-                                                                          { type:'plansync',
-                                                                            qty:VALUE.qty,
-                                                                            cost:VALUE.cost,
-                                                                            planing:1,
-                                                                            classview:1}] } }),
-      }).then(response => console.log(response.json()))
-        
-      }catch (error) {
-        console.error(error);
-      }
     }
 
 
@@ -258,6 +236,7 @@ export default function Schedule() {
 
       const newplan=[];
       renders.user.planSync.map(plan=>newplan.push(plan));
+
       const length = newplan.length;
       newplan[length-1].classview=newplan[length-1].classview+1;
       try{
@@ -273,9 +252,55 @@ export default function Schedule() {
       }catch (error) {
         console.error(error);
       }
+      AssingingClass();
     }
+  }
 
+  //si el pago es ok envio a la BD el pago
+  async function PAYOK(VALUE){
     
+    try{
+      fetch('/api/users/update',
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(
+          { email: renders.user.email,
+              updates: {
+                planSync:[...session.user.planSync,
+                  {
+                    type:'plansync',
+                    qty:VALUE.qty,
+                    cost:VALUE.cost,
+                    planing:1,
+                    classview:1
+                  }
+              ]
+            }
+          }
+        ),
+      }).then(response => {
+        setPaypalDates(null)
+        console.log("Clase asignado ",response.json())
+      })
+        
+      }catch (error) {
+        setPaypalDates(null)
+        console.error(error);
+      }
+  }
+
+  //si el pago es no OK
+   function PAYNOK() {
+    alert('Su pago no ha sido procesado intente nuevamente')
+    setPaypalDates(null)
+  }
+
+  // Asignando clases a la BD y enviando correos
+  async function AssingingClass(){
+      
     const newcalendar = [];
     const newcalendarS = [];
     //Teacher o guia turistico apeando las citas del calendario para asignarlo
@@ -595,7 +620,7 @@ export default function Schedule() {
           headers: {
             "Content-Type": "application/json",
           },
-             body: JSON.stringify({ email: personSchedule.email, updates: { calendar: newcalendar } })
+            body: JSON.stringify({ email: personSchedule.email, updates: { calendar: newcalendar } })
         }).then(response => console.log(response.json()))
 
       //aca actualizo el calendario del alumno en BD
@@ -622,6 +647,7 @@ export default function Schedule() {
     setOpenP(false)
 
     router.push('/inicio/calendar');
+
   }
 
   //Inicia el calendario
@@ -644,7 +670,8 @@ export default function Schedule() {
     let firstDayNextMonth = add(firstDayCurrentMonth, { months: 1 })
     setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'))
   }
-//ubico y asigno el primer dia del meeting en caso de existir
+
+  //ubico y asigno el primer dia del meeting en caso de existir
   function firstMeetingDay(day){
     const firstMeeting=[]
     isAfter(day, today) && personSchedule?.calendar?.map((meeting) => {
@@ -818,9 +845,9 @@ export default function Schedule() {
           md:w-full'>
             {
               personSchedule?.calendar?.length &&
-              session?.user?.planSync?.length > 0 ?
+              session.user.planSync[session.user.planSync.length-1].qty - session.user.planSync[session.user.planSync.length-1].classview > 0 ?
               <p className='font-medium mt-[17px] mb-[15px] text-center text-[14px] text-violet_dark'>
-                Posees <b>{session?.user?.planSync?session.user.planSync[session.user.planSync.length-1].qty:0}</b> {session?.user?.planSync?.length > 1 ? "clases" : "clase"} para agendar
+                Posees <b>{session?.user?.planSync && session.user.planSync[session.user.planSync.length-1].qty - session.user.planSync[session.user.planSync.length-1].classview}</b> { session?.user?.planSync?.length > 1 ? "clases" : "clase"} para agendar
               </p>:
               <p className='font-medium mt-[17px] mb-[15px] text-center text-[14px] text-violet_dark'>
                 No posees clases para agendar 
@@ -897,6 +924,7 @@ export default function Schedule() {
                         onPaymentCancel={handlePaymentCancel}
                         modalPaypal={handleChangePaypalModal}
                         open={paypalModal}
+                        dates={paypalDates}
                       />
                     </div>
                   }
@@ -911,12 +939,6 @@ export default function Schedule() {
           </section>
 
         </div>
-        
-        <button
-        onClick={async ()=>router.push(await unipago())}
-        className='bg-red-500 p-3 rounded-[5px] text-white'>
-          Pago
-        </button>
         
       </div>
 
