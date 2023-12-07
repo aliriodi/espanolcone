@@ -499,7 +499,6 @@ export default function Class(props) {
 
     if(typeActivitys.length > 0 && allActivitysDone()) activitysDone()
 
-    console.log(typeActivitys)
   },[typeActivitys])
   //#endregion
 
