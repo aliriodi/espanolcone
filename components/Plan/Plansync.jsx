@@ -85,7 +85,7 @@ export default function Plansync({ Confirm, closePlan}) {
               </p>
             </div>
 
-            <button onClick={()=>Confirm({qty:1,cost:plan1[0].ammountUnit})} className="bg-secondary p-2 rounded-[5px] text-white">Obtener</button>
+            <button onClick={()=>{Confirm({qty:1,cost:plan1[0].ammountUnit});closePlan()}} className="bg-secondary p-2 rounded-[5px] text-white">Obtener</button>
           </div>
 
           {/* Varias Clases */}
@@ -139,7 +139,7 @@ export default function Plansync({ Confirm, closePlan}) {
               </p>
             </div>
 
-            <button onClick={()=>Confirm({qty:valorInput,cost:plan1[1].ammountUnit*valorInput})} className="bg-secondary p-2 rounded-[5px] text-white">Obtener</button>
+            <button onClick={()=>{Confirm({qty:valorInput,cost:plan1[1].ammountUnit*valorInput});closePlan()}} className="bg-secondary p-2 rounded-[5px] text-white">Obtener</button>
           </div>
         </div>
 
