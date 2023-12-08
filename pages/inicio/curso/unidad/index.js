@@ -215,6 +215,7 @@ export default function Unidad(){
 
         // Comprueba si todas las unidades estan echas
         console.log(session?.user)
+        console.log("maxSessionReached ",maxSessionReached)
 
     },[session])
 
@@ -536,7 +537,7 @@ export default function Unidad(){
                                 </div>
 
                                 {/* Check */}
-                                {maxSessionReached >= 3 && (
+                                {maxSessionReached > 3 && (
                                     <span>
                                         <FontAwesomeIcon
                                         className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
@@ -593,8 +594,8 @@ export default function Unidad(){
                         onClick={()=>setSection(5)}
                         href={`/inicio/curso/unidad/${classId}`}
                         className={`
-                        ${(maxSessionReached) < 5 || maxSessionReached > 5 && "opacity-[50%]"}
-                        ${(maxSessionReached) < 5 || maxSessionReached > 5 && session && !session?.user?.role?.includes("admin") && "pointer-events-none"}
+                        ${maxSessionReached != 5 && "opacity-[50%]"}
+                        ${maxSessionReached < 5 || maxSessionReached > 5 && session && !session?.user?.role?.includes("admin") && "pointer-events-none"}
                         mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
                         hover:bg-[#3331] transition-colors
                         md:w-full`}>
