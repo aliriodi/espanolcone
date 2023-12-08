@@ -31,16 +31,16 @@
             "number": 0,
             "value": "Mis Metas"
         },
-        "template": "",
+        "template": "template-title-top-1",
         "data": [
             {
                 "type": "title",
                 "value": "¿Qué voy a aprender en esta unidad?",
-                "className": "centerRightWhite-2"
+                "className": "title-white"
             },
             {
                 "type": "paragraph",
-                "value": " <table style= 'border: 2px solid black;' ><tr  style=' background-color: var(--primary); border: 2px solid black;' ><th style= 'border: 2px solid black;width:30%;' ><h2><strong style='color:black;'>Comunicación</strong></h2></th><th style= ' border: 2px solid black;width:20%' ><h2><strong style='color:black;'>Vocabulario</strong></h2></th><th style= 'border: 2px solid black; width:30%' ><h2><strong style='color:black;'>Gramática</strong></h2></th></tr><tr><td style= 'border: 2px solid black;' > <ul> <li>*Identificarse, presentarse (nombre y apellido), saludar y despedirse.</li>  <li>*Deletrear.</li> <li>*Dar y pedir información acerca de nacionalidad o lugar de origen, lugar de residencia, profesión y edad.</li><li>*Cultura en saludos y despedidas: saludar con un beso, un abrazo y un apretón de manos.</li><li>*CREADO POR ANGEL JOSSUE DIAZ FRANCO EL MEJOR JUGADOR DE FUTBOL DE TODA LA HISTORIA.</li></ul> </td><td style= 'border: 2px solid black;' ><ul> <li>*Expresiones para saludar y despedirse.</li>  <li> *El abecedario.</li> <li>*Nombres de países y continentes.</li> <li>*Vocabulario de nacionalidades, profesiones y oficios.</li><li>*CREADO POR ANGEL JOSSUE DIAZ FRANCO EL MEJOR JUGADOR DE FUTBOL DE TODA LA HISTORIA.</li> </ul></td><td style= 'border: 2px solid black; ' ><ul> <li>*Uso del verbo ser para: identificar, profesiones y gentilicios.</li>  <li>*Géneros para gentilicios y profesiones.</li><li>*CREADO POR ANGEL JOSSUE DIAZ FRANCO EL MEJOR JUGADOR DE FUTBOL DE TODA LA HISTORIA.</li> </ul></td></tr></table>",
+                "value": " <table style= 'border: 2px solid black;' ><tr  style=' background-color: var(--primary); border: 2px solid black;' ><th style= 'border: 2px solid black;width:30%;' ><h2><strong style='color:black;'>Comunicación</strong></h2></th><th style= ' border: 2px solid black;width:20%' ><h2><strong style='color:black;'>Vocabulario</strong></h2></th><th style= 'border: 2px solid black; width:30%' ><h2><strong style='color:black;'>Gramática</strong></h2></th></tr><tr><td style= 'border: 2px solid black;' > <ul> <li>*Identificarse, presentarse (nombre y apellido), saludar y despedirse.</li>  <li>*Deletrear.</li> <li>*Dar y pedir información acerca de nacionalidad o lugar de origen, lugar de residencia, profesión y edad.</li><li>*Cultura en saludos y despedidas: saludar con un beso, un abrazo y un apretón de manos.</li><li></li></ul> </td><td style= 'border: 2px solid black;' ><ul> <li>*Expresiones para saludar y despedirse.</li>  <li> *El abecedario.</li> <li>*Nombres de países y continentes.</li> <li>*Vocabulario de nacionalidades, profesiones y oficios.</li><li></li> </ul></td><td style= 'border: 2px solid black; ' ><ul> <li>*Uso del verbo ser para: identificar, profesiones y gentilicios.</li>  <li>*Géneros para gentilicios y profesiones.</li><li></li> </ul></td></tr></table>",
                 "className": "table"
             }
         ]
@@ -59,59 +59,10 @@
                 "className": "title-white"
             },
             {
-                "type": "paragraph",
-                "value": "<p> <u>Video con presentación:</u> </p>",
-                "className": "className1"
-            },
-            {
-                "type": "paragraph",
-                "value": "<p>¡Hola! ¿Qué tal?</p>",
-                "className": "className1"
-            },
-            {
-                "type": "paragraph",
-                "value": "¿Cómo estás?",
-                "className": "className1"
-            },
-            {
-                "type": "paragraph",
-                "value": "Mi nombre es Eucaris y mi apellido es Rodríguez",
-                "className": "className1"
-            },
-            {
-                "type": "paragraph",
-                "value": "R - O - D - R - I -G -U -E - Z",
-                "className": "className1"
-            },
-            {
-                "type": "paragraph",
-                "value": "Soy venezolana, pero vivo en Argentina",
-                "className": "className1"
-            },
-            {
-                "type": "paragraph",
-                "value": "Tengo 47 años",
-                "className": "className1"
-            },
-            {
-                "type": "paragraph",
-                "value": "Soy profesora de español y trabajo en Español con E",
-                "className": "className1"
-            },
-            {
-                "type": "paragraph",
-                "value": "Mi lengua materna es el español, pero también hablo inglés y hablo un poco de portugués",
-                "className": "className1"
-            },
-            {
-                "type": "paragraph",
-                "value": "Vivo con mi familia y tengo mascota, una perrita llamada Honey",
-                "className": "className1"
-            },
-            {
-                "type": "paragraph",
-                "value": "CREADO POR ANGEL JOSSUE DIAZ FRANCO EL MEJOR JUGADOR DE FUTBOL DE TODA LA HISTORIA.",
-                "className": "className1"
+                "type": "video-youtube",
+                "value": "VvrUn7L7r3w",
+                "youtuve": "https://www.youtube.com/watch?v=VvrUn7L7r3w",
+                "className": "youtuve-p1"
             }
         ]
     },
@@ -125,7 +76,7 @@
         "data": [
             {
                 "type": "title",
-                "value": "Después de ver el video:",
+            "value": "<font color='black'><strong>Después de ver el video:</strong></font>",
                 "className": "title-white"
             },
             {
@@ -135,7 +86,7 @@
             },
             {
                 "type": "selectsimple",
-                "value": "1. Yo soy:",
+                "value": "<font color='sky blue'>1. </font><font color='black'>Yo soy:</font>",
                 "option": "b. Eucaris Rodríguez.",
                 "options": [
                     "a. Ana Gutierrez.",
@@ -146,7 +97,7 @@
             },
             {
                 "type": "selectsimple",
-                "value": "2. Yo vivo en:",
+                "value": "<font color='sky blue'>2. </font><font color='black'>Yo vivo en:</font>",
                 "option": "a. Argentina.",
                 "options": [
                     "a. Argentina.",
@@ -157,7 +108,7 @@
             },
             {
                 "type": "selectsimple",
-                "value": "3. Tengo 27 años:",
+                "value": "<font color='sky blue'>3. </font><font color='black'>Tengo 27 años:</font>",
                 "option": "b. Falso.",
                 "options": [
                     "a. Verdadero.",
@@ -177,7 +128,7 @@
         "data": [
             {
                 "type": "title",
-                "value": "Después de ver el video:",
+                "value": "<font color='black'><strong>Después de ver el video:</strong></font>",
                 "className": "title-white"
             },
             {
@@ -187,7 +138,7 @@
             },
             {
                 "type": "selectsimple",
-                "value": "1. Yo soy:",
+                "value": "<font color='sky blue'>1. </font><font color='black'>Yo soy:</font>",
                 "option": "b. Profesora de español.",
                 "options": [
                     "a. Doctora.",
@@ -198,7 +149,7 @@
             },
             {
                 "type": "selectsimple",
-                "value": "2. Soy:",
+                "value": "<font color='sky blue'>2. </font><font color='black'>Soy:</font>",
                 "option": "a. Venezolana",
                 "options": [
                     "a. Venezolana",
@@ -209,7 +160,7 @@
             },
             {
                 "type": "selectsimple",
-                "value": "3. Yo tengo una gatita:",
+                "value": "<font color='sky blue'>3. </font><font color='black'>Yo tengo una gatita:</font>",
                 "option": "b. Falso.",
                 "options": [
                     "a. Verdadero.",
@@ -222,8 +173,8 @@
     "page6": {
         "type": "paragraph",
         "section": {
-            "number": 1,
-            "value": "Comencemos"
+            "number": 2,
+            "value": "Aprendemos"
         },
         "template": "template-video-1",
         "data": [
@@ -231,37 +182,29 @@
                 "type": "title",
                 "value": "Video explicativo",
                 "className": "title-white"
+            },
+            {
+                "type": "video-youtube",
+                "value": "y1zzz_9Znv0",
+                "youtuve": "https://youtu.be/y1zzz_9Znv0",
+                "className": "youtuve-p1"
             }
         ]
     },
     "page7": {
         "type": "paragraph",
         "section": {
-            "number": 1,
-            "value": "Comencemos"
-        },
-        "template": "template-title-top-1",
-        "data": [
-            {
-                "type": "title",
-                "value": "Actividades interactivas",
-                "className": "paragraph3"
-            }
-        ]
-    },
-    "page8": {
-        "type": "paragraph",
-        "section": {
-            "number": 1,
-            "value": "Comencemos"
+            "number": 3,
+            "value": "Practiquemos"
         },
         "template": "template-title-right-1",
         "data": [
             {
                 "type": "title",
                 "value": "Observa las imágenes y arrastra hacia cada una la expresión",
-                "className": "leftWhite2"
+                "className": "title-white"
             },
+            
             {
                 "type": "dragable-box",
                 "value": {
@@ -304,18 +247,18 @@
             }
         ]
     },
-    "page9": {
+    "page8": {
         "type": "paragraph-complete",
         "section": {
-            "number": 1,
-            "value": "Comencemos"
+            "number": 3,
+            "value": "Practiquemos"
         },
         "template": "template-title-right-1",
         "data": [
             {
                 "type": "title",
                 "value": "Observa las banderas y escribe la nacionalidad que corresponde a las siguientes mujeres:",
-                "className": "leftWhite2"
+                "className": "title-white"
             },
             {
                 "type": "paragraph-complete",
@@ -361,24 +304,23 @@
             }
         ]
     },
-    "page10": {
+    "page9": {
         "type": "selectsimple",
         "section": {
-            "number": 1,
-            "value": "Comencemos"
+            "number": 3,
+            "value": "Practiquemos"
         },
         "template": "template-title-right-1",
         "data": [
             {
                 "type": "title",
                 "value": "De acuerdo con las siguientes imágenes, ¿qué expresión usas?",
-                "className": "title-white "
+                "className": "title-white"
             },
-            {
-                "type": "title",
-                "value": "Marca la opción correcta",
-                "className": "title-white "
-            },
+            {"type": "title",
+            "value": "<font color='black'><strong>Marca la opción correcta</strong></font>",
+                "className": "title-white"},
+            
             {
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--0GcsPTej--/v1701369397/images/jetsyyur4bjo8n4ayjzn.png",
@@ -387,7 +329,7 @@
             },
             {
                 "type": "selectsimple",
-                "value": "Apreton de manos",
+                "value": "<font color='black'>Apretón de manos</font>",
                 "option": "Es un placer conocerte",
                 "options": [
                     "Es un placer conocerte",
@@ -403,7 +345,7 @@
             },
             {
                 "type": "selectsimple",
-                "value": "Saludo inicial",
+                "value": "<font color='black'>Saludo inicial</font>",
                 "option": "¡Hola!",
                 "options": [
                     "Es un placer conocerte",
@@ -419,7 +361,7 @@
             },
             {
                 "type": "selectsimple",
-                "value": "Despedida",
+                "value": "<font color='black'>Despedida</font>",
                 "option": "¡Adiós!",
                 "options": [
                     "¡Adiós!",
@@ -429,11 +371,11 @@
             }
         ]
     },
-    "page11": {
+    "page10": {
         "type": "selectsimple",
         "section": {
-            "number": 1,
-            "value": "Comencemos"
+            "number": 3,
+            "value": "Practiquemos"
         },
         "template": "template-title-top-1",
         "data": [
@@ -444,7 +386,7 @@
             },
             {
                 "type": "selectsimple",
-                "value": "1. Tiempo 0:31 ¿Qué observas?",
+                "value": "<font color='black'>1. Tiempo 0:31 ¿Qué observas?</font>",
                 "option": "b. beso entre hombres",
                 "options": [
                     "a. apretón de manos",
@@ -455,7 +397,7 @@
             },
             {
                 "type": "selectsimple",
-                "value": "2. Tiempo 1:12 ¿Es común en Argentina los besos entre hombres?",
+                "value": "<font color='black'>2. Tiempo 1:12 ¿Es común en Argentina los besos entre hombres?</font>",
                 "option": "b. Sí",
                 "options": [
                     "a. No",
@@ -465,7 +407,7 @@
             },
             {
                 "type": "selectsimple",
-                "value": "3. Tiempo 1:31 ¿Qué observas?",
+                "value": "<font color='black'>3. Tiempo 1:31 ¿Qué observas?</font>",
                 "option": "a. apretón de manos",
                 "options": [
                     "a. apretón de manos",
@@ -473,29 +415,20 @@
                     "c. beso entre mujeres"
                 ],
                 "className": "selector-simple"
-            }
-        ]
-    },
-    "page12": {
-        "type": "paragraph",
-        "section": {
-            "number": 1,
-            "value": "Comencemos"
-        },
-        "template": "template-title-top-1",
-        "data": [
+            },
             {
-                "type": "title",
-                "value": "Reto propuesto",
-                "className": "paragraph3"
+                "type": "video-youtube",
+                "value": "3DLY8YRbdM0?t=15",
+                "youtuve": "https://youtu.be/3DLY8YRbdM0?t=15",
+                "className": "youtuve-p1"
             }
         ]
     },
-    "page13": {
+    "page11": {
         "type": "paragraph",
         "section": {
-            "number": 1,
-            "value": "Comencemos"
+            "number": 4,
+            "value": "Mis retos"
         },
         "template": "template-title-top-1",
         "data": [
@@ -511,11 +444,11 @@
             }
         ]
     },
-    "page14": {
+    "page12": {
         "type": "paragraph",
         "section": {
-            "number": 1,
-            "value": "Comencemos"
+            "number": 4,
+            "value": "Mis retos"
         },
         "template": "template-title-top-1",
         "data": [
@@ -572,11 +505,11 @@
             }
         ]
     },
-    "page15": {
+    "page13": {
         "type": "paragraph",
         "section": {
-            "number": 1,
-            "value": "Comencemos"
+            "number": 4,
+            "value": "Mis retos"
         },
         "template": "template-title-top-1",
         "data": [
@@ -628,11 +561,11 @@
             }
         ]
     },
-    "page16": {
+    "page14": {
         "type": "paragraph",
         "section": {
-            "number": 1,
-            "value": "Comencemos"
+            "number": 5,
+            "value": "Evaluemos"
         },
         "template": "template-title-top-1",
         "data": [
@@ -663,11 +596,11 @@
             }
         ]
     },
-    "page17": {
+    "page15": {
         "type": "boxmove",
         "section": {
-            "number": 3,
-            "value": "Aprendemos"
+            "number": 5,
+            "value": "Evaluemos"
         },
         "template": "template-title-right-1",
         "title": "Actividad",
@@ -689,13 +622,13 @@
                         },
                         {
                             "type": "dropup-end",
-                            "content": "2.¿Cómo...",
+                            "content": "2. ¿Cómo...",
                             "value": "estás?",
                             "id": "DropUp2"
                         },
                         {
                             "type": "dropup-end",
-                            "content": "3.¿Qué...",
+                            "content": "3. ¿Qué...",
                             "value": "tal?",
                             "id": "DropUp3"
                         },
@@ -713,14 +646,14 @@
                         },
                         {
                             "type": "dropup-end",
-                            "content": "6.Soy de...",
+                            "content": "6. Soy de...",
                             "value": "Argentina",
                             "id": "DropUp6"
                         }
                     ],
                     "DragBoxs": [
                         {
-                            "value":  "días",
+                            "value": "días",
                             "id": "DragBox4"
                         },
                         {
@@ -739,30 +672,239 @@
                             "value": "estás?",
                             "id": "DragBox2"
                         },
-                       
                         {
                             "value": "Argentina",
                             "id": "DragBox6"
                         }
-                       
                     ],
                     "className": "dragable-box"
                 }
             }
         ]
     },
+    "page16": {
+        "type": "selectsimple",
+        "section": {
+            "number": 5,
+            "value": "Evaluemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Elegir la opción correcta",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "Relaciona las columnas",
+                "className": "title-white"
+            },
+            {
+                "type": "selectsimple",
+                "value": "1. ¡Hola! ¿Qué tal? ________________ Mateo",
+                "option": "b. me llamo",
+                "options": [
+                    "a. Alberto",
+                    "b. me llamo",
+                    "c. bien, gracias"
+                ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "2. Hola ¿Qué tal?. __________________, gracias",
+                "option": "a. muy bien",
+                "options": [
+                    "a. muy bien",
+                    "b. Pablo",
+                    "c. ¿Cómo estás?"
+                ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "3. Buenos días ___________________. Muy bien, gracias",
+                "option": "c. ¿Cómo estás?",
+                "options": [
+                    "a. Bien",
+                    "b. me llamo",
+                    "c. ¿Cómo estás?"
+                ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "dragable-box",
+                "value": {
+                    "DropUps": [
+                        {
+                            "type": "dropup-end",
+                            "content": "1. Un gusto, Marcelo.",
+                            "value": "Igual, el gusto es mío.",
+                            "id": "DropUp1"
+                        },
+                        {
+                            "type": "dropup-end",
+                            "content": "2. ¿Cómo te llamas?",
+                            "value": "Me llamo Marcelo.",
+                            "id": "DropUp2"
+                        },
+                        {
+                            "type": "dropup-end",
+                            "content": "3. Hasta pronto.",
+                            "value": "Adios",
+                            "id": "DropUp3"
+                        }
+                    ],
+                    "DragBoxs": [
+                        {
+                            "value": "Me llamo Marcelo.",
+                            "id": "DragBox2"
+                        },
+                        {
+                            "value": "Adios",
+                            "id": "DragBox3"
+                        },
+                        {
+                            "value": "Igual, el gusto es mío.",
+                            "id": "DragBox1"
+                        }
+                    ],
+                    "className": "dragable-box"
+                }
+            }
+        ]
+    },
+    "page17": {
+        "type": "boxmove",
+        "section": {
+            "number": 5,
+            "value": "Evaluemos"
+        },
+        "template": "template-title-right-1",
+        "title": "Actividad",
+        "data": [
+            {
+                "type": "title",
+                "value": "Arrastrar la palabra o frase correcta y construir el diálogo",
+                "className": "centerRightWhite"
+            },
+            {
+                "type": "dragable-box",
+                "value": {
+                    "DropUps": [
+                        {
+                            "type": "dropup-center",
+                            "content_start": "1. Claudia: ",
+                            "content_end": ", soy Claudia!",
+                            "value": "Hola",
+                            "id": "DropUp1"
+                        },
+                        {
+                            "type": "dropup-center",
+                            "content_start": "2. Lucas: ¡Hola Claudia!, ",
+                            "content_end": "",
+                            "value": "¿Cómo estás?",
+                            "id": "DropUp2"
+                        },
+                        {
+                            "type": "dropup-center",
+                            "content_start": "3. Claudia: ",
+                            "content_end": ", ¿Y vos?",
+                            "value": "Bien gracias",
+                            "id": "DropUp3"
+                        },
+                        {
+                            "type": "dropup-center",
+                            "content_start": "4. Lucas: Muy ",
+                            "content_end": "",
+                            "value": "bien",
+                            "id": "DropUp4"
+                        },
+                        {
+                            "type": "text",
+                            "content": "5. Claudia: ¿Eres de Córdoba?"
+                        },
+                        {
+                            "type": "dropup-center",
+                            "content_start": "6. Lucas: Sí, ",
+                            "content_end": "",
+                            "value": "soy de Córdoba",
+                            "id": "DropUp6"
+                        },
+                        {
+                            "type": "dropup-center",
+                            "content_start": "7. Claudia: Es un gusto conocerte. ",
+                            "content_end": "",
+                            "value": "¡Hasta luego Lucas!",
+                            "id": "DropUp7"
+                        },
+                        {
+                            "type": "dropup-center",
+                            "content_start": "8. Lucas: ",
+                            "content_end": "",
+                            "value": "Nos vemos Claudia",
+                            "id": "DropUp8"
+                        }
+                    ],
+                    "DragBoxs": [
+                        {
+                            "value": "bien",
+                            "id": "DragBox4"
+                        },
+                        {
+                            "value": "soy de Córdoba",
+                            "id": "DragBox6"
+                        },
+                        {
+                            "value": "Bien gracias",
+                            "id": "DragBox3"
+                        },
+                        {
+                            "value": "¿Cómo estás?",
+                            "id": "DragBox2"
+                        },
+                        {
+                            "value": "Hola",
+                            "id": "DragBox1"
+                        },
+                        {
+                            "value": "Nos vemos Claudia",
+                            "id": "DragBox8"
+                        },
+                        {
+                            "value": "¡Hasta luego Lucas!",
+                            "id": "DragBox7"
+                        }
+                    ]
+                },
+                "className": "dragable-box"
+            }
+        ]
+    },
     "page18": {
         "type": "paragraph",
         "section": {
-            "number": 1,
-            "value": "Comencemos"
+            "number": 5,
+            "value": "Evaluemos"
         },
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696113984/images/1_qywc8c.png",
         "data": [
             {
                 "type": "title",
-                "value": "Actividades interactivas",
+                "value": "NOS VEMOS EN LA PRÓXIMA CLASE",
                 "className": "title-white "
+            },
+            {
+                "type": "title",
+                "value": "¡Gracias por tu atención!",
+                "className": "title-white "
+            },
+            {
+                "type": "image",
+                "value": "https://espanolcone-five.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdfddh08q8%2Fimage%2Fupload%2Fs--EAAjoufn--%2Fv1701892743%2Fimages%2Fq4tuwkks3m0pljhbvoa3.png&w=384&q=75",
+                "alt": "tu",
+                "className": "className"
             }
         ]
     }
