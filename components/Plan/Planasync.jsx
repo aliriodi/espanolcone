@@ -3,13 +3,16 @@ import style from '../../styles/plan.module.css';
 import { useSession } from "next-auth/react";
 const plan = require('./planes.json');
 
-export default function Planasync({}) {
+export default function Planasync({offer1,offer2}) {
   const plan1 = [];
   const { data: session, status, update } = useSession();
   //recorro y asigno los planes ASINCRONOS al Array plan1
   Object.keys(plan).map((planX) =>
     plan[planX].type.includes('Asinc') ? plan1.push(plan[planX]) : null
   );
+
+
+  
 
   return (
     <div className={style['location']}>
@@ -47,10 +50,10 @@ export default function Planasync({}) {
             <td ></td>
             {/* aca deberian ir las plataformas de pago */}
             <td className={style['tdnoborder']} >
-              <button className={style['button']}> Pagar</button>
+              <button onClick={()=>offer1()} className="bg-secondary p-2 rounded-[5px] text-white"> Pagar</button>
             </td>
             <td className={style['tdnoborder']} >
-              <button className={style['button']}> Pagar</button>
+              <button onClick={()=>offer2()}className="bg-secondary p-2 rounded-[5px] text-white"> Pagar</button>
             </td>
           </tr>
         </tbody>
