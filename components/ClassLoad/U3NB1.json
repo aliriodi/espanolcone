@@ -19,7 +19,7 @@
                 "className": "Portadatil"
             },
             {
-                "type": "level",
+                "type": "paragraph",
                 "value": "NIVEL B1",
                 "className": "Portadalev"
             }
@@ -472,7 +472,7 @@
             },
             {
                 "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--XYqkwJBG--/v1700170346/images/ghrbf9xejbentwf03hmo.png",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--rPOFjScZ--/v1702056080/images/fbk2a5pyrkclsvowi630.png",
                 "className": ""
             },
             {
@@ -532,7 +532,7 @@
             },
             {
                 "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--xkhEY4_1--/v1700170440/images/qluovqxhfhcuzaoglrgk.png",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--r7JOOz8R--/v1702056178/images/dnxzdaz63cxgq5jdvr8c.png",
                 "className": ""
             },
             {

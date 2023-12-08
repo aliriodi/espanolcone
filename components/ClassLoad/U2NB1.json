@@ -19,7 +19,7 @@
                 "className": "titleBlack"
             },
             {
-                "type": "level",
+                "type": "paragraph",
                 "value": "NIVEL B1",
                 "className": "Portadalev"
             }
@@ -377,7 +377,7 @@
             },
             {
                 "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--N1mOzWkx--/v1699321267/images/lfuws2zfuozv9ie6mj3x.png",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--IM8pugNP--/v1702055915/images/n1xeeos48dkjd7nwsegv.png",
                 "className": "",
                 "alt": "Boliche"
             }

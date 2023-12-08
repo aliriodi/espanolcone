@@ -19,7 +19,7 @@
                 "className": "Portadatil"
             },
             {
-                "type": "level",
+                "type": "paragraph",
                 "value": "NIVEL A1",
                 "className": "Portadalev"
             }
@@ -480,7 +480,7 @@
             },
             {
                 "type":"image",
-                "value":"",
+                "value":"https://res.cloudinary.com/dfddh08q8/image/upload/s--C9urC3cz--/v1702056299/images/use8zshprey3zc6kiq57.png",
                 "alt":"",
                 "className":""
             }
