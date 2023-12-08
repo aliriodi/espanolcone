@@ -7,6 +7,7 @@ import { appWithTranslation } from 'next-i18next'
 import nextI18NextConfig from '../next-i18next.config';
 import Head from 'next/head';
 import GoogleAnalytics from './GoogleAnalytics'
+import LoadScreen from '../components/LoadScreen';
 
 function App({ Component, pageProps }) {
 
@@ -17,7 +18,7 @@ function App({ Component, pageProps }) {
       </Head>
       <SessionProvider session={pageProps.session}>
         <Provider store={store}>
-          
+          {/* <LoadScreen/> */}
           <Component {...pageProps} />
           <GoogleAnalytics />
         </Provider>
