@@ -532,6 +532,16 @@
     border: solid red 4px;
 }
 
+.redbutton{
+    border: solid red 4px;
+    background-color: red;
+    color: white;
+    border: 2px solid red;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
  .Portadaimg {
      position: absolute; /* Asegúrate de que la imagen tenga una posición */
      z-index: -1;
