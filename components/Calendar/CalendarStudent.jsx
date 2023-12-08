@@ -60,11 +60,15 @@ export default function Schedule() {
   const [paymentCancelled, setPaymentCancelled] = useState(false);
   const [OpenP, setOpenP] = useState(false);
 
-  const handlePaymentSuccess = () => {
+  const handlePaymentSuccess = (data,response) => {
+   // alert('ahi vengo')
+    console.log('data',data)
+    console.log('response',response)
     setIsPaymentConfirmed(true);
     PAYOK(paypalDates);
     setPaymentCancelled(false); // Asegúrate de restablecer el otro estado
     Confirm()
+
   };
 
   const handlePaymentCancel = () => {
@@ -181,9 +185,7 @@ export default function Schedule() {
     //console.log("startDatetime ", startDatetime && startDatetime.slice(0, startDatetime?.indexOf("T")))
     //console.log("startDatetime type ", typeof startDatetime)
   },[newMeeting])
-
   
-
   function selectSchedule(meeting) {
     setNewMeeting(meeting)
 
@@ -229,6 +231,7 @@ export default function Schedule() {
       //para irlo pasando entre las funciones
       openPaypalModal(VALUE)
       //fin api
+      
     }
 
 

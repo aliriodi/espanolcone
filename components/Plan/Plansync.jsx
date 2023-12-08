@@ -48,7 +48,7 @@ export default function Plansync({ Confirm, closePlan}) {
 
         {/* Titulo */}
         <div className='flex items-center mb-[30px] flex-col'>
-          <Image src={Logo} className='w-[123px] h-[78px]'/>
+          <Image src={Logo} alt={'Logo'} className='w-[123px] h-[78px]'/>
            <h3 className=' font-medium text-[28px] bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text min-h-[28px] text-center'>Elige algunas de nuestras opciones</h3>
         </div>
 

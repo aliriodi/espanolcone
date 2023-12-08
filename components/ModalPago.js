@@ -80,8 +80,8 @@ export default function ModalPago(props) {
                           }}
                           onApprove={(data, actions)=>{
                             console.log("Data ",data)
-                            actions.order.capture().then(() => {
-                            props.onPaymentSuccess(); 
+                            actions.order.capture().then((response) => {
+                            props.onPaymentSuccess(data,response); 
                             closeModal();
                             });
                           }}
