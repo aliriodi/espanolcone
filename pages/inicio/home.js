@@ -13,12 +13,13 @@ import { useDispatch } from "react-redux";
 import { classid } from '../../redux/ECEActions'
 import Spinner from './../../components/Spinner';
 import Logo from '../../public/imgs/only-logo.png'
+import PLANS from "../../components/Plan/MUnit2"
 
 
 export default function Home() {
   const [totalUnits, setTotalUnits] = useState()
   const [unitsDone, setUnitsDone] = useState()
-
+  const [showPlans, setShowPlans] = useState(false)
   const [GeneralProgress, setGeneralProgress] = useState(0)
   const [isLoading, setIsLoading] = useState(true);
 
@@ -154,6 +155,10 @@ export default function Home() {
             {/* Texto */}
             <p className='text-white text-[21px] mt-[21px] text-center
             md:text-[14px]'>¿Listo para empezar una lección de español?</p>
+            <div>
+              <button onClick={()=>setShowPlans(true)} className="bg-secondary p-2 rounded-[5px] text-white">¡Hazte Premium!</button>
+              {showPlans&&<PLANS/>}
+            </div>
           </div>
 
           {/* Porentaje de progresos */}
