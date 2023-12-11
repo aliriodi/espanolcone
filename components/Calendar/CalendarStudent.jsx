@@ -53,6 +53,7 @@ export default function Schedule() {
   const [deltaTime, setDeltaTime] = useState(0)
   let [renders, setRenders] = useState('')
   let [personSchedule, setPersonSchedule] = useState({})
+  let [ReceiptN, setReceiptN] = useState(null)
   //variable para asignar New Meeting en caso de asignar hora
   let [newMeeting, setNewMeeting] = useState()
 
@@ -60,16 +61,15 @@ export default function Schedule() {
   const [paymentCancelled, setPaymentCancelled] = useState(false);
   const [OpenP, setOpenP] = useState(false);
 
-  const handlePaymentSuccess = (data,response) => {
+  //PAGO DE PAYPAL OK
+  const handlePaymentSuccess =async  (data,response) => {
    // alert('ahi vengo')
     console.log('data',data)
     console.log('response',response)
     setIsPaymentConfirmed(true);
-    PAYOK(paypalDates);
+    await PAYOK(paypalDates).then(response=>Confirm());
     setPaymentCancelled(false); // Asegúrate de restablecer el otro estado
-    Confirm()
-
-  };
+      };
 
   const handlePaymentCancel = () => {
     setIsPaymentConfirmed(false);
@@ -261,7 +261,7 @@ export default function Schedule() {
 
   //si el pago es ok envio a la BD el pago
   async function PAYOK(VALUE){
-    
+    alert('265 entre en payok()')
     try{
       fetch('/api/users/update',
       {
@@ -284,16 +284,48 @@ export default function Schedule() {
             }
           }
         ),
-      }).then(response => {
-        setPaypalDates(null)
-        console.log("Clase asignado ",response.json())
       })
+      
+      .then(response => 
+        {
+        setPaypalDates(null)
+        console.log("Clase asignado ",response.json())             })
         
       }catch (error) {
         setPaypalDates(null)
+        setReceiptN(null)
         console.error(error);
       }
-  }
+
+      //envio recibo a BD
+             
+      try{
+        fetch('/api/receipt/add',
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(
+            { idUser: renders.user._id,
+              idPlan:'plansync',
+              qty: VALUE.qty,
+              ammount: VALUE.cost,
+              dates:{VALUE,ReceiptN}}
+          ),
+        }).then(response => {
+          setPaypalDates(null)
+          console.log("Clase asignado ",response.json())
+          setReceiptN(null)
+        })
+          
+        }catch (error) {
+          setPaypalDates(null)
+          setReceiptN(null)
+          console.error(error);
+        }
+  
+    }
 
   //si el pago es no OK
    function PAYNOK() {
