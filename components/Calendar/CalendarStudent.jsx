@@ -53,7 +53,6 @@ export default function Schedule() {
   const [deltaTime, setDeltaTime] = useState(0)
   let [renders, setRenders] = useState('')
   let [personSchedule, setPersonSchedule] = useState({})
-  let [ReceiptN, setReceiptN] = useState(null)
   //variable para asignar New Meeting en caso de asignar hora
   let [newMeeting, setNewMeeting] = useState()
 
@@ -66,8 +65,9 @@ export default function Schedule() {
    // alert('ahi vengo')
     console.log('data',data)
     console.log('response',response)
+    
     setIsPaymentConfirmed(true);
-    await PAYOK(paypalDates).then(response=>Confirm());
+    await PAYOK(paypalDates,response).then(response=>Confirm());
     setPaymentCancelled(false); // Asegúrate de restablecer el otro estado
       };
 
@@ -260,8 +260,8 @@ export default function Schedule() {
   }
 
   //si el pago es ok envio a la BD el pago
-  async function PAYOK(VALUE){
-    alert('265 entre en payok()')
+  async function PAYOK(VALUE,DATESPAYPAL){
+    //alert('265 entre en payok()')
     try{
       fetch('/api/users/update',
       {
@@ -293,7 +293,7 @@ export default function Schedule() {
         
       }catch (error) {
         setPaypalDates(null)
-        setReceiptN(null)
+        
         console.error(error);
       }
 
@@ -311,17 +311,17 @@ export default function Schedule() {
               idPlan:'plansync',
               qty: VALUE.qty,
               ammount: VALUE.cost,
-              dates:{VALUE,ReceiptN}}
+              dates:{VALUE,DATESPAYPAL}}
           ),
         }).then(response => {
           setPaypalDates(null)
           console.log("Clase asignado ",response.json())
-          setReceiptN(null)
+          
         })
           
         }catch (error) {
           setPaypalDates(null)
-          setReceiptN(null)
+          
           console.error(error);
         }
   

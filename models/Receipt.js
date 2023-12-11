@@ -18,7 +18,7 @@ const ReceiptSchema = new Schema(
         type: Number,
     },
     dates:{
-      type:{}
+      type: {}
     }
   },
   {
