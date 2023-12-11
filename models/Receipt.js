@@ -12,10 +12,13 @@ const ReceiptSchema = new Schema(
        },
    qty: {
       type: Number,
-      unique:true
+      
      },
     ammount: {
         type: Number,
+    },
+    dates:{
+      type: {}
     }
   },
   {

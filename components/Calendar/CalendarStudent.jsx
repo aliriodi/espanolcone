@@ -60,16 +60,16 @@ export default function Schedule() {
   const [paymentCancelled, setPaymentCancelled] = useState(false);
   const [OpenP, setOpenP] = useState(false);
 
-  const handlePaymentSuccess = (data,response) => {
+  //PAGO DE PAYPAL OK
+  const handlePaymentSuccess =async  (data,response) => {
    // alert('ahi vengo')
     console.log('data',data)
     console.log('response',response)
+    
     setIsPaymentConfirmed(true);
-    PAYOK(paypalDates);
+    await PAYOK(paypalDates,response).then(response=>Confirm());
     setPaymentCancelled(false); // Asegúrate de restablecer el otro estado
-    Confirm()
-
-  };
+      };
 
   const handlePaymentCancel = () => {
     setIsPaymentConfirmed(false);
@@ -260,8 +260,8 @@ export default function Schedule() {
   }
 
   //si el pago es ok envio a la BD el pago
-  async function PAYOK(VALUE){
-    
+  async function PAYOK(VALUE,DATESPAYPAL){
+    //alert('265 entre en payok()')
     try{
       fetch('/api/users/update',
       {
@@ -284,16 +284,48 @@ export default function Schedule() {
             }
           }
         ),
-      }).then(response => {
-        setPaypalDates(null)
-        console.log("Clase asignado ",response.json())
       })
+      
+      .then(response => 
+        {
+        setPaypalDates(null)
+        console.log("Clase asignado ",response.json())             })
         
       }catch (error) {
         setPaypalDates(null)
+        
         console.error(error);
       }
-  }
+
+      //envio recibo a BD
+             
+      try{
+        fetch('/api/receipt/add',
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(
+            { idUser: renders.user._id,
+              idPlan:'plansync',
+              qty: VALUE.qty,
+              ammount: VALUE.cost,
+              dates:{VALUE,DATESPAYPAL}}
+          ),
+        }).then(response => {
+          setPaypalDates(null)
+          console.log("Clase asignado ",response.json())
+          
+        })
+          
+        }catch (error) {
+          setPaypalDates(null)
+          
+          console.error(error);
+        }
+  
+    }
 
   //si el pago es no OK
    function PAYNOK() {
