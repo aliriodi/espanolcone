@@ -435,7 +435,7 @@
             {
                 "type": "title",
                 "value": "Reto propuesto",
-                "className": "paragraph3"
+                "className": "title-white"
             },
             {
                 "type": "paragraph",
