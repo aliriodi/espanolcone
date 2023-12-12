@@ -387,6 +387,7 @@
     align-items: center;
     width: 100%;
     height: 100%;
+    padding-bottom: 100px;
 }
 
 /* Template Passages */
@@ -490,9 +491,19 @@
     }
     .template-title-top-1 .title{
         border-radius: 0 0 30px 0;
-        padding: 30px;
+        padding: 62px 30px 30px 30px;
         min-height: 0;
         width: 100%;
+    }
+
+    /* template Title Top 2 ( Template para mostrar personas )*/
+    .template-title-top-2 .title{
+        padding-top: 62px;
+    }
+    
+    /* template Title Top 3 (Template para popUps de dialogos) */
+    .template-title-top-3 .title{
+        padding-top: 62px;
     }
 
     /* template Title Right 1 */
@@ -501,7 +512,7 @@
     }
 
     .template-title-right-1 .title{
-        padding: 30px;
+        padding: 62px 30px 30px 30px;
         width: 100%;
         border-radius: 0 0 30px 0;
     }
@@ -511,19 +522,28 @@
         width: 100%;
     }
 
-
-
     /* template Explanatory Video 1 */
     .template-video-1 .title p{
         font-size: 24px;
     }
 
     .template-video-1 .title{
-        padding: 0 25px;
+        padding: 62px 25px 0 25px;
+    }
+    
+
+    /* Template Passages */
+    .template-passages-1 .title{
+        padding-top: 62px;
     }
 }
 
-/* ///// Resto ///// */
+/* ////////////////////////////////////////////////////////////////////////// RESTO ////////////////////////////////////////////////////////////////////////// */
+
+
+
+
+
 
 
 

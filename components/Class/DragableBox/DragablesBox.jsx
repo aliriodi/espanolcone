@@ -33,7 +33,24 @@ export default function DragableBox( props ){
     
     const dropUpContainerId = useMemo(() => dropUpContainer.map((drag) => drag.id), [dropUpContainer]);
     
-    useEffect(()=> setOptions(props?.options?.DragBoxs?.map(dragBox =>{ return{...dragBox ,dropUpId:"container", done:false} })),[props?.options?.DragBoxs])
+    useEffect(()=> {
+
+        // En caso de que "props?.done" es "true" se resuelve el ejersicio
+        if(props?.done){
+            setOptions( 
+                props?.options?.DragBoxs?.map(option =>{
+                    return {
+                        ...option,
+                        done:true,
+                        dropUpId: props?.options?.DropUps?.filter(dropUp=> dropUp?.value == option?.value)[0]?.id
+                    }
+                })
+            )
+        }
+        // En caso contrario se todas las opciones se quedan en "container"
+        else setOptions(props?.options?.DragBoxs?.map(dragBox =>{ return{...dragBox ,dropUpId:"container", done:false} }))
+
+    },[props?.options?.DragBoxs])
 
     useEffect(()=> setDropUpContainer([...props?.options?.DropUps, {value:"container",id:"container", type:"container"}]),[props?.options?.DropUps])
     
@@ -41,6 +58,7 @@ export default function DragableBox( props ){
         
         if(options.filter((option)=>option.dropUpId != "container").length == options.length){
             activityCheck()
+            
             setCanCheck(true)
         }
 
@@ -49,8 +67,8 @@ export default function DragableBox( props ){
     },[options])
 
     useEffect(()=>{
-
-    },[canCheck])
+        
+    },[props?.done, options])
     
 
     function handleDragOver(event){
@@ -185,7 +203,8 @@ export default function DragableBox( props ){
             onDragEnd={handleDragEnd}>
 
                 
-                <div className='w-full mb-[100px] flex flex-wrap'>
+                <div className='w-full mb-[100px] flex flex-wrap
+                md:mb-0'>
                     
 
                     <div className={`flex flex-wrap relative justify-between w-full
