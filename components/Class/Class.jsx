@@ -41,6 +41,9 @@ export default function Class(props) {
 
   const [successActivitys, setSuccessActivitys] = useState(false)
 
+  // Estado de paginas
+  const [sheetsState, setSheetsState] = useState(null)
+
   // Opciones de Youtube
   const iframeRef = useRef(null);
 
@@ -103,6 +106,9 @@ export default function Class(props) {
 
       // En caso de que la unidad actual no este echa se va indicar en "currentUnitDone"
       if(!currentUnit?.done && currentUnit?.enable) setCurrentUnitDone(false)
+
+      // 
+      sessionStorage.setItem('sheetsState', JSON.stringify([]));
   }, [props.id]);
   
   useEffect(()=>{
@@ -162,6 +168,10 @@ export default function Class(props) {
     
   },[data, props])
 
+  useEffect(()=>{
+    setSheetsState(JSON.parse(sessionStorage.getItem('sheetsState')))
+  },[sessionStorage.getItem('sheetsState')])
+
   async function updateUser(updates) {
     // Esta funcion se encarga de actualizar las "classes" del usuario
     // en funcion de lo que se le pase por el parametro "updates"
@@ -202,6 +212,9 @@ export default function Class(props) {
   //como son n sheets avanzo con el boton de forward
   function Forward(i) {
     if (data) {
+      updateSession();
+
+      // Pasa a la siguiente pagina 
       if (data) { if (sheetsOfSection) { if (sheetsOfSection.length) setL(sheetsOfSection.length) } }
       if (i < sheetsOfSection.length - 1) setI(++i)
     }
@@ -209,9 +222,25 @@ export default function Class(props) {
   //como son n sheets retrocedo con el boton de forward
   function Back(i) {
     if (data) {
+      updateSession();
+
       if (data) { if (sheetsOfSection) { if (sheetsOfSection.length) setL(sheetsOfSection.length) } }
       if (i > 0) setI(--i)
     }
+  }
+
+  function updateSession(){
+    // Copia el estado actual
+    let sessionSheetsState = [...sheetsState]
+
+    // Comprueba que no este la pagina actual en el 'sheetsState' de ser asi se le agregan los datos de la paguina actual
+    if((sessionSheetsState.length - 1) < i ) sessionSheetsState = [ ...sessionSheetsState, { done: successActivitys, pass:true } ] 
+
+    // En caso contrario actualiza esa paguina
+    else sessionSheetsState[i].done = successActivitys ? true : sessionSheetsState[i].done;
+
+    // Actualiza el "sessionStorage"
+    sessionStorage.setItem('sheetsState', JSON.stringify(sessionSheetsState));
   }
 
   async function updateIndexPosition(nextIndex){
@@ -241,17 +270,16 @@ export default function Class(props) {
   
   //#region Verificacion de Actividades
   useEffect(()=>{
-    console.log(data?.sheets)
-    console.log("Type ",data?.sheets[i].type)
-    console.log("Section pages ",sheetsOfSection)
 
     window.scrollTo({top: 0});
     setCanFollow(true)
+    setSuccessActivitys(false)
     stopChronometer()
 
     // Se Asigna los tipos de actividades a "typeActivitys"
     let newTypeActivitys = [];
 
+    sheetsOfSection &&
     sheetsOfSection[i]?.data?.map((date,index)=>{
 
       if(date.type == "selectsimple" ||
@@ -278,6 +306,7 @@ export default function Class(props) {
           done:false
         })
         
+        console.log("NO MORE")
         setCanFollow(false)
       }
       
@@ -293,9 +322,7 @@ export default function Class(props) {
     }
     else setCanBack(true)
 
-    console.log("Principio ", data?.sheets?.indexOf(sheetsOfSection[i]) == 0)
-    console.log("Final ", data?.sheets?.indexOf(sheetsOfSection[i])+ 1 == data?.sheets?.length)
-  },[i])
+  },[i, sheetsOfSection])
   
   useEffect(() => {
     let interval;
@@ -373,6 +400,10 @@ export default function Class(props) {
   }
 
   function activitysDone(){
+
+    // En caso de ya haberse echo la actividad actual no hace ninguna animasion 
+    if(sheetsState[i]?.done)return
+    
     setCanFollow(true)
     setSuccessActivitys(true)
 
@@ -390,50 +421,6 @@ export default function Class(props) {
     updateUser(updates)
   }
 
-  
-  async function updateClasses(updates) {
-    // Esta funcion se encarga de actualizar las "classes" del usuario
-    // en funcion de lo que se le pase por el parametro "updates"
-
-    setLoading(true);
-
-    try {
-        
-       let newUpdates = {...session?.user, classes: updates}
-
-        const response = await fetch('/api/users/update', {
-            method: 'POST',
-            headers: {
-            'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email:session?.user?.email, updates: newUpdates}),
-        });
-  
-        if (response.ok) {
-            const data = await response.json();
-
-            if (data.message) {
-                // Se Actualiza el usuario
-                await update({
-                    ...session?.user,
-                    accessToken:"dddd"
-                })
-
-                console.log('Usuario actualizado con éxito');
-            } else {
-                console.error('Error al actualizar el usuario:', data.error);
-            }
-        } else {
-            console.error('Error al realizar la solicitud:', response.status);
-        }
-
-        setLoading(false)
-    } catch (error) {
-        setLoading(false)
-        console.error('Error al realizar la solicitud:', error);
-    }
-}
-  
   // Animaciones de Check 
   const [shakesCheck, setShakesCheck] = useState(false)
 
@@ -453,9 +440,10 @@ export default function Class(props) {
   
         await next({ top: -100 }); 
       }
+      
       setSuccessActivitys(false)
     },
-    config: { duration: 150 },
+    config: { duration: 150 }
   })
 
   const successCheckAnimation = useSpring({
@@ -518,7 +506,7 @@ export default function Class(props) {
       
       await new Promise((resolve) => setTimeout(resolve, 500));
     },
-    config: { duration: 100 },
+    config: { duration: 100 }
   })
   
   useEffect(()=>{
@@ -533,7 +521,7 @@ export default function Class(props) {
         <animated.div
         className='fixed left-1/2 translate-x-[-50%] rounded-full bg-white w-[100px] h-[100px] flex justify-center items-center border-solid border-[4px] border-secondary z-50'
           style={{
-            top: translateCheckAnimation.top,
+            top: successActivitys ? translateCheckAnimation.top : "-100px",
             translateX: "-50%",
             rotate:successCheckAnimation.rotate,
           }}
@@ -544,8 +532,7 @@ export default function Class(props) {
         {/* Paginacion */}
 
         {/* Boton de Finalizar */}
-        {
-          
+        {    
           <button
           onClick={()=> {
             sectionDone()
@@ -580,8 +567,8 @@ export default function Class(props) {
           i != sheetsOfSection?.length - 1 && sheetsOfSection && data?.sheets[0] != sheetsOfSection[i]  &&
           <button
             className={`
-            ${ !canFollow && "opacity-[50%] bg-white hover:bg-white hover:text-title_color"}
-            ${ !canFollow && session && !session?.user?.role?.includes("admin") && "pointer-events-none" }
+            ${ !canFollow && !sheetsState[i]?.pass && "opacity-[50%] bg-white text-title_color hover:bg-white hover:text-title_color"}
+            ${ !canFollow && !sheetsState[i]?.pass && session && !session?.user?.role?.includes("admin") && "pointer-events-none" }
             ${ successActivitys ? "bg-secondary text-white" : "bg-white"}
             transition-all fixed bottom-0 right-0 z-[90]  rounded-[70%_0_0_0] py-8 px-10 shadow-[0px_4px_26px_#00000040] text-title_color text-right text-[18px]
             hover:bg-primary_hover hover:text-white
@@ -590,7 +577,7 @@ export default function Class(props) {
               Forward(i);
               updateIndexPosition()
             }}>
-            { activeChronometer ? formatTime(seconds) : <>Next <FontAwesomeIcon icon={faAngleRight}/></>}  
+            { activeChronometer && !sheetsState[i]?.pass && !canFollow ? formatTime(seconds) : <>Next <FontAwesomeIcon icon={faAngleRight}/></>}  
           </button>
         }
         
@@ -779,13 +766,13 @@ export default function Class(props) {
                     
                     {/* Video Youtube con PopUps */}
                     {c.type === 'videoi-youtube' &&
-                    <div className={`${style[c.className]}`}><YOUTUVEPOPUP key={index} titlep={null} popups={c.popups} videoId={c.value} className='youtube' /></div> }
+                    <div className={`${style[c.className]}`}><YOUTUVEPOPUP done={sheetsState[i]?.done} key={index} titlep={null} popups={c.popups} videoId={c.value} className='youtube' /></div> }
 
                     {/* Box? */}
                     {c.type === 'options-box' &&
                       <div className={styles['box']}>
                       <div className='className'>
-                        {c.type === 'options-box' ? c.value.map(value => <BOXMOMVE key={index} option={value} id={c.id}  />): null}
+                        {c.type === 'options-box' ? c.value.map(value => <BOXMOMVE done={sheetsState[i]?.done} key={index} option={value} id={c.id}  />): null}
                       </div></div>
                     }
 
@@ -795,7 +782,7 @@ export default function Class(props) {
                     
                     {/* Drag Box */}
                     {c.type === 'dragable-box' &&
-                    <DragablesBox key={index} allowFollow={allowFollow} options={c.value} id={index} onChangeActivityDone={handleChangeActivityDone}/>}
+                    <DragablesBox done={sheetsState[i]?.done} key={index} allowFollow={allowFollow} options={c.value} id={index} onChangeActivityDone={handleChangeActivityDone}/>}
                     
                     {/* Parrafo */}
                     {c.type === 'paragraph' &&
@@ -804,7 +791,7 @@ export default function Class(props) {
                     
                     {/* SelectSimple */}
                     {c.type === 'selectsimple' &&
-                    <div className={style[c.className]}><SELECTSIMPLE key={c.option} data={c} id={index} onChangeActivityDone={handleChangeActivityDone}/></div>}
+                    <div className={style[c.className]}><SELECTSIMPLE done={sheetsState[i]?.done} key={c.option} data={c} id={index} onChangeActivityDone={handleChangeActivityDone}/></div>}
                     
                     {/* Texto */}
                     {c.type === 'text' &&
@@ -813,7 +800,7 @@ export default function Class(props) {
                     
                     {/* Parrafo a Completar */}
                     {c.type === 'paragraph-complete' &&
-                    <div key={index} className={style[c.className]}><PARAGGRAPHCOMPLETE id={index} onChangeActivityDone={handleChangeActivityDone} data={c}/></div> }
+                    <div key={index} className={style[c.className]}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} data={c}/></div> }
                     
                     {/* PopUp de Dialogos */}
                     {c.type === 'popUp-dialogues' &&
@@ -822,11 +809,11 @@ export default function Class(props) {
                     
                     {/* Parrafo a Completar de lista */}
                     {c.type === 'complete-li' &&
-                    <div key={index} className={style[c.className]}><PARAGGRAPHCOMPLETE id={index} onChangeActivityDone={handleChangeActivityDone} data={c}/> </div> }
+                    <div key={index} className={style[c.className]}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} data={c}/> </div> }
                     
                     {/* Parrafo a Completar de lista con persona*/}
                     {c.type === 'complete-li-personal' &&
-                    <div key={index} className={style[c.className]}><PARAGGRAPHCOMPLETE id={index} onChangeActivityDone={handleChangeActivityDone} data={c}/> </div> }
+                    <div key={index} className={style[c.className]}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} data={c}/> </div> }
                     
                     {/* <p dangerouslySetInnerHTML={{ __html: c.value }}></p> */}
 
