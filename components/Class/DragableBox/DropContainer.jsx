@@ -47,26 +47,27 @@ export default function DropContainer({
                     <div
                     // ref={setNodeRef}
                     style={style}
-                    className="flex flex-col my-[60px] items-center">
+                    className="flex flex-col my-[60px] items-center
+                    md:mb-0 md:mt-[45px]">
 
                         {
                         dropUp?.src
                         ?
                         <Image
                         className="rounded-[5px] w-[250px] h-[250px] bg-light shadow-[0px_4px_26px_#00000040] mb-2 object-cover
-                        md:w-[180px] md:h-[180px]"
+                        md:w-[147px] md:h-[147px] md:mb-1"
                         alt="Image"
                         src={dropUp?.src} width={250} height={250}/>
                         :
                         <span className="rounded-[5px] w-[250px] h-[250px] bg-light shadow-[0px_4px_26px_#00000040] mb-2 object-cover
-                        md:w-[180px] md:h-[180px]"></span>
+                        md:w-[147px] md:h-[147px] md:mb-1"></span>
 
                         }
 
                         <div
                         ref={setNodeRef}
                         className="rounded-[5px] w-[250px] border-solid border-[2px] bg-primary_flat_hover border-primary  min-h-[78px] flex justify-center
-                        md:w-[180px]">
+                        md:w-[147px]">
                             {dragBoxs?.map((dragBox) => (
                                 <DragBox
                                     dropUpValue={dropUp?.value} 

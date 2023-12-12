@@ -253,7 +253,7 @@
 }
 
 .template-title-top-1 .content{
-    padding-top: 100px;
+    padding: 90px 0;
 }
 .template-title-top-1 .title{
     box-shadow: 0px 4px 26px #00000040;
@@ -357,7 +357,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: start;
-    padding: 0 10%;
+    padding: 30px 10%;
     width: 70%;
     flex-grow: 1;
 }
@@ -441,9 +441,23 @@
         color: #6E6B7B;
     }
 
+    .subtitle--complete-li{
+        font-size: 18px;
+    }
+
     /* Parrafo */
     .paragraph-default{
         font-weight: 500;
+        font-size: 14px;
+    }
+
+    /* Parrafo Completed lista*/
+    .paragraph-complete-li{
+        font-size: 14px;
+    }
+
+    /* Parrafo Completed*/
+    .paragraph-complete{
         font-size: 14px;
     }
 
@@ -465,7 +479,6 @@
 
     /* Youtube */
     .youtube{
-        margin: 100px 0;
         min-width: 100%;
     }
     .youtube iframe{
@@ -473,6 +486,13 @@
         min-width: 100%;
         min-height: 300px;
         border-radius: 0;
+    }
+
+    
+    .popUp-img{
+        top: 0;
+        left: 50%;
+        display: none;
     }
 
     /*  */
