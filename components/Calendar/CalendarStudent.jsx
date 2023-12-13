@@ -75,15 +75,15 @@ export default function Schedule() {
     setPaymentCancelled(false); // Asegúrate de restablecer el otro estado
       };
 
-      const handlePaymentSuccess1 =async  (data,response) => {
-        // alert('ahi vengo')
-         console.log('data',data)
-         console.log('response',response)
-         setPreassgined(true)
-         setIsPaymentConfirmed(true);
-         await PAYOK(paypalDates,response).then(response=>Confirm());
-         setPaymentCancelled(false); // Asegúrate de restablecer el otro estado
-           };
+      // const handlePaymentSuccess1 =async  (data,response) => {
+      //   // alert('ahi vengo')
+      //    console.log('data',data)
+      //    console.log('response',response)
+      //    setPreassgined(true)
+      //    setIsPaymentConfirmed(true);
+      //    await PAYOK(paypalDates,response).then(response=>Confirm());
+      //    setPaymentCancelled(false); // Asegúrate de restablecer el otro estado
+      //      };
 
   const handlePaymentCancel = () => {
     setIsPaymentConfirmed(false);
@@ -306,6 +306,8 @@ export default function Schedule() {
                 planSync:[...session.user.planSync,
                   {
                     type:'plansync',
+                    payment:'PAYPAL',
+                    valid:true,
                     qty:VALUE.qty,
                     cost:VALUE.cost,
                     planing:1,
@@ -407,8 +409,8 @@ export default function Schedule() {
 
         //renders es el usuario que sera asignado al teacher
         newcalendar.push({
-          assigned: assigned,
-          preassgined:preassgined,
+          assigned: true,
+          preassgined:false,
           id: personSchedule['_id'],
           iduser: renders.user['_id'],
           nameuser: renders.user.first_name + ' ' + renders.user.last_name,
@@ -431,8 +433,8 @@ export default function Schedule() {
         newcalendarS.push({
           id: personSchedule['_id'],
           iduser: renders.user._id,
-          assigned: assigned,
-          preassgined:preassgined,
+          assigned: true,
+          preassgined:false,
           first_name: personSchedule.first_name,
           last_name: personSchedule.last_name,
           email: personSchedule.email,
@@ -703,7 +705,7 @@ export default function Schedule() {
             },
             body: JSON.stringify({ email: renders.user.email, updates: { calendar: newcalendarS } }),
           }).then(response => console.log(response.json()))
-      console.log(newcalendarS)
+     // console.log(newcalendarS)
 
     } catch (error) {
       console.error(error);
@@ -1019,12 +1021,14 @@ export default function Schedule() {
 
                       {/* Modal de Pago ZELLE*/}
                       <ModalPago2
-                        onPaymentSuccess={handlePaymentSuccess1}
+                       // onPaymentSuccess={handlePaymentSuccess1}
                         onPaymentCancel={handlePaymentCancel}
                         modalZelle={handleChangePaypalModal}
                         renders={renders}
+                        personSchedule={personSchedule}
                         open={ZelleModal}
                         dates={paypalDates}
+                        newMeeting={newMeeting}
                              />
                     </div>
                   }
