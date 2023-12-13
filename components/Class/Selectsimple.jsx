@@ -14,6 +14,12 @@ export default function Selectsimple(props) {
         // Cuando se actualiza las props se actualizan las variables de estado
         setSelectedOption("")
         setOptions(props?.data?.options)
+
+        if(props?.done){
+            setSelectedOption(props?.data?.option)
+            setIsCorrect(true)
+        }
+
     },[props.data])
     
     const handleOptionChange = (event) => {

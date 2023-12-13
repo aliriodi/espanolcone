@@ -30,7 +30,6 @@ export default function Paragragraphcomplete(props) {
   function activityCheck(){   
     // Esta funcion se asegura de que todas las actividades esten completas   
     let activityDone = true;
-
     inputValues.map((value)=>{
         if(typeof(value) === 'object' && value.done == false) activityDone = false
     })
@@ -38,11 +37,19 @@ export default function Paragragraphcomplete(props) {
     if(activityDone) props.onChangeActivityDone(props.id, true)
   }
 
-
   useEffect(()=>{
-    activityCheck()
-    console.log(props)
-  },[inputValues])
+    if(props?.done){
+      setInputValues(
+        inputValues?.map((inputValue, index)=>{
+          if(typeof(inputValue) === 'object') inputValue.answer = inputValues[index]?.option
+          
+          return inputValue
+        })
+      )
+    }
+  },[props?.data?.value])
+
+  useEffect(()=> activityCheck(), [inputValues])
 
   return (
     <div>

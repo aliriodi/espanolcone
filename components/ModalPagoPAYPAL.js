@@ -5,7 +5,7 @@ import axios from 'axios'
 import Logo from '../public/imgs/logo-gradient.png';
 import Image from 'next/image';
 
-export default function ModalPago(props) {
+export default function ModalPagoPAYPALL(props) {
   const [isOpen, setIsOpen] = useState(false)
 
   const closeModal = () => {

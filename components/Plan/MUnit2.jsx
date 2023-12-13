@@ -1,7 +1,7 @@
 import React from 'react'
 import PLANASYNC from './Planasync'
 import { Fragment, useState, useEffect } from 'react'
-import ModalPago from '../ModalPago'
+import ModalPago from '../ModalPagoAble'
 import style from '../../styles/class.module.css'
 
 //este modulo presenta los modales de pago en Unit2 cuando arranca 
