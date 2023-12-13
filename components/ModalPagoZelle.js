@@ -16,17 +16,16 @@ console.log(props.dates)
 //const ammount =props.dates.cost;
 
   const closeModal = () => {
-    props.modalZelle(false)
+    props?.modalClose(false)
     setIsOpen(false)
   }
 
   useEffect(()=>{
+    console.log("/////// props ///////",props.open)
     setIsOpen(props.open)
-    //setIsOpen(true)
-  },[props.open])
+  },[props])
   
   useEffect(()=>{
-   
     if(ImageUrl){
      
       console.log(ImageUrl)
@@ -56,15 +55,13 @@ console.log(props.dates)
             ammount: ammount,
             dates:{ImageUrl,type:'ZELLE'}}
         ),
-      }).then(response => {
-        alert('Su pago esta siendo procesado y analizado en un tiempo máximo de 4 horas su clase debe ser asiganda')
-       console.log("Clase asignado ",response.json())
-        
-      })
+        }).then(response => {
+          alert('Su pago esta siendo procesado y analizado en un tiempo máximo de 4 horas su clase debe ser asiganda')
+          closeModal()
+          console.log("Clase asignado ",response.json())
+        })
         
       }catch (error) {
-      
-        
         console.error(error);
       }
 
@@ -135,7 +132,10 @@ console.log(props.dates)
 
                   {/* aca deberia ser que se esclarezca el estilo mientras no haya imagen cargada */}
 
-                  {ImageUrl &&<button className='btn-success px-5 py-2.5 mt-3 w-full  text-[16px]' onClick={()=>sendBD()}>Enviar pago</button>}
+                  <button className={`btn-success px-5 py-2.5 mt-3 w-full text-[16px] ${!ImageUrl && "opacity-[50%] pointer-events-none"}`} onClick={()=> ImageUrl && sendBD()}>
+                    Enviar pago
+                  </button>
+
                 </div>
 
               </div>
