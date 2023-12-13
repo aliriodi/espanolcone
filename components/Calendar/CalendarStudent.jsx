@@ -227,6 +227,8 @@ export default function Schedule() {
   function closePayModal() {setPayModal(false)}
 
   const handleChangePaypalModal = (data) => {
+    setPayModal(data)
+    setZelleModal(data)
     setPaypalModal(data)
   }
 
@@ -988,6 +990,7 @@ export default function Schedule() {
                       {/* Modal de Pago habilitacion*/}
                       <ModalPagoABLE
                         close={closePayModal}
+                        modalPay={handleChangePaypalModal}
                         open={PayModal}
                         open1={openPaypalModal}
                         open2={openZelleModal}
