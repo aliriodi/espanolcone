@@ -335,6 +335,19 @@ h3{
   color: var(--white);
 }
 
+@keyframes ensanchamiento {
+  0% {
+    width: 10px;
+  }
+  100% {
+    width: 200px;
+  }
+}
+
+.animate-wider {
+  animation: ensanchamiento 0.5s ease-in-out forwards;
+}
+
 
 @media (max-width: 768px) {
 
