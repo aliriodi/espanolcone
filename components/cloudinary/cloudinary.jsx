@@ -42,7 +42,7 @@ export default function CloudinaryUploader({imageurl}) {
 
   return (
     <div>
-      <div className='pt-16'>
+      <div className='text-violet_dark'>
         {loading ? <p>cargando....</p> : null}
         {error ? <p>{error}</p> : null}
         {imageUrl ? <Image src={imageUrl} width={300}  crop={"scale"} height={100}  alt='cloudinary' /> : null}
