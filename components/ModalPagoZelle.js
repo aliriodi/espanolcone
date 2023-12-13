@@ -43,7 +43,7 @@ console.log(props.dates)
   }
 
   useEffect(()=>{
-    console.log("/////// props ///////",props.open)
+    //console.log("/////// props ///////",props.open)
     setIsOpen(props.open)
   },[props])
   
@@ -538,7 +538,7 @@ console.log(props.dates)
                   {/* Monto a Transferir */}
                   <div className='flex justify-between text-violet_dark border-b-2 py-2'>
                     <p>Monto a transferir:</p>
-                    <b>{props?.dates?.ammount} USD</b>
+                    <b>{props?.dates?.cost} USD</b>
                   </div>
 
                   {/* Cuenta Zelle */}
@@ -563,9 +563,9 @@ console.log(props.dates)
 
                   {ImageUrl &&<button className='btn-success px-5 py-2.5 mt-3 w-full  text-[16px]' onClick={()=>{sendBD();PAYOK();AssingingClass()}}>Enviar pago</button>}
 
-                  <button className={`btn-success px-5 py-2.5 mt-3 w-full text-[16px] ${!ImageUrl && "opacity-[50%] pointer-events-none"}`} onClick={()=> ImageUrl && sendBD()}>
+                  {!ImageUrl &&<button className={`btn-success px-5 py-2.5 mt-3 w-full text-[16px] l opacity-[50%] pointer-events-none`} onClick={()=> alert('falta imagen de pago')}>
                     Enviar pago
-                  </button>
+                  </button>}
 
 
                 </div>
