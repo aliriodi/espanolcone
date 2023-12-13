@@ -81,33 +81,63 @@ console.log(props.dates)
 
           <div
           onClick={(e)=>e.stopPropagation()}
-          className='bg-white rounded-md p-5'>
+          className='bg-white rounded-md'>
 
             {/* Logo */}
-            <div className=' flex justify-center flex-col border-b-2 pb-5 items-center relative'>
+            {/* <div className=' flex justify-center flex-col border-b-2 pb-5 items-center relative'>
 
               <Image  src={Logo} className='mb-6' style={{ width: '100px' }} alt="Logo" />
 
               <p className='text-[18px] text-light font-medium absolute bottom-[-13px] bg-white px-2'>Métodos de pago:</p>
-            </div>
+            </div> */}
 
             {/* Metodo de pago */}
             <div
-            className='w-[750px] max-h-[70vh]  flex justify-center p-3 mt-7
-            overflow-y-scroll modal-paypal'>
+            className='w-[750px] max-h-[70vh]  flex justify-center
+            overflow-y-auto'>
               
               <div className='w-full m-auto'>
-              <Image  src={Zelle} className='mb-6' style={{ width: '100px' }} alt="Zelle" />
-               {/* <p>{'Cantidad de clases:'+ qty}</p> */}
-               <p>{'Cantidad de clases:'+ props?.dates?.qty}</p>
-               {/* <p>{'Monto a transferir:'+ammount}</p> */}
-               <p>{'Monto a transferir:'+props?.dates?.cost}</p>
-               <span>Cuenta Zelle: <strong>aliriodi@gmail.com</strong></span>
-               <Cloudinary imageurl={imageurl}/>
+                {/* Zelle Logo */}
+                <div className='bg-[#7422e0] py-3 px-6 mb-5 rounded-[5px_5px_0_0]'>
+                  <Image  src={Zelle} className='' style={{ width: '100px' }} alt="Zelle" />
+                </div>
 
-               {/* aca deberia ser que se esclarezca el estilo mientras no haya imagen cargada */}
+                <div className='p-5 '>
 
-               {ImageUrl &&<button className='btn-primary px-5 py-2.5 mb-2  text-[16px]' onClick={()=>sendBD()}>Enviar pago</button>}
+                  {/* Cantidad de clases */}
+                  <div className='flex justify-between text-violet_dark border-b-2 py-2'>
+                    <p>Cantidad de clases:</p>
+                    <b>{props?.dates?.qty}</b>
+                  </div>
+
+                  {/* Monto a Transferir */}
+                  <div className='flex justify-between text-violet_dark border-b-2 py-2'>
+                    <p>Monto a transferir:</p>
+                    <b>{props?.dates?.ammount} USD</b>
+                  </div>
+
+                  {/* Cuenta Zelle */}
+                  <div className='mt-2 flex justify-between text-violet_dark border-b-2 py-2'>
+                    <p>Cuenta Zelle:</p>
+                    <b>aliriodi@gmail.com</b>
+                  </div>
+
+                  {/* Carga de comprobante */}
+                  <div className="my-5 border-2 border-gray_clear rounded-[5px]">
+
+                    <b className='w-full bg-gray_clear flex p-2 text-violet_dark'>Cargue una imagen de su comprobante</b>
+
+                    <div className='p-4'>
+                      <Cloudinary imageurl={imageurl}/>
+                    </div>
+
+                  </div>
+
+                  {/* aca deberia ser que se esclarezca el estilo mientras no haya imagen cargada */}
+
+                  {ImageUrl &&<button className='btn-success px-5 py-2.5 mt-3 w-full  text-[16px]' onClick={()=>sendBD()}>Enviar pago</button>}
+                </div>
+
               </div>
             </div>
 
