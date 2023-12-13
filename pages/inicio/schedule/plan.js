@@ -1,7 +1,7 @@
 import React from 'react'
 import Plan1 from "../../../components/Plan/Planasync"
 import Plan2 from "../../../components/Plan/Plansync"
-import Plan3 from "../../../components/Plan/MUnit2"
+import Plan3 from "../../../components/ModalPagoZelle"
 
 export default function plan() {
   return (

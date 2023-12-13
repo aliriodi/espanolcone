@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Image from 'next/image';
 
-export default function CloudinaryUploader(props) {
+export default function CloudinaryUploader({imageurl}) {
   const [imageUrl, setImageUrl] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -26,6 +26,7 @@ export default function CloudinaryUploader(props) {
       if (response.ok) {
         const data = await response.json();
         setImageUrl(data.secure_url);
+        if(imageurl){imageurl(data.secure_url)}
         console.log(data.secure_url)
         setLoading(false);
         setError(null);

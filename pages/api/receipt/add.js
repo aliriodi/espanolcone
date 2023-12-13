@@ -23,7 +23,8 @@ export default async function addReceipt(req, res) {
 
     const receipt = await Receipt.create(req.body)
 
-    console.log('CREATED DOCUMENT', plan);
+    console.log('CREATED DOCUMENT', receipt);
+    console.log('CREATED DOCUMENT');
 
     res.json({ receipt })
 

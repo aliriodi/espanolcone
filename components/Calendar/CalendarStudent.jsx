@@ -27,7 +27,9 @@ import {
 } from 'date-fns'
 import Image from 'next/image'
 import { Fragment, useState, useEffect } from 'react'
-import ModalPago from '../ModalPago';
+import ModalPago from '../ModalPagoPAYPAL';
+import ModalPago2 from '../ModalPagoZelle';
+import ModalPagoABLE from '../ModalPagoAble';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoneyBill } from '@fortawesome/free-solid-svg-icons';
 import { apiBaseUrl } from 'next-auth/client/_utils';
@@ -59,17 +61,29 @@ export default function Schedule() {
   const [isPaymentConfirmed, setIsPaymentConfirmed] = useState(false);
   const [paymentCancelled, setPaymentCancelled] = useState(false);
   const [OpenP, setOpenP] = useState(false);
+  const [preassgined, setPreassgined] = useState(false);
+  const [assigned, setAssgined] = useState(false);
 
   //PAGO DE PAYPAL OK
   const handlePaymentSuccess =async  (data,response) => {
    // alert('ahi vengo')
     console.log('data',data)
     console.log('response',response)
-    
+    setAssgined(true)
     setIsPaymentConfirmed(true);
     await PAYOK(paypalDates,response).then(response=>Confirm());
     setPaymentCancelled(false); // Asegúrate de restablecer el otro estado
       };
+
+      const handlePaymentSuccess1 =async  (data,response) => {
+        // alert('ahi vengo')
+         console.log('data',data)
+         console.log('response',response)
+         setPreassgined(true)
+         setIsPaymentConfirmed(true);
+         await PAYOK(paypalDates,response).then(response=>Confirm());
+         setPaymentCancelled(false); // Asegúrate de restablecer el otro estado
+           };
 
   const handlePaymentCancel = () => {
     setIsPaymentConfirmed(false);
@@ -193,11 +207,24 @@ export default function Schedule() {
 
   const [paypalModal, setPaypalModal] = useState(false)
   const [paypalDates, setPaypalDates] = useState(null)
+  const [ZelleModal, setZelleModal] = useState(false)
+  const [PayModal, setPayModal] = useState(false)
 
   const openPaypalModal = (VALUE) => {
     setPaypalModal(true)
+    //setPaypalDates(VALUE)
+  }
+
+  const openZelleModal = (VALUE) => {
+    setZelleModal(true)
+  //  setPaypalDates(VALUE)
+  }
+  const openModalPay = (VALUE) => {
+    setPayModal(true)
     setPaypalDates(VALUE)
   }
+
+  function closePayModal() {setPayModal(false)}
 
   const handleChangePaypalModal = (data) => {
     setPaypalModal(data)
@@ -206,7 +233,7 @@ export default function Schedule() {
 
   //Function que asigna el horario al alumno en el calendario de profesor y del alumno
   function openPlan(){
-    //Chequeo si tengo clases disponibles para ver si renderizo compras de clases de acuerdo  
+    //Chequeo si tengo clases disponiblopenPaypalModales para ver si renderizo compras de clases de acuerdo  
     //a la ultima compra
     const last = session.user.planSync.length;
     
@@ -224,14 +251,16 @@ export default function Schedule() {
     //123456789
     //https://sandbox.paypal.com
 
-    
+  //El  <Plan Confirm={Confirm} newMeeting={newMeeting} closePlan={closePlan} />
+  //es el que le asigna el Value para llamar a los modales de pago 
+
     if(VALUE){
       //api pago 
       //El valor de value creo que hay que ponerlo en un estado 
       //para irlo pasando entre las funciones
-      openPaypalModal(VALUE)
-      //fin api
-      
+      //inicialmenye asi openPaypalModal(VALUE) ahora
+      openModalPay(VALUE)
+            
     }
 
 
@@ -289,7 +318,8 @@ export default function Schedule() {
       .then(response => 
         {
         setPaypalDates(null)
-        console.log("Clase asignado ",response.json())             })
+     //   console.log("Clase asignado ",response.json())    
+             })
         
       }catch (error) {
         setPaypalDates(null)
@@ -311,11 +341,11 @@ export default function Schedule() {
               idPlan:'plansync',
               qty: VALUE.qty,
               ammount: VALUE.cost,
-              dates:{VALUE,DATESPAYPAL}}
+              dates:{VALUE,DATESPAYPAL,type:"PAYPAL"}}
           ),
         }).then(response => {
           setPaypalDates(null)
-          console.log("Clase asignado ",response.json())
+        //  console.log("Clase asignado ",response.json())
           
         })
           
@@ -351,7 +381,7 @@ export default function Schedule() {
         const adjustedUTN = nowUTC + (offsetMinutes1 * 60000); // 1 minuto = 60,000 ms
         // Crea una nueva fecha en la zona horaria deseada
         const adjustedDate = new Date(adjustedUTN);
-        console.log(adjustedDate); // Esto mostrará la hora ajustada según el desplazamiento horario.
+       // console.log(adjustedDate); // Esto mostrará la hora ajustada según el desplazamiento horario.
 
         // Obtener el UTN de la fecha
         const fecha = today; Fragment
@@ -375,7 +405,8 @@ export default function Schedule() {
 
         //renders es el usuario que sera asignado al teacher
         newcalendar.push({
-          assigned: true,
+          assigned: assigned,
+          preassgined:preassgined,
           id: personSchedule['_id'],
           iduser: renders.user['_id'],
           nameuser: renders.user.first_name + ' ' + renders.user.last_name,
@@ -398,7 +429,8 @@ export default function Schedule() {
         newcalendarS.push({
           id: personSchedule['_id'],
           iduser: renders.user._id,
-          assigned: true,
+          assigned: assigned,
+          preassgined:preassgined,
           first_name: personSchedule.first_name,
           last_name: personSchedule.last_name,
           email: personSchedule.email,
@@ -901,7 +933,7 @@ export default function Schedule() {
 
                   {isAfter(selectedDay, today) && personSchedule?.calendar?.map((meeting, index) => {
                      
-                    if (!meeting.assigned && isSameDay(parseISO(meeting.userstartDatetime), selectedDay)) {
+                    if (!meeting.preassigned&&!meeting.assigned && isSameDay(parseISO(meeting.userstartDatetime), selectedDay)) {
                       return (
 
                         <li key={index}>
@@ -953,7 +985,21 @@ export default function Schedule() {
                     !isPaymentConfirmed && isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) &&
                     <div>
 
-                      {/* Modal de Pago */}
+                      {/* Modal de Pago habilitacion*/}
+                      <ModalPagoABLE
+                        close={closePayModal}
+                        open={PayModal}
+                        open1={openPaypalModal}
+                        open2={openZelleModal}
+                      />
+                    </div>
+                  }
+
+                  {
+                    !isPaymentConfirmed && isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) &&
+                    <div>
+
+                      {/* Modal de Pago PAYPAL*/}
                       <ModalPago
                         onPaymentSuccess={handlePaymentSuccess}
                         onPaymentCancel={handlePaymentCancel}
@@ -961,6 +1007,22 @@ export default function Schedule() {
                         open={paypalModal}
                         dates={paypalDates}
                       />
+                    </div>
+                  }
+
+{
+                    !isPaymentConfirmed && isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) &&
+                    <div>
+
+                      {/* Modal de Pago ZELLE*/}
+                      <ModalPago2
+                        onPaymentSuccess={handlePaymentSuccess1}
+                        onPaymentCancel={handlePaymentCancel}
+                        modalZelle={handleChangePaypalModal}
+                        renders={renders}
+                        open={ZelleModal}
+                        dates={paypalDates}
+                             />
                     </div>
                   }
 
