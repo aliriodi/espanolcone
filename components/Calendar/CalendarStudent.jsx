@@ -63,7 +63,7 @@ export default function Schedule() {
   const [OpenP, setOpenP] = useState(false);
   const [preassgined, setPreassgined] = useState(false);
   const [assigned, setAssgined] = useState(false);
-
+  const lastplansyc = session?.user?.planSync?.length;
   //PAGO DE PAYPAL OK
   const handlePaymentSuccess =async  (data,response) => {
    // alert('ahi vengo')
@@ -239,6 +239,7 @@ export default function Schedule() {
 
 
   //Function que asigna el horario al alumno en el calendario de profesor y del alumno
+  
   function openPlan(){
     //Chequeo si tengo clases disponiblopenPaypalModales para ver si renderizo compras de clases de acuerdo  
     //a la ultima compra
@@ -979,14 +980,21 @@ export default function Schedule() {
                   {/* Si existe un meeting para asignar y el pago ha sido confirmado, renderiza el botón de confirmar citas */}
 
                   {isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.userstartDatetime), selectedDay) && !meeting.assigned) &&// isPaymentConfirmed &&!isPaymentConfirmed&&
-                  
+                   session.user.planSync[lastplansyc-1].valid&&
                   <button
                     type="button"
                     onClick={() => openPlan()}
                     className='btn-primary px-5 py-2.5 mb-2 w-full text-[16px]'>
                       Confirmar
-                      </button>
-                  }
+                      </button> }
+                      {isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.userstartDatetime), selectedDay) && !meeting.assigned) &&// isPaymentConfirmed &&!isPaymentConfirmed&&
+                   !session.user.planSync[lastplansyc-1].valid&&
+                  <button
+                    type="button"
+                    onClick={() => alert('Su pago ZELLE se esta validando ...')}
+                    className='btn-primary px-5 py-2.5 mb-2 w-full text-[16px]'>
+                      Confirmar
+                      </button> }
 
                   {OpenP && <Plan Confirm={Confirm} newMeeting={newMeeting} closePlan={closePlan} />}
 
