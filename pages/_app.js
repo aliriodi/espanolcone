@@ -18,7 +18,7 @@ function App({ Component, pageProps }) {
       </Head>
       <SessionProvider session={pageProps.session}>
         <Provider store={store}>
-          {/* <LoadScreen/> */}
+          <LoadScreen/>
           <Component {...pageProps} />
           <GoogleAnalytics />
         </Provider>
