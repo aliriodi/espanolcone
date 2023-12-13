@@ -219,6 +219,11 @@ export default function Schedule() {
     setZelleModal(true)
   //  setPaypalDates(VALUE)
   }
+
+  const closeZelleModal = () =>{
+    setZelleModal(false)
+  }
+
   const openModalPay = (VALUE) => {
     setPayModal(true)
     setPaypalDates(VALUE)
@@ -1023,7 +1028,7 @@ export default function Schedule() {
                       <ModalPago2
                        // onPaymentSuccess={handlePaymentSuccess1}
                         onPaymentCancel={handlePaymentCancel}
-                        modalZelle={handleChangePaypalModal}
+                        modalClose={closeZelleModal}
                         renders={renders}
                         personSchedule={personSchedule}
                         open={ZelleModal}
