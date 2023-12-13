@@ -4,6 +4,12 @@ Usamos como BD mongo db
 Usamos cloudynari para cargar archivos tipo imagenes en: 
 http://localhost:3000/cloudinary
 
+Cuando el pago es Zelle en la BD  hay que validar para modificar los siguientes datos:
+1. Calendar teacher con el _id del usario se preasigna la clase al alumno con la variable de preassigned: true y assigned: false
+2. Calendar user o student posee el ultimo elemento del calendar como preassigned: true y assigned false
+3. En user planssync.value: false y no permite confirmar mas clases hasat que se le de true al valor, el classview que debe inicar en 1 esta en 0 y el plansync.qty = valor
+4. En receipts el iduser identifica quien compro por zelle o que medio de pago hizo y el valor dates.valid si es zelle esta en false
+   
 Corremos el server como 
 $ npm run dev
 
