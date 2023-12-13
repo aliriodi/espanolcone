@@ -50,10 +50,10 @@ console.log(props.dates)
           "Content-Type": "application/json",
         },
         body: JSON.stringify(
-          { idUser: 'props.renders.user._id',
+          { idUser: props.renders.user._id,
             idPlan:'plansync',
-            qty: qty,
-            ammount: ammount,
+            qty: props.dates.qty,
+            ammount: props.dates.cost,
             dates:{ImageUrl,type:'ZELLE'}}
         ),
       }).then(response => {
@@ -101,7 +101,7 @@ console.log(props.dates)
                {/* <p>{'Cantidad de clases:'+ qty}</p> */}
                <p>{'Cantidad de clases:'+ props?.dates?.qty}</p>
                {/* <p>{'Monto a transferir:'+ammount}</p> */}
-               <p>{'Monto a transferir:'+props?.dates?.ammount}</p>
+               <p>{'Monto a transferir:'+props?.dates?.cost}</p>
                <span>Cuenta Zelle: <strong>aliriodi@gmail.com</strong></span>
                <Cloudinary imageurl={imageurl}/>
 
