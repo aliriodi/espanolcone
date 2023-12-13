@@ -7,7 +7,7 @@ import Image from 'next/image';
 import Cloudinary from './cloudinary/cloudinary';
 
 export default function ModalPagoZELLE(props) {
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
   // const [isOpen, setIsOpen] = useState(props.open)
   const [ImageUrl, setImageurl] = useState(false)
   console.log('13 zelle modal de pagos')
