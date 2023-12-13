@@ -8,7 +8,7 @@ export default function ModalPagoABLE(props) {
   const [isOpen, setIsOpen] = useState(false)
 
   const closeModal = () => {
-    
+    props.modalPay(false)
     setIsOpen(false)
   }
 
