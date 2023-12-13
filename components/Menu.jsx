@@ -10,7 +10,7 @@ import SignOutBtn from './signOut/SignOutBtn';
 import { setshowClass } from '../redux/ECEActions';
 import { useSession } from "next-auth/react";
 import Class from '../components/Class/Class'
-import ModalPago from './ModalPago';
+import ModalPago from './ModalPagoPAYPAL';
 
 const Menu = (props) => {
     const dispatch = useDispatch();

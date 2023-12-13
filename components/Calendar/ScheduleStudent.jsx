@@ -70,7 +70,7 @@ export default function Example() {
     setCalendar((prevCalendar) => [...prevCalendar, newElement]);
     try {
       //enviando disponibilidad de calendario a BD
-      console.log('cargando newcalendar', newcalendar)
+    //  console.log('cargando newcalendar', newcalendar)
 
       await fetch('/api/users/update',
         {
@@ -443,7 +443,7 @@ function Meeting({ meeting }) {
   let startDateTime = parseISO(meeting.userstartDatetime)
   let endDateTime = parseISO(meeting.userendDatetime)
 
-  useEffect(() => console.log(meeting), [])
+  //useEffect(() => console.log(meeting), [])
 
   return (
     <li className="flex items-center px-4 py-2 space-x-4 group focus-within:bg-gray-100 hover:bg-gray-100 border-b-2 last-of-type:border-none
