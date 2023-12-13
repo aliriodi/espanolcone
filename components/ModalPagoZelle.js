@@ -16,7 +16,7 @@ console.log(props.dates)
 //const ammount =props.dates.cost;
 
   const closeModal = () => {
-    props.modalZelle(false)
+    props?.modalClose(false)
     setIsOpen(false)
   }
 
