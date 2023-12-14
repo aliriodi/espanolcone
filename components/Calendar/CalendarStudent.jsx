@@ -63,7 +63,7 @@ export default function Schedule() {
   const [OpenP, setOpenP] = useState(false);
   const [preassgined, setPreassgined] = useState(false);
   const [assigned, setAssgined] = useState(false);
-
+  const lastplansyc = session?.user?.planSync?.length;
   //PAGO DE PAYPAL OK
   const handlePaymentSuccess =async  (data,response) => {
    // alert('ahi vengo')
@@ -75,15 +75,15 @@ export default function Schedule() {
     setPaymentCancelled(false); // Asegúrate de restablecer el otro estado
       };
 
-      const handlePaymentSuccess1 =async  (data,response) => {
-        // alert('ahi vengo')
-         console.log('data',data)
-         console.log('response',response)
-         setPreassgined(true)
-         setIsPaymentConfirmed(true);
-         await PAYOK(paypalDates,response).then(response=>Confirm());
-         setPaymentCancelled(false); // Asegúrate de restablecer el otro estado
-           };
+      // const handlePaymentSuccess1 =async  (data,response) => {
+      //   // alert('ahi vengo')
+      //    console.log('data',data)
+      //    console.log('response',response)
+      //    setPreassgined(true)
+      //    setIsPaymentConfirmed(true);
+      //    await PAYOK(paypalDates,response).then(response=>Confirm());
+      //    setPaymentCancelled(false); // Asegúrate de restablecer el otro estado
+      //      };
 
   const handlePaymentCancel = () => {
     setIsPaymentConfirmed(false);
@@ -232,11 +232,14 @@ export default function Schedule() {
   function closePayModal() {setPayModal(false)}
 
   const handleChangePaypalModal = (data) => {
+    setPayModal(data)
+    setZelleModal(data)
     setPaypalModal(data)
   }
 
 
   //Function que asigna el horario al alumno en el calendario de profesor y del alumno
+  
   function openPlan(){
     //Chequeo si tengo clases disponiblopenPaypalModales para ver si renderizo compras de clases de acuerdo  
     //a la ultima compra
@@ -309,6 +312,8 @@ export default function Schedule() {
                 planSync:[...session.user.planSync,
                   {
                     type:'plansync',
+                    payment:'PAYPAL',
+                    valid:true,
                     qty:VALUE.qty,
                     cost:VALUE.cost,
                     planing:1,
@@ -410,8 +415,8 @@ export default function Schedule() {
 
         //renders es el usuario que sera asignado al teacher
         newcalendar.push({
-          assigned: assigned,
-          preassgined:preassgined,
+          assigned: true,
+          preassgined:false,
           id: personSchedule['_id'],
           iduser: renders.user['_id'],
           nameuser: renders.user.first_name + ' ' + renders.user.last_name,
@@ -434,8 +439,8 @@ export default function Schedule() {
         newcalendarS.push({
           id: personSchedule['_id'],
           iduser: renders.user._id,
-          assigned: assigned,
-          preassgined:preassgined,
+          assigned: true,
+          preassgined:false,
           first_name: personSchedule.first_name,
           last_name: personSchedule.last_name,
           email: personSchedule.email,
@@ -706,7 +711,7 @@ export default function Schedule() {
             },
             body: JSON.stringify({ email: renders.user.email, updates: { calendar: newcalendarS } }),
           }).then(response => console.log(response.json()))
-      console.log(newcalendarS)
+     // console.log(newcalendarS)
 
     } catch (error) {
       console.error(error);
@@ -975,14 +980,21 @@ export default function Schedule() {
                   {/* Si existe un meeting para asignar y el pago ha sido confirmado, renderiza el botón de confirmar citas */}
 
                   {isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.userstartDatetime), selectedDay) && !meeting.assigned) &&// isPaymentConfirmed &&!isPaymentConfirmed&&
-                  
+                   session.user.planSync[lastplansyc-1].valid&&
                   <button
                     type="button"
                     onClick={() => openPlan()}
                     className='btn-primary px-5 py-2.5 mb-2 w-full text-[16px]'>
                       Confirmar
-                      </button>
-                  }
+                      </button> }
+                      {isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.userstartDatetime), selectedDay) && !meeting.assigned) &&// isPaymentConfirmed &&!isPaymentConfirmed&&
+                   !session.user.planSync[lastplansyc-1].valid&&
+                  <button
+                    type="button"
+                    onClick={() => alert('Su pago ZELLE se esta validando ...')}
+                    className='btn-primary px-5 py-2.5 mb-2 w-full text-[16px]'>
+                      Confirmar
+                      </button> }
 
                   {OpenP && <Plan Confirm={Confirm} newMeeting={newMeeting} closePlan={closePlan} />}
 
@@ -993,6 +1005,7 @@ export default function Schedule() {
                       {/* Modal de Pago habilitacion*/}
                       <ModalPagoABLE
                         close={closePayModal}
+                        modalPay={handleChangePaypalModal}
                         open={PayModal}
                         open1={openPaypalModal}
                         open2={openZelleModal}
@@ -1021,12 +1034,14 @@ export default function Schedule() {
 
                       {/* Modal de Pago ZELLE*/}
                       <ModalPago2
-                        onPaymentSuccess={handlePaymentSuccess1}
+                       // onPaymentSuccess={handlePaymentSuccess1}
                         onPaymentCancel={handlePaymentCancel}
                         modalClose={closeZelleModal}
                         renders={renders}
+                        personSchedule={personSchedule}
                         open={ZelleModal}
                         dates={paypalDates}
+                        newMeeting={newMeeting}
                              />
                     </div>
                   }
