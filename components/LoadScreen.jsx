@@ -10,7 +10,7 @@ export default function LoadScreen(){
         <div className={`fixed bg-primary w-screen h-screen transition-all flex justify-center items-center ${status != "loading" ? "opacity-0 z-[-9]" : "z-[999]"}`}>
             <Image className={`
             w-[10px] transition-all duration-1000 animate-wider
-            `} src={Logo} width={100} height={100}/>
+            `} src={Logo} alt={'EspanolconE'} width={100} height={100}/>
         </div>
     )
 }

@@ -224,7 +224,7 @@ export default function Schedule() {
     setZelleModal(false)
   }
 
-  const openModalPay = (VALUE) => {
+  function openModalPay(VALUE)  {
     setPayModal(true)
     setPaypalDates(VALUE)
   }
@@ -472,6 +472,28 @@ export default function Schedule() {
           return dateA - dateB;
         });
 
+        function AMOPM(meetingTime){
+          const timeString = meetingTime?.slice(meetingTime?.indexOf("T") + 1);
+          if (timeString) {
+            // Extract hours and minutes from the time string
+            const [hours, minutes] = timeString.split(":");
+            
+            // Convert hours to a number
+            const hoursNumber = parseInt(hours, 10);
+        
+            // Determine whether it's AM or PM
+            const period = hoursNumber >= 12 ? "PM" : "AM";
+        
+            // Adjust hours for 12-hour format
+            const adjustedHours = hoursNumber % 12 || 12;
+        
+            // Construct the final time string with AM or PM
+            const formattedTime = `${adjustedHours}:${minutes} ${period}`;
+        
+            // Now, 'formattedTime' contains the time with AM or PM
+            return formattedTime;
+        } else {return 'AM o PM'}
+        }
         // Mensajes via Email
         
         let massageTeacher = `
@@ -546,10 +568,10 @@ export default function Schedule() {
             
             <div class="main" style="flex-direction: column; align-items: center; font-size: 18px;">
               <p>Se te asignó una clase para el día <b>${newMeeting?.startDatetime.slice(0, newMeeting?.startDatetime?.indexOf("T"))}</b>,</p>
-              <p>a partir de las <b>${newMeeting?.startDatetime.slice(newMeeting?.startDatetime?.indexOf("T") + 1)}</b>,</p>
-              <p>y termina a las <b>${newMeeting?.endDatetime.slice(newMeeting?.endDatetime?.indexOf("T") + 1)}</b>,</p> 
-              <p class="mt">El horario del alumno inicia a las <b>${newMeeting?.userstartDatetime?.slice(newMeeting?.userstartDatetime?.indexOf("T") + 1)}</b></p>
-              <p>y termina a las <b>${newMeeting?.userendDatetime.slice(newMeeting?.userendDatetime?.indexOf("T") + 1)}</b></p>
+              <p>a partir de las <b>${AMOPM(newMeeting.startDatetime)}</b>,</p>
+              <p>y termina a las <b>${AMOPM(newMeeting.endDatetime)}</b>,</p> 
+              <p class="mt">El horario del alumno inicia a las <b>${AMOPM(newMeeting.userstartDatetime)}</b></p>
+              <p>y termina a las <b>${AMOPM(newMeeting.userendDatetime) /*+newMeeting?.userendDatetime.slice(newMeeting?.userendDatetime?.indexOf("T") + 1)*/}</b></p>
             </div>
             
             <footer style="font-size: 18px;">
@@ -630,9 +652,9 @@ export default function Schedule() {
             </header>
             
             <div class="main" style="flex-direction: column; align-items: center; font-size: 18px;">
-              <p>Se te asignó una clase para el día <b>${newMeeting?.startDatetime.slice(0, newMeeting?.startDatetime?.indexOf("T"))}</b>,</p>
-              <p>a partir de las <b>${meeting?.userstartDatetime?.slice(meeting?.userstartDatetime?.indexOf("T") + 1)}</b>,</p>
-              <p>y termina a las <b>${meeting?.userendDatetime?.slice(meeting?.userendDatetime?.indexOf("T") + 1)}</b>,</p> 
+              <p>Se te asignó una clase para el día <b>${newMeeting?.userstartDatetime.slice(0, newMeeting?.startDatetime?.indexOf("T"))}</b>,</p>
+              <p>a partir de las <b>${AMOPM(meeting.userstartDatetime)}</b>,</p>
+              <p>y termina a las <b>${AMOPM(meeting.userendDatetime)}</b>,</p> 
             </div>
             
             <footer style="font-size: 18px;">
