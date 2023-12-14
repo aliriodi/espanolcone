@@ -11,27 +11,45 @@ export default async function getTeachersWithAgendaFromTomorrow(req, res) {
     console.log('LOOKING FOR TEACHERS WITH AGENDA FROM TOMORROW');
 
     const tomorrow = startOfDay(addDays(new Date(), 1));
+    const maxResults = 10;
 
     const teachersWithAgenda = await Users.find({
-      role: 'teacher',
-      //$gte mayor o igual
-      //'calendar.startDateTime': { $gte: tomorrow }
+      role: 'teacher'
     }).exec();
-    const  output = []
+
+    const filteredTeachers = teachersWithAgenda.sort((a, b) => {
+      const aCondition = a.calendar.some(calendar1 => (
+        (isAfter(parseISO(calendar1.startDatetime), tomorrow) || isEqual(parseISO(calendar1.startDatetime), tomorrow)) && !calendar1.assigned
+      ));
+      const bCondition = b.calendar.some(calendar1 => (
+        (isAfter(parseISO(calendar1.startDatetime), tomorrow) || isEqual(parseISO(calendar1.startDatetime), tomorrow)) && !calendar1.assigned
+      ));
+
+      a._doc = {...a._doc, active:aCondition}
+      b._doc = {...b._doc, active:bCondition}
+
+      if (aCondition && !bCondition) {
+        return -1;
+      } else if (!aCondition && bCondition) {
+        return 1;
+      } else {
+        return 0;
+      }
+    }).slice(0, maxResults);
+
+    const  output = filteredTeachers
+
+    // teachersWithAgenda.map(
+    // teacher=>
+    //   teacher.calendar.some(calendar1=>(
+    //   (isAfter(parseISO(calendar1.startDatetime),tomorrow) || isEqual(parseISO(calendar1.startDatetime),tomorrow)) && !calendar1.assigned ?
+    //     output.push(teacher) : null)
+    //   )
+    // )
 
 //Mapeo para mostrar solo los teachers que tienen disponibilidad de horario 
 //No asignada y posibles a agednar a partir de mañana
-    teachersWithAgenda.map(teacher=>
-        teacher.calendar.some(calendar1=> 
-          ((isAfter(parseISO(calendar1.startDatetime),tomorrow) || isEqual(parseISO(calendar1.startDatetime),tomorrow))
-          &&!calendar1.assigned?
-          output.push(teacher):null)))
-
-//console.log(output.length,teachersWithAgenda.length)
-//console.log(teachersWithAgenda)
-
-    console.log('TEACHERS WITH SCHEDULE FROM TOMORROW FOUND');
-//console.log(teachersWithAgenda)
+  console.log('TEACHERS WITH SCHEDULE FROM TOMORROW FOUND');
 
   // Verifica procedencia de solicitud 
   console.log("/////////////////////////////// ",req.headers.accept == "*/*" ? "Solicitud desde Codigo": "Solicitud desde Navegador"," ///////////////////////////////")
