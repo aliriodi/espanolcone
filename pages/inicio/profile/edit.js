@@ -1,11 +1,12 @@
 import Image from 'next/image';
 import Menu from '../../../components/Menu';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faLock, faUpload, faL } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faLock, faUpload, faL, faStar, faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import Spinner from '../../../components/Spinner';
 import { update } from 'react-spring';
+import Head from 'next/head'
 
 export default function Profile(){
     const { data: session, status, update } = useSession();
@@ -22,7 +23,10 @@ export default function Profile(){
         country:session?.user?.country,
         email:session?.user?.email,
         image:session?.user?.image,
-        content:session?.user?.content
+        content:session?.user?.content,
+        enfoquePedagogico:session?.user?.enfoquePedagogico,
+        puntos:session?.user?.puntos,
+        despedida:session?.user?.despedida,
     })
 
     const [updatePasseword, setUpdatePasseword] = useState({
@@ -49,8 +53,6 @@ export default function Profile(){
 
     const [loading, setLoading] = useState(false);
 
-    // useEffect(()=>console.log(session),[]) 
-
     useEffect(()=>{
         // Este UseEffect se va a encargar de verificar si hay cambios en los inputs en el formulario de "Cuenta"
         // para activar el boton de "Guardar cambios" 
@@ -60,9 +62,13 @@ export default function Profile(){
             last_name:session?.user?.last_name,
             country:session?.user?.country,
             email:session?.user?.email,
-            image:session?.user?.image
+            image:session?.user?.image,
+            content:session?.user?.content,
+            enfoquePedagogico:session?.user?.enfoquePedagogico,
+            puntos:session?.user?.puntos,
+            despedida:session?.user?.despedida,
         }
-        
+
         if(!areEquals(currentDates, updates))setCanBeUpdated(true);
         else setCanBeUpdated(false);
 
@@ -86,9 +92,11 @@ export default function Profile(){
         country:session?.user?.country,
         email:session?.user?.email,
         image:session?.user?.image,
-        content:session?.user?.content
+        content:session?.user?.content,
+        enfoquePedagogico:session?.user?.enfoquePedagogico,
+        puntos: session?.user?.puntos && [...session?.user?.puntos],
+        despedida:session?.user?.despedida,
         })
-
     },[session])
     
     async function updateDates(updates) {
@@ -135,22 +143,31 @@ export default function Profile(){
     }
 
     function areEquals(objetoA, objetoB) {
-        // Compara si dos objetos son iguales y devuelbe un booleano dependiendo de 
-        // la resouesta
+        // Compara si dos objetos son iguales y devuelve un booleano dependiendo de la respuesta
+        const typeA = typeof objetoA;
+        const typeB = typeof objetoB;
+
+        if (typeA !== typeB) {
+            return false;
+        }
+
+        if (typeA !== 'object' || objetoA === null) {
+            return objetoA === objetoB;
+        }
 
         const keysA = Object.keys(objetoA);
         const keysB = Object.keys(objetoB);
-      
+
         if (keysA.length !== keysB.length) {
-          return false;
-        }
-      
-        for (const key of keysA) {
-          if (objetoA[key] !== objetoB[key]) {
             return false;
-          }
         }
-      
+
+        for (const key of keysA) {
+            if (!keysB.includes(key) || !areEquals(objetoA[key], objetoB[key])) {
+            return false;
+            }
+        }
+
         return true;
     }
 
@@ -229,6 +246,13 @@ export default function Profile(){
             password: updatePasseword.newPasseword
         })
     }
+
+    function handlerChangePunto(event, index){
+        let newPuntos = updates?.puntos 
+        newPuntos[index] = event.target.value
+        // setCanBeUpdated(true)
+        setUpdates({...updates, puntos: newPuntos})
+    }
     
     function returnChanges(e){
         e.preventDefault()
@@ -237,7 +261,11 @@ export default function Profile(){
             last_name:session?.user?.last_name,
             country:session?.user?.country,
             email:session?.user?.email,
-            image:session?.user?.image
+            image:session?.user?.image,
+            content:session?.user?.content,
+            enfoquePedagogico:session?.user?.enfoquePedagogico,
+            puntos: session?.user?.puntos && [...session?.user?.puntos],
+            despedida:session?.user?.despedida,
         })
 
         setUpdatePasseword({
@@ -251,7 +279,11 @@ export default function Profile(){
         <>
         <Menu/>
 
-        
+        <Head>
+            <title>Configuracion de usuario | Español con E</title>
+            <meta name="profile_edit" content="profile edit" />
+        </Head>
+
         {/* Loader */}
         {
             loading &&
@@ -263,6 +295,7 @@ export default function Profile(){
         <section className='py-[119px] px-[60px]
         md:px-[25px]'>
 
+            {/* Selecionar secciones */}
             <div className='mb-[24px] flex'>
                 <button
                 onClick={()=>setCurrentSection("cuenta")}
@@ -426,29 +459,25 @@ export default function Profile(){
                                             <p className='text-danger md:text-[12px]'>{t("warningLastname")}</p>
                                         )}
                                     </div>
-
-                                    {/* Campo Email */}
-                                    {/* <div className="flex flex-col mt-[18px]
-                                    md:mt-[10px]"
+                                    
+                                    {/* Campo Video de Youtube */}
+                                    {/* <div className={`flex flex-col mt-[18px] ${session && !session?.user?.role?.includes("teacher") && "hidden"}
+                                    md:mt-[10px]`}
                                     style={{ width:'100%', flexGrow:1}}>
 
                                         <div className="flex justify-between" style={{ margin: '8px 0' }}>
-                                            <label htmlFor="email" className='md:text-[12px]'>Email</label>
+                                            <label htmlFor="last_name" className='md:text-[12px]'>Url de video de Youtube</label>
                                         </div>
 
                                         <input
-                                        className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.email ? "border-danger" :"border-gray-clear"}
+                                        className={`p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.last_name ? "border-danger" :"border-gray-clear"}
                                         md:text-[12px]`}
                                         type="text"
-                                        id="email"
-                                        placeholder='johndoe@gmail.com'
-                                        value={updates.email}
-                                        onChange={(e) => setUpdates({...updates, email: e.target.value})}
+                                        id="last_name"
+                                        placeholder='Escribe la direcion de tu video de presentacion'
+                                        value={updates.last_name}
+                                        onChange={(e) => setUpdates({...updates, last_name: e.target.value})}
                                         />
-                                        
-                                        {errorsForm.email && (
-                                            <p className='text-danger md:text-[12px]'>{t("warningEmail")}</p>
-                                        )}
                                     </div> */}
                                     
                                 </div>
@@ -566,33 +595,142 @@ export default function Profile(){
 
                                 </div>
 
-                                
-                                {/* Campo Descripción */}
-                                <div className="flex flex-col mt-[18px]
-                                md:mt-[10px]"
-                                style={{ width:'100%', flexGrow:1}}>
+                                <div className={`${session && !session?.user?.role?.includes("teacher") && "hidden"}`}>
 
-                                    <div className="flex justify-between" style={{ margin: '8px 0' }}>
-                                        <label htmlFor="email" className='md:text-[12px]'>Descripción</label>
+                                    {/* Campo Descripción */}
+                                    <div className="flex flex-col mt-[18px]
+                                    md:mt-[10px]"
+                                    style={{ width:'100%', flexGrow:1}}>
+
+                                        <div className="flex justify-between" style={{ margin: '8px 0' }}>
+                                            <label htmlFor="email" className='md:text-[12px]'>Descripción</label>
+                                        </div>
+
+                                        <textarea
+                                        className={`min-h-[80px] p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.email ? "border-danger" :"border-gray-clear"}
+                                        md:text-[12px]`}
+                                        type="text"
+                                        id="email"
+                                        placeholder='Yo soy . . .'
+                                        value={updates.content}
+                                        onChange={(e) => setUpdates({...updates, content: e.target.value})}
+                                        />
+                                        
+                                        {/* Error de Descripsion */}
+                                        {errorsForm.email && (
+                                            <p className='text-danger md:text-[12px]'>{t("warningEmail")}</p>
+                                        )}
                                     </div>
 
-                                    <textarea
-                                    className={`min-h-[80px] p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.email ? "border-danger" :"border-gray-clear"}
-                                    md:text-[12px]`}
-                                    type="text"
-                                    id="email"
-                                    placeholder='johndoe@gmail.com'
-                                    value={updates.content}
-                                    onChange={(e) => setUpdates({...updates, content: e.target.value})}
-                                    />
+                                    {/* Campo Metodologia */}
+                                    <div className="flex flex-col mt-[18px]
+                                    md:mt-[10px]"
+                                    style={{ width:'100%', flexGrow:1}}>
+
+                                        <div className="flex justify-between" style={{ margin: '8px 0' }}>
+                                            <label htmlFor="metodologias" className='md:text-[12px]'>Metodología</label>
+                                        </div>
+
+                                        <textarea
+                                        className={`min-h-[80px] p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.email ? "border-danger" :"border-gray-clear"}
+                                        md:text-[12px]`}
+                                        type="text"
+                                        id="metodologias"
+                                        placeholder='Mis metodologias son . . .'
+                                        value={updates.enfoquePedagogico}
+                                        onChange={(e) => setUpdates({...updates, enfoquePedagogico: e.target.value})}
+                                        />
+                                    </div>
+
                                     
-                                    {/* Error de Descripsion */}
-                                    {errorsForm.email && (
-                                        <p className='text-danger md:text-[12px]'>{t("warningEmail")}</p>
-                                    )}
+                                    {/* Puntos */}
+                                    <div>
+                                        <div className="flex flex-col mt-[18px]
+                                        md:mt-[10px]"
+                                        style={{ width:'100%', flexGrow:1}}>
+                                            
+                                            <div style={{ margin: '8px 0' }}>
+                                                <label htmlFor="punto" className="md:text-[12px]">Puntos</label>
+                                            </div>
+
+                                            {
+                                                updates?.puntos?.length > 0 &&
+                                                updates?.puntos?.map((punto, index)=>
+                                                <div className='flex items-center  mb-5' key={index}>
+                                                    <FontAwesomeIcon icon={faStar} className=' text-violet_dark'/>
+
+                                                    <input
+                                                    className={`p-2 rounded-md border-2 focus-visible:outline-none w-full ml-3
+                                                    md:text-[12px]`}
+                                                    type="text"
+                                                    id="punto"
+                                                    // placeholder='John'
+                                                    value={punto}
+                                                    onChange={(e)=> handlerChangePunto( e, index )}
+                                                    />
+
+                                                </div>
+                                                )
+                                            }
+                                            
+                                        </div>
+
+                                        <div className='flex
+                                         md:justify-evenly md:flex-row-reverse'>
+                                            {/* Agregar Punto */}
+                                            <button
+                                            onClick={(e)=>{
+                                                e.preventDefault()
+                                                setUpdates({...updates, puntos: [...updates?.puntos, ""]})
+                                            }}
+                                            className={`rounded-[5px] text-white bg-primary py-[10px] px-[22px] font-medium ml-[30px] flex items-center
+                                            md:mr-0 md:mb-[10px] md:text-[14px] md:px-[10px] md:ml-0 md:w-[45%] md:justify-center`}>
+                                                <p className='md:hidden'>Agregar un punto</p>
+                                                <FontAwesomeIcon icon={faPlus} className='ml-3 border-[2px] border-solid border-white rounded-full py-[2px] px-[3px]
+                                                md:m-0'/>
+                                            </button>
+
+                                            {/* Eliminar Punto */}
+                                            {updates?.puntos?.length > 0 &&
+                                                <button
+                                                onClick={(e)=>{
+                                                    e.preventDefault()
+                                                    setUpdates({...updates, puntos: updates?.puntos?.slice(0,(updates?.puntos?.length - 1))})
+                                                }}
+                                                className={`rounded-[5px] text-white bg-danger py-[10px] px-[22px] font-medium ml-[30px] flex items-center
+                                                md:mr-0 md:mb-[10px] md:text-[14px] md:px-[10px] md:ml-0 md:w-[45%] md:justify-center`}>
+                                                    <p className='md:hidden'>Eliminar último punto</p>
+                                                    <FontAwesomeIcon icon={faTrash} className='ml-3
+                                                    md:m-0 md:py-[4px] md:px-[5px]'/>
+                                                </button>
+                                            }
+                                        </div>
+                                    </div>
+
+                                    {/* Campo Metodologia */}
+                                    <div className="flex flex-col mt-[18px]
+                                    md:mt-[10px]"
+                                    style={{ width:'100%', flexGrow:1}}>
+
+                                        <div className="flex justify-between" style={{ margin: '8px 0' }}>
+                                            <label htmlFor="a" className='md:text-[12px]'>Despedida</label>
+                                        </div>
+
+                                        <textarea
+                                        className={`min-h-[80px] p-2 rounded-md border-2 focus-visible:outline-none ${errorsForm.email ? "border-danger" :"border-gray-clear"}
+                                        md:text-[12px]`}
+                                        type="text"
+                                        id="a"
+                                        placeholder='Nos vemos en la proxma . . .'
+                                        value={updates.despedida}
+                                        onChange={(e) => setUpdates({...updates, despedida: e.target.value})}
+                                        />
+                                    </div>
                                 </div>
                                 
-                                <div className='flex mt-[30px] md:flex-col'>
+
+                                {/* Botones de cambios */}
+                                <div className='flex mt-[40px] md:flex-col'>
                                     {/* Guardar Cambios */}
                                     <input
                                     type='submit'
@@ -612,7 +750,6 @@ export default function Profile(){
                         </div>
                 </div>
             }
-
             
             {/* Secion de Seguridad */}
             {
