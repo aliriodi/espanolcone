@@ -187,7 +187,7 @@ export default function TeacherDetailPage() {
 
             {/* Puntos */}
             <ul>
-              {cardDetail?.puntos && cardDetail?.puntos.length > 0 ? (
+              {cardDetail?.puntos && cardDetail?.puntos.length > 0 && (
                 cardDetail?.puntos.map((punto, index) => (
                   <li
                   className='text-violet_dark ml-2 mb-1'
@@ -196,13 +196,14 @@ export default function TeacherDetailPage() {
                     {punto}
                   </li>
                 ))
-              ) : (
-                <li className='text-violet_dark py-2'>No hay puntos importantes cargados</li>
-              )}
+              ) 
+            }
             </ul>
-            <p className='text-violet_dark py-2'>
-              {cardDetail?.despedida ? cardDetail.despedida : 'No hay despedida'}
-            </p>
+            {cardDetail?.despedida &&
+              <p className='text-violet_dark py-2'>
+                {cardDetail.despedida}
+              </p>
+            }
           </div>
 
           {/* Reseñas */}

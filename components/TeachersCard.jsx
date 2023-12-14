@@ -179,7 +179,10 @@ export function TeachersCard() {
             </div>
             : null))
       ) : (
-        <Spinner />
+        <div className='w-screen h-[400px] flex justify-center items-center
+        md:h-[200px]'>
+          <Spinner />
+        </div>
       )}
     </>
   );

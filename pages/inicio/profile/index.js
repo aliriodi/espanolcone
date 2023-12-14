@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Menu from '../../../components/Menu';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPenToSquare, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare, faUser, faStar } from '@fortawesome/free-solid-svg-icons';
 import { useSession } from 'next-auth/react';
 import { useEffect } from 'react';
 import Link from 'next/link';
@@ -18,12 +18,21 @@ export default function Profile(){
         md:px-[25px]'>
 
             {/* Parte Superior */}
-            <div className='w-full h-[410px] rounded-[10px] overflow-hidden flex flex-col shadow-[0_1px_2px_#00000033]
+            <div className='w-full h-[410px] rounded-[10px] overflow-hidden flex flex-col shadow-[0_1px_2px_#00000033] relative
             md:h-[310.92px]'
-            style={{ background: 'linear-gradient(38.12deg, #33bb99, #4CCFEB )' }}>
+            style={{ background: session && 
+                    session?.user?.role?.includes("admin") ? 'linear-gradient(38.12deg, #3b3c3d, #fcc235 )' :
+                    session?.user?.role?.includes("teacher") ? 'linear-gradient(38.12deg, #8438ff, #3cbbd6 )' :  'linear-gradient(38.12deg, #33bb99, #4CCFEB )'
+                }}>
+                
+                {/* Iconos de fondo */}
+                {/* <div className='absolute flex justify-center items-center w-full h-full z-10 text-[#0003] text-[10em] 
+                md:right-[-50%]'>
+                    <FontAwesomeIcon icon={faUser}/>
+                </div> */}
 
                 {/* Fondo de Perfil */}
-                <div className='h-[350px] flex-grow-1 flex items-end px-[22px]'>
+                <div className='h-[350px] flex-grow-1 flex items-end px-[22px] z-40'>
 
                     {/* Imagen */}
                     
@@ -56,7 +65,7 @@ export default function Profile(){
                 </div>
 
                 {/* Edicion de perfil */}
-                <div className='bg-white p-[12px] flex justify-end '>
+                <div className='bg-white p-[12px] flex justify-end  z-30'>
                     <Link href={"./profile/edit"} className='btn-primary px-[55px] py-[9px]
                     md:text-[14px] md:px-[40px]'>
                         Editar
@@ -95,15 +104,52 @@ export default function Profile(){
                 </div>
 
                 {/* Parte de la Derecha */}
-                <div className='bg-white w-[52%] rounded-[10px] relative px-[22px] py-[26px] shadow-[0px_4px_24px_#0000000F]
-                md:w-full md:mt-2'>
-                    <p className='text-[18px] text-title_color font-medium border-b-2 py-2'>Certificado</p>
+                {
+                    session?.user?.role?.includes("teacher") && 
+                    <div className='bg-white w-[52%] rounded-[10px] relative px-[22px] py-[26px] shadow-[0px_4px_24px_#0000000F]
+                    md:w-full md:mt-2'>
+                        <p className='text-[18px] text-title_color font-medium border-b-2 py-2'>Metodología</p>
 
-                    {/* Certificado */}
-                    <div className='py-2'>
-                        <p className='text-[#B9B9C3]'>Sin certificados</p>
+                        {/* Metodologias */}
+                        {session?.user?.enfoquePedagogico ? (
+                        <p className='text-violet_dark py-2'>{session?.user?.enfoquePedagogico}</p>
+                        ) : (
+                        <p className='text-violet_dark py-2'>No hay metodología cargada</p>
+                        )}
+
+                        {/* Puntos */}
+                        <ul>
+                        {session?.user?.puntos && session?.user?.puntos.length > 0 && (
+                            session?.user?.puntos.map((punto, index) => (
+                            <li
+                            className='text-violet_dark ml-2 mb-1'
+                            key={index}>
+                                <FontAwesomeIcon icon={faStar} className='mr-1'/>
+                                {punto}
+                            </li>
+                            ))
+                        ) }
+                        </ul>
+                        {
+                            session?.user?.despedida &&
+                            <p className='text-violet_dark py-2'>
+                                {session?.user?.despedida}
+                            </p>
+                        }
                     </div>
-                </div>
+                }
+                {
+                    session?.user?.role?.includes("user") &&
+                    <div className='bg-white w-[52%] rounded-[10px] relative px-[22px] py-[26px] shadow-[0px_4px_24px_#0000000F]
+                    md:w-full md:mt-2'>
+                        <p className='text-[18px] text-title_color font-medium border-b-2 py-2'>Certificado</p>
+
+                        {/* Certificado */}
+                        <div className='py-2'>
+                            <p className='text-[#B9B9C3]'>Sin certificados</p>
+                        </div>
+                    </div>
+                }
             </div>
         </section>
         </>
