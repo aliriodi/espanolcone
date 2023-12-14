@@ -10,6 +10,7 @@ import { useSession } from "next-auth/react";
 import { cardDetail, fetchTeachers } from '../redux/ECEActions'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChalkboardUser } from '@fortawesome/free-solid-svg-icons';
+import Head from 'next/head'
 
 
 export function TeachersCard() {
@@ -30,9 +31,7 @@ export function TeachersCard() {
 
   }, [dispatch]);
 
-
-
-
+  
   // Obtén la información de cards desde Redux
   const cards = useSelector((state) => state.datos.cards);
 
@@ -62,17 +61,10 @@ export function TeachersCard() {
 
   return (
     <>
-      {/* Encabezado */}
-      {/* <div className='flex flex-col my-5'>
-
-        <h1 className='font-semibold text-[28px]'>Encontrá tu profesor</h1>
-
-        <p className='mt-2 flex flex-row text-violet_dark'>
-          ¡Bienvenido a &nbsp;<span className='font-bold italic'>Español con E</span>, nuestra plataforma de profesores particulares!
-        </p>
-
-        <p className='text-violet_dark'> Nuestra plataforma es fácil de usar y te va a permitr buscar profesores según tus preferencias</p>
-      </div> */}
+      <Head>
+          <title>Profesores | Español con E</title>
+          <meta name="teachers" content="teachers list" />
+      </Head>
 
       {/* Encabezado */}
       <div
@@ -97,33 +89,43 @@ export function TeachersCard() {
       {cards.length > 0 && session? (
         cards.map((card, index) => (
           card.email !== session.user.email ?
-            <div key={index}>
               <div key={index} className='overflow-hidden relative w-full flex p-[18px] bg-white rounded-[5px] shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000040] mb-[24px]
           md:p-0'>
 
                 {/* Imagen de perfil */}
-                <div className='flex flex-col items-center w-auto '>
+                <div className='flex flex-col items-center w-auto'>
 
                   {/* Imagen */}
-                  {
-                    card?.image?.url || card?.image ?
-                      <Image
-                        alt="photo"
-                        width={160}
-                        height={160}
-                        src={card ?  // ¿Existe la variable 'card'?
-                          card.image ?  // ¿Existe la propiedad 'image' en 'card'?
-                            card.image.url ? card.image.url : card.image // ¿Existe la propiedad 'url' en 'card.image'? Si es cierto, usa 'card.image.url'; de lo contrario, usa 'card.image'.
-                            : card.image // Si no existe 'card.image', usa 'card.image'.
-                          : null}
-                        className="w-[134px] h-[126px] rounded-lg object-cover mb-5 block
-                md:m-0 md:rounded-none"
-                      />
-                      :
-                      <div className="w-[134px] h-[126px] rounded-lg object-cover mb-5 bg-gray_clear
-              md:m-0 md:rounded-none">
+                  <div className='relative mb-5
+                  md:m-0'>
+                    {
+                      card?.image?.url || card?.image ?
+                      <div className='w-[134px] h-[126px]
+                      md:w-[126px]'>
+                        <Image
+                          alt="photo"
+                          width={160}
+                          height={160}
+                          src={card ?  // ¿Existe la variable 'card'?
+                            card.image ?  // ¿Existe la propiedad 'image' en 'card'?
+                              card.image.url ? card.image.url : card.image // ¿Existe la propiedad 'url' en 'card.image'? Si es cierto, usa 'card.image.url'; de lo contrario, usa 'card.image'.
+                              : card.image // Si no existe 'card.image', usa 'card.image'.
+                            : null}
+                          className="w-[134px] h-[126px] rounded-lg object-cover block
+                         md:rounded-none"
+                        />
                       </div>
-                  }
+                        :
+                        <div className="w-[134px] h-[126px] rounded-lg object-cover bg-gray_clear
+                         md:rounded-none md:w-[126px]">
+                        </div>
+                    }
+
+                    {card?.active && 
+                      <span className='absolute flex w-3 h-3 bg-secondary bottom-[-10px] right-[-10px] rounded-full border-[7px] p-[7px] border-solid border-white
+                      md:bottom-[-6px] '></span>
+                    }
+                  </div>
 
 
                   {/* Estrellas */}
@@ -176,7 +178,6 @@ export function TeachersCard() {
                 </button>
 
               </div>
-            </div>
             : null))
       ) : (
         <div className='w-screen h-[400px] flex justify-center items-center
