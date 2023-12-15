@@ -5,6 +5,7 @@ import { faPenToSquare, faUser, faStar } from '@fortawesome/free-solid-svg-icons
 import { useSession } from 'next-auth/react';
 import { useEffect } from 'react';
 import Link from 'next/link';
+import Head from 'next/head'
 
 export default function Profile(){
     const { data: session, status } = useSession();
@@ -12,6 +13,11 @@ export default function Profile(){
 
     return(
         <>
+        <Head>
+            <title>{session?.user?.first_name} {session?.user?.last_name} | Español con E</title>
+            <meta name="profile" content="profile" />
+        </Head>
+
         <Menu/>
 
         <section className='py-[119px] px-[60px]
