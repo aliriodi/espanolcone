@@ -32,6 +32,7 @@ module.exports = {
 
         warning:'#ff7438',
         warning_hover:'#FC824D',
+        warning_flat_hover:'#E73B3C1F',
         warning_border_hover:"#FF743833",
 
         info:'#fcc235',

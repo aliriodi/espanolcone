@@ -7,18 +7,20 @@ import Class from '../../components/Class/Class';
 import { useSpring, animated } from 'react-spring';
 import { useSession } from "next-auth/react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFlagCheckered } from '@fortawesome/free-solid-svg-icons';
+import { faBookDead, faBookOpen, faFlagCheckered } from '@fortawesome/free-solid-svg-icons';
 import { faAngleLeft, faAngleRight, faHouse, faPersonHiking, faChalkboardUser, faLaptop, faAddressCard, faPen } from '@fortawesome/free-solid-svg-icons'
 import { useDispatch } from "react-redux";
 import { classid } from '../../redux/ECEActions'
 import Spinner from './../../components/Spinner';
 import Logo from '../../public/imgs/only-logo.png'
 import PLANS from "../../components/Plan/MUnit2"
+import Head from 'next/head';
 
 
 export default function Home() {
   const [totalUnits, setTotalUnits] = useState()
   const [unitsDone, setUnitsDone] = useState()
+  const [level, setLevel] = useState()
   const [showPlans, setShowPlans] = useState(false)
   const [GeneralProgress, setGeneralProgress] = useState(0)
   const [isLoading, setIsLoading] = useState(true);
@@ -44,6 +46,12 @@ export default function Home() {
     let currentClasses = [];
     let clasesLength;
     let classesDone;
+
+    // En caso de que el id de position sea null significa que hizo el 100% de las unidades
+    if(session?.user?.position.id == null){
+      setGeneralProgress(100)
+      return;
+    }
 
     for (let i = 0; session?.user?.classes.length > i; i++) {
       // Se ponen todas las clases en un mismo array 
@@ -83,6 +91,8 @@ export default function Home() {
       }
     }
 
+    setLevel(currentLevel?.level)
+
     // Busca hasta que unidad llego en el nivel actual
     for (let i = 0; currentLevel?.units?.length > i; i++) {
       if (currentLevel?.units[i]?.unitID == session?.user?.position.id) {
@@ -113,13 +123,19 @@ export default function Home() {
     //TODO hacer navbar 
     //TODO hacer barra lateral
     //TODO hacer footer si hay */}
+      <Head>
+        <title>Español con E</title>
+        <meta name="Home" content="Home" />
+      </Head>
 
       <Menu />
+
       {isLoading ? (
+
         <div className="flex h-screen justify-center items-center">
           <Spinner />
         </div> // Muestra el componente Spinner cuando isLoading es true
-      ) : (
+        ) : (
 
         <main className='relative px-[60px] overflow-hidden py-[119px] 
       md:ml-0 md:px-[25px]'>
@@ -161,155 +177,410 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Porentaje de progresos */}
-          <div className='bg-white shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000040] py-[24px] px-[21px] rounded-[8.12px] my-[20px]'>
+          {/* Porentaje de progresos Original */}
+          {
+          //   <div className='bg-white shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000040] py-[24px] px-[21px] rounded-[8.12px] my-[20px]'>
 
-            {/* Barra de Porsentages */}
-            <ul className='flex justify-between
-          md:flex-wrap'>
-              {/* Progreso General */}
-              <li className='w-[100%] mr-[50px]
-            md:w-[45%] md:mr-0 md:mb-[25px]'>
+          //   {/* Barra de Porsentages */}
+          //   <ul className='flex justify-between
+          // md:flex-wrap'>
+          //     {/* Progreso General */}
+          //     <li className='w-[100%] mr-[50px]
+          //   md:w-[45%] md:mr-0 md:mb-[25px]'>
 
-                <p className='md:text-[11px]'>Progreso general</p>
-
-                {/* Barra de progreso */}
-                <div className='w-[100%] bg-success_light rounded-full h-[14px] relative overflow-hidden'>
-                  <animated.div
-                    className="progress-bar rounded-l-full h-[14px] flex justify-center items-center bg-success"
-                    style={{
-                      width: `${GeneralProgress}%`,
-                      // backgroundColor: '#ccc', // Color de fondo de la barra de progreso
-                    }}
-                  >
-                    {
-                      GeneralProgress > 0 &&
-                      <p className='text-[12px] text-white'>{GeneralProgress}%</p>
-                    }
-                  </animated.div>
+          //       <p className='md:text-[12px]'>Progreso general</p>
+                
+          //       {/* Barra de progreso */}
+          //       <div className='w-[100%] bg-success_light rounded-full h-[14px] relative overflow-hidden'>
+          //         <animated.div
+          //           className="progress-bar rounded-l-full h-[14px] flex justify-center items-center bg-success"
+          //           style={{
+          //             width: `${GeneralProgress}%`,
+          //             // backgroundColor: '#ccc', // Color de fondo de la barra de progreso
+          //           }}
+          //         >
+          //           {
+          //             GeneralProgress > 0 &&
+          //             <p className='text-[12px] text-white'>{GeneralProgress}%</p>
+          //           }
+          //         </animated.div>
                   
-                  {/* En caso de que no haya progreso */}
-                  {
-                    GeneralProgress == 0 &&
-                    <p className='text-[12px] text-success absolute top-0 w-full text-center font-semibold'>0%</p>
-                  }
-              </div>
+          //         {/* En caso de que no haya progreso */}
+          //         {
+          //           GeneralProgress == 0 &&
+          //           <p className='text-[12px] text-success absolute top-0 w-full text-center font-semibold'>0%</p>
+          //         }
+          //     </div>
 
-              </li>
+          //     </li>
 
-              {/* Unidades realizadas */}
-              <li className='w-[100%] mr-[50px]
-            md:w-[45%] md:mr-0 md:mb-[25px]'>
-                <p className='md:text-[11px]'>Unidades realizadas</p>
+          //     {/* Unidades realizadas */}
+          //     <li className='w-[100%] mr-[50px]
+          //   md:w-[45%] md:mr-0 md:mb-[25px]'>
+          //       <p className='md:text-[12px]'>Unidades realizadas</p>
 
-                {/* Barra de progreso */}
-                <div className='w-[100%] bg-success_light rounded-full h-[14px] relative overflow-hidden'>
-                  <animated.div
-                    className="progress-bar rounded-l-full h-[14px] flex justify-center items-center bg-success"
-                    style={{
-                      width: `${ totalUnits == 0 && unitsDone == 0 ? 0 : (unitsDone / totalUnits) * 100}%`,
-                      // backgroundColor: '#ccc', // Color de fondo de la barra de progreso
-                    }}
-                  >
-                    {
-                      unitsDone > 0 &&
-                      <p className='text-[12px] text-white'>{unitsDone} / {totalUnits}</p>
-                    }
+          //       {/* Barra de progreso */}
+          //       <div className='w-[100%] bg-success_light rounded-full h-[14px] relative overflow-hidden'>
+          //         <animated.div
+          //           className="progress-bar rounded-l-full h-[14px] flex justify-center items-center bg-success"
+          //           style={{
+          //             width: `${ totalUnits == 0 && unitsDone == 0 ? 0 : (unitsDone / totalUnits) * 100}%`,
+          //             // backgroundColor: '#ccc', // Color de fondo de la barra de progreso
+          //           }}
+          //         >
+          //           {
+          //             unitsDone > 0 &&
+          //             <p className='text-[12px] text-white'>{unitsDone} / {totalUnits}</p>
+          //           }
                     
-                  </animated.div>
+          //         </animated.div>
                   
-                  {/* En caso de que no haya actividades echas */}
-                  {
-                    unitsDone == 0 &&
-                    <p className='text-[12px] text-success absolute top-0 w-full text-center font-semibold'>0 / {totalUnits}</p>
-                  }
-              </div>
-            </li>
+          //         {/* En caso de que no haya actividades echas */}
+          //         {
+          //           unitsDone == 0 &&
+          //           <p className='text-[12px] text-success absolute top-0 w-full text-center font-semibold'>0 / {totalUnits}</p>
+          //         }
+          //     </div>
+          //   </li>
             
-            {/* Clase individual */}
-            <li className='w-[100%] mr-[50px]
-            md:w-[45%] md:mr-0 md:mb-[25px]'>
-                <p className='md:text-[11px]'>Clase individual</p>
+          //   {/* Clase individual */}
+          //   <li className='w-[100%] mr-[50px]
+          //   md:w-[45%] md:mr-0 md:mb-[25px]'>
+          //       <p className='md:text-[12px]'>Clase individual</p>
 
-                {/* Barra de progreso */}
-                <div className='w-[100%] bg-success_light rounded-full h-[14px] relative overflow-hidden'>
-                  <animated.div
-                    className="progress-bar rounded-l-full h-[14px] flex justify-center items-center bg-success"
-                    style={{
-                      width: '50%',
-                      // backgroundColor: '#ccc', // Color de fondo de la barra de progreso
-                    }}
-                  >
-                    <p className='text-[12px] text-white'>5 / 10</p>
-                  </animated.div>
-                </div>
-              </li>
+          //       {/* Barra de progreso */}
+          //       <div className='w-[100%] bg-success_light rounded-full h-[14px] relative overflow-hidden'>
+          //         <animated.div
+          //           className="progress-bar rounded-l-full h-[14px] flex justify-center items-center bg-success"
+          //           style={{
+          //             width: '50%',
+          //             // backgroundColor: '#ccc', // Color de fondo de la barra de progreso
+          //           }}
+          //         >
+          //           <p className='text-[12px] text-white'>5 / 10</p>
+          //         </animated.div>
+          //       </div>
+          //     </li>
 
-              {/* Guía turistico */}
-              <li className='w-[100%] 
-            md:w-[45%] md:mr-0 md:mb-[25px]'>
-                <p className='md:text-[11px]'>Guía turistico</p>
+          //     {/* Guía turistico */}
+          //     <li className='w-[100%] 
+          //   md:w-[45%] md:mr-0 md:mb-[25px]'>
+          //       <p className='md:text-[12px]'>Guía turistico</p>
 
-                {/* Barra de progreso */}
-                <div className='w-[100%] bg-success_light rounded-full h-[14px] relative overflow-hidden'>
-                  <animated.div
-                    className="progress-bar rounded-l-full h-[14px] flex justify-center items-center bg-success"
-                    style={{
-                      width: '50%',
-                      // backgroundColor: '#ccc', // Color de fondo de la barra de progreso
-                    }}
-                  >
-                    <p className='text-[12px] text-white'>5 / 10</p>
-                  </animated.div>
-                </div>
-              </li>
-            </ul>
+          //       {/* Barra de progreso */}
+          //       <div className='w-[100%] bg-success_light rounded-full h-[14px] relative overflow-hidden'>
+          //         <animated.div
+          //           className="progress-bar rounded-l-full h-[14px] flex justify-center items-center bg-success"
+          //           style={{
+          //             width: '50%',
+          //             // backgroundColor: '#ccc', // Color de fondo de la barra de progreso
+          //           }}
+          //         >
+          //           <p className='text-[12px] text-white'>5 / 10</p>
+          //         </animated.div>
+          //       </div>
+          //     </li>
+          //   </ul>
 
-            {/* Ir a curso */}
-            <div className='w-full flex justify-end'>
-              <Link
-                // onClick={dispatch(classid(session?.user.position?.id))}
-                className='btn-primary px-[70px] py-[9px] text-[14px] mt-[21px] shadow-[0px_5.410437107086182px_5.410437107086182px_#00000040]
-            md:w-full md:mt-0 md:text-center'
-                href={`/inicio/curso/unidad?classId=${session?.user.position?.id}`}
-                style={{ display: 'inline-block' }}>
-                Ir al curso
-              </Link>
+          //   {/* Ir a curso */}
+          //   <div className='w-full flex justify-end'>
+          //     <Link
+          //       // onClick={dispatch(classid(session?.user.position?.id))}
+          //       className='btn-primary px-[70px] py-[9px] text-[14px] mt-[21px] shadow-[0px_5.410437107086182px_5.410437107086182px_#00000040]
+          //   md:w-full md:mt-0 md:text-center'
+          //       href={`/inicio/curso/unidad?classId=${session?.user.position?.id}`}
+          //       style={{ display: 'inline-block' }}>
+          //       Ir al curso
+          //     </Link>
+          //   </div>
+          //   </div>
+          }
+
+          
+          {/* Ir a Clase Actual */}
+          {
+            session?.user?.position?.id &&
+            <div className='bg-white shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000040] py-[24px] px-[28px] rounded-[8.12px] mt-[20px] w-full'>
+              
+              <div className='w-full flex justify-between items-center
+              md:flex-col'>
+                <p className='text-[18px] text-violet_dark'>
+                ¡Tu próxima clase comenzará pronto!
+                </p>
+
+                {/* Boton */}
+                <Link
+                  // onClick={dispatch(classid(session?.user.position?.id))}
+                  className='btn-primary px-[70px] py-[9px] shadow-[0px_5.410437107086182px_5.410437107086182px_#00000040]
+              md:w-full md:mt-0 md:text-center'
+                  href={`/inicio/curso/unidad?classId=${session?.user?.position?.id}`}
+                  style={{ display: 'inline-block' }}>
+                  Ir a mi clase
+                </Link>
+              </div>
+
             </div>
+          }
+
+          {/* Porsentages */}
+          <div className='flex w-full justify-between
+          md:flex-col'>
+
+            {/* Progreso General */}
+            <div className='bg-white shadow-[0px_4.982935428619385px_29.897613525390625px_#0000000F] pt-[24px] rounded-[8.12px] my-[20px] w-fit mr-[20px] flex flex-col justify-between
+            md:mr-0 md:mb-[25px] md:w-full md:items-center'>
+
+              {/* Titulo */}
+              <p className='mb-[60px] text-[18px] text-title_color font-medium border-b-2 mx-[21px] py-2
+              md:w-[90%] md:border-none'>Progreso general</p>
+
+              {/* Circulo de progreso */}
+              <div className="relative w-fit flex bg-white mx-[80px]
+              md:mx-0">
+                <div className="absolute w-full h-full flex justify-center items-center">
+                    <div className="rounded-full bg-white w-[90%] h-[90%] flex justify-center items-center ">
+                      <p className='text-violet_dark text-[35px] font-medium'>{GeneralProgress}%</p>
+                    </div>
+                </div>
+                <svg width={100 * 2} height={100 * 2} viewBox={`0 0 ${100 * 2} ${100 * 2}`}>
+                    <circle
+                    className="progress-circle stroke-success_light"
+                    cx={100}
+                    cy={100}
+                    r={100 - 100 / 2}
+                    fill="transparent"
+                    strokeWidth={100}
+                    />
+                    <circle
+                    className="progress-circle stroke-success"
+                    cx={100}
+                    cy={100}
+                    r={100 - 100 / 2}
+                    fill="transparent"
+                    strokeWidth={100}
+                    strokeDasharray={2 * Math.PI * 100}
+                    strokeDashoffset={2 * Math.PI * 100 - ((GeneralProgress / 100) / 2) * 2 * Math.PI * 100}
+                    transform={`rotate(-90 ${100} ${100})`}
+                    />
+                </svg>
+              </div>
+
+              {/* Porsentages inferiores */}
+              <div className='w-full border-t-2 border-[#EBE9F1] flex mt-[60px]'>
+                {/* Completado */}
+                <div className=' border-r-2 border-[#EBE9F1] w-1/2 py-[40px] flex justify-center items-center flex-col'>
+
+                  <p className='text-[#B9B9C3] mb-2
+                  md:text-[14px]'>Completado</p>
+
+                  <p className='text-[20px] font-semibold text-violet_dark'>{GeneralProgress}%</p>
+
+                </div>
+
+                {/* Restante */}
+                <div className=' w-1/2 py-[40px] flex justify-center items-center flex-col'>
+
+                  <p className='text-[#B9B9C3] mb-2
+                  md:text-[14px]'>Restante</p>
+
+                  <p className='text-[20px] font-semibold text-violet_dark'>{100 - GeneralProgress}%</p>
+
+                </div>
+              </div>
+
+            </div>
+
+            {/* Porsentages de la derecha */}
+            <div className='w-full relative my-[20px] flex flex-col'>
+
+              {/* Porsentage de progresos */}
+              <div className='bg-white shadow-[0px_4.982935428619385px_29.897613525390625px_#0000000F] py-[24px] px-[28px] rounded-[8.12px] mb-[20px] w-full flex-grow-[1]'>
+                
+                <p className='mb-[60px] text-[18px] text-title_color font-medium border-b-2 py-2
+                md:w-full md:border-none md:mb-[40px]'>Información de clases</p>
+
+                {/* Barra de Porsentages */}
+                <ul className='flex justify-between flex-col
+                md:flex-wrap'>
+                  
+                  {/* Unidades realizadas */}
+                  <li className='w-[100%] flex items-center mb-[40px]
+                  md:mr-0 md:mb-[25px]'>
+
+                    {/* Icono */}
+                    <div className='w-[85px] h-[85px] bg-primary_flat_hover rounded-full flex justify-center items-center
+                    md:w-[45px] md:h-[45px]'>
+                      <FontAwesomeIcon className="text-primary text-[40px]
+                      md:text-[22px]" icon={faBookOpen}/>
+                    </div>
+
+                    {/* Contenido */}
+                    <div className='pl-[18px] flex-grow-[1]'>
+
+                      <p className=' text-violet_dark font-semibold
+                        md:text-[12px]'>{level}</p>
+
+                      <p className=' text-violet_dark 
+                      md:text-[12px]'>Unidades realizadas</p>
+
+                      {/* Barra de progreso */}
+                      <div className='w-full bg-primary_flat_hover rounded-full h-[14px] relative overflow-hidden'>
+
+                        {
+                          GeneralProgress < 100 ?
+                          <>
+                            <animated.div
+                              className="progress-bar rounded-l-full h-[14px] flex justify-center items-center bg-primary"
+                              style={{
+                                width: `${ totalUnits == 0 && unitsDone == 0 ? 0 : (unitsDone / totalUnits) * 100}%`,
+                                // backgroundColor: '#ccc', // Color de fondo de la barra de progreso
+                              }}
+                            >
+                              {
+                                unitsDone > 0 &&
+                                <p className='text-[12px] text-white
+                                md:text-[12px]'>{unitsDone} / {totalUnits}</p>
+                              }
+                              
+                            </animated.div>
+                            
+                            {/* En caso de que no haya actividades echas */}
+                            {
+                              unitsDone == 0 &&
+                              <p className='text-[12px] text-primary absolute top-0 w-full text-center font-semibold
+                              md:text-[12px]'>0 / {totalUnits}</p>
+                            }
+                          </> 
+                          :
+                          // En caso de que ya este copletado
+                          <div className="progress-bar rounded-l-full h-[14px] flex justify-center items-center bg-primary w-full">
+                            <p className='text-[12px] text-white'>¡Completadas!</p>
+                          </div>
+                        }
+                      </div>
+                    </div>
+                  </li>
+                
+                  {/* Clase individual */}
+                  <li className='w-[100%] flex items-center
+                  md:mr-0 md:mb-[25px]'>
+
+                    {/* Icono */}
+                    <div className='w-[85px] h-[85px] bg-warning_flat_hover rounded-full flex justify-center items-center
+                    md:w-[45px] md:h-[45px]'>
+                      <FontAwesomeIcon className="text-warning text-[40px]
+                      md:text-[22px]" icon={faChalkboardUser}/>
+                    </div>
+
+                    {/* Contenido */}
+                    <div className='pl-[18px] flex-grow-[1]'>
+                      
+                      <p className='text-violet_dark font-semibold
+                      md:text-[12px]'>Clase individual</p>
+
+                      <p className='text-violet_dark
+                      md:text-[12px]'>Disponibles</p>
+
+                      {/* Barra de progreso */}
+                      <div className='w-[100%] bg-warning_flat_hover rounded-full h-[14px] relative overflow-hidden'>
+
+                      {
+                        session?.user?.planSync?.length > 0 && session?.user?.planSync[session?.user?.planSync?.length - 1]?.qty > session?.user?.planSync[session?.user?.planSync?.length - 1]?.classview ?
+                        
+                        <animated.div
+                          className="progress-bar rounded-l-full h-[14px] flex justify-center items-center bg-warning"
+                          style={{
+                            width: `${(session?.user?.planSync[session?.user?.planSync?.length - 1]?.classview / session?.user?.planSync[session?.user?.planSync?.length - 1]?.qty) * 100}%`
+                          }}
+                        >
+                          <p className='text-[12px] text-white'>{session?.user?.planSync[session?.user?.planSync?.length - 1]?.classview} / {session?.user?.planSync[session?.user?.planSync?.length - 1]?.qty}</p>
+                        </animated.div>
+                        :
+                        <div className="progress-bar rounded-l-full h-[14px] flex justify-center items-center bg-warning w-full"
+                        onClick={()=>console.log(session)}>
+                          <p className='text-[12px] text-white'>No tienes clases</p>
+                        </div>
+                      }
+                      </div>
+                    </div>
+                  </li>
+
+                </ul>
+
+              </div>
+
+              {/* Ver avanzes */}
+              <div className='bg-white shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000040] py-[24px] px-[28px] rounded-[8.12px]  w-full
+              md:p-0 md:mt-[15px]'>
+                
+                <div className='w-full flex justify-between items-center'>
+
+                  <p className='text-[18px] text-violet_dark
+                  md:hidden'>Encontrá toda la información de los niveles y unidades que ya realizaste.</p>
+                  
+                  {/* Boton */}
+                  <Link
+                    // onClick={dispatch(classid(session?.user.position?.id))}
+                    className='btn-success px-[70px] py-[9px] shadow-[0px_5.410437107086182px_5.410437107086182px_#00000040] inline-block
+                    md:w-full md:mt-0 md:text-center md:hidden'
+                    href={'./curso'}
+                    style={{ textWrap: "nowrap" }}>
+                    Ver más
+                  </Link>
+
+                  {/* Boton responsive */}
+                  <div className='hidden md:inline-block w-full'>
+                    <Link
+                      // onClick={dispatch(classid(session?.user.position?.id))}
+                      className='btn-success px-[70px] py-[9px] shadow-[0px_5.410437107086182px_5.410437107086182px_#00000040] 
+                      md:w-full md:mt-0 md:text-center md:inline-block md:px-0'
+                      href={'./curso'}
+                      style={{ textWrap: "nowrap" }}>
+                      Ver más de mi progreso
+                    </Link>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
           </div>
 
           {/* Ver Progreso del curso */}
-          <div className='bg-white shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000040] py-[24px] px-[21px] rounded-[8.12px] relative'>
+          {
+          // <div className='bg-white shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000040] py-[24px] px-[21px] rounded-[8.12px] relative'>
 
-            {/* Texto */}
-            <div className='flex flex-col items-center'>
-              <h2 className='mb-3
-            md:text-[18.02px]'>Progreso de tu curso</h2>
-              <p className='text-violet_dark 
-            md:text-[14px]'>Encontrá toda la información de los niveles y unidades que ya realizaste.</p>
-            </div>
+          //   {/* Texto */}
+          //   <div className='flex flex-col items-center'>
+          //     <h2 className='mb-3
+          //   md:text-[18.02px]'>Progreso de tu curso</h2>
+          //     <p className='text-violet_dark 
+          //   md:text-[14px]'>Encontrá toda la información de los niveles y unidades que ya realizaste.</p>
+          //   </div>
 
-            {/* Ver más */}
-            <div className='w-full flex justify-end'>
-              <Link
-                className='btn-primary px-[70px] py-[9px] text-[14px] mt-[21px] shadow-[0px_5.410437107086182px_5.410437107086182px_#00000040]'
-                href={'./curso'}
-                style={{ display: 'inline-block' }}>
-                Ver más
-              </Link>
-            </div>
+          //   {/* Ver más */}
+          //   <div className='w-full flex justify-end'>
+          //     <Link
+          //       className='btn-primary px-[70px] py-[9px] text-[14px] mt-[21px] shadow-[0px_5.410437107086182px_5.410437107086182px_#00000040]'
+          //       href={'./curso'}
+          //       style={{ display: 'inline-block' }}>
+          //       Ver más
+          //     </Link>
+          //   </div>
 
-            {/* Imagen */}
-            <div className='absolute left-0 top-0 h-full flex items-center justify-end w-[20%]
-          md:hidden'>
-              <Image
-                width={72.8}
-                height={132.75}
-                src={'https://res.cloudinary.com/dfddh08q8/image/upload/v1696689725/images/imagen_2023-10-07_114206546_teiy3v.png'}
-                alt='guia turistica'
-              />
-            </div>
-          </div>
+          //   {/* Imagen */}
+          //   <div className='absolute left-0 top-0 h-full flex items-center justify-end w-[20%]
+          // md:hidden'>
+          //     <Image
+          //       width={72.8}
+          //       height={132.75}
+          //       src={'https://res.cloudinary.com/dfddh08q8/image/upload/v1696689725/images/imagen_2023-10-07_114206546_teiy3v.png'}
+          //       alt='guia turistica'
+          //     />
+          //   </div>
+          // </div>
+          }
 
           {/* Profesores */}
           <div className='relative flex my-[37px]
