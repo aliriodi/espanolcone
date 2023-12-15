@@ -7,8 +7,9 @@ http://localhost:3000/cloudinary
 Cuando el pago es Zelle en la BD  hay que validar para modificar los siguientes datos:
 1. Calendar teacher con el _id del usario se preasigna la clase al alumno con la variable de preassigned: true y assigned: false
 2. Calendar user o student posee el ultimo elemento del calendar como preassigned: true y assigned false
-3. En user planssync.value: false y no permite confirmar mas clases hasat que se le de true al valor, el classview que debe inicar en 1 esta en 0 y el plansync.qty = valor
-4. En receipts el iduser identifica quien compro por zelle o que medio de pago hizo y el valor dates.valid si es zelle esta en false
+3. En user plansync.value: false y no permite confirmar mas clases hasta que se le de true al valor, el classview que debe inicar en 1 esta en 0 y el plansync.qty = valor
+4. En receipts el iduser identifica quien compro por zelle o paypal como medio de pago hizo y el valor dates.valid si es zelle esta en false como condicion inicial
+   Los campos anteriormente indicados deben ser cambiados a TRUE cuando el pago zelle sea validado con la Imagen adjuntada por el usuario, con el monto y el id.
    
 Corremos el server como 
 $ npm run dev

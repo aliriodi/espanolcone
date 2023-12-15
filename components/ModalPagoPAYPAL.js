@@ -70,7 +70,7 @@ export default function ModalPagoPAYPALL(props) {
                                 data: props?.dates
                               })
                               return res.data.id
-                            } catch{
+                            } catch (error){
                               console.log(error)
                             }
                           }} 

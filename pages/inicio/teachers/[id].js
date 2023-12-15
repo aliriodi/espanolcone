@@ -10,16 +10,26 @@ import Menu from "../../../components/Menu";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import Spinner from '../../../components/Spinner';
+import { parseISO, isAfter, isEqual ,addDays, startOfDay} from 'date-fns';
+import Head from 'next/head'
 
 export default function TeacherDetailPage() {
   // const cardDetail2 = useSelector((state) => state.datos.cardDetail);
   const [isCardAvailable, setIsCardAvailable] = useState(false);
   const [cardDetail, setcardDetail] = useState(null);
+  const [calendarEnabled, setCalendarEnabled] = useState(true)
   const router = useRouter();
   const { id } = router.query;
   // Opciones de Youtube
   const iframeRef = useRef(null);
 
+  useEffect(()=>{
+    const tomorrow = startOfDay(addDays(new Date(), 1));
+    setCalendarEnabled(cardDetail?.calendar?.some(calendar1 => (
+      (isAfter(parseISO(calendar1?.startDatetime), tomorrow) || isEqual(parseISO(calendar1?.startDatetime), tomorrow)) && !calendar1.assigned
+    )))
+  },[cardDetail])
+  
   useEffect(() => {
     
     // if (cardDetail2?.length!==0) {
@@ -32,7 +42,6 @@ export default function TeacherDetailPage() {
         try {
 
           const details = await fetch('/api/users/'+id ).then(response => response.json());
-          console.log("DETAIL ",await details)
           setcardDetail(await details?.userid);
 
         } catch (error) {
@@ -67,6 +76,11 @@ export default function TeacherDetailPage() {
   }
   return (
     <>
+    <Head>
+        <title>{cardDetail?.first_name+' '+cardDetail?.last_name} | Español con E</title>
+        <meta name="teachers" content="teachers list" />
+    </Head>
+
     <Menu />
 
     <div
@@ -151,15 +165,18 @@ export default function TeacherDetailPage() {
                 </div>
                 
                 {/* Reservar Responsive */}
-                <div className='hidden
-                md:flex'>
-                  <Link
-                    className="py-2 px-[26px] rounded absolute bottom-2 left-2 w-[90%] btn-primary"
-                    href={"#reservar"}
-                  >
-                    Reservar
-                  </Link>
-                </div>
+                {
+                  calendarEnabled &&
+                  <div className='hidden
+                  md:flex'>
+                    <Link
+                      className="py-2 px-[26px] rounded absolute bottom-2 left-2 w-[90%] btn-primary"
+                      href={"#reservar"}
+                    >
+                      Reservar
+                    </Link>
+                  </div>
+                }
               </div>
             </div>
 
@@ -176,7 +193,7 @@ export default function TeacherDetailPage() {
           md:px-2'>
 
             {/* Titulo */}
-            <p className='text-[18px] text-title_color font-medium border-b-2 py-2'>Metodología:{console.log('/inicio/teachers/[id] 128',cardDetail)}</p>
+            <p className='text-[18px] text-title_color font-medium border-b-2 py-2'>Metodología:</p>
 
             {/* Metodologias */}
             {cardDetail?.enfoquePedagogico ? (
@@ -187,7 +204,7 @@ export default function TeacherDetailPage() {
 
             {/* Puntos */}
             <ul>
-              {cardDetail?.puntos && cardDetail?.puntos.length > 0 ? (
+              {cardDetail?.puntos && cardDetail?.puntos.length > 0 && (
                 cardDetail?.puntos.map((punto, index) => (
                   <li
                   className='text-violet_dark ml-2 mb-1'
@@ -196,13 +213,14 @@ export default function TeacherDetailPage() {
                     {punto}
                   </li>
                 ))
-              ) : (
-                <li className='text-violet_dark py-2'>No hay puntos importantes cargados</li>
-              )}
+              ) 
+            }
             </ul>
-            <p className='text-violet_dark py-2'>
-              {cardDetail?.despedida ? cardDetail.despedida : 'No hay despedida'}
-            </p>
+            {cardDetail?.despedida &&
+              <p className='text-violet_dark py-2'>
+                {cardDetail.despedida}
+              </p>
+            }
           </div>
 
           {/* Reseñas */}
@@ -257,13 +275,16 @@ export default function TeacherDetailPage() {
           <p className='my-10'>estrellas</p>
 
           {/* Reservar Cita */}
-          <button
-            id='reservar'
-            className="btn-primary py-2 px-[26px] rounded"
-            onClick={handleButton}
-          >
-            Reservar Cita
-          </button>
+          {
+            calendarEnabled &&
+            <button
+              id='reservar'
+              className="btn-primary py-2 px-[26px] rounded"
+              onClick={handleButton}
+            >
+              Reservar Cita
+            </button>
+          }
         </div>
 
       </div>
