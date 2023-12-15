@@ -248,7 +248,7 @@ const Menu = (props) => {
                         </li>
 
                         {/* Guías turisticos */}
-                        <li>
+                        {/* <li>
                             <Link
                                 className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
                                 ${currentPathName == '/tourGuides' && "bg-primary text-white"}
@@ -257,7 +257,7 @@ const Menu = (props) => {
                                 <FontAwesomeIcon icon={faPersonHiking} className=" mr-[10px]" />
                                 <p>Guías turisticos</p>
                             </Link>
-                        </li>
+                        </li> */}
 
                         {/* Cargar Clase */}
                         {session && session.user && session.user.role.includes('admin') ?
@@ -274,7 +274,7 @@ const Menu = (props) => {
                             : null}
                             <li>
                         {/* Pagar */}
-                            <button
+                            {/* <button
                                 onClick={openPaypalModal}
                                 className={`flex w-full items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
                                 ${currentPathName == '/tourGuides' && "bg-primary text-white"}
@@ -283,7 +283,7 @@ const Menu = (props) => {
                             >
                                 <FontAwesomeIcon icon={faMoneyBill} className="mr-[10px]" />
                                 <p>Hazte Premium</p>
-                            </button> 
+                            </button>  */}
 
                             <ModalPago modalPaypal={handleChangePaypalModal} open={paypalModal}/>
                         </li>
