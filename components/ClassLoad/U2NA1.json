@@ -294,7 +294,7 @@
         "data": [
             {
                 "type": "title",
-                "value": "Thainá habla con su hermano por teléfono mientras están en el aeropuerto.<br>Completa el diálogo arrastrando la opción adecuada en cada caso.<br><span style='color: #EB792A'>Recordá que es una conversación informal entre dos hermanos</span>",
+                "value": "Thainá habla con su hermano por teléfono mientras están en el aeropuerto.<br>Completa el diálogo arrastrando la opción adecuada en cada caso.<br><span style='color: black'>Recordá que es una conversación informal entre dos hermanos</span>",
                 "className": "title-white"
             },
             {
@@ -383,7 +383,7 @@
         "data": [
             {
                 "type": "title",
-                "value": "Thainá habla con su hermano por teléfono mientras están en el aeropuerto.<br>Completa el diálogo arrastrando la opción adecuada en cada caso.<br><span style='color: #EB792A'>Recordá que es una conversación informal entre dos hermanos</span>",
+                "value": "Thainá habla con su hermano por teléfono mientras están en el aeropuerto.<br>Completa el diálogo arrastrando la opción adecuada en cada caso.<br><span style='color: black'>Recordá que es una conversación informal entre dos hermanos</span>",
                 "className": "title-white"
             },
             {
@@ -402,7 +402,7 @@
                     },
                     {
                         "type":"text",
-                        "content":"<strong style='color: #EB792A'>Thainá:</strong> ¡Los chicos se van a poner muy contentos! Bueno, me voy porque Pedro ya terminó. Ahora vamos para allá. ¡No te olvides de enviarme la dirección!"
+                        "content":"<strong style='color: #EB792A'>Thainá:</strong> ¡Los chicos se van a poner muy contentos! Bueno, me voy porque Pedro ya terminó. Ahora vamos para allá.<br> ¡No te olvides de enviarme la dirección!"
                     },
                     {
                         "type":"dropup-end",
@@ -458,13 +458,18 @@
         "data": [
             {
                 "type": "title",
-                "value": "¡Vamos a jugar <span style='color: #EB792A'>Kahoot</span>!",
+                "value": "¡Vamos a jugar <span style='color: black'>Kahoot</span>!",
                 "className": "title-white"
             },
             {
                 "type": "paragraph",
                 "value": "Sigue este enlace y únete al juego",
                 "className": "subtitle-default"
+            },
+            {
+                "type": "text",
+                "value": "<a href='https://kahoot.it/challenge/3b160182-6b4e-4452-9162-742f55934da3_1700795107498' style='color:#1A0DAB'>https://kahoot.it/challenge/3b160182-6b4e-4452-9162-742f55934da3_1700795107498</a>",
+                "className": "paragraph-default"
             },
             {
                 "type":"image",
@@ -502,7 +507,7 @@
             },
             {
                 "type":"image",
-                "value":"",
+                "value":"https://res.cloudinary.com/dfddh08q8/image/upload/s--b_OgswJj--/v1702649210/images/losevtx2slhysjajuti6.png",
                 "alt":"",
                 "className":""
             }
@@ -543,7 +548,7 @@
         "data": [
             {
                 "type": "title",
-                "value": "<span style= 'color: #EB792A'>Evaluación unidad 2 - Nivel A1</span>",
+                "value": "Evaluación unidad 2 - Nivel A1",
                 "className": "title-white"
             },
             {

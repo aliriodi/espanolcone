@@ -523,23 +523,23 @@
         "data": [
             {
                 "type": "title",
-                "value": "<span style= 'color: #EB792A'>Evaluación Unidad 2 - Nivel B1</span>",
+                "value": "Evaluación Unidad 2 - Nivel B1",
                 "className": "title-white"
             },
             {
                 "type": "paragraph",
-                "value": "<strong>A continuación verás 20 imágenes que muestran lugares y actividades para pasarla bien. Tendrá una lista para identificar los distintos lugares y actividades, posiciona cada elemento de la lista en la imagen que identifica.<br><br></strong>",
-                "className": "paragraph-default"
+                "value": "<span style='color:#6E6B7B'>A continuación verás 20 imágenes que muestran lugares y actividades para pasarla bien. Tendrá una lista para identificar los distintos lugares y actividades, posiciona cada elemento de la lista en la imagen que identifica.<br></span>",
+                "className": "paragraph12"
             },
             {
                 "type": "paragraph",
-                "value": "<strong>Cada asociación correcta te sumará un punto, para un total de 20 puntos.<br><br>Recuerda que apruebas el tes sumando mínimo 18 puntos.<br><br></strong>",
-                "className": "paragraph-default"
+                "value": "<span style='color:#6E6B7B'>Cada asociación correcta te sumará un punto, para un total de 20 puntos.<br><br>Recuerda que apruebas el tes sumando mínimo 18 puntos.<br><br></span>",
+                "className": "paragraph12"
             },
             {
                 "type": "paragraph",
                 "value": "<strong style=' color: #EB792A'>¡Adelante y buena suerte!</strong>",
-                "className": "paragraph-default"
+                "className": "paragraph12"
             }
         ]
     },
