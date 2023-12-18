@@ -7,7 +7,8 @@ export default function Paragragraphcomplete(props) {
       props.data.value.map( value => {
         if(typeof(value) === 'object')  {
         //return { option:value.option.toLowerCase(), answer:"", done:false}}})
-        return { option:value.option, answer:"", done:false}}})
+        return { option:value.option, answer:"", done:false}}}
+        )
         )
     );
     
@@ -48,9 +49,23 @@ export default function Paragragraphcomplete(props) {
         })
       )
     }
-  },[props?.data?.value])
+  },[props])
 
-  useEffect(()=> activityCheck(), [inputValues])
+  useEffect(()=>{
+    console.log("/////////////Change/////////////")
+    console.log("ID ",props?.id)
+    setInputValues(
+      props.data.value.map( value => {
+        if(typeof(value) === 'object')  {
+          
+        console.log("Value ",value)
+        //return { option:value.option.toLowerCase(), answer:"", done:false}}})
+        return { option:value.option, answer:"", done:false}}}
+        )
+    )
+  },[props?.id])
+
+  useEffect(()=> activityCheck(), [inputValues,props])
 
   return (
     <div>
@@ -60,7 +75,7 @@ export default function Paragragraphcomplete(props) {
 
             <span key={index} style={{paddingRight: '5px',paddingLeft: '5px'}}>
 
-              <input key={index}
+              <input 
                   type="text"
                   className={
                     `

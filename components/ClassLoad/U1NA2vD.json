@@ -9,8 +9,8 @@
         "data": [
             {
                 "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366262/images/logo-primary_qoagkg.png",
-                "alt": "EspañolconE",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--KFBNpAGN--/v1702915955/images/zemvc5myi7puahxya7je.jpg",
+                "alt": "ExtranjerosEnCordoba",
                 "className": "Portadaimg"
             },
             {
@@ -40,7 +40,7 @@
             },
             {
                 "type": "paragraph",
-                "value": " <table style= 'border: 2px solid black;' ><tr  style=' background-color: var(--primary); border: 2px solid black;' ><th style= 'border: 2px solid black;width:30%;' ><h2><strong style='color:black;'>Comunicación</strong></h2></th><th style= ' border: 2px solid black;width:20%' ><h2><strong style='color:black;'>Vocabulario</strong></h2></th><th style= 'border: 2px solid black; width:30%' ><h2><strong style='color:black;'>Gramática</strong></h2></th></tr><tr><td style= 'border: 2px solid black;' > <ul> <li>*Identificarse, presentarse (nombre y apellido), saludar y despedirse.</li>  <li>*Deletrear.</li> <li>*Dar y pedir información acerca de nacionalidad o lugar de origen, lugar de residencia, profesión y edad.</li><li>*Cultura en saludos y despedidas: saludar con un beso, un abrazo y un apretón de manos.</li><li></li></ul> </td><td style= 'border: 2px solid black;' ><ul> <li>*Expresiones para saludar y despedirse.</li>  <li> *El abecedario.</li> <li>*Nombres de países y continentes.</li> <li>*Vocabulario de nacionalidades, profesiones y oficios.</li><li></li> </ul></td><td style= 'border: 2px solid black; ' ><ul> <li>*Uso del verbo ser para: identificar, profesiones y gentilicios.</li>  <li>*Géneros para gentilicios y profesiones.</li><li></li> </ul></td></tr></table>",
+                "value": " <table style= 'background-color:white;border: 2px solid black;' ><tr  style=' background-color: var(--primary); border: 2px solid black;' ><th style= 'border: 2px solid black;width:30%;' ><h2><strong style='color:black;'>Comunicación</strong></h2></th><th style= ' border: 2px solid black;width:20%' ><h2><strong style='color:black;'>Vocabulario</strong></h2></th><th style= 'border: 2px solid black; width:30%' ><h2><strong style='color:black;'>Gramática</strong></h2></th></tr><tr><td style= 'border: 2px solid black;' > <ul> <li>*Hablar de la vida de una persona que vive en Córdoba.</li>  <li>*Hablar de hábitos.</li> <li>*Hablar de la duración.</li><li></li><li>*Expresar preferencias y deseos.</li><li>* Preguntar y responder sobre motivaciones.</li><li>*Hablar de dificultades.</li><li>*Hacer recomendaciones.</li><li>*Describir sentimientos.</li><li>*Expresar motivos para estudiar español.</li></ul> </td><td style= 'border: 2px solid black;' ><ul> <li>*Vcoabulario relacionado con el turismo y la ciudad de Córdoba.</li>  <li>*La nacionalidad.</li> <li>*Las profesiones.</li> <li>*Lugares de trabajo.</li> <li>*Las costumbres.</li> <li>*Sentirse feliz, ridículo (a), seguro (a), frustrado (a), bien, mal, etc.</li> <li>*Actividades para aprender idiomas.</li> </ul></td><td style= 'border: 2px solid black; ' ><ul> <li>*Me llamo / Se llama.</li>  <li>*Primera y tercera persona del singular. </li> <li>*Adjetivos demostrativos.</li> <li>*Los presentes regulares e irregulares.</li> <li>*Verbos reflexivos.</li> <li>*Verbos costar y sentirse.</li> <li>*Para / Porque.</li> <li>*Diferentes preposiciones.</li> <li>*Por y para.</li> <li>*Desde / desde hace / hace … que</li> </ul></td></tr></table>",
                 "className": "table"
             }
         ]
@@ -314,7 +314,7 @@
         "data": [
             {
                 "type": "title",
-                "value": "Video interativo",
+                "value": "Video interactivo",
                 "className": "title-white"
             },
             {
@@ -448,7 +448,7 @@
         "data": [
             {
                 "type": "title",
-                "value": "Video interativo",
+                "value": "Actividades interactivas",
                 "className": "title-white"
             },
             {
@@ -906,7 +906,7 @@
                         "color": "orange",
                         "option": "tiene"
                     },
-                    " tener) una beca para hacer un Máster en música y",
+                    " (tener) una beca para hacer un Máster en música y",
                     {
                         "block": 6,
                         "color": "orange",
@@ -989,7 +989,7 @@
                 "value": [
                     "<span style='color:#4CCFEB;'> 1.</span> Yo siempre me",
                     {
-                        "block": 7,
+                        "block":  7,
                         "color": "orange",
                         "option": "caigo"
                     },
