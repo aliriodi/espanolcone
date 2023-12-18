@@ -800,7 +800,7 @@ export default function Class(props) {
                     
                     {/* Parrafo a Completar */}
                     {c.type === 'paragraph-complete' &&
-                    <div key={index} className={style[c.className]}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} data={c}/></div> }
+                    <div key={index} className={style[c.className]}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={i} onChangeActivityDone={handleChangeActivityDone} data={c}/></div> }
                     
                     {/* PopUp de Dialogos */}
                     {c.type === 'popUp-dialogues' &&
@@ -809,11 +809,11 @@ export default function Class(props) {
                     
                     {/* Parrafo a Completar de lista */}
                     {c.type === 'complete-li' &&
-                    <div key={index} className={style[c.className]}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} data={c}/> </div> }
+                    <div key={index} className={style[c.className]}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={i} onChangeActivityDone={handleChangeActivityDone} data={c}/> </div> }
                     
                     {/* Parrafo a Completar de lista con persona*/}
                     {c.type === 'complete-li-personal' &&
-                    <div key={index} className={style[c.className]}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} data={c}/> </div> }
+                    <div key={index} className={style[c.className]}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={i} onChangeActivityDone={handleChangeActivityDone} data={c}/> </div> }
                     
                     {/* <p dangerouslySetInnerHTML={{ __html: c.value }}></p> */}
 
