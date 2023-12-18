@@ -20,10 +20,10 @@ export default async function IdUser(req, res) {
         console.log('CONNECTED TO MONGO DB');
         console.log('/api/users/[id] user with id:',  id)
 
-        const userid = await User.findById({_id:id}).select('-createdAt -updatedAt -classes -password');
+        const userid = await User.findById({_id:id}).select('-createdAt -updatedAt  -password');
 
-        if (!userid) {
-          return res.status(404).json({ message: 'User not found' });
+        if (!userid||true) {
+          return res.status(404).json({ message: userid });
         }
 
         

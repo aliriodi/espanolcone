@@ -6,7 +6,8 @@ export default function Paragragraphcomplete(props) {
   const [inputValues, setInputValues] = useState(() => (
       props.data.value.map( value => {
         if(typeof(value) === 'object')  {
-        return { option:value.option.toLowerCase(), answer:"", done:false}}})
+        //return { option:value.option.toLowerCase(), answer:"", done:false}}})
+        return { option:value.option, answer:"", done:false}}})
         )
     );
     
