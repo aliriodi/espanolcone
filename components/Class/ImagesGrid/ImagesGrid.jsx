@@ -23,7 +23,7 @@ export default function ImagesGrid({ images }){
                         
                         {
                             image?.src &&
-                            <Image className="w-full h-full object-cover" src={image?.src} width='100' height='100' alt={`Image ${index}`}/>
+                            <img className="w-full h-full object-cover" src={image?.src} width='100' height='100' alt={`Image ${index}`}/>
                         }
                         
                     </div>
