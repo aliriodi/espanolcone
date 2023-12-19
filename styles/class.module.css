@@ -571,6 +571,15 @@
 /* ////////////////////////////////////////////////////////////////////////// RESTO ////////////////////////////////////////////////////////////////////////// */
 
 
+.box-curve1 {
+    width: 200px;
+    height: 100px;
+    border-color:var(--primary);
+    border-style:solid;
+    border-width:2px;
+    border-radius: 0px 20px 0 20px; /* Aplica bordes redondeados solo en la esquina superior izquierda y la esquina inferior izquierda */
+    overflow: hidden; /* Evita que el contenido se desborde */
+  }
 
 
 
