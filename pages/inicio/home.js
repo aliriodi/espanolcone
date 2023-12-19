@@ -383,7 +383,7 @@ export default function Home() {
                   <p className='text-[#B9B9C3] mb-2
                   md:text-[14px]'>Restante</p>
 
-                  <p className='text-[20px] font-semibold text-violet_dark'>{100 - GeneralProgress}%</p>
+                  <p className='text-[20px] font-semibold text-violet_dark'>{(100 - GeneralProgress).toFixed(1)}%</p>
 
                 </div>
               </div>
