@@ -31,8 +31,9 @@ export default function ImagesGrid({ images }){
                     {/* Texto */}
                     {
                         image?.text &&
-                        <p className="w-full font-medium text-[1.33rem] text-violet_dark mt-5">
-                            {image?.text}
+                        <p
+                        className="w-full font-medium text-[1.33rem] text-violet_dark mt-5"
+                        dangerouslySetInnerHTML={{ __html: image?.text }}>
                         </p>
                     }
 
