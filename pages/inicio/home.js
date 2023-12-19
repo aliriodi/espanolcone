@@ -48,7 +48,7 @@ export default function Home() {
     let classesDone;
 
     // En caso de que el id de position sea null significa que hizo el 100% de las unidades
-    if(session?.user?.position.id == null){
+    if(session?.user?.position?.id == null){
       setGeneralProgress(100)
       return;
     }
