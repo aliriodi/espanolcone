@@ -53,7 +53,7 @@ export default function DropContainer({
                         {
                         dropUp?.src
                         ?
-                        <Image
+                        <img
                         className="rounded-[5px] w-[250px] h-[250px] bg-light shadow-[0px_4px_26px_#00000040] mb-2 object-cover
                         md:w-[147px] md:h-[147px] md:mb-1"
                         alt="Image"
