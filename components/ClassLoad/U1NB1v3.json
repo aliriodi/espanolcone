@@ -56,43 +56,30 @@
             {
                 "type": "title",
                 "value": " ¿Cómo elegir el mate correcto?",
-                "className": "title-white"
+                "className": "title-white-4"
             },
             {
-                "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--iF60mbe5--/v1702990987/images/patqwyd7q6t3edun8i7z.png",
-                "alt": "Mate1",
-                "className": "className"
-            },
-            {
-                "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--lPKtlcHZ--/v1702991273/images/lbahwytdlh00llz1ttfq.png",
-                "alt": "Mate2",
-                "className": "className"
-            },
-            {
-                "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--vvOlXXwZ--/v1702991293/images/fky6uytpap2bdja3ve8q.png",
-                "alt": "Mate3",
-                "className": "className"
-            },
-            {
-                "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--BFFceRDb--/v1702991318/images/ywwudq1jfntdg9mtionn.png",
-                "alt": "Mate4",
-                "className": "className"
-            },
-            {
-                "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--FDz61qlo--/v1702991345/images/nqyxejjhkqhoy7gu0ygn.png",
-                "alt": "Mate5",
-                "className": "className"
-            },
-            {
-                "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--rH-SF85e--/v1702991368/images/y6tropkjietovmvyndcx.png",
-                "alt": "Mate6",
-                "className": "className"
+                "type": "image-grid",
+                "value": [
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--iF60mbe5--/v1702990987/images/patqwyd7q6t3edun8i7z.png"
+                    },
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--lPKtlcHZ--/v1702991273/images/lbahwytdlh00llz1ttfq.png"
+                    },
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--vvOlXXwZ--/v1702991293/images/fky6uytpap2bdja3ve8q.png"
+                    },
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--BFFceRDb--/v1702991318/images/ywwudq1jfntdg9mtionn.png"
+                    },
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--FDz61qlo--/v1702991345/images/nqyxejjhkqhoy7gu0ygn.png"
+                    },
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--rH-SF85e--/v1702991368/images/y6tropkjietovmvyndcx.png"
+                    }
+                ]
             }
         ]
     },
@@ -111,36 +98,29 @@
             },
             {
                 "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--aDJKvT5c--/v1702992815/images/ai7kvkfnat8es4fcevs0.png",
-                "alt": "Mate Madera",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--mZIL0qBI--/v1702998850/images/n3eo3akkdnxbtoaqtojy.png",
+                "alt": "ticket",
                 "className": "className"
             },
             {
-                "type": "text",
-                "value": "<strong><span style='color:var(--orange); '>de</span> madera</strong>",
-                "className": "className"
-            },
-            {
-                "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--5Ruws0HG--/v1702993295/images/q2vthmgtrfoyab87uw0r.png",
-                "alt": "Mate Metal",
-                "className": "className"
-            },
-            {
-                "type": "text",
-                "value": "<strong><span style='color:var(--orange); '>de</span> metal</strong>",
-                "className": "className"
-            },
-            {
-                "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--twt79SVT--/v1702993334/images/nvtmyfmuedxumeizurgy.png",
-                "alt": "Mate Ceramica",
-                "className": "className"
-            },
-            {
-                "type": "text",
-                "value": "<strong><span style='color:var(--orange); '>de</span> ceramica</strong>",
-                "className": "className"
+                "type": "image-grid",
+                "value": [
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--twt79SVT--/v1702993334/images/nvtmyfmuedxumeizurgy.png",
+                        "alt": "Mate Ceramica",
+                        "text": "<strong><span style='color:var(--orange); '>de</span> ceramica</strong>"
+                    },
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--5Ruws0HG--/v1702993295/images/q2vthmgtrfoyab87uw0r.png",
+                        "alt": "Mate Metal",
+                        "text": "<strong><span style='color:var(--orange); '>de</span> metal</strong>"
+                    },
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--aDJKvT5c--/v1702992815/images/ai7kvkfnat8es4fcevs0.png",
+                        "text": "<strong><span style='color:var(--orange); '>de</span> madera</strong>",
+                        "alt": "Mate de madera"
+                    }
+                ]
             }
         ]
     },
@@ -159,36 +139,26 @@
             },
             {
                 "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--KudR3fFb--/v1702993434/images/nifvm9ivau7dckrml1ku.png",
-                "alt": "Mate Colorido",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--mZIL0qBI--/v1702998850/images/n3eo3akkdnxbtoaqtojy.png",
+                "alt": "ticket",
                 "className": "className"
             },
             {
-                "type": "text",
-                "value": "<strong><span style='color:var(--orange); '>colorido</span></strong>",
-                "className": "className"
-            },
-            {
-                "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--w3y2i1xO--/v1702993485/images/a1mr5koll69z5rtm0x8y.png",
-                "alt": "Mate Plastico",
-                "className": "className"
-            },
-            {
-                "type": "text",
-                "value": "<strong><span style='color:var(--orange); '>que sea </span> de plástico</strong>",
-                "className": "className"
-            },
-            {
-                "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--qArWp8ey--/v1702993562/images/yhirg2fhdgtrpzo6jlom.png",
-                "alt": "Mate Bandera Argentina ",
-                "className": "className"
-            },
-            {
-                "type": "text",
-                "value": "<strong><span style='color:var(--orange); '>que tenga</span> la bandera de Argentina</strong>",
-                "className": "className"
+                "type": "image-grid",
+                "value": [
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--KudR3fFb--/v1702993434/images/nifvm9ivau7dckrml1ku.png",
+                        "text": "<strong><span style='color:var(--orange); '>colorido</span></strong>"
+                    },
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--qArWp8ey--/v1702993562/images/yhirg2fhdgtrpzo6jlom.png",
+                        "text": "<strong><span style='color:var(--orange); '>que sea </span> de plástico</strong>"
+                    },
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--qArWp8ey--/v1702993562/images/yhirg2fhdgtrpzo6jlom.png",
+                        "text": "<strong><span style='color:var(--orange); '>que tenga</span> la bandera de Argentina</strong>"
+                    }
+                ]
             }
         ]
     },
@@ -204,7 +174,7 @@
             {
                 "type": "title",
                 "value": "¿Cómo elegir el mate correcto?",
-                "className": "title-white"
+                "className": "title-white-4"
             },
             {
                 "type": "title",
@@ -243,7 +213,7 @@
             }
         ]
     },
-    "page7":  {
+    "page7": {
         "type": "text",
         "section": {
             "number": 1,
@@ -255,7 +225,7 @@
             {
                 "type": "title",
                 "value": "¿Cómo elegir el mate correcto?",
-                "className": "title-white"
+                "className": "title-white-4"
             },
             {
                 "type": "title",
@@ -287,8 +257,6 @@
                 "value": "El mate de asta vacuna era utilizado antiguamente por los <strong>gauchos y arrieros</strong>, y actualmente es muy utilizado en Paraguay para tomar tereré.",
                 "className": "paragraph-default"
             }
-           
-           
         ]
     },
     "page8": {
@@ -303,7 +271,7 @@
             {
                 "type": "title",
                 "value": "¿Cómo elegir el mate correcto?",
-                "className": "title-white"
+                "className": "title-white-4"
             },
             {
                 "type": "title",
@@ -317,195 +285,328 @@
             },
             {
                 "type": "paragraph",
-                "value": "Estos vasos de mates son especiales para ahorrar tiempo, por su superficie muy práctica para limpiar y que no precisa curado. <span style='color:var(--orange);'>Pueden estar forrados con cuero</span> y su ventaja principal es que tanto el vidrio como la cerámica no absorben el sabor de la yerba.",
+                "value": "Compañero de la pava y amigo de la tarde matera. Algunos de estos recipientes de mate transmiten el calor del agua al tacto, mientras que otros <span style='color:var(--orange);'>se fabrican utilizando acero inoxidable en capas</span>. Esto asegura que el mate no se caliente luego de varias cebadas y no dificulte la tarea del cebador cuando lo tenga en sus manos.",
                 "className": "paragraph-default"
             },
             {
                 "type": "paragraph",
-                "value": "<span style='font-size: 1.5em;color:var(--primary);display: inline-block; margin-right: 10px;'>&rarr;</span><span style='color:var(--primary);'>El exótico: el mate de asta o pezuña</span>",
+                "value": "<span style='font-size: 1.5em;color:var(--primary);display: inline-block; margin-right: 10px;'>&rarr;</span><span style='color:var(--primary);'>El elegante: el mate de alpaca</span>",
                 "className": "paragraph-default"
             },
             {
                 "type": "paragraph",
-                "value": "Estos recipientes de mate son más comunes de encontrar en el campo y <span style='color:var(--orange);'>se confeccionan con cuernos o pezuñas de animales vacunos</span>, aprovechando todo lo que provee el animal.",
+                "value": "Si eres de los que les gusta lucirse  mate a mate, los de alpaca y/o plata son los más indicados. <span style='color:var(--orange);'>Se confeccionan a partir de calabazas seleccionadas, que luego se tiñen para que un artesano, finalmente, realice el trabajo de ornamentación del metal.</span>",
                 "className": "paragraph-default"
-            }    
-            ]
+            }
+        ]
     },
-
     "page9": {
-        "type": "text",
+        "type": "movebox-image",
         "section": {
             "number": 1,
             "value": "Comencemos"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697679179/images/template2_uhryao.png",
+        "template": "template-title-right-1",
         "data": [
             {
                 "type": "title",
-                "value": "Lucía y Fernanda son dos hermanas tucumanas. Fernanda vive en Córdoba hace 25 años, su hermana y su sobrino, Benjamín, la visitan cada verano. A continuación vas a leer un diálogo en el cual los tres están haciendo planes para el fin de semana.",
-                "className": "paragraph12"
+                "value": "Ahora que ya conoces algunos de los tipos de mates que podemos encontrar, arrastrá el nombre del mate a la imagen correspondiente",
+                "className": "title-white"
             },
             {
-                "type": "title",
-                "value": "Completa la conversación eligiendo la opción del verbo que corresponda.",
-                "className": "purple-center"
-            },
-            {
-                "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697679111/images/imagpag14_ek8mv7.png",
-                "alt": "Paisaje",
-                "className": "imagepaisaje"
+                "type": "dragable-box",
+                "value": {
+                    "DropUps": [
+                        {
+                            "type": "image",
+                            "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--nyllG_8L--/v1703006885/images/sislbblpwttwxvcrkqhy.png",
+                            "value": "Mate de asta o pezuña",
+                            "id": "DropUp1"
+                        },
+                        {
+                            "type": "image",
+                            "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--RLWAPzAI--/v1703006932/images/idicd2uaagcdubf54cdm.png",
+                            "value": "Mate de metal",
+                            "id": "DropUp2"
+                        },
+                        {
+                            "type": "image",
+                            "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--jOABoHdc--/v1703006907/images/nhwktpvoqc1kgwuqkraq.png",
+                            "value": "Mate de cerámica",
+                            "id": "DropUp3"
+                        }
+                    ],
+                    "DragBoxs": [
+                        {
+                            "value": "Mate de cerámica",
+                            "id": "DragBox1"
+                        },
+                        {
+                            "value": "Mate de asta o pezuña",
+                            "id": "DragBox2"
+                        },
+                        {
+                            "value": "Mate de metal",
+                            "id": "DragBox3"
+                        }
+                    ]
+                },
+                "className": "dragable-box"
             }
         ]
     },
     "page10": {
-        "type": "selectsimple",
+        "type": "movebox-image",
         "section": {
-            "number": 3,
-            "value": "Practiquemos"
+            "number": 1,
+            "value": "Comencemos"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
+        "template": "template-title-right-1",
         "data": [
             {
-                "type": "selectsimple",
-                "value": " <strong> <span style= 'color: #4CCFEB;'>1. </span> Los estudiantes que hablan en el video son de:</strong>",
-                "option": "Colombia, Brasil y México.",
-                "options": [
-                    "Perú, Colombia y Brasil.",
-                    "Colombia, Brasil y México.",
-                    "Brasil, Venezuela y Estado unidos."
-                ],
-                "className": "paragraph2"
+                "type": "title",
+                "value": "Ahora que ya conoces algunos de los tipos de mates que podemos encontrar, arrastrá el nombre del mate a la imagen correspondiente",
+                "className": "title-white"
             },
             {
-                "type": "selectsimple",
-                "value": "<strong> <span style= 'color: #4CCFEB;'>2. </span> A los estudiantes les gusta:</strong>",
-                "option": "La gente y la comida.",
-                "options": [
-                    "La gente y la comida.",
-                    "El clima y los ríos.",
-                    "Las plazas y la comida."
-                ],
-                "className": "paragraph2"
-            },
-            {
-                "type": "selectsimple",
-                "value": "<strong> <span style= 'color: #4CCFEB;'>3. </span>  Todos los estudiantes del video estudian la misma carrera universitaria.</strong>",
-                "option": "Falso.",
-                "options": [
-                    "Verdadero.",
-                    "Falso."
-                ],
-                "className": "paragraph2"
+                "type": "dragable-box",
+                "value": {
+                    "DropUps": [
+                        {
+                            "type": "image",
+                            "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--wvfy_Tss--/v1703007207/images/ygkcmxekbweps9mwa7fm.png",
+                            "value": "Mate de calabaza",
+                            "id": "DropUp1"
+                        },
+                        {
+                            "type": "image",
+                            "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--XxLuXqFd--/v1703007259/images/nzi4j63m3b8njqmhsb1x.png",
+                            "value": "Mate de alpaca",
+                            "id": "DropUp2"
+                        },
+                        {
+                            "type": "image",
+                            "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--X3BM3Ac7--/v1703007306/images/mj9zcdtb4qgtqpapmya6.png",
+                            "value": "Mate de madera",
+                            "id": "DropUp3"
+                        }
+                    ],
+                    "DragBoxs": [
+                        {
+                            "value": "Mate de alpaca",
+                            "id": "DragBox1"
+                        },
+                        {
+                            "value": "Mate de madera",
+                            "id": "DragBox2"
+                        },
+                        {
+                            "value": "Mate de calabaza",
+                            "id": "DragBox3"
+                        }
+                    ]
+                },
+                "className": "dragable-box"
             }
         ]
     },
     "page11": {
-        "type": "complete",
+        "type": "video-youtube",
         "section": {
-            "number": 3,
-            "value": "Practiquemos"
+            "number": 2,
+            "value": "Aprendemos"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
+        "template": "template-video-1",
         "data": [
             {
                 "type": "title",
-                "value": "Completa la historia de la familia Garcia con los verbos en paréntesis.",
-                "className": "titleright-black2"
+                "value": "Video explicativo",
+                "className": "title-white"
             },
             {
-                "type": "paragraph",
-                "value": "¡Hola!",
-                "className": "paragraph2"
-            },
-            {
-                "type": "paragraph-complete",
-                "value": [
-                    "Me llamo Lucas y en la foto",
-                    {
-                        "block": 8,
-                        "color": "orange",
-                        "option": "salgo"
-                    },
-                    "(salir) con mi esposa Romina y nuestras mascotas, Canela y Pancho. Nosotros",
-                    {
-                        "block": 7,
-                        "color": "orange",
-                        "option": "somos"
-                    },
-                    "(ser) cordobeses, y amamos los perros. Vivimos en las sierras de Córdoba porque",
-                    {
-                        "block": 12,
-                        "color": "orange",
-                        "option": "preferimos"
-                    },
-                    "(preferir) el interior de la provincia."
-                ],
-                "className": "paragraph2"
-            },
-            {
-                "type": "paragraph-complete",
-                "value": [
-                    "Todos los fines de semana, después de bañarme,",
-                    {
-                        "block": 9,
-                        "color": "orange",
-                        "option": "salimos"
-                    },
-                    "(salir) a dar un paseo con mis perros. Mi esposa les",
-                    {
-                        "block": 6,
-                        "color": "orange",
-                        "option": "pone"
-                    },
-                    "(poner) la correa mientras yo",
-                    {
-                        "block": 8,
-                        "color": "orange",
-                        "option": "traigo"
-                    },
-                    "(traer) sus galletitas y termos con agua. Cuando regresamos de pasear, yo me",
-                    {
-                        "block": 6,
-                        "color": "orange",
-                        "option": "pongo"
-                    },
-                    "(poner) ropa limpia y",
-                    {
-                        "block": 6,
-                        "color": "orange",
-                        "option": "hago"
-                    },
-                    " (hacer) el desayuno. Antes de tomar una siesta, yo",
-                    {
-                        "block": 8,
-                        "color": "orange",
-                        "option": "dispongo"
-                    },
-                    " (disponer) un espacio para los perros en nuestro cuarto. Porque sino ellos",
-                    {
-                        "block": 11,
-                        "color": "orange",
-                        "option": "destruyen"
-                    },
-                    " (destruir) toda la casa mientras Romi y yo dormimos."
-                ],
-                "className": "paragraph2"
-            },
-            {
-                "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1695571885/images/3_fjrubz.png",
-                "className": "imagedownright",
-                "alt": "matrimonio"
+                "type": "video-youtube",
+                "value": "llq0SJKu9Qk",
+                "youtube": "https://youtu.be/llq0SJKu9Qk",
+                "className": "youtube"
             }
         ]
     },
     "page12": {
         "type": "complete",
         "section": {
-            "number": 5,
-            "value": "Mis retos"
+            "number": 3,
+            "value": "Practiquemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Observa esta información para resolver la siguiente actividad",
+                "className": "title-white-4"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--3aMJdhh---/v1703017390/images/v4fwy71ugkrnune2wspd.png",
+                "alt": "poncho",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--tEH8zJk1--/v1703017418/images/yjwk3bqqbsovpcosqu5k.png",
+                "alt": "Mate",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--dNORoywu--/v1703017439/images/sneiy8bqofciae3wkcqt.png",
+                "alt": "charango",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--At20GQgR--/v1703017456/images/cq9gouita7jba37r9kok.png",
+                "alt": "bombilla",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--AJWJDZGO--/v1703017477/images/f6bgks9pxptqknnoq7w7.png",
+                "alt": "sifon",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "<ul><li> Un poncho</li><li> Un mate</li><li> Un charango</li><li>Una bombilla</li><li>Un sifón</li></ul>",
+                "className": "box-curve1"
+            }
+        ]
+    },
+    "page13": {
+        "type": "complete",
+        "section": {
+            "number": 3,
+            "value": "Practiquemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Observa esta información para resolver la siguiente actividad",
+                "className": "title-white-4"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--3aMJdhh---/v1703017390/images/v4fwy71ugkrnune2wspd.png",
+                "alt": "poncho",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--tEH8zJk1--/v1703017418/images/yjwk3bqqbsovpcosqu5k.png",
+                "alt": "Mate",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--dNORoywu--/v1703017439/images/sneiy8bqofciae3wkcqt.png",
+                "alt": "charango",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--At20GQgR--/v1703017456/images/cq9gouita7jba37r9kok.png",
+                "alt": "bombilla",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--AJWJDZGO--/v1703017477/images/f6bgks9pxptqknnoq7w7.png",
+                "alt": "sifon",
+                "className": ""
+            },
+            {}
+        ]
+    },
+    "page14": {
+        "type": "complete",
+        "section": {
+            "number": 3,
+            "value": "Practiquemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Adivina el objeto",
+                "className": "title-dark"
+            },
+            {
+                "type": "title",
+                "value": "Relaciona las siguientes descripciones con el objeto correspondiente.",
+                "className": "title-white"
+            }
+        ]
+    },
+    "page15": {
+        "type": "complete",
+        "section": {
+            "number": 6,
+            "value": "Evaluemos"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697572892/images/u1p14nib1_oobxox.png",
+        "data": [
+            {}
+        ]
+    },
+    "page16": {
+        "type": "complete",
+        "section": {
+            "number": 6,
+            "value": "Evaluemos"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697572892/images/u1p14nib1_oobxox.png",
+        "data": [
+            {}
+        ]
+    },
+    "page17": {
+        "type": "complete",
+        "section": {
+            "number": 6,
+            "value": "Evaluemos"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697572892/images/u1p14nib1_oobxox.png",
+        "data": [
+            {}
+        ]
+    },
+    "page18": {
+        "type": "complete",
+        "section": {
+            "number": 6,
+            "value": "Evaluemos"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697572892/images/u1p14nib1_oobxox.png",
+        "data": [
+            {}
+        ]
+    },
+    "page19": {
+        "type": "complete",
+        "section": {
+            "number": 6,
+            "value": "Evaluemos"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697572892/images/u1p14nib1_oobxox.png",
+        "data": [
+            {}
+        ]
+    },
+    "page20": {
+        "type": "complete",
+        "section": {
+            "number": 6,
+            "value": "Evaluemos"
         },
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697572892/images/u1p14nib1_oobxox.png",
         "data": [
