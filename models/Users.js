@@ -41,7 +41,7 @@ const UserSchema = new Schema(
     aux: {
       type: Object,
     },
-    content:{
+    content: {
       type: String,
     },
     test: {
@@ -56,34 +56,34 @@ const UserSchema = new Schema(
     },
     calendar: {  //opcional para uso nuestro
       type: [{}]
-      
+
     },
     classes: {
       type: [
         {
           level: String,
-          units:[
+          units: [
             {
-              number:Number,
-              name:String,
-              unitID:String,
+              number: Number,
+              name: String,
+              unitID: String,
               description: String,
-              done:Boolean,
-              enable:Boolean,
-              points:Number,
-              maxPoints:Number
+              done: Boolean,
+              enable: Boolean,
+              points: Number,
+              maxPoints: Number
             }
           ],
-              
+
         }
       ],
     },
     position: {
-      type:{
-            id:    String,
-            index:   Number,
-            maxpages: Number
-          },
+      type: {
+        id: String,
+        index: Number,
+        maxpages: Number
+      },
     },
     guide: {
       type: String,
@@ -91,7 +91,7 @@ const UserSchema = new Schema(
     language: {
       type: String,
     },
-  
+
     plan: {
       name: {
         type: String
@@ -117,10 +117,12 @@ const UserSchema = new Schema(
     password: {
       type: String
     },
-    country:{type: String},
-    
+    country: { 
+      type: String 
+    },
+
     //Datos para Teacher
-    
+
     hablante: {
       type: String
     },
@@ -133,22 +135,22 @@ const UserSchema = new Schema(
     puntos: {
       type: Array
     },
-    
+
     despedida: {
       type: String
     },
     youtube: {
       type: String
     },
-    planAsync:{
-      type: [{ }],
-     
+    planAsync: {
+      type: [{}],
+
     },
-    planSync:{
-      type: [{ }],
-     
+    planSync: {
+      type: [{}],
+
     },
-    
+
 
   },
   {

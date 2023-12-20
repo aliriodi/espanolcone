@@ -1,24 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 //Condicion inicial de variables Store
-// const initialState= {
-//     languages:['br','en','sp'],
-//     classid:'0',
-//     classPage:1,
-//     language: 'br',
-//     showClass: false,
-//     plan:'plan1',
-//     userL: {
-//       name: "User",
-//       rol: "invitado",
-//       email: "user@mail.com",
-//       tests: [],
-//       temas: [],
-//     }
-//   };
-
-//   export const { getUserS ,showClass,classId, classPage} = datosSlice.actions;
-//   export default datosSlice.reducer;
 const initialState = {
   languages: ['br', 'en', 'sp'],
   classid: '6557e26410faf6be3ada6ad6',

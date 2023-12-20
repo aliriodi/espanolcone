@@ -628,7 +628,7 @@ export default function Profile(){
                                     style={{ width:'100%', flexGrow:1}}>
 
                                         <div className="flex justify-between" style={{ margin: '8px 0' }}>
-                                            <label htmlFor="metodologias" className='md:text-[12px]'>Metodología</label>
+                                            <label htmlFor="metodologias" className='md:text-[12px]'>Enfoque de Español con E</label>
                                         </div>
 
                                         <textarea
