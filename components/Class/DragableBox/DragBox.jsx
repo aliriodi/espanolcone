@@ -37,32 +37,63 @@ export default function DragBox (props){
 
     if(isDragging){
         return(
-            <div
-            style={style}
-            ref={setNodeRef}
-            className="
-            bg-primary
-            rounded-md text-white p-4 m-2 text-center inline-block cursor-grab touch-none
-            md:text-[12px] md:flex md:justify-center md:items-center md:py-0 md:h-[45px] md:w-fit opacity-[50%]">
-                {props.dragBox.value} 
-            </div>
+            <>
+                {
+                !props.dragBox?.src 
+                    ?
+                    <div
+                    style={style}
+                    ref={setNodeRef}
+                    className="
+                    bg-primary
+                    rounded-md text-white p-4 m-2 text-center inline-block cursor-grab touch-none
+                    md:text-[12px] md:flex md:justify-center md:items-center md:py-0 md:h-[45px] md:w-fit opacity-[50%]">
+                        {props.dragBox.value} 
+                    </div>
+                    :
+                    <img
+                    style={style}
+                    ref={setNodeRef}
+                    {...attributes}
+                    {...listeners}
+                    src={props.dragBox.src}
+                    className="max-w-[250px] text-white text-center inline-block cursor-grab touch-none transition-all opacity-[50%]
+                    active:cursor-grabbing
+                    md:text-[12px] md:flex md:justify-center md:items-center md:w-fit"/>
+                }
+            </>
         )
     }
 
     return(
-        
-        <div
-        style={style}
-        ref={setNodeRef}
-        {...attributes}
-        {...listeners}
-        className={`
-        ${ !props.canCheck && "bg-primary"}
-        ${ props.canCheck && props.dragBox?.done ? "bg-secondary" : "bg-danger"}
-         rounded-md text-white p-4 m-2 text-center inline-block cursor-grab touch-none transition-all
-         active:cursor-grabbing
-         md:text-[12px] md:flex md:justify-center md:items-center md:py-0 md:h-[45px] md:w-fit`}>
-            {props.dragBox.value}
-        </div>
+        <>
+            {
+                !props.dragBox?.src
+                ?
+                <div
+                style={style}
+                ref={setNodeRef}
+                {...attributes}
+                {...listeners}
+                className={`
+                ${ !props.canCheck && "bg-primary"}
+                ${ props.canCheck && props.dragBox?.done ? "bg-secondary" : "bg-danger"}
+                rounded-md text-white p-4 m-2 text-center inline-block cursor-grab touch-none transition-all
+                active:cursor-grabbing
+                md:text-[12px] md:flex md:justify-center md:items-center md:py-0 md:h-[45px] md:w-fit`}>
+                    {props.dragBox.value}
+                </div>
+                :
+                <img
+                style={style}
+                ref={setNodeRef}
+                {...attributes}
+                {...listeners}
+                src={props.dragBox.src}
+                className="max-w-[250px] text-white text-center inline-block cursor-grab touch-none transition-all
+                active:cursor-grabbing
+                md:text-[12px] md:flex md:justify-center md:items-center md:w-fit"/>
+            }
+        </>
     )
 }
