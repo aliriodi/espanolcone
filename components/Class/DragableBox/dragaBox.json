@@ -54,6 +54,63 @@
     "className": "dragable-box"
 },
 
+"/////////////////////////// Con DropUp Imagen ///////////////////////////",
+{
+    "type": "dragable-box",
+    "value":{
+        "DropUps":
+        [
+            {
+                "type":"dropup-image",
+                "value":"jóvenes",
+                "content":"<p>Texto 1</p><p>Texto 2</p><p>Texto 3</p>",
+                "id":"DropUp1"
+            },
+            {
+                "type":"dropup-image",
+                "value":"tímida",
+                "content":"<p>Texto 1</p><p>Texto 2</p><p>Texto 3</p>",
+                "id":"DropUp2"
+            },
+            {
+                "type":"dropup-image",
+                "value":"guapo",
+                "content":"<p>Texto 1</p><p>Texto 2</p><p>Texto 3</p>",
+                "id":"DropUp3"
+            },
+            {
+                "type":"dropup-image",
+                "value":"perezoso",
+                "content":"<p>Texto 1</p><p>Texto 2</p><p>Texto 3</p>",
+                "id":"DropUp4"
+            }
+        ],
+
+        "DragBoxs":[
+            {
+                "value":"jóvenes",
+                "src":"https://res.cloudinary.com/dfddh08q8/image/upload/v1697635249/images/jovenes_wdvbgc.png",
+                "id":"DragBox1"
+            },
+            {
+                "value":"tímida",
+                "src":"https://res.cloudinary.com/dfddh08q8/image/upload/v1697639695/images/timida_kn1wrv.png",
+                "id":"DragBox2"
+            },
+            {
+                "value":"guapo",
+                "src":"https://res.cloudinary.com/dfddh08q8/image/upload/v1697640114/images/guapo_aisyup.png",
+                "id":"DragBox3"
+            },
+            {
+                "value":"perezoso",
+                "src":"https://res.cloudinary.com/dfddh08q8/image/upload/v1697640136/images/persezoso_qtnchw.png",
+                "id":"DragBox4"
+            }
+        ]
+    },
+    "className": "dragable-box"
+},
 "/////////////////////////// DropUp al final del Texto ///////////////////////////",
 {
     "type": "dragable-box",

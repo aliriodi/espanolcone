@@ -236,11 +236,26 @@ export default function DragableBox( props ){
                     {
                         // Caja arrastrable 
                         <DragOverlay>
-                            <div
-                            className=' bg-primary rounded-md text-white p-4 m-2 text-center inline-block cursor-grabbing
-                            md:text-[12px] md:flex md:justify-center md:items-center md:py-0 md:h-[45px] md:w-fit'>
-                                {currentOptionDrag?.value}
-                            </div>
+                            
+                            {
+                                !currentOptionDrag?.src ?
+                                // Renderiza un drag box de texto
+                                <div
+                                className=' bg-primary rounded-md text-white p-4 m-2 text-center inline-block cursor-grabbing
+                                md:text-[12px] md:flex md:justify-center md:items-center md:py-0 md:h-[45px] md:w-fit'>
+                                    {currentOptionDrag?.value}
+                                </div>
+
+                                :
+                                // Renderiza un drag box imagen
+                                <img
+                                src={currentOptionDrag?.src}
+                                className="max-w-[250px] text-white text-center inline-block cursor-grab touch-none transition-all
+                                active:cursor-grabbing
+                                md:text-[12px] md:flex md:justify-center md:items-center md:w-fit"/>
+
+                            }
+
                         </DragOverlay>
                     }
                     </div>
