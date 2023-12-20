@@ -117,6 +117,7 @@ const UserSchema = new Schema(
     password: {
       type: String
     },
+    country:{type: String},
     
     //Datos para Teacher
     

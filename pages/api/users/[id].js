@@ -22,8 +22,8 @@ export default async function IdUser(req, res) {
 
         const userid = await User.findById({_id:id}).select('-createdAt -updatedAt  -password');
 
-        if (!userid||true) {
-          return res.status(404).json({ message: userid });
+        if (!userid) {
+          return res.status(404).json({ message: 'Usuario no existe' });
         }
 
         
