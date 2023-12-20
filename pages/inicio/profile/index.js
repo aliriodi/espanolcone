@@ -114,7 +114,7 @@ export default function Profile(){
                     session?.user?.role?.includes("teacher") && 
                     <div className='bg-white w-[52%] rounded-[10px] relative px-[22px] py-[26px] shadow-[0px_4px_24px_#0000000F]
                     md:w-full md:mt-2'>
-                        <p className='text-[18px] text-title_color font-medium border-b-2 py-2'>Metodología</p>
+                        <p className='text-[18px] text-title_color font-medium border-b-2 py-2'>Enfoque de Español con E</p>
 
                         {/* Metodologias */}
                         {session?.user?.enfoquePedagogico ? (
