@@ -56,6 +56,9 @@ export default function Class(props) {
 
   const [activeChronometer, setActiveChronometer] = useState(false)
 
+  // Loading de boton de finalizar
+  const [loading, setLoading] = useState(false)
+
   const opts = {
     playerVars: {
       rel: 0, // Evitar videos relacionados al final
@@ -477,8 +480,12 @@ export default function Class(props) {
     config: { duration: 100 }, // Configuración de animación,
   }); 
 
-  function sectionDone(){
-    updateIndexPosition(1)
+  async function sectionDone(){
+    setLoading(true)
+    
+    await updateIndexPosition(1)
+
+    setLoading(false)
 
     window.history.back()
   }
@@ -544,7 +551,7 @@ export default function Class(props) {
           hover:bg-primary_hover hover:text-white
           md:text-[16px] md:px-7`}>
             <FontAwesomeIcon icon={faAngleUp}/>
-            Finalizar
+            {loading ? "Loading..." : "Finalizar"}
           </button>
         }
 

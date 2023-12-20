@@ -79,6 +79,53 @@ export default function DropContainer({
                                 
                             ))}
                         </div>
+                    </div>
+                }
+
+                {
+                    // Tipo DropUp Imagen
+                    type=="dropup-image" &&
+                    <div
+                    style={style}
+                    className="flex flex-col my-[60px] items-center
+                    md:mb-0 md:mt-[45px]">
+
+                        {
+                            dropUp?.content ?
+                            <div
+                            ref={setNodeRef}
+                            dangerouslySetInnerHTML={{ __html: dragBoxs?.length == 0 && dropUp?.content }}
+                            className="rounded-[30px_0_30px_0] w-[250px] border-solid border-[2px] border-primary  min-h-[78px] flex flex-col p-4 text-violet_dark font-medium
+                            md:w-[147px]">
+                                {dragBoxs?.map((dragBox) => (
+                                    <DragBox
+                                        dropUpValue={dropUp?.value} 
+                                        key={dragBox.id}
+                                        dragBox={dragBox}
+                                        handleDoneOption={handleDoneOption}
+                                        canCheck={canCheck}
+                                    />
+                                    
+                                ))}
+                            </div>
+                            :
+                            <div
+                            ref={setNodeRef}
+                            className="rounded-[30px_0_30px_0] w-[250px] border-solid border-[2px] border-primary  min-h-[78px] flex flex-col p-4 text-violet_dark font-medium
+                            md:w-[147px]">
+                                {dragBoxs?.map((dragBox) => (
+                                    <DragBox
+                                        dropUpValue={dropUp?.value} 
+                                        key={dragBox.id}
+                                        dragBox={dragBox}
+                                        handleDoneOption={handleDoneOption}
+                                        canCheck={canCheck}
+                                    />
+                                    
+                                ))}
+                            </div>
+
+                        }
 
                     </div>
                 }
@@ -155,7 +202,7 @@ export default function DropContainer({
                     // Tipo Dropup Center
                     type=="dropup-center" &&
                     <div
-                    className="flex my-[5px] items-center w-full">
+                    className="flex my-[5px] items-center w-full flex-wrap">
                         
                         {/* Texto del Principio */}
                         <p
