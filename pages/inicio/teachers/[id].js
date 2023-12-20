@@ -193,7 +193,7 @@ export default function TeacherDetailPage() {
           md:px-2'>
 
             {/* Titulo */}
-            <p className='text-[18px] text-title_color font-medium border-b-2 py-2'>Enfoque de Español con E:</p>
+            <p className='text-[18px] text-title_color font-medium border-b-2 py-2'>Enfoque de Español con E</p>
 
             {/* Metodologias */}
             {cardDetail?.enfoquePedagogico ? (
