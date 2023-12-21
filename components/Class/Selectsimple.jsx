@@ -28,11 +28,11 @@ export default function Selectsimple(props) {
         setSelectedOption(selectedValue);
         
         if (event.target.value == props.data.option) {
-            props.onChangeActivityDone(props.id, true)
+            props.onChangeActivityDone(props.id, true, 1)
             setIsCorrect(true)
         }
         else {
-            props.onChangeActivityDone(props.id, false)
+            props.onChangeActivityDone(props.id, false, 0)
             setIsCorrect(false)
         }
 
@@ -52,7 +52,7 @@ export default function Selectsimple(props) {
                         
                     />
                     <span  style={{paddingLeft: '5px'}}>{option}</span>
-                    {selectedOption && (
+                    {selectedOption && !props?.inEvaluation && (
                         <span>
                         {/* Para renderizar culito */}
                             {selectedOption === option ? (
