@@ -644,7 +644,7 @@ export default function Class(props) {
                     sheetsOfSection[i]?.data?.map((c, index) =>
                     c.type === 'image' &&
                     <img
-                    key={"index"}
+                    key={index}
                     width='100'
                     height='100'
                     className="w-[90%] h-[90%] rounded-full object-cover"

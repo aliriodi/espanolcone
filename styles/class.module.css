@@ -572,8 +572,32 @@
 
 
 .box-curve1 {
-    width: 200px;
-    height: 100px;
+    padding-top: 8px;
+    padding-left: 16px;
+    width: 145px;
+    height: 140px;
+    border-color:var(--primary);
+    border-style:solid;
+    border-width:2px;
+    border-radius: 0px 20px 0 20px; /* Aplica bordes redondeados solo en la esquina superior izquierda y la esquina inferior izquierda */
+    overflow: hidden; /* Evita que el contenido se desborde */
+  }
+  .box-curve2 {
+    padding-top: 6px;
+    padding-left: 16px;
+    width: 145px;
+    height: 160px;
+    border-color:var(--primary);
+    border-style:solid;
+    border-width:2px;
+    border-radius: 0px 20px 0 20px; /* Aplica bordes redondeados solo en la esquina superior izquierda y la esquina inferior izquierda */
+    overflow: hidden; /* Evita que el contenido se desborde */
+  }
+  .box-curve3 {
+    padding-top: 6px;
+    padding-left: 16px;
+    width: 168px;
+    height: 140px;
     border-color:var(--primary);
     border-style:solid;
     border-width:2px;
@@ -584,12 +608,11 @@
 
 
 
-
-
-
 .className{
     border: solid red 4px;
 }
+
+
 
 .redbutton{
     border: solid red 4px;
