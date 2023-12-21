@@ -11,7 +11,8 @@ export default function DropContainer({
     typesDropsUps,
     dragBoxs,
     handleDoneOption,
-    canCheck
+    canCheck,
+    inEvaluation
 })
 {
     const {
@@ -70,6 +71,7 @@ export default function DropContainer({
                         md:w-[147px]">
                             {dragBoxs?.map((dragBox) => (
                                 <DragBox
+                                    inEvaluation={inEvaluation}
                                     dropUpValue={dropUp?.value} 
                                     key={dragBox.id}
                                     dragBox={dragBox}
@@ -99,6 +101,7 @@ export default function DropContainer({
                             md:w-[147px]">
                                 {dragBoxs?.map((dragBox) => (
                                     <DragBox
+                                        inEvaluation={inEvaluation}
                                         dropUpValue={dropUp?.value} 
                                         key={dragBox.id}
                                         dragBox={dragBox}
@@ -120,6 +123,7 @@ export default function DropContainer({
                                         dragBox={dragBox}
                                         handleDoneOption={handleDoneOption}
                                         canCheck={canCheck}
+                                        inEvaluation={inEvaluation}
                                     />
                                     
                                 ))}
@@ -157,6 +161,7 @@ export default function DropContainer({
                                     dragBox={dragBox}
                                     handleDoneOption={handleDoneOption}
                                     canCheck={canCheck}
+                                    inEvaluation={inEvaluation}
                                 />
                                 
                             ))}
@@ -179,6 +184,7 @@ export default function DropContainer({
                             
                             {dragBoxs?.map((dragBox) => (
                                 <DragBox
+                                    inEvaluation={inEvaluation}
                                     dropUpValue={dropUp?.value} 
                                     key={dragBox.id}
                                     dragBox={dragBox}
@@ -219,6 +225,7 @@ export default function DropContainer({
                             
                             {dragBoxs?.map((dragBox) => (
                                 <DragBox
+                                    inEvaluation={inEvaluation}
                                     dropUpValue={dropUp?.value} 
                                     key={dragBox.id}
                                     dragBox={dragBox}
@@ -270,6 +277,7 @@ export default function DropContainer({
                     >
                         {dragBoxs?.map((dragBox) => (
                             <DragBox
+                                inEvaluation={inEvaluation}
                                 dropUpValue={dropUp?.value} 
                                 key={dragBox.id}
                                 dragBox={dragBox}

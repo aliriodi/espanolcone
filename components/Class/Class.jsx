@@ -106,7 +106,7 @@ export default function Class(props) {
               }
           })
       })
-
+      
       // En caso de que la unidad actual no este echa se va indicar en "currentUnitDone"
       if(!currentUnit?.done && currentUnit?.enable) setCurrentUnitDone(false)
 
@@ -136,9 +136,10 @@ export default function Class(props) {
       data?.sheets?.map((sheet)=>{
 
         if(sheet.section?.number == 5){
-
+                    
           // Busca actividades
-          let activityFound = sheet?.data?.find((date)=> {
+          sheet?.data?.map((date)=> {
+            // revisa la cantidad de puntos que hay por hoja 
             if(
               date.type == "selectsimple" ||
               date.type == "paragraph-complete" ||
@@ -146,14 +147,46 @@ export default function Class(props) {
               date.type == "complete-li" ||
               date.type == "dragable-box" ||
               date.type == 'videoi-youtube'
-            ) return true;  
+            ){
+
+              switch(date.type){
+
+                case "selectsimple":{
+                  cantOfActivitys = cantOfActivitys + date?.options?.length;
+                  break;
+                }
+
+                case "paragraph-complete":{
+                  cantOfActivitys = cantOfActivitys + date?.value?.filter((paragraph)=> typeof paragraph == "object")?.length;
+                  break;
+                }
+
+                case "complete-li-personal":{
+                  cantOfActivitys = cantOfActivitys + date?.value?.filter((paragraph)=> typeof paragraph == "object")?.length;
+                  break;
+                }
+
+                case "complete-li":{
+                  cantOfActivitys = cantOfActivitys + date?.value?.filter((paragraph)=> typeof paragraph == "object")?.length;
+                  break;
+                }
+                
+                case "dragable-box":{
+                  cantOfActivitys = cantOfActivitys + date?.value?.DropUps?.length;
+                  break;
+                }
+
+                default:{
+                  break
+                }
+              }
+              
+            }
           })
           
-          // Suma 1 a "cantOfActivitys" en caso de haber una actividad en esta "activityFound" 
-          activityFound != undefined ? cantOfActivitys = cantOfActivitys + 1 : null
-
         }
       })
+      console.log("Cantidad Total ",cantOfActivitys)
 
       // Se actualiza el "maxPoints" de la unidad actual
       let updates = { ...session?.user }
@@ -211,9 +244,11 @@ export default function Class(props) {
     }
   }
 
+
   //#region Pagination
   //como son n sheets avanzo con el boton de forward
   function Forward(i) {
+
     if (data) {
       updateSession();
 
@@ -221,6 +256,10 @@ export default function Class(props) {
       if (data) { if (sheetsOfSection) { if (sheetsOfSection.length) setL(sheetsOfSection.length) } }
       if (i < sheetsOfSection.length - 1) setI(++i)
     }
+        
+    if(typeActivitys.length > 0 && allActivitysHaveResult() && data?.sheets[props.page].section?.number == 5) activitysHaveResult()
+      
+    updateIndexPosition()
   }
   //como son n sheets retrocedo con el boton de forward
   function Back(i) {
@@ -247,7 +286,6 @@ export default function Class(props) {
   }
 
   async function updateIndexPosition(nextIndex){
-
     // En caso de que la actual unidad este echa o el indice actual en menor al indice indicad en "position"
     // no hay necesidad de actualizar el "position"
     if(currentUnitDone || data?.sheets?.indexOf(sheetsOfSection[i]) < session?.user?.position?.index) return
@@ -267,7 +305,7 @@ export default function Class(props) {
     }
     console.log("POSICION ACTUALIZADA ", updates)
 
-    updateUser(updates)
+    await updateUser(updates)
   }
   //#endregion
   
@@ -299,17 +337,16 @@ export default function Class(props) {
           date.type == "complete-li-personal" ||
           date.type == "complete-li" ||
           date.type == 'videoi-youtube') &&
-        data?.sheets[props.page].section?.number != 5 &&
-        startChronometer() 
+        data?.sheets[props.page].section?.number != 5 && startChronometer() 
         
         // Se agrega la actividad a "typeActivitys"         
         newTypeActivitys.push({
           id:index,
           type:data.type,
-          done:false
+          done:false,
+          amountDone:null
         })
         
-        console.log("NO MORE")
         setCanFollow(false)
       }
       
@@ -383,18 +420,34 @@ export default function Class(props) {
     return result
   }
 
-  function handleChangeActivityDone(id, value){
+  function allActivitysHaveResult(){
+    // Esta funcion devuelve un Boolean indicando si todas las actividades en "typeActivitys" tienen algun resultado
+    let result = true;
+    
+    typeActivitys?.map((activity)=>{
+      if(activity.amountDone == null) result = false;
+      console.log("activity ",activity)
+    })
+
+    return result
+  }
+  
+  function handleChangeActivityDone(id, value, amountDone){
     // Esta funcion se encarga de cambiar el valor "done" de la actividad espesificada por "id",
     // que se encuentra en "typeActivitys"
+    console.log("ID ",id)
     setTypeActivitys(typeActivitys=>{
       typeActivitys = typeActivitys.filter((activity)=>{
 
         if(activity.id == id){
           let newActivity = activity;
+          
           newActivity.done = value;
+          newActivity.amountDone = amountDone;
+          // console.log("newActivity ",newActivity)
+
           return newActivity
         }
-
         return activity
 
       })
@@ -422,6 +475,27 @@ export default function Class(props) {
     currentUnit.points = currentUnit.points ? currentUnit.points + 1 : 1
 
     updateUser(updates)
+  }
+
+  function activitysHaveResult(){  
+    let updates = { ...session?.user }
+    let currentUnit;
+    let totalPoints = 0
+
+    // Calcula la cantidad total de puntos
+    typeActivitys.map((activity)=> totalPoints = activity?.amountDone && totalPoints + activity?.amountDone)
+
+    // Obtiene la unidad actual
+    updates?.classes?.map((level)=>{
+      let newUnit = level?.units?.find((unit)=> unit?.unitID == props?.id)
+      if(newUnit) currentUnit = newUnit;
+    })
+
+    // Asigna la cantidad total de puntos
+    currentUnit.points = currentUnit.points + totalPoints
+
+    updateUser(updates)
+    console.log("updates ",updates)
   }
 
   // Animaciones de Check 
@@ -492,7 +566,11 @@ export default function Class(props) {
   
   useEffect(()=> {
 
-    if(typeActivitys.length > 0 && allActivitysDone()) activitysDone()
+    // Comprueba si todas las actividades estan echas
+    if(typeActivitys.length > 0 && allActivitysDone() && data?.sheets[props.page].section?.number != 5) activitysDone()
+
+    // Comprueba que en caso de estar en una "Evaluacion" y tener alguna respuesta permite pasar al usuario al la siguiente paguina
+    if(typeActivitys.length > 0 && allActivitysHaveResult() && data?.sheets[props.page].section?.number == 5)setCanFollow(true)
 
   },[typeActivitys])
   //#endregion
@@ -551,7 +629,11 @@ export default function Class(props) {
           hover:bg-primary_hover hover:text-white
           md:text-[16px] md:px-7`}>
             <FontAwesomeIcon icon={faAngleUp}/>
-            {loading ? "Loading..." : "Finalizar"}
+            {loading ?
+              <div className="inline-block  h-[21px] w-[21px] animate-spin rounded-full border-white border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"></div>
+              :
+              "Finalizar" 
+            }
           </button>
         }
 
@@ -582,7 +664,6 @@ export default function Class(props) {
             md:text-[16px] md:px-7`}
             onClick={() => {
               Forward(i);
-              updateIndexPosition()
             }}>
             { activeChronometer && !sheetsState[i]?.pass && !canFollow ? formatTime(seconds) : <>Next <FontAwesomeIcon icon={faAngleRight}/></>}  
           </button>
@@ -789,7 +870,7 @@ export default function Class(props) {
                     
                     {/* Drag Box */}
                     {c.type === 'dragable-box' &&
-                    <DragablesBox done={sheetsState[i]?.done} key={index} allowFollow={allowFollow} options={c.value} id={index} onChangeActivityDone={handleChangeActivityDone}/>}
+                    <DragablesBox done={sheetsState[i]?.done} key={index} allowFollow={allowFollow} options={c.value} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page].section?.number == 5}/>}
                     
                     {/* Parrafo */}
                     {c.type === 'paragraph' &&
@@ -798,7 +879,7 @@ export default function Class(props) {
                     
                     {/* SelectSimple */}
                     {c.type === 'selectsimple' &&
-                    <div className={style[c.className]}><SELECTSIMPLE done={sheetsState[i]?.done} key={c.option} data={c} id={index} onChangeActivityDone={handleChangeActivityDone}/></div>}
+                    <div className={style[c.className]}><SELECTSIMPLE done={sheetsState[i]?.done} key={c.option} data={c} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page].section?.number == 5}/></div>}
                     
                     {/* Texto */}
                     {c.type === 'text' &&
@@ -807,7 +888,7 @@ export default function Class(props) {
                     
                     {/* Parrafo a Completar */}
                     {c.type === 'paragraph-complete' &&
-                    <div key={index} className={style[c.className]}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={i} onChangeActivityDone={handleChangeActivityDone} data={c}/></div> }
+                    <div key={index} className={style[c.className]}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page].section?.number == 5} data={c}/></div> }
                     
                     {/* PopUp de Dialogos */}
                     {c.type === 'popUp-dialogues' &&
@@ -816,11 +897,11 @@ export default function Class(props) {
                     
                     {/* Parrafo a Completar de lista */}
                     {c.type === 'complete-li' &&
-                    <div key={index} className={style[c.className]}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={i} onChangeActivityDone={handleChangeActivityDone} data={c}/> </div> }
+                    <div key={index} className={style[c.className]}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page].section?.number == 5} data={c}/> </div> }
                     
                     {/* Parrafo a Completar de lista con persona*/}
                     {c.type === 'complete-li-personal' &&
-                    <div key={index} className={style[c.className]}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={i} onChangeActivityDone={handleChangeActivityDone} data={c}/> </div> }
+                    <div key={index} className={style[c.className]}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page].section?.number == 5} data={c}/> </div> }
                     
                     {/* <p dangerouslySetInnerHTML={{ __html: c.value }}></p> */}
 

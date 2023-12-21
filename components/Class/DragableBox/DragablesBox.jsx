@@ -174,20 +174,21 @@ export default function DragableBox( props ){
             return option;
         })
         
-        console.log("New Options ", newOptions)
         setOptions(newOptions);
     }
 
     function activityCheck(){      
         console.log("Chequea")
         let activityDone = true;
+        let totalActivitysDone = 0
 
         options.map((option)=>{
             if(option.done == false) activityDone = false
+            else totalActivitysDone = totalActivitysDone + 1
         })
 
-        console.log("Actividad Hecha ", activityDone)
-        if(activityDone) props.onChangeActivityDone(props.id, true)
+        console.log("Actividad Hechas ", totalActivitysDone)
+        if(activityDone || props?.inEvaluation) props.onChangeActivityDone(props.id, activityDone, totalActivitysDone)
     }
 
     
@@ -224,6 +225,7 @@ export default function DragableBox( props ){
                                     typesDropsUps={dropUpContainer[0].type}
                                     handleDoneOption={handleDoneOption}
                                     canCheck={canCheck}
+                                    inEvaluation={props?.inEvaluation}
                                     
                                     // se le pasan las respectivas opciones que corresponden a cada  contenedor
                                     dragBoxs={options?.filter((option) => option.dropUpId === dropUp.id)}

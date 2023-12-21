@@ -32,11 +32,32 @@ export default function Paragragraphcomplete(props) {
   function activityCheck(){   
     // Esta funcion se asegura de que todas las actividades esten completas   
     let activityDone = true;
+    let activityWithValue = true;
+    let totalActivitysDone = 0
+    
     inputValues.map((value)=>{
-        if(typeof(value) === 'object' && value.done == false) activityDone = false
-    })
+      
+      // Comprueba si todas las actividades estan echas
+      if(typeof(value) === 'object' && value.done == false) activityDone = false
 
-    if(activityDone) props.onChangeActivityDone(props.id, true)
+      // Comprueba si alguna actividad esta sin completar
+      if(typeof(value) === 'object'){
+        
+        totalActivitysDone = value?.done ? totalActivitysDone + 1 : totalActivitysDone
+        
+        activityWithValue = activityWithValue && !value?.answer?.length == 0 
+
+      }      
+    })
+    // console.log("activityWithValue ", activityWithValue)
+    // console.log("totalActivitysDone ", totalActivitysDone)
+    // console.log("IF ", activityDone || activityWithValue && props.inEvaluation)
+
+    // En caso de que se hayan coompletado correctamente todaslas actividades se le pasa un true a "onChangeActivityDone"
+    if(activityDone || activityWithValue && props.inEvaluation ) props.onChangeActivityDone(props.id, activityDone, totalActivitysDone)
+
+    // En caso de que todos los campos tengan una respuesta le pasa la cantidad de actividades correctas
+    else if(activityWithValue) props.onChangeActivityDone(props.id, activityDone, totalActivitysDone)
   }
 
   useEffect(()=>{
@@ -52,20 +73,16 @@ export default function Paragragraphcomplete(props) {
   },[props])
 
   useEffect(()=>{
-    console.log("/////////////Change/////////////")
-    console.log("ID ",props?.id)
     setInputValues(
       props.data.value.map( value => {
         if(typeof(value) === 'object')  {
-          
-        console.log("Value ",value)
         //return { option:value.option.toLowerCase(), answer:"", done:false}}})
         return { option:value.option, answer:"", done:false}}}
         )
     )
-  },[props?.id])
+  },[props?.data])
 
-  useEffect(()=> activityCheck(), [inputValues,props])
+  useEffect(()=> activityCheck(), [inputValues])
 
   return (
     <div>
@@ -81,9 +98,13 @@ export default function Paragragraphcomplete(props) {
                     `
                     border-[2px] border- border-solid transition-all rounded-[5px] bg-transparent text-center outline-none
                     ${inputValues[index]?.answer == "" && "border-primary"}
-                    ${inputValues[index]?.answer != "" && inputValues[index]?.answer == inputValues[index]?.option
-                    ? "border-secondary" 
-                    : "border-danger"}
+                    ${props.inEvaluation && "border-primary"}
+                    ${!props.inEvaluation && 
+                      (inputValues[index]?.answer != "" && inputValues[index]?.answer == inputValues[index]?.option
+                      ? "border-secondary" 
+                      : "border-danger"
+                      )
+                    }
                     `
                   }
                   value={inputValues[index]?.answer}

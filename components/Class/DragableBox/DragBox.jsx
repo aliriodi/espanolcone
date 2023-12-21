@@ -76,8 +76,10 @@ export default function DragBox (props){
                 {...attributes}
                 {...listeners}
                 className={`
+                ${ props?.inEvaluation &&  "bg-primary"}
                 ${ !props.canCheck && "bg-primary"}
-                ${ props.canCheck && props.dragBox?.done ? "bg-secondary" : "bg-danger"}
+                ${ !props?.inEvaluation && props.canCheck && props.dragBox?.done && "bg-secondary"}
+                ${ !props?.inEvaluation && props.canCheck && !props.dragBox?.done && "bg-danger"}
                 rounded-md text-white p-4 m-2 text-center inline-block cursor-grab touch-none transition-all
                 active:cursor-grabbing
                 md:text-[12px] md:flex md:justify-center md:items-center md:py-0 md:h-[45px] md:w-fit`}>

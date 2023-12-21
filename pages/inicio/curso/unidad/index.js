@@ -211,12 +211,6 @@ export default function Unidad(){
             // En caso de ser "True" se le pone el numero de seccion maxima  En caso de ser "False" se le pone -1
             setMaxSessionReached(currentClass?.done ? 6 : -1)
         }
-
-
-        // Comprueba si todas las unidades estan echas
-        console.log(session?.user)
-        console.log("maxSessionReached ",maxSessionReached)
-
     },[session])
 
     useEffect(()=>{
@@ -594,14 +588,15 @@ export default function Unidad(){
                         onClick={()=>setSection(5)}
                         href={`/inicio/curso/unidad/${classId}`}
                         className={`
-                        ${maxSessionReached != 5 && "opacity-[50%]"}
                         ${maxSessionReached < 5 || maxSessionReached > 5 && session && !session?.user?.role?.includes("admin") && "pointer-events-none"}
                         mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
                         hover:bg-[#3331] transition-colors
                         md:w-full`}>
                             
                                 {/* Contenido */}
-                                <div className="flex items-center">
+                                <div
+                                className={`flex items-center
+                                ${maxSessionReached != 5 && "opacity-[50%]"}`}>
                                     {/* Icono */}
                                     <span className="bg-success rounded-full w-[60px] h-[60px] flex justify-center items-center">
                                         <Image
@@ -620,10 +615,16 @@ export default function Unidad(){
 
                                 {/* Check */}
                                 {maxSessionReached > 5 && (
-                                    <span>
-                                        <FontAwesomeIcon
-                                        className=" bg-secondary text-white rounded-full py-[6px] px-[7px] text-[20px]"
-                                        icon={faCheck}/>
+                                    <span className={`
+                                    ${!unit?.points && "bg-danger"}
+                                    ${unit?.maxPoints == 0 && "bg-danger"}
+                                    ${unit?.maxPoints > 0 && (unit?.maxPoints / 3) >= unit?.points && "bg-danger"}
+                                    ${unit?.maxPoints > 0 && (unit?.maxPoints / 3 < unit?.points && unit?.maxPoints * (2 / 3) >= unit?.points) && "bg-info"}
+                                    ${unit?.maxPoints > 0 && (unit?.maxPoints * (2 / 3) < unit?.points && unit?.maxPoints == unit?.points) && "bg-secondary"}
+                                     text-white rounded-full py-[6px] px-[7px] text-[19px] font-semibold`}>
+
+                                        <p>{unit?.points ? unit?.points : 0} / {unit?.maxPoints ? unit?.maxPoints : 0}</p>
+                                        
                                     </span>
                                 )}
 
