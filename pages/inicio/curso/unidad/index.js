@@ -1,6 +1,6 @@
 import { useSession } from "next-auth/react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMedal, faBookOpen, faCheck, faListCheck, faPuzzlePiece } from '@fortawesome/free-solid-svg-icons';
+import { faMedal, faBookOpen, faCheck, faListCheck, faPuzzlePiece, faRotateRight } from '@fortawesome/free-solid-svg-icons';
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -30,6 +30,7 @@ export default function Unidad(){
     const [nextLevelLabel, setNextLevelLabel] = useState(null)
 
     const [isLoading, setIsLoading] = useState(false)
+    const [resetIsLoading, setResetIsLoading] = useState(false)
 
     const dispatch = useDispatch();
     
@@ -166,6 +167,85 @@ export default function Unidad(){
 
         await updateUser(newUpdatesUser)
         setCongratulationsModal(true)
+    }
+
+    async function resetUnits(){
+        // esta funcion se encarga de resetar todas las unidades hasta en la que se encuentra actualmente el usuario 
+
+        setResetIsLoading(true)
+        let newUser = {...session?.user}
+        let currentIndexLevel;
+        let currentAmountPageUnit = fetch(`/api/class/${classId}`).then((response) => response.json()).then(async (json) =>{return json.class1.sheets.length;}).catch((error) => console.log(error));
+        let currentLevel;
+        let currentUnit;
+
+        // Busca al actual unidad y nivel
+        newUser?.classes.map((level)=>{
+            level?.units?.map((unit)=>{
+                if(unit?.unitID == classId){
+                    currentLevel =level;
+                    currentUnit = unit;
+                }
+            })
+        })
+
+        currentIndexLevel = newUser?.classes?.indexOf(newUser?.classes?.find((l)=> l?._id == level?._id))
+
+        // Este mapeo se encarga de definir que unidades van a estar habilitadas y cuales desabilitadas
+        newUser?.classes?.map((mapLevel, levelIndex)=>{
+
+            // En caso de estar en el nivel actual
+            if (currentIndexLevel == levelIndex) 
+            {
+                let currentIndexUnit = mapLevel?.units?.indexOf(mapLevel?.units?.find((u)=> u?._id == unit?._id))
+
+                mapLevel?.units?.map((mapUnit, unitIndex)=>{
+
+                    if(unitIndex == currentIndexUnit){
+                        mapUnit.done=false
+                        mapUnit.enable=true
+                        mapUnit.maxPoints = 0
+                        mapUnit.points = 0
+                    }
+
+                    if(unitIndex < currentIndexUnit){
+                        mapUnit.done=true
+                        mapUnit.enable=true
+                    }
+                    
+                    if(unitIndex > currentIndexUnit){
+                        mapUnit.done=false
+                        mapUnit.enable=false
+                        mapUnit.maxPoints = 0
+                        mapUnit.points = 0
+                    }
+                })
+            }
+
+            else if(currentIndexLevel < levelIndex){
+                mapLevel?.units?.map((unit)=>{
+                    unit.done=false
+                    unit.enable=false
+                })
+            }
+
+            else if(currentIndexLevel > levelIndex){
+                mapLevel?.units?.map((unit)=>{
+                    unit.done=true
+                    unit.enable=true
+                })
+            }
+
+        })
+
+        // Asigna los valores correctos para el position
+        newUser.position.id = classId,
+        newUser.position.index = 0,
+        newUser.position.maxpages = await currentAmountPageUnit
+        
+        await updateUser(newUser)
+
+        setResetIsLoading(false)
     }
 
     useEffect(()=>{
@@ -646,6 +726,16 @@ export default function Unidad(){
                     </div>
                 }
             </section>
+
+            {
+                session && session?.user?.role?.includes("admin") &&
+                <button
+                title="Resetear unidades hasta la actual"
+                onClick={resetUnits}
+                className={`bg-white rounded-full text-violet_dark absolute top-44 right-20 shadow-lg w-16 h-16 text-[21px] flex justify-center items-center ${resetIsLoading && "animate-spin"}`}>
+                    <FontAwesomeIcon icon={faRotateRight}/>
+                </button>
+            }
         </div>
 
 

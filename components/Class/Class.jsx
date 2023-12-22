@@ -152,7 +152,7 @@ export default function Class(props) {
               switch(date.type){
 
                 case "selectsimple":{
-                  cantOfActivitys = cantOfActivitys + date?.options?.length;
+                  cantOfActivitys = cantOfActivitys + 1;
                   break;
                 }
 
