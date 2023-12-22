@@ -132,6 +132,8 @@ export default function Class(props) {
       setIsTest(true)
 
       let cantOfActivitys = 0
+      let cantSelectsimple = 0
+      let cantDragable = 0
       
       data?.sheets?.map((sheet)=>{
 
@@ -153,6 +155,7 @@ export default function Class(props) {
 
                 case "selectsimple":{
                   cantOfActivitys = cantOfActivitys + 1;
+                  cantSelectsimple = cantSelectsimple + 1
                   break;
                 }
 
@@ -172,7 +175,8 @@ export default function Class(props) {
                 }
                 
                 case "dragable-box":{
-                  cantOfActivitys = cantOfActivitys + date?.value?.DropUps?.length;
+                  cantOfActivitys = cantOfActivitys + date?.value?.DragBoxs?.length;
+                  cantDragable = cantDragable + (date?.value?.DragBoxs?.length);
                   break;
                 }
 
@@ -187,6 +191,8 @@ export default function Class(props) {
         }
       })
       console.log("Cantidad Total ",cantOfActivitys)
+      console.log("DRAG ",cantDragable)
+      console.log("SELECT ",cantSelectsimple)
 
       // Se actualiza el "maxPoints" de la unidad actual
       let updates = { ...session?.user }
@@ -198,6 +204,7 @@ export default function Class(props) {
       })
 
       currentUnit.maxPoints = cantOfActivitys
+      if(i == 0)currentUnit.points = 0
 
       updateUser(updates)
     }

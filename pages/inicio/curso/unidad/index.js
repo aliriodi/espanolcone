@@ -12,6 +12,7 @@ import Result from "postcss/lib/result";
 import Confetti from '../../../../components/Confetti'
 import { useRouter } from 'next/router';
 import Spinner from "../../../../components/Spinner";
+import Head from 'next/head'
 
 
 export default function Unidad(){
@@ -22,6 +23,7 @@ export default function Unidad(){
     const [numbersOfSections, setNumbersOfSections] = useState([])
 
     const [congratulationsModal, setCongratulationsModal] = useState(false)
+    const [failedModal, setFailedModal] = useState(false)
 
     const [currentClass, setCurrentClass] = useState(null)
     const [unit, setUnit] = useState(null)
@@ -169,6 +171,17 @@ export default function Unidad(){
         setCongratulationsModal(true)
     }
 
+    async function retryEvaluation(sheets){
+        let newUser = {...session?.user}
+        setFailedModal(true)
+        // alert("MALLLL")
+
+        newUser.position.index = sheets?.indexOf(sheets?.find(sheet => sheet?.section?.number == 5))
+        
+        updateUser(newUser)
+        setMaxSessionReached(5)
+    }
+
     async function resetUnits(){
         // esta funcion se encarga de resetar todas las unidades hasta en la que se encuentra actualmente el usuario 
 
@@ -251,6 +264,8 @@ export default function Unidad(){
     useEffect(()=>{
         // En este useEffect se va a comprobar hasta que seccion esta realizada
 
+        let currentUnit = unit || session?.user?.classes?.map((level)=>level?.units?.find((unit)=>unit?.unitID == classId))[0]
+
         // Primero se comprueba si la ultima clase realizada es igual a la ultima que hizo el usuario
         // en caso de ser asi a maxSessionReached se le asigna hasta que seccion llego el usuario
         if(session && classId && session?.user?.position?.id == classId){
@@ -259,11 +274,14 @@ export default function Unidad(){
             fetch(`/api/class/${classId}`)
             .then((response) => response.json())
             .then((json) =>{ 
-
-                if(session?.user?.position?.index == session?.user?.position?.maxpages)updatePosition()
-                
+                console.log("json.class1.sheets ",json.class1.sheets)
                 setCurrentClass(json.class1.sheets)
                 setMaxSessionReached(session?.user?.position?.index > 0 ? json.class1.sheets[(session?.user?.position?.index)]?.section?.number : session?.user?.position?.index)
+
+                // en caso de ha
+                if(session?.user?.position?.index == session?.user?.position?.maxpages && currentUnit?.maxPoints > 0 && currentUnit?.points >= 18 )updatePosition()
+
+                if(session?.user?.position?.index == session?.user?.position?.maxpages && currentUnit?.maxPoints > 0 && currentUnit?.points < 18) retryEvaluation(json.class1.sheets)
                 
                 setIsLoading(false)
 
@@ -352,6 +370,9 @@ export default function Unidad(){
 
     return(
         <>
+        <Head>
+            <title>{unit?.name} - {level?.level} | Español con E</title>
+        </Head>
 
         {/* Modal de Felitaciones */}
         {
@@ -364,14 +385,34 @@ export default function Unidad(){
                 {/* Modal */}
                 <div className={`bg-white rounded-[5px] relative overflow-hidden z-[600]`}>
                     {/* Titulo */}
-                    <div>
+                    <div
+                    style={{background:'linear-gradient(239.79deg, #33BB99 0.92%, #8438FF 68.4%)'}}
+                    className="relative overflow-hidden">
+
+                        {/* Confetti Izquierda */}
+                        <Image
+                        className="absolute top-0 left-0 z-[10] w-[100px]
+                        md:w-[70px]"
+                        width={178}
+                        height={75}
+                        alt=""
+                        src={'https://res.cloudinary.com/dfddh08q8/image/upload/s--y88ZHUWd--/v1703277573/images/yuarudsoljjpyj1kxyen.png'}/>
                         
+                        {/* Titulo */}
                         <h4
-                        style={{background:'linear-gradient(239.79deg, #33BB99 0.92%, #8438FF 68.4%)'}}
-                        className="text-white py-[20px] px-[170px] bg-gradient-to-r font-medium text-[24px] text-center
+                        className="text-white py-[20px] px-[170px] bg-gradient-to-r font-medium text-[24px] text-center z-[20] relative
                         md:text-[18px] md:p-4">
                             ¡FELICIDADES, {session?.user?.first_name?.toUpperCase()}!
                         </h4>
+                        
+                        {/* Confetti Derecha */}
+                        <Image
+                        className="absolute top-0 right-0 z-[10] w-[100px]
+                        md:w-[70px]"
+                        width={178}
+                        height={75}
+                        alt=""
+                        src={'https://res.cloudinary.com/dfddh08q8/image/upload/s--y88ZHUWd--/v1703277573/images/yuarudsoljjpyj1kxyen.png'}/>
 
                     </div>
 
@@ -391,6 +432,58 @@ export default function Unidad(){
                 
                 {/* Confeti :D */}
                 <Confetti active={true}/>
+            </div>
+        }
+
+        {/* Modal de Evaluacopin fallada */}
+        {
+            failedModal &&
+            
+            <div
+            onClick={()=>setFailedModal(false)}
+            className={`bg-[#000a] fixed w-screen h-screen z-[400] flex justify-center items-center ${failedModal ? "opacity-[1]": "opacity-0"} transition-all`}>
+
+                {/* Modal */}
+                <div className={`bg-white rounded-[5px] relative overflow-hidden z-[600]`}>
+                    {/* Titulo */}
+                    <div
+                    // style={{background:'linear-gradient(239.79deg, #33BB99 0.92%, #8438FF 68.4%)'}}
+                    className="relative overflow-hidden">
+                        
+                        {/* Titulo */}
+                        <h4
+                        className=" text-violet_dark font-semibold pt-[20px] px-[170px] bg-gradient-to-r text-[24px] text-center z-[20] relative
+                        md:text-[18px] md:p-4">
+                            Esta vez no pudiste lograrlo
+                        </h4>
+
+                    </div>
+
+                    {/* Contenido */}
+                    <div className="p-[27px] flex justify-center items-center w-full flex-col">
+                        <p className="text-center mb-6 text-[21px] text-violet_dark font-medium
+                        md:text-[14px]">
+                            ¿Deseas  volver a intentarlo?
+                        </p>
+
+                        <Link
+                        onClick={()=>setSection(5)}
+                        href={`/inicio/curso/unidad/${classId}`}
+                        className="btn-primary p-2 w-full text-[21px] mb-3
+                        md:text-[14px]">
+                            ¡Si!
+                        </Link>
+
+                        
+                        <button
+                        onClick={()=>setFailedModal(false)}
+                        className="btn-primary-border p-2 w-full text-[21px]
+                        md:text-[14px]">
+                            Mas tarde
+                        </button>
+                    </div>
+                </div>
+                
             </div>
         }     
 
@@ -694,13 +787,13 @@ export default function Unidad(){
                                 </div>
 
                                 {/* Check */}
-                                {maxSessionReached > 5 && (
+                                {maxSessionReached >= 5 && unit?.maxPoints > 0 && (
                                     <span className={`
                                     ${!unit?.points && "bg-danger"}
                                     ${unit?.maxPoints == 0 && "bg-danger"}
                                     ${unit?.maxPoints > 0 && (unit?.maxPoints / 3) >= unit?.points && "bg-danger"}
-                                    ${unit?.maxPoints > 0 && (unit?.maxPoints / 3 < unit?.points && unit?.maxPoints * (2 / 3) >= unit?.points) && "bg-info"}
-                                    ${unit?.maxPoints > 0 && (unit?.maxPoints * (2 / 3) < unit?.points && unit?.maxPoints == unit?.points) && "bg-secondary"}
+                                    ${unit?.maxPoints > 0 && (unit?.maxPoints / 3 < unit?.points && 18 > unit?.points) && "bg-info"}
+                                    ${unit?.maxPoints > 0 && (18 <= unit?.points && unit?.maxPoints <= unit?.points) && "bg-secondary"}
                                      text-white rounded-full py-[6px] px-[7px] text-[19px] font-semibold`}>
 
                                         <p>{unit?.points ? unit?.points : 0} / {unit?.maxPoints ? unit?.maxPoints : 0}</p>
@@ -732,7 +825,8 @@ export default function Unidad(){
                 <button
                 title="Resetear unidades hasta la actual"
                 onClick={resetUnits}
-                className={`bg-white rounded-full text-violet_dark absolute top-44 right-20 shadow-lg w-16 h-16 text-[21px] flex justify-center items-center ${resetIsLoading && "animate-spin"}`}>
+                className={`bg-white rounded-full text-violet_dark absolute top-44 right-20 shadow-lg w-16 h-16 text-[21px] flex justify-center items-center ${resetIsLoading && "animate-spin"}
+                md:right-5`}>
                     <FontAwesomeIcon icon={faRotateRight}/>
                 </button>
             }
