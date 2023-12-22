@@ -133,7 +133,8 @@ export default function Curso(){
                     className={`bg-white flex flex-col shadow-[0px_0px_4px_#00000040] rounded-[8px] py-[12px] justify-center min-w-[145px] items-center mx-[20px] mb-[50px] relative
                     transition-all hover:min-w-[160px]
                     md:py-[8px] md:px-[10px] md:mb-[10px]
-                    ${!module.enable && "pointer-events-none opacity-50"}
+                    ${!module.enable && "opacity-50"}
+                    ${!module.enable && session && !session?.user?.role?.includes("admin") && "pointer-events-none"}
                     md:mx-0 md:w-full md:flex-row md:justify-evenly`}>
                         
                         {/* Icono */}
