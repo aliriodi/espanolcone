@@ -822,8 +822,12 @@
                             "id": "DropUp4"
                         },
                         {
-                            "type": "text",
-                            "content": "5. Claudia: ¿Eres de Córdoba?"
+                            "type": "dropup-center",
+                            "content_start": "5. Claudia: ¿Eres",
+                            "content_end": " Córdoba?",
+                            "value": "de",
+                            "id": "DropUp5"
+                        
                         },
                         {
                             "type": "dropup-center",
@@ -850,11 +854,11 @@
                     "DragBoxs": [
                         {
                             "value": "bien",
-                            "id": "DragBox4"
+                            "id": "DragBox1"
                         },
                         {
                             "value": "soy de Córdoba",
-                            "id": "DragBox6"
+                            "id": "DragBox2"
                         },
                         {
                             "value": "Bien gracias",
@@ -862,19 +866,23 @@
                         },
                         {
                             "value": "¿Cómo estás?",
-                            "id": "DragBox2"
+                            "id": "DragBox4"
                         },
                         {
                             "value": "Hola",
-                            "id": "DragBox1"
+                            "id": "DragBox5"
                         },
                         {
                             "value": "Nos vemos Claudia",
-                            "id": "DragBox8"
+                            "id": "DragBox6"
                         },
                         {
                             "value": "¡Hasta luego Lucas!",
                             "id": "DragBox7"
+                        },
+                        {
+                            "value": "de",
+                            "id": "DragBox8"
                         }
                     ]
                 },
