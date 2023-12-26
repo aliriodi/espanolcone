@@ -18,6 +18,7 @@ import ImagesGrid from './ImagesGrid/ImagesGrid';
 import Logo from '../../public/imgs/logo.png'
 import LogoPrimary from '../../public/imgs/logo-primary.png'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
+import Table from './Table';
 
 export default function Class(props) {
   //elemento a renderizar  
@@ -132,6 +133,8 @@ export default function Class(props) {
       setIsTest(true)
 
       let cantOfActivitys = 0
+      let cantSelectsimple = 0
+      let cantDragable = 0
       
       data?.sheets?.map((sheet)=>{
 
@@ -153,6 +156,7 @@ export default function Class(props) {
 
                 case "selectsimple":{
                   cantOfActivitys = cantOfActivitys + 1;
+                  cantSelectsimple = cantSelectsimple + 1
                   break;
                 }
 
@@ -172,7 +176,8 @@ export default function Class(props) {
                 }
                 
                 case "dragable-box":{
-                  cantOfActivitys = cantOfActivitys + date?.value?.DropUps?.length;
+                  cantOfActivitys = cantOfActivitys + date?.value?.DragBoxs?.length;
+                  cantDragable = cantDragable + (date?.value?.DragBoxs?.length);
                   break;
                 }
 
@@ -187,6 +192,8 @@ export default function Class(props) {
         }
       })
       console.log("Cantidad Total ",cantOfActivitys)
+      console.log("DRAG ",cantDragable)
+      console.log("SELECT ",cantSelectsimple)
 
       // Se actualiza el "maxPoints" de la unidad actual
       let updates = { ...session?.user }
@@ -198,6 +205,7 @@ export default function Class(props) {
       })
 
       currentUnit.maxPoints = cantOfActivitys
+      if(i == 0)currentUnit.points = 0
 
       updateUser(updates)
     }
@@ -665,7 +673,7 @@ export default function Class(props) {
             onClick={() => {
               Forward(i);
             }}>
-            { activeChronometer && !sheetsState[i]?.pass && !canFollow ? formatTime(seconds) : <>Next <FontAwesomeIcon icon={faAngleRight}/></>}  
+            { activeChronometer && !sheetsState[i]?.pass && !canFollow ? formatTime(seconds) : <>Sig <FontAwesomeIcon icon={faAngleRight}/></>}  
           </button>
         }
         
@@ -845,8 +853,10 @@ export default function Class(props) {
                     {c.type === 'image' &&<img key={index} width='100' height='100' className={style[c.className]} src={c.value} alt={c.alt} />}
 
                     {/* Cuadricula de Imagenes */}
-                    {c.type === 'image-grid' &&
-                    <ImagesGrid key={index} images={c.value}/>}
+                    {c.type === 'image-grid' && <ImagesGrid key={index} images={c.value}/>}
+
+                    {/* Tabla */}
+                    {c.type === 'table' && <Table key={index} color={ c?.color } value={c.value}/>}
                     
                     {/* Video Youtube */}
                     {c.type === 'video-youtube' &&
