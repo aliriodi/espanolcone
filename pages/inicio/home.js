@@ -536,7 +536,7 @@ export default function Home() {
                       md:w-full md:mt-0 md:text-center md:inline-block md:px-0'
                       href={'./curso'}
                       style={{ textWrap: "nowrap" }}>
-                      Ver más de mi progreso
+                      Ver más
                     </Link>
                   </div>
                 </div>
