@@ -12,7 +12,7 @@ import Result from "postcss/lib/result";
 import Confetti from '../../../../components/Confetti'
 import { useRouter } from 'next/router';
 import Spinner from "../../../../components/Spinner";
-import Head from 'next/head'
+// import Head from 'next/head'
 
 
 export default function Unidad(){
