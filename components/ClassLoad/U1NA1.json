@@ -39,8 +39,22 @@
                 "className": "title-white"
             },
             {
-                "type": "paragraph",
-                "value": " <table style= 'border: 2px solid black;' ><tr  style=' background-color: var(--primary); border: 2px solid black;' ><th style= 'border: 2px solid black;width:30%;' ><h2><strong style='color:black;'>Comunicación</strong></h2></th><th style= ' border: 2px solid black;width:20%' ><h2><strong style='color:black;'>Vocabulario</strong></h2></th><th style= 'border: 2px solid black; width:30%' ><h2><strong style='color:black;'>Gramática</strong></h2></th></tr><tr><td style= 'border: 2px solid black;' > <ul> <li>*Identificarse, presentarse (nombre y apellido), saludar y despedirse.</li>  <li>*Deletrear.</li> <li>*Dar y pedir información acerca de nacionalidad o lugar de origen, lugar de residencia, profesión y edad.</li><li>*Cultura en saludos y despedidas: saludar con un beso, un abrazo y un apretón de manos.</li><li></li></ul> </td><td style= 'border: 2px solid black;' ><ul> <li>*Expresiones para saludar y despedirse.</li>  <li> *El abecedario.</li> <li>*Nombres de países y continentes.</li> <li>*Vocabulario de nacionalidades, profesiones y oficios.</li><li></li> </ul></td><td style= 'border: 2px solid black; ' ><ul> <li>*Uso del verbo ser para: identificar, profesiones y gentilicios.</li>  <li>*Géneros para gentilicios y profesiones.</li><li></li> </ul></td></tr></table>",
+                "color":"warning",
+                "type": "table",
+                "value": [
+                    {
+                        "title":"Comunicación",
+                        "content":"<li>Identificarse, presentarse (nombre y apellido), saludar y despedirse.</li><li>Deletrear.</li><li>Dar y pedir información acerca de nacionalidad o lugar de origen, lugar de residencia, profesión y edad.</li><li>Cultura en saludos y despedidas: saludar con un beso, un abrazo y un apretón de manos.</li>"
+                    },
+                    {
+                        "title":"Vocabulario",
+                        "content":"<li>Expresiones para saludar y despedirse.</li><li> El abecedario.</li><li>Nombres de países y continentes.</li><li>Vocabulario de nacionalidades, profesiones y oficios.</li>"
+                    },
+                    {
+                        "title":"Gramática",
+                        "content":"<li>Uso del verbo ser para: identificar, profesiones y gentilicios.</li><li>Géneros para gentilicios y profesiones.</li>"
+                    }
+                ],
                 "className": "table"
             }
         ]

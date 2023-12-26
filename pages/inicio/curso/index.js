@@ -9,6 +9,7 @@ import Select from 'react-select'
 import { classid } from '../../../redux/ECEActions'
 import { useDispatch } from "react-redux";
 import { useRouter } from 'next/router';
+import Head from 'next/head'
 
 
 export default function Curso(){
@@ -53,6 +54,10 @@ export default function Curso(){
 
     return(
         <>
+        <Head>
+            <title>Nivel {level} | Español con E</title>
+        </Head>
+
         <Menu />
 
         <section className="relative py-[119px] px-[40px] overflow-hidden
