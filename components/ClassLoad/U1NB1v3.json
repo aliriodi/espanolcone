@@ -15,7 +15,7 @@
             },
             {
                 "type": "title",
-                "value": "QUIERO CONOCER GENTE EN CÓRDOBA",
+                "value": "QUIERO CONOCER OBJETOS TÍPICOS DE CÓRDOBA",
                 "className": "titleBlack2-p0"
             },
             {
@@ -151,7 +151,7 @@
                         "text": "<strong><span style='color:var(--orange); '>colorido</span></strong>"
                     },
                     {
-                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--qArWp8ey--/v1702993562/images/yhirg2fhdgtrpzo6jlom.png",
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--w3y2i1xO--/v1702993485/images/a1mr5koll69z5rtm0x8y.png",
                         "text": "<strong><span style='color:var(--orange); '>que sea </span> de plástico</strong>"
                     },
                     {
@@ -738,7 +738,7 @@
             },
             {
                 "type": "paragraph",
-               "value": "<ul style='color: var(--orange);'><strong ><li >que</li> <li >tenga</li></strong></ul>",
+                "value": "<ul style='color: var(--orange);'><strong ><li >que</li> <li >tenga</li></strong></ul>",
                 "className": ""
             },
             {
@@ -748,7 +748,7 @@
             },
             {
                 "type": "paragraph",
-               "value": "<ul style='color: var(--orange);'><strong ><li >y sirva</li> <li >para</li></strong></ul>",
+                "value": "<ul style='color: var(--orange);'><strong ><li >y sirva</li> <li >para</li></strong></ul>",
                 "className": ""
             },
             {
@@ -757,22 +757,26 @@
                 "className": "box-curve3"
             },
             {
-                "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--HYDNCXJh--/v1703119820/images/ibzlwi4qaeghv6kslfjj.png",
-                "alt": "planta",
-                "className": "className"
-            },
-
-            {
-                "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--YmOgCchR--/v1703119847/images/mv1uov4zhxxpwrribk2t.png",
-                "alt": "anillo",
+                "type": "paragraph",
+                "value": "<span style='text-decoration: underline;'><strong>Ejemplo:</strong></span> Una mesa con impresora 3D que sirva para crear alimentos.",
                 "className": "className"
             },
             {
                 "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--pAYlDLR6--/v1703119767/images/zyxrwzg6ajk05jmmjqgo.png",
-                "alt": "oso",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--k7nz5JHJ--/v1703168758/images/qr8mvav796cs7ouffhno.png",
+                "alt": "mesa",
+                "className": "className"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--5snyabOD--/v1703168790/images/atnkbnvaqkqbs9s1y5zo.png",
+                "alt": "bolso",
+                "className": "className"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--S1xZwM1W--/v1703168829/images/cdgumkjsqifdfoidyxff.png",
+                "alt": "laptop",
                 "className": "className"
             }
         ]
@@ -780,15 +784,63 @@
     "page19": {
         "type": "complete",
         "section": {
-            "number": 4,
+            "number": 5,
             "value": "Mis retos"
         },
-        "template": "",
+        "template": "template-title-top-1",
         "data": [
-            {}
+            {
+                "type": "title",
+                "value": "Evaluación unidad 6 - Nivel B1",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "<strong>La siguiente evaluación contiene 20 ítems los cuales debes resolver. </strong>",
+                "className": "className"
+            },
+            {
+                "type": "paragraph",
+                "value": "<strong>Cada elemento o ítem que resuelvas correctamente vale 01 punto. </strong>",
+                "className": "className"
+            },
+            {
+                "type": "paragraph",
+                "value": "<strong>Para aprobar la evaluación y pasar a la siguiente unidad debes obtener un mínimo de 18 puntos.</strong>",
+                "className": "className"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style='color:var(--orange);'><strong>¡Adelante y buena suerte!</strong></span>",
+                "className": "className"
+            }
         ]
     },
     "page20": {
+        "type": "complete",
+        "section": {
+            "number": 5,
+            "value": "Mis retos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Martina trabaja en una tienda de regalos en Córdoba Capital, allá va gente a pedirle muchas cosas diferentes.",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "Clasifica estos 10 pedidos dependiendo de si los clientes saben exactamente lo que buscan o si lo desconocen y solo tienen una idea de lo que quieren comprar. Escribe el número del pedido en la caja que corresponde.",
+                "className": "title-white"
+            },
+            {
+
+            }
+        ]
+    },
+
+    "page21": {
         "type": "complete",
         "section": {
             "number": 5,
