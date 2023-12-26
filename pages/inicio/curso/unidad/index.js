@@ -370,9 +370,9 @@ export default function Unidad(){
 
     return(
         <>
-        <Head>
+        {/* <Head>
             <title>{unit?.name} - {level?.level} | Español con E</title>
-        </Head>
+        </Head> */}
 
         {/* Modal de Felitaciones */}
         {
