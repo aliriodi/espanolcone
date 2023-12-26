@@ -22,7 +22,7 @@ introducirVariable('Por favor introduce el nombre del json, example: U1NA1.json:
   introducirVariable(' example: 65561111c0af4de4ff78f6cc :  ', async (id) => {
   
       console.log('Procedo a modificar');
-      await imprimir(  namefile='U1NA1.json',id='6557e26410faf6be3ada6ad6')
+      await imprimir(  namefile='U1NA2v2.json',id='65285a70bb78bea94a6b1369')
       // Cerrar la interfaz de lectura
       rl.close();
     });

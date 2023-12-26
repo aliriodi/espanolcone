@@ -1,5 +1,5 @@
 {
-        "sheets": [
+       "page1":
             {
                 "type": "text",
                 "section": {
@@ -22,10 +22,11 @@
                     {
                         "type": "paragraph",
                         "value": "NIVEL A1",
-                        "className": "Portadalev"
+                        "className": "paragraph"
                     }
                 ]
             },
+            "page2":
             {
                 "type": "text",
                 "section": {
@@ -41,15 +42,12 @@
                     },
                     {
                         "type": "paragraph",
-                        "value": "<table style='width: 80%;'><th style= 'border: 1px solid black; width: 25%; background-color: #FF7530'><h3><strong>Comunicación</strongyle=></h3></th><th style= ' border: 1px solid black; width: 25%; background-color: #FF7530'><h3><strong>Vocabulario</strong></h3></th><th style= 'border: 1px solid black;width: 30%; background-color: #FF7530;'><h3><strong>Gramática</strong></h3></th></tr><td style= 'border: 1px solid black; padding: 4px'>*Dar y pedir información sobre otras personas, acerca de nombre, profesiones y gentilicios.<br>*Presentar a otros.<br>*Presentaciones y saludos formales e informales.<br><td style= 'border: 1px solid black;padding: 4px'>*Datos personales: nombre, apellido, edad, nacionalidad y profesiones.<br>*Nombres propios masculinos y femeninos.<br>*Números usados para indicar la edad.<br>*Miembros de la familia.<br>*Vocabulario de aeropuerto.<br><td style= 'border: 1px solid black;padding: 4px;'>*El verbo llamarse.<br>*Pronombres personales como sujetos.<br>*Verbo tener: edad; familia; hijos y mascota<br>*Verbo ser para identificar; nacionalidad y profesión.<br>*Pronombres interrogativos: ¿cómo?; ¿quién?; ¿qué?; cuántos?; ¿cuál? y ¿dónde?<br>*Verbos tener trabajar y vivir para dar información.<br></td></table>",
+                        "value": "<table style='width: 80%;'><th style= 'border: 1px solid black; width: 25%; background-color: var(--primary)'><h2><strong style='color:black;'>Comunicación</strong></h2></th><th style= ' border: 1px solid black; width: 25%; background-color: var(--primary)'><h2><strong style='color:black;'>Vocabulario</strong></h2></th><th style= 'border: 1px solid black;width: 30%; background-color: var(--primary);'><h2><strong style='color:black;'>Gramática</strong></h2></th></tr><td style= 'border: 1px solid black; padding: 4px'>*Dar y pedir información sobre otras personas, acerca de nombre, profesiones y gentilicios.<br>*Presentar a otros.<br>*Presentaciones y saludos formales e informales.<br><td style= 'border: 1px solid black;padding: 4px'>*Datos personales: nombre, apellido, edad, nacionalidad y profesiones.<br>*Nombres propios masculinos y femeninos.<br>*Números usados para indicar la edad.<br>*Miembros de la familia.<br>*Vocabulario de aeropuerto.<br><td style= 'border: 1px solid black;padding: 4px;'>*El verbo llamarse.<br>*Pronombres personales como sujetos.<br>*Verbo tener: edad; familia; hijos y mascota<br>*Verbo ser para identificar; nacionalidad y profesión.<br>*Pronombres interrogativos: ¿cómo?; ¿quién?; ¿qué?; cuántos?; ¿cuál? y ¿dónde?<br>*Verbos tener trabajar y vivir para dar información.<br></td></table>",
                         "className": "table"
-                    },
-                    {
-                        "type": "text",
-                        "value": "Creado por Virginia"
                     }
                 ]
             },
+            "page3":
             {
                 "type": "text",
                 "section": {
@@ -71,6 +69,7 @@
                     }
                 ]
             },
+            "page4":
             {
                 "type": "text",
                 "section": {
@@ -92,6 +91,7 @@
                     }
                 ]
             },
+            "page5":
             {
                 "type": "text",
                 "section": {
@@ -113,11 +113,12 @@
                     },
                     {
                         "type": "paragraph",
-                        "value": "<strong style='color: #8438FF'>Empleada de Migraciones:</strong> <strong>Buenas tardes, mi nombre es</strong> <u>María González</u>, bienvenidos a Argentina. <strong>¿Cómo se llaman?</strog><br><strong style=' color: #EB792A'>Papá:</strong> <strong>Mi nombre es</strong> <u>Pedro Soares</u>, <strong>mi esposa se llama</strong> <u>Thainá Rezende.</u><br><strong style='color: #8438FF'>Empleada de Migraciones:</strong> <strong>¿Cómo se deletrea el apellido de su esposa?</strong><br><strong style='color: #EB792A'>Papá:</strong> <strong>R-E-Z-E-N-D-E</strong><br><strong style='color: #8438FF'>Empleada de Migraciones:</strong> <strong>¿Y sus hijos, cómo se llaman?</strong><br><strong style='color: #EB792A'>Papá:</strong> <u>Thiago Rezende Soares</u><strong> y</strong> <u>Thainara Rezende Soares</u><br><strong style=' color: #8438FF'>Empleada de Migraciones:</strong> ¿Cuántos años tienen?<br> <strong style='color: #00B8E9'>Mamá:</strong> <strong>Mi esposo tiene 43 años, yo tengo 42 años, Thiago tiene 13 años y Thainara tiene 9 años.<br><strong style=' color: #8438FF'>Empleada de Migraciones:</strong> ¿De dónde vienen?<br><strong style='color: #EB792A'>Papá:</strong> Venimos de Santos, Brasil.</strong>",
+                        "value": "<strong><strong style='color: #8438FF'>Empleada de Migraciones:</strong></strong> <strong style='color:black'>Buenas tardes, mi nombre es</strong> <u style='color:black'>María González</u>,<span style='color:black'> bienvenidos a Argentina. </span><strong style='color:black'>¿Cómo se llaman?</strog><br><strong style=' color: #EB792A'>Papá:</strong> <strong>Mi nombre es</strong> <u>Pedro Soares</u>, <strong>mi esposa se llama</strong> <u>Thainá Rezende.</u><br><strong style='color: #8438FF'>Empleada de Migraciones:</strong> <strong>¿Cómo se deletrea el apellido de su esposa?</strong><br><strong style='color: #EB792A'>Papá:</strong> <strong>R-E-Z-E-N-D-E</strong><br><strong style='color: #8438FF'>Empleada de Migraciones:</strong> <strong>¿Y sus hijos, cómo se llaman?</strong><br><strong style='color: #EB792A'>Papá:</strong> <u>Thiago Rezende Soares</u><strong> y</strong> <u>Thainara Rezende Soares</u><br><strong style=' color: #8438FF'>Empleada de Migraciones:</strong> ¿Cuántos años tienen?<br> <strong style='color: #00B8E9'>Mamá:</strong> <strong>Mi esposo tiene 43 años, yo tengo 42 años, Thiago tiene 13 años y Thainara tiene 9 años.<br><strong style=' color: #8438FF'>Empleada de Migraciones:</strong> ¿De dónde vienen?<br><strong style='color: #EB792A'>Papá:</strong> Venimos de Santos, Brasil.</strong>",
                         "className": "paragraph-default"
                     }
                 ]
             },
+            "page6":
             {
                 "type": "text",
                 "section": {
@@ -139,11 +140,12 @@
                     },
                     {
                         "type": "paragraph",
-                        "value": "<strong style='color: #8438FF'>Empleada de Migraciones:</strong> ¿Cuál es el motivo de su viaje?<br><strong style='color: #00B8E9'>Mamá: </strong></strong>Visita familiar, mi hermano está casado con una argentina y <strong>viven</strong> acá desde hace 10 años.<br><strong style='color: #33BB99'>Irenise:</strong> También venimos a visitar a nuestros abuelos, <strong>ellos viven</strong> con mis tíos en Córdoba.<br><strong style='color: #8438FF'>Empleada de Migraciones:</strong> Ah, ¡muy bien! Un viaje familiar entonces, <strong>¿por cuánto tiempo se quedan?</strong><br><strong style='color: #EB792A'>Papá: </strong>cuatro semanas<br><strong><strong style=' color: #8438FF'>Empleada de Migraciones: </strong>¿A qué se dedican en Brasil?<br><strong style='color: #00B8E9'>Mamá: </strong></strong> Mi marido <strong>es contador </strong> y yo <strong>soy psicóloga</strong><br><strong style=' color: #8438FF'>Empleada de Migraciones: </strong>Perfecto, ¿pueden dejarme algun dato de contacto?<br><strong style='color: #00B8E9'>Mamá: </strong> Sí, mi número de teléfono es 5 5 8 3 2 6 5 4 4 1 0 y mi correo electrónico es thairezende@mail.com<br><strong style=' color: #8438FF'>Empleada de Migraciones: </strong> Muchas gracias, estamos en contacto, disfruten de su estadía en Córdoba.<br> <strong style='color: #EB792A'>Papá: </strong>Muchas gracias por su atención.",
+                        "value": "<strong><strong style='color: #8438FF'>Empleada de Migraciones:</strong></strong><strong style='color:black'> ¿Cuál es el motivo de su viaje?</strong><br><strong style='color: #00B8E9'><strong>Mamá: </strong></strong><span style='color:black'>Visita familiar, mi hermano está casado con una argentina y <strong>viven</strong> acá desde hace 10 años.<br><strong style='color: #33BB99'>Irenise:</strong> También venimos a visitar a nuestros abuelos, <strong>ellos viven</strong> con mis tíos en Córdoba.<br><strong style='color: #8438FF'>Empleada de Migraciones:</strong> Ah, ¡muy bien! Un viaje familiar entonces, <strong>¿por cuánto tiempo se quedan?</strong><br><strong style='color: #EB792A'>Papá: </strong>cuatro semanas<br><strong><strong style=' color: #8438FF'>Empleada de Migraciones: </strong>¿A qué se dedican en Brasil?<br><strong style='color: #00B8E9'>Mamá: </strong></strong> Mi marido <strong>es contador </strong> y yo <strong>soy psicóloga</strong><br><strong style=' color: #8438FF'>Empleada de Migraciones: </strong>Perfecto, ¿pueden dejarme algun dato de contacto?<br><strong style='color: #00B8E9'>Mamá: </strong> Sí, mi número de teléfono es 5 5 8 3 2 6 5 4 4 1 0 y mi correo electrónico es thairezende@mail.com<br><strong style=' color: #8438FF'>Empleada de Migraciones: </strong> Muchas gracias, estamos en contacto, disfruten de su estadía en Córdoba.<br> <strong style='color: #EB792A'>Papá: </strong>Muchas gracias por su atención.</span>",
                         "className": "paragraph-default"
                     }
                 ]
             },
+            "page7":
             {
                 "type": "selectsimple",
                 "section": {
@@ -164,7 +166,7 @@
                     },
                     {
                         "type": "selectsimple",
-                        "value": "<strong><span style='color: #00CCE3'>1.</span> La familia está compuesta por:</strong>",
+                        "value": "<strong style='color:black'><span style='color: var(--primary)'><strong>1.</strong></span> La familia está compuesta por:</strong>",
                         "option": "papá, mamá y dos hijas",
                         "options": [
                             "papá, mamá y dos hijos",
@@ -175,7 +177,7 @@
                     },
                     {
                         "type": "selectsimple",
-                        "value": "<strong><span style='color: #00CCE3'>2.</span> La familia es:</strong>",
+                        "value": "<strong style='color:black'><span style='color:  var(--primary)'><strong>2.</strong></span> La familia es:</strong>",
                         "option": "brasileña",
                         "options": [
                             "colombiana",
@@ -186,7 +188,7 @@
                     },
                     {
                         "type": "selectsimple",
-                        "value": "<strong><span style='color: #00CCE3'>3.</span> El motivo de su viaje es:</strong>",
+                        "value": "<strong style='color:black'><span style='color: var(--primary)'><strong>3.</strong></span> El motivo de su viaje es:</strong>",
                         "option": "familiar",
                         "options": [
                             "familiar",
@@ -197,7 +199,7 @@
                     },
                     {
                         "type": "selectsimple",
-                        "value": "<strong><span style='color: #00CCE3'>4.</span> Tiempo que se quedan en Córdoba:</strong>",
+                        "value": "<strong style='color:black'><span style='color:var(--primary)'><strong>4.</strong></span> Tiempo que se quedan en Córdoba:</strong>",
                         "option": "cuatro semanas",
                         "options": [
                             "cuatro meses",
@@ -208,6 +210,7 @@
                     }
                 ]
             },
+            "page8":
             {
                 "type": "selectsimple",
                 "section": {
@@ -228,7 +231,7 @@
                     },
                     {
                         "type": "selectsimple",
-                        "value": "<strong><span style='color: #00CCE3'>5.</span> En Córdoba viven</strong>",
+                        "value": "<strong style='color :black'><span style='color:var(--primary)'><strong>5.</strong></span> En Córdoba viven</strong>",
                         "option": "su tío, su tía y sus abuelos",
                         "options": [
                             "su tío, su tía y sus primos",
@@ -239,7 +242,7 @@
                     },
                     {
                         "type": "selectsimple",
-                        "value": "<strong><span style='color: #00CCE3'>6.</span> Las profesiones de los padres son:</strong>",
+                        "value": "<strong style='color :black'><span style='color:var(--primary)'><strong>6.</strong></span> Las profesiones de los padres son:</strong>",
                         "option": "él es contador y ella es psicóloga",
                         "options": [
                             "él es administrador de empresas y ella es contadora",
@@ -250,7 +253,7 @@
                     },
                     {
                         "type": "selectsimple",
-                        "value": "<strong><span style='color: #00CCE3'>7.</span> Los datos para contacto son:</strong>",
+                        "value": "<strong style='color :black'><span style='color:var(--primary)'><strong>7.</strong></span> Los datos para contacto son:</strong>",
                         "option": "número de teléfono y correo electrónico",
                         "options": [
                             "número de teléfono y correo electrónico",
@@ -261,7 +264,7 @@
                     },
                     {
                         "type": "selectsimple",
-                        "value": "<strong><span style='color: #00CCE3'>8.</span> ¿Cómo se llaman los hijos?:</strong>",
+                        "value": "<strong style='color :black'><span style='color:var(--primary)'><strong>8.</strong></span> ¿Cómo se llaman los hijos?:</strong>",
                         "option": "Thainá y Thiago",
                         "options": [
                             "Mateo y Thainá",
@@ -272,6 +275,7 @@
                     }
                 ]
             },
+            "page9":
             {
                 "type": "video-youtube",
                 "section": {
@@ -288,6 +292,7 @@
                     }
                 ]
             },
+            "page10":
             {
                 "type": "dragable-box",
                 "section": {
@@ -352,31 +357,21 @@
                                     "value": "¿cómo estás?",
                                     "id": "DragBox1"
                                 },
-                                {
-                                    "value": "¿cómo le va?",
-                                    "id": "DragBox2"
-                                },
+                               
                                 {
                                     "value": "A qué hora",
-                                    "id": "DragBox3"
+                                    "id": "DragBox2"
                                 },
-                                {
-                                    "value": "cuántos años",
-                                    "id": "DragBox4"
-                                },
-                                {
-                                    "value": "soy psicóloga",
-                                    "id": "DragBox5"
-                                },
-                                {
+                                 {
                                     "value": "yo bien",
-                                    "id": "DragBox6"
+                                    "id": "DragBox3"
                                 }
                             ]
                         }
                     }
                 ]
             },
+            "page11":
             {
                 "type": "dragable-box",
                 "section": {
@@ -423,35 +418,27 @@
                                 }
                             ],
                             "DragBoxs": [
-                                {
-                                    "value": "¿ella se encuentra con usted?",
-                                    "id": "DragBox1"
-                                },
+                               
                                 {
                                     "value": "¿ella está en tu casa?",
                                     "id": "DragBox2"
                                 },
+                                
                                 {
-                                    "value": "Un placer hablar con usted",
-                                    "id": "DragBox3"
-                                },
-                                {
-                                    "value": "Nos vemos pronto ",
+                                    "value": "Nos vemos pronto",
                                     "id": "DragBox4"
                                 },
                                 {
                                     "value": "Chau",
                                     "id": "DragBox5"
-                                },
-                                {
-                                    "value": "que tenga una buena tarde",
-                                    "id": "DragBox6"
                                 }
+                               
                             ]
                         }
                     }
                 ]
             },
+            "page12":
             {
                 "type": "text",
                 "section": {
@@ -495,6 +482,7 @@
                     }
                 ]
             },
+            "page13":
             {
                 "type": "text",
                 "section": {
@@ -516,6 +504,7 @@
                     }
                 ]
             },
+            "page14":
             {
                 "type": "text",
                 "section": {
@@ -532,7 +521,7 @@
                     {
                         "type": "paragraph",
                         "value": "Vamos a crear diálogos, pasando por las diferentes áreas del aeropuerto:",
-                        "className": "subtitle-default"
+                        "className": "subtitle"
                     },
                     {
                         "type": "paragraph",
@@ -541,6 +530,7 @@
                     }
                 ]
             },
+            "page15":
             {
                 "type": "text",
                 "section": {
@@ -576,6 +566,7 @@
                     }
                 ]
             },
+            "page16":
             {
                 "type": "DragableBox",
                 "section": {
@@ -647,7 +638,7 @@
                             ],
                             "DragBoxs": [
                                 {
-                                    "value": "¿y tú?",
+                                    "value": "¿y vos?",
                                     "id": "DragBox1"
                                 },
                                 {
@@ -655,22 +646,20 @@
                                     "id": "DragBox2"
                                 },
                                 {
-                                    "value": "¿todo bien?",
-                                    "id": "DragBox3"
-                                },
-                                {
-                                    "value": "hasta luego",
-                                    "id": "DragBox4"
-                                },
-                                {
                                     "value": "¿Cómo le va?",
                                     "id": "DragBox5"
+                                },
+                                
+                                {
+                                    "value": "¿todo bien?",
+                                    "id": "DragBox3"
                                 }
                             ]
                         }
                     }
                 ]
             },
+            "page17":
             {
                 "type": "selectsimple",
                 "section": {
@@ -741,6 +730,7 @@
                     }
                 ]
             },
+            "page18":
             {
                 "type": "dragablebox",
                 "section": {
@@ -805,6 +795,7 @@
                     }
                 ]
             },
+            "page19":
             {
                 "type": "dragablebox",
                 "section": {
@@ -869,6 +860,7 @@
                     }
                 ]
             },
+            "page20":
             {
                 "type": "dragablebox",
                 "section": {
@@ -913,6 +905,7 @@
                     }
                 ]
             },
+            "page21":
             {
                 "type": "text",
                 "section": {
@@ -939,6 +932,6 @@
                     }
                 ]
             }
-        ]
+        
     
 }

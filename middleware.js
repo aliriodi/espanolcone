@@ -23,7 +23,7 @@ export async function middleware(req){
     if(!session && req.nextUrl.pathname.startsWith('/api/featureclass/')) return NextResponse.redirect( url );
     if(!session && req.nextUrl.pathname.startsWith('/api/guides/')) return NextResponse.redirect( url );
     if(!session && req.nextUrl.pathname.startsWith('/api/teachers/')) return NextResponse.redirect( url );
-   // if(!session && req.nextUrl.pathname.startsWith('/api/users/')) return NextResponse.redirect( url );
+    if(!session && req.nextUrl.pathname.startsWith('/api/users/')) return NextResponse.redirect( url );
     //#endregion
         
     return NextResponse.next()

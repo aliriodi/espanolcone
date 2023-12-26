@@ -19,9 +19,9 @@
                 "className": "Portadatil"
             },
             {
-                "type": "level",
+                "type": "paragraph",
                 "value": "NIVEL A1",
-                "className": "Portadalev"
+                "className": "paragraph"
             }
         ]
     },
@@ -393,7 +393,7 @@
                     {
                         "time": 33,
                         "title": "1. ¿Qué observas?",
-                        "reply": "beso entre hombres ",
+                        "reply": "beso entre hombres",
                         "message": " ",
                         "type": "checkbox",
                         "options": [
@@ -407,7 +407,7 @@
                     },
                     {
                         "time": 72,
-                        "title": "¿Es común en Argentina los besos entre hombres?",
+                        "title": "2. ¿Es común en Argentina los besos entre hombres?",
                         "message": "",
                         "reply": "Sí",
                         "type": "checkbox",
@@ -421,7 +421,7 @@
                     },
                     {
                         "time": 91,
-                        "title": "¿Qué observas?",
+                        "title": "3. ¿Qué observas?",
                         "message": "",
                         "reply": "apretón de manos",
                         "type": "checkbox",
