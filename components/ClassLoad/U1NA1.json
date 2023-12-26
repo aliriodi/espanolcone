@@ -62,7 +62,7 @@
                 "type": "video-youtube",
                 "value": "VvrUn7L7r3w",
                 "youtuve": "https://www.youtube.com/watch?v=VvrUn7L7r3w",
-                "className": "youtuve-p1"
+                "className": "youtube"
             }
         ]
     },
@@ -76,7 +76,7 @@
         "data": [
             {
                 "type": "title",
-            "value": "<font color='black'><strong>Después de ver el video:</strong></font>",
+                "value": "<font color='black'><strong>Después de ver el video:</strong></font>",
                 "className": "title-white"
             },
             {
@@ -187,7 +187,7 @@
                 "type": "video-youtube",
                 "value": "y1zzz_9Znv0",
                 "youtuve": "https://youtu.be/y1zzz_9Znv0",
-                "className": "youtuve-p1"
+                "className": "youtube"
             }
         ]
     },
@@ -204,7 +204,6 @@
                 "value": "Observa las imágenes y arrastra hacia cada una la expresión",
                 "className": "title-white"
             },
-            
             {
                 "type": "dragable-box",
                 "value": {
@@ -317,10 +316,11 @@
                 "value": "De acuerdo con las siguientes imágenes, ¿qué expresión usas?",
                 "className": "title-white"
             },
-            {"type": "title",
-            "value": "<font color='black'><strong>Marca la opción correcta</strong></font>",
-                "className": "title-white"},
-            
+            {
+                "type": "title",
+                "value": "<font color='black'><strong>Marca la opción correcta</strong></font>",
+                "className": "title-white"
+            },
             {
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--0GcsPTej--/v1701369397/images/jetsyyur4bjo8n4ayjzn.png",
@@ -385,42 +385,57 @@
                 "className": "title-white"
             },
             {
-                "type": "selectsimple",
-                "value": "<font color='black'>1. Tiempo 0:31 ¿Qué observas?</font>",
-                "option": "b. beso entre hombres",
-                "options": [
-                    "a. apretón de manos",
-                    "b. beso entre hombres",
-                    "c. beso entre mujeres"
+                "type": "videoi-youtube",
+                "id": "3DLY8YRbdM0",
+                "value": "3DLY8YRbdM0",
+                "youtube": "https://youtu.be/3DLY8YRbdM0",
+                "popups": [
+                    {
+                        "time": 33,
+                        "title": "1. ¿Qué observas?",
+                        "reply": "beso entre hombres ",
+                        "message": " ",
+                        "type": "checkbox",
+                        "options": [
+                            "apretón de manos",
+                            "beso entre hombres",
+                            "beso entre mujeres"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value": 0
+                    },
+                    {
+                        "time": 72,
+                        "title": "¿Es común en Argentina los besos entre hombres?",
+                        "message": "",
+                        "reply": "Sí",
+                        "type": "checkbox",
+                        "options": [
+                            "No",
+                            "Sí"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value": 0
+                    },
+                    {
+                        "time": 91,
+                        "title": "¿Qué observas?",
+                        "message": "",
+                        "reply": "apretón de manos",
+                        "type": "checkbox",
+                        "options": [
+                            "apretón de manos",
+                            "beso entre hombres",
+                            "beso entre mujeres"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value": 0
+                    }
                 ],
-                "className": "selector-simple"
-            },
-            {
-                "type": "selectsimple",
-                "value": "<font color='black'>2. Tiempo 1:12 ¿Es común en Argentina los besos entre hombres?</font>",
-                "option": "b. Sí",
-                "options": [
-                    "a. No",
-                    "b. Sí"
-                ],
-                "className": "selector-simple"
-            },
-            {
-                "type": "selectsimple",
-                "value": "<font color='black'>3. Tiempo 1:31 ¿Qué observas?</font>",
-                "option": "a. apretón de manos",
-                "options": [
-                    "a. apretón de manos",
-                    "b. beso entre hombres",
-                    "c. beso entre mujeres"
-                ],
-                "className": "selector-simple"
-            },
-            {
-                "type": "video-youtube",
-                "value": "3DLY8YRbdM0?t=15",
-                "youtuve": "https://youtu.be/3DLY8YRbdM0?t=15",
-                "className": "youtuve-p1"
+                "className": "youtube"
             }
         ]
     },
@@ -464,7 +479,7 @@
             },
             {
                 "type": "text",
-                "value": "Mi nombre es Eucaris Rodríguez.Soy de Venezuela.",
+                "value": "Mi nombre es Eucaris Rodríguez. Soy de Venezuela.",
                 "className": "title-black"
             },
             {
@@ -827,7 +842,6 @@
                             "content_end": " Córdoba?",
                             "value": "de",
                             "id": "DropUp5"
-                        
                         },
                         {
                             "type": "dropup-center",
