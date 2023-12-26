@@ -18,6 +18,7 @@ import ImagesGrid from './ImagesGrid/ImagesGrid';
 import Logo from '../../public/imgs/logo.png'
 import LogoPrimary from '../../public/imgs/logo-primary.png'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
+import Table from './Table';
 
 export default function Class(props) {
   //elemento a renderizar  
@@ -672,7 +673,7 @@ export default function Class(props) {
             onClick={() => {
               Forward(i);
             }}>
-            { activeChronometer && !sheetsState[i]?.pass && !canFollow ? formatTime(seconds) : <>Next <FontAwesomeIcon icon={faAngleRight}/></>}  
+            { activeChronometer && !sheetsState[i]?.pass && !canFollow ? formatTime(seconds) : <>Sig <FontAwesomeIcon icon={faAngleRight}/></>}  
           </button>
         }
         
@@ -852,8 +853,10 @@ export default function Class(props) {
                     {c.type === 'image' &&<img key={index} width='100' height='100' className={style[c.className]} src={c.value} alt={c.alt} />}
 
                     {/* Cuadricula de Imagenes */}
-                    {c.type === 'image-grid' &&
-                    <ImagesGrid key={index} images={c.value}/>}
+                    {c.type === 'image-grid' && <ImagesGrid key={index} images={c.value}/>}
+
+                    {/* Tabla */}
+                    {c.type === 'table' && <Table key={index} color={ c?.color } value={c.value}/>}
                     
                     {/* Video Youtube */}
                     {c.type === 'video-youtube' &&

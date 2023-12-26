@@ -383,7 +383,8 @@ export default function Unidad(){
             className={`bg-[#000a] fixed w-screen h-screen z-[400] flex justify-center items-center ${congratulationsModal ? "opacity-[1]": "opacity-0"} transition-all`}>
 
                 {/* Modal */}
-                <div className={`bg-white rounded-[5px] relative overflow-hidden z-[600]`}>
+                <div className={`bg-white rounded-[5px] relative overflow-hidden z-[600]
+                md:w-[90%]`}>
                     {/* Titulo */}
                     <div
                     style={{background:'linear-gradient(239.79deg, #33BB99 0.92%, #8438FF 68.4%)'}}
@@ -418,6 +419,12 @@ export default function Unidad(){
 
                     {/* Contenido */}
                     <div className="p-[27px] flex justify-center items-center w-full flex-col">
+                        <p className="text-center mb-2 text-[21px] text-violet_dark font-medium
+                        md:text-[14px]">
+                            Completaste de forma correcta <b>{unit?.points}</b> puntos de <b>{unit?.maxPoints}</b>. 
+                        </p>
+
+                        
                         <p className="text-center mb-6 text-[21px] text-violet_dark font-medium
                         md:text-[14px]">
                             Finalizaste la <b>{unit?.name}</b> del <b>{level?.level}</b>
@@ -444,7 +451,8 @@ export default function Unidad(){
             className={`bg-[#000a] fixed w-screen h-screen z-[400] flex justify-center items-center ${failedModal ? "opacity-[1]": "opacity-0"} transition-all`}>
 
                 {/* Modal */}
-                <div className={`bg-white rounded-[5px] relative overflow-hidden z-[600]`}>
+                <div className={`bg-white rounded-[5px] relative overflow-hidden z-[600]
+                md:w-[90%]`}>
                     {/* Titulo */}
                     <div
                     // style={{background:'linear-gradient(239.79deg, #33BB99 0.92%, #8438FF 68.4%)'}}
@@ -461,6 +469,12 @@ export default function Unidad(){
 
                     {/* Contenido */}
                     <div className="p-[27px] flex justify-center items-center w-full flex-col">
+
+                        <p className="text-center mb-2 text-[21px] text-violet_dark font-medium
+                            md:text-[14px]">
+                            Completaste de forma correcta <b>{unit?.points}</b> puntos de <b>{unit?.maxPoints}</b>. 
+                        </p>
+
                         <p className="text-center mb-6 text-[21px] text-violet_dark font-medium
                         md:text-[14px]">
                             ¿Deseas  volver a intentarlo?
@@ -793,7 +807,7 @@ export default function Unidad(){
                                     ${unit?.maxPoints == 0 && "bg-danger"}
                                     ${unit?.maxPoints > 0 && (unit?.maxPoints / 3) >= unit?.points && "bg-danger"}
                                     ${unit?.maxPoints > 0 && (unit?.maxPoints / 3 < unit?.points && 18 > unit?.points) && "bg-info"}
-                                    ${unit?.maxPoints > 0 && (18 <= unit?.points && unit?.maxPoints <= unit?.points) && "bg-secondary"}
+                                    ${unit?.maxPoints > 0 && (18 <= unit?.points && unit?.maxPoints >= unit?.points) && "bg-secondary"}
                                      text-white rounded-full py-[6px] px-[7px] text-[19px] font-semibold`}>
 
                                         <p>{unit?.points ? unit?.points : 0} / {unit?.maxPoints ? unit?.maxPoints : 0}</p>
