@@ -54,9 +54,9 @@ export default function Curso(){
 
     return(
         <>
-        <Head>
+        {/* <Head>
             <title>Nivel {level} | Español con E</title>
-        </Head>
+        </Head> */}
 
         <Menu />
 
