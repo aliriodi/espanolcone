@@ -9,7 +9,7 @@ import Select from 'react-select'
 import { classid } from '../../../redux/ECEActions'
 import { useDispatch } from "react-redux";
 import { useRouter } from 'next/router';
-// import Head from 'next/head'
+import Head from 'next/head'
 
 
 export default function Curso(){
@@ -54,9 +54,9 @@ export default function Curso(){
 
     return(
         <>
-        {/* <Head>
+        <Head>
             <title>Nivel {level} | Español con E</title>
-        </Head> */}
+        </Head>
 
         <Menu />
 

@@ -12,7 +12,7 @@ import Result from "postcss/lib/result";
 import Confetti from '../../../../components/Confetti'
 import { useRouter } from 'next/router';
 import Spinner from "../../../../components/Spinner";
-// import Head from 'next/head'
+import Head from 'next/head'
 
 
 export default function Unidad(){
@@ -370,9 +370,9 @@ export default function Unidad(){
 
     return(
         <>
-        {/* <Head>
+        <Head>
             <title>{unit?.name} - {level?.level} | Español con E</title>
-        </Head> */}
+        </Head>
 
         {/* Modal de Felitaciones */}
         {
