@@ -16,7 +16,7 @@ export default function Table({ value, color }){
                 {
                     columns?.length > 0 &&
                     columns?.map((column, index)=>
-                        <div
+                        <ul
                         key={index}
                         className={`flex-grow-[1] border-l-2 border-${mainColor} first:border-none max-w-[470px]
                         md:border-none`}>
@@ -25,7 +25,7 @@ export default function Table({ value, color }){
 
                             <div className="p-4 pb-5 text-violet_dark text-[18px] bg-white h-full
                             md:text-[16px]" dangerouslySetInnerHTML={{ __html: column?.content }}></div>
-                        </div>
+                        </ul>
                     )
                 }
             </div>
