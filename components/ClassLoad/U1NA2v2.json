@@ -19,7 +19,7 @@
                 "className": "Portadatil"
             },
             {
-                "type": "level",
+                "type": "paragraph",
                 "value": "NIVEL A2",
                 "className": "Portadalev"
             }

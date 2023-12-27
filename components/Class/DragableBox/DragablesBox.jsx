@@ -67,8 +67,8 @@ export default function DragableBox( props ){
     },[options])
 
     useEffect(()=>{
-        
-    },[props?.done, options])
+        if(!canCheck)props.onChangeActivityDone(props.id, null, null)
+    },[canCheck])
     
 
     function handleDragOver(event){
@@ -178,7 +178,6 @@ export default function DragableBox( props ){
     }
 
     function activityCheck(){      
-        console.log("Chequea")
         let activityDone = true;
         let totalActivitysDone = 0
 

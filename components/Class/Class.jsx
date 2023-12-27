@@ -191,9 +191,9 @@ export default function Class(props) {
           
         }
       })
-      console.log("Cantidad Total ",cantOfActivitys)
-      console.log("DRAG ",cantDragable)
-      console.log("SELECT ",cantSelectsimple)
+      // console.log("Cantidad Total ",cantOfActivitys)
+      // console.log("DRAG ",cantDragable)
+      // console.log("SELECT ",cantSelectsimple)
 
       // Se actualiza el "maxPoints" de la unidad actual
       let updates = { ...session?.user }
@@ -434,7 +434,6 @@ export default function Class(props) {
     
     typeActivitys?.map((activity)=>{
       if(activity.amountDone == null) result = false;
-      console.log("activity ",activity)
     })
 
     return result
@@ -443,7 +442,6 @@ export default function Class(props) {
   function handleChangeActivityDone(id, value, amountDone){
     // Esta funcion se encarga de cambiar el valor "done" de la actividad espesificada por "id",
     // que se encuentra en "typeActivitys"
-    console.log("ID ",id)
     setTypeActivitys(typeActivitys=>{
       typeActivitys = typeActivitys.filter((activity)=>{
 
@@ -452,7 +450,7 @@ export default function Class(props) {
           
           newActivity.done = value;
           newActivity.amountDone = amountDone;
-          // console.log("newActivity ",newActivity)
+          console.log("Datos de Actividad ",newActivity)
 
           return newActivity
         }
@@ -491,7 +489,10 @@ export default function Class(props) {
     let totalPoints = 0
 
     // Calcula la cantidad total de puntos
-    typeActivitys.map((activity)=> totalPoints = activity?.amountDone && totalPoints + activity?.amountDone)
+    typeActivitys.map((activity)=>{
+      totalPoints = activity?.amountDone != null && totalPoints + activity?.amountDone
+      console.log("activity?.amountDone ",activity?.amountDone)
+    })
 
     // Obtiene la unidad actual
     updates?.classes?.map((level)=>{
@@ -502,8 +503,8 @@ export default function Class(props) {
     // Asigna la cantidad total de puntos
     currentUnit.points = currentUnit.points + totalPoints
 
+    console.log("Puntos totales ",totalPoints)
     updateUser(updates)
-    console.log("updates ",updates)
   }
 
   // Animaciones de Check 
@@ -579,6 +580,9 @@ export default function Class(props) {
 
     // Comprueba que en caso de estar en una "Evaluacion" y tener alguna respuesta permite pasar al usuario al la siguiente paguina
     if(typeActivitys.length > 0 && allActivitysHaveResult() && data?.sheets[props.page].section?.number == 5)setCanFollow(true)
+
+    // Comprueba que en caso de estar en una "Evaluacion" y NO tener alguna respuesta permite pasar al usuario al la siguiente paguina
+    if(typeActivitys.length > 0 && !allActivitysHaveResult() && data?.sheets[props.page].section?.number == 5)setCanFollow(false)
 
   },[typeActivitys])
   //#endregion
