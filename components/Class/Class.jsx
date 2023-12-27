@@ -900,6 +900,10 @@ export default function Class(props) {
                     {c.type === 'paragraph-complete' &&
                     <div key={index} className={style[c.className]}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page].section?.number == 5} data={c}/></div> }
                     
+                    {/* Parrafo a Completar con Imagenes */}
+                    {c.type === 'paragraph-complete-content' &&
+                    <div key={index} className={style[c.className]}><PARAGGRAPHCOMPLETE type={"content"} done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page].section?.number == 5} data={c}/></div> }
+                    
                     {/* PopUp de Dialogos */}
                     {c.type === 'popUp-dialogues' &&
                     <div key={index} className={style[c.className]} dangerouslySetInnerHTML={{ __html: c.value }}></div>

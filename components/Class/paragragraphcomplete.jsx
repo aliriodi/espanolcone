@@ -77,7 +77,7 @@ export default function Paragragraphcomplete(props) {
       props.data.value.map( value => {
         if(typeof(value) === 'object')  {
         //return { option:value.option.toLowerCase(), answer:"", done:false}}})
-        return { option:value.option, answer:"", done:false}}}
+        return { option:value.option, answer:"", done:false }}}
         )
     )
   },[props?.data])
@@ -85,17 +85,40 @@ export default function Paragragraphcomplete(props) {
   useEffect(()=> activityCheck(), [inputValues])
 
   return (
-    <div>
+    <div className={props?.type == "content" && `flex flex-wrap justify-between
+    md:justify-evenly`}>
       {  
         props.data.value.map(((value, index) => (
         typeof(value) === 'object' ?
 
-            <span key={index} style={{paddingRight: '5px',paddingLeft: '5px'}}>
+            <span
+            className={props?.type == "content" && `relative mb-10`}
+            key={index}
+            style={{paddingRight: '5px',paddingLeft: '5px'}}>
 
+              {/* Imagen */}
+              {
+                value?.src &&
+                <img
+                className={props?.type == "content" && `h-[160px] w-[260px] object-cover rounded-[5px]`}
+                src={value?.src}/>
+              }
+              
+              {/* Texto */}
+              {
+                value?.text &&
+                <p
+                className={props?.type == "content" && `w-full text-center my-2 text-violet_dark font-medium text-[18px]
+                md:text-[16px]`}
+                dangerouslySetInnerHTML={{ __html: value?.text }}/>
+              }              
+
+              {/* Campo */}
               <input 
                   type="text"
                   className={
                     `
+                    ${props?.type == "content" && "w-full"}
                     border-[2px] border- border-solid transition-all rounded-[5px] bg-transparent text-center outline-none
                     ${inputValues[index]?.answer == "" && "border-primary"}
                     ${props.inEvaluation && "border-primary"}
@@ -114,7 +137,9 @@ export default function Paragragraphcomplete(props) {
 
             </span>
 
-          : <span key={index} dangerouslySetInnerHTML={{ __html: value }}></span> 
+          : 
+          
+          <span key={index} dangerouslySetInnerHTML={{ __html: value }}></span> 
         )))
       }
     </div>  )
