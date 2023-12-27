@@ -285,6 +285,30 @@ export default function YoutubePopup(props) {
    
     // Opciones de Youtube
     const [inFullScreen, setInFullScreen] = useState(false)
+
+    useEffect(() => {
+      const elemento = videoRef.current;
+  
+      const manejarCambioFullscreen = () => {
+
+        if (document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement || document.msFullscreenElement) setInFullScreen(true)
+        
+        else setInFullScreen(false)
+      };
+  
+      document.addEventListener('fullscreenchange', manejarCambioFullscreen);
+      document.addEventListener('mozfullscreenchange', manejarCambioFullscreen);
+      document.addEventListener('webkitfullscreenchange', manejarCambioFullscreen);
+      document.addEventListener('msfullscreenchange', manejarCambioFullscreen);
+  
+      return () => {
+        document.removeEventListener('fullscreenchange', manejarCambioFullscreen);
+        document.removeEventListener('mozfullscreenchange', manejarCambioFullscreen);
+        document.removeEventListener('webkitfullscreenchange', manejarCambioFullscreen);
+        document.removeEventListener('msfullscreenchange', manejarCambioFullscreen);
+      };
+    }, []);
+
     const videoFullScreen = () => {
       const elemento = videoRef.current;
   
