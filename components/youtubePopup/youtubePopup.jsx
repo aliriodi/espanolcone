@@ -6,6 +6,7 @@ import Head from 'next/head';
 import SuccessPopUp from './successPopUp';
 import FailedPopUp from './failedPopUp';
 import { useSpring, animated } from 'react-spring';
+import { faExpand } from '@fortawesome/free-solid-svg-icons';
 
 
 export default function YoutubePopup(props) {
@@ -43,6 +44,7 @@ export default function YoutubePopup(props) {
 
     const popupRef = useRef(null);
     const iframeRef = useRef(null);
+    const videoRef = useRef(null);
     
     // Contador
     let interval;  
@@ -282,6 +284,40 @@ export default function YoutubePopup(props) {
     
    
     // Opciones de Youtube
+    const [inFullScreen, setInFullScreen] = useState(false)
+    const videoFullScreen = () => {
+      const elemento = videoRef.current;
+  
+      if (!elemento) return
+
+      if(inFullScreen){
+        setInFullScreen(false)
+
+        if (document.exitFullscreen) {
+          document?.exitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+          document?.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+          document?.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+          document.msExitFullscreen();
+        }
+      }
+      else{
+        setInFullScreen(true)
+
+        if (elemento.requestFullscreen) {
+          elemento.requestFullscreen();
+        } else if (elemento.mozRequestFullScreen) {
+          elemento?.mozRequestFullScreen();
+        } else if (elemento.webkitRequestFullscreen) {
+          elemento?.webkitRequestFullscreen();
+        } else if (elemento.msRequestFullscreen) {
+          elemento?.msRequestFullscreen();
+        }
+      }
+    };
+
     const opts = { 
         playerVars: {
           rel: 0, // Evitar videos relacionados al final
@@ -342,21 +378,30 @@ export default function YoutubePopup(props) {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
       </Head>
       <Layout>
-        <div className='mx-auto my-auto h-1/2 relative'>
+        <div
+        className='mx-auto my-auto h-1/2 relative'>
 
           {/* Titulo de la Actividad */}
           <h3>{props.titlep}</h3>
 
           {/* Video */}
-          <div className='relative'>
+          <div
+          ref={videoRef}
+          className='relative'>
             <YouTube
               ref={iframeRef}
               opts={opts}
               videoId={props.videoId}        
               onReady={handlePlayerReady}
               onStateChange={handlePlayerStateChange}
-              className='youtube'
+              className={`youtube ${inFullScreen && "w-screen h-screen"}`}
             />
+
+            <button
+            className=' bg-black text-white h-[38px] absolute bottom-0 right-0 w-[75px] rounded-[5px_0_0_0]'
+            onClick={videoFullScreen}>
+              <FontAwesomeIcon icon={faExpand}/>
+            </button>
 
             {/* PopUp de respuesta Erronea */}
             <FailedPopUp
@@ -368,7 +413,7 @@ export default function YoutubePopup(props) {
             <SuccessPopUp
             showPopUp={showSuccessPopUp}
             onShowSuccessPopUp={handleShowSuccessPopUp}/>
-
+            
             {/* PopUp */}
             {
               showPopup && !showFailedPopUp && !showSuccessPopUp ?
@@ -426,13 +471,12 @@ export default function YoutubePopup(props) {
                   </h3>
                   {/* Botón para mostrar el popup */}
                   
-
                   {/* Opciones del Selector */}
-                  <ul className='flex justify-between px-6 my-4'>
+                  <ul className='flex justify-evenly px-6 my-4 flex-wrap'>
                     {currentPopUp.options &&
                     currentPopUp.options.map(opt =>
                       <li
-                      className='relative flex items-center my-2 justify-center'
+                      className='relative flex items-center my-2 justify-center px-[5px]'
                       key={opt}
                         >
                         <input 

@@ -118,11 +118,11 @@ export default function Class(props) {
   useEffect(()=>{
     
     // En caso de estar en una lo posiciona en el ultimo lugar al que llego
-    if(session && props?.id && session?.user?.position?.id == props?.id && data?.sheets[props.page].section?.number == 5){
+    // if(session && props?.id && session?.user?.position?.id == props?.id && data?.sheets[props.page].section?.number == 5){
       
-      setI(session?.user?.position?.index - data?.sheets.filter((sheet)=> sheet?.section?.number != data?.sheets[props.page].section?.number).length)
+    //   setI(session?.user?.position?.index - data?.sheets.filter((sheet)=> sheet?.section?.number != data?.sheets[props.page].section?.number).length)
 
-    }
+    // }
 
     // Se asignan las paginas segun la seccion indicada en "props.page"
     setSheetsOfSection(data?.sheets.filter((sheet)=> sheet?.section?.number == data?.sheets[props.page].section?.number))
