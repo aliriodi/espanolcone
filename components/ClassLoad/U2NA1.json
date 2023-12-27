@@ -167,7 +167,7 @@
                     {
                         "type": "selectsimple",
                         "value": "<strong style='color:black'><span style='color: var(--primary)'><strong>1.</strong></span> La familia está compuesta por:</strong>",
-                        "option": "papá, mamá y dos hijas",
+                        "option": "papá, mamá y dos hijos",
                         "options": [
                             "papá, mamá y dos hijos",
                             "papá, mamá y dos hijas",
