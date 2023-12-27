@@ -44,6 +44,10 @@
   --dark_hover:#4E4F50;
   --dark_flat_hover:#3B3C3D1F;
   --dark_transparent:#3B3C3D1F;
+
+  /* Warning */
+  --warning: #FF7438;
+
   /* Orange*/
   --orange: #FF7438;
 }

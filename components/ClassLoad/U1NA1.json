@@ -338,18 +338,18 @@
             },
             {
                 "type": "title",
-                "value": "<font color='black'><strong>Marca la opción correcta</strong></font>",
-                "className": "title-white"
+                "value": "Marca la opción correcta",
+                "className": "title-dark"
             },
             {
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--0GcsPTej--/v1701369397/images/jetsyyur4bjo8n4ayjzn.png",
                 "alt": "manos",
-                "className": "className"
+                "className": "img-default"
             },
             {
                 "type": "selectsimple",
-                "value": "<font color='black'>Apretón de manos</font>",
+                "value": "Apretón de manos",
                 "option": "Es un placer conocerte",
                 "options": [
                     "Es un placer conocerte",
@@ -361,11 +361,11 @@
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--PjK3ReP_--/v1701369332/images/g4ztgbygnfiggwai8q4a.png",
                 "alt": "hola",
-                "className": "className"
+                "className": "img-default"
             },
             {
                 "type": "selectsimple",
-                "value": "<font color='black'>Saludo inicial</font>",
+                "value": "Saludo inicial",
                 "option": "¡Hola!",
                 "options": [
                     "Es un placer conocerte",
@@ -377,11 +377,11 @@
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--QukU8qRA--/v1701369440/images/xyca5tjgg0ixacxwaihb.png",
                 "alt": "chao",
-                "className": "className"
+                "className": "img-default"
             },
             {
                 "type": "selectsimple",
-                "value": "<font color='black'>Despedida</font>",
+                "value": "Despedida",
                 "option": "¡Adiós!",
                 "options": [
                     "¡Adiós!",
@@ -465,7 +465,7 @@
             "number": 4,
             "value": "Mis retos"
         },
-        "template": "template-title-top-1",
+        "template": "template-title-top-4",
         "data": [
             {
                 "type": "title",
@@ -475,7 +475,7 @@
             {
                 "type": "paragraph",
                 "value": "Construye una infografía con tu presentación, usando las herramientas que  quieras, puedes seguir el modelo. Luego graba un video presentándote y dando tu información personal.",
-                "className": "paragraph8"
+                "className": "paragraph-default-center"
             }
         ]
     },
@@ -602,32 +602,32 @@
             "number": 5,
             "value": "Evaluemos"
         },
-        "template": "template-title-top-1",
+        "template": "template-title-top-4",
         "data": [
             {
                 "type": "title",
                 "value": "Evaluación unidad 1",
-                "className": "paragraph3"
+                "className": "title-white"
             },
             {
                 "type": "paragraph",
-                "value": "La siguiente evaluación contiene 20 ejercicios propuestos.",
-                "className": "paragraph8"
+                "value": "La siguiente evaluación contiene <b>20 ejercicios propuestos.</b>",
+                "className": "paragraph-default-center"
             },
             {
                 "type": "paragraph",
-                "value": "Cada uno que respondas correctamente vale 01 punto.",
-                "className": "paragraph8"
+                "value": "Cada uno que respondas correctamente vale <b>01 punto.</b>",
+                "className": "paragraph-default-center"
             },
             {
                 "type": "paragraph",
-                "value": "Para aprobar la evaluación y pasar a la siguiente unidad debes obtener un mínimo de 18 puntos.",
-                "className": "paragraph8"
+                "value": "Para aprobar la evaluación y pasar a la siguiente unidad debes obtener un mínimo de <b>18 puntos.</b>",
+                "className": "paragraph-default-center"
             },
             {
                 "type": "paragraph",
-                "value": "¡Adelante y buena suerte!",
-                "className": "paragraph8"
+                "value": "<b style='color:var(--warning);'>¡Adelante y buena suerte!</b>",
+                "className": "paragraph-default-center"
             }
         ]
     },

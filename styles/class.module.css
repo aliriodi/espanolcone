@@ -98,6 +98,12 @@
 }
 
 /* Images */
+.img-default{
+    /* height: 160px; */
+    width: 230px;
+    border-radius: 5px;
+}
+
 .passages-img-bottom-left{
     width: 200px;
     height: 200px;
@@ -129,12 +135,13 @@
 /* Youtube */
 .youtube{
     margin-top: 100px;
+    border-radius: 30px;
+    overflow: hidden;
 }
 .youtube iframe{
     background-color: #6E6B7B;
     min-width: 740px;
     min-height: 460px;
-    border-radius: 30px;
 }
 
 /* PopUp globo de dialogo */
@@ -338,6 +345,31 @@
     width: 100%;
 }
 
+/* template Title Top 4 (Template con padding a los costados) */
+.template-title-top-4{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.template-title-top-4 .title{
+    box-shadow: 0px 4px 26px #00000040;
+    background-image: linear-gradient(to right, var(--primary), var(--success));
+    border-radius: 0 0 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 250px;
+    width: 100%;
+}
+
+.template-title-top-4 .content{
+    padding: 0 5%;
+    /* display: flex;
+    flex-wrap: wrap; */
+    margin: 100px 0;
+}
+
 /* template Title Right 1 ( Teample para Select Simple )*/
 .template-title-right-1{
     display: flex;
@@ -533,6 +565,15 @@
     
     /* template Title Top 3 (Template para popUps de dialogos) */
     .template-title-top-3 .title{
+        padding-top: 62px;
+    }
+
+    /* template Title Top 4 (Template con padding a los costados) */
+    .template-title-top-4{
+
+    }
+    
+    .template-title-top-4 .title{
         padding-top: 62px;
     }
 
