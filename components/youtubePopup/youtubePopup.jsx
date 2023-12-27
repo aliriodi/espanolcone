@@ -342,7 +342,7 @@ export default function YoutubePopup(props) {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
       </Head>
       <Layout>
-        <div className='mx-auto my-auto h-1/2 relative' style={{width:"640px", marginTop:"10px"}}>
+        <div className='mx-auto my-auto h-1/2 relative'>
 
           {/* Titulo de la Actividad */}
           <h3>{props.titlep}</h3>
