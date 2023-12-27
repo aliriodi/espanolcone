@@ -39,7 +39,6 @@
                 "className": "title-white"
             },
             {
-                "color":"warning",
                 "type": "table",
                 "value": [
                     {
@@ -413,7 +412,7 @@
                     {
                         "time": 33,
                         "title": "1. ¿Qué observas?",
-                        "reply": "beso entre hombres ",
+                        "reply": "beso entre hombres",
                         "message": " ",
                         "type": "checkbox",
                         "options": [
@@ -748,7 +747,7 @@
             },
             {
                 "type": "selectsimple",
-                "value": "2. Hola ¿Qué tal?. __________________, gracias",
+                "value": "2. Hola ¿Qué tal?, __________________, gracias",
                 "option": "a. muy bien",
                 "options": [
                     "a. muy bien",

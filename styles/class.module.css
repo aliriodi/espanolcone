@@ -265,7 +265,7 @@
 }
 
 .template-title-top-1 .content{
-    padding: 90px 0;
+    padding: 80px 0 110px 0;
 }
 .template-title-top-1 .title{
     box-shadow: 0px 4px 26px #00000040;
@@ -549,6 +549,7 @@
     /* //// Temples //// */
     /* template Title Top 1 */
     .template-title-top-1 .content{
+        width: 100%;
         padding: 20px 25px 100px 25px;
     }
     .template-title-top-1 .title{
