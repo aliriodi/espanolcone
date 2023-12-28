@@ -484,58 +484,33 @@
             "number": 4,
             "value": "Mis retos"
         },
-        "template": "template-title-top-1",
+        "template": "template-title-top-5",
         "data": [
             {
                 "type": "title",
                 "value": "¡Vamos a conocernos!",
-                "className": "title-white"
+                "className": "title-warning-to-success"
             },
             {
                 "type": "title",
                 "value": "¡Hola! ¿Cómo estás?",
-                "className": "title-white"
+                "className": "title-warning-to-success"
             },
             {
-                "type": "text",
-                "value": "Mi nombre es Eucaris Rodríguez. Soy de Venezuela.",
-                "className": "title-black"
+                "type": "text-block",
+                "value": "<p>Mi <b>nombre <span style='color:var(--warning);'>es</span></b> Eucaris Rodríguez. Soy <b>de <span style='color:var(--warning);'>Venezuela.</span></b></p><p><b><span style='color:var(--warning);'>Soy profesora</span> de</b> español.</p><p><b>Mi lengua materna <span style='color:var(--warning);'>es</span></b> el español, también puedo hablar inglés y un poco de portugués.</p><p><b><span style='color:var(--warning);'>Vivo</span> con</b> mi familia, y <b>tengo una perrita llamada Honey.</b></p>",
+                "className": "text-block"
             },
             {
-                "type": "text",
-                "value": "Soy profesora de español.",
-                "className": "title-black"
-            },
-            {
-                "type": "text",
-                "value": "Mi lengua materna es el español, también puedo hablar inglés y un poco de portugués.",
-                "className": "title-black"
-            },
-            {
-                "type": "text",
-                "value": "Vivo con mi familia, y tengo una perrita llamada Honey.",
-                "className": "title-black"
-            },
-            {
-                "type": "text",
-                "value": "Vivo en Argentina, mi dirección es Sarajevo 1432, Barrio Buenaventura",
-                "className": "title-black"
-            },
-            {
-                "type": "text",
-                "value": "Mi dirección de email es eucarisr@espanolcone.com",
-                "className": "title-black"
-            },
-            {
-                "type": "text",
-                "value": "Mi número de teléfono es 351763219",
-                "className": "title-black"
-            },
-            {
-                "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--Iwwwj8PS--/v1701524572/images/xoicpr7hprfe97r0nzuz.png",
+                "type": "text-block",
+                "value": "<img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--eyn-eg2e--/v1703733983/images/it0s9wgwn8snpm6ogxf0.png' alt='flechas'/><img src='https://res.cloudinary.com/dfddh08q8/image/upload/v1694366482/images/team-photo-01_svprcr.png' alt='perfil'/>",
                 "alt": "chao",
-                "className": "className"
+                "className": "text-block"
+            },
+            {
+                "type": "text-block",
+                "value": "<p><b><span style='color:var(--warning);'>Vivo</span> en</b> Argentina, <b>mi dirección es</b> Sarajevo 1432, Barrio Buenaventura</p><p><b><span style='color:var(--warning);'>Mi dirección de email es</span> eucarisr@espanolcone.com</b></p><p><b><span style='color:var(--warning);'>Mi número de teléfono es</span></b> 351763219.</p>",
+                "className": "text-block"
             }
         ]
     },
@@ -545,53 +520,28 @@
             "number": 4,
             "value": "Mis retos"
         },
-        "template": "template-title-top-1",
+        "template": "template-title-top-5",
         "data": [
             {
                 "type": "title",
                 "value": "¡Es tu turno!",
-                "className": "title-white"
+                "className": "title-warning-to-success"
             },
             {
-                "type": "text",
-                "value": "¿Cómo te llamas?<br>Mi nombre es…",
-                "className": "title-black"
+                "type": "text-block",
+                "value": "<p><b>¿Cómo te llamas?<br>Mi nombre <span style='color:var(--warning);'>es</span>…</b></p> <p><b>¿A qué te dedicas?<br><span style='color:var(--warning);'>Soy</span>…<br>¿Dónde trabajas?<br><span style='color:var(--warning);'>Trabajo en</span>…</b></p> <p><b>¿Qué idiomas hablas?<br>Mi lengua materna <span style='color:var(--warning);'>es</span>…</b><br>y también puedo<br>hablar…</p> <p><b>¿Con quién vives?<br><span style='color:var(--warning);'>Vivo</span> con… y ___<br>tengo</b> mascota.</p>",
+                "className": "text-block"
             },
             {
-                "type": "text",
-                "value": "¿A qué te dedicas?<br>Soy…<br>¿Dónde trabajas?<br>Trabajo en…",
-                "className": "title-black"
+                "type": "text-block",
+                "value": "<img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--eyn-eg2e--/v1703733983/images/it0s9wgwn8snpm6ogxf0.png' alt='flechas'/><img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--5EGqZyxc--/v1703734123/images/wzln2vqemecsnudbhuol.png' alt='perfil'/>",
+                "alt": "chao",
+                "className": "text-block"
             },
             {
-                "type": "text",
-                "value": "¿Qué idiomas hablas?<br>Mi lengua materna es…<br>y también puedo<br>hablar…",
-                "className": "title-black"
-            },
-            {
-                "type": "text",
-                "value": "¿Con quién vives?<br>Vivo con… y ___<br>tengo mascota.",
-                "className": "title-black"
-            },
-            {
-                "type": "text",
-                "value": "¿Dónde vives?<br>Vivo en…<br>Mi dirección es…",
-                "className": "title-black"
-            },
-            {
-                "type": "text",
-                "value": "¿Cuál es tu dirección de email?<br>Mi dirección de email es...",
-                "className": "title-black"
-            },
-            {
-                "type": "text",
-                "value": "¿Cuál es tu número de teléfono?<br>Mi número de teléfono es…",
-                "className": "title-black"
-            },
-            {
-                "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--h1BKN1n2--/v1701527937/images/vadogk2dhmyfa2c7s6eg.png",
-                "alt": "tu",
-                "className": "className"
+                "type": "text-block",
+                "value": "<p><b>¿Dónde vives?<br><span style='color:var(--warning);'>Vivo</span> en…<br><span style='color:var(--warning);'>Mi dirección es…</span></b></p> <p><b>¿Cuál es tu dirección de email?<br>Mi dirección de email es...</b></p> <p><b>¿Cuál es tu número de teléfono?<br><span style='color:var(--warning);'>Mi número de teléfono es…</span></b></p>",
+                "className": "text-block"
             }
         ]
     },

@@ -15,6 +15,15 @@
     text-align: center;
 }
 
+.title-warning-to-success{
+    font-weight: 600;
+    font-size: 36px;
+    text-align: center;
+    background: linear-gradient(to right, var(--warning), var(--success)); /* Cambia los colores según tus preferencias */
+    -webkit-background-clip: text; /* Permite que el degradado se ajuste al texto */
+    color: transparent;
+}
+
 .title-dark{
     font-weight: 600;
     font-size: 36px;
@@ -223,6 +232,45 @@
     background-color: #000;
 }
 
+/* Text Block */
+.text-block{
+    position: relative;
+    font-weight: 500;
+    font-size: 1.33rem;
+    color: #6E6B7B;
+    text-wrap: wrap;
+    width: 30%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.text-block:last-of-type p{
+    text-align: left;
+}
+
+.text-block p{
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.text-block img{
+    width: 100%;
+}
+
+.text-block img:last-of-type{
+    object-fit: cover;
+    width: 60%;
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    background-color: var(--success);
+    border-radius: 100%;
+}
+
 /*  */
 
 .name{
@@ -339,6 +387,7 @@
     background-image: linear-gradient(to right, var(--primary), var(--success));
     border-radius: 0 0 50px 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 250px;
@@ -365,9 +414,32 @@
 
 .template-title-top-4 .content{
     padding: 0 5%;
-    /* display: flex;
-    flex-wrap: wrap; */
     margin: 100px 0;
+}
+
+/* template Title Top 5 (Template principalmente para "¡Vamos a conocernos!") */
+.template-title-top-5{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.template-title-top-5 .title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 250px;
+    width: 100%;
+}
+
+.template-title-top-5 .content{
+    /* padding-top: 50px; */
+    width: 100%;
+    display: flex;
+    padding-bottom: 100px;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 /* template Title Right 1 ( Teample para Select Simple )*/
@@ -466,6 +538,11 @@
         font-size: 28px;
     }
 
+    .title-warning-to-success{
+        font-weight: 600;
+        font-size: 24px;
+    }
+
     .title-dark{
         font-weight: 600;
         font-size: 24px;
@@ -537,6 +614,26 @@
         display: none;
     }
 
+    /* Text Block */
+    .text-block{
+        width: 100%;
+        flex-direction: row;
+    }
+
+    .text-block p{
+        font-size: 12px;
+        margin: 5px;
+        text-align: center;
+    }
+
+    .text-block img:first-of-type{
+        transform: rotate(90deg);
+    }
+    
+    .text-block:last-of-type p{
+        text-align: center;
+    }
+
     /*  */
     .name p{
         font-size: 18px;
@@ -569,6 +666,10 @@
         padding-top: 62px;
     }
 
+    .template-title-top-3 .content{
+        padding: 20px 25px 100px 25px;
+    }
+
     /* template Title Top 4 (Template con padding a los costados) */
     .template-title-top-4{
 
@@ -576,6 +677,15 @@
     
     .template-title-top-4 .title{
         padding-top: 62px;
+    }
+
+    /* template Title Top 5 (Template principalmente para "¡Vamos a conocernos!") */
+    .template-title-top-5 .title{
+        padding-top: 62px;
+    }
+
+    .template-title-top-5 .content{
+        padding: 20px 25px 100px 25px;
     }
 
     /* template Title Right 1 */

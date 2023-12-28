@@ -861,6 +861,9 @@ export default function Class(props) {
 
                     {/* Tabla */}
                     {c.type === 'table' && <Table key={index} color={ c?.color } value={c.value}/>}
+
+                    {/* Bloque de textos */}
+                    {c.type === 'text-block' && <div className={style[c.className]} key={index} dangerouslySetInnerHTML={{ __html: c.value }}></div>}
                     
                     {/* Video Youtube */}
                     {c.type === 'video-youtube' &&
