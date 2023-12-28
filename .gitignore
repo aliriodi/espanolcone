@@ -1,6 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 #update
-/components/ClassLoad/updateclase.js
+components/ClassLoad/updateclase.js
 # dependencies
 /node_modules
 /.pnp
