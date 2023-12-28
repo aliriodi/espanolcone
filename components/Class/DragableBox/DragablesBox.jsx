@@ -52,7 +52,9 @@ export default function DragableBox( props ){
 
     },[props?.options?.DragBoxs])
 
-    useEffect(()=> setDropUpContainer([...props?.options?.DropUps, {value:"container",id:"container", type:"container"}]),[props?.options?.DropUps])
+    useEffect(()=>{
+        setDropUpContainer([...props?.options?.DropUps, {value:"container",id:"container", type:"container"}])
+    },[props?.options?.DropUps])
     
     useEffect(()=>{
         
@@ -225,6 +227,7 @@ export default function DragableBox( props ){
                                     handleDoneOption={handleDoneOption}
                                     canCheck={canCheck}
                                     inEvaluation={props?.inEvaluation}
+                                    containerPosition={props?.containerPosition}
                                     
                                     // se le pasan las respectivas opciones que corresponden a cada  contenedor
                                     dragBoxs={options?.filter((option) => option.dropUpId === dropUp.id)}

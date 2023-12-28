@@ -378,6 +378,7 @@
 
 .template-title-top-3 .content{
     padding-top: 100px;
+    padding-bottom: 120px;
     width: 100%;
     display: flex;
     justify-content: space-evenly;

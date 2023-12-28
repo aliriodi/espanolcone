@@ -10,7 +10,7 @@
                 "data": [
                     {
                         "type": "image",
-                        "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366262/images/logo-primary_qoagkg.png",
+                        "value": "https://res.cloudinary.com/dfddh08q8/image/upload/…m8S--/v1703769751/images/z6fbifgujopqgwbsam8h.jpg",
                         "alt": "EspañolconE",
                         "className": "Portadaimg"
                     },
@@ -65,7 +65,8 @@
                         "type": "image",
                         "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--dlRN45CN--/v1701363238/images/k0ukpuk4jwiwlxgywddj.png",
                         "alt": "Ingeniero Aeronáutico Ambrosio Taravella",
-                        "className": ""
+                        "className": "",
+                        "classExtra":"w-full"
                     }
                 ]
             },
@@ -87,7 +88,8 @@
                         "type": "image",
                         "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--UG-jV33h--/v1701481453/images/sbkz5ykwghz6cpeywynx.png",
                         "alt": "Familia brasileña pierde su maleta",
-                        "className": ""
+                        "className": "",
+                        "classExtra":"w-full"
                     }
                 ]
             },
@@ -98,7 +100,7 @@
                     "number": 1,
                     "value": "Comencemos"
                 },
-                "template": "template-title-top-1",
+                "template": "template-title-top-3",
                 "data": [
                     {
                         "type": "title",
@@ -109,12 +111,14 @@
                         "type": "image",
                         "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--Gxl8CQfv--/v1701481670/images/on8dmpadmlftrt3kq8id.png",
                         "alt": "Familia brasileña pierde su maleta",
-                        "className": ""
+                        "className": "",
+                        "classExtra":"h-auto w-[30%] rounded-[5px] object-cover   md:w-[100%] md:mb-3"
                     },
                     {
                         "type": "paragraph",
-                        "value": "<strong><strong style='color: #8438FF'>Empleada de Migraciones:</strong></strong> <strong style='color:black'>Buenas tardes, mi nombre es</strong> <u style='color:black'>María González</u>,<span style='color:black'> bienvenidos a Argentina. </span><strong style='color:black'>¿Cómo se llaman?</strog><br><strong style=' color: #EB792A'>Papá:</strong> <strong>Mi nombre es</strong> <u>Pedro Soares</u>, <strong>mi esposa se llama</strong> <u>Thainá Rezende.</u><br><strong style='color: #8438FF'>Empleada de Migraciones:</strong> <strong>¿Cómo se deletrea el apellido de su esposa?</strong><br><strong style='color: #EB792A'>Papá:</strong> <strong>R-E-Z-E-N-D-E</strong><br><strong style='color: #8438FF'>Empleada de Migraciones:</strong> <strong>¿Y sus hijos, cómo se llaman?</strong><br><strong style='color: #EB792A'>Papá:</strong> <u>Thiago Rezende Soares</u><strong> y</strong> <u>Thainara Rezende Soares</u><br><strong style=' color: #8438FF'>Empleada de Migraciones:</strong> ¿Cuántos años tienen?<br> <strong style='color: #00B8E9'>Mamá:</strong> <strong>Mi esposo tiene 43 años, yo tengo 42 años, Thiago tiene 13 años y Thainara tiene 9 años.<br><strong style=' color: #8438FF'>Empleada de Migraciones:</strong> ¿De dónde vienen?<br><strong style='color: #EB792A'>Papá:</strong> Venimos de Santos, Brasil.</strong>",
-                        "className": "paragraph-default"
+                        "value": "<p><b style='color: #8438FF'>Empleada de Migraciones:</b><b>Buenas tardes, mi nombre es</b>María González, bienvenidos a Argentina. <b>¿Cómo se llaman?</b><br><b style=' color: #EB792A'>Papá:</b><b>Mi nombre es</b> <u>Pedro Soares,</u> <b>mi esposa se llama</b> <u>Thainá Rezende.</u><br><b style='color: #8438FF'>Empleada de Migraciones:</b> <b>¿Cómo se deletrea el apellido de su esposa?</b><br><b style='color: #EB792A'>Papá:</b> <b>R-E-Z-E-N-D-E</b><br><b style='color: #8438FF'>Empleada de Migraciones:</b> <b>¿Y sus hijos, cómo se llaman?</b><br><b style='color: #EB792A'>Papá:</b> <u>Thiago Rezende Soares</u><b> y</b> <u>Thainara Rezende Soares</u><br><b style=' color: #8438FF'>Empleada de Migraciones:</b> ¿Cuántos años tienen?<br> <b style='color: #00B8E9'>Mamá:</b> <b>Mi esposo tiene 43 años, yo tengo 42 años, Thiago tiene 13 años y Thainara tiene 9 años.<br><b style=' color: #8438FF'>Empleada de Migraciones:</b> ¿De dónde vienen?<br><b style='color: #EB792A'>Papá:</b> Venimos de Santos, Brasil.</b></p>",
+                        "className": "paragraph-default",
+                        "classExtra":"h-auto w-1/2 md:w-full"
                     }
                 ]
             },
@@ -136,11 +140,12 @@
                         "type": "image",
                         "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--A8PkgE5z--/v1701483062/images/cflhp2kmbtadpejvrqy4.png",
                         "alt": "Familia brasileña pierde su maleta",
-                        "className": ""
+                        "className": "",
+                        "classExtra":" w-1/2 rounded-[5px] mb-4   md:w-full"
                     },
                     {
                         "type": "paragraph",
-                        "value": "<strong><strong style='color: #8438FF'>Empleada de Migraciones:</strong></strong><strong style='color:black'> ¿Cuál es el motivo de su viaje?</strong><br><strong style='color: #00B8E9'><strong>Mamá: </strong></strong><span style='color:black'>Visita familiar, mi hermano está casado con una argentina y <strong>viven</strong> acá desde hace 10 años.<br><strong style='color: #33BB99'>Irenise:</strong> También venimos a visitar a nuestros abuelos, <strong>ellos viven</strong> con mis tíos en Córdoba.<br><strong style='color: #8438FF'>Empleada de Migraciones:</strong> Ah, ¡muy bien! Un viaje familiar entonces, <strong>¿por cuánto tiempo se quedan?</strong><br><strong style='color: #EB792A'>Papá: </strong>cuatro semanas<br><strong><strong style=' color: #8438FF'>Empleada de Migraciones: </strong>¿A qué se dedican en Brasil?<br><strong style='color: #00B8E9'>Mamá: </strong></strong> Mi marido <strong>es contador </strong> y yo <strong>soy psicóloga</strong><br><strong style=' color: #8438FF'>Empleada de Migraciones: </strong>Perfecto, ¿pueden dejarme algun dato de contacto?<br><strong style='color: #00B8E9'>Mamá: </strong> Sí, mi número de teléfono es 5 5 8 3 2 6 5 4 4 1 0 y mi correo electrónico es thairezende@mail.com<br><strong style=' color: #8438FF'>Empleada de Migraciones: </strong> Muchas gracias, estamos en contacto, disfruten de su estadía en Córdoba.<br> <strong style='color: #EB792A'>Papá: </strong>Muchas gracias por su atención.</span>",
+                        "value": "<p><b><p style='color: #8438FF'>Empleada de Migraciones:</p></b><b> ¿Cuál es el motivo de su viaje?</b><br><b style='color: #00B8E9'><b>Mamá: </b></b>Visita familiar, mi hermano está casado con una argentina y <b>viven</b> acá desde hace 10 años.<br><b style='color: #33BB99'>Irenise:</b> También venimos a visitar a nuestros abuelos, <b>ellos viven</b> con mis tíos en Córdoba.<br><b style='color: #8438FF'>Empleada de Migraciones:</b> Ah, ¡muy bien! Un viaje familiar entonces, <b>¿por cuánto tiempo se quedan?</b><br><b style='color: #EB792A'>Papá: </b>cuatro semanas<br><b><p style=' color: #8438FF'>Empleada de Migraciones: </p>¿A qué se dedican en Brasil?<br><b style='color: #00B8E9'>Mamá: </b></b> Mi marido <b>es contador </b> y yo <b>soy psicóloga</b><br><b style=' color: #8438FF'>Empleada de Migraciones: </b>Perfecto, ¿pueden dejarme algun dato de contacto?<br><b style='color: #00B8E9'>Mamá: </b> Sí, mi número de teléfono es 5 5 8 3 2 6 5 4 4 1 0 y mi correo electrónico es thairezende@mail.com<br><b style=' color: #8438FF'>Empleada de Migraciones: </b> Muchas gracias, estamos en contacto, disfruten de su estadía en Córdoba.<br> <b style='color: #EB792A'>Papá: </b>Muchas gracias por su atención.</p>",
                         "className": "paragraph-default"
                     }
                 ]
@@ -166,47 +171,51 @@
                     },
                     {
                         "type": "selectsimple",
-                        "value": "<strong style='color:black'><span style='color: var(--primary)'><strong>1.</strong></span> La familia está compuesta por:</strong>",
+                        "value": "<span style='color: var(--primary)'><strong>1.</strong></span> La familia está compuesta por:",
                         "option": "papá, mamá y dos hijos",
                         "options": [
                             "papá, mamá y dos hijos",
                             "papá, mamá y dos hijas",
                             "papá, mamá y tres hijas"
                         ],
-                        "className": "selector-simple"
+                        "className": "selector-simple",
+                        "direction":"row"
                     },
                     {
                         "type": "selectsimple",
-                        "value": "<strong style='color:black'><span style='color:  var(--primary)'><strong>2.</strong></span> La familia es:</strong>",
+                        "value": "<span style='color:  var(--primary)'><strong>2.</strong></span> La familia es:",
                         "option": "brasileña",
                         "options": [
                             "colombiana",
                             "peruana",
                             "brasileña"
                         ],
-                        "className": "selector-simple"
+                        "className": "selector-simple",
+                        "direction":"row"
                     },
                     {
                         "type": "selectsimple",
-                        "value": "<strong style='color:black'><span style='color: var(--primary)'><strong>3.</strong></span> El motivo de su viaje es:</strong>",
+                        "value": "<span style='color: var(--primary)'><strong>3.</strong></span> El motivo de su viaje es:",
                         "option": "familiar",
                         "options": [
                             "familiar",
                             "por trabajo",
                             "por estudios"
                         ],
-                        "className": "selector-simple"
+                        "className": "selector-simple",
+                        "direction":"row"
                     },
                     {
                         "type": "selectsimple",
-                        "value": "<strong style='color:black'><span style='color:var(--primary)'><strong>4.</strong></span> Tiempo que se quedan en Córdoba:</strong>",
+                        "value": "<span style='color:var(--primary)'><strong>4.</strong></span> Tiempo que se quedan en Córdoba:",
                         "option": "cuatro semanas",
                         "options": [
                             "cuatro meses",
                             "dos meses",
                             "cuatro semanas"
                         ],
-                        "className": "selector-simple"
+                        "className": "selector-simple",
+                        "direction":"row"
                     }
                 ]
             },
@@ -231,7 +240,7 @@
                     },
                     {
                         "type": "selectsimple",
-                        "value": "<strong style='color :black'><span style='color:var(--primary)'><strong>5.</strong></span> En Córdoba viven</strong>",
+                        "value": "<span style='color:var(--primary)'><strong>5.</strong></span> En Córdoba viven",
                         "option": "su tío, su tía y sus abuelos",
                         "options": [
                             "su tío, su tía y sus primos",
@@ -242,7 +251,7 @@
                     },
                     {
                         "type": "selectsimple",
-                        "value": "<strong style='color :black'><span style='color:var(--primary)'><strong>6.</strong></span> Las profesiones de los padres son:</strong>",
+                        "value": "<span style='color:var(--primary)'><strong>6.</strong></span> Las profesiones de los padres son:",
                         "option": "él es contador y ella es psicóloga",
                         "options": [
                             "él es administrador de empresas y ella es contadora",
@@ -253,7 +262,7 @@
                     },
                     {
                         "type": "selectsimple",
-                        "value": "<strong style='color :black'><span style='color:var(--primary)'><strong>7.</strong></span> Los datos para contacto son:</strong>",
+                        "value": "<span style='color:var(--primary)'><strong>7.</strong></span> Los datos para contacto son:",
                         "option": "número de teléfono y correo electrónico",
                         "options": [
                             "número de teléfono y correo electrónico",
@@ -264,7 +273,7 @@
                     },
                     {
                         "type": "selectsimple",
-                        "value": "<strong style='color :black'><span style='color:var(--primary)'><strong>8.</strong></span> ¿Cómo se llaman los hijos?:</strong>",
+                        "value": "<span style='color:var(--primary)'><strong>8.</strong></span> ¿Cómo se llaman los hijos?:",
                         "option": "Thainá y Thiago",
                         "options": [
                             "Mateo y Thainá",
@@ -299,7 +308,7 @@
                     "number": 3,
                     "value": "Practiquemos"
                 },
-                "template": "template-title-top-1",
+                "template": "template-title-top-4",
                 "data": [
                     {
                         "type": "title",
@@ -308,6 +317,7 @@
                     },
                     {
                         "type": "dragable-box",
+                        "containerPosition":"bottom",
                         "value": {
                             "DropUps": [
                                 {
@@ -378,7 +388,7 @@
                     "number": 3,
                     "value": "Practiquemos"
                 },
-                "template": "template-title-top-1",
+                "template": "template-title-top-4",
                 "data": [
                     {
                         "type": "title",
