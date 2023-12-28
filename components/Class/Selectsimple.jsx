@@ -42,8 +42,10 @@ export default function Selectsimple(props) {
             {/* {intro} */}
             <p dangerouslySetInnerHTML={{ __html: props.data.value }}></p>
             
+            <div onClick={()=>console.log(props?.data)} className={`${props?.data?.direction == "row" && "flex w-full justify-between"}`}>
+
             {options ? options?.map(option =>
-                <p  key={option}  ><label>
+                <p className='mx-3'  key={option}  ><label>
                     <input type="radio"
                         key={option}
                         value={option}
@@ -65,6 +67,7 @@ export default function Selectsimple(props) {
                     )}
                 </label></p>
             ) : null}
+            </div>
         </>
     )
 }
