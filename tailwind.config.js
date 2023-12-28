@@ -56,6 +56,7 @@ module.exports = {
       
     },
     screens: {
+      'lm': {'min':'1024px'},
       'lg': {'max':'1024px'},
       'md': {'max': '768px'},
     },

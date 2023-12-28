@@ -1,6 +1,6 @@
 import { SortableContext, useSortable,rectSwappingStrategy, horizontalListSortingStrategy, verticalListSortingStrategy } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import DragBox from "./DragBox";
 import Image from "next/image";
 import { DragOverlay } from "@dnd-kit/core"
@@ -12,7 +12,8 @@ export default function DropContainer({
     dragBoxs,
     handleDoneOption,
     canCheck,
-    inEvaluation
+    inEvaluation,
+    containerPosition
 })
 {
     const {
@@ -268,10 +269,10 @@ export default function DropContainer({
                     ref={setNodeRef}
                     // className="rounded-[5px] border-solid border-[2px] bg-primary_flat_hover border-primary w-full min-h-[78px] flex justify-center my-[30px]"
                     className={
-                        typesDropsUps != "image" ?
-                        "absolute right-0 flex-col translate-y-[-50%] top-1/2 rounded-[5px] border-solid border-[2px] bg-primary_flat_hover border-primary min-w-[78px] min-h-[100%] flex justify-center md:top-0 md:relative md:min-h-[78px] md:mt-6 md:translate-y-0 md:flex-row md:flex-wrap"
-                        :
+                        typesDropsUps == "image" || (containerPosition && containerPosition == "bottom") ?
                         "rounded-[5px] border-solid border-[2px] bg-primary_flat_hover border-primary w-full min-h-[78px] flex justify-center my-[30px] flex-wrap"
+                        :
+                        "absolute right-0 flex-col translate-y-[-50%] top-1/2 rounded-[5px] border-solid border-[2px] bg-primary_flat_hover border-primary min-w-[78px] min-h-[100%] flex justify-center md:top-0 md:relative md:min-h-[78px] md:mt-6 md:translate-y-0 md:flex-row md:flex-wrap"
                     }
                     
                     >

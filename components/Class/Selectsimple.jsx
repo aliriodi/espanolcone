@@ -42,7 +42,7 @@ export default function Selectsimple(props) {
             {/* {intro} */}
             <p dangerouslySetInnerHTML={{ __html: props.data.value }}></p>
             
-            <div onClick={()=>console.log(props?.data)} className={`${props?.data?.direction == "row" && "flex w-full justify-between"}`}>
+            <div onClick={()=>console.log(props?.data)} className={`${props?.data?.direction == "row" && "flex w-full justify-between md:flex-col"}`}>
 
             {options ? options?.map(option =>
                 <p className='mx-3'  key={option}  ><label>
