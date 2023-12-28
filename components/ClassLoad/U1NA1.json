@@ -686,7 +686,7 @@
             },
             {
                 "type": "selectsimple",
-                "value": "1. ¡Hola! ¿Qué tal? ________________ Mateo",
+                "value": "1. ¡Hola! ¿qué tal?, ________________ Mateo",
                 "option": "b. me llamo",
                 "options": [
                     "a. Alberto",
@@ -697,7 +697,7 @@
             },
             {
                 "type": "selectsimple",
-                "value": "2. Hola ¿Qué tal?, __________________, gracias",
+                "value": "2. Hola ¿qué tal?, __________________, gracias",
                 "option": "a. muy bien",
                 "options": [
                     "a. muy bien",
@@ -708,12 +708,12 @@
             },
             {
                 "type": "selectsimple",
-                "value": "3. Buenos días ___________________. Muy bien, gracias",
-                "option": "c. ¿Cómo estás?",
+                "value": "3. Buenos días, ___________________. Muy bien, gracias",
+                "option": "c. ¿cómo estás?",
                 "options": [
                     "a. Bien",
                     "b. me llamo",
-                    "c. ¿Cómo estás?"
+                    "c. ¿cómo estás?"
                 ],
                 "className": "selector-simple"
             },
