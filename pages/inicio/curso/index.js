@@ -1,6 +1,6 @@
 import { useSession } from "next-auth/react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMedal, faBookOpen, faCheck, faListCheck } from '@fortawesome/free-solid-svg-icons';
+import { faMedal, faBookOpen, faCheck, faListCheck, faBook, faPencil, faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -21,6 +21,8 @@ export default function Curso(){
     const [levels, setLevels] = useState()
 
     const [currentLevel, setCurrentLevel] = useState()
+
+    const [missingUnits, setMissingUnits] = useState()
 
     const dispatch = useDispatch()
     
@@ -46,6 +48,18 @@ export default function Curso(){
         if(!currentLevel && levels)setCurrentLevel(newLevel ? newLevel : levels[0])
         
     },[levels])
+
+    useEffect(()=>{
+        // actualiza la cantidad de unidades disponibles
+
+        let newMissingUnits = []
+
+        for(let i = 0; i < (12 - currentLevel?.modules?.length); i++){
+            newMissingUnits.push({ number : (i + currentLevel?.modules?.length) + 1})
+        }
+
+        setMissingUnits(newMissingUnits)
+    },[currentLevel])
 
     function handleChangeSelect(e){
         setCurrentLevel(e)
@@ -129,61 +143,120 @@ export default function Curso(){
                 {
                 currentLevel?.modules?.length > 0 ?
 
-                // Modulo
-                currentLevel?.modules.map((module)=>(
-                    <Link
-                    // onClick={()=>dispatch(classid(module.unitID))}
-                    key={module.number}
-                    href={`/inicio/curso/unidad?classId=${module.unitID}`}
-                    className={`bg-white flex flex-col shadow-[0px_0px_4px_#00000040] rounded-[8px] py-[12px] justify-center min-w-[145px] items-center mx-[20px] mb-[50px] relative
-                    transition-all hover:min-w-[160px]
-                    md:py-[8px] md:px-[10px] md:mb-[10px]
-                    ${!module.enable && "opacity-50"}
-                    ${!module.enable && session && !session?.user?.role?.includes("admin") && "pointer-events-none"}
-                    md:mx-0 md:w-full md:flex-row md:justify-evenly`}>
-                        
-                        {/* Icono */}
-                        <FontAwesomeIcon
-                        className="text-white bg-success rounded-full w-auto text-[48px] p-[16px]
-                        md:text-[24px] md:p-[8px]"
-                        icon={faBookOpen}/>
+                <>
+                    {
+                        // Modulo
+                        currentLevel?.modules.map((module)=>(
+                            <Link
+                            // onClick={()=>dispatch(classid(module.unitID))}
+                            key={module.number}
+                            href={`/inicio/curso/unidad?classId=${module.unitID}`}
+                            className={`bg-white flex flex-col shadow-[0px_0px_4px_#00000040] rounded-[8px] py-[12px] justify-center min-w-[145px] items-center mx-[20px] mb-[50px] relative
+                            transition-all hover:min-w-[160px]
+                            md:py-[8px] md:px-[10px] md:mb-[10px]
+                            ${!module.enable && "opacity-50"}
+                            ${!module.enable && session && !session?.user?.role?.includes("admin") && "pointer-events-none"}
+                            md:mx-0 md:w-full md:flex-row md:justify-evenly`}>
+                                
+                                {/* Icono */}
+                                <FontAwesomeIcon
+                                className="text-white bg-success rounded-full w-auto text-[48px] p-[16px]
+                                md:text-[24px] md:p-[8px]"
+                                icon={module.enable || module.done ? faBookOpen : faBook}/>
 
-                        <div className="flex flex-col items-center
-                        md:flex-row md:mx-auto">
-                            {/* Unidad */}
-                            <p className="text-[18px] mt-[16px] font-medium text-violet_dark
-                            md:mt-0 md:mr-3 md:text-[16px]">UNIDAD</p>
+                                <div className="flex flex-col items-center
+                                md:flex-row md:mx-auto">
+                                    {/* Unidad */}
+                                    <p className="text-[18px] mt-[16px] font-medium text-violet_dark
+                                    md:mt-0 md:mr-3 md:text-[16px]">UNIDAD</p>
 
-                            {/* Numero de Unidad */}
-                            <p className="text-[18px] font-bold text-violet_dark
-                            md:text-[16px]">{module.number}</p>
-                        </div>
+                                    {/* Numero de Unidad */}
+                                    <p className="text-[18px] font-bold text-violet_dark
+                                    md:text-[16px]">{module.number}</p>
+                                </div>
 
-                        {/* Check */}
-                        {
-                        module.done &&
-                            <FontAwesomeIcon
-                            className="absolute bg-secondary text-white right-1 rounded-full py-[6px] px-[7px] text-[20px]
-                            md:text-[15px]"
-                            icon={faCheck}/>
-                        }
+                                {/* Check */}
+                                {
+                                module.done &&
+                                    <FontAwesomeIcon
+                                    className="absolute bg-secondary text-white right-1 rounded-full py-[6px] px-[7px] text-[20px]
+                                    md:text-[15px]"
+                                    icon={faCheck}/>
+                                }
 
-                    </Link>
-                )) 
+                            </Link>
+                        ))
+                    } 
+
+                    {
+                        // Modulos faltentes
+                        missingUnits &&
+                        missingUnits?.length > 0 &&
+
+                        missingUnits.map((module)=>(
+                            <div
+                            key={module.number}
+                            className={`bg-white flex flex-col shadow-[0px_0px_4px_#00000040] rounded-[8px] py-[12px] justify-center min-w-[145px] items-center mx-[20px] mb-[50px] relative
+                            md:py-[8px] md:px-[10px] md:mb-[10px]
+                            md:mx-0 md:w-full md:flex-row md:justify-evenly`}>
+                                
+                                {/* Icono */}
+                                <FontAwesomeIcon
+                                className="text-white bg-success rounded-full w-auto text-[48px] p-[16px]
+                                md:text-[24px] md:p-[8px]"
+                                icon={faBook}/>
+
+                                {/* Unidad */}
+                                <div className="flex flex-col items-center
+                                md:flex-row md:mx-auto">
+                                    {/* Unidad */}
+                                    <p className="text-[18px] mt-[16px] font-medium text-violet_dark
+                                    md:mt-0 md:mr-3 md:text-[16px]">UNIDAD</p>
+
+                                    {/* Numero de Unidad */}
+                                    <p className="text-[18px] font-bold text-violet_dark
+                                    md:text-[16px]">{module.number}</p>
+                                </div>
+
+                                {/* Proximamente */}
+                                <span className="bg-white absolute w-full h-full flex justify-center items-center font-medium opacity-[60%] rounded-[8px] "></span>
+
+                                <span className="absolute w-full h-full flex justify-center items-center font-semibold
+                                md:justify-start">
+
+                                    {/* Info */}
+                                    <div className=" absolute top-2 right-2 text-violet_dark text-[18px] cursor-pointer info-icon">
+                                        <FontAwesomeIcon className="opacity-[50%]" icon={faCircleInfo}/>
+                                        <div className="info-popup">
+                                            Estamos preparando nuevas actividades para que puedas disfrutar de experiencias emocionantes y enriquecedoras. 🚀
+                                        </div>
+                                    </div>
+                                    
+                                    {/* Texto */}
+                                    <p className="bg-primary w-full text-center py-2 text-white
+                                    md:py-1 md:text-[14px] md:w-auto md:h-full md:items-center md:flex md:px-2">
+                                        Muy pronto . . .
+                                    </p>
+
+                                </span>
+                            </div>
+                        ))
+                    }
+                </>
                 :
+                (
+                    // En caso de NO haber Modulos
+                    <div className="flex justify-center items-center min-h-[400px] w-full mt-8 flex-col text-light text-[21px]">
 
-                // En caso de NO haber Modulos
-                <div className="flex justify-center items-center min-h-[400px] w-full mt-8 flex-col text-light text-[21px]">
-
-                    <FontAwesomeIcon icon={faBookOpen} className="mb-4 text-[2em]"/>
-                    
-                    <p className="text-light text-[21px] text-center
-                    md:text-[14px] ">
-                        Aún no tienen clases disponibles
-                    </p>
-                </div>
+                        <FontAwesomeIcon icon={faBookOpen} className="mb-4 text-[2em]"/>
+                        
+                        <p className="text-light text-[21px] text-center
+                        md:text-[14px] ">
+                            Aún no tienen clases disponibles
+                        </p>
+                    </div>
+                )
                 }
-                
 
             </div>
 
