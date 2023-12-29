@@ -1,0 +1,43 @@
+{"page2-U2NA1":
+{
+    "type": "text",
+    "section": {
+        "number": 0,
+        "value": "Mis Metas"
+    },
+    "template": "template-title-top-1",
+    "data": [
+        {
+            "type": "title",
+            "value": "¿Qué voy a aprender en esta unidad?",
+            "className": "title-white"
+        },
+        {
+            "type": "paragraph",
+            "value": "<table style='width: 80%;'><th style= 'border: 1px solid black; width: 25%; background-color: var(--primary)'><h2><strong style='color:black;'>Comunicación</strong></h2></th><th style= ' border: 1px solid black; width: 25%; background-color: var(--primary)'><h2><strong style='color:black;'>Vocabulario</strong></h2></th><th style= 'border: 1px solid black;width: 30%; background-color: var(--primary);'><h2><strong style='color:black;'>Gramática</strong></h2></th></tr><td style= 'border: 1px solid black; padding: 4px'>*Dar y pedir información sobre otras personas, acerca de nombre, profesiones y gentilicios.<br>*Presentar a otros.<br>*Presentaciones y saludos formales e informales.<br><td style= 'border: 1px solid black;padding: 4px'>*Datos personales: nombre, apellido, edad, nacionalidad y profesiones.<br>*Nombres propios masculinos y femeninos.<br>*Números usados para indicar la edad.<br>*Miembros de la familia.<br>*Vocabulario de aeropuerto.<br><td style= 'border: 1px solid black;padding: 4px;'>*El verbo llamarse.<br>*Pronombres personales como sujetos.<br>*Verbo tener: edad; familia; hijos y mascota<br>*Verbo ser para identificar; nacionalidad y profesión.<br>*Pronombres interrogativos: ¿cómo?; ¿quién?; ¿qué?; cuántos?; ¿cuál? y ¿dónde?<br>*Verbos tener trabajar y vivir para dar información.<br></td></table>",
+            "className": "table"
+        }
+    ]
+},
+"page2-U2NA2":
+{
+    "type": "text",
+    "section": {
+        "number": 0,
+        "value": "Mis Metas"
+    },
+    "template": "template-title-top-1",
+    "data": [
+        {
+            "type": "title",
+            "value": "¿Qué voy a aprender en esta unidad?",
+            "className": "title-white"
+        },
+        {
+            "type": "paragraph",
+            "value": "<table style= 'border: 2px solid black;' ><tr  style=' background-color: var(--primary); border: 2px solid black;' ><th style= 'border: 2px solid black;width:30%;' ><h2><strong style='color:black;'>Comunicación</strong></h2></th><th style= ' border: 2px solid black;width:20%' ><h2><strong style='color:black;'>Vocabulario</strong></h2></th><th style= 'border: 2px solid black; width:30%' ><h2><strong style='color:black;'>Gramática</strong></h2></th></tr><tr><td style= 'border: 2px solid black;' > <ul>  <li>*Hablar sobre experiencias en Córdoba.</li> <li>*Hablar de habilidades, aptitudes, cualidades y defectos de las personas.</li><li>*Comparar distintos lugares, actividades y experiencias en Córdoba.</li><li>*Describir el aspecto físico y la personalidad.</li> </td><td style= 'border: 2px solid black;' ><ul> <li>*Adjetivos descriptivos.</li><li>*Adjetivos de carácter.</li> <li>*Descripción de sitios de Córdoba.</li> <li>*Algunas palabras sencillas y frases cortas del argot cordobés.</li></ul></td><td style= 'border: 2px solid black; ' ><ul> <li>*El pretérito perfecto compuesto.</li><li>*Saber + infinitivo.</li> <li>*Poder + infinitivo.</li> <li>*Preposiciones de movimiento y de lugar: desde, hasta, hacia, en, etc.</li> <li>*Preposiciones de relaciones temporales: a + horas / tiempo; por + partes del día: en + meses, estaciones y años.</li> </ul></td></tr></table>",
+            "className": "table"
+        }
+    ]
+}
+}
