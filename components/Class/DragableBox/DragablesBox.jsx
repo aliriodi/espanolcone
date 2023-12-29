@@ -52,9 +52,7 @@ export default function DragableBox( props ){
 
     },[props?.options?.DragBoxs])
 
-    useEffect(()=>{
-        setDropUpContainer([...props?.options?.DropUps, {value:"container",id:"container", type:"container"}])
-    },[props?.options?.DropUps])
+    useEffect(()=>setDropUpContainer([...props?.options?.DropUps, {value:"container",id:"container", type:"container"}]),[props?.options?.DropUps])
     
     useEffect(()=>{
         
@@ -69,7 +67,7 @@ export default function DragableBox( props ){
     },[options])
 
     useEffect(()=>{
-        if(!canCheck)props.onChangeActivityDone(props.id, null, null)
+        if(!canCheck)props.onChangeActivityDone(props.id, false, null)
     },[canCheck])
     
 

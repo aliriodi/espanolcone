@@ -423,6 +423,7 @@ export default function Class(props) {
     
     typeActivitys?.map((activity)=>{
       if(activity.done == false) result = false;
+      console.log("Activitys ",activity)
     })
 
     return result
@@ -583,6 +584,8 @@ export default function Class(props) {
 
     // Comprueba que en caso de estar en una "Evaluacion" y NO tener alguna respuesta permite pasar al usuario al la siguiente paguina
     if(typeActivitys.length > 0 && !allActivitysHaveResult() && data?.sheets[props.page].section?.number == 5)setCanFollow(false)
+
+    console.log("typeActivitys ",allActivitysDone())
 
   },[typeActivitys])
   //#endregion

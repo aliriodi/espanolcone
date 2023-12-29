@@ -10,7 +10,7 @@
                 "data": [
                     {
                         "type": "image",
-                        "value": "https://res.cloudinary.com/dfddh08q8/image/upload/…m8S--/v1703769751/images/z6fbifgujopqgwbsam8h.jpg",
+                        "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--QOB-Em8S--/v1703769751/images/z6fbifgujopqgwbsam8h.jpg",
                         "alt": "EspañolconE",
                         "className": "Portadaimg"
                     },
@@ -41,8 +41,21 @@
                         "className": "title-white"
                     },
                     {
-                        "type": "paragraph",
-                        "value": "<table style='width: 80%;'><th style= 'border: 1px solid black; width: 25%; background-color: var(--primary)'><h2><strong style='color:black;'>Comunicación</strong></h2></th><th style= ' border: 1px solid black; width: 25%; background-color: var(--primary)'><h2><strong style='color:black;'>Vocabulario</strong></h2></th><th style= 'border: 1px solid black;width: 30%; background-color: var(--primary);'><h2><strong style='color:black;'>Gramática</strong></h2></th></tr><td style= 'border: 1px solid black; padding: 4px'>*Dar y pedir información sobre otras personas, acerca de nombre, profesiones y gentilicios.<br>*Presentar a otros.<br>*Presentaciones y saludos formales e informales.<br><td style= 'border: 1px solid black;padding: 4px'>*Datos personales: nombre, apellido, edad, nacionalidad y profesiones.<br>*Nombres propios masculinos y femeninos.<br>*Números usados para indicar la edad.<br>*Miembros de la familia.<br>*Vocabulario de aeropuerto.<br><td style= 'border: 1px solid black;padding: 4px;'>*El verbo llamarse.<br>*Pronombres personales como sujetos.<br>*Verbo tener: edad; familia; hijos y mascota<br>*Verbo ser para identificar; nacionalidad y profesión.<br>*Pronombres interrogativos: ¿cómo?; ¿quién?; ¿qué?; cuántos?; ¿cuál? y ¿dónde?<br>*Verbos tener trabajar y vivir para dar información.<br></td></table>",
+                        "type": "table",
+                        "value": [
+                            {
+                                "title":"Comunicación",
+                                "content":"<li>- Dar y pedir información sobre otras personas, acerca de nombre, profesiones y gentilicios.</li> <li>- Presentar a otros.</li> <li>- Presentaciones y saludos formales e informales.</li>"
+                            },
+                            {
+                                "title":"Vocabulario",
+                                "content":"<li>- Datos personales: nombre, apellido, edad, nacionalidad y profesiones.</li> <li>- Nombres propios masculinos y femeninos.</li> <li>- Números usados para indicar la edad.</li> <li>- Miembros de la familia.</li> <li>- Vocabulario de aeropuerto.</li>"
+                            },
+                            {
+                                "title":"Gramática",
+                                "content":"<li>- El verbo llamarse.</li> <li>- Pronombres personales como sujetos.</li> <li>- Verbo tener: edad; familia; hijos y mascota</li> <li>- Verbo ser para identificar; nacionalidad y profesión.</li> <li>- Pronombres interrogativos: ¿cómo?; ¿quién?; ¿qué?; cuántos?; ¿cuál? y ¿dónde?</li> <li>- Verbos tener trabajar y vivir para dar información.</li>"
+                            }
+                        ],
                         "className": "table"
                     }
                 ]
@@ -161,8 +174,8 @@
                 "data": [
                     {
                         "type": "title",
-                        "value": "<span style='color: black'>Después de leer la conversación:</span>",
-                        "className": "title-white"
+                        "value": "Después de leer la conversación:",
+                        "className": "title-dark"
                     },
                     {
                         "type": "title",
@@ -230,8 +243,8 @@
                 "data": [
                     {
                         "type": "title",
-                        "value": "<span style='color: black'>Después de leer la conversación:</span>",
-                        "className": "title-white"
+                        "value": "Después de leer la conversación:",
+                        "className": "title-dark"
                     },
                     {
                         "type": "title",
@@ -312,7 +325,7 @@
                 "data": [
                     {
                         "type": "title",
-                        "value": "Thainá habla con su hermano por teléfono mientras están en el aeropuerto.<br>Completa el diálogo arrastrando la opción adecuada en cada caso.<br><span style='color: black'>Recordá que es una conversación informal entre dos hermanos</span>",
+                        "value": "Thainá habla con su hermano por teléfono mientras están en el aeropuerto.<br>Completa el diálogo arrastrando la opción adecuada en cada caso.<br><span style='color: #3c285c'>Recordá que es una conversación informal entre dos hermanos</span>",
                         "className": "title-white"
                     },
                     {
@@ -392,11 +405,12 @@
                 "data": [
                     {
                         "type": "title",
-                        "value": "Thainá habla con su hermano por teléfono mientras están en el aeropuerto.<br>Completa el diálogo arrastrando la opción adecuada en cada caso.<br><span style='color: black'>Recordá que es una conversación informal entre dos hermanos</span>",
+                        "value": "Thainá habla con su hermano por teléfono mientras están en el aeropuerto.<br>Completa el diálogo arrastrando la opción adecuada en cada caso.<br><span style='color: #3c285c'>Recordá que es una conversación informal entre dos hermanos</span>",
                         "className": "title-white"
                     },
                     {
                         "type": "dragable-box",
+                        "containerPosition":"bottom",
                         "value": {
                             "DropUps": [
                                 {
@@ -455,40 +469,38 @@
                     "number": 3,
                     "value": "Practiquemos"
                 },
-                "template": "template-title-top-1",
+                "template": "template-title-top-5",
                 "data": [
                     {
                         "type": "title",
-                        "value": "¡Vamos a jugar <span style='color: black'>Kahoot</span>!",
-                        "className": "title-white"
+                        "value": "<span style='color: #3c285c;'>¡Vamos a jugar <span style='background: linear-gradient(to right, var(--warning), var(--success));-webkit-background-clip: text;color: transparent;'>Kahoot</span>!</span>",
+                        "className": "title-dark"
                     },
                     {
                         "type": "paragraph",
-                        "value": "Sigue este enlace y únete al juego",
-                        "className": "subtitle-default"
+                        "value": "<span style='color: #3c285c;'>Sigue este enlace y únete al juego</span>",
+                        "className": "subtitle-default",
+                        "classExtra": "w-full text-center"
                     },
                     {
                         "type": "text",
-                        "value": "<a href='https://kahoot.it/challenge/3b160182-6b4e-4452-9162-742f55934da3_1700795107498' style='color:#1A0DAB'>https://kahoot.it/challenge/3b160182-6b4e-4452-9162-742f55934da3_1700795107498</a>",
-                        "className": "paragraph-default"
-                    },
-                    {
-                        "type": "image",
-                        "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--diNMHBBo--/v1701813066/images/hnub8zvkis8eti5qthqf.png",
-                        "alt": "",
-                        "className": ""
+                        "value": "<a arget='_blank' href='https://kahoot.it/challenge/3b160182-6b4e-4452-9162-742f55934da3_1700795107498' class='text-center' style='color:#1A0DAB'><u class='w-full flex justify-center'>PRONOMBRES DE SUJETO</u><img class='w-full' src='https://res.cloudinary.com/dfddh08q8/image/upload/s--diNMHBBo--/v1701813066/images/hnub8zvkis8eti5qthqf.png'/></a>",
+                        "className": "paragraph-default",
+                        "classExtra": "w-1/2 flex flex-col p-4 relative   md:w-full"
                     },
                     {
                         "type": "image",
                         "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--1F6TR8kv--/v1701813105/images/tm5ll3yo7kyhvbtstesp.png",
                         "alt": "",
-                        "className": ""
+                        "className": "",
+                        "classExtra":"hidden"
                     },
                     {
                         "type": "image",
                         "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--C9urC3cz--/v1702056299/images/use8zshprey3zc6kiq57.png",
                         "alt": "",
-                        "className": ""
+                        "className": "",
+                        "classExtra": "hidden"
                     }
                 ]
             },
@@ -503,14 +515,15 @@
                 "data": [
                     {
                         "type": "title",
-                        "value": "“Un viaje de mil millas comienza con un primer paso”<br> <span style='color: black'>(Lao Tzu)</span>!",
+                        "value": "“Un viaje de mil millas comienza con un primer paso”<br> <span style='color: #3c285c'>(Lao Tzu)</span>!",
                         "className": "title-white"
                     },
                     {
                         "type": "image",
                         "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--b_OgswJj--/v1702649210/images/losevtx2slhysjajuti6.png",
                         "alt": "",
-                        "className": ""
+                        "className": "",
+                        "classExtra": "w-full"
                     }
                 ]
             },
@@ -531,7 +544,8 @@
                     {
                         "type": "paragraph",
                         "value": "Vamos a crear diálogos, pasando por las diferentes áreas del aeropuerto:",
-                        "className": "subtitle"
+                        "className": "subtitle-default",
+                        "classExtra": "text-center"
                     },
                     {
                         "type": "paragraph",
@@ -547,7 +561,7 @@
                     "number": 5,
                     "value": "Evaluemos"
                 },
-                "template": "template-title-top-1",
+                "template": "template-title-top-4",
                 "data": [
                     {
                         "type": "title",
@@ -556,23 +570,23 @@
                     },
                     {
                         "type": "paragraph",
-                        "value": "<strong>La siguiente evaluación contiene 20 ejercicios propuestos</strong><br><br>",
-                        "className": "paragraph-default"
+                        "value": "La siguiente evaluación contiene <b>20 ejercicios propuestos.</b>",
+                        "className": "paragraph-default-center"
                     },
                     {
                         "type": "paragraph",
-                        "value": "<strong>Cada uno que respondas correctamente vale 01 punto.</strong><br><br>",
-                        "className": "paragraph-default"
+                        "value": "Cada uno que respondas correctamente vale <b>01 punto.</b>",
+                        "className": "paragraph-default-center"
                     },
                     {
                         "type": "paragraph",
-                        "value": "<strong>Para aprobar la evaluación y pasar a la siguiente unidad debes obtener un mínimo de 18 puntos.<strong><br><br>",
-                        "className": "paragraph-default"
+                        "value": "Para aprobar la evaluación y pasar a la siguiente unidad debes obtener un mínimo de <b>18 puntos.</b>",
+                        "className": "paragraph-default-center"
                     },
                     {
                         "type": "paragraph",
-                        "value": "<span style=' color: #EB792A'>¡Adelante y buena suerte!</span>",
-                        "className": "paragraph-default"
+                        "value": "<b style='color:var(--warning);'>¡Adelante y buena suerte!</b>",
+                        "className": "paragraph-default-center"
                     }
                 ]
             },

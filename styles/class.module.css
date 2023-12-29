@@ -19,8 +19,8 @@
     font-weight: 600;
     font-size: 36px;
     text-align: center;
-    background: linear-gradient(to right, var(--warning), var(--success)); /* Cambia los colores según tus preferencias */
-    -webkit-background-clip: text; /* Permite que el degradado se ajuste al texto */
+    background: linear-gradient(to right, var(--warning), var(--success));
+    -webkit-background-clip: text;
     color: transparent;
 }
 
