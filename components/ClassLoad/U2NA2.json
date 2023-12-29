@@ -217,7 +217,7 @@
             },
             {
                 "type": "text",
-                "value": "<strong>24 de noviembre</strong>",
+                "value": "<strong>24 de noviembre.</strong>",
                 "className": "paragraph-default"
             },
             {
@@ -802,10 +802,353 @@
         ]
     },
     "page16": {
+        "type": "paragraph",
+        "section": {
+            "number": 5,
+            "value": "Evaluemos"
+        },
+        "template": "template-title-top-4",
+        "data": [
+            {
+                "type": "title",
+                "value": "Evaluación unidad 2 - Nivel A2",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "La siguiente evaluación contiene <b>20 ejercicios propuestos.</b>",
+                "className": "paragraph-default-center"
+            },
+            {
+                "type": "paragraph",
+                "value": "Cada uno que respondas correctamente vale <b>01 punto.</b>",
+                "className": "paragraph-default-center"
+            },
+            {
+                "type": "paragraph",
+                "value": "Para aprobar la evaluación y pasar a la siguiente unidad debes obtener un mínimo de <b>18 puntos.</b>",
+                "className": "paragraph-default-center"
+            },
+            {
+                "type": "paragraph",
+                "value": "<b style='color:var(--warning);'>¡Adelante y buena suerte!</b>",
+                "className": "paragraph-default-center"
+            }
+        ]
+    },
+    "page17": {
         "type": "text",
         "section": {
-            "number": 4,
-            "value": "Practiquemos"
+            "number": 5,
+            "value": "Evaluemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Desde Córdoba Capital hasta Carlos Paz<br>",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "<br><font style='color:black'>Jennifer y Alberto continúan con su viaje</font><br>",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "<br>Completa los espacios en blanco con el verbo conjugado en pretérito perfecto compuesto.",
+                "className": "title-white"
+            },
+            {
+                "type": "text",
+                "value": "<strong>30 de julio.</strong>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "text",
+                "value": "<span style='color:var(--orange)'><strong>Carlos Paz</strong></span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--J_w9Qtux--/v1703669995/images/mgmhmqugzgiya9omyuvi.png",
+                "alt": "pan1",
+                "className": ""
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "Este  último fin de semana (ir,ellos)",
+                    {
+                        "block": 8,
+                        "color": "orange",
+                        "option": "han ido"
+                    },
+                    "a Carlos Paz. Ya (visitar,ellos)",
+                    {
+                        "block": 13,
+                        "color": "orange",
+                        "option": "han visitado"
+                    },
+                    "Cabalango, y por cierto, se fueron en colectivo porque a Jennifer no le gusta viajar en bicicleta. (Hacer, ellos)",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "Han hecho"
+                    },
+                    "muchas cosas en poco tiempo, esta tarde (estar, ellos)",
+                    {
+                        "block": 13,
+                        "color": "orange",
+                        "option": "han estado"
+                    },
+                    "en el río, Alberto",
+                    {
+                        "block": 13,
+                        "color": "orange",
+                        "option": "ha nadado"
+                    },
+                    "un poco mientras Jennifer tomaba sol y luego",
+                    {
+                        "block": 15,
+                        "color": "orange",
+                        "option": "han almorzado"
+                    },
+                    "al costado del río. Ahora están en la ciudad, porque Alberto tenía ganas de ir a uno de los famosos shows de teatro de revista,   pero no",
+                    {
+                        "block": 9,
+                        "color": "orange",
+                        "option": "ha sido"
+                    },
+                    "una buena experiencia, aún están cansados porque asistió mucha gente y tuvieron que pasar mucho tiempo de pie haciendo la fila para entrar. "
+                ],
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--KGKp5btq--/v1703670312/images/fcvwqzpxeafa7rvepior.png",
+                "alt": "asado",
+                "className": ""
+            }
+        ]
+    },
+    "page18": {
+        "type": "text",
+        "section": {
+            "number": 5,
+            "value": "Evaluemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Desde Córdoba Capital hasta Carlos Paz<br>",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "<br><font style='color:black'>Jennifer y Alberto continúan con su viaje</font><br>",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "<br>Completa los espacios en blanco con el verbo conjugado en pretérito perfecto compuesto.",
+                "className": "title-white"
+            },
+            {
+                "type": "text",
+                "value": "<strong>30 de julio.</strong>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "text",
+                "value": "<span style='color:var(--orange)'><strong>Carlos Paz</strong></span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--J_w9Qtux--/v1703669995/images/mgmhmqugzgiya9omyuvi.png",
+                "alt": "pan1",
+                "className": ""
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "Además, el show le dejó de gustar a Jennifer cuando el actor empezó a hablar de política y también a Alberto cuando empezó a hacer chistes racistas. Cuando salieron, Alberto notó que no tenía su billetera con toda su documentación, así que se devolvieron al teatro para buscarla, pero no la encontraron. Ahora están en el hostal, (tener, ellos)",
+                    {
+                        "block": 12,
+                        "color": "orange",
+                        "option": "han tenido"
+                    },
+                    "un día muy movido y Alberto está preocupado porque perdió sus documentos y algo de dinero, (hacer, él) ",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "ha hecho"
+                    },
+                    "varias llamadas para denunciar la pérdida y bloquear sus tarjetas bancarias, sin embargo debe solucionar algunas cosas presencialmente, por lo que (decidir, él) ",
+                    {
+                        "block": 12,
+                        "color": "orange",
+                        "option": "ha decidido"
+                    },
+                    "acostarse temprano y madrugar al día siguiente. "
+                ],
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--KGKp5btq--/v1703670312/images/fcvwqzpxeafa7rvepior.png",
+                "alt": "asado",
+                "className": ""
+            }
+        ]
+    },
+    "page19":{
+        "type": "selectsimple",
+        "section": {
+            "number": 5,
+            "value": "Evaluemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Recordemos las personalidades de Jennifer y Alberto ¿Cuáles cosas asocias con cada uno?<br><br>",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "Selecciona la opción correcta en sus correspondientes cajas: Jennifer y Alberto",
+                "className": "title-white"
+            },
+            {
+                "type": "text",
+                "value": "Jennifer",
+                "className": ""
+            },
+            {
+                "type": "text",
+                "value": "Alberto",
+                "className": ""
+            },
+            {
+                "type": "selectsimple",
+                "value": "<font color='var(--orange)'>sabe tocar el bajo</font>",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<font color='var(--orange)'>ha vivido en Europa</font>",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<font color='var(--orange)'>es extrovertido y creativo</font>",
+                "option": " ",
+                "options": [
+                    "  ",
+                    " "
+                ],
+                "className": "selector-simple",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<font style='color:var(--orange)'>es optimista y responsable </font>",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<font color='var(--orange)'>no le gusta el reggaetón </font>",
+                "option": " ",
+                "options": [
+                    "  ",
+                    " "
+                ],
+                "className": "selector-simple",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<font style='color:var(--orange)'>sabe tocar la guitarra  </font>",
+                "option": " ",
+                "options": [
+                    "  ",
+                    " "
+                ],
+                "className": "selector-simple",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<font color='var(--orange)'>odia las mentiras</font>",
+                "option": "  ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<font color='var(--orange)'>le gustan los idiomas </font>",
+                "option": "  ",
+                "options": [
+                    "  ",
+                    " "
+                ],
+                "className": "selector-simple",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<font color='var(--orange)'>no le gusta hablar de política  </font>",
+                "option": "  ",
+                "options": [
+                    "  ",
+                    " "
+                ],
+                "className": "selector-simple",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<font color='var(--orange)'>le gusta el teatro </font>",
+                "option": "  ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple",
+                "direction": "row"
+            }
+        ]
+    },
+    "page20": {
+        "type": "text",
+        "section": {
+            "number": 5,
+            "value": "Evaluemos"
         },
         "template": "template-title-right-1",
         "data": [
