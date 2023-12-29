@@ -12,7 +12,7 @@
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--POnCW2x9--/v1703790446/images/nd8yalb6dtd7xd8c8ak3.png",
                 "alt": "EspañolconE",
                 "className": "Portadaimg"
-              },
+            },
             {
                 "type": "title",
                 "value": "HABLEMOS ACERCA DE EXPERIENCIAS",
@@ -266,7 +266,7 @@
                     "b. Falso."
                 ],
                 "className": "selector-simple",
-                "direction":"row"
+                "direction": "row"
             },
             {
                 "type": "selectsimple",
@@ -277,7 +277,7 @@
                     "b. Falso."
                 ],
                 "className": "selector-simple",
-                "direction":"row"
+                "direction": "row"
             },
             {
                 "type": "selectsimple",
@@ -288,7 +288,7 @@
                     "b. Falso."
                 ],
                 "className": "selector-simple",
-                "direction":"row"
+                "direction": "row"
             },
             {
                 "type": "selectsimple",
@@ -299,7 +299,7 @@
                     "b. Falso."
                 ],
                 "className": "selector-simple",
-                "direction":"row"
+                "direction": "row"
             },
             {
                 "type": "selectsimple",
@@ -310,7 +310,7 @@
                     "b. Falso."
                 ],
                 "className": "selector-simple",
-                "direction":"row"
+                "direction": "row"
             },
             {
                 "type": "selectsimple",
@@ -321,7 +321,7 @@
                     "b. Falso."
                 ],
                 "className": "selector-simple",
-                "direction":"row"
+                "direction": "row"
             },
             {
                 "type": "selectsimple",
@@ -332,7 +332,7 @@
                     "b. Falso."
                 ],
                 "className": "selector-simple",
-                "direction":"row"
+                "direction": "row"
             }
         ]
     },
@@ -491,7 +491,7 @@
             }
         ]
     },
-    "page12":{
+    "page12": {
         "type": "selectsimple",
         "section": {
             "number": 3,
@@ -530,7 +530,7 @@
                     "  "
                 ],
                 "className": "selector-simple",
-                "direction":"row"
+                "direction": "row"
             },
             {
                 "type": "selectsimple",
@@ -539,10 +539,9 @@
                 "options": [
                     "  ",
                     " "
-                    
                 ],
                 "className": "selector-simple",
-                "direction":"row"
+                "direction": "row"
             },
             {
                 "type": "selectsimple",
@@ -553,7 +552,7 @@
                     "  "
                 ],
                 "className": "selector-simple",
-                "direction":"row"
+                "direction": "row"
             },
             {
                 "type": "selectsimple",
@@ -564,7 +563,7 @@
                     " "
                 ],
                 "className": "selector-simple",
-                "direction":"row"
+                "direction": "row"
             },
             {
                 "type": "selectsimple",
@@ -575,7 +574,7 @@
                     "  "
                 ],
                 "className": "selector-simple",
-                "direction":"row"
+                "direction": "row"
             },
             {
                 "type": "selectsimple",
@@ -586,7 +585,7 @@
                     " "
                 ],
                 "className": "selector-simple",
-                "direction":"row"
+                "direction": "row"
             },
             {
                 "type": "selectsimple",
@@ -597,7 +596,7 @@
                     "  "
                 ],
                 "className": "selector-simple",
-                "direction":"row"
+                "direction": "row"
             },
             {
                 "type": "selectsimple",
@@ -608,7 +607,7 @@
                     "  "
                 ],
                 "className": "selector-simple",
-                "direction":"row"
+                "direction": "row"
             }
         ]
     },
@@ -616,6 +615,196 @@
         "type": "text",
         "section": {
             "number": 3,
+            "value": "Practiquemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "En la sección Aprendemos se habla acerca de algunos adjetivos que podemos usar para describir lugares …",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "Imágenes tomadas de Freepik",
+                "className": "className"
+            },
+            {
+                "type": "text",
+                "value": "<span style='color:var(--orange)'>Asocia los siguientes adjetivos descriptivos escribiendo el número entre paréntesis de la imagen que corresponde.</span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph-complete-content",
+                "value": [
+                    {
+                        "block": 12,
+                        "color": "orange",
+                        "option": "2",
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--Z_L6U1RC--/v1703830215/images/uyqkmsfl4wu9rcrfgpzx.png",
+                        "text": " ",
+                        "relation": "160x260=0.61 338x561=0.60"
+                    },
+                    {
+                        "block": 11,
+                        "color": "orange",
+                        "option": "1",
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--zqXzkkxq--/v1703830243/images/kiupl9ebtjeboinxyuei.png",
+                        "text": " "
+                    },
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "4",
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--kehUE6OA--/v1703830382/images/qxqz7uyzvx4f9vlshijg.png",
+                        "text": " "
+                    },
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "3",
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--rJqhwo0l--/v1703830456/images/cfetft7kafjexghtoqfc.png",
+                        "text": " "
+                    }
+                ],
+                "className": "flex"
+            },
+            {
+                "type": "text",
+                "value": "<span style='color:var(--orange)'>1. Isla paradisíaca </span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "text",
+                "value": "<span style='color:var(--orange)'>2. Hotel lujoso </span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "text",
+                "value": "<span style='color:var(--orange)'>3. Parque tranquilo</span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "text",
+                "value": "<span style='color:var(--orange)'>4. Lugar concurrido</span>",
+                "className": "paragraph-default"
+            }
+        ]
+    },
+    "page14": {
+        "type": "text",
+        "section": {
+            "number": 4,
+            "value": "Mis Retos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "<font style='color:black'><strong>MI RETO</strong></font>",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "<font style='color:var(--orange)'><strong>Mi blog viajero: Mis experiencias </strong></font>",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "Crea un blog viajero y comparte en tu clase. Puedes enviarselo a tu profesor (a) por email.",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "<font style='color:black'><strong>Puedes usar esta plantilla u otra que quieras y puedes cambiar las fotos y poner las tuyas.</strong></font>",
+                "className": "title-white"
+            },
+            {
+                "type": "text",
+                "value": "D&Iacute;A 1 <br> Fecha: <br> Lugar: <br> Experiencias:",
+                "className": "",
+                "classExtra": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--PqrRgyeO--/v1703831889/images/zzoexnypyfdponpzfbll.png",
+                "alt": "PaseoEnNieve",
+                "className": "",
+                "classExtra": ""
+            },
+            {
+                "type": "text",
+                "value": "D&Iacute;A2 <br> Fecha: <br> Lugar: <br> Experiencias:",
+                "className": "",
+                "classExtra": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--IC3qLBaG--/v1703831931/images/vpscyhhixcyyn4gfcuwj.png",
+                "alt": "PaseoEnMontana",
+                "className": "",
+                "classExtra": ""
+            },
+            {
+                "type": "text",
+                "value": "D&Iacute;A 3 <br> Fecha: <br> Lugar: <br> Experiencias:",
+                "className": "",
+                "classExtra": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--kg4x20Cp--/v1703831975/images/xltde01rwy1lceoc3xu8.png",
+                "alt": "PaseoEnLago",
+                "className": "",
+                "classExtra": ""
+            }
+        ]
+    },
+    "page15": {
+        "type": "selectsimple",
+        "section": {
+            "number": 4,
+            "value": "Mis Retos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "<strong>Necesito un guía turístico</strong>",
+                "className": "title-white"
+            },
+            {
+                "type": "text",
+                "value": "<span style='color:var(--orange)'>Te presentamos a Erica y Eduardo, dos guía turísticos con experiencia, conocimientos culturales, alegres y con muchas ganas de acompañarte en tus aventuras.</span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "text",
+                "value": "<li>¿Cuáles son las cualidades que debe tener un buen guía turístico?</li>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "text",
+                "value": "<li>Debe ser …</li>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "text",
+                "value": "<li>En mi opinión, tiene que ser una persona ….</li>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--4mpsVEgR--/v1703834086/images/yexle2ezilph3j4lrsag.png",
+                "alt": "guias",
+                "className": ""
+            }
+        ]
+    },
+    "page16": {
+        "type": "text",
+        "section": {
+            "number": 4,
             "value": "Practiquemos"
         },
         "template": "template-title-right-1",
