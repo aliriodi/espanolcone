@@ -195,7 +195,7 @@ export default function Curso(){
 
                         missingUnits.map((module)=>(
                             <div
-                            // key={module.number}
+                            key={module.number}
                             className={`bg-white flex flex-col shadow-[0px_0px_4px_#00000040] rounded-[8px] py-[12px] justify-center min-w-[145px] items-center mx-[20px] mb-[50px] relative
                             md:py-[8px] md:px-[10px] md:mb-[10px]
                             md:mx-0 md:w-full md:flex-row md:justify-evenly`}>
