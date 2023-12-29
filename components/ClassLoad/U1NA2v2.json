@@ -37,7 +37,7 @@
                 "type": "title",
                 "value": "¿Qué voy a aprender en esta unidad?",
                 "className": "title-white",
-                "classExtra":"pb-10"
+                "classExtra":"pb-6"
             },
             {
                 "type": "table",

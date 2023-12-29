@@ -129,7 +129,7 @@
                     },
                     {
                         "type": "paragraph",
-                        "value": "<p><b style='color: #8438FF'>Empleada de Migraciones:</b><b>Buenas tardes, mi nombre es</b>María González, bienvenidos a Argentina. <b>¿Cómo se llaman?</b><br><b style=' color: #EB792A'>Papá:</b><b>Mi nombre es</b> <u>Pedro Soares,</u> <b>mi esposa se llama</b> <u>Thainá Rezende.</u><br><b style='color: #8438FF'>Empleada de Migraciones:</b> <b>¿Cómo se deletrea el apellido de su esposa?</b><br><b style='color: #EB792A'>Papá:</b> <b>R-E-Z-E-N-D-E</b><br><b style='color: #8438FF'>Empleada de Migraciones:</b> <b>¿Y sus hijos, cómo se llaman?</b><br><b style='color: #EB792A'>Papá:</b> <u>Thiago Rezende Soares</u><b> y</b> <u>Thainara Rezende Soares</u><br><b style=' color: #8438FF'>Empleada de Migraciones:</b> ¿Cuántos años tienen?<br> <b style='color: #00B8E9'>Mamá:</b> <b>Mi esposo tiene 43 años, yo tengo 42 años, Thiago tiene 13 años y Thainara tiene 9 años.<br><b style=' color: #8438FF'>Empleada de Migraciones:</b> ¿De dónde vienen?<br><b style='color: #EB792A'>Papá:</b> Venimos de Santos, Brasil.</b></p>",
+                        "value": "<p><b style='color: #8438FF'>Empleada de Migraciones:</b> <b>Buenas tardes, mi nombre es</b> María González, bienvenidos a Argentina. <b>¿Cómo se llaman?</b><br><b style=' color: #EB792A'>Papá: </b><b>Mi nombre es</b> <u>Pedro Soares,</u> <b>mi esposa se llama</b> <u>Thainá Rezende.</u><br><b style='color: #8438FF'>Empleada de Migraciones:</b> <b>¿Cómo se deletrea el apellido de su esposa?</b><br><b style='color: #EB792A'>Papá:</b> <b>R-E-Z-E-N-D-E</b><br><b style='color: #8438FF'>Empleada de Migraciones:</b> <b>¿Y sus hijos, cómo se llaman?</b><br><b style='color: #EB792A'>Papá:</b> <u>Thiago Rezende Soares</u><b> y</b> <u>Thainara Rezende Soares</u><br><b style=' color: #8438FF'>Empleada de Migraciones:</b> ¿Cuántos años tienen?<br> <b style='color: #00B8E9'>Mamá:</b> <b>Mi esposo tiene 43 años, yo tengo 42 años, Thiago tiene 13 años y Thainara tiene 9 años.<br><b style=' color: #8438FF'>Empleada de Migraciones:</b> ¿De dónde vienen?<br><b style='color: #EB792A'>Papá:</b> Venimos de Santos, Brasil.</b></p>",
                         "className": "paragraph-default",
                         "classExtra":"h-auto w-1/2 md:w-full"
                     }
@@ -158,7 +158,7 @@
                     },
                     {
                         "type": "paragraph",
-                        "value": "<p><b><p style='color: #8438FF'>Empleada de Migraciones:</p></b><b> ¿Cuál es el motivo de su viaje?</b><br><b style='color: #00B8E9'><b>Mamá: </b></b>Visita familiar, mi hermano está casado con una argentina y <b>viven</b> acá desde hace 10 años.<br><b style='color: #33BB99'>Irenise:</b> También venimos a visitar a nuestros abuelos, <b>ellos viven</b> con mis tíos en Córdoba.<br><b style='color: #8438FF'>Empleada de Migraciones:</b> Ah, ¡muy bien! Un viaje familiar entonces, <b>¿por cuánto tiempo se quedan?</b><br><b style='color: #EB792A'>Papá: </b>cuatro semanas<br><b><p style=' color: #8438FF'>Empleada de Migraciones: </p>¿A qué se dedican en Brasil?<br><b style='color: #00B8E9'>Mamá: </b></b> Mi marido <b>es contador </b> y yo <b>soy psicóloga</b><br><b style=' color: #8438FF'>Empleada de Migraciones: </b>Perfecto, ¿pueden dejarme algun dato de contacto?<br><b style='color: #00B8E9'>Mamá: </b> Sí, mi número de teléfono es 5 5 8 3 2 6 5 4 4 1 0 y mi correo electrónico es thairezende@mail.com<br><b style=' color: #8438FF'>Empleada de Migraciones: </b> Muchas gracias, estamos en contacto, disfruten de su estadía en Córdoba.<br> <b style='color: #EB792A'>Papá: </b>Muchas gracias por su atención.</p>",
+                        "value": "<p><b style='color: #8438FF'>Empleada de Migraciones:</b><b> ¿Cuál es el motivo de su viaje?</b><br><b style='color: #00B8E9'><b>Mamá: </b></b>Visita familiar, mi hermano está casado con una argentina y <b>viven</b> acá desde hace 10 años.<br><b style='color: #33BB99'>Irenise:</b> También venimos a visitar a nuestros abuelos, <b>ellos viven</b> con mis tíos en Córdoba.<br><b style='color: #8438FF'>Empleada de Migraciones:</b> Ah, ¡muy bien! Un viaje familiar entonces, <b>¿por cuánto tiempo se quedan?</b><br><b style='color: #EB792A'>Papá: </b>Cuatro semanas<br><b><p style=' color: #8438FF'>Empleada de Migraciones: </p>¿A qué se dedican en Brasil?<br><b style='color: #00B8E9'>Mamá: </b></b> Mi marido <b>es contador </b> y yo <b>soy psicóloga</b><br><b style=' color: #8438FF'>Empleada de Migraciones: </b>Perfecto, ¿pueden dejarme algún dato de contacto?<br><b style='color: #00B8E9'>Mamá: </b> Sí, mi número de teléfono es 5 5 8 3 2 6 5 4 4 1 0 y mi correo electrónico es thairezende@mail.com<br><b style=' color: #8438FF'>Empleada de Migraciones: </b> Muchas gracias, estamos en contacto, disfruten de su estadía en Córdoba.<br> <b style='color: #EB792A'>Papá: </b>Muchas gracias por su atención.</p>",
                         "className": "paragraph-default"
                     }
                 ]
@@ -191,8 +191,7 @@
                             "papá, mamá y dos hijas",
                             "papá, mamá y tres hijas"
                         ],
-                        "className": "selector-simple",
-                        "direction":"row"
+                        "className": "selector-simple"
                     },
                     {
                         "type": "selectsimple",
@@ -254,11 +253,11 @@
                     {
                         "type": "selectsimple",
                         "value": "<span style='color:var(--primary)'><strong>5.</strong></span> En Córdoba viven",
-                        "option": "su tío, su tía y sus abuelos",
+                        "option": "sus familiares",
                         "options": [
-                            "su tío, su tía y sus primos",
-                            "su tío, su tía y sus abuelos",
-                            "su tío y su tía"
+                            "sus familiares",
+                            "sus amigos",
+                            "sus vecinos"
                         ],
                         "className": "selector-simple"
                     },
@@ -287,11 +286,11 @@
                     {
                         "type": "selectsimple",
                         "value": "<span style='color:var(--primary)'><strong>8.</strong></span> ¿Cómo se llaman los hijos?:",
-                        "option": "Thainá y Thiago",
+                        "option": "Thainara y Thiago",
                         "options": [
                             "Mateo y Thainá",
                             "Thiago y Larissa",
-                            "Thainá y Thiago"
+                            "Thainara y Thiago"
                         ],
                         "className": "selector-simple"
                     }
@@ -429,7 +428,7 @@
                                 },
                                 {
                                     "type": "dropup-end",
-                                    "content": "<strong style='color: #33BB99'>Diógenes:</strong> No, ahora te la paso. Un abrazo, hermanita. Nos vemos pronto ",
+                                    "content": "<strong style='color: #33BB99'>Diógenes:</strong> No, ahora te la paso. Un abrazo, hermanita. ",
                                     "value": "Nos vemos pronto",
                                     "id": "DropUp2"
                                 },
@@ -484,7 +483,7 @@
                     },
                     {
                         "type": "text",
-                        "value": "<a arget='_blank' href='https://kahoot.it/challenge/3b160182-6b4e-4452-9162-742f55934da3_1700795107498' class='text-center' style='color:#1A0DAB'><u class='w-full flex justify-center'>PRONOMBRES DE SUJETO</u><img class='w-full' src='https://res.cloudinary.com/dfddh08q8/image/upload/s--diNMHBBo--/v1701813066/images/hnub8zvkis8eti5qthqf.png'/></a>",
+                        "value": "<a target='_blank' href='https://create.kahoot.it/share/pronombres-de-sujeto/cf982793-df8d-472d-ad2d-38015fc5dd5a' class='text-center' style='color:#1A0DAB'><u class='w-full flex justify-center'>PRONOMBRES DE SUJETO</u><img class='w-full' src='https://res.cloudinary.com/dfddh08q8/image/upload/s--1F6TR8kv--/v1701813105/images/tm5ll3yo7kyhvbtstesp.png'/></a>",
                         "className": "paragraph-default",
                         "classExtra": "w-1/2 flex flex-col p-4 relative   md:w-full"
                     },
@@ -515,7 +514,7 @@
                 "data": [
                     {
                         "type": "title",
-                        "value": "“Un viaje de mil millas comienza con un primer paso”<br> <span style='color: #3c285c'>(Lao Tzu)</span>!",
+                        "value": "“Un viaje de mil millas comienza con un primer paso”<br> <span style='color: #3c285c'>(Lao Tzu)</span>",
                         "className": "title-white"
                     },
                     {
@@ -636,7 +635,7 @@
                                 },
                                 {
                                     "type": "text",
-                                    "content": "-¡Muchas gracias!, -¡Muchas gracias!.<br><br>"
+                                    "content": "-¡Muchas gracias!.<br><br>"
                                 },
                                 {
                                     "type": "text",
@@ -651,7 +650,7 @@
                                 },
                                 {
                                     "type": "dropup-end",
-                                    "content": "-¡Hola! Bien.",
+                                    "content": "-¡Hola! Bien,",
                                     "value": "¿y vos?",
                                     "id": "DropUp4"
                                 },
@@ -696,11 +695,6 @@
                         "type": "title",
                         "value": "Selecciona la opción que corresponda en cada pregunta",
                         "className": "title-white"
-                    },
-                    {
-                        "type": "paragraph",
-                        "value": "<span style='#EB792A'>Completa los diálogos con las siguientes palabras:</span>",
-                        "className": ""
                     },
                     {
                         "type": "selectsimple",
@@ -789,12 +783,6 @@
                                     "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--x793yES_--/v1701810915/images/j9m6ujftkvanvuy44wot.png",
                                     "value": "el avión",
                                     "id": "DropUp3"
-                                },
-                                {
-                                    "type": "image",
-                                    "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--MIYNTSuN--/v1701811030/images/s1ogo0ebjntoedjjkq42.png",
-                                    "value": "la mascara de oxigeno",
-                                    "id": "DropUp4"
                                 }
                             ],
                             "DragBoxs": [
@@ -805,10 +793,6 @@
                                 {
                                     "value": "el pasaporte",
                                     "id": "DragBox2"
-                                },
-                                {
-                                    "value": "la mascara de oxigeno",
-                                    "id": "DragBox3"
                                 },
                                 {
                                     "value": "el aeropuerto",
@@ -854,19 +838,9 @@
                                     "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--lhYsno43--/v1701811397/images/u1ck7mwh0fknl0tg6xtb.png",
                                     "value": "el cinturón de seguridad",
                                     "id": "DropUp3"
-                                },
-                                {
-                                    "type": "image",
-                                    "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--qRyu24bt--/v1701811516/images/ie6ymbb20vtmtrnvpmdd.png",
-                                    "value": "el piloto",
-                                    "id": "DropUp4"
                                 }
                             ],
                             "DragBoxs": [
-                                {
-                                    "value": "el piloto",
-                                    "id": "DragBox1"
-                                },
                                 {
                                     "value": "el cinturón de seguridad",
                                     "id": "DragBox2"
@@ -913,6 +887,12 @@
                                     "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--sa_OCjHF--/v1701811817/images/eqghw5zzi7flw2vlrmxa.png",
                                     "value": "el boleto de avión",
                                     "id": "DropUp2"
+                                },
+                                {
+                                    "type": "image",
+                                    "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s---7cxzQA3--/v1703856032/images/zwjcu1bxekrnfueao6i9.png",
+                                    "value": "la pista de aterrizaje",
+                                    "id": "DropUp3"
                                 }
                             ],
                             "DragBoxs": [
@@ -923,6 +903,10 @@
                                 {
                                     "value": "el equipaje",
                                     "id": "DragBox2"
+                                },
+                                {
+                                    "value": "la pista de aterrizaje",
+                                    "id": "DragBox3"
                                 }
                             ]
                         }
@@ -930,6 +914,52 @@
                 ]
             },
             "page21":
+            {
+                "type": "dragablebox",
+                "section": {
+                    "number": 5,
+                    "value": "Evaluemos"
+                },
+                "template": "template-title-right-1",
+                "data": [
+                    {
+                        "type": "title",
+                        "value": "Observa las imágenes y arrastra hacia cada una la identificación correcta",
+                        "className": "title-white"
+                    },
+                    {
+                        "type": "dragable-box",
+                        "value": {
+                            "DropUps": [
+                                
+                                {
+                                    "type": "image",
+                                    "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--qRyu24bt--/v1701811516/images/ie6ymbb20vtmtrnvpmdd.png",
+                                    "value": "el piloto",
+                                    "id": "DropUp1"
+                                },
+                                {
+                                    "type": "image",
+                                    "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--MIYNTSuN--/v1701811030/images/s1ogo0ebjntoedjjkq42.png",
+                                    "value": "la mascara de oxigeno",
+                                    "id": "DropUp2"
+                                }
+                            ],
+                            "DragBoxs": [
+                                {
+                                    "value": "la mascara de oxigeno",
+                                    "id": "DragBox2"
+                                },
+                                {
+                                    "value": "el piloto",
+                                    "id": "DragBox1"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "page22":
             {
                 "type": "text",
                 "section": {
