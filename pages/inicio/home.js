@@ -688,7 +688,7 @@ export default function Home() {
                     Ver más
                   </Link> */}
                   <span
-                    className='btn-success px-[70px] py-[9px] text-[14px] mt-[21px] shadow-[0px_5.410437107086182px_5.410437107086182px_#00000040] pointer-events-none'
+                    className='bg-gradient-to-r from-success to-warning text-white rounded-[7px] px-[70px] py-[9px] text-[14px] mt-[21px] shadow-[0px_5.410437107086182px_5.410437107086182px_#00000040] pointer-events-none'
                     style={{ display: 'inline-block' }}>
                     Próximamente . . .
                   </span>
@@ -700,9 +700,9 @@ export default function Home() {
 
           </div>
 
-          <Copyright/>
         </main>
       )}
+      <Copyright/>
     </>
   )
 }
