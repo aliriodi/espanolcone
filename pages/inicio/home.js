@@ -15,6 +15,7 @@ import Spinner from './../../components/Spinner';
 import Logo from '../../public/imgs/only-logo.png'
 import PLANS from "../../components/Plan/MUnit2"
 import Head from 'next/head';
+import Copyright from '../../components/Class/Copyright';
 
 
 export default function Home() {
@@ -680,12 +681,17 @@ export default function Home() {
                 {/* Ver más */}
                 <div className='w-full flex justify-end mt-[69px]
               md:mt-[15px]'>
-                  <Link
+                  {/* <Link
                     className='btn-success px-[70px] py-[9px] text-[14px] mt-[21px] shadow-[0px_5.410437107086182px_5.410437107086182px_#00000040]'
                     href={'/inicio/tourGuides'}
                     style={{ display: 'inline-block' }}>
                     Ver más
-                  </Link>
+                  </Link> */}
+                  <span
+                    className='btn-success px-[70px] py-[9px] text-[14px] mt-[21px] shadow-[0px_5.410437107086182px_5.410437107086182px_#00000040] pointer-events-none'
+                    style={{ display: 'inline-block' }}>
+                    Próximamente . . .
+                  </span>
                 </div>
               </div>
 
@@ -693,6 +699,8 @@ export default function Home() {
             </div>
 
           </div>
+
+          <Copyright/>
         </main>
       )}
     </>

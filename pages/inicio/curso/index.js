@@ -1,6 +1,6 @@
 import { useSession } from "next-auth/react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMedal, faBookOpen, faCheck, faListCheck, faBook, faPencil, faCircleInfo } from '@fortawesome/free-solid-svg-icons';
+import { faMedal, faBookOpen, faCheck, faListCheck, faBook, faPencil, faCircleInfo, faXmark } from '@fortawesome/free-solid-svg-icons';
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -39,6 +39,7 @@ export default function Curso(){
                 }
             )
         )
+        console.log(currentLevel)
     },[session])
     
     useEffect(()=>
@@ -184,6 +185,15 @@ export default function Curso(){
                                     icon={faCheck}/>
                                 }
 
+                                {/* Check fail */}
+                                {
+                                // !module.done && module?.points != undefined&&
+                                //     <FontAwesomeIcon
+                                //     className="absolute bg-danger text-white right-1 rounded-full py-[5px] px-[7px] text-[20px] 
+                                //     md:text-[15px]"
+                                //     icon={faXmark}/>
+                                }
+
                             </Link>
                         ))
                     } 
@@ -227,14 +237,14 @@ export default function Curso(){
                                     {/* Info */}
                                     <div className=" absolute top-2 right-2 text-violet_dark text-[18px] cursor-pointer info-icon">
                                         <FontAwesomeIcon className="opacity-[50%]" icon={faCircleInfo}/>
-                                        <div className="info-popup">
+                                        <div className="info-popup md:right-0">
                                             Estamos preparando nuevas actividades para que puedas disfrutar de experiencias emocionantes y enriquecedoras. 🚀
                                         </div>
                                     </div>
                                     
                                     {/* Texto */}
                                     <p className="bg-primary w-full text-center py-2 text-white
-                                    md:py-1 md:text-[14px] md:w-auto md:h-full md:items-center md:flex md:px-2">
+                                    md:py-1 md:text-[14px] md:w-auto md:h-full md:items-center md:flex md:px-2 md:rounded-[8px_0_0_8px]">
                                         Muy pronto . . .
                                     </p>
 

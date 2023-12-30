@@ -79,12 +79,12 @@
             },
             {
                 "type": "paragraph",
-                "value": "Estas personas viven en Córdoba por diferentes motivos. Lee los textos y enfoca tu atención en las palabras resaltadas en color <span style= 'color: orange;' >naranja. </span>",
+                "value": "Estas personas viven en Córdoba por diferentes motivos. Lee los textos y enfoca tu atención en las palabras resaltadas en color <span style= 'color: var(--warning);' >naranja. </span>",
                 "className": "subtitle-default"
             },
             {
                 "type": "paragraph",
-                "value": "Él  <span style= 'color: orange;' >se llama</span> David, <span style= 'color: orange;' >es</span> estadounidense, hace más de 10 años que vive en Córdoba, <span style= 'color: orange;' >se siente</span> muy bien viviendo allí y no <span style= 'color: orange;' >piensa</span> volver a su país. “<span style=' textDecoration: underline;'>Me gusta</span> la vida aquí:  la gente, la comida, el clima, el mate …”. <span style= 'color: orange;' >Es</span> el director de una academia de idiomas y <span style= 'color: orange;' >trabaja</span> muchas horas al día. Los fines de semana <span style= 'color: orange;' >conduce</span> su auto para visitar diferentes partes de Córdoba, le gusta recorrer la provincia. <span style= 'color: orange;' >Está</span> casado con una cordobesa, así que  <span style= 'color: orange;' >domina</span> bastante bien el español porque <span style= 'color: orange;' >habla</span> español en casa. Sin embargo, David dice: “<span style= 'color: orange;' >reconozco</span> que aún <span style= 'color: orange;' >tengo</span> problemas con la lengua. Mi principal problema <span style= 'color: orange;' >es</span> que después de 10 años, todavía <span style= 'color: orange;' >confundo</span> los tiempos del pasado”.",
+                "value": "Él  <span style= 'color: var(--warning);' >se llama</span> David, <span style= 'color: var(--warning);' >es</span> estadounidense, hace más de 10 años que vive en Córdoba, <span style= 'color: var(--warning);' >se siente</span> muy bien viviendo allí y no <span style= 'color: var(--warning);' >piensa</span> volver a su país. “<span style=' textDecoration: underline;'>Me gusta</span> la vida aquí:  la gente, la comida, el clima, el mate …”. <span style= 'color: var(--warning);' >Es</span> el director de una academia de idiomas y <span style= 'color: var(--warning);' >trabaja</span> muchas horas al día. Los fines de semana <span style= 'color: var(--warning);' >conduce</span> su auto para visitar diferentes partes de Córdoba, le gusta recorrer la provincia. <span style= 'color: var(--warning);' >Está</span> casado con una cordobesa, así que  <span style= 'color: var(--warning);' >domina</span> bastante bien el español porque <span style= 'color: var(--warning);' >habla</span> español en casa. Sin embargo, David dice: “<span style= 'color: var(--warning);' >reconozco</span> que aún <span style= 'color: var(--warning);' >tengo</span> problemas con la lengua. Mi principal problema <span style= 'color: var(--warning);' >es</span> que después de 10 años, todavía <span style= 'color: var(--warning);' >confundo</span> los tiempos del pasado”.",
                 "className": "paragraph-default"
             },
             {
@@ -130,7 +130,7 @@
             },
             {
                 "type": "paragraph",
-                "value": "Ella <span style= 'color: orange;' >se llama</span> Bruna, <span style= 'color: orange;' >es</span> brasileña, <span style= 'color: orange;' >tiene </span> 27 años y hace tres que vive en Córdoba Capital. <span style= 'color: orange;' >Es</span> estudiante, <span style= 'color: orange;' >estudia</span> medicina en la Universidad Nacional de Córdoba (UNC) por las tardes y <span style= 'color: orange;' >tiene</span> las mañanas libres. Normalmente <span style= 'color: orange;' >se levanta</span> temprano, <span style= 'color: orange;' >se baña</span>, <span style= 'color: orange;' >se viste</span>, <span style= 'color: orange;' >se maquilla</span> y <span style= 'color: orange;' >desayuna</span> en una cafetería. “<span style= 'color: orange;' >Salgo</span> todas las mañanas, <span style= 'color: orange;' >voy</span> a la universidad para estudiar en la biblioteca, y por las noches <span style= 'color: orange;' >tomo</span> clases de español, <span style= 'color: orange;' >veo</span> televisión y <span style= 'color: orange;' >leo</span>”. Todavía no <span style= 'color: orange;' >entiende</span> perfectamente el  español, <span style= 'color: orange;' >le cuesta</span> bastante la pronunciación pero le gusta hablar y compartir con los nativos. <span style= 'color: orange;' >Se siente</span> feliz en Córdoba, no <span style= 'color: orange;' >quiere</span> volver a Brasil, por ahora.",
+                "value": "Ella <span style= 'color: var(--warning);' >se llama</span> Bruna, <span style= 'color: var(--warning);' >es</span> brasileña, <span style= 'color: var(--warning);' >tiene </span> 27 años y hace tres que vive en Córdoba Capital. <span style= 'color: var(--warning);' >Es</span> estudiante, <span style= 'color: var(--warning);' >estudia</span> medicina en la Universidad Nacional de Córdoba (UNC) por las tardes y <span style= 'color: var(--warning);' >tiene</span> las mañanas libres. Normalmente <span style= 'color: var(--warning);' >se levanta</span> temprano, <span style= 'color: var(--warning);' >se baña</span>, <span style= 'color: var(--warning);' >se viste</span>, <span style= 'color: var(--warning);' >se maquilla</span> y <span style= 'color: var(--warning);' >desayuna</span> en una cafetería. “<span style= 'color: var(--warning);' >Salgo</span> todas las mañanas, <span style= 'color: var(--warning);' >voy</span> a la universidad para estudiar en la biblioteca, y por las noches <span style= 'color: var(--warning);' >tomo</span> clases de español, <span style= 'color: var(--warning);' >veo</span> televisión y <span style= 'color: var(--warning);' >leo</span>”. Todavía no <span style= 'color: var(--warning);' >entiende</span> perfectamente el  español, <span style= 'color: var(--warning);' >le cuesta</span> bastante la pronunciación pero le gusta hablar y compartir con los nativos. <span style= 'color: var(--warning);' >Se siente</span> feliz en Córdoba, no <span style= 'color: var(--warning);' >quiere</span> volver a Brasil, por ahora.",
                 "className": "paragraph-default"
             },
             {
@@ -172,7 +172,7 @@
             },
             {
                 "type": "paragraph",
-                "value": "<span style= 'color: orange;'>¿Sabes cuál es su infinitivo? </span>",
+                "value": "<span style= 'color: var(--warning);'>¿Sabes cuál es su infinitivo? </span>",
                 "className": "paragraph-default"
             },
             {
@@ -186,37 +186,37 @@
                     "DropUps": [
                         {
                             "type": "dropup-end",
-                            "content": "David <span style= 'color: orange;'>trabaja</span> muchas horas al día. ",
+                            "content": "David <span style= 'color: var(--warning);'>trabaja</span> muchas horas al día. ",
                             "value": "trabajar",
                             "id": "DropUp1"
                         },
                         {
                             "type": "dropup-end",
-                            "content": "No <span style= 'color: orange;'>piensa</span> volver a su país. <span id='pensar'  ",
+                            "content": "No <span style= 'color: var(--warning);'>piensa</span> volver a su país. <span id='pensar'  ",
                             "value": "pensar",
                             "id": "DropUp2"
                         },
                         {
                             "type": "dropup-end",
-                            "content": "<span style= 'color: orange;'>Reconozco</span> que aún tengo problemas con la lengua. ",
+                            "content": "<span style= 'color: var(--warning);'>Reconozco</span> que aún tengo problemas con la lengua. ",
                             "value": "reconocer",
                             "id": "DropUp3"
                         },
                         {
                             "type": "dropup-end",
-                            "content": "Bruna <span style= 'color: orange;'>estudia</span> medicina en la UNC. ",
+                            "content": "Bruna <span style= 'color: var(--warning);'>estudia</span> medicina en la UNC. ",
                             "value": "estudiar",
                             "id": "DropUp4"
                         },
                         {
                             "type": "dropup-end",
-                            "content": "Todavía no <span style= 'color: orange;'>entiende</span> perfectamente el  español.",
+                            "content": "Todavía no <span style= 'color: var(--warning);'>entiende</span> perfectamente el  español.",
                             "value": "entender",
                             "id": "DropUp5"
                         },
                         {
                             "type": "dropup-end",
-                            "content": "<span style= 'color: orange;'>Le cuesta</span> bastante la pronunciación. ",
+                            "content": "<span style= 'color: var(--warning);'>Le cuesta</span> bastante la pronunciación. ",
                             "value": "costar",
                             "id": "DropUp6"
                         }
@@ -267,7 +267,7 @@
             },
             {
                 "type": "paragraph",
-                "value": "A David y a Bruna <span style='text-decoration: underline; color:orange;'> les gusta</span> mucho Córdoba.",
+                "value": "A David y a Bruna <span style='text-decoration: underline; color: var(--warning);;'> les gusta</span> mucho Córdoba.",
                 "className": "subtitle-default"
             },
             {
@@ -566,13 +566,13 @@
             {
                 "type": "paragraph-complete",
                 "value": [
-                    "Todos los fines de semana, después de bañarme,",
+                    "Todos los fines de semana, después de bañarnos,",
                     {
                         "block": 9,
                         "color": "orange",
                         "option": "salimos"
                     },
-                    "(salir) a dar un paseo con mis perros. Mi esposa les",
+                    "(salir) a dar un paseo con nuestros perros. Mi esposa les",
                     {
                         "block": 6,
                         "color": "orange",
@@ -660,7 +660,7 @@
             },
             {
                 "type": "paragraph",
-                "value": "<span style= 'color: orange;'>Y tú, ¿tienes mascotas?, ¿cómo son?, ¿qué haces con ellas?</span>",
+                "value": "<span style= 'color: var(--warning);'>Y tú, ¿tienes mascotas?, ¿cómo son?, ¿qué haces con ellas?</span>",
                 "className": "subtitle-selector-simple"
             },
             {
@@ -708,7 +708,7 @@
         "data": [
             {
                 "type": "paragraph",
-                "value": "1. Fíjate en las cosas que ha hecho Naomi desde el año 2005 hasta la actualidad y completa la primera parte de la actividad. Luego, completa las frases. hablando de ti, redacta un texto añadiendo lo que haces normalmente, lo que te gusta,  por qué quieres aprender español, etc. Se lo enviarás a tu profesor (a) por email y luego de su devolución o feedback lo expondrás en clases.",
+                "value": "1. Fíjate en las cosas que ha hecho Naomi desde el año 2005 hasta el año 2023 y completa la primera parte de la actividad, usando números en tus respuestas. Luego, completa las frases. hablando de ti, redacta un texto añadiendo lo que haces normalmente, lo que te gusta,  por qué quieres aprender español, etc. Se lo enviarás a tu profesor (a) por email y luego de su devolución o feedback lo expondrás en clases.",
                 "className": "subtitle--complete-li"
             },
             {
@@ -719,17 +719,17 @@
             },
             {
                 "type": "popup",
-                "value": "<span style= 'color: orange;'>2005</span> Inicia sus clases de español en Buenos Aires ",
+                "value": "<span style= 'color: var(--warning);'>2005</span> Inicia sus clases de español en Buenos Aires ",
                 "className": "popUp-left"
             },
             {
                 "type": "popup",
-                "value": "<span style= 'color: orange;'>2008</span> se muda de Buenos Aires a Córdoba",
+                "value": "<span style= 'color: var(--warning);'>2008</span> se muda de Buenos Aires a Córdoba",
                 "className": "popUp-left"
             },
             {
                 "type": "popup",
-                "value": "<span style= 'color: orange;'>2020</span> empieza a trabajar en una academia.",
+                "value": "<span style= 'color: var(--warning);'>2020</span> empieza a trabajar en una academia.",
                 "className": "popUp-left"
             },
             {
@@ -740,7 +740,7 @@
             {
                 "type": "complete-li",
                 "value": [
-                    "<span style='color:#4CCFEB;'>&bull;</span> Estudia español <span style='color:orange;'> desde </span>",
+                    "<span style='color:#4CCFEB;'>&bull;</span> Estudia español <span style='color: var(--warning);;'> desde </span>",
                     {
                         "block": 6,
                         "color": "orange",
@@ -753,20 +753,20 @@
             {
                 "type": "complete-li",
                 "value": [
-                    "<span style='color:#4CCFEB;'>&bull;</span> <span style='color:orange;'> Hace </span>",
+                    "<span style='color:#4CCFEB;'>&bull;</span> <span style='color: var(--warning);;'> Hace </span>",
                     {
                         "block": 5,
                         "color": "orange",
                         "option": "15"
                     },
-                    "años <span style='color:orange;'>que </span> vive en Córdoba."
+                    "años <span style='color: var(--warning);;'>que </span> vive en Córdoba."
                 ],
                 "className": "paragraph-complete-li"
             },
             {
                 "type": "complete-li",
                 "value": [
-                    "<span style='color:#4CCFEB;'>&bull;</span>  <span style='color:orange;'> Trabaja </span> en una academia <span style='color:orange;'>desde hace </span>",
+                    "<span style='color:#4CCFEB;'>&bull;</span>  <span style='color: var(--warning);;'> Trabaja </span> en una academia <span style='color: var(--warning);;'>desde hace </span>",
                     {
                         "block": 5,
                         "color": "orange",
@@ -790,7 +790,7 @@
                         "color": "orange",
                         "option": ""
                     },
-                    "<span style='color:orange;'> desde </span>",
+                    "<span style='color: var(--warning);;'> desde </span>",
                     {
                         "block": 5,
                         "color": "orange",
@@ -803,13 +803,13 @@
             {
                 "type": "complete-li-personal",
                 "value": [
-                    "<span style='color:#4CCFEB;'>&bull;</span> <span style='color:orange;'> Hace </span>",
+                    "<span style='color:#4CCFEB;'>&bull;</span> <span style='color: var(--warning);;'> Hace </span>",
                     {
                         "block": 5,
                         "color": "orange",
                         "option": ""
                     },
-                    "<span style='color:orange;'> que </span> trabajo en",
+                    "<span style='color: var(--warning);;'> que </span> trabajo en",
                     {
                         "block": 5,
                         "color": "orange",
@@ -821,7 +821,7 @@
             {
                 "type": "complete-li-personal",
                 "value": [
-                    "<span style='color:#4CCFEB;'>&bull;</span> <span style='color:orange;'> Desde </span>",
+                    "<span style='color:#4CCFEB;'>&bull;</span> <span style='color: var(--warning);;'> Desde </span>",
                     {
                         "block": 15,
                         "color": "orange",
@@ -833,13 +833,13 @@
             {
                 "type": "complete-li-personal",
                 "value": [
-                    "<span style='color:#4CCFEB;'>&bull;</span> <span style='color:orange;'> Hace </span>",
+                    "<span style='color:#4CCFEB;'>&bull;</span> <span style='color: var(--warning);;'> Hace </span>",
                     {
                         "block": 10,
                         "color": "orange",
                         "option": ""
                     },
-                    "<span style='color:orange;'> que </span> ",
+                    "<span style='color: var(--warning);;'> que </span> ",
                     {
                         "block": 10,
                         "color": "orange",
@@ -862,26 +862,26 @@
             {
                 "type": "title",
                 "value": "Evaluación unidad 1 - Nivel A2",
-                "className": "title-white-4"
+                "className": "title-white"
             },
             {
                 "type": "paragraph",
-                "value": "La siguiente evaluación contiene 20 espacios en blanco los cuales debes completar con el verbo conjugado en presente.",
+                "value": "La siguiente evaluación contiene <b>20 ejercicios propuestos.</b>",
                 "className": "paragraph-default-center"
             },
             {
                 "type": "paragraph",
-                "value": "Cada verbo que conjugues correctamente vale 01 punto.",
+                "value": "Cada uno que respondas correctamente vale <b>01 punto.</b>",
                 "className": "paragraph-default-center"
             },
             {
                 "type": "paragraph",
-                "value": "Para aprobar la evaluación y pasar a la siguiente unidad debes obtener un mínimo de 18 puntos.",
-                "className": "paragraph-default"
+                "value": "Para aprobar la evaluación y pasar a la siguiente unidad debes obtener un mínimo de <b>18 puntos.</b>",
+                "className": "paragraph-default-center"
             },
             {
                 "type": "paragraph",
-                "value": "<span style='color:orange'>¡Adelante y buena suerte!</span>",
+                "value": "<b style='color:var(--warning);'>¡Adelante y buena suerte!</b>",
                 "className": "paragraph-default-center"
             }
         ]
@@ -939,7 +939,7 @@
                         "color": "orange",
                         "option": "duerme"
                     },
-                    "(dormir) hasta tarde. Le gusta pasear por la ciudad “Cada día ",
+                    "(dormir) hasta tarde. Le gusta pasear por la ciudad. Cuando habla con su familia que está en Francia, les dice: “Cada día ",
                     {
                         "block": 10,
                         "color": "orange",
@@ -951,7 +951,7 @@
                         "color": "orange",
                         "option": "salgo"
                     },
-                    "(salir) por la noche con mis amigos, la gente aquí es muy simpática”. Cuando le ",
+                    "(salir) por la noche con mis amigos, la gente aquí es muy simpática”. Cuando nosotros le ",
                     {
                         "block": 13,
                         "color": "orange",
@@ -1120,7 +1120,7 @@
             {
                 "type": "complete-li",
                 "value": [
-                    "<span style='color:#4CCFEB;'> 9.</span> Yo ",
+                    "<span style='color:#4CCFEB;'> 9.</span> Yo a veces ",
                     {
                         "block": 9,
                         "color": "orange",
