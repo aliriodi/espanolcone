@@ -630,6 +630,13 @@ export default function Class(props) {
         </animated.div>
 
         {/* Paginacion */}
+        {
+          session?.user?.role?.includes("admin") && data?.sheets && sheetsOfSection &&
+          
+          <div className='absolute z-[999] top-2 right-2 p-3 rounded-full shadow-[0px_4px_24px_#18292F1A] bg-white font-medium text-violet_dark'>
+            pag. <span className=' text-warning font-semibold'>{data?.sheets?.indexOf(sheetsOfSection[i]) + 1}</span>
+          </div>
+        }
 
         {/* Boton de Finalizar */}
         {    

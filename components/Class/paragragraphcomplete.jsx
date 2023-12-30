@@ -22,7 +22,7 @@ export default function Paragragraphcomplete(props) {
 
     if(!newInputValues[index]) return;
     newInputValues[index].answer = newValue;
-    newInputValues[index].done = newValue == newInputValues[index]?.option
+    newInputValues[index].done = newValue == newInputValues[index]?.option || (newInputValues[index]?.option == "" && newValue?.length > 0)
 
     // Update the state
     setInputValues(newInputValues);
@@ -123,9 +123,11 @@ export default function Paragragraphcomplete(props) {
                     ${inputValues[index]?.answer == "" && "border-primary"}
                     ${props.inEvaluation && "border-primary"}
                     ${!props.inEvaluation && 
-                      (inputValues[index]?.answer != "" && inputValues[index]?.answer == inputValues[index]?.option
-                      ? "border-secondary" 
-                      : "border-danger"
+                      (
+                        inputValues[index]?.answer != "" && inputValues[index]?.answer == inputValues[index]?.option ||
+                        (inputValues[index]?.option == "" && inputValues[index]?.answer?.length > 0)
+                        ? "border-secondary" 
+                        : "border-danger"
                       )
                     }
                     `
