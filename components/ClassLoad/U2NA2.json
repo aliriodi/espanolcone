@@ -19,8 +19,8 @@
                 "className": "TITLE-P0-BLACK"
             },
             {
-                "type": "level",
-                "value": "A2",
+                "type": "paragraph",
+                "value": "Unidad A2",
                 "className": "TITLE-P0-BLACK"
             }
         ]

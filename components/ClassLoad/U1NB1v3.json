@@ -31,7 +31,7 @@
             "number": 0,
             "value": "Mis Metas"
         },
-        "template": "template-video-1",
+        "template": "template-title-top-1",
         "data": [
             {
                 "type": "title",
@@ -39,11 +39,30 @@
                 "className": "centerRightWhite-2"
             },
             {
-                "type": "paragraph",
-                "value": " <table style= 'background:white; border: 2px solid black;' ><tr  style=' background-color: var(--primary); border: 2px solid black;' ><th style= 'border: 2px solid black;width:30%;' ><h2><strong style='color:black;'>Comunicación</strong></h2></th><th style= ' border: 2px solid black;width:20%' ><h2><strong style='color:black;'>Vocabulario</strong></h2></th><th style= 'border: 2px solid black; width:30%' ><h2><strong style='color:black;'>Gramática</strong></h2></th></tr><tr><td style= 'border: 2px solid black;' > <ul> <li>* Describir y valorar objetos: materiales, partes, utilidad, propiedades, características, ventajas y desventajas.</li>  <li>* Referirse a objetos presentes en la comunicación, usando pronombres.</li> <li>* Hablar acerca de objetos típicos de Córdoba.</li> <li>* Hablar de inventos innovadores que han mejorado la vida cotidiana.</li> <li>* Hablar y expresar opiniones acerca de materiales, refiriéndose a las propiedades y características que pueden o deberían tener los objetos de hoy.</li> </ul> </td><td style= 'border: 2px solid black;' ><ul> <li>* Objetos típicos de Córdoba.</li> <li>* Objetos de uso cotidiano.</li> <li>* Vocabulario asociado a características de objetos (materiales y propiedades).</li> <li>* Objetos de innovación en la actualidad.</li></ul></td><td style= 'border: 2px solid black; ' ><ul> <li>* Presente del subjuntivo: verbos regulares e irregulares más frecuentes.</li>  <li>* Relativas con indicativo y con subjuntivo.</li> <li>* El contraste de indicativo y subjuntivo en relativas.</li> <li>* Las frases relativas con preposición.</li>  <li>* Los numerales: centenas, miles, millones.</li> <li>* Usos impersonal de se.</li> <li>* Se (reflexivo y OI) en combinación con lo/la/los/las</li> <li>* sirve para … / se usa para … / lo usan … / se enchufa … / se abre … / va con … / funciona con … / se puede … / no se puede +  infinitivo </li> </ul></td></tr></table>",
+                "type": "table",
+                "value": [
+                    {
+                        "title":"Comunicación",
+                        "content":"<li>- Describir y valorar objetos: materiales, partes, utilidad, propiedades, características, ventajas y desventajas</li><li>- Referirse a objetos presentes en la comunicación, usando pronombres.</li><li>- Hablar acerca de objetos típicos de Córdoba.</li><li>- Hablar de inventos innovadores que han mejorado la vida cotidiana.</li><li>- Hablar y expresar opiniones acerca de materiales, refiriéndose a las propiedades y características que pueden o deberían tener los objetos de hoy.</li>"
+                    },
+                    {
+                        "title":"Vocabulario",
+                        "content":"<li>- Objetos típicos de Córdoba.</li><li>- Objetos de uso cotidiano.</li><li>- Vocabulario asociado a características de objetos (materiales y propiedades).</li><li>- Objetos de innovación en la actualidad.</li>"
+                    },
+                    {
+                        "title":"Gramática",
+                        "content":"<li>- Presente del subjuntivo: verbos regulares e irregulares más frecuentes.</li><li>- Relativas con indicativo y con subjuntivo.</li><li>- El contraste de indicativo y subjuntivo en relativas.</li><li>- Las frases relativas con preposición.</li><li>- Los numerales: centenas, miles, millones.</li><li>- Usos impersonal de se.</li><li>- Se (reflexivo y OI) en combinación con lo/la/los/las.</li><li>- sirve para … / se usa para … / lo usan … / se enchufa … / se abre … / va con … / funciona con … / se puede … / no se puede + infinitivo. </li>"
+                    }
+                ],
                 "className": "table"
             }
-        ]
+        ],
+        "tablaAntigua":
+        {
+            "type": "datoviejo",
+            "value": " <table style= 'background:white; border: 2px solid black;' ><tr  style=' background-color: var(--primary); border: 2px solid black;' ><th style= 'border: 2px solid black;width:30%;' ><h2><strong style='color:black;'>Comunicación</strong></h2></th><th style= ' border: 2px solid black;width:20%' ><h2><strong style='color:black;'>Vocabulario</strong></h2></th><th style= 'border: 2px solid black; width:30%' ><h2><strong style='color:black;'>Gramática</strong></h2></th></tr><tr><td style= 'border: 2px solid black;' > <ul> <li>* Describir y valorar objetos: materiales, partes, utilidad, propiedades, características, ventajas y desventajas.</li>  <li>* Referirse a objetos presentes en la comunicación, usando pronombres.</li> <li>* Hablar acerca de objetos típicos de Córdoba.</li> <li>* Hablar de inventos innovadores que han mejorado la vida cotidiana.</li> <li>* Hablar y expresar opiniones acerca de materiales, refiriéndose a las propiedades y características que pueden o deberían tener los objetos de hoy.</li> </ul> </td><td style= 'border: 2px solid black;' ><ul> <li>* Objetos típicos de Córdoba.</li> <li>* Objetos de uso cotidiano.</li> <li>* Vocabulario asociado a características de objetos (materiales y propiedades).</li> <li>* Objetos de innovación en la actualidad.</li></ul></td><td style= 'border: 2px solid black; ' ><ul> <li>* Presente del subjuntivo: verbos regulares e irregulares más frecuentes.</li>  <li>* Relativas con indicativo y con subjuntivo.</li> <li>* El contraste de indicativo y subjuntivo en relativas.</li> <li>* Las frases relativas con preposición.</li>  <li>* Los numerales: centenas, miles, millones.</li> <li>* Usos impersonal de se.</li> <li>* Se (reflexivo y OI) en combinación con lo/la/los/las</li> <li>* sirve para … / se usa para … / lo usan … / se enchufa … / se abre … / va con … / funciona con … / se puede … / no se puede +  infinitivo </li> </ul></td></tr></table>",
+            "className": "table"
+        }
     },
     "page3": {
         "type": "text",
