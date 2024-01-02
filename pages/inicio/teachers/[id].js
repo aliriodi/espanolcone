@@ -12,6 +12,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import Spinner from '../../../components/Spinner';
 import { parseISO, isAfter, isEqual ,addDays, startOfDay} from 'date-fns';
 import Head from 'next/head'
+import Copyright from '../../../components/Class/Copyright';
 
 export default function TeacherDetailPage() {
   // const cardDetail2 = useSelector((state) => state.datos.cardDetail);
@@ -84,7 +85,7 @@ export default function TeacherDetailPage() {
     <Menu />
 
     <div
-    className="px-[60px] py-[119px] flex bg-slate-200
+    className="px-[60px] py-[119px] flex bg-slate-200 min-h-[100vh]
     md:px-[25px] md:flex-col">
 
       {/* Seccion de Datos */}
@@ -290,6 +291,11 @@ export default function TeacherDetailPage() {
 
       </div>
     </div>
+
+    <div className='bg-slate-200'>
+      <Copyright/>
+    </div>
+
     </>
   );
 }

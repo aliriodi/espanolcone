@@ -10,6 +10,7 @@ import { classid } from '../../../redux/ECEActions'
 import { useDispatch } from "react-redux";
 import { useRouter } from 'next/router';
 import Head from 'next/head'
+import Copyright from "../../../components/Class/Copyright";
 
 
 export default function Curso(){
@@ -243,7 +244,7 @@ export default function Curso(){
                                     </div>
                                     
                                     {/* Texto */}
-                                    <p className="bg-primary w-full text-center py-2 text-white
+                                    <p className="bg-gradient-to-r from-success to-warning w-full text-center py-2 text-white
                                     md:py-1 md:text-[14px] md:w-auto md:h-full md:items-center md:flex md:px-2 md:rounded-[8px_0_0_8px]">
                                         Muy pronto . . .
                                     </p>
@@ -271,6 +272,8 @@ export default function Curso(){
             </div>
 
         </section>
+
+        <Copyright/>
         </>
     )
 }

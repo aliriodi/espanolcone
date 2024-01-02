@@ -13,6 +13,7 @@ import Confetti from '../../../../components/Confetti'
 import { useRouter } from 'next/router';
 import Spinner from "../../../../components/Spinner";
 import Head from 'next/head'
+import Copyright from "../../../../components/Class/Copyright";
 
 
 export default function Unidad(){
@@ -845,8 +846,8 @@ export default function Unidad(){
                 </button>
             }
         </div>
-
-
+        
+        <Copyright/>
         </>
     )
 }
