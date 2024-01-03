@@ -508,7 +508,351 @@
             }          
         ]
     },
-    "page12": {
+    "page12":{
+        "type": "selectsimple",
+        "section": {
+            "number": 3,
+            "value": "Practiquemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Volvamos a leer el texto y ahora veamos:  ¿En cuáles partes de la conversación se usan las expresiones de cantidad: <span style='color:var(--success_blur)'>MUCHO </span>y <span style='color:var(--orange)'>POCO</span>?",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style='color:var(--primary)'>Selecciona la opción correcta</span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "text",
+                "value": "<div class=' flex flex-row justify-center'><div class='  text-white bg-success'>MUCHO</div> <div class='text-white bg-red-500'> POCO</div></div> "
+                
+                
+            },
+            {
+                "type": "selectsimple",
+                "value": "1. tener precaución ",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "2. ser cuidadoso",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "3. tomar helado",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "4. Una tienda con ropa bonita y barata",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "5. ver películas",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "6. conocer ríos",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "7. llover ",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "8. visitar la nueva heladería",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "9. preocuparse por ir al río",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "10. ir al río Yuspe",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            }
+           
+        ]
+    },
+    "page13":
+    {
+        "type": "selectsimple",
+        "section": {
+            "number": 3,
+            "value": "Practiquemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Volvamos a leer el texto y ahora veamos:  ¿En cuáles partes de la conversación se usan las expresiones de cantidad: <span style='color:var(--success_blur)'>MUCHO </span>y <span style='color:var(--orange)'>POCO</span>?",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style='color:var(--primary)'>Selecciona la opción correcta</span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "text",
+                "value": "<div class=' flex flex-row justify-center'><div class='  text-white bg-success'>MUCHO</div> <div class='text-white bg-red-500'> POCO</div></div> "
+                
+                
+            },
+            {
+                "type": "selectsimple",
+                "value": "1. tener precaución ",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "2. ser cuidadoso",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "3. tomar helado",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "4. Una tienda con ropa bonita y barata",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "5. ver películas",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "6. conocer ríos",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "7. llover ",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "8. visitar la nueva heladería",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "9. preocuparse por ir al río",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "10. ir al río Yuspe",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            }
+           
+        ]
+    },
+    "page14":
+    {
+        "type": "text",
+        "section": {
+            "number": 4,
+            "value": "Mis Retos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {"type": "title",
+            "value": "Reto Propuesto",
+            "className": "leftWhite"
+            },
+          
+        {
+            "type": "paragraph",
+            "value": "Tu profe de español, conoce a Lucas y a Diana, a continuación ella escribe su opinión acerca de ellos. Lee los textos, contesta las preguntas que se te presentan a continuación y envíale tus respuestas por email a tu profe de español." ,
+            "className": "paragraph-default"
+        },
+        {
+            "type": "paragraph",
+            "value": "<span style='color:var(--success)'>También puedes compartir tus respuestas en clases, en nuestra comunidad o con un profesor de nuestra plataforma.</span> " ,
+            "className": "paragraph-default"
+        }
+           
+        ]
+    },
+    "page15":{
+        "type": "text",
+        "section": {
+            "number": 4,
+            "value": "Mis Retos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Distintas personalidades",
+                "className": "title-white"
+            },
+            {
+                "type": "text",
+                "value": "<div class='flex justify-between   md:flex-col'><img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--gnuFWWBR--/v1704303211/images/mdlvb8pxpu1hgqv0zd2x.png' class='w-[38%] rounded-[7px] shadow-[0px_4px_24px_#18292F1A] object-cover md:w-full'/> <div class='border-2 border-warning asymmetric-rounded p-5 w-[60%]   md:w-full md:mb-3'><p>Lucas es cordobés, es amigable y  alegre. Le encanta la montaña, pasear y comer bien. Le gusta mucho practicar senderismo en las sierras de Córdoba. Es muy divertido, tiene buen gusto y le interesa la moda. Una cualidad que me encanta de él es que es muy detallista. No le gusta la gente sin sentido del humor ni tampoco la gente pesimista y cobarde. Odia la superficialidad y la avaricia y por el contrario le gusta la gente sensible. Lo que no me gusta de Luis es que es terco y le cuesta trabajar en equipo.</p></div></div>",
+                "className": "paragraph-default",
+                "classExtra": ""
+            }
+        ]
+    },
+    "page16": {
+        "type": "text",
+        "section": {
+            "number": 4,
+            "value": "Mis Retos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Distintas personalidades",
+                "className": "title-white"
+            },
+            {
+                "type": "text",
+                "value": "<div class='flex justify-between   md:flex-col'><div class='border-2 border-warning asymmetric-rounded p-5 w-[60%]   md:w-full md:mb-3'> <p>Diana es colombiana, pero vive en Córdoba, es diseñadora de moda y estudió en Francia. Le encanta la naturaleza, ir a la playa y acampar en las montañas. Es muy elegante, tiene buen gusto y le interesa el arte. Le gusta mucho montar bicicleta y hacer senderismo. Algo que me encanta de ella es que es muy solidaria. No le gusta la monotonía y tampoco una vida rutinaria. Odia beber alcohol y comer comida chatarra. Lo que no me gusta de Ana es que es un poco porfiada y le cuesta dar su brazo a torcer.</p> </div> <img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--2QPrXFmo--/v1704303437/images/q01rpqldtne6qziwhjjk.png' class='w-[38%] rounded-[7px] shadow-[0px_4px_24px_#18292F1A] object-cover md:w-full'/> </div>",
+                "className": "paragraph-default",
+                "classExtra": ""
+            }
+        ]
+    },
+    "page17": {
         "type": "complete",
         "section": {
             "number":5,
