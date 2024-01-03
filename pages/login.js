@@ -231,7 +231,7 @@ export default function Home() {
               style={{padding:'10px', margin:'20px 0'}}
               className="w-full btn-primary md:text-[14px]"
               type="submit"
-              value="Ingresar"/>
+              value={t("ingresar")}/>
 
               {/* Crear Cuenta */}
               <div className="flex justify-around">

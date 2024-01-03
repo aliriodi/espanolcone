@@ -14,5 +14,6 @@
   "p8": "Don't have an account yet?",
   "p9": "Create a new one",
   "errorEmail": "Incorrect email",
-  "errorPassaword": "Incorrect password"
+  "errorPassaword": "Incorrect password",
+  "ingresar":"Log in"
 }
