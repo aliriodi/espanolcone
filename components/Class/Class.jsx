@@ -859,12 +859,17 @@ export default function Class(props) {
                 {
                 sheetsOfSection[i]?.data?.map((c, index) =>
                   <>
+                    {/* Div */}
+                    {c.type === 'div' &&
+                    <div key={index} className={`${style[c.className]} ${c.classExtra}`} dangerouslySetInnerHTML={{ __html: c.value }}></div>
+                    }
+                  
                     {/* Level */}
                     {c.type === 'level' &&
                     <p key={index} className={`${style[c.className]} ${c.classExtra}`} dangerouslySetInnerHTML={{ __html: c.value }}></p> }
                     
                     {/* Imagen */}
-                    {c.type === 'image' &&<img key={index} width='100' height='100' className={`${style[c.className]} ${c.classExtra}`} src={c.value} alt={c.alt} />}
+                    {c.type === 'image' &&<img key={index} width='100' height='100' className={`${style[c.className]} ${c.classExtra} `} src={c.value} alt={c.alt} />}
 
                     {/* Cuadricula de Imagenes */}
                     {c.type === 'image-grid' && <ImagesGrid key={index} images={c.value}/>}
