@@ -1,4 +1,7 @@
+import { faCheck, faX } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState, useEffect } from 'react'
+import style from '../../styles/class.module.css'
 
 export default function Selectsimple(props) {
     //se recibe props.data tipo objeto con
@@ -40,32 +43,54 @@ export default function Selectsimple(props) {
     return (
         <>
             {/* {intro} */}
-            <p dangerouslySetInnerHTML={{ __html: props.data.value }}></p>
+            <p dangerouslySetInnerHTML={{ __html: props.data.value }} className={style["selector-simple-title"]}></p>
             
-            <div onClick={()=>console.log(props?.data)} className={`${props?.data?.direction == "row" && "flex w-full justify-between md:flex-col"}`}>
+            <div onClick={()=>console.log(props?.data)} className={`${props?.data?.direction == "row" && "flex w-full md:flex-col"}  ${style["options-container"]} `}>
 
             {options ? options?.map(option =>
-                <p className='mx-3'  key={option}  ><label>
-                    <input type="radio"
-                        key={option}
-                        value={option}
-                        checked={selectedOption === option}
-                        onChange={handleOptionChange}
-                        
-                    />
-                    <span  style={{paddingLeft: '5px'}}>{option}</span>
-                    {selectedOption && !props?.inEvaluation && (
-                        <span>
-                        {/* Para renderizar culito */}
-                            {selectedOption === option ? (
-                                isCorrect ?
-                                    <span style={{ color: 'green' }}> ✔️</span>
-                                    :
-                                    <span style={{ color: 'red' }}> ❌</span>
-                            ) : null}
-                        </span>
-                    )}
-                </label></p>
+
+                <p className={`px-3 ${style["icon-container"]} ${selectedOption && !props?.inEvaluation && (selectedOption === option && (isCorrect ? style["done"] : style["danger"]))}`}  key={option}>
+                    <label className='flex items-center'>
+
+                        {/* Input */}
+                        <input type="radio"
+                            key={option}
+                            value={option}
+                            checked={selectedOption === option}
+                            onChange={handleOptionChange}
+                            
+                        />
+
+                        {/* Texto de opcion */}
+                        <span  className='px-[5px] flex items-center'>{option}</span>
+
+                        {/* Icono de respuesta */}
+                        <div className={`w-[24px] h-[24px] rounded-full flex justify-center items-center text-white relative
+                        md:h-[20px] md:w-[20px]`}>
+                            {selectedOption && !props?.inEvaluation && (
+                                <>
+                                {/* Para renderizar culito */}
+                                    {selectedOption === option ? (
+                                        isCorrect ?
+                                            <div className={`w-full h-full bg-secondary  flex justify-center items-center rounded-full`}>
+                                                <FontAwesomeIcon className='text-[14px] text-white font-bold
+                                                md:text-[12px]' icon={faCheck}/>
+                                            </div>
+                                            :
+                                            <div className={`w-full h-full bg-danger  flex justify-center items-center rounded-full`}>
+                                                <FontAwesomeIcon className='text-[14px] text-white font-medium
+                                                md:text-[12px]' icon={faX}/>
+                                            </div>
+                                    ) : 
+
+                                        <span className='w-[24px] h-[24px] flex'></span>
+                                    }
+                                </>
+                            )}
+                        </div>
+                    </label>
+                </p>
+
             ) : null}
             </div>
         </>
