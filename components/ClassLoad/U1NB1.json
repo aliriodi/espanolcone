@@ -9,9 +9,9 @@
         "data": [
             {
                 "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366258/images/logo_etoaae.png",
-                "alt":"Español con E",
-                "className": "image-p0"
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697635227/images/Untitled_orf4ch.png",
+                "alt": "EspañolconE",
+                "className": "Portadaimg"
             },
             {
                 "type": "title",
@@ -19,28 +19,41 @@
                 "className": "titleBlack2-p0"
             },
             {
-                "type": "title",
+                "type": "paragraph",
                 "value": "NIVEL B1",
                 "className": "TITLE-P0-BLACK"
             }           
               ]
     },
     "page2": {
-        "type": "video",
+        "type": "text",
         "section": {
             "number":0,
             "value":"Mis Metas"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697582910/images/imagpag3_gh1wjd.png",
+        "template": "template-title-top-1",
         "data": [
             {"type": "title",
             "value": "¿Qué voy a aprender en esta unidad?",
             "className": "centerRightWhite-2"
             },
             {
-                "type":"paragraph",
-                "value":" <table style= 'border: 2px solid black;' ><tr  style=' background-color: var(--primary); border: 2px solid black;' ><th style= 'border: 2px solid black;width:30%;' ><h2><strong style='color:black;'>Comunicación</strong></h2></th><th style= ' border: 2px solid black;width:20%' ><h2><strong style='color:black;'>Vocabulario</strong></h2></th><th style= 'border: 2px solid black; width:30%' ><h2><strong style='color:black;'>Gramática</strong></h2></th></tr><tr><td style= 'border: 2px solid black;' > <ul> <li>*Dar y pedir información sobre personas.</li>  <li>*Dar y pedir información acerca de personalidades, gustos y experiencias.</li> <li>*Expresar similitudes, diferencias y afinidades entre personas.</li><li>*Valorar personas.</li><li>*Graduar expresiones.</li><li>*Descripción de la personalidad Sujeto + verbo ser + muy / poco / un poco + adjetivo </li> <li>*Expresar sentimientos, gustos y sensaciones</li><li>*Describir sentimientos.</li><li>*Expresar motivos para estudiar español.</li></ul> </td><td style= 'border: 2px solid black;' ><ul> <li>*Adjetivos y sustantivos relacionados con el carácter.</li>  <li> *Gustos, aficiones y manías.</li> <li>*Ámbitos personales: costumbres, familia y experiencias.</li> <li>*Virtudes y defectos.</li> </ul></td><td style= 'border: 2px solid black; ' ><ul> <li>*Régimen pronominal de verbos como gustar, encantar, interesar: me/te/le/nos/os/les</li>  <li>*Condicional: verbos regulares e irregulares más frecuentes.</li> <li>*Interrogativas: ¿A qué hora?/¿Qué…?/ ¿Cuál? / ¿Qué tipo de..? / ¿Dónde …? / ¿Con quién?</li> <li>*Interrogativas indirectas con si e interrogativas directas con: ¿Qué…?/ ¿Dónde …? / ¿Por qué? / ¿Con quién? / ¿Cuándo?</li>  <li>*Sustantivos femeninos: -dad - ez- eza-ía-ura</li> <li>*Muy / tan / demasiado + adjetivo</li> </ul></td></tr></table>",
-                "className":"table"
+                "type": "table",
+                "value": [
+                    {
+                        "title":"Comunicación",
+                        "content":"<li>- Dar y pedir información sobre personas.</li><li>- Dar y pedir información acerca de personalidades, gustos y experiencias</li><li>- *Expresar similitudes, diferencias y afinidades entre personas.</li><li>- Valorar personas.</li><li>- Graduar expresiones.</li><li>- Descripción de la personalidad Sujeto + verbo ser + muy / poco / un poco + adjetivo.</li><li>- Expresar sentimientos, gustos y sensaciones.</li><li>- Describir sentimientos.</li><li>- Expresar motivos para estudiar español.</li>"
+                    },
+                    {
+                        "title":"Vocabulario",
+                        "content":"<li>- Adjetivos y sustantivos relacionados con el carácter.</li><li>- Gustos, aficiones y manías.</li><li>- Ámbitos personales: costumbres, familia y experiencias.</li><li>- Virtudes y defectos.</li>"
+                    },
+                    {
+                        "title":"Gramática",
+                        "content":"<li>- Régimen pronominal de verbos como gustar, encantar, interesar: me/te/le/nos/os/les</li><li>- Condicional: verbos regulares e irregulares más frecuentes.</li><li>- Interrogativas: ¿A qué hora?/¿Qué…?/ ¿Cuál? / ¿Qué tipo de..? / ¿Dónde …? / ¿Con quién?</li><li>- Interrogativas indirectas con si e interrogativas directas con: ¿Qué…?/ ¿Dónde …? / ¿Por qué? / ¿Con quién? / ¿Cuándo?</li><li>- Sustantivos femeninos: -dad - ez- eza-ía-ura</li><li>- Muy / tan / demasiado + adjetivo</li>"
+                    }
+                ],
+                "className": "table"
             }
         ]
     },
@@ -51,7 +64,7 @@
             "number":1,
             "value":"Comencemos"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697582910/images/imagpag3_gh1wjd.png",
+        "template": "template-title-top-2",
         "data": [
             {"type": "title",
             "value": "Vamos a conocer a María Teresa Andruetto",
@@ -84,7 +97,7 @@
             "number":1,
             "value":"Comencemos"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697582910/images/imagpag3_gh1wjd.png",
+        "template": "template-title-top-2",
         "data": [
             {"type": "title",
             "value": "Vamos a conocer a Pablo Tamagnini",
@@ -117,7 +130,7 @@
             "number":1,
             "value":"Comencemos"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697632552/images/template1_zzkxz8.png",
+        "template": "template-title-right-1",
         "data": [
             {
                 "type": "title",
@@ -162,115 +175,143 @@
         ]
     },
     "page6": {
-        "type": "boxmove",
+        "type": "paragraph",
         "section": {
-            "number":1,
-            "value":"Comencemos"
+            "number": 1,
+            "value": "Comencemos"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697632552/images/template1_zzkxz8.png",
-        "title": "Actividad",
+        "template": "template-title-right-1",
         "data": [
             {
                 "type": "title",
                 "value": "A partir de los textos que leímos, arrastrá los sustantivos a la imagen que mejor los represente",
-                "className": "leftWhite2"
-            },
-          
-               {
-                "type": "sentence-box",
-                "value": "<img src='https://res.cloudinary.com/dfddh08q8/image/upload/v1697635249/images/jovenes_wdvbgc.png' alt='jovenes' /> <p style= 'color: orange; padding-top:1%; padding-left:3%;'><span id='jóvenes' style= 'color: rgba(0, 0, 0, 0); display: inline-block; border: 2px solid orange; '>_________________</span></p>",
-                "option": "jóvenes",
-                "className": "image1-boxmove"
+                "className": "title-white"
             },
             {
-                "type": "sentence-box",
-                "value": "<img  src='https://res.cloudinary.com/dfddh08q8/image/upload/v1697639695/images/timida_kn1wrv.png' alt='timida' /> <p style= 'color: orange; padding-top:1%;padding-left:3%;'> <span id='tímida'  style= 'color: rgba(0, 0, 0, 0); display: inline-block; border: 2px solid orange; '>____________________</span></p>",
-                "option": "tímida",
-                "className": "image2-boxmove"
-            },
-            {
-                "type": "sentence-box",
-                "value": "<img src='https://res.cloudinary.com/dfddh08q8/image/upload/v1697640114/images/guapo_aisyup.png' alt='guapo' /><p style= 'color: orange; padding-top:1%;padding-left:3%;'><span id='guapo' style= 'color: rgba(0, 0, 0, 0); display: inline-block; border: 2px solid orange; '>_____________________</span></p>",
-                "option": "guapo",
-                "className": "image3-boxmove"
-            },
-            {
-                "type": "sentence-box",
-                "value": "<img src='https://res.cloudinary.com/dfddh08q8/image/upload/v1697640136/images/persezoso_qtnchw.png' alt='perezoso' /><p style= 'color: orange; padding-top:1%;padding-left:3%;' ><span id='perezoso' style= 'color: rgba(0, 0, 0, 0); display: inline-block; border: 2px solid orange; '>__________________</span></p>",
-                "option": "perezoso",
-                "className": "image4-boxmove"
-            },
-            {
-                "type": "options-box",
-                "value": [
-                    {"value":"tímida","id":"value1","x":50,"y":-1100,"xmin":0,"xmax":0,"ymin":0,"ymax":200,"width":130,"height":22},
-                    {"value":"guapo","id":"value2","x":200,"y":-1100,"xmin":285,"xmax":410,"ymin":-32,"ymax":-20,"width":130,"height":22},
-                    {"value":"perezoso","id":"value3","x":350,"y":-1100,"xmin":248,"xmax":339,"ymin":-150,"ymax":-142,"width":130,"height":22},
-                    {"value":"jóvenes","id":"value4","x":500,"y":-1100,"xmin":335,"xmax":432,"ymin":-56,"ymax":-49,"width":130,"height":22}
-                    
-                ],
-                "className": "paragraph11"
+                "type": "dragable-box",
+                "value": {
+                    "DropUps": [
+                        {
+                            "type": "image",
+                            "src": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697635249/images/jovenes_wdvbgc.png",
+                            "value": "jóvenes",
+                            "id": "DropUp1"
+                        },
+                        {
+                            "type": "image",
+                            "src": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697639695/images/timida_kn1wrv.png",
+                            "value": "tímida",
+                            "id": "DropUp2"
+                        },
+                        {
+                            "type": "image",
+                            "src": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697640114/images/guapo_aisyup.png",
+                            "value": "guapo",
+                            "id": "DropUp3"
+                        },
+                        {
+                            "type": "image",
+                            "src": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697640136/images/persezoso_qtnchw.png",
+                            "value": "perezoso",
+                            "id": "DropUp4"
+                        }
+                    ],
+                    "DragBoxs": [
+                        {
+                            "value": "tímida",
+                            "id": "DragBox1"
+                        },
+                        {
+                            "value": "guapo",
+                            "id": "DragBox2"
+                        },
+                        {
+                            "value": "perezoso",
+                            "id": "DragBox3"
+                        },
+                        {
+                            "value": "jóvenes",
+                            "id": "DragBox4"
+                        }
+                    ]
+                },
+                "className": "dragable-box"
             }
         ]
     },
     "page7": {
-        "type": "slide",
+        "type": "paragraph",
         "section": {
-            "number":3,
-            "value":"Practiquemos"
+            "number": 1,
+            "value": "Comencemos"
         },
-        "template":  "https://res.cloudinary.com/dfddh08q8/image/upload/v1697632552/images/template1_zzkxz8.png",
+        "template": "template-title-right-1",
         "data": [
             {
                 "type": "title",
                 "value": "A partir de los textos que leímos, arrastrá los sustantivos a la imagen que mejor los represente",
-                "className": "leftWhite2"
-            },
-          
-               {
-                "type": "sentence-box",
-                "value": "<img src='https://res.cloudinary.com/dfddh08q8/image/upload/v1697654724/images/alegria_hrdggl.png' alt='joveness' /> <p style= 'color: orange; padding-top:1%; padding-left:3%;'><span id='la alegría' style= 'color: rgba(0, 0, 0, 0); display: inline-block; border: 2px solid orange; '>_________________</span></p>",
-                "option": "la alegría",
-                "className": "image1-boxmove-o"
+                "className": "title-white"
             },
             {
-                "type": "sentence-box",
-                "value": "<img  src='https://res.cloudinary.com/dfddh08q8/image/upload/v1697654743/images/egoismo_nv73e2.png' alt='timidas' /> <p style= 'color: orange; padding-top:1%;padding-left:3%;'> <span id='el egoísmo'  style= 'color: rgba(0, 0, 0, 0); display: inline-block; border: 2px solid orange; '>____________________</span></p>",
-                "option": "el egoísmo",
-                "className": "image2-boxmove"
-            },
-            {
-                "type": "sentence-box",
-                "value": "<img src='https://res.cloudinary.com/dfddh08q8/image/upload/v1697654759/images/optimismo_awjhc9.png' alt='guapos' /><p style= 'color: orange; padding-top:1%;padding-left:3%;'><span id='el optimismo' style= 'color: rgba(0, 0, 0, 0); display: inline-block; border: 2px solid orange; '>_____________________</span></p>",
-                "option": "el optimismo",
-                "className": "image3-boxmove"
-            },
-            {
-                "type": "sentence-box",
-                "value": "<img src='https://res.cloudinary.com/dfddh08q8/image/upload/v1697654786/images/tranquilidad_uxk4zl.png' alt='el optimismo' /><p style= 'color: orange; padding-top:1%;padding-left:3%;' ><span id='la tranquilidad' style= 'color: rgba(0, 0, 0, 0); display: inline-block; border: 2px solid orange; '>__________________</span></p>",
-                "option": "la tranquilidad",
-                "className": "image4-boxmove"
-            },
-            {
-                "type": "options-box",
-                "value": [
-                    {"value":"el egoísmo","id":"value7","x":50,"y":-1100,"xmin":0,"xmax":0,"ymin":0,"ymax":200,"width":130,"height":22},
-                    {"value":"el optimismo","id":"value8","x":200,"y":-1100,"xmin":285,"xmax":410,"ymin":-32,"ymax":-20,"width":130,"height":22},
-                    {"value":"la tranquilidad","id":"value9","x":350,"y":-1100,"xmin":248,"xmax":339,"ymin":-150,"ymax":-142,"width":160,"height":22},
-                    {"value":"la alegría","id":"value10","x":530,"y":-1100,"xmin":335,"xmax":432,"ymin":-56,"ymax":-49,"width":130,"height":22}
-                    
-                ],
-                "className": "paragraph11"
+                "type": "dragable-box",
+                "value": {
+                    "DropUps": [
+                        {
+                            "type": "image",
+                            "src": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697654724/images/alegria_hrdggl.png",
+                            "value": "la alegría",
+                            "id": "DropUp1"
+                        },
+                        {
+                            "type": "image",
+                            "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--sIq_af4e--/v1704261343/images/ddrjasqfp1l0vtd7pain.png",
+                            "value": "el egoísmo",
+                            "id": "DropUp2"
+                        },
+                        {
+                            "type": "image",
+                            "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--fQrXJcWn--/v1704261159/images/kqqgttkl08214r8xzkjf.png",
+                            "value": "el optimismo",
+                            "id": "DropUp3"
+                        },
+                        {
+                            "type": "image",
+                            "src": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697654786/images/tranquilidad_uxk4zl.png",
+                            "value": "la tranquilidad",
+                            "id": "DropUp4"
+                        }
+                    ],
+                    "DragBoxs": [
+                        {
+                            "value": "el egoísmo",
+                            "id": "DragBox1"
+                        },
+                        {
+                            "value": "el optimismo",
+                            "id": "DragBox2"
+                        },
+                        {
+                            "value": "la tranquilidad",
+                            "id": "DragBox3"
+                        },
+                        {
+                            "value": "la alegría",
+                            "id": "DragBox4"
+                        }
+                    ]
+                },
+                "className": "dragable-box"
             }
         ]
     },
+    
     "page8": {
         "type": "videoInteractivo",
         "section": {
-            "number":3,
-            "value":"Practiquemos"
+            "number":2,
+            "value":"Aprendemos"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697632552/images/template1_zzkxz8.png",
+        "template": "template-video-1",
         "data": [
             {
                 "type": "title",
@@ -280,7 +321,7 @@
             {
                 "type": "video-youtube",
                 "value": "tMz57dZS0ZY",
-                "className": "youtuve-p10",
+                "className": "youtube",
                 "youtube": "https://youtu.be/tMz57dZS0ZY"
             }
         
@@ -291,8 +332,8 @@
     "page9": {
         "type": "text",
         "section": {
-            "number":1,
-            "value":"Comencemos"
+            "number":3,
+            "value":"Practiquemos"
         },
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697679179/images/template2_uhryao.png",
         "data": [
@@ -316,46 +357,80 @@
 
 
     },
+   
     "page10": {
-        "type": "selectsimple",
+        "type": "complete",
         "section": {
             "number":3,
             "value":"Practiquemos"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
+        "template": "template-title-top-1",
         "data": [
+           
+           
             {
-                "type": "selectsimple",
-                "value": " <strong> <span style= 'color: #4CCFEB;'>1. </span> Los estudiantes que hablan en el video son de:</strong>",
-                "option": "Colombia, Brasil y México.",
-                "options": [
-                    "Perú, Colombia y Brasil.",
-                    "Colombia, Brasil y México.",
-                    "Brasil, Venezuela y Estado unidos."
+                "type": "paragraph-complete",
+                "value": [
+                    "<strong>1. Lucía:</strong> ¡Cómo me",
+                    {
+                        "block": 8,
+                        "color": "orange",
+                        "option": "encanta"
+                    },
+                    "(encanta - encantan) venir a Córdoba! Es mucho menos calurosa que Tucumán.<br>",
+                    "<strong>2. Fernanda:</strong> Sí, Córdoba es hermosa. Lo que más me",
+                    {
+                        "block": 7,
+                        "color": "orange",
+                        "option": "gusta"
+                    },
+                    "(gustan - gusta) es que los fines de semana podés tomar un colectivo y en menos de una hora estás en algún río. <br>",
+                    "<strong>3- Benjamín:</strong>: ¿Este fin de semana vamos a",
+                    {
+                        "block": 3,
+                        "color": "orange",
+                        "option": "ir"
+                    },
+                    "(gustar - ir) a algún lugar?<br>",
+                    "<strong>4. Fernanda:</strong> ¿A dónde te ",
+                    {
+                        "block": 12,
+                        "color": "orange",
+                        "option": "gustaría"
+                    },
+                    "(gusta - gustaría) ir?<br>",
+                    "<strong>5- Benjamín:</strong>: A El Durazno, porque me",
+                    {
+                        "block": 9,
+                        "color": "orange",
+                        "option": "encanta"
+                    },
+                    "(encanta - encantaría) el Río Yuspe, es mi favorito, conozco pocos ríos.<br>",
+                    "<strong>6. Lucía:</strong> Ya fuimos muchas veces, la verdad es que a mí me",
+                    {
+                        "block": 13,
+                        "color": "orange",
+                        "option": "encantaría"
+                    },
+                    "(encantarían - encantaría) conocer el Río Santa Rosa, dicen que es muy lindo. Podemos llevar el mate y unos criollos.<br>",
+                    "<strong>7. Fernanda:</strong> A mí me ",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "preocupa"
+                    },
+                    "(preocupa - preocupan) un poco ir a algún río, en estos días estuvo lloviendo mucho, creo que es un poco peligroso.<br>",
+                    "<strong>8. Lucía:</strong> ¿Te",
+                    {
+                        "block": 8,
+                        "color": "orange",
+                        "option": "preocupa"
+                    },
+                    "(preocupan - preocupa) que los ríos estén crecidos?"
+
                 ],
                 "className": "paragraph2"
-            },
-            {
-                "type": "selectsimple",
-                "value": "<strong> <span style= 'color: #4CCFEB;'>2. </span> A los estudiantes les gusta:</strong>",
-                "option": "La gente y la comida.",
-                "options": [
-                    "La gente y la comida.",
-                    "El clima y los ríos.",
-                    "Las plazas y la comida."
-                ],
-                "className": "paragraph2"
-            },
-            {
-                "type": "selectsimple",
-                "value": "<strong> <span style= 'color: #4CCFEB;'>3. </span>  Todos los estudiantes del video estudian la misma carrera universitaria.</strong>",
-                "option": "Falso.",
-                "options": [
-                    "Verdadero.",
-                    "Falso."
-                ],
-                "className": "paragraph2"
-            }
+            }          
         ]
     },
     "page11": {
@@ -364,97 +439,73 @@
             "number":3,
             "value":"Practiquemos"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117258/images/3_p39xoh.png",
+        "template": "template-title-top-1",
         "data": [
-            {
-                "type": "title",
-                "value": "Completa la historia de la familia Garcia con los verbos en paréntesis.",
-                "className": "titleright-black2"
-            },
-            {
-                "type": "paragraph",
-                "value": "¡Hola!",
-                "className": "paragraph2"
-            },
+           
+           
             {
                 "type": "paragraph-complete",
                 "value": [
-                    "Me llamo Lucas y en la foto",
+                    "<strong>9. Fernanda:</strong> Sí, eso me",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "preocupa"
+                    },
+                    "(preocupa - preocupan). Me da un poco de miedo.<br>",
+                    "<strong>10. Benjamín:</strong> No pasa nada, tía. No seas miedosa, a mi no me",
+                    {
+                        "block": 3,
+                        "color": "orange",
+                        "option": "da"
+                    },
+                    "(da - dar) miedo.<br>",
+                    "<strong>11- Fernanda:</strong>: Vos sos poco cuidadoso, me",
                     {
                         "block": 8,
                         "color": "orange",
-                        "option": "salgo"
+                        "option": "parece"
                     },
-                    "(salir) con mi esposa Romina y nuestras mascotas, Canela y Pancho. Nosotros",
-                    {
-                        "block": 7,
-                        "color": "orange",
-                        "option": "somos"
-                    },
-                    "(ser) cordobeses, y amamos los perros. Vivimos en las sierras de Córdoba porque",
+                    "(parecen - parece).<br>",
+                    "<strong>12. Lucía:</strong> Imprudente, diría yo. Creo que no",
                     {
                         "block": 12,
                         "color": "orange",
-                        "option": "preferimos"
+                        "option": "deberíamos"
                     },
-                    "(preferir) el interior de la provincia."
+                    "(deberíamos - deber) ir.<br>",
+                    "<strong>13- Fernanda:</strong> Es muy lindo ir al río. Sin embargo, tenemos que tener mucha precaución, yo",
+                    {
+                        "block": 7,
+                        "color": "orange",
+                        "option": "adoro"
+                    },
+                    "(adoran - adoro) ir al río, pero en verano llueve mucho y también puede ser peligroso.<br>",
+                    "<strong>14. Benjamín:</strong> ¿Pero podemos hacer algo acá, en la ciudad? A mí me",
+                    {
+                        "block": 8,
+                        "color": "orange",
+                        "option": "gustan"
+                    },
+                    "(gusta - gustan) mucho los helados y las películas.<br>",
+                    "<strong>15. Fernanda:</strong> Entonces, vamos al cine y después los llevo a conocer una nueva heladería que me",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "encanta"
+                    },
+                    "(encanta - encantamos).<br>",
+                    "<strong>16. Lucía:</strong> ¡Me",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "fascina"
+                    },
+                    "(fascina - fascinan) ese plan!"
+
                 ],
                 "className": "paragraph2"
-            },
-            {
-                "type": "paragraph-complete",
-                "value": [
-                    "Todos los fines de semana, después de bañarme,",
-                    {
-                        "block": 9,
-                        "color": "orange",
-                        "option": "salimos"
-                    },
-                    "(salir) a dar un paseo con mis perros. Mi esposa les",
-                    {
-                        "block": 6,
-                        "color": "orange",
-                        "option": "pone"
-                    },
-                    "(poner) la correa mientras yo",
-                    {
-                        "block": 8,
-                        "color": "orange",
-                        "option": "traigo"
-                    },
-                    "(traer) sus galletitas y termos con agua. Cuando regresamos de pasear, yo me",
-                    {
-                        "block": 6,
-                        "color": "orange",
-                        "option": "pongo"
-                    },
-                    "(poner) ropa limpia y",
-                    {
-                        "block": 6,
-                        "color": "orange",
-                        "option": "hago"
-                    },
-                    " (hacer) el desayuno. Antes de tomar una siesta, yo",
-                    {
-                        "block": 8,
-                        "color": "orange",
-                        "option": "dispongo"
-                    },
-                    " (disponer) un espacio para los perros en nuestro cuarto. Porque sino ellos",
-                    {
-                        "block": 11,
-                        "color": "orange",
-                        "option": "destruyen"
-                    },
-                    " (destruir) toda la casa mientras Romi y yo dormimos."
-                ],"className":"paragraph2"
-            },
-            {
-                "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1695571885/images/3_fjrubz.png",
-                "className": "imagedownright",
-                "alt":"matrimonio"
-            }
+            }          
         ]
     },
     "page12": {
