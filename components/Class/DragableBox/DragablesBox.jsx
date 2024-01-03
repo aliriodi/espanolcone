@@ -56,7 +56,7 @@ export default function DragableBox( props ){
     
     useEffect(()=>{
         
-        if(options.filter((option)=>option.dropUpId != "container").length == options.length){
+        if(options.filter((option)=>option.dropUpId != "container" && !option.id.includes("DragBoxNone")).length == options.filter((option)=>!option.id.includes("DragBoxNone")).length){
             activityCheck()
             
             setCanCheck(true)
@@ -180,8 +180,9 @@ export default function DragableBox( props ){
     function activityCheck(){      
         let activityDone = true;
         let totalActivitysDone = 0
+        let totalOptions = options.filter((option)=>!option.id.includes("DragBoxNone"));
 
-        options.map((option)=>{
+        totalOptions.map((option)=>{
             if(option.done == false) activityDone = false
             else totalActivitysDone = totalActivitysDone + 1
         })

@@ -47,6 +47,7 @@
 
   /* Warning */
   --warning: #FF7438;
+  --warning-border_hover_bg:#FF743833;
 
   /* Orange*/
   --orange: #FF7438;
@@ -359,6 +360,11 @@ h3{
 .info-icon:hover .info-popup{
   opacity: 1;
   z-index: 90;
+}
+
+/* Elementos con bordeados */
+.asymmetric-rounded{
+  border-radius: 70px 0 70px 0;
 }
 
 @keyframes ensanchamiento {
