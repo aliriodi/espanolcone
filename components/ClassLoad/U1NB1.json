@@ -855,11 +855,28 @@
     "page17": {
         "type": "complete",
         "section": {
+            "number":4,
+            "value":"Mis retos"
+        },
+        "template": "",
+        "data": [
+            {
+                "type": "paragraph",
+                "value": "<div class=''>¿Cómo son?</div>" ,
+                "className": "paragraph-default"
+            },
+            {
+                
+            }       ]
+    },
+    "page18": {
+        "type": "complete",
+        "section": {
             "number":5,
             "value":"Mis retos"
         },
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697572892/images/u1p14nib1_oobxox.png",
-        "data": [
+        "data": [ 
             {
                 
             }       ]
