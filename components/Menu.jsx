@@ -168,13 +168,15 @@ const Menu = (props) => {
             }
 
             {/* Volver a Atras */}
-            {/* <div className='bg-white shadow-[0px_4px_24px_#18292F1A] absolute top-[100px] left-[60px] h-[50px] w-[50px] rounded-full flex items-center justify-center z-50 cursor-pointer opacity-[0.7]
-                        hover:opacity-[1] transition-all
-                        md:top-[10px] md:left-[10px]'>
+            <div 
+            onClick={()=>history.back()}
+            className={`bg-white shadow-[0px_4px_24px_#18292F1A] absolute ${currentPathName == '/inicio/home' || currentPathName == '/inicio/calendar' ? "top-[20px]" : "top-[100px]"} left-[60px] h-[50px] w-[50px] rounded-full flex items-center justify-center z-[49] cursor-pointer opacity-[0.7]
+            hover:opacity-[1] transition-all
+            md:left-[25px]`}>
                 <FontAwesomeIcon
                 className='text-violet_dark text-[20px]'
                 icon={faArrowLeft}/>
-            </div> */}
+            </div>
 
             {/* Menu */}
             <div className={`
