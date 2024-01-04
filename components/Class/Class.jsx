@@ -125,7 +125,7 @@ export default function Class(props) {
     // }
 
     // Se asignan las paginas segun la seccion indicada en "props.page"
-    setSheetsOfSection(data?.sheets.filter((sheet)=> sheet?.section?.number == data?.sheets[props.page].section?.number))
+    setSheetsOfSection(data?.sheets?.filter((sheet)=> sheet?.section?.number == data?.sheets[props.page].section?.number))
     
     // En caso de estar en la Evaluacion comprueba la cantidad de actividades que hay
     if(data?.sheets && data?.sheets[props.page].section?.number == 5){
@@ -912,7 +912,7 @@ export default function Class(props) {
                     
                     {/* Drag Box */}
                     {c.type === 'dragable-box' &&
-                    <DragablesBox done={sheetsState[i]?.done} key={index} allowFollow={allowFollow} containerPosition={c?.containerPosition} options={c.value} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page].section?.number == 5}/>}
+                    <DragablesBox done={sheetsState[i]?.done} key={index} allowFollow={allowFollow} containerPosition={c?.containerPosition} options={c.value} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5}/>}
                     
                     {/* Parrafo */}
                     {c.type === 'paragraph' &&
@@ -921,7 +921,7 @@ export default function Class(props) {
                     
                     {/* SelectSimple */}
                     {c.type === 'selectsimple' &&
-                    <div className={`${style[c.className]} ${c.classExtra}`}><SELECTSIMPLE done={sheetsState[i]?.done} key={c.option} data={c} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page].section?.number == 5}/></div>}
+                    <div className={`${style[c.className]} ${c.classExtra}`}><SELECTSIMPLE done={sheetsState[i]?.done} key={c.option} data={c} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5}/></div>}
                     
                     {/* Texto */}
                     {c.type === 'text' &&
@@ -930,11 +930,11 @@ export default function Class(props) {
                     
                     {/* Parrafo a Completar */}
                     {c.type === 'paragraph-complete' &&
-                    <div key={index} className={`${style[c.className]} ${c.classExtra}`}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page].section?.number == 5} data={c}/></div> }
+                    <div key={index} className={`${style[c.className]} ${c.classExtra}`}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} data={c}/></div> }
                     
                     {/* Parrafo a Completar con Imagenes */}
                     {c.type === 'paragraph-complete-content' &&
-                    <div key={index} className={`${style[c.className]} ${c.classExtra}`}><PARAGGRAPHCOMPLETE type={"content"} done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page].section?.number == 5} data={c}/></div> }
+                    <div key={index} className={`${style[c.className]} ${c.classExtra}`}><PARAGGRAPHCOMPLETE type={"content"} done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} data={c}/></div> }
                     
                     {/* PopUp de Dialogos */}
                     {c.type === 'popUp-dialogues' &&
@@ -943,11 +943,11 @@ export default function Class(props) {
                     
                     {/* Parrafo a Completar de lista */}
                     {c.type === 'complete-li' &&
-                    <div key={index} className={`${style[c.className]} ${c.classExtra}`}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page].section?.number == 5} data={c}/> </div> }
+                    <div key={index} className={`${style[c.className]} ${c.classExtra}`}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} data={c}/> </div> }
                     
                     {/* Parrafo a Completar de lista con persona*/}
                     {c.type === 'complete-li-personal' &&
-                    <div key={index} className={`${style[c.className]} ${c.classExtra}`}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page].section?.number == 5} data={c}/> </div> }
+                    <div key={index} className={`${style[c.className]} ${c.classExtra}`}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} data={c}/> </div> }
                     
                     {/* <p dangerouslySetInnerHTML={{ __html: c.value }}></p> */}
 

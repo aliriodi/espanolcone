@@ -529,14 +529,14 @@
             },
             {
                 "type": "paragraph",
-                "value": "<span style='color:var(--primary)'>Selecciona la opción correcta</span>",
-                "className": "paragraph-default"
+                "value": "Selecciona la opción correcta",
+                "className": "subtitle-default",
+                "classExtra":" w-full text-center"
             },
             {
-                "type": "text",
-                "value": "<div class=' flex flex-row justify-center'><div class='  text-white bg-success'>MUCHO</div> <div class='text-white bg-red-500'> POCO</div></div> "
-                
-                
+                "type": "div",
+                "value": "<div class='  text-white bg-success w-[45%] p-4 rounded-[7px] text-center'>MUCHO</div> <div class='text-white bg-red-500 w-[45%] p-4 rounded-[7px] text-center'> POCO</div>",
+                "classExtra":"flex justify-between w-full"
             },
             {
                 "type": "selectsimple",
