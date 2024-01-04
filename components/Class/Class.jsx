@@ -9,7 +9,7 @@ import SELECTSIMPLE from './Selectsimple';
 import PARAGGRAPHCOMPLETE from './paragragraphcomplete';
 import style from '../../styles/class.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faAngleRight, faAngleUp, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faAngleRight, faAngleUp, faArrowLeft, faCheck } from '@fortawesome/free-solid-svg-icons';
 import DragablesBox from './DragableBox/DragablesBox';
 import Selectsimple from './Selectsimple';
 import { useSpring, animated } from 'react-spring';
@@ -617,6 +617,16 @@ export default function Class(props) {
 
   return (
     <>
+        <div
+        onClick={()=>history.back()}
+        className='bg-white shadow-[0px_4px_24px_#18292F1A] absolute top-[20px] left-[50px] h-[50px] w-[50px] rounded-full flex items-center justify-center z-50 cursor-pointer 
+            hover:opacity-[0.8] transition-all
+            md:top-[10px] md:left-[10px]'>
+            <FontAwesomeIcon
+            className='text-violet_dark text-[20px]'
+            icon={faArrowLeft}/>
+        </div>
+
         {/* Check */}
         <animated.div
         className='fixed left-1/2 translate-x-[-50%] rounded-full bg-white w-[100px] h-[100px] flex justify-center items-center border-solid border-[4px] border-secondary z-50'
@@ -945,6 +955,12 @@ export default function Class(props) {
                   </>)
                   }                  
               </div>
+
+              {/* /////// Ellipses /////// */}
+              <span className={`${style["ellipse-1"]}`}></span>
+              <span className={`${style["ellipse-2"]}`}></span>
+              <span className={`${style["ellipse-3"]}`}></span>
+              <span className={`${style["ellipse-4"]}`}></span>
             </div>
           </>
 

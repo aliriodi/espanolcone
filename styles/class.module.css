@@ -559,6 +559,65 @@
     flex-wrap: wrap;
 }
 
+/* template Title Top 6 (Template con fondo blanco y ellipses a los costados) */
+.template-title-top-6{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.template-title-top-6 .title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* min-height: 250px; */
+    width: 100%;
+    padding: 70px 0;
+    z-index: 20;
+}
+
+.template-title-top-6 .content{
+    /* padding-top: 50px; */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    height: 100%;
+    flex-grow: 1;
+    padding-bottom: 100px;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    z-index: 20;
+}
+
+.template-title-top-6 .ellipse-1{
+    display: flex;
+    z-index: 10;
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    bottom: 46%;
+    border-radius: 100%;
+    border: var(--secondary) 4px solid;
+    left: -50px;
+    transition: all .15s;
+}
+
+.template-title-top-6 .ellipse-2{
+    display: flex;
+    z-index: 10;
+    width: 160px;
+    height: 160px;
+    position: absolute;
+    bottom: 53%;
+    border-radius: 100%;
+    border: var(--primary) 25px solid;
+    left: -80px;
+    transition: all .15s;
+}
+
 /* template Title Right 1 ( Teample para Select Simple )*/
 .template-title-right-1{
     display: flex;

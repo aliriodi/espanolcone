@@ -20,8 +20,7 @@
             },
             {
                 "type": "paragraph",
-                "value": "NIVEL B1",
-                "className": "TITLE-P0-BLACK"
+                "value": "NIVEL B1"
             }           
               ]
     },
@@ -66,29 +65,32 @@
         },
         "template": "template-title-top-2",
         "data": [
-            {"type": "title",
-            "value": "Vamos a conocer a María Teresa Andruetto",
-            "className": "leftWhite"
+            {
+                "type": "title",
+                "value": "Vamos a conocer a María Teresa Andruetto",
+                "className": "leftWhite"
             },
-            {"type":"image",
-            "value":"https://res.cloudinary.com/dfddh08q8/image/upload/v1697590888/images/maria_teresa_kcfi99.png",
-           "alt":"Maria Teresa",
-        "className":"image-p4"},
-        {
-            "type": "paragraph",
-            "value": "Teresa Andruetto es una escritora cordobesa,  <span style= 'color: var(--primary);' >competente </span> en su profesión. Es una mujer <span style= 'color: var(--primary);' >inteligente y responsable</span>. Estudió Letras Modernas en la Universidad Nacional de Córdoba." ,
-            "className": "paragraph7"
-        },
-        {
-            "type": "paragraph",
-            "value": "<span style='color:orange;'>Le gusta mucho</span> <span style='text-decoration: underline;'> vivir en Córdoba</span>, hace 21 años que vive en Unquillo, una ciudad del interior. <span style='color:orange;'>Le encanta</span> <span style='text-decoration: underline;'>ver el bosque</span> de algarrobos y espinillos que rodea su casa, también <span style='color:orange;'>le gusta mucho</span> <span style='text-decoration:underline;'>atender a los animales de su granja</span>. Es una persona <span style='color:var(--primary);'>sensible</span> y le gusta <span style='color:var(--primary);'>la tranquilidad</span> porque le permite escribir sin presiones." ,
-            "className": "paragraph8"
-        },
-        {
-            "type": "paragraph",
-            "value": "<p><span style='color:orange;'>Le gusta</span> <span style='text-decoration:underline;'>escuchar la radio por la mañana</span> y, cuando sale a la calle, también</p>  <p><span style='color:orange;'>le gusta</span> <span style='text-decoration:underline;'>escuchar las conversaciones</span> que mantienen otras personas, lo que muchas veces le sirve de inspiración para escribir sus cuentos o novelas.</p>  <p> <span style='color:orange;'>Odia</span> <span style='color:var(--primary);text-decoration:underline;'>la monotonía</span> y <span style='color:var(--primary);text-decoration:underline;'>la superficialidad </span> en su trabajo por lo que siempre busca experimentar distintos géneros literarios para distintos tipos de lectores.</p>" ,
-            "className": "paragraph9"
-        }
+            {
+                "type":"image",
+                "value":"https://res.cloudinary.com/dfddh08q8/image/upload/v1697590888/images/maria_teresa_kcfi99.png",
+                "alt":"Maria Teresa",
+                "className":""
+            },
+            {
+                "type": "paragraph",
+                "value": "Teresa Andruetto es una escritora cordobesa,  <span style= 'color: var(--primary);' >competente </span> en su profesión. Es una mujer <span style= 'color: var(--primary);' >inteligente y responsable</span>. Estudió Letras Modernas en la Universidad Nacional de Córdoba." ,
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style='color:var(--warning);'>Le gusta mucho</span> <span style='text-decoration: underline;'> vivir en Córdoba</span>, hace 21 años que vive en Unquillo, una ciudad del interior. <span style='color:var(--warning);'>Le encanta</span> <span style='text-decoration: underline;'>ver el bosque</span> de algarrobos y espinillos que rodea su casa, también <span style='color:var(--warning);'>le gusta mucho</span> <span style='text-decoration:underline;'>atender a los animales de su granja</span>. Es una persona <span style='color:var(--primary);'>sensible</span> y le gusta <span style='color:var(--primary);'>la tranquilidad</span> porque le permite escribir sin presiones." ,
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<p><span style='color:var(--warning);'>Le gusta</span> <span style='text-decoration:underline;'>escuchar la radio por la mañana</span> y, cuando sale a la calle, también</p>  <p><span style='color:var(--warning);'>le gusta</span> <span style='text-decoration:underline;'>escuchar las conversaciones</span> que mantienen otras personas, lo que muchas veces le sirve de inspiración para escribir sus cuentos o novelas.</p>  <p> <span style='color:var(--warning);'>Odia</span> <span style='color:var(--primary);text-decoration:underline;'>la monotonía</span> y <span style='color:var(--primary);text-decoration:underline;'>la superficialidad </span> en su trabajo por lo que siempre busca experimentar distintos géneros literarios para distintos tipos de lectores.</p>" ,
+                "className": "paragraph-default"
+            }
         ]
     },
     "page4": {
@@ -99,29 +101,32 @@
         },
         "template": "template-title-top-2",
         "data": [
-            {"type": "title",
-            "value": "Vamos a conocer a Pablo Tamagnini",
-            "className": "leftWhite"
+            {
+                "type": "title",
+                "value": "Vamos a conocer a Pablo Tamagnini",
+                "className": "leftWhite"
             },
-            {"type":"image",
-            "value":"https://res.cloudinary.com/dfddh08q8/image/upload/v1697595089/images/Pablo_tk3jzw.png",
-           "alt":"Maria Teresa",
-        "className":"image-p5"},
-        {
-            "type": "paragraph",
-            "value": "Pablo Tamagnini es un cantante cordobés, muy <span style='color:var(--primary)'>extrovertido</span>, que vive en la capital de la provincia. Es un hombre <span style='color:var(--primary)'>amistoso</span>, forma parte de la banda de cuarteto La K’onga, junto a Diego y Nelson, sus amigos. <span style='color:orange'>Le encanta</span> cantar y es <span style='color:var(--primary)'>persistente</span> ya que estuvo muchos años buscando la estabilidad económica en su carrera, hasta que pudo consagrarse como cantante de cuarteto." ,
-            "className": "paragraph7"
-        },
-        {
-            "type": "paragraph",
-            "value": "<span style='color:orange'>Le gusta</span> <span style='text-decoration:underline;'> conectar con la gente en los bailes</span>, que es el nombre que tienen los recitales de este género musical. Es <span style='color:var(--primary)'>soñador</span> y <span style='color:orange'>le interesa</span> <span style='text-decoration:underline;'>llegar con su banda a muchos lugares del mundo</span>, no sólo dentro de Argentina o Latinoamérica." ,
-            "className": "paragraph8"
-        },
-        {
-            "type": "paragraph",
-            "value": "Lo que <span style='color:orange;'>no le gusta</span> de su trabajo es <span style='text-decoration:underline'>el sacrificio que implica estar lejos de familia, de sus amigos</span>. A pesar de perderse cumpleaños, casamientos, u otros momentos personales importantes por estar haciendo giras o bailes, es muy <span style='color:var(--primary);'>tenaz</span> porque <span style='color:orange;'>le encanta</span> <span style='text-decoration:underline;'>su trabajo</span> y lo disfruta mucho." ,
-            "className": "paragraph9"
-        }
+            {
+                "type":"image",
+                "value":"https://res.cloudinary.com/dfddh08q8/image/upload/v1697595089/images/Pablo_tk3jzw.png",
+                "alt":"Maria Teresa",
+                "className":""
+            },
+            {
+                "type": "paragraph",
+                "value": "Pablo Tamagnini es un cantante cordobés, muy <span style='color:var(--primary)'>extrovertido</span>, que vive en la capital de la provincia. Es un hombre <span style='color:var(--primary)'>amistoso</span>, forma parte de la banda de cuarteto La K’onga, junto a Diego y Nelson, sus amigos. <span style='color:var(--warning)'>Le encanta</span> cantar y es <span style='color:var(--primary)'>persistente</span> ya que estuvo muchos años buscando la estabilidad económica en su carrera, hasta que pudo consagrarse como cantante de cuarteto." ,
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style='color:var(--warning)'>Le gusta</span> <span style='text-decoration:underline;'> conectar con la gente en los bailes</span>, que es el nombre que tienen los recitales de este género musical. Es <span style='color:var(--primary)'>soñador</span> y <span style='color:var(--warning)'>le interesa</span> <span style='text-decoration:underline;'>llegar con su banda a muchos lugares del mundo</span>, no sólo dentro de Argentina o Latinoamérica." ,
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "Lo que <span style='color:var(--warning);'>no le gusta</span> de su trabajo es <span style='text-decoration:underline'>el sacrificio que implica estar lejos de familia, de sus amigos</span>. A pesar de perderse cumpleaños, casamientos, u otros momentos personales importantes por estar haciendo giras o bailes, es muy <span style='color:var(--primary);'>tenaz</span> porque <span style='color:var(--warning);'>le encanta</span> <span style='text-decoration:underline;'>su trabajo</span> y lo disfruta mucho." ,
+                "className": "paragraph-default"
+            }
         ]
     },
     "page5": {
@@ -135,7 +140,7 @@
             {
                 "type": "title",
                 "value": "A partir de los textos que leímos, vamos a responder las siguientes preguntas",
-                "className": "leftWhite2"
+                "className": "title-white"
             },
            
           
@@ -148,7 +153,7 @@
                     "No, trabajan en ámbitos diferentes",
                     "No tanto, a pesar de ser artistas su vida no es tan similar"
                 ],
-                "className": "paragraph10"
+                "className": "selector-simple"
             },
             {
                 "type": "selectsimple",
@@ -159,7 +164,7 @@
                     "Tranquila, pero se mantiene activa trabajando",
                     "Abrumadora, no puede descansar en ningún momento"
                 ],
-                "className": "paragraph11"
+                "className": "selector-simple"
             },
             {
                 "type": "selectsimple",
@@ -170,7 +175,7 @@
                     "Agitada, pero feliz porque trabaja de lo que ama",
                     "Solitaria, pasa mucho tiempo sin una buena compañía"
                 ],
-                "className": "paragraph11"
+                "className": "selector-simple"
             }
         ]
     },
@@ -315,8 +320,8 @@
         "data": [
             {
                 "type": "title",
-                "value": "<span style='color:var(--primary);'>Aprendemos</span>",
-                "className": "p8title"
+                "value": "Aprendemos",
+                "className": "title-white"
             },
             {
                 "type": "video-youtube",
@@ -335,12 +340,12 @@
             "number":3,
             "value":"Practiquemos"
         },
-        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697679179/images/template2_uhryao.png",
+        "template": "template-title-top-6",
         "data": [
             {
                 "type": "title",
                 "value": "Lucía y Fernanda son dos hermanas tucumanas. Fernanda vive en Córdoba hace 25 años, su hermana y su sobrino, Benjamín, la visitan cada verano. A continuación vas a leer un diálogo en el cual los tres están haciendo planes para el fin de semana.",
-                "className": "paragraph12"
+                "className": "title-dark"
             },
             {
                 "type": "title",
@@ -351,7 +356,8 @@
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697679111/images/imagpag14_ek8mv7.png",
                 "alt": "Paisaje",
-                "className":"imagepaisaje"
+                "className":"imagepaisaje",
+                "classExtra":"rounded-[7px]"
             }
         ]
 
@@ -364,7 +370,7 @@
             "number":3,
             "value":"Practiquemos"
         },
-        "template": "template-title-top-1",
+        "template": "template-title-top-6",
         "data": [
            
            
@@ -429,7 +435,7 @@
                     "(preocupan - preocupa) que los ríos estén crecidos?"
 
                 ],
-                "className": "paragraph2"
+                "className": "paragraph-complete"
             }          
         ]
     },
@@ -439,7 +445,7 @@
             "number":3,
             "value":"Practiquemos"
         },
-        "template": "template-title-top-1",
+        "template": "template-title-top-6",
         "data": [
            
            
@@ -504,7 +510,7 @@
                     "(fascina - fascinan) ese plan!"
 
                 ],
-                "className": "paragraph2"
+                "className": "paragraph-complete"
             }          
         ]
     },
