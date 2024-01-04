@@ -805,7 +805,7 @@
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--J_w9Qtux--/v1703669995/images/mgmhmqugzgiya9omyuvi.png",
                 "alt": "pan1",
                 "className": "",
-                "classExtra":"absolute right-2 top-2   md:relative md:ml-auto"
+                "classExtra":"absolute right-2 top-2 w-40   md:relative md:ml-auto md:w-[100px]"
             },
             {
                 "type": "text",
@@ -904,7 +904,7 @@
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--J_w9Qtux--/v1703669995/images/mgmhmqugzgiya9omyuvi.png",
                 "alt": "pan1",
                 "className": "",
-                "classExtra":"absolute right-2 top-2   md:relative md:ml-auto"
+                "classExtra":"absolute right-2 top-2 w-40   md:relative md:ml-auto md:w-[100px]"
             },
             {
                 "type": "text",
@@ -970,123 +970,124 @@
                 "className": "title-white"
             },
             {
-                "type": "text",
-                "value": "Jennifer",
-                "className": ""
+                "type": "div",
+                "value": "<img style='width:40%' class='rounded-[7px] shadow-[0px_4px_24px_#18292F1A]' src='https://res.cloudinary.com/dfddh08q8/image/upload/v1702327705/images/rmvhpumbcvhoz1viwlcr.png'/> <img style='width:40%' class='rounded-[7px] shadow-[0px_4px_24px_#18292F1A]' src='https://res.cloudinary.com/dfddh08q8/image/upload/v1702327713/images/schlxzmfiffcktjczrtc.jpg'/>",
+                "classExtra": "w-full flex justify-evenly"
             },
             {
                 "type": "text",
-                "value": "Alberto",
-                "className": ""
+                "value": "<div class='flex justify-around w-full'> <p>Jennifer</p> <p>Alberto</p> </div>",
+                "className": "paragraph-default",
+                "classExtra":"w-full mt-4 "
             },
             {
                 "type": "selectsimple",
-                "value": "<font color='var(--orange)'>sabe tocar el bajo</font>",
+                "value": "<span style='color:var(--warning)'>sabe tocar el bajo</span>",
                 "option": " ",
                 "options": [
                     " ",
                     "  "
                 ],
-                "className": "selector-simple",
+                "className": "selector-simple-grid",
                 "direction": "row"
             },
             {
                 "type": "selectsimple",
-                "value": "<font color='var(--orange)'>ha vivido en Europa</font>",
+                "value": "<span style='color:var(--warning)'>ha vivido en Europa</span>",
                 "option": " ",
                 "options": [
                     " ",
                     "  "
                 ],
-                "className": "selector-simple",
+                "className": "selector-simple-grid",
                 "direction": "row"
             },
             {
                 "type": "selectsimple",
-                "value": "<font color='var(--orange)'>es extrovertido y creativo</font>",
+                "value": "<span style='color:var(--warning)'>es extrovertido y creativo</span>",
                 "option": " ",
                 "options": [
                     "  ",
                     " "
                 ],
-                "className": "selector-simple",
+                "className": "selector-simple-grid",
                 "direction": "row"
             },
             {
                 "type": "selectsimple",
-                "value": "<font style='color:var(--orange)'>es optimista y responsable </font>",
+                "value": "<span style='color:var(--warning)'>es optimista y responsable </span>",
                 "option": " ",
                 "options": [
                     " ",
                     "  "
                 ],
-                "className": "selector-simple",
+                "className": "selector-simple-grid",
                 "direction": "row"
             },
             {
                 "type": "selectsimple",
-                "value": "<font color='var(--orange)'>no le gusta el reggaetón </font>",
+                "value": "<span style='color:var(--warning)'>no le gusta el reggaetón </span>",
                 "option": " ",
                 "options": [
                     "  ",
                     " "
                 ],
-                "className": "selector-simple",
+                "className": "selector-simple-grid",
                 "direction": "row"
             },
             {
                 "type": "selectsimple",
-                "value": "<font style='color:var(--orange)'>sabe tocar la guitarra  </font>",
+                "value": "<span style='color:var(--warning)'>sabe tocar la guitarra  </span>",
                 "option": " ",
                 "options": [
                     "  ",
                     " "
                 ],
-                "className": "selector-simple",
+                "className": "selector-simple-grid",
                 "direction": "row"
             },
             {
                 "type": "selectsimple",
-                "value": "<font color='var(--orange)'>odia las mentiras</font>",
+                "value": "<span style='color:var(--warning)'>odia las mentiras</span>",
                 "option": "  ",
                 "options": [
                     " ",
                     "  "
                 ],
-                "className": "selector-simple",
+                "className": "selector-simple-grid",
                 "direction": "row"
             },
             {
                 "type": "selectsimple",
-                "value": "<font color='var(--orange)'>le gustan los idiomas </font>",
+                "value": "<span style='color:var(--warning)'>le gustan los idiomas </span>",
                 "option": "  ",
                 "options": [
                     "  ",
                     " "
                 ],
-                "className": "selector-simple",
+                "className": "selector-simple-grid",
                 "direction": "row"
             },
             {
                 "type": "selectsimple",
-                "value": "<font color='var(--orange)'>no le gusta hablar de política  </font>",
+                "value": "<span style='color:var(--warning)'>no le gusta hablar de política  </span>",
                 "option": "  ",
                 "options": [
                     "  ",
                     " "
                 ],
-                "className": "selector-simple",
+                "className": "selector-simple-grid",
                 "direction": "row"
             },
             {
                 "type": "selectsimple",
-                "value": "<font color='var(--orange)'>le gusta el teatro </font>",
+                "value": "<span style='color:var(--warning)'>le gusta el teatro </span>",
                 "option": "  ",
                 "options": [
                     " ",
                     "  "
                 ],
-                "className": "selector-simple",
+                "className": "selector-simple-grid",
                 "direction": "row"
             }
         ]
@@ -1101,19 +1102,19 @@
         "data": [
             {
                 "type": "title",
-                "value": "Córdoba Capital",
+                "value": "NOS VEMOS EN LA PRÓXIMA CLASE",
                 "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "¡Gracias por tu atención!",
+                "className": "title-dark"
             },
             {
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--J_w9Qtux--/v1703669995/images/mgmhmqugzgiya9omyuvi.png",
                 "alt": "pan1",
                 "className": ""
-            },
-            {
-                "type": "text",
-                "value": "",
-                "className": "paragraph-default"
             }
         ]
     }
