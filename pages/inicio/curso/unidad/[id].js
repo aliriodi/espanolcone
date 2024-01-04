@@ -45,7 +45,8 @@ export default function Courses() {
 
       <div className={style['container']}>
         <div className={style['container0']}>
-          <Menu onlyMenu={true}/></div>
+          {/* <Menu onlyMenu={true}/> */}
+        </div>
         <div>
           {id ? 
             <div className={style['container1']}>
