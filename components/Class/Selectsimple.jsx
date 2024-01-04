@@ -49,7 +49,7 @@ export default function Selectsimple(props) {
 
             {options ? options?.map(option =>
 
-                <p className={`px-3 ${style["icon-container"]} ${selectedOption && !props?.inEvaluation && (selectedOption === option && (isCorrect ? style["done"] : style["danger"]))}`}  key={option}>
+                <p className={`px-3 ${style["icon-container"]} ${selectedOption && !props?.inEvaluation && (selectedOption === option && (isCorrect ? style["done"] : style["danger"]))} ${selectedOption && selectedOption === option && props?.inEvaluation && style["select"]}`}  key={option}>
                     <label className='flex items-center'>
 
                         {/* Input */}

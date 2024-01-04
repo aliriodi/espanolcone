@@ -56,9 +56,8 @@ export default function DragableBox( props ){
     
     useEffect(()=>{
         
-        if(options.filter((option)=>option.dropUpId != "container" && !option.id.includes("DragBoxNone")).length == options.filter((option)=>!option.id.includes("DragBoxNone")).length){
+        if(options.filter((option)=>option.dropUpId != "container" ).length == options.filter((option)=>!option.id.includes("DragBoxNone")).length){
             activityCheck()
-            
             setCanCheck(true)
         }
 
