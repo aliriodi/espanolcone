@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import Image from 'next/image';
 
-export default function ImagesGrid({ images }){
+export default function ImagesGrid({ images, center }){
 
     const [currentImages, setCurrentImages] = useState([])
 
@@ -14,8 +14,8 @@ export default function ImagesGrid({ images }){
 
                 <div
                 key={index}
-                className="relative mb-[70px] mx-8
-                md:w-full">
+                className={`relative mb-[70px] mx-8 flex flex-col ${center && "items-center"}
+                md:w-full`}>
 
                     {/* Imagen */}
                     <div className='w-[370px] h-[250px] bg-violet_dark rounded-[5px] relative shadow-[0px_14px_28px_#77869966] overflow-hidden
