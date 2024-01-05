@@ -1,8 +1,10 @@
 import Image from 'next/image'
-import React from 'react'
+import React,{useState} from 'react'
 import { useTranslation } from 'next-i18next';
+import ModalListTourist from './ModalListTourist';
 
 export default function Ofrece() {
+  let [List, setList] = useState(false)
   const { t } = useTranslation('index');
 
   return (
@@ -291,10 +293,11 @@ export default function Ofrece() {
                 {t("card4.2.list.3")}
                 </p>
               </div>
-
-
+              {/* Boton de anotarse en lista de guias */}
+           <div className='flex justify-center bg-primary rounded-md text-white '  style={{ width: '128px', height: '38px' }}><button onClick={()=>setList(!List)}>{t("card4.2.button")}</button></div>
+           
             </div>
-
+            <div>{List && <ModalListTourist open={setList}/> }</div>
           </div>
 
         </div>

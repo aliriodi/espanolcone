@@ -51,7 +51,12 @@
                             "Hire certified tourist guides.",
                             "Enjoy exclusive events and activities unique to Español con E.",
                             "Practice Spanish with native speakers and meet new people."
-                     ]
+                     ],
+                     "button":"EN Saber mas ",
+                     "messageModal":"EN Anotate en la lista",
+                     "send":"Send",
+                     "sendOK":"EN email agendado",
+                     "emailInvalid":"Not valid email"
               }
        ],
        "card5": [
