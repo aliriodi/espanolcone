@@ -989,6 +989,9 @@
         padding: 62px 25px 0 25px;
     }
     
+    .template-video-1 .content .youtube{
+        border-radius: 0;
+    }
 
     /* Template Passages */
     .template-passages-1 .title{
