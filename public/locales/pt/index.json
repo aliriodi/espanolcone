@@ -50,7 +50,12 @@
         "Contratar guias turísticos certificados.",
         "Desfrutar de eventos e atividades exclusivas do Español con E.",
         "Praticar espanhol com falantes nativos e conhecer novas pessoas."
-      ]
+      ],
+      "button":"PT Saber mas",
+      "messageModal":"PT Anotate en la lista",
+      "send":"PT send",
+      "sendOK":"PT  email agendado",
+      "emailInvalid":"PT Email no valido"
     }
   ],
   "card5": [
