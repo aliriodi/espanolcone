@@ -4,7 +4,10 @@ import { useEffect, useState } from "react";
 export default function FailedPopUp(props){
     const[showPopUp, setShowPopUp] = useState(false)
 
-    useEffect(()=>setShowPopUp(props.showPopUp),[props.showPopUp])
+    useEffect(()=>{
+        setShowPopUp(props.showPopUp)
+        if(props?.inEvaluation)closePopup()
+    },[props.showPopUp])
 
     function closePopup(){
         props.onShowFailedPopUp(false)
