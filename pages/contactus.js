@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Head from 'next/head';
 import ReactGA, { initialize } from "react-ga";
 import Navbar from '../components/Navbar/Navbar';
@@ -10,19 +10,36 @@ import Footer from '../components/Footer/Footer';
 
 
 function ContactUS() {
+
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+
     useEffect(() => {
         ReactGA.pageview(window.location.pathname);
     }, []);
     const form = useRef();
     const { t } = useTranslation('contactus')
 
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        if (name === 'name') {
+            setName(value);
+        } else if (name === 'email') {
+            setEmail(value);
+        } else if (name === 'message') {
+            setMessage(value);
+        }
+    };
+
     function sendEmail(e) {
         e.preventDefault();
-
         console.log(e.target[0].value)
         console.log(e.target[1].value)
         console.log(e.target[2].value)
-        
+        console.log('name',name,'email',email,'message',message)
+
     }
 
 
@@ -50,7 +67,7 @@ function ContactUS() {
                                 <div className="row justify-content-center">
                                     <div className="col-12 col-md-10 col-lg-6">
                                         {/* Section Heading */}
-                                        <div className="section-heading text-center">
+                                        <div className="section-heading ">
 
                                             <p className="d-sm-block mt-4">{t("paragraph1")}</p>
                                             <p style={{ paddingBottom: "20px" }} className="d-sm-block mt-4">{t("paragraph2")}</p>
@@ -70,6 +87,8 @@ function ContactUS() {
                                                                 type="text"
                                                                 className="form-control"
                                                                 name="name"
+                                                                value={name}
+                                                                onChange={handleInputChange}
                                                                 placeholder={t("fullname")}
                                                                 required="required"
                                                             />
@@ -79,7 +98,9 @@ function ContactUS() {
                                                                 type="email"
                                                                 className="form-control"
                                                                 name="email"
+                                                                onChange={handleInputChange}
                                                                 placeholder={t("email")}
+                                                                value={email}
                                                                 required="required"
                                                             />
                                                         </div>
@@ -89,12 +110,14 @@ function ContactUS() {
                                                                     className="form-control"
                                                                     name="message"
                                                                     placeholder={t("message")}
+                                                                    onChange={handleInputChange}
+                                                                    value={message}
                                                                     required="required"
                                                                 />
                                                             </div>
-                                                            
-                                                            <button className={'btn-action bg-primary rounded-md text-white '} style={{ position: 'absolute', right: '33%',width: '78px', height: '40px' }}  type="submit"  >{t("send")}</button>
-                                                            
+
+                                                            <button className={'btn-action bg-primary rounded-md text-white '} style={{ position: 'absolute', right: '33%', width: '78px', height: '40px' }} type="submit"  >{t("send")}</button>
+
                                                         </div>
                                                     </div>
                                                 </div>
