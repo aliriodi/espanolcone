@@ -91,7 +91,7 @@ export default function Unidad(){
 
             for(let i = 0;i < sheets.length; i++){
 
-                if(sheets[i].section.number == section){
+                if(sheets[i]?.section.number == section){
 
                     session &&
                     classId &&
