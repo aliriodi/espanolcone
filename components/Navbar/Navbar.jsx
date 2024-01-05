@@ -194,7 +194,7 @@ function Navbar(props) {
         {/* Botones Baner */}
         <ul
         className={`${styles["navbar-btns"]}`}
-        style={{ minWidth: '610px' }}>
+        style={language.label==='INGLÉS'?{ minWidth: '680px' }:{ minWidth: '710px' }}>
 
           <li className={styles["select-languages"]} onClick={handleOnChangeLanguage} ref={scrollNavBar ? menuLanguage : null}>
 
@@ -255,6 +255,9 @@ function Navbar(props) {
           </li>
           <li>
             <Link href={"#TEAM"}>{t('TEAM').toUpperCase()}</Link>
+          </li>
+          <li>
+            <Link href={"/contactus"}>{t('CONTACTUS').toUpperCase()}</Link>
           </li>
         </ul>
 
@@ -292,7 +295,7 @@ function Navbar(props) {
         {/* Botones Baner */}
         <ul
         className={`${styles["navbar-btns"]}`}
-        style={{ minWidth: '610px' }}>
+        style={language.label==='INGLÉS'?{ minWidth: '680px' }:{ minWidth: '710px' }}>
 
           <li className={styles["select-languages"]} onClick={handleOnChangeLanguage} ref={scrollNavBar ? menuLanguage : null}>
 
@@ -352,6 +355,9 @@ function Navbar(props) {
           </li>
           <li>
             <Link href={"#TEAM"}>{t('TEAM').toUpperCase()}</Link>
+          </li>
+          <li>
+            <Link href={"/contactus"}>{t('CONTACTUS').toUpperCase()}</Link>
           </li>
         </ul>
 

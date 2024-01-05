@@ -6,7 +6,7 @@ export default function ModalListTourist(props) {
 
     // Definir el estado para almacenar la cadena
     const [inputString, setInputString] = useState('');
-    const [validateEmail, setvalidateEmail] = useState(' ');
+    const [validateEmail, setvalidateEmail] = useState(false);
     const [emailok, setEmailok] = useState(false);
 
 
@@ -66,7 +66,7 @@ export default function ModalListTourist(props) {
                         {!emailok && <input className='border-2 ' type="text" value={inputString} onChange={handleInputChange} />}
 
                         {/* Email Invalido o valido message */}
-                        {inputString.length > 6 && !validateEmail && <div className='text-red-500'> {t("card4.2.emailInvalid")}</div>}
+                        {/* {inputString.length > 6 && !validateEmail && <div className='text-red-500'> {t("card4.2.emailInvalid")}</div>} */}
 
                         {/* boton de enviar */}
                         {!emailok &&  <div className='flex justify-center  text-center '>
@@ -75,7 +75,7 @@ export default function ModalListTourist(props) {
                                                   style={{ width: '68px', height: '30px' }}
                                                   onClick={() => sendList()}>{t("card4.2.send")}</button>
                                                   
-                                                  <div className={'  bg-warning rounded-md text-white ' +
+                                                  <div className={'  bg-primary rounded-md text-white ' +
                                                            (validateEmail && 'hidden') }
                                                            style={{ width: '68px', height: '30px' }}> {t("card4.2.send")}</div>
                                      </div>}
