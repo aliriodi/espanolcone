@@ -175,7 +175,7 @@ export default function Unidad(){
     async function retryEvaluation(sheets){
         let newUser = {...session?.user}
         setFailedModal(true)
-        // alert("MALLLL")
+        console.log("MALLLL")
 
         newUser.position.index = sheets?.indexOf(sheets?.find(sheet => sheet?.section?.number == 5))
         
@@ -265,8 +265,18 @@ export default function Unidad(){
     useEffect(()=>{
         // En este useEffect se va a comprobar hasta que seccion esta realizada
 
-        let currentUnit = unit || session?.user?.classes?.map((level)=>level?.units?.find((unit)=>unit?.unitID == classId))[0]
-
+        let currentUnit = unit
+        // session?.user?.classes?.map((level)=>level?.units?.find((unit)=>unit?.unitID == classId))
+        if(!currentUnit){
+            session?.user?.classes?.map((level)=>{
+                level?.units?.find((unit)=>{
+                    if(unit?.unitID == classId){
+                        currentUnit = unit;
+                        setUnit(unit)
+                    }
+                })
+            })
+        }
         // Primero se comprueba si la ultima clase realizada es igual a la ultima que hizo el usuario
         // en caso de ser asi a maxSessionReached se le asigna hasta que seccion llego el usuario
         if(session && classId && session?.user?.position?.id == classId){
@@ -275,13 +285,13 @@ export default function Unidad(){
             fetch(`/api/class/${classId}`)
             .then((response) => response.json())
             .then((json) =>{ 
-                console.log("json.class1.sheets ",json.class1.sheets)
                 setCurrentClass(json.class1.sheets)
                 setMaxSessionReached(session?.user?.position?.index > 0 ? json.class1.sheets[(session?.user?.position?.index)]?.section?.number : session?.user?.position?.index)
 
-                // en caso de ha
+                // En caso de concretar correctamente la evaluacion pasa a la siguiente unidad
                 if(session?.user?.position?.index == session?.user?.position?.maxpages && currentUnit?.maxPoints > 0 && currentUnit?.points >= 18 )updatePosition()
-
+                
+                // En caso de que haga mal la evaluacion obliga al usuario a reintentarlo 
                 if(session?.user?.position?.index == session?.user?.position?.maxpages && currentUnit?.maxPoints > 0 && currentUnit?.points < 18) retryEvaluation(json.class1.sheets)
                 
                 setIsLoading(false)
@@ -333,7 +343,6 @@ export default function Unidad(){
                     currentUnit = unit;            
                     setLevel(level);
                     setUnit(unit)
-                    console.log(unit?.name)
                 }
             })
         })
