@@ -15,6 +15,17 @@ function ContactUS() {
     }, []);
     const form = useRef();
     const { t } = useTranslation('contactus')
+
+    function sendEmail(e) {
+        e.preventDefault();
+
+        console.log(e.target[0].value)
+        console.log(e.target[1].value)
+        console.log(e.target[2].value)
+        
+    }
+
+
     return (
         <>
             <Head>
@@ -51,7 +62,7 @@ function ContactUS() {
                                         {/* Contact Box */}
                                         <div className="contact-box text-center">
                                             {/* Contact Form */}
-                                            <form ref={form} onSubmit={''} >
+                                            <form ref={form} onSubmit={sendEmail} >
                                                 <div style={{ margin: '0', justifyContent: 'center' }} className="">
                                                     <div className="">
                                                         <div className="form-group">
@@ -81,7 +92,9 @@ function ContactUS() {
                                                                     required="required"
                                                                 />
                                                             </div>
-                                                            <input style={{ position: 'absolute', right: '24%' }} className="btn-action" type="submit" value={t("send")} />
+                                                            
+                                                            <button className={'btn-action bg-primary rounded-md text-white '} style={{ position: 'absolute', right: '33%',width: '78px', height: '40px' }}  type="submit"  >{t("send")}</button>
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>
