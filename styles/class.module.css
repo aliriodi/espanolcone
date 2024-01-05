@@ -565,6 +565,8 @@
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
+    position: relative;
+    overflow: hidden;
 }
 
 .template-title-top-6 .title{
@@ -574,7 +576,7 @@
     align-items: center;
     /* min-height: 250px; */
     width: 100%;
-    padding: 70px 0;
+    padding: 70px 0 ;
     z-index: 20;
 }
 
@@ -602,9 +604,8 @@
     border-radius: 100%;
     border: var(--secondary) 4px solid;
     left: -50px;
-    transition: all .15s;
+    transition: all .43s;
 }
-
 .template-title-top-6 .ellipse-2{
     display: flex;
     z-index: 10;
@@ -615,7 +616,47 @@
     border-radius: 100%;
     border: var(--primary) 25px solid;
     left: -80px;
-    transition: all .15s;
+    transition: all .43s;
+}
+
+.template-title-top-6 .ellipse-3{
+    display: flex;
+    z-index: 10;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 60%;
+    border-radius: 100%;
+    border: var(--warning) 4px solid;
+    right: -150px;
+    transition: all .43s;
+}
+.template-title-top-6 .ellipse-4{
+    display: flex;
+    z-index: 10;
+    width: 160px;
+    height: 160px;
+    position: absolute;
+    top: 53%;
+    border-radius: 100%;
+    border: var(--success) 25px solid;
+    right: -80px;
+    transition: all .3s;
+}
+
+/* ellipes-2 */
+.template-title-top-6.ellipes-2 .ellipse-1{
+    bottom: 36%;
+}
+.template-title-top-6.ellipes-2 .ellipse-2{
+    bottom: 23%;
+}
+
+.template-title-top-6.ellipes-2 .ellipse-3{
+    top: 30%;
+}
+.template-title-top-6.ellipes-2 .ellipse-4{
+    top: 48%;
 }
 
 /* template Title Right 1 ( Teample para Select Simple )*/
@@ -704,6 +745,26 @@
     border-radius: 50px;
 }
 
+/* Template Void */
+.template-void{
+    position: relative;
+    overflow: hidden;
+    /* min-height: 100vh; */
+}
+
+.imagepaisaje{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.background-lines{
+    width: 100%;
+}
+
+.background-lines:last-child{
+    display: none;
+}
 
 /* ///////////////////////////////////// Responsive ///////////////////////////////////// */
 @media (max-width: 768px){
@@ -883,6 +944,26 @@
         padding: 20px 25px 100px 25px;
     }
 
+    /* template Title Top 6 (Template con fondo blanco y ellipses a los costados) */
+    .template-title-top-6 .ellipse-1{
+        width: 80px;
+        height: 80px;
+    }
+    .template-title-top-6 .ellipse-2{
+        width: 120px;
+        height: 120px;
+        border-width: 20px;
+    }
+    .template-title-top-6 .ellipse-3{
+        width: 260px;
+        height: 260px;
+    }
+    .template-title-top-6 .ellipse-4{
+        width: 110px;
+        height: 110px;
+        border-width: 20px;
+    }
+
     /* template Title Right 1 */
     .template-title-right-1{
         flex-direction: column;
@@ -912,6 +993,26 @@
     /* Template Passages */
     .template-passages-1 .title{
         padding-top: 62px;
+    }
+
+    /* Template Void */
+    .template-void{
+        /* overflow: hidden; */
+    }
+
+    /* Resto */
+    .imagepaisaje{
+        width: 100%;
+        margin: 0;
+    }
+
+    .background-lines:nth-of-type(1){
+        display: none;
+    }
+    .background-lines:last-child{
+        display: flex;
+        /* width: auto; */
+        height: 100vh;
     }
 }
 
@@ -972,6 +1073,7 @@
 }
 
  .Portadaimg {
+    width: 100vh;
      position: absolute; /* Asegúrate de que la imagen tenga una posición */
      z-index: -1;
     padding-top: 1%; 
@@ -1358,14 +1460,7 @@
       transform: rotate(360deg); /* Final con una rotación completa (360 grados) */
     }
   }
-  .imagepaisaje{
-    margin-top: 12%;
-     /* border:solid  3px red; */
-  width: 6%;
-  margin-left: auto;
-  margin-right: auto;
-    transform: scale(6)
-  }
+
 .imagedownright{
   
     font-weight: 800;

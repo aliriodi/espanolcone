@@ -50,7 +50,7 @@ export default function YoutubePopup(props) {
     let interval;  
     interval = setInterval(() => {
       if (player) {
-        const currentTime = player.getCurrentTime();
+        const currentTime = player?.getCurrentTime();
           setVideoTime(currentTime);
       }
     }, 1000);
@@ -103,7 +103,7 @@ export default function YoutubePopup(props) {
     }
 
     const handleShowFailedPopUp = (show)=>{   
-      player.playVideo() 
+      player?.playVideo() 
 
       // Una vez cerrado el popUp se actualiza currentPopUp
       nextPopUp()
@@ -127,63 +127,10 @@ export default function YoutubePopup(props) {
 
     //#region PopUp
     const closePopup = () => {
+      console.log("Show");
       //mando por alert lo que se escribe
       //comprobacion de respuesta correcta
       let result;
-
-      // //  INPUT
-      // if(inputValue.toLowerCase()===currentPopUp.reply.toLowerCase())
-      //       { setcurrentPopUp({...currentPopUp, value:1})
-      //         //para sumar cuantos aciertos tiene el popups array 
-      //         result = 1;
-      //         setAcert(aux.reduce((accumulator, popup) => accumulator + popup.value, 0))
-   
-      //         alert(acert+' / ' +maxAcert)
-      //         //alert(inputValue+' es correcta');
-              
-      //        setSelectedOption(null)
-      //       }
-
-      // else if(inputValue&&inputValue.toLowerCase()!==currentPopUp.reply.toLowerCase()) 
-      //       { setcurrentPopUp({...currentPopUp, value:0})
-      //         //alert(acert+' / '+maxAcert)
-      //          //para sumar cuantos aciertos tiene el popups array  
-      //         result = 0;
-      //          setAcert(aux.reduce((accumulator, popup) => accumulator + popup.value, 0))
-      //         rendeerizerstar()
-      //         //alert(inputValue+ ' es incorrecto');
-              
-      //        setSelectedOption(null)
-      //    //    alert(acert+' / ' +maxAcert)
-      //   }
-      
-      // //  SELECT    
-      // else if(selectedOption === currentPopUp.reply)
-      //       { 
-      //         result = 1;
-      //         setcurrentPopUp({...currentPopUp, value:1})
-      //         setAcert(aux.reduce((accumulator, popup) => accumulator + popup.value, 0))
-              
-      //         //alert(selectedOption+' ES correcta');
-              
-      //        setSelectedOption(null)
-             
-      //      //  alert(acert+' / ' +maxAcert)
-           
-      //       }
-      // else  { 
-      //   result = 0;
-      //   setcurrentPopUp({...currentPopUp, value:0})
-      //    //para sumar cuantos aciertos tiene el popups array 
-      //    setAcert(aux.reduce((accumulator, popup) => accumulator + popup.value, 0))
-                  
-      //         // alert(acert+' / '+maxAcert)
-      //        // alert(selectedOption+' ES incorrecta');
-             
-      //         setSelectedOption(null)
-      //         //El renderizado de las estrellas debe venir cuando 
-      //         //      alert(acert+' / ' +maxAcert)
-      //       }
       
       // Check Boxs
       if(selectedOption === currentPopUp.reply){
@@ -221,6 +168,11 @@ export default function YoutubePopup(props) {
       resultPopUp(result)
 
       setInputValue("");
+
+      // if(props?.inEvaluation){
+      //   handleShowSuccessPopUp(true)
+      //   return;
+      // }
       setShowPopup(false);
       setShowPopup2(false);
     };
@@ -243,18 +195,20 @@ export default function YoutubePopup(props) {
       // Esta funcion se encarga de calcular la cantidad de aciertos 
       let totalAcerts = 0;      
       popUps.map((popUp)=>{
-     //   console.log("valor", popUp.value)
         totalAcerts = totalAcerts + popUp.value;
       })
       setAcert(totalAcerts)
 
-      setShowProgressPopUp(true)
+      props.onChangeActivityDone(props.id, totalAcerts == maxAcert, totalAcerts)
+      
+      if(!props.inEvaluation)setShowProgressPopUp(true)
+      else closeProgressPopup()
     }
 
     const closeProgressPopup = ()=>{
       setStartAnimation(false)
       setShowProgressPopUp(false)
-      player.playVideo();
+      player?.playVideo();
     }
 
     const prevPopUp = () =>{
@@ -277,7 +231,7 @@ export default function YoutubePopup(props) {
 
     // Comprueba si se tiene que mostrar el PopUp
     if(Math.floor(videoTime) == currentPopUp.time && !showPopup && currentPopUp.value != 1){
-      player.pauseVideo()
+      player?.pauseVideo()
       setShowPopup(true)
     }
     //#endregion
@@ -429,12 +383,14 @@ export default function YoutubePopup(props) {
 
             {/* PopUp de respuesta Erronea */}
             <FailedPopUp
+            inEvaluation={props?.inEvaluation}
             showPopUp={showFailedPopUp}
             onShowFailedPopUp={handleShowFailedPopUp}
             onShowPopUp={handleShowPopUp}/>
 
             {/* PopUp´de respuesta Correcta */}
             <SuccessPopUp
+            inEvaluation={props?.inEvaluation}
             showPopUp={showSuccessPopUp}
             onShowSuccessPopUp={handleShowSuccessPopUp}/>
             

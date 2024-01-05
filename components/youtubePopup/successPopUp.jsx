@@ -7,7 +7,10 @@ export default function SuccessPopUp(props){
     const {data: session,status} = useSession();
     // console.log(props.showPopUp)
     
-    useEffect(()=>setshowPopUp(props.showPopUp),[props.showPopUp])
+    useEffect(()=>{
+        setshowPopUp(props.showPopUp)
+        if(props?.inEvaluation)closePopup()
+    },[props.showPopUp])
 
     function closePopup(){
         props.onShowSuccessPopUp(false)

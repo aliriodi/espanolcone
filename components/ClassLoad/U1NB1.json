@@ -349,8 +349,8 @@
             },
             {
                 "type": "title",
-                "value": "Completa la conversación eligiendo la opción del verbo que corresponda.",
-                "className": "purple-center"
+                "value": "<span style='color:var(--success)'>Completa la conversación eligiendo la opción del verbo que corresponda.</span> ",
+                "className": "title-dark"
             },
              {
                 "type": "image",
@@ -371,6 +371,7 @@
             "value":"Practiquemos"
         },
         "template": "template-title-top-6",
+        "classNamePlus": "ellipes-2",
         "data": [
            
            
@@ -524,7 +525,7 @@
         "data": [
             {
                 "type": "title",
-                "value": "Volvamos a leer el texto y ahora veamos:  ¿En cuáles partes de la conversación se usan las expresiones de cantidad: <span style='color:var(--success_blur)'>MUCHO </span>y <span style='color:var(--orange)'>POCO</span>?",
+                "value": "Volvamos a leer el texto y ahora veamos:  ¿En cuáles partes de la conversación se usan las expresiones de cantidad: <span style='color:var(--success_blur)'>MUCHO </span>y <span style='color:var(--warning)'>POCO</span>?",
                 "className": "title-white"
             },
             {
@@ -535,7 +536,7 @@
             },
             {
                 "type": "div",
-                "value": "<div class='  text-white bg-success w-[45%] p-4 rounded-[7px] text-center'>MUCHO</div> <div class='text-white bg-red-500 w-[45%] p-4 rounded-[7px] text-center'> POCO</div>",
+                "value": "<div class='  text-white bg-success w-[45%] p-4 rounded-[7px] text-center'>MUCHO</div> <div class='text-white bg-warning w-[45%] p-4 rounded-[7px] text-center'>POCO</div>",
                 "classExtra":"flex justify-between w-full"
             },
             {
@@ -658,24 +659,23 @@
             "number": 4,
             "value": "Mis Retos"
         },
-        "template": "template-title-top-1",
+        "template": "template-title-top-4",
         "data": [
-            {"type": "title",
-            "value": "Reto Propuesto",
-            "className": "leftWhite"
+            {
+                "type": "title",
+                "value": "Reto Propuesto",
+                "className": "title-white"
             },
-          
-        {
-            "type": "paragraph",
-            "value": "Tu profe de español, conoce a Lucas y a Diana, a continuación ella escribe su opinión acerca de ellos. Lee los textos, contesta las preguntas que se te presentan a continuación y envíale tus respuestas por email a tu profe de español." ,
-            "className": "paragraph-default"
-        },
-        {
-            "type": "paragraph",
-            "value": "<span style='color:var(--success)'>También puedes compartir tus respuestas en clases, en nuestra comunidad o con un profesor de nuestra plataforma.</span> " ,
-            "className": "paragraph-default"
-        }
-           
+            {
+                "type": "paragraph",
+                "value": "Tu profe de español, conoce a Lucas y a Diana, a continuación ella escribe su opinión acerca de ellos. Lee los textos, contesta las preguntas que se te presentan a continuación y envíale tus respuestas por email a tu profe de español." ,
+                "className": "paragraph-default-center"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style='color:var(--success)'>También puedes compartir tus respuestas en clases, en nuestra comunidad o con un profesor de nuestra plataforma.</span> " ,
+                "className": "paragraph-default-center"
+            }
         ]
     },
     "page14":{
@@ -726,46 +726,92 @@
             "number":4,
             "value":"Mis retos"
         },
-        "template": "",
+        "template": "template-void",
         "data": [
             {
-                "type": "paragraph",
-                "value": "<br><div style='background-color:var(--primary)' class='text-center rounded w-36 '><div class=' font-bold  text-white'>¿Cómo son?</div></div>" ,
+                "type": "div",
+                "value": "¿Cómo son?" ,
                 "className": "",
-                "classExtra": ""
+                "classExtra": "absolute font-bold bg-primary p-5 text-[18px] text-white z-10 rounded-[7px]   md:text-[14px]",
+                "style":{
+                    "top":"20%",
+                    "left":"5%"
+                }
             },
             {
-                "type": "paragraph",
-                "value": "<br><div style='background-color:var(--primary)' class='text-center rounded w-36 '><div class=' font-bold  text-white'>¿Qué les gusta?</div></div>" ,
+                "type": "div",
+                "value": "¿Qué les gusta?" ,
                 "className": "" ,
-                "classExtra": "" 
+                "classExtra": "absolute font-bold bg-primary p-5 text-[18px] text-white z-10 rounded-[7px]   md:text-[14px]",
+                "style":{
+                    "top":"60%",
+                    "left":"10%"
+                } 
             }  ,
             {
-                "type": "paragraph",
-                "value": "<br><div style='background-color:var(--primary)' class=' text-center rounded w-40 '><div class=' font-bold  text-white'>¿Qué les interesa?</div></div>" ,
-                "className": ""  
+                "type": "div",
+                "value": "¿Qué les interesa?" ,
+                "className": "",
+                "classExtra": "absolute font-bold bg-primary p-5 text-[18px] text-white z-10 rounded-[7px]   md:text-[14px]",
+                "style":{
+                    "top":"20%",
+                    "left":"50%"
+                }    
             },
             {
-                "type": "paragraph",
-                "value": "<br><div style='background-color:var(--primary)' class=' text-center rounded w-36 '><div class=' font-bold  text-white'>¿Qué hacen?</div></div>" ,
-                "className": ""  
+                "type": "div",
+                "value": "¿Qué hacen?" ,
+                "className": "",
+                "classExtra": "absolute font-bold bg-primary p-5 text-[18px] text-white z-10 rounded-[7px]   md:text-[14px]",
+                "style":{
+                    "top":"60%",
+                    "left":"50%"
+                }    
             },
             {
-                "type": "paragraph",
-                "value": "<br><div style='background-color:var(--primary)' class=' text-center rounded w-36 '><div class=' font-bold  text-white'>¿Qué no les gusta?</div></div>" ,
-                "className": ""  
+                "type": "div",
+                "value": "¿Qué no les gusta?" ,
+                "className": "",
+                "classExtra": "absolute font-bold bg-primary p-5 text-[18px] text-white z-10 rounded-[7px]   md:text-[14px]",
+                "style":{
+                    "top":"80%",
+                    "left":"60%"
+                }    
             },
             {
-                "type": "paragraph",
-                "value": "<br><div style='background-color:var(--primary)' class=' text-center rounded w-36 '><div class=' font-bold  text-white'>¿Qué odian?</div></div>" ,
-                "className": ""  
+                "type": "div",
+                "value": "¿Qué odian?" ,
+                "className": "" ,
+                "classExtra": "absolute font-bold bg-primary p-5 text-[18px] text-white z-10 rounded-[7px]   md:text-[14px]",
+                "style":{
+                    "text-wrap": "nowrap",
+                    "top":"50%",
+                    "right":"0%"
+                } 
             },
             {
-                "type": "paragraph",
-                "value": "<br>Preguntas" ,
-                "className": ""  
+                "type": "div",
+                "value": "Preguntas" ,
+                "className": "",
+                "classExtra": "absolute font-bold text-[25px] text-violet_dark",
+                "style":{
+                    "top":"40px",
+                    "left":"5%"
+                } 
+            },
+            {
+                "type": "image",
+                "alt": "Lines",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1704405841/images/e7yjp9knwfjbh7o8569y.png" ,
+                "className": "background-lines"
+            },
+            {
+                "type": "image",
+                "alt": "Lines",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1704416095/images/toydf0lkbv4wnhhiure9.png" ,
+                "className": "background-lines"
             }
-             ]
+            ]
     },
     "page17": {
         "type": "complete",
@@ -773,46 +819,91 @@
             "number":4,
             "value":"Mis retos"
         },
-        "template": "",
+        "template": "template-void",
         "data": [
-            {
-                "type": "paragraph",
-                "value": "<br><div style='background-color:var(--primary)' class='text-center rounded w-36 '><div class=' font-bold  text-white'>¿A quién te gustaría conocer?</div></div>" ,
-                "className": "",
-                "classExtra": ""
-            },
-            {
-                "type": "paragraph",
-                "value": "<br><div style='background-color:var(--primary)' class='text-center rounded w-36 '><div class=' font-bold  text-white'>¿Con quién podrías compartir casa?</div></div>" ,
-                "className": "" ,
-                "classExtra": "" 
-            }  ,
-            {
-                "type": "paragraph",
-                "value": "<br><div style='background-color:var(--primary)' class=' text-center rounded w-40 '><div class=' font-bold  text-white'>¿Con quién irías de compras?</div></div>" ,
-                "className": ""  
-            },
-            {
-                "type": "paragraph",
-                "value": "<br><div style='background-color:var(--primary)' class=' text-center rounded w-36 '><div class=' font-bold  text-white'>¿Con quién harías un viaje largo?</div></div>" ,
-                "className": ""  
-            },
-            {
-                "type": "paragraph",
-                "value": "<br><div style='background-color:var(--primary)' class=' text-center rounded w-36 '><div class=' font-bold  text-white'>¿Con quién no te gustaría trabajar?</div></div>" ,
-                "className": ""  
-            },
-            {
-                "type": "paragraph",
-                "value": "<br><div style='background-color:var(--primary)' class=' text-center rounded w-36 '><div class=' font-bold  text-white'>¿Con quién saldrías a divertirte?</div></div>" ,
-                "className": ""  
-            },
-            {
-                "type": "paragraph",
-                "value": "<br>Preguntas" ,
-                "className": ""  
-            }
-             ]
+                {
+                    "type": "div",
+                    "value": "¿A quién te gustaría conocer?" ,
+                    "className": "",
+                    "classExtra": "absolute font-bold bg-primary p-5 text-[18px] text-white z-10 rounded-[7px]   md:text-[14px]",
+                    "style":{
+                        "top":"20%",
+                        "left":"5%"
+                    } 
+                },
+                {
+                    "type": "div",
+                    "value": "¿Con quién podrías compartir casa?" ,
+                    "className": "",
+                    "classExtra": "absolute font-bold bg-primary p-5 text-[18px] text-white z-10 rounded-[7px]   md:text-[14px]",
+                    "style":{
+                        "top":"60%",
+                        "left":"10%"
+                    }  
+                }  ,
+                {
+                    "type": "div",
+                    "value": "¿Con quién irías de compras?" ,
+                    "className": "",
+                    "classExtra": "absolute font-bold bg-primary p-5 text-[18px] text-white z-10 rounded-[7px]   md:text-[14px]",
+                    "style":{
+                        "top":"30%",
+                        "left":"50%"
+                    } 
+                },
+                {
+                    "type": "div",
+                    "value": "¿Con quién harías un viaje largo?" ,
+                    "className": "",
+                    "classExtra": "absolute font-bold bg-primary p-5 text-[18px] text-white z-10 rounded-[7px]   md:text-[14px]",
+                    "style":{
+                        "top":"67%",
+                        "left":"50%"
+                    }   
+                },
+                {
+                    "type": "div",
+                    "value": "¿Con quién no te gustaría trabajar?" ,
+                    "className": "",
+                    "classExtra": "absolute font-bold bg-primary p-5 text-[18px] text-white z-10 rounded-[7px]   md:text-[14px]",
+                    "style":{
+                        "top":"80%",
+                        "left":"60%"
+                    }   
+                },
+                {
+                    "type": "div",
+                    "value": "¿Con quién saldrías a divertirte?" ,
+                    "className": "",
+                    "classExtra": "absolute font-bold bg-primary p-5 text-[18px] text-white z-10 rounded-[7px]   md:text-[14px]",
+                    "style":{
+                        "top":"50%",
+                        "right":"0%"
+                    }   
+                },
+                {
+                    "type": "div",
+                    "value": "Preguntas" ,
+                    "className": "",
+                    "classExtra": "absolute font-bold text-[25px] text-violet_dark",
+                    "style":{
+                        "top":"40px",
+                        "left":"5%"
+                    } 
+                },
+                {
+                    "type": "image",
+                    "alt": "Lines",
+                    "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1704405841/images/e7yjp9knwfjbh7o8569y.png" ,
+                    "className": "background-lines"
+                },
+                {
+                    "type": "image",
+                    "alt": "Lines",
+                    "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1704416095/images/toydf0lkbv4wnhhiure9.png" ,
+                    "className": "background-lines"
+                }
+            ]
     },
     "page18":{
         "type": "paragraph",
@@ -851,7 +942,7 @@
         "number":5,
         "value":"Evaluacion"
     },
-    "template": "template-title-top-1",
+    "template": "template-video-1",
     "data": [ 
         {
             "type": "videoi-youtube",
@@ -1153,8 +1244,11 @@
         "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697572892/images/u1p14nib1_oobxox.png",
         "data": [ 
             {
-                
-            }       ]
+                "type": "title",
+                "value": "¡GRACIAS POR TU ATENCION!",
+                "className": "title-white"
+            }
+        ]
     }
     
   
