@@ -9,7 +9,7 @@ import Layout from '../components/Layout';
 import Footer from '../components/Footer/Footer';
 
 
-function Aboutus() {
+function ContactUS() {
     useEffect(() => {
         ReactGA.pageview(window.location.pathname);
     }, []);
@@ -118,7 +118,6 @@ function Aboutus() {
 }
 
 
-
 export async function getStaticProps({ locale }) {
 
     return {
@@ -127,4 +126,4 @@ export async function getStaticProps({ locale }) {
         },
     }
 }
-export default withTranslation(['aboutus', 'index'])(Aboutus);
+export default withTranslation(['aboutus', 'index'])(ContactUS);
