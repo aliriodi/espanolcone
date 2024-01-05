@@ -619,15 +619,18 @@ export default function Class(props) {
   return (
     <>
         {/* Boton para volver atras */}
-        <div
-        onClick={()=>history.back()}
-        className='bg-white shadow-[0px_4px_24px_#18292F1A] absolute top-[100px] left-[50px] h-[50px] w-[50px] rounded-full flex items-center justify-center z-50 cursor-pointer opacity-[0.8]
-            hover:opacity-[1] transition-all
-            md:top-[10px] md:left-[10px]'>
-            <FontAwesomeIcon
-            className='text-violet_dark text-[20px]'
-            icon={faArrowLeft}/>
-        </div>
+        {
+          data?.sheets[props.page]?.section?.number != 5 &&
+          <div
+          onClick={()=>history.back()}
+          className='bg-white shadow-[0px_4px_24px_#18292F1A] absolute top-[100px] left-[50px] h-[50px] w-[50px] rounded-full flex items-center justify-center z-50 cursor-pointer opacity-[0.8]
+              hover:opacity-[1] transition-all
+              md:top-[10px] md:left-[10px]'>
+              <FontAwesomeIcon
+              className='text-violet_dark text-[20px]'
+              icon={faArrowLeft}/>
+          </div>
+        }
 
         {/* Check */}
         <animated.div
@@ -884,7 +887,7 @@ export default function Class(props) {
                     {c.type === 'image' &&<img key={index} width='100' height='100' className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`} src={c.value} alt={c.alt} />}
 
                     {/* Cuadricula de Imagenes */}
-                    {c.type === 'image-grid' && <ImagesGrid key={index} images={c.value}/>}
+                    {c.type === 'image-grid' && <ImagesGrid key={index} images={c.value} center={c.center}/>}
 
                     {/* Tabla */}
                     {c.type === 'table' && <Table key={index} color={ c?.color } value={c.value}/>}
