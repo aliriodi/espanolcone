@@ -5,17 +5,20 @@ import Image from 'next/image';
 import Logo from '../public/imgs/logo-gradient.png';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faAngleRight,faCalendarDays, faHouse, faPersonHiking, faChalkboardUser, faLaptop, faAddressCard, faPen, faBell, faBars, faUser, faMoneyBill, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faAngleRight,faCalendarDays,faEnvelope, faHouse, faPersonHiking, faChalkboardUser, faLaptop, faAddressCard, faPen, faBell, faBars, faUser, faMoneyBill, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import SignOutBtn from './signOut/SignOutBtn';
 import { setshowClass } from '../redux/ECEActions';
 import { useSession } from "next-auth/react";
 import Class from '../components/Class/Class'
 import ModalPago from './ModalPagoPAYPAL';
+import ModalSendEmail from './ModalSendEmail';
 
 const Menu = (props) => {
     const dispatch = useDispatch();
     const { data: session, status } = useSession();
     const [isOpen, setIsOpen] = useState(false);
+    //variable para activar modal de enviar emails
+    const [isOpenMail, setIsOpenMail] = useState(false);
     //   console.log(useSelector((state) => state.datos).showClass)
     useSelector((state) => state.datos).showClass
     const [showClass, setShowClass] = useState(useSelector((state) => state.datos).showClass);
@@ -260,7 +263,7 @@ const Menu = (props) => {
                                 <p>Guías turisticos</p>
                             </Link>
                         </li> */}
-
+                         
                         <li className='relative'>
                             
                             <span className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all opacity-[50%]`}>
@@ -278,7 +281,18 @@ const Menu = (props) => {
                             {/* borde */}
                             <span className='border-2 border-success rounded-[7px] w-full h-full absolute top-0'></span>
                         </li>
-
+                       {/* Para enviar Emails */}
+                       <li>
+                            <button
+                                className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
+                                && "bg-primary text-white"}
+                            hover:bg-primary hover:text-white`}
+                               onClick={()=>setIsOpenMail(true)}>
+                                <FontAwesomeIcon icon={faEnvelope} className="  mr-[10px]" />
+                                <p>Contáctanos</p>
+                            </button>
+                            {isOpenMail && <ModalSendEmail open={setIsOpenMail} />}
+                        </li>
                         {/* Cargar Clase */}
                         {session && session.user && session.user.role.includes('admin') ?
                             <li>

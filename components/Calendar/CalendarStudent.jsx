@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import Spinner from '../Spinner';
 import styles from '../../styles/navbar.module.css';
-import unipago from "./unipago"
 import Plan from '../Plan/Plansync';
 import { es } from 'date-fns/locale';
 import {
