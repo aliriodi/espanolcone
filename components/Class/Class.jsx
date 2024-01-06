@@ -728,7 +728,7 @@ export default function Class(props) {
                   {c.type === 'title' && 
                     <h1
                     key={index} style={c.style} 
-                    className='mr-5 border-r-[10px] border-success p-3 font-semibold max-w-[48%] text-right
+                    className='mr-5 border-r-[10px] border-success p-3 font-semibold max-w-[46%] text-right
                     md:max-w-full md:text-[21px]'
                     dangerouslySetInnerHTML={{ __html: c.value }}></h1>
                   }
@@ -926,7 +926,7 @@ export default function Class(props) {
                     
                     {/* SelectSimple */}
                     {c.type === 'selectsimple' &&
-                    <div className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`}><SELECTSIMPLE done={sheetsState[i]?.done} key={c.option} data={c} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5}/></div>}
+                    <div className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`} style={c.style}><SELECTSIMPLE done={sheetsState[i]?.done} key={c.option} data={c} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5}/></div>}
                     
                     {/* Texto */}
                     {c.type === 'text' &&
