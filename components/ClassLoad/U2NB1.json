@@ -19,7 +19,7 @@
                 "className": "titleBlack"
             },
             {
-                "type": "level",
+                "type": "paragraph",
                 "value": "NIVEL B1",
                 "className": "Portadalev"
             }
@@ -189,7 +189,8 @@
             {
                 "type": "paragraph-complete",
                 "value": [
-                    "<li>Si querés conectar con la naturaleza y recorrer senderos naturales que te lleven a un lugar relajado y tranquilo, deber ir (",
+                    "<li>Si querés conectar con la naturaleza y recorrer senderos naturales que te lleven a un lugar relajado y tranquilo, deber ir ",
+                    "(",
                     {
                         "block": 1,
                         "color": "var(--warning)",
@@ -197,12 +198,14 @@
                     },
                     ")</li>"
                     ],
-                "className": "paragraph-complete"
+                "className": "paragraph-complete",
+                "classExtra":"flex"
             },
             {
                 "type": "paragraph-complete",
                 "value": [
-                    "<li>Si querés disfrutar de un espectáculo de teatro, tienes que ir a (",
+                    "<li>Si querés disfrutar de un espectáculo de teatro, tienes que ir a",
+                    "(",
                     {
                         "block": 1,
                         "color": "var(--warning)",
@@ -210,12 +213,14 @@
                     },
                     ")</li>"
                     ],
-                "className": "paragraph-complete"
+                "className": "paragraph-complete",
+                "classExtra":"flex"
             },
             {
                 "type": "paragraph-complete",
                 "value": [
-                    "<li>Si querés experimentar una tradición traída por inmigrantes a Argentina, deberías que ir a (",
+                    "<li>Si querés experimentar una tradición traída por inmigrantes a Argentina, deberías que ir a ",
+                    "(",
                     {
                         "block": 1,
                         "color": "var(--warning)",
@@ -223,12 +228,14 @@
                     },
                     ")</li>"
                     ],
-                "className": "paragraph-complete"
+                "className": "paragraph-complete",
+                "classExtra":"flex"
             },
             {
                 "type": "paragraph-complete",
                 "value": [
-                    "<li>Si querés aprender sobre flora y fauna tradicional y a la vez vivir un momento mágico al atardecer, debés visitar (",
+                    "<li>Si querés aprender sobre flora y fauna tradicional y a la vez vivir un momento mágico al atardecer, debés visitar ",
+                    "(",
                     {
                         "block": 1,
                         "color": "var(--warning)",
@@ -236,15 +243,12 @@
                     },
                     ")</li>"
                     ],
-                "className": "paragraph-complete"
+                "className": "paragraph-complete",
+                "classExtra":"flex"
             },
             {
                 "type": "image-grid",
                 "value":[
-                    {
-                        "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--EY-Oe4h---/v1699320089/images/atkgrfy91npt1fmjtpgu.png",
-                        "text":"Media Legua de Oro Cultural"
-                    },
                     {
                         "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--kI-dwj7G--/v1699320314/images/ndq1hnopetytoyy7uxye.png",
                         "text":"1. Villa General Belgrano"
@@ -317,8 +321,8 @@
             },
             {
                 "type": "paragraph",
-                "value": "<li><b>Para completar los espacios vacíos seleccioná:</b></li>",
-                "className": "paragraph-default"
+                "value": "<b>Para completar los espacios vacíos seleccioná:</b>",
+                "className": "subtitle-default"
             },
             {
                 "type": "paragraph",
@@ -331,13 +335,13 @@
                 {
                     "block": 10,
                     "color": "var(--warning)",
-                    "option": "Teatro real"
+                    "option": "Teatro Real"
                 },
                 " y luego vamos a otro teatro, el ",
                 {
                     "block": 10,
                     "color": "var(--warning)",
-                    "option": "Teatro del libertador san martín"
+                    "option": "Teatro del Libertador San Martín"
                 },
                 ", en el que se hacen presentaciones de ópera, orquestas y ballet.<br><span style= 'color: var(--warning)'>Bárbara:</span> ¡Genial! Suena muy interesante. Después, ¿por cuál seguimos?"
             ],
@@ -360,8 +364,8 @@
             },
             {
                 "type": "paragraph",
-                "value": "<li><b>Para completar los espacios vacíos seleccioná:</b></li>",
-                "className": "paragraph-default"
+                "value": "<b>Para completar los espacios vacíos seleccioná:</b>",
+                "className": "subtitle-default"
             },
             {
                 "type": "paragraph",
@@ -389,7 +393,7 @@
                     "color": "var(--warning)",
                     "option": "el origen del universo"
                 },
-                "<span style= 'color: var(--warning)'>Bárbara:</span> ¡Me copa! Suena muy bueno. ¿En dónde termina el recorrido?<br><span style= 'color: var(--success)'>Florencia:</span> Termina en la",
+                "<br><span style= 'color: var(--warning)'>Bárbara:</span> ¡Me copa! Suena muy bueno. ¿En dónde termina el recorrido?<br><span style= 'color: var(--success)'>Florencia:</span> Termina en la",
                 {
                     "block": 10,
                     "color": "var(--warning)",
@@ -461,31 +465,31 @@
                 "value":{
                 "DropUps":
                     [
-                {
-                    "type":"image",
-                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--tVaspz9z--/v1699321484/images/y23w3awsowbgpheclsyz.png",
-                    "value":"Abril",
-                    "id":"DropUp1"
-                },
-                {
-                    "type":"image",
-                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--aiG54j1T--/v1699321561/images/rweycoqvt0z8xqmh6cfg.png",
-                    "value":"Franco",
-                    "id":"DropUp2"
-                },
-                {
-                    "type":"image",
-                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--Bvt0L8KK--/v1699321595/images/f4h31oqnxp64k5zowxz6.png",
-                    "value":"Morena",
-                    "id":"DropUp3"
-                },
-                {
-                    "type":"image",
-                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--aYMk1JfW--/v1699321645/images/lf6ooc8swcpfoypoulqh.png",
-                    "value":"Lucas",
-                    "id":"DropUp4"
-                }
-            ],
+                        {
+                            "type":"image",
+                            "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--tVaspz9z--/v1699321484/images/y23w3awsowbgpheclsyz.png",
+                            "value":"Abril",
+                            "id":"DropUp1"
+                        },
+                        {
+                            "type":"image",
+                            "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--aiG54j1T--/v1699321561/images/rweycoqvt0z8xqmh6cfg.png",
+                            "value":"Franco",
+                            "id":"DropUp2"
+                        },
+                        {
+                            "type":"image",
+                            "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--Bvt0L8KK--/v1699321595/images/f4h31oqnxp64k5zowxz6.png",
+                            "value":"Morena",
+                            "id":"DropUp3"
+                        },
+                        {
+                            "type":"image",
+                            "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--aYMk1JfW--/v1699321645/images/lf6ooc8swcpfoypoulqh.png",
+                            "value":"Lucas",
+                            "id":"DropUp4"
+                        }
+                    ],
                 "DragBoxs":[
                     {
                         "value":"Abril",
@@ -598,11 +602,11 @@
                 "className": "title-white"
             },
             
-                {
-                "type": "dragable-box",
-                "value":{
-                "DropUps":
-                    [
+            {
+            "type": "dragable-box",
+            "value":{
+            "DropUps":
+                [
                 {
                     "type":"image",
                     "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--Dqy6TBEm--/v1701293231/images/zoddbzk2ulkljsljecfs.png",
@@ -659,11 +663,11 @@
                     },
                     {
                         "value":"al teatro",
-                        "id":"DragBox4"
+                        "id":"DragBox5"
                     },
                     {
                         "value":"al parque mecánico",
-                        "id":"DragBox4"
+                        "id":"DragBox6"
                     }
                 ]
             }
@@ -683,7 +687,7 @@
                 "className": "title-white"
             },
             
-                {
+            {
                 "type": "dragable-box",
                 "value":{
                 "DropUps":
@@ -744,11 +748,11 @@
                     },
                     {
                         "value":"leer",
-                        "id":"DragBox4"
+                        "id":"DragBox5"
                     },
                     {
                         "value":"usar las redes sociales",
-                        "id":"DragBox4"
+                        "id":"DragBox6"
                     }
                 ]
             }
@@ -768,36 +772,36 @@
                 "className": "title-white"
             },
             
-                {
+            {
                 "type": "dragable-box",
                 "value":{
                 "DropUps":
                     [
-                {
-                    "type":"image",
-                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--XThrutsq--/v1701295103/images/fiybga50bo1zhux7bs7z.png",
-                    "value":"series",
-                    "id":"DropUp1"
-                },
-                {
-                    "type":"image",
-                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--HYuDFhHq--/v1701295163/images/yvf2dimxbyrewawoz6dy.png",
-                    "value":"novelas",
-                    "id":"DropUp2"
-                },
-                {
-                    "type":"image",
-                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--H6MQFejA--/v1701295235/images/dchastff6twr8o7hbplq.png",
-                    "value":"programas de música",
-                    "id":"DropUp3"
-                },
-                {
-                    "type":"image",
-                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--kP5UCymE--/v1701295287/images/o1aw6ykw3bo3n7iinum4.png",
-                    "value":"programas de deportes",
-                    "id":"DropUp4"
-                }
-            ],
+                    {
+                        "type":"image",
+                        "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--XThrutsq--/v1701295103/images/fiybga50bo1zhux7bs7z.png",
+                        "value":"series",
+                        "id":"DropUp1"
+                    },
+                    {
+                        "type":"image",
+                        "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--HYuDFhHq--/v1701295163/images/yvf2dimxbyrewawoz6dy.png",
+                        "value":"novelas",
+                        "id":"DropUp2"
+                    },
+                    {
+                        "type":"image",
+                        "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--H6MQFejA--/v1701295235/images/dchastff6twr8o7hbplq.png",
+                        "value":"programas de música",
+                        "id":"DropUp3"
+                    },
+                    {
+                        "type":"image",
+                        "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--kP5UCymE--/v1701295287/images/o1aw6ykw3bo3n7iinum4.png",
+                        "value":"programas de deportes",
+                        "id":"DropUp4"
+                    }
+                ],
                 "DragBoxs":[
                     {
                         "value":"programas de deportes",

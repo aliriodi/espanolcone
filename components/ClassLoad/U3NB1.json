@@ -302,17 +302,22 @@
         "number": 3,
         "value": "Practiquemos"
       },
-      "template": "template-title-top-4",
+      "template": "template-title-top-6",
       "data": [
         {
           "type": "image",
           "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--tuwosvE---/v1700170241/images/txjxw9aoz0cwh5lyglke.png",
-          "className": ""
+          "className": "",
+          "classExtra":"w-[90%] mx-auto"
         },
         {
           "type": "paragraph",
           "value": "<span style='color:#6E6B7B'>¡Hola, Laura! <br>Te escribo desde Córdoba, donde estoy desde hace unos días con mi novio Mateo. Estoy muy emocionada, nuestra estadía acá está siendo muy interesante y divertida. Es uno de los mejores viajes que <strong style=' color: #8438FF'>he tenido</strong>. <strong style=' color: #8438FF'>Hemos bebido</strong> distintos tipos de vinos y <strong style=' color: #8438FF'>hemos probado</strong> cervezas artesanales muy buenas. Desde antes de ayer estamos en Villa Carlos Paz, que se encuentra ubicada a apenas 36 kms de Córdoba Capital. Es una ciudad con muchos turistas de todas partes y <strong style=' color: #8438FF'>hemos conocido</strong> nuevas personas que nos <strong style=' color: #8438FF'>han llevado</strong> a visitar distintos lugares. Hasta ahora la <strong style=' color: #8438FF'>hemos pasado</strong> genial, no <strong style=' color: #8438FF'>hemos tenido</strong> ninguna mala experiencia. <br> La mayoría de la gente es muy simpática y amable. <br> Ya te contaré todo lo que <strong style=' color: #8438FF'>hemos hecho</strong> durante nuestro viaje cuando esté en casa. <br> Nos vemos pronto, te mando un abrazo. <br> <strong style='color:black'>Bruna</strong>.</span>",
-          "className": "paragraph-default"
+          "className": "paragraph-default",
+          "classExtra":"w-[90%] p-2 rounded-[7px] mx-auto",
+          "style":{
+            "border":"2px solid #6E6B7B"
+          }
         }
       ]
     },
@@ -346,7 +351,7 @@
         }
       ]
     },
-    "page12":{
+    "page11":{
       "type": "selectsimple",
       "section": {
         "number": 3,
@@ -381,7 +386,7 @@
         }
       ]
     },
-    "page13":{
+    "page12":{
       "type": "text",
       "section": {
         "number": 3,
@@ -398,11 +403,14 @@
           "type": "text",
           "value": "<span style='color:#6E6B7B'>En mi primer viaje a Argentina <strong style=' color: #EB792A'>visité</strong> Córdoba, donde <strong style=' color: #EB792A'>estuve</strong> tres semanas. En el aeropuerto nos <strong style=' color: #EB792A'>esperó</strong> la guía Erica que nos llevó a nuestro hostel. <strong style=' color: #EB792A'>Primero</strong> pasamos unos días en Córdoba Capital. Allí <strong style=' color: #EB792A'>hicimos</strong> un tour por toda la ciudad, <strong style=' color: #EB792A'>visitamos</strong> varios museos, parques y antiguas iglesias. <br> En el museo de Bellas Artes, <strong style=' color: #EB792A'>vimos</strong> una variada colección compuesta por 4 secciones: Artes plásticas, Arqueología, Artes decorativas y Artes industriales. En el parque Sarmiento <strong style=' color: #EB792A'>disfruté</strong> del contacto con la naturaleza, ¡<strong style=' color: #EB792A'>subimos</strong> 120 escalones! y <strong style=' color: #EB792A'>llegamos</strong> al punto más alto que tiene el parque con una vista ¡espectacular!, allí nos <strong style=' color: #EB792A'>tomamos</strong> unas fotos en cuyo fondo se ve la Rueda Eiffel, una rueda gigantesca que tiene un diámetro de 27 metros, la cual <strong style=' color: #EB792A'>fue</strong> <strong style='color:black'><u>construida</u></strong> por Gustave Eiffel, el mismo arquitecto que <strong style=' color: #EB792A'>construyó</strong> la Torre Eiffel en París. En pleno centro de la ciudad, <strong style=' color: #EB792A'>recorrimos</strong> la Manzana Jesuítica, que comprende la Iglesia de la Compañía, la Capilla Doméstica y la Residencia de los padres; el Rectorado de la Universidad Nacional de Córdoba y el Colegio Nacional de Monserrat. Me <strong style=' color: #EB792A'>sorprendió</strong> saber que en el año 2000 <strong style=' color: #EB792A'>fue</strong> <strong style='color:black'><u>declarada</u></strong> por la UNESCO como Patrimonio de la Humanidad.</span>",
           "className": "paragraph-default",
-          "classExtra":"border-2 border-violet_dark p-2 rounded-[7px]"
+          "classExtra":" p-2 rounded-[7px]",
+          "style":{
+            "border":"2px solid #6E6B7B"
+          }
         }
       ]
     },
-    "page14":{
+    "page13":{
       "type": "selectsimple",
       "section": {
         "number": 3,
@@ -432,7 +440,7 @@
         }
       ]
     },
-    "page15":{
+    "page14":{
       "type": "selectsimple",
       "section": {
         "number": 3,
@@ -467,7 +475,7 @@
         }
       ]
     },
-    "page16":{
+    "page15":{
       "type": "selectsimple",
       "section": {
         "number": 3,
@@ -537,7 +545,7 @@
         }
       ]
     },
-    "page17":{
+    "page16":{
       "type": "paragraph-complete",
       "section": {
         "number": 3,
@@ -610,7 +618,7 @@
         }
       ]
     },
-    "page18":{
+    "page17":{
       "type": "text",
       "section": {
         "number": 4,
@@ -630,7 +638,7 @@
         }
       ]
     },
-    "page19":{
+    "page18":{
       "type": "text",
       "section": {
         "number": 4,
@@ -651,6 +659,53 @@
         }
       ]
     },
+    "page19":{
+      "type": "paragraph-complete",
+      "section": {
+        "number": 4,
+        "value": "Mis Retos"
+      },
+      "template": "template-title-right-1",
+      "data": [
+        {
+          "type": "title",
+          "value": "Verdadero o Falso:",
+          "className": "title-white"
+        },
+        {
+            "type": "selectsimple",
+            "value": "El parque Sarmiento es uno de los más antiguos de Sudamérica y <strong style=' color: #EB792A'>fue</strong> una de las primeras obras del arquitecto Carlos Thays.",
+            "option": "verdadero",
+            "options": [
+                "falso",
+                "verdadero"
+            ],
+            "className": "selector-simple"
+        },
+
+        {
+            "type": "selectsimple",
+            "value": "La construcción del parque Sarmiento se <strong style=' color: #00B8E9'>inició</strong> en el año 1883 y <strong style=' color: #00B8E9'>finalizó</strong> en 1915.",
+            "option": "falso",
+            "options": [
+                "falso",
+                "verdadero"
+            ],
+            "className": "selector-simple"
+        },
+        
+        {
+            "type": "selectsimple",
+            "value": "La construcción de la cañada <strong style=' color: #00B8E9'>inició</strong> en 1671. Durante muchos años <strong style=' color: #EB792A'>ha servido</strong> como contención para las crecidas del arroyo La Cañada.",
+            "option": "verdadero",
+            "options": [
+                "falso",
+                "verdadero"
+            ],
+            "className": "selector-simple"
+        }
+      ]
+    },
     "page20":{
       "type": "paragraph-complete",
       "section": {
@@ -664,97 +719,37 @@
           "value": "Verdadero o Falso:",
           "className": "title-white"
         },
+
         {
-          "type": "paragraph-complete",
-          "value": [
-            "<li>El parque Sarmiento es uno de los más antiguos de Sudamérica y <strong style=' color: #EB792A'>fue</strong> una de las primeras obras del arquitecto Carlos Thays. ",
-            {
-              "block": 10,
-              "color": "orange",
-              "option": "verdadero"
-            },
-            "<br><br>"
-          ],
-          "className": "paragraph-complete"
+            "type": "selectsimple",
+            "value": "El Barrio Güemes es un sitio atractivo y pintoresco. ",
+            "option": "verdadero",
+            "options": [
+                "falso",
+                "verdadero"
+            ],
+            "className": "selector-simple"
         },
         {
-          "type": "paragraph-complete",
-          "value": [
-            "<li>La construcción del parque Sarmiento se <strong style=' color: #00B8E9'>inició</strong> en el año 1883 y <strong style=' color: #00B8E9'>finalizó</strong> en 1915. ",
-            {
-              "block": 10,
-              "color": "orange",
-              "option": "falso"
-            },
-            "<br><br>"
-          ],
-          "className": "paragraph-complete"
+            "type": "selectsimple",
+            "value": "Se puede ir al paseo de las artes todos los días por las mañanas.",
+            "option": "falso",
+            "options": [
+                "falso",
+                "verdadero"
+            ],
+            "className": "selector-simple"
         },
+        
         {
-          "type": "paragraph-complete",
-          "value": [
-            "<li>La construcción de la cañada <strong style=' color: #00B8E9'>inició</strong> en 1671. Durante muchos años <strong style=' color: #EB792A'>ha servido</strong> como contención para las crecidas del arroyo La Cañada. ",
-            {
-              "block": 10,
-              "color": "orange",
-              "option": "verdadero"
-            }
+          "type": "selectsimple",
+          "value": "En el paseo de las artes se encuentra una de las mejores muestras de anticuarios y artesanos de la República Argentina.",
+          "option": "verdadero",
+          "options": [
+              "falso",
+              "verdadero"
           ],
-          "className": "paragraph-complete"
-        }
-      ]
-    },
-    "page21":{
-      "type": "paragraph-complete",
-      "section": {
-        "number": 4,
-        "value": "Mis Retos"
-      },
-      "template": "template-title-right-1",
-      "data": [
-        {
-          "type": "title",
-          "value": "Verdadero o Falso:",
-          "className": "title-white"
-        },
-        {
-          "type": "paragraph-complete",
-          "value": [
-            "<li>El Barrio Güemes es un sitio atractivo y pintoresco. ",
-            {
-              "block": 10,
-              "color": "orange",
-              "option": "verdadero"
-            },
-            "<br><br>"
-          ],
-          "className": "paragraph-complete"
-        },
-        {
-          "type": "paragraph-complete",
-          "value": [
-            "<li>Se puede ir al paseo de las artes todos los días por las mañanas. ",
-            {
-              "block": 10,
-              "color": "orange",
-              "option": "falso"
-            },
-            "<br><br>"
-          ],
-          "className": "paragraph-complete"
-        },
-        {
-          "type": "paragraph-complete",
-          "value": [
-            "<li>En el paseo de las artes se encuentra una de las mejores muestras de anticuarios y artesanos de la República Argentina. ",
-            {
-              "block": 10,
-              "color": "orange",
-              "option": "verdadero"
-            },
-            "<br><br>"
-          ],
-          "className": "paragraph-complete"
+          "className": "selector-simple"
         },
         {
           "type": "paragraph",
@@ -768,7 +763,7 @@
         }
       ]
     },
-    "page22":{
+    "page21":{
       "type": "text",
       "section": {
         "number": 5,
@@ -778,52 +773,122 @@
       "data": [
         {
           "type": "title",
-          "value": "<span style= 'color: black'>Evaluación unidad 3 - Nivel B1</span>",
+          "value": "Evaluación unidad 3 - Nivel B1",
           "className": "title-white"
         },
+        
         {
-          "type": "paragraph",
-          "value": "<strong>La siguiente evaluación contiene 20 espacios en blanco los cuales debes completar con la forma verbal correspondiente.<br><br></strong>",
-          "className": "paragraph-default"
+            "type": "paragraph",
+            "value": "La siguiente evaluación contiene <b>20 espacios en blanco</b> los cuales debes completar con la forma verbal correspondiente.",
+            "className": "paragraph-default-center"
         },
         {
-          "type": "paragraph",
-          "value": "<strong>Cada verbo que conjugues correctamente vale 01 punto.<br><br></strong>",
-          "className": "paragraph-default"
+            "type": "paragraph",
+            "value": "Cada verbo que conjugues correctamente vale <b>01 punto</b>.",
+            "className": "paragraph-default-center"
         },
         {
-          "type": "paragraph",
-          "value": "<strong>Para aprobar la evaluación y pasar a la siguiente unidad debes obtener un mínimo de 18 puntos.<br><br></strong>",
-          "className": "paragraph-default"
+            "type": "paragraph",
+            "value": "Para aprobar la evaluación y pasar a la siguiente unidad debes obtener un <b>mínimo de 18 puntos</b>.",
+            "className": "paragraph-default-center"
         },
         {
-          "type": "paragraph",
-          "value": "<strong style=' color: #EB792A'>¡Adelante y buena suerte!</strong>",
-          "className": "paragraph-default"
+            "type": "paragraph",
+            "value": "<span style=' color: var(--warning)'>¡Adelante y buena suerte!</span>",
+            "className": "paragraph-default-center"
         }
       ]
     },
-    "page23":{
+    "page22":{
+        
       "type": "text",
       "section": {
         "number": 5,
         "value": "Evaluemos"
       },
-      "template": "template-title-top-1",
+      "template": "template-title-top-6",
+      "classNamePlus":"ellipse-1",
       "data": [
         {
           "type": "image",
           "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--tuwosvE---/v1700170241/images/txjxw9aoz0cwh5lyglke.png",
-          "className": ""
+          "className": "",
+          "classExtra":"w-[90%] mx-auto"
         },
         {
-          "type": "paragraph",
-          "value": "<span style='color:#6E6B7B'>¡Hola, Laura!<br> Estoy de viaje por Córdoba con Mateo, mi novio. Llevamos cuatro días acá. Es una provincia preciosa, y la verdad es que la estamos pasando genial. (<strong style='color:black'>alojarse,nosotros</strong>) Nos <strong style=' color: #EB792A'><u>hemos alojado</u></strong> en un hotel del centro de la ciudad muy lindo y barato. (<strong style='color:black'>salir,nosotros</strong>) <strong style=' color: #EB792A'><u>Hemos salido</u></strong> casi todas las noches a bailar y a tomar una marca de cerveza artesanal diferente, así que (<strong style='color:black'>dormir,nosotros</strong>) <strong style=' color: #EB792A'><u>hemos dormido</u></strong> muy poco.<br> Ya (<strong style='color:black'>visitar,nosotros</strong>) <strong style=' color: #EB792A'><u>hemos visitado</u></strong> la Catedral, una iglesia antigua que es preciosa, pero todavía no (<strong style='color:black'>ir,nosotros</strong>) <strong style=' color: #EB792A'><u>hemos ido</u></strong> al Parque Sarmiento a comer choripán en El Dante; todos dicen que son buenísimos, pero es que no (<strong style='color:black'>tener,nosotros</strong>) <strong style=' color: #EB792A'><u>hemos tenido</u></strong> tiempo porque (<strong style='color:black'>conocer,nosotros</strong>) <strong style=' color: #EB792A'><u>hemos conocido</u></strong> a una pareja de Villa General Belgrano muy piola que nos (<strong style='color:black'>llevar,ellos</strong>) <strong style=' color: #EB792A'><u>han llevado</u></strong> a los mejores restaurantes de su ciudad. Creo que (<strong style='color:black'>engordar,yo</strong>) <strong style=' color: #EB792A'><u>he engordado</u></strong> unos cuantos kilos porque no (<strong style='color:black'>parar,yo</strong>) <strong style=' color: #EB792A'><u>he parado</u></strong> de comer y de probar todos los tipos de salchichas alemanas. Así que cuando llegue a casa, me pondré a dieta.<br> ¡Nos vemos pronto, un abrazo!<br> <strong style='color:black'>Rocio</strong>.</span>",
-          "className": "paragraph12"
+          "type": "paragraph-complete",
+          "value": [
+            "<span style='color:#6E6B7B'>¡Hola, Laura!<br> Estoy de viaje por Córdoba con Mateo, mi novio. Llevamos cuatro días acá. Es una provincia preciosa, y la verdad es que la estamos pasando genial. (<strong style='color:black'>alojarse,nosotros</strong>) Nos ",
+            {
+              "block": 13,
+              "color": "orange",
+              "option": "hemos alojado"
+            },
+            "</strong> en un hotel del centro de la ciudad muy lindo y barato. (<strong style='color:black'>salir,nosotros</strong>) ",
+            {
+              "block": 12,
+              "color": "orange",
+              "option": "Hemos salido"
+            },
+            " casi todas las noches a bailar y a tomar una marca de cerveza artesanal diferente, así que (<strong style='color:black'>dormir,nosotros</strong>) ",
+            {
+              "block": 13,
+              "color": "orange",
+              "option": "hemos dormido"
+            },
+            " muy poco.<br> Ya (<strong style='color:black'>visitar,nosotros</strong>) ",
+            {
+              "block": 14,
+              "color": "orange",
+              "option": "hemos visitado"
+            },
+            " la Catedral, una iglesia antigua que es preciosa, pero todavía no (<strong style='color:black'>ir,nosotros</strong>) ",
+            {
+              "block": 9,
+              "color": "orange",
+              "option": "hemos ido"
+            },
+            " al Parque Sarmiento a comer choripán en El Dante; todos dicen que son buenísimos, pero es que no (<strong style='color:black'>tener,nosotros</strong>) ",
+            {
+              "block": 12,
+              "color": "orange",
+              "option": "hemos tenido"
+            },
+            " tiempo porque (<strong style='color:black'>conocer,nosotros</strong>) ",
+            {
+              "block": 14,
+              "color": "orange",
+              "option": "hemos conocido"
+            },
+            " a una pareja de Villa General Belgrano muy piola que nos (<strong style='color:black'>llevar,ellos</strong>) ",
+            {
+              "block": 11,
+              "color": "orange",
+              "option": "han llevado"
+            },
+            " a los mejores restaurantes de su ciudad. Creo que (<strong style='color:black'>engordar,yo</strong>) ",
+            {
+              "block": 12,
+              "color": "orange",
+              "option": "he engordado"
+            },
+            " unos cuantos kilos porque no (<strong style='color:black'>parar,yo</strong>) ",
+            {
+              "block": 9,
+              "color": "orange",
+              "option": "he parado"
+            },
+            " de comer y de probar todos los tipos de salchichas alemanas. Así que cuando llegue a casa, me pondré a dieta.<br> ¡Nos vemos pronto, un abrazo!<br> <strong style='color:black'>Rocio</strong>.</span>"
+          ],
+          "className": "paragraph-default",
+          "classExtra":"w-[90%] p-2 rounded-[7px] mx-auto",
+          "style":{
+            "border":"2px solid #6E6B7B"
+          }
         }
       ]
     },
-    "page24":{
+    "page23":{
       "type": "paragraph-complete",
       "section": {
         "number": 5,
@@ -837,9 +902,14 @@
           "className": "title-white"
         },
         {
+          "type": "title",
+          "value": "hacer-decir-llevar-ir-gustar-llegar-poder-arreglar-caminar-heredar",
+          "className": "title-dark"
+        },
+        {
           "type": "paragraph-complete",
           "value": [
-            "<strong style='color:black;font-size:2em'>·</strong> Ayer ",
+            " Ayer ",
             {
               "block": 10,
               "color": "orange",
@@ -858,7 +928,7 @@
         {
           "type": "paragraph-complete",
           "value": [
-            "- Que bueno que te lo ",
+            " - Que bueno que te lo ",
             {
               "block": 10,
               "color": "orange",
@@ -870,7 +940,7 @@
         {
           "type": "paragraph-complete",
           "value": [
-            "<strong style='color:black;font-size:2em'>·</strong> El mes pasado se celebró el festival del choripán. ¿Vos ",
+            "El mes pasado se celebró el festival del choripán. ¿Vos ",
             {
               "block": 10,
               "color": "orange",
@@ -883,7 +953,7 @@
         {
           "type": "paragraph-complete",
           "value": [
-            "- Sí, fui con mi prima. Lo ",
+            " - Sí, fui con mi prima. Lo ",
             {
               "block": 10,
               "color": "orange",
@@ -896,7 +966,7 @@
         {
           "type": "paragraph-complete",
           "value": [
-            "<strong style='color:black;font-size:2em'>·</strong> El viernes estuve en Río Ceballos con mi hermano y mi cuñada. ",
+            "El viernes estuve en Río Ceballos con mi hermano y mi cuñada. ",
             {
               "block": 10,
               "color": "orange",
@@ -909,7 +979,7 @@
         {
           "type": "paragraph-complete",
           "value": [
-            "- Ah, con razón no te ",
+            " - Ah, con razón no te ",
             {
               "block": 10,
               "color": "orange",
@@ -922,7 +992,7 @@
         {
           "type": "paragraph-complete",
           "value": [
-            "<strong style='color:black; font-size:2em'>·</strong> Anoche mi hermana Cami y Juli salieron a ese boliche nuevo que vos les recomendaste. Me ",
+            "Anoche mi hermana Cami y Juli salieron a ese boliche nuevo que vos les recomendaste. Me ",
             {
               "block": 10,
               "color": "orange",
@@ -935,7 +1005,7 @@
         {
           "type": "paragraph-complete",
           "value": [
-            "- Que genial que ",
+            " - Que genial que ",
             {
               "block": 10,
               "color": "orange",
@@ -953,25 +1023,25 @@
         }
       ]
     },
-    "page25":{
-      "type": "text",
-      "section": {
-        "number": 5,
-        "value": "Evaluemos"
-      },
-      "template": "",
-      "data": [
-        {
-          "type": "title",
-          "value": "¡Gracias por tu atención!",
-          "className": "title-white"
+    "page24": {
+        "type": "text",
+        "section": {
+            "number":5,
+            "value":"Evaluemos"
         },
-        {
-          "type": "image",
-          "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366258/images/logo_etoaae.png",
-          "alt": "Español con E",
-          "className": ""
-        }
-      ]
+        "template": "",
+        "data": [
+            {
+                "type": "title",
+                "value": "¡GRACIAS POR TU ATENCIÓN!",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366258/images/logo_etoaae.png",
+                "alt":"Español con E",
+                "className": ""
+            }
+        ]
     }
   }
