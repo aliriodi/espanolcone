@@ -126,7 +126,7 @@ export default function Class(props) {
 
     // Se asignan las paginas segun la seccion indicada en "props.page"
     setSheetsOfSection(data?.sheets?.filter((sheet)=> sheet?.section?.number == data?.sheets[props.page].section?.number))
-    
+    console.log("data?.sheets ",data?.sheets)
     // En caso de estar en la Evaluacion comprueba la cantidad de actividades que hay
     if(data?.sheets && data?.sheets[props.page].section?.number == 5){
       
@@ -138,7 +138,7 @@ export default function Class(props) {
       
       data?.sheets?.map((sheet)=>{
 
-        if(sheet.section?.number == 5){
+        if(sheet?.section?.number == 5){
                     
           // Busca actividades
           sheet?.data?.map((date)=> {
@@ -427,7 +427,6 @@ export default function Class(props) {
     
     typeActivitys?.map((activity)=>{
       if(activity.done == false) result = false;
-      console.log("Activitys ",activity)
     })
 
     return result
@@ -660,7 +659,7 @@ export default function Class(props) {
             sectionDone()
           }}
           className={`
-          ${sheetsOfSection &&  (sheetsOfSection.length - 1) == i && canFollow ? "bottom-0" : "bottom-[-25%]" }
+          ${sheetsOfSection &&  (sheetsOfSection.length - 1) == i && (canFollow || session?.user?.role?.includes("admin"))  ? "bottom-0" : "bottom-[-25%]" }
           ${ successActivitys ? "bg-secondary text-white" : "bg-white"}
           z-50 fixed  text-title_color text-[18px] left-1/2 translate-x-[-50%] px-10 py-8 rounded-[70%_70%_0_0] transition-all shadow-[0px_4px_26px_#00000040] flex flex-col items-center
           hover:bg-primary_hover hover:text-white
@@ -679,7 +678,8 @@ export default function Class(props) {
           i != 0 &&
           <button
             className={`
-            ${ !canBack && "opacity-[50%] pointer-events-none"}
+            ${ !canBack && "opacity-[50%]"}
+            ${ !canBack && !session?.user?.role?.includes("admin") && "pointer-events-none"}
             transition-all fixed bottom-0 left-0 z-[90] bg-white rounded-[0_70%_0_0] py-8 px-10 shadow-[0px_4px_26px_#00000040] text-title_color text-left text-[18px]
             hover:bg-primary_hover hover:text-white
             md:text-[16px] md:px-7`}
@@ -727,8 +727,8 @@ export default function Class(props) {
                   {/* Titulo */}
                   {c.type === 'title' && 
                     <h1
-                    key={index}
-                    className='mr-5 border-r-[10px] border-success p-3 font-semibold max-w-[48%] text-right
+                    key={index} style={c.style} 
+                    className='mr-5 border-r-[10px] border-success p-3 font-semibold max-w-[46%] text-right
                     md:max-w-full md:text-[21px]'
                     dangerouslySetInnerHTML={{ __html: c.value }}></h1>
                   }
@@ -736,7 +736,7 @@ export default function Class(props) {
                   {/* Nivel */}
                   {c.type === 'paragraph' &&
                   <p
-                  key={index}
+                  key={index} style={c.style} 
                   className='absolute bottom-5 right-8 text-[25px] text-violet_dark font-semibold '
                   dangerouslySetInnerHTML={{ __html: c.value }}></p>
                   }
@@ -762,7 +762,7 @@ export default function Class(props) {
                     sheetsOfSection[i]?.data?.map((c, index) =>
                     c.type === 'image' &&
                     <img
-                    key={index}
+                    key={index} style={c.style} 
                     width='100'
                     height='100'
                     className="w-[90%] h-[90%] rounded-full object-cover"
@@ -806,7 +806,7 @@ export default function Class(props) {
                       {/* Titulo */}
                       {c.type === 'title' && 
                         <h1
-                        key={index}
+                        key={index} style={c.style} 
                         className=' p-3 font-semibold text-center text-white text-[35px] drop-shadow-lg
                         md:max-w-full md:text-[21px]'
                         dangerouslySetInnerHTML={{ __html: c.value }}></h1>
@@ -815,7 +815,7 @@ export default function Class(props) {
                       {/* Texto */}
                       {c.type === 'paragraph' &&
                       <p
-                      key={index}
+                      key={index} style={c.style} 
                       className='absolute bottom-5 right-8 text-[25px] text-white font-semibold '
                       dangerouslySetInnerHTML={{ __html: c.value }}></p>
                       }
@@ -853,14 +853,14 @@ export default function Class(props) {
                 sheetsOfSection[i]?.data?.map((c, index) =>
                 <>
                   {c.type === 'title' && 
-                    <div className={`${style[c.className]} ${style[c.classNamePlus]} ${c?.classExtra}`} key={index}>
+                    <div className={`${style[c.className]} ${style[c.classNamePlus]} ${c?.classExtra}`} key={index} style={c.style} >
                       <p dangerouslySetInnerHTML={{ __html: c.value }}></p>
                     </div>
                   }
 
                   {/* PopUp de Dialogos */}
                   {c.type === 'popup' &&
-                    <div className={`${style[c.className]} ${style[c.classNamePlus]} ${c?.classExtra}`} key={index}> <p dangerouslySetInnerHTML={{ __html: c.value }}></p></div>
+                    <div className={`${style[c.className]} ${style[c.classNamePlus]} ${c?.classExtra}`} key={index} style={c.style} > <p dangerouslySetInnerHTML={{ __html: c.value }}></p></div>
                   }
 
 
@@ -881,78 +881,78 @@ export default function Class(props) {
                   
                     {/* Level */}
                     {c.type === 'level' &&
-                    <p key={index} className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`} dangerouslySetInnerHTML={{ __html: c.value }}></p> }
+                    <p key={index} style={c.style}  className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`} dangerouslySetInnerHTML={{ __html: c.value }}></p> }
                     
                     {/* Imagen */}
-                    {c.type === 'image' &&<img key={index} width='100' height='100' className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`} src={c.value} alt={c.alt} />}
+                    {c.type === 'image' &&<img key={index} style={c.style}  width='100' height='100' className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`} src={c.value} alt={c.alt} />}
 
                     {/* Cuadricula de Imagenes */}
-                    {c.type === 'image-grid' && <ImagesGrid key={index} images={c.value} center={c.center}/>}
+                    {c.type === 'image-grid' && <ImagesGrid key={index} style={c.style}  images={c.value} center={c.center}/>}
 
                     {/* Tabla */}
-                    {c.type === 'table' && <Table key={index} color={ c?.color } value={c.value}/>}
+                    {c.type === 'table' && <Table key={index} style={c.style}  color={ c?.color } value={c.value}/>}
 
                     {/* Bloque de textos */}
-                    {c.type === 'text-block' && <div className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`} key={index} dangerouslySetInnerHTML={{ __html: c.value }}></div>}
+                    {c.type === 'text-block' && <div className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`} key={index} style={c.style}  dangerouslySetInnerHTML={{ __html: c.value }}></div>}
                     
                     {/* Video Youtube */}
                     {c.type === 'video-youtube' &&
-                    <div className={`${style[c.className]} ${style[c.classNamePlus]} youtube ${c.classExtra}`}> <YouTube key={index} ref={iframeRef} opts={opts} videoId={c.value} className='youtube' /> </div>}
+                    <div className={`${style[c.className]} ${style[c.classNamePlus]} youtube ${c.classExtra}`}> <YouTube key={index} style={c.style}  ref={iframeRef} opts={opts} videoId={c.value} className='youtube' /> </div>}
                     
                     {/* Video Youtube con PopUps */}
                     {c.type === 'videoi-youtube' &&
-                    <div className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`}><YOUTUVEPOPUP done={sheetsState[i]?.done} key={index} titlep={null} popups={c.popups} videoId={c.value} className='youtube' id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5}/></div> }
+                    <div className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`}><YOUTUVEPOPUP done={sheetsState[i]?.done} key={index} style={c.style}  titlep={null} popups={c.popups} videoId={c.value} className='youtube' id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5}/></div> }
 
                     {/* Box? */}
                     {c.type === 'options-box' &&
                       <div className={styles['box']}>
                       <div className='className'>
-                        {c.type === 'options-box' ? c.value.map(value => <BOXMOMVE done={sheetsState[i]?.done} key={index} option={value} id={c.id}  />): null}
+                        {c.type === 'options-box' ? c.value.map(value => <BOXMOMVE done={sheetsState[i]?.done} key={index} style={c.style}  option={value} id={c.id}  />): null}
                       </div></div>
                     }
 
                     {/* Caja de Oraciones */}
                     {c.type === 'sentence-box' &&
-                    <div className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`}><p key={index} dangerouslySetInnerHTML={{ __html: c.value }}></p> </div>}
+                    <div className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`}><p key={index} style={c.style}  dangerouslySetInnerHTML={{ __html: c.value }}></p> </div>}
                     
                     {/* Drag Box */}
                     {c.type === 'dragable-box' &&
-                    <DragablesBox done={sheetsState[i]?.done} key={index} allowFollow={allowFollow} containerPosition={c?.containerPosition} options={c.value} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5}/>}
+                    <DragablesBox done={sheetsState[i]?.done} key={index} style={c.style}  allowFollow={allowFollow} containerPosition={c?.containerPosition} options={c.value} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5}/>}
                     
                     {/* Parrafo */}
                     {c.type === 'paragraph' &&
-                    <p key={index} className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`} dangerouslySetInnerHTML={{ __html: c.value }}></p>}
+                    <p key={index} style={c.style}  className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`} dangerouslySetInnerHTML={{ __html: c.value }}></p>}
                     
                     
                     {/* SelectSimple */}
                     {c.type === 'selectsimple' &&
-                    <div className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`}><SELECTSIMPLE done={sheetsState[i]?.done} key={c.option} data={c} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5}/></div>}
+                    <div className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`} style={c.style}><SELECTSIMPLE done={sheetsState[i]?.done} key={c.option} data={c} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5}/></div>}
                     
                     {/* Texto */}
                     {c.type === 'text' &&
-                    <div className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`}><p dangerouslySetInnerHTML={{ __html: c.value }}></p> </div>}
+                    <div className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`} style={c.style}><p dangerouslySetInnerHTML={{ __html: c.value }}></p> </div>}
                     {/* En la siguiente linea falta destructurar el objeto como input form */}
                     
                     {/* Parrafo a Completar */}
                     {c.type === 'paragraph-complete' &&
-                    <div key={index} className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} data={c}/></div> }
+                    <div key={index} style={c.style}  className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} data={c}/></div> }
                     
                     {/* Parrafo a Completar con Imagenes */}
                     {c.type === 'paragraph-complete-content' &&
-                    <div key={index} className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`}><PARAGGRAPHCOMPLETE type={"content"} done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} data={c}/></div> }
+                    <div key={index} style={c.style}  className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`}><PARAGGRAPHCOMPLETE type={"content"} done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} data={c}/></div> }
                     
                     {/* PopUp de Dialogos */}
                     {c.type === 'popUp-dialogues' &&
-                    <div key={index} className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`} dangerouslySetInnerHTML={{ __html: c.value }}></div>
+                    <div key={index} style={c.style}  className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`} dangerouslySetInnerHTML={{ __html: c.value }}></div>
                     }
                     
                     {/* Parrafo a Completar de lista */}
                     {c.type === 'complete-li' &&
-                    <div key={index} className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} data={c}/> </div> }
+                    <div key={index} style={c.style}  className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} data={c}/> </div> }
                     
                     {/* Parrafo a Completar de lista con persona*/}
                     {c.type === 'complete-li-personal' &&
-                    <div key={index} className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} data={c}/> </div> }
+                    <div key={index} style={c.style}  className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} data={c}/> </div> }
                     
                     {/* <p dangerouslySetInnerHTML={{ __html: c.value }}></p> */}
 
