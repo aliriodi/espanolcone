@@ -9,7 +9,7 @@
         "data": [
             {
                 "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366258/images/logo_etoaae.png",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1704583325/images/orfcvtcq1ibthxoa6ezl.png",
                 "alt": "EspañolconE",
                 "className": "image-p0"
             },
@@ -19,7 +19,7 @@
                 "className": "TITLE-P0-BLACK"
             },
             {
-                "type": "level",
+                "type": "paragraph",
                 "value": "NIVEL B1",
                 "className": "TITLE-P0-BLACK"
             }
@@ -39,8 +39,21 @@
                 "className": "title-white"
             },
             {
-                "type": "paragraph",
-                "value": "<table style= 'border: 2px solid black;' ><tr  style=' background-color: var(--primary); border: 2px solid black;' ><th style= 'border: 2px solid black;width:30%;' ><h2><strong style='color:black;'>Comunicación</strong></h2></th><th style= ' border: 2px solid black;width:20%' ><h2><strong style='color:black;'>Vocabulario</strong></h2></th><th style= 'border: 2px solid black; width:30%' ><h2><strong style='color:black;'>Gramática</strong></h2></th></tr><tr><td style= 'border: 2px solid black;' > <ul> <li>*Describir lugares turísticos naturales (lugares de Córdoba).</li>  <li>*Hablar de trekking y senderismo en Córdoba.</li> <li>*Preguntar y responder sobre el estado físico y sobre el estado de salud.</li><li>*Describir los síntomas de una enfermedad.</li><li>*Dar consejos y recomendaciones para estar en buenas condiciones físicas.</li><li>*Dar advertencias y recomendaciones para hacer senderismo.</li></ul> </td><td style= 'border: 2px solid black;' ><ul> <li>*Nombres de lugares turísticos y rutas de Trekking y Senderismo en Córdoba.</li>  <li> *Vocabulario relacionado con la naturaleza, trekking y senderismo.</li> <li>*Estados de salud y partes del cuerpo humano.</li> <li>*Palabras y frases relacionadas con el cuerpo humano.</li> <li>*Dolores y molestias físicas relacionadas con el sedentarismo.</li> <li>*Dolencias, alergias, intolerancias y enfermedades.</li></ul></td><td style= 'border: 2px solid black; ' ><ul> <li>*Imperativos afirmativos y negativos: morfología y algunos usos del imperativo afirmativo y negativo.</li>  <li>*Oraciones condicionales: si + presente.</li> <li>*Usos impersonales de tú en las construcciones con si y con cuando.</li> <li>*(No) debes / deberías … + infinitivo / (No) hay que … + infinitivo.</li>  <li>* Algunos usos de poder + infinitivo en recomendaciones.</li> <li>*El uso de los artículos con nombres de partes del cuerpo.</li> <li>* Adverbios en -mente y locuciones adverbiales de forma + adjetivo.</li> <li>* Relacionar ideas: sin embargo, a pesar de que, ya que …</li></ul></td></tr></table>",
+                "type": "table",
+                "value": [
+                    {
+                        "title": "Comunicación",
+                        "content": "<li> - Describir lugares turísticos naturales (lugares de Córdoba).</li>  <li> - Hablar de trekking y senderismo en Córdoba.</li> <li> - Preguntar y responder sobre el estado físico y sobre el estado de salud.</li><li> - Describir los síntomas de una enfermedad.</li><li> - Dar consejos y recomendaciones para estar en buenas condiciones físicas.</li><li> - Dar advertencias y recomendaciones para hacer senderismo.</li>"
+                    },
+                    {
+                        "title": "Vocabulario",
+                        "content": "<li> - Nombres de lugares turísticos y rutas de Trekking y Senderismo en Córdoba.</li>  <li>  - Vocabulario relacionado con la naturaleza, trekking y senderismo.</li> <li> - Estados de salud y partes del cuerpo humano.</li> <li> - Palabras y frases relacionadas con el cuerpo humano.</li> <li> - Dolores y molestias físicas relacionadas con el sedentarismo.</li> <li> - Dolencias, alergias, intolerancias y enfermedades.</li>"
+                    },
+                    {
+                        "title": "Gramática",
+                        "content": "<li> - Imperativos afirmativos y negativos: morfología y algunos usos del imperativo afirmativo y negativo.</li>  <li> - Oraciones condicionales: si + presente.</li> <li> - Usos impersonales de tú en las construcciones con si y con cuando.</li> <li> - (No) debes / deberías … + infinitivo / (No) hay que … + infinitivo.</li>  <li> -  Algunos usos de poder + infinitivo en recomendaciones.</li> <li> - El uso de los artículos con nombres de partes del cuerpo.</li> <li> -  Adverbios en -mente y locuciones adverbiales de forma + adjetivo.</li> <li> -  Relacionar ideas: sin embargo, a pesar de que, ya que …</li>"
+                    }
+                ],
                 "className": "table"
             }
     ]
@@ -55,7 +68,7 @@
         "data": [
             {
                 "type": "title",
-                "value": "Veremos un video sobre una escapadita para hacer trekking en La Quebrada del Condorito, Córdoba. Miralo y responde las preguntas que aparecen allí seleccionando si son <span style='color:orange'><u>verdaderas</u></span> o <span style='color:orange'><u>falsas</u></span>",
+                "value": "Veremos un video sobre una escapadita para hacer trekking en La Quebrada del Condorito, Córdoba. Miralo y responde las preguntas que aparecen allí seleccionando si son <span style='color:var(--warning)'><u>verdaderas</u></span> o <span style='color:var(--warning)'><u>falsas</u></span>",
                 "className": "title-white"
             },
             {
@@ -173,7 +186,7 @@
             "number": 3,
             "value": "Practiquemos"
         },
-        "template": "template-title-top-1",
+        "template": "template-title-right-1",
         "data": [
             {
                 "type": "title",
@@ -182,7 +195,7 @@
             },
             {
                 "type": "paragraph",
-                "value": "<p style='color: orange'>En el siguiente video completa las actividades escribiendo la parte del cuerpo que se nombra en el video.</p>",
+                "value": "<p style='color: var(--warning)'>En el siguiente video completa las actividades escribiendo la parte del cuerpo que se nombra en el video.</p>",
                 "className": "subtitle-default"
             },
             {
@@ -310,13 +323,17 @@
             },
             {
                 "type": "title",
-                "value": "<p style='color: black'>En el siguiente texto encontrarás indicaciones y recomendaciones a seguir cuando realicen senderismo en Córdoba.</p>",
-                "className": "title-white"
+                "value": "En el siguiente texto encontrarás indicaciones y recomendaciones a seguir cuando realicen senderismo en Córdoba.",
+                "className": "title-dark"
             },
             {
                 "type": "text",
-                "value": "https://www.cordobaturismo.gov.ar/para-tener-en-cuenta-senderos-de-cordoba/",
-                "className": "className"
+                "value": "<a target=_blank href='https://www.cordobaturismo.gov.ar/para-tener-en-cuenta-senderos-de-cordoba/'>https://www.cordobaturismo.gov.ar/para-tener-en-cuenta-senderos-de-cordoba/</a>",
+                "className": "paragraph-default",
+                "style":{
+                    "margin-bottom":"8px",
+                    "color":"var(--primary)"
+                }
             },
             {
                 "type": "text",
@@ -340,13 +357,17 @@
             },
             {
                 "type": "title",
-                "value": "<p style='color: black'>En el siguiente texto encontrarás indicaciones y recomendaciones a seguir cuando realicen senderismo en Córdoba.</p>",
-                "className": "title-white"
+                "value": "En el siguiente texto encontrarás indicaciones y recomendaciones a seguir cuando realicen senderismo en Córdoba.",
+                "className": "title-dark"
             },
             {
                 "type": "text",
-                "value": "https://www.cordobaturismo.gov.ar/para-tener-en-cuenta-senderos-de-cordoba/",
-                "className": "className"
+                "value": "<a target=_blank href='https://www.cordobaturismo.gov.ar/para-tener-en-cuenta-senderos-de-cordoba/'>https://www.cordobaturismo.gov.ar/para-tener-en-cuenta-senderos-de-cordoba/</a>",
+                "className": "paragraph-default",
+                "style":{
+                    "margin-bottom":"8px",
+                    "color":"var(--primary)"
+                }
             },
             {
                 "type": "text",
@@ -365,7 +386,7 @@
         "data": [
             {
                 "type": "title",
-                "value": "A partir del texto leído, indica cuáles de estas afirmaciones son <span style='color:orange'><u>verdaderas</u></span> y cuáles son <span style='color:orange'><u>falsas</u></span>",
+                "value": "A partir del texto leído, indica cuáles de estas afirmaciones son <span style='color:var(--warning)'><u>verdaderas</u></span> y cuáles son <span style='color:var(--warning)'><u>falsas</u></span>",
                 "className": "title-white"
             },    
             {
@@ -415,7 +436,7 @@
         "data": [
             {
                 "type": "title",
-                "value": "A partir del texto leído, indica cuáles de estas afirmaciones son <span style='color:orange'><u>verdaderas</u></span> y cuáles son <span style='color:orange'><u>falsas</u></span>",
+                "value": "A partir del texto leído, indica cuáles de estas afirmaciones son <span style='color:var(--warning)'><u>verdaderas</u></span> y cuáles son <span style='color:var(--warning)'><u>falsas</u></span>",
                 "className": "title-white"
             },    
             {
@@ -461,7 +482,7 @@
             "number": 4,
             "value": "Mis retos"
         },
-        "template": "template-title-top-1",
+        "template": "template-title-top-4",
         "data": [
             {
                 "type": "title",
@@ -469,19 +490,21 @@
                 "className": "title-white"
             },
             {
-                "type": "text",
-                "value": "En el siguiente enlace encuentras un artículo periodístico titulado:",
-                "className": "subtitle-default"
+                "type": "title",
+                "value": "<span class='text-warning'>En el siguiente enlace encuentras un artículo periodístico titulado:</span>",
+                "className": "title-white",
+                "classExtra":"mt-3"
             },
             {
-                "type": "text",
+                "type": "title",
                 "value": "4 senderos de trekking ideales para principiantes en Córdoba.",
-                "className": "subtitle--complete-li"
+                "className": "title-dark"
             },
                         {
                 "type": "text",
                 "value": "https://www.cadena3.com/noticia/cordoba/4-senderos-de-trekking-ideales-para-principiantes-en-cordoba_288907",
-                "className": "paragraph3"
+                "className": "subtitle-default",
+                "classExtra":"text-center"
             },
             {
                 "type": "image-grid",
@@ -526,7 +549,7 @@
             },
             {
                 "type": "text",
-                "value": "<u style='text-decoration:none; font-weight:600'><li>1- Cascada Los Hornillos, Río Ceballos</li><li>2- Cascada Los Chorrillos, Tanti</li><li>3- Reserva Hídrica, Natural y Recreativa Los Quebrachitos, Unquillo</li><li>4- Reserva Natural Vaquerías, Valle Hermoso</li></u>",
+                "value": "<p>1- Cascada Los Hornillos, Río Ceballos</p><p>2- Cascada Los Chorrillos, Tanti</p><p>3- Reserva Hídrica, Natural y Recreativa Los Quebrachitos, Unquillo</p><p>4- Reserva Natural Vaquerías, Valle Hermoso</p>",
                 "className": "paragraph-default"
             },
             {
@@ -536,7 +559,7 @@
             },
             {
                 "type": "text",
-                "value": "<u style='color:orange; text-decoration:none'><li>¿Por qué seleccionaste este sitio?</li><li>¿Qué es lo que más te gustó?</li><li>¿Has hecho senderismo o trekking alguna vez?</li><li>Envíale un email a tu profesor con algunas recomendaciones y consejos útiles para hacer una de estas actividades.</li></u>",
+                "value": "<u style='color:var(--warning); text-decoration:none'><li>¿Por qué seleccionaste este sitio?</li><li>¿Qué es lo que más te gustó?</li><li>¿Has hecho senderismo o trekking alguna vez?</li><li>Envíale un email a tu profesor con algunas recomendaciones y consejos útiles para hacer una de estas actividades.</li></u>",
                 "className": "paragraph-default"
             }
         ]
@@ -552,13 +575,24 @@
         "data": [
             {
                 "type": "title",
-                "value": "quiere festejar su cumpleaños haciendo una actividad diferente, por eso le propone a sus amigas hacer el trekking del <span style='color:orange'>Cerro Uritorco</span>. Acá tenés un folleto con información sobre la actividad",
+                "value": "quiere festejar su cumpleaños haciendo una actividad diferente, por eso le propone a sus amigas hacer el trekking del <span style='color:var(--warning)'>Cerro Uritorco</span>. Acá tenés un folleto con información sobre la actividad",
                 "className": "title-white"
             },
             {
                 "type": "image",
                 "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1700494306/images/zke98stafjs6hp7ywyrp.avif",
-                "className": ""
+                "className": "",
+                "classExtra":"w-1/2 rounded-[7px]   md:w-full"
+            },
+            {
+                "type": "text",
+                "value": "<a target=_blank href='https://www.argentinaturismo.com.ar/capilla-del-monte/cerro-uritorco.html'>https://www.argentinaturismo.com.ar/capilla-del-monte/cerro-uritorco.html</a>",
+                "className": "paragraph-default",
+                "style":{
+                    "margin-bottom":"8px",
+                    "margin-top":"8px",
+                    "color":"var(--primary)"
+                }
             },
             {
                 "type": "text",
@@ -567,7 +601,7 @@
             },
             {
                 "type": "text",
-                "value": "<ul><li><span style='color:orange'>Dificultad:</span>Media</li><li><span style='color:orange'>Distancia y tiempo aproximado de circuito:</span>12 km en 7 hs (ascenso y descenso)</li><li><span style='color:orange'>Altitud máxima:</span>1979 msnm</li><li><span style='color:orange'>¿Hay cruces de vertientes y lagunillas?:</span>Sí</li><li><span style='color:orange'>¿Obstáculos en el camino?:</span>Sí, piedras y diversa vegetación</li><li><span style='color:orange'>¿Es gratuito?:</span>No, hay que pagar al ingresar</li><li><span style='color:orange'>Otras actividades:</span>Camping en el río Calabalumba. Otros senderos cercanos y de baja dificultad</li></ul>",
+                "value": "<ul><li><span style='color:var(--warning)'>Dificultad:</span>Media</li><li><span style='color:var(--warning)'>Distancia y tiempo aproximado de circuito:</span>12 km en 7 hs (ascenso y descenso)</li><li><span style='color:var(--warning)'>Altitud máxima:</span>1979 msnm</li><li><span style='color:var(--warning)'>¿Hay cruces de vertientes y lagunillas?:</span>Sí</li><li><span style='color:var(--warning)'>¿Obstáculos en el camino?:</span>Sí, piedras y diversa vegetación</li><li><span style='color:var(--warning)'>¿Es gratuito?:</span>No, hay que pagar al ingresar</li><li><span style='color:var(--warning)'>Otras actividades:</span>Camping en el río Calabalumba. Otros senderos cercanos y de baja dificultad</li></ul>",
                 "className": "paragraph-default"
             }
         ]
@@ -582,7 +616,7 @@
         "data": [
             {
                 "type": "title",
-                "value": "Esta es la conversación que tienen María y sus amigas, en la que están planeando si hacer o no trekking en el cerro Uritorco. <span style='color:black'>Completa el texto con la opción que corresponda<span>",
+                "value": "Esta es la conversación que tienen María y sus amigas, en la que están planeando si hacer o no trekking en el cerro Uritorco. <span style='color:#361769'>Completa el texto con la opción que corresponda<span>",
                 "className": "title-white"
             },
             {
@@ -591,7 +625,7 @@
                     "<strong>María:</strong> ¿Y? ¿Ya pensaron si me <strong>(1)</strong> ",
                     {
                         "block": 12,
-                        "color": "orange",
+                        "color": "var(--warning)",
                         "option": "acompañan"
                     },
                     " (acompañan - acompañaron)?<br>",
@@ -599,21 +633,21 @@
                     "<strong>María:</strong> Anda al médico y <strong>(2)</strong> ",
                     {
                         "block": 10,
-                        "color": "orange",
+                        "color": "var(--warning)",
                         "option": "consulta"
                     },
                     " si puedes hacerlo.<br>",
                     "<strong>Julia:</strong> Sí, no creo que después de tanto tiempo no puedas ir. Como mucho, <strong>(3) ",
                     {
                         "block": 10,
-                        "color": "orange",
+                        "color": "var(--warning)",
                         "option": "haz"
                     },
                     "(haz - hicieron) ejercicios para entrenar.<br>",
                     "<strong>Micaela:</strong> ¡Eso! ¿Tenemos que <strong>(4)</strong> ",
                     {
                         "block": 10,
-                        "color": "orange",
+                        "color": "var(--warning)",
                         "option": "entrenar"
                     },
                     " (entrena - entrenar) para ir? <br>",
@@ -621,19 +655,19 @@
                     "<strong>Julia:</strong> Pero tampoco creo que puedas hacerlo si no <strong>(5)</strong> ",
                     {
                         "block": 10,
-                        "color": "orange",
+                        "color": "var(--warning)",
                         "option": "entrenas"
                     },
                     "(entrenar - entrenas) nada. Yo fui hace unos meses a La Quebrada del Condorito y me costó un poco porque era muy sedentaria. El Cerro Uritorco es más difícil, <strong>(6)</strong> ",
                     {
                         "block": 14,
-                        "color": "orange",
+                        "color": "var(--warning)",
                         "option": "por lo tanto"
                     },
                     " (sin embargo - por lo tanto), creo que <strong>(7)</strong> ",
                     {
                         "block": 14,
-                        "color": "orange",
+                        "color": "var(--warning)",
                         "option": "deberíamos"
                     },
                     " (deberíamos - no deberíamos) hacer actividad física las semanas anteriores.<br>",
@@ -641,21 +675,21 @@
                     "<strong>Lupe:</strong> Puedes <strong>(8)</strong> ",
                     {
                         "block": 8,
-                        "color": "orange",
+                        "color": "var(--warning)",
                         "option": "andar"
                     },
                     "(andar - caminar) en bicicleta todos los días, por unos 45 minutos creo que está bien.<br>",
                     "<strong>Julia:</strong> De esa forma puedes <strong>(9)</strong> ",
                     {
                         "block": 12,
-                        "color": "orange",
+                        "color": "var(--warning)",
                         "option": "fortalecer"
                     },
                     " (fortaleza - fortalecer) <span style='color:blue'> las rodillas, las piernas, el abdomen </span>y trabajar en tu respiración.<br>",
                     "<strong>María:</strong> Bueno, a partir de mañana, <strong>(10)</strong> ",
                     {
                         "block": 6,
-                        "color": "orange",
+                        "color": "var(--warning)",
                         "option": "vayan"
                     },
                     " (ir - vayan) a andar en bicicleta así agarran buen estado físico.<br>"
@@ -673,7 +707,7 @@
         "data": [
             {
                 "type": "title",
-                "value": "Esta es la conversación que tienen María y sus amigas, en la que están planeando si hacer o no trekking en el cerro Uritorco. <span style='color:black'>Completa el texto con la opción que corresponda<span>",
+                "value": "Esta es la conversación que tienen María y sus amigas, en la que están planeando si hacer o no trekking en el cerro Uritorco. <span style='color:#361769'>Completa el texto con la opción que corresponda<span>",
                 "className": "title-white"
             },
             {
@@ -682,7 +716,7 @@
                     "<strong>Micaela:</strong> ¿Vos no <strong>(11)</strong> ",
                     {
                         "block": 4,
-                        "color": "orange",
+                        "color": "var(--warning)",
                         "option": "vas"
                     },
                     " (voy - vas) a ir?<br>",
@@ -690,60 +724,60 @@
                     "<strong>Julia: (12) </strong>",
                     {
                         "block": 10,
-                        "color": "orange",
+                        "color": "var(--warning)",
                         "option": "Deberías"
                     },
                     " (Deberías - anda) ir, ya que después de hacer trekking te duele todo el cuerpo. Te va a costar caminar porque te van a doler <span style='color:blue'>los glúteos</span>, y te va a costar levantar <span style='color:blue'>los brazos</span> porque te va a doler <strong>(13)</strong> ",
                     {
                         "block": 2,
-                        "color": "orange",
+                        "color": "var(--warning)",
                         "option": "el"
                     },
                     " (la - el)  abdomen, los pectorales y <strong>(14)</strong>",
                     {
                         "block": 4,
-                        "color": "orange",
+                        "color": "var(--warning)",
                         "option": "los"
                     },
                     " (los - el) brazos<br>",
                     "<strong>Lupe: (15)</strong> ",
                     {
                         "block": 8,
-                        "color": "orange",
+                        "color": "var(--warning)",
                         "option": "Déjenla"
                     },
                     "(Dejarla - Déjenla) tranquila, si ella quiere que le duela todo, eso es problema de ella. <br>",
                     "<strong>Micaela:</strong> En el camino <strong>(16)</strong> ",
                     {
                         "block": 12,
-                        "color": "orange",
+                        "color": "var(--warning)",
                         "option": "tenemos"
                     },
                     " (tenemos - tenemos que) piedras y <strong>(17)</strong> ",
                     {
                         "block": 14,
-                        "color": "orange",
+                        "color": "var(--warning)",
                         "option": "tenemos que"
                     },
                     "  (tenemos - tenemos que) cruzar cauces de agua. Va a ser difícil.<br>",
                     "<strong>María:</strong> Bueno, es bien, voy a ir con ustedes a andar en bicicleta <br><strong>Lupe:</strong> No la <strong>(18)</strong> ",
                     {
                         "block": 10,
-                        "color": "orange",
+                        "color": "var(--warning)",
                         "option": "obliguen"
                     },
                     " (obligar - obliguen) si no quiere. Además la idea ha sido suya.<br>",
                     "<strong>María:</strong> Ustedes tienen razón. <strong>(19)</strong> ",
                     {
                         "block": 10,
-                        "color": "orange",
+                        "color": "var(--warning)",
                         "option": "tengo que"
                     },
                     " (tengo que - tengo) ejercitarme, si no, no voy a poder hacerlo y quiero llegar hasta la cima del cerro.<br>",
                     "<strong>Micaela:</strong> ¡Genial! Entonces podemos <strong>(20)</strong> ",
                     {
                         "block": 12,
-                        "color": "orange",
+                        "color": "var(--warning)",
                         "option": "ejercitarnos"
                     },
                     " (ejercicios- ejercitarnos) las próximas tres semanas y para tu cumpleaños vamos a estar preparadas para subir hasta la cima <br><strong>María:</strong> ¡Muchas gracias por acompañarme! "
