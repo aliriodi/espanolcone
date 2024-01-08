@@ -51,5 +51,15 @@
         "ammountUnit":"25",
         "decription":"Plan asistencia de al menos 4 clase individuales clase 1 hora",
         "obs": null
+    },
+    "plan5":{
+        "type":"Sinc3",
+        "items":[
+            {"value":"Combo de 20 clases por 10 dias", "include":true}
+                ],
+        "qty":20,
+        "ammountUnit":"20",
+        "decription":"Plan asistencia de 20 sola clase individual 1 hora",
+        "obs": null
     }
 }
