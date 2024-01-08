@@ -945,7 +945,7 @@ export default function Schedule() {
               personSchedule?.calendar?.length &&
               session.user.planSync[session.user.planSync.length-1].qty - session.user.planSync[session.user.planSync.length-1].classview > 0 ?
               <p className='font-medium mt-[17px] mb-[15px] text-center text-[14px] text-violet_dark'>
-                Puedes agendar<b>{session?.user?.planSync && session.user.planSync[session.user.planSync.length-1].qty - session.user.planSync[session.user.planSync.length-1].classview}</b> { session?.user?.planSync?.length > 1 ? "clases" : "clase"} 
+                Puedes agendar <b>{session?.user?.planSync && session.user.planSync[session.user.planSync.length-1].qty - session.user.planSync[session.user.planSync.length-1].classview}</b> { session?.user?.planSync?.length > 1 ? "clases" : "clase"} 
               </p>:
               <p className='font-medium mt-[17px] mb-[15px] text-center text-[14px] text-violet_dark'>
                 No posees clases para agendar 
