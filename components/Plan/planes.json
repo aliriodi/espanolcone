@@ -58,7 +58,7 @@
             {"value":"Combo de 20 clases por 10 dias", "include":true}
                 ],
         "qty":20,
-        "ammountUnit":"20",
+        "ammountUnit":"10",
         "decription":"Plan asistencia de 20 sola clase individual 1 hora",
         "obs": null
     }
