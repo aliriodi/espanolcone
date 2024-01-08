@@ -142,6 +142,7 @@ export default function Plansync({ Confirm, closePlan}) {
             <button onClick={()=>{Confirm({qty:valorInput,cost:plan1[1].ammountUnit*valorInput});closePlan()}} className="bg-secondary p-2 rounded-[5px] text-white">Obtener</button>
           </div>
           {/* Combo de Clase 10 */}
+          
           <div className='flex flex-col px-4 w-[400px] border-r-2 justify-between
           md:w-full md:py-10 md:border-b-2 md:border-r-0'>
 
