@@ -189,165 +189,157 @@ const Menu = (props) => {
             md:text-[14px]`}>
 
                 {/* Opciones */}
-                <nav className="my-8 flex flex-row-reverse  h-full justify-between" style={{ fontWeight: '500' }}>
-                <div className=' flex flex-col justify-between mx-[14px] mb-10 min-w-[225px]'>
+                <nav className="my-8 flex flex-row-reverse  h-full justify-between overflow-auto menu" style={{ fontWeight: '500' }}>
+                    <div className=' flex flex-col justify-between mx-[14px] mb-10 min-w-[225px]'>
 
-                {/* Seccion Superior */}
-                <div>
-                    {/* Logo */}
-                    <div >
-                        <Link href="/inicio/home" >
-                            <Image  src={Logo} className='mb-[10px]' style={{ width: '80px' }} alt="Logo" />
-                        </Link>
+                        {/* Seccion Superior */}
+                        <div>
+                            {/* Logo */}
+                            <div >
+                                <Link href="/inicio/home" >
+                                    <Image  src={Logo} className='mb-[10px]' style={{ width: '80px' }} alt="Logo" />
+                                </Link>
 
-                    </div>
+                            </div>
 
-                    {/* Opciones Principales */}
-                    <ul className="text-title_color">
+                            {/* Opciones Principales */}
+                            <ul className="text-title_color">
 
-                        {/* Inicio */}
-                        <li>
-                            <Link
-                                className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all    
-                                ${currentPathName == '/inicio/home' && "bg-primary text-white"}
-                            hover:bg-primary hover:text-white`}
-                                href="/inicio/home">
-                                <FontAwesomeIcon icon={faHouse} className="  mr-[10px]" />
-                                <p>Inicio</p>
-                            </Link>
-                        </li>
+                                {/* Inicio */}
+                                <li>
+                                    <Link
+                                        className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all    
+                                        ${currentPathName == '/inicio/home' && "bg-primary text-white"}
+                                    hover:bg-primary hover:text-white`}
+                                        href="/inicio/home">
+                                        <FontAwesomeIcon icon={faHouse} className="  mr-[10px]" />
+                                        <p>Inicio</p>
+                                    </Link>
+                                </li>
 
-                        {/* Curso */}
-                        <li>
-                            <Link
-                                className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                ${currentPathName == '/inicio/curso' && "bg-primary text-white"}
-                            hover:bg-primary hover:text-white`}
-                                href="/inicio/curso">
-                                <FontAwesomeIcon icon={faLaptop} className="  mr-[10px]" />
-                                <p>Curso</p>
-                            </Link>
-                        </li>
-                        {/* Calendario */}
-                        <li>
-                            <Link
-                                className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                ${currentPathName == '/inicio/calendar' && "bg-primary text-white"}
-                            hover:bg-primary hover:text-white`}
-                                href="/inicio/calendar">
-                                <FontAwesomeIcon icon={faCalendarDays} className=" mr-[10px]" />
-                                <p>Agenda</p>
-                            </Link>
-                        </li>
-                        {/* Profesores */}
-                        <li>
-                            <Link
-                                className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                ${currentPathName == '/teachers' && "bg-primary text-white"}
-                            hover:bg-primary hover:text-white`}
-                                href="/inicio/teachers" >
-                                <FontAwesomeIcon icon={faChalkboardUser} className="mr-[10px]" />
-                                <p>Profesores</p>
+                                {/* Curso */}
+                                <li>
+                                    <Link
+                                        className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
+                                        ${currentPathName == '/inicio/curso' && "bg-primary text-white"}
+                                    hover:bg-primary hover:text-white`}
+                                        href="/inicio/curso">
+                                        <FontAwesomeIcon icon={faLaptop} className="  mr-[10px]" />
+                                        <p>Curso</p>
+                                    </Link>
+                                </li>
 
-                            </Link>
-                        </li>
+                                {/* Calendario */}
+                                <li>
+                                    <Link
+                                        className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
+                                        ${currentPathName == '/inicio/calendar' && "bg-primary text-white"}
+                                    hover:bg-primary hover:text-white`}
+                                        href="/inicio/calendar">
+                                        <FontAwesomeIcon icon={faCalendarDays} className=" mr-[10px]" />
+                                        <p>Agenda</p>
+                                    </Link>
+                                </li>
 
-                        {/* Guías turisticos */}
-                        {/* <li>
-                            <Link
-                                className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                ${currentPathName == '/tourGuides' && "bg-primary text-white"}
-                            hover:bg-primary hover:text-white`}
-                                href="/inicio/tourGuides">
-                                <FontAwesomeIcon icon={faPersonHiking} className=" mr-[10px]" />
-                                <p>Guías turisticos</p>
-                            </Link>
-                        </li> */}
-                         
-                        <li className='relative'>
-                            
-                            <span className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all opacity-[50%]`}>
+                                {/* Profesores */}
+                                <li>
+                                    <Link
+                                        className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
+                                        ${currentPathName == '/teachers' && "bg-primary text-white"}
+                                    hover:bg-primary hover:text-white`}
+                                        href="/inicio/teachers" >
+                                        <FontAwesomeIcon icon={faChalkboardUser} className="mr-[10px]" />
+                                        <p>Profesores</p>
 
-                                {/* icon */}
-                                <FontAwesomeIcon icon={faPersonHiking} className=" mr-[10px]" />
+                                    </Link>
+                                </li>
 
-                                {/* Texto */}
-                                <p>Guías turisticos</p>
-                            </span>
+                                {/* Guías turisticos */}
+                                {/* <li>
+                                    <Link
+                                        className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
+                                        ${currentPathName == '/tourGuides' && "bg-primary text-white"}
+                                    hover:bg-primary hover:text-white`}
+                                        href="/inicio/tourGuides">
+                                        <FontAwesomeIcon icon={faPersonHiking} className=" mr-[10px]" />
+                                        <p>Guías turisticos</p>
+                                    </Link>
+                                </li> */}
+                                
 
-                            {/* Muy pronto */}
-                            <p className='absolute font-semibold bg-gradient-to-r from-success to-warning top-0 right-0 text-white h-full flex items-center rounded-[0_7px_7px_0] p-2'>Muy pronto . . .</p>
+                                {/* Para enviar Emails */}
+                                <li>
+                                    <button
+                                        className={`flex items-center w-full justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
+                                            && "bg-primary text-white"}
+                                        hover:bg-primary hover:text-white`}
+                                    onClick={()=>setIsOpenMail(true)}>
+                                        <FontAwesomeIcon icon={faEnvelope} className="  mr-[10px]" />
+                                        <p>Contáctanos</p>
+                                    </button>
+                                    {isOpenMail && <ModalSendEmail open={setIsOpenMail} />}
+                                </li>
 
-                            {/* borde */}
-                            <span className='border-2 border-success rounded-[7px] w-full h-full absolute top-0'></span>
-                        </li>
-                       {/* Para enviar Emails */}
-                       <li>
-                            <button
-                                className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                && "bg-primary text-white"}
-                            hover:bg-primary hover:text-white`}
-                               onClick={()=>setIsOpenMail(true)}>
-                                <FontAwesomeIcon icon={faEnvelope} className="  mr-[10px]" />
-                                <p>Contáctanos</p>
-                            </button>
-                            {isOpenMail && <ModalSendEmail open={setIsOpenMail} />}
-                        </li>
-                        {/* Cargar Clase */}
-                        {session && session.user && session.user.role.includes('admin') ?
-                            <li>
+                                {/* Cargar Clase */}
+                                {session && session.user && session.user.role.includes('admin') ?
+                                    <li>
+                                        <Link
+                                            className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
+                                        ${currentPathName == '/inicio/cargarclase' && "bg-primary text-white"}
+                                    hover:bg-primary hover:text-white`}
+                                            href="/inicio/cargarclase">
+                                            <FontAwesomeIcon icon={faPen} className=" mr-[10px]" />
+                                            <p>Cargar Clase</p>
+                                        </Link>
+                                    </li>
+                                    : 
+                                    null
+                                }
+
+                                {/* ////////// Pronto ////////// */}
+
+                                {/* Guia Turistico */}
+                                <li className='relative'>
+                                    
+                                    <span className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all opacity-[50%]`}>
+
+                                        {/* icon */}
+                                        <FontAwesomeIcon icon={faPersonHiking} className=" mr-[10px]" />
+
+                                        {/* Texto */}
+                                        <p>Guías turisticos</p>
+                                    </span>
+
+                                    {/* Muy pronto */}
+                                    <p className='absolute font-semibold bg-gradient-to-r from-success to-warning top-0 right-0 text-white h-full flex items-center rounded-[0_7px_7px_0] p-2'>Muy pronto . . .</p>
+
+                                    {/* borde */}
+                                    <span className='border-2 border-success rounded-[7px] w-full h-full absolute top-0'></span>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                        {/* Opciones de Perfil */}
+                        <div>
+
+                            {/* Mi Perfil */}
+                            <div className="text-title_color">
                                 <Link
                                     className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                ${currentPathName == '/inicio/cargarclase' && "bg-primary text-white"}
-                            hover:bg-primary hover:text-white`}
-                                    href="/inicio/cargarclase">
-                                    <FontAwesomeIcon icon={faPen} className=" mr-[10px]" />
-                                    <p>Cargar Clase</p>
+                                    ${currentPathName == '/inicio/profile' && "bg-primary text-white"}
+                                    hover:bg-primary hover:text-white`}
+                                    href="/inicio/profile">
+                                    <FontAwesomeIcon icon={faAddressCard} className=" mr-[10px]" />
+                                    <p>Mi Perfil</p>
                                 </Link>
-                            </li>
-                            : null}
-                            <li>
-                        {/* Pagar */}
-                            {/* <button
-                                onClick={openPaypalModal}
-                                className={`flex w-full items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                ${currentPathName == '/tourGuides' && "bg-primary text-white"}
-                                hover:bg-primary hover:text-white`}
+                            </div>
 
-                            >
-                                <FontAwesomeIcon icon={faMoneyBill} className="mr-[10px]" />
-                                <p>Hazte Premium</p>
-                            </button>  */}
+                            {/* Cerrar Secion */}
+                            <SignOutBtn />
 
-                            <ModalPago modalPaypal={handleChangePaypalModal} open={paypalModal}/>
-                        </li>
-                            {/* <li>
-                                <ModalPago/>
-                            </li> */}
-
-                    </ul>
-                </div>
-
-                {/* Opciones de Perfil */}
-                <div>
-
-                    {/* Mi Perfil */}
-                    <div className="text-title_color">
-                        <Link
-                            className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                            ${currentPathName == '/inicio/profile' && "bg-primary text-white"}
-                            hover:bg-primary hover:text-white`}
-                            href="/inicio/profile">
-                            <FontAwesomeIcon icon={faAddressCard} className=" mr-[10px]" />
-                            <p>Mi Perfil</p>
-                        </Link>
+                        </div>
                     </div>
-
-                    {/* Cerrar Secion */}
-                    <SignOutBtn />
-
-                </div>
-                </div>
                 </nav>
             </div>
         </>

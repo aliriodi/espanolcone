@@ -576,7 +576,7 @@
         {
           "type": "paragraph-complete",
           "value": [
-            "Me acuerdo de aquel día ",
+            "Me acuerdo de aquel día. ",
             {
               "block": 10,
               "color": "orange",
@@ -836,7 +836,7 @@
               "color": "orange",
               "option": "hemos dormido"
             },
-            " muy poco.<br> Ya (<strong style='color:black'>visitar,nosotros</strong>) ",
+            " muy poco.<br> (<strong style='color:black'>visitar,nosotros</strong>) ",
             {
               "block": 14,
               "color": "orange",

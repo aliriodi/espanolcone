@@ -104,6 +104,10 @@ h3{
      border: none; /*solid  1px white;*/
 }
 
+.menu::-webkit-scrollbar {
+  width: 0px; /* ancho de la barra de desplazamiento en navegadores WebKit (como Chrome y Safari) */
+}
+
 .btn-disable{
   opacity: .5;
   pointer-events: none;
