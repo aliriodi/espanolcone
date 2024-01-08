@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'next-i18next';
 import { useSession } from "next-auth/react";
+import Logo from '../public/imgs/logo-gradient.png';
+import Image from 'next/image'
+import { faCircleCheck, faX } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function ModalSendEmail(props) {
     const { t } = useTranslation('index');
@@ -17,6 +21,9 @@ export default function ModalSendEmail(props) {
     const [emailFrom, setEmailToSend] = useState(session?.user?.email);
     //Nombre de usuario que envia email
     const [name, setName] = useState(session?.user?.first_name + " " + session?.user?.last_name);
+
+    // Carga
+    const [isLoading, setIsLoading] = useState(false);
 
     // Función para manejar cambios en el input
     const handleInputChange = (event) => {
@@ -121,6 +128,9 @@ export default function ModalSendEmail(props) {
         </body>
         </html>
         `
+
+        setIsLoading(true);
+
         try {
             //envio email a teacher
             await
@@ -135,15 +145,16 @@ export default function ModalSendEmail(props) {
                             subject: 'Email enviado desde la APP: ' + name,
                             html: massage
                         })
-                    })
+                    }).then(result=>setIsLoading(false))
         }
         catch (error) {
+            setIsLoading(false)
             console.error(error);
         }
         setMessageok(true)
         setTimeout(function () {
             props.open(false)
-        }, 2000);
+        }, 2500);
 
 
     }
@@ -159,53 +170,71 @@ export default function ModalSendEmail(props) {
 
                 <div
                     onClick={(e) => e.stopPropagation()}
-                    className='bg-white rounded-md p-5'>
+                    className='bg-white rounded-md p-5 flex flex-col w-[700px] relative'>
 
-                    {/* Logo */}
-                    <div className=' flex justify-rigth flex-col border-b-2 pb-5 items-center relative'>
+                    <FontAwesomeIcon
+                        onClick={() => props.open(false)}
+                        icon={faX}
+                        className='absolute right-5 top-5 text-violet_dark'/>
+                    
+                    <div className='flex items-center mb-[30px] flex-col'>
+                        <Image src={Logo} alt={'Logo'} className='w-[123px] h-[78px]'/>
+                        <h3 className=' font-medium text-[28px] bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text min-h-[28px] text-center'>Contactanos por email</h3>
+                    </div>
+                    
+                    {/* Campo */}
+                    {!messageok &&
+                    <div className="mb-[25px]">
 
-                        {/* <Image  src={Logo} className='mb-6' style={{ width: '100px' }} alt="Logo" /> */}
-                        <button className='rounded-md text-white  bg-red-500' onClick={() => props.open(false)}> X </button>
-                        <div className='text-[18px] text-light bg-white'>
-
-                            {/* para eliminar */}
-                            {/* {!emailok && t("card4.2.messageModal")} */}
-
-                        </div>
-
-
-                        {/* {!messageok && <p> <input className='border-2 ' type="text" value={inputString} onChange={handleInputChange} /></p>} */}
-                       {!messageok &&<div className="">
+                        {/* Textarea */}
                         <textarea
-                            className='rounded-md border-2 border-primary '
+                            className='rounded-md border-2 border-primary outline-primary_hover p-2 w-full'
                             value={inputString}
                             onChange={handleInputChange}
                             maxLength={200}
                             rows={4} // Establecer un número inicial de filas
                         />
-                         <p className="">{remainingCharacters + '/200'}</p>
+
+                        {/* Cantidad maxima de caracters */}
+                        <p className="">{remainingCharacters + '/200'}</p>
+                    </div>}
+                    
+                    
+                    {/* boton de enviar */}
+                    {
+                        !messageok && 
+                        <div className='flex justify-center  text-center w-full'>
+                            <button className={'bg-primary rounded-md text-white w-full p-2 mt-1 '}
+                                onClick={() => !messageReady && sendEmail()}>
+                                    {
+                                        !isLoading ?
+                                        "Enviar" :
+                                        (
+                                            <div
+                                                className="inline-block  h-5 w-5 animate-spin rounded-full border-white border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                                                role="status"
+                                                >
+                                                <span
+                                                    className="absolute -m-px h-px w-px overflow-hidden whitespace-nowrap border-0 p-0 clip:rect(0,0,0,0)"
+                                                >
+                                                    Loading...
+                                                </span>
+                                            </div>
+                                        )
+                                        }
+                            </button>
+                        </div>
+                    }
+
+
+                    {/* Mostrar mensaje  Email enviado*/}
+                    {
+                        messageok &&
+                        <div className='rounded-md text-white w-full p-2 mt-1 bg-secondary flex justify-center'>
+                            <p>
+                                Mensaje Enviado  <FontAwesomeIcon icon={faCircleCheck}/>
+                            </p>                            
                         </div>}
-                       
-                       
-                        {/* Email Invalido o valido message */}
-                        {/* {inputString.length > 6 && !validateEmail && <div className='text-red-500'> {t("card4.2.emailInvalid")}</div>} */}
-
-                        {/* boton de enviar */}
-                        {!messageok && <div className='flex justify-center  text-center '>
-                            <button className={'bg-primary rounded-md text-white ' +
-                                (messageReady && 'hidden')}
-                                style={{ width: '68px', height: '30px' }}
-                                onClick={() => sendEmail()}>Enviar</button>
-
-                            <div className={'  bg-primary rounded-md text-white ' +
-                                (!messageReady && 'hidden')}
-                                style={{ width: '68px', height: '30px' }}> Enviar</div>
-                        </div>}
-
-
-                        {/* Mostrar mensaje  Email enviado*/}
-                        {messageok && <div>Mensaje Enviado, ¡Le responderemos a la prontitud posible!</div>}
-                    </div>
                 </div>
             </div>
         </div>
