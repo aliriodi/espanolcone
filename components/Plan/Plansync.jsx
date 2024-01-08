@@ -141,6 +141,42 @@ export default function Plansync({ Confirm, closePlan}) {
 
             <button onClick={()=>{Confirm({qty:valorInput,cost:plan1[1].ammountUnit*valorInput});closePlan()}} className="bg-secondary p-2 rounded-[5px] text-white">Obtener</button>
           </div>
+          {/* Combo de Clase 10 */}
+          <div className='flex flex-col px-4 w-[400px] border-r-2 justify-between
+          md:w-full md:py-10 md:border-b-2 md:border-r-0'>
+
+            {/* Titulo */}
+            <div className='w-full text-center'>
+              {/* Precio */}
+              <p
+              className='text-[49px] text-primary font-medium'>
+                <b>{plan1[2].ammountUnit}$usd</b> 
+              </p>
+              {/* Descripcion */}
+              <p className=' text-violet_dark text-[16px]'>
+                Combo de <b>{plan1[2].qty}</b> clases 
+              </p>
+              <p>promoción válida por 10 días o </p>
+              <p>hasta agotarse los cupos</p>
+              <p>sólo 10 cupos disponibles</p>
+            </div>
+
+            {/* Contenido */}
+            <div className='py-4 flex flex-col justify-end h-full items-center'>
+              {/* <p
+              className=' text-violet_dark '>
+                Solo <b>1</b> clase
+              </p> */}
+              
+              <p
+              className=' text-violet_dark '>
+                Monto total: <b>{plan1[2].qty*plan1[2].ammountUnit}$usd</b>
+              </p>
+            </div>
+
+            <button onClick={()=>{Confirm({qty:plan1[2].qty,cost:plan1[2].qty*plan1[2].ammountUnit});closePlan()}} className="bg-secondary p-2 rounded-[5px] text-white">Obtener</button>
+          </div>
+
         </div>
 
       </div>
