@@ -25,19 +25,26 @@ export default async function getTeachersWithAgendaFromTomorrow(req, res) {
                 // Verifica procedencia de solicitud 
                 console.log("/////////////////////////////// ",req.headers.accept == "*/*" ? "Solicitud desde Codigo": "Solicitud desde Navegador"," ///////////////////////////////")
 
-                if(req.headers.accept == "*/*"){
-                    // Solicitud desde el codigo
-                    res.status(200).json(
-                        {
-                            users: output,
-                            // totalUsers: allUsers.length
-                        }
-                    );
-                }
-                else{
-                    // Solicitud desde el navegador
-                    res.status(200).json({ message: "Acceso Denegado" });
-                }
+                // if(req.headers.accept == "*/*"){
+                //     // Solicitud desde el codigo
+                //     res.status(200).json(
+                //         {
+                //             users: output,
+                //             // totalUsers: allUsers.length
+                //         }
+                //     );
+                // }
+                // else{
+                //     // Solicitud desde el navegador
+                //     res.status(200).json({ message: "Acceso Denegado" });
+                // }
+
+                res.status(200).json(
+                    {
+                        users: output,
+                        // totalUsers: allUsers.length
+                    }
+                );
 
             }
 
