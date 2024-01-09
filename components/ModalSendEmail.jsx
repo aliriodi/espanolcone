@@ -196,7 +196,7 @@ export default function ModalSendEmail(props) {
                         />
 
                         {/* Cantidad maxima de caracters */}
-                        <p className="">{remainingCharacters + '/200'}</p>
+                        <p className="px-4 text-right">{remainingCharacters + '/200'}</p>
                     </div>}
                     
                     

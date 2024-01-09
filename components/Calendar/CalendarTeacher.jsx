@@ -4,6 +4,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
 import { useSession } from "next-auth/react"
 import React, { useState, useEffect, Fragment } from 'react';
 import MeetingPlaning from "./MeetingPlaning";
+import MeetAssigment from './MeetAssigment';
 import styles from '../../styles/navbar.module.css';
 import { es } from 'date-fns/locale';
 import {
@@ -414,7 +415,7 @@ export default function Example() {
                 {/* {console.log(selectedDayMeetings)} */}
                 {selectedDayMeetings.length > 0 ? (
                   selectedDayMeetings.map((meeting, index) => (
-                    <Meeting meeting={meeting} key={index} />
+                    <Meeting meeting={meeting} renders={renders} key={index} />
                   ))
                 ) : (
                   <li className='text-center mt-10 text-gray_clear'>No hay actividad agendada aún.</li>
@@ -437,7 +438,7 @@ export default function Example() {
   )
 }
 
-function Meeting({ meeting }) {
+function Meeting({ meeting , renders}) {
   let startDateTime = parseISO(meeting.startDatetime)
   let endDateTime = parseISO(meeting.endDatetime)
 
@@ -475,6 +476,8 @@ function Meeting({ meeting }) {
         {/* Nombre */}
         <p className="text-gray-900">{meeting.first_name + ' ' + meeting.last_name}</p>
 
+        {/* Para asignar el enlace Zoom o meet */}
+        <MeetAssigment renders={renders} meeting={meeting} />
         {/* Role */}
         <p className="text-gray-900
         md:hidden">{meeting.role}</p>
@@ -492,58 +495,7 @@ function Meeting({ meeting }) {
 
         </p>
       </div>
-      {/* <Menu
-        as="div"
-        className="relative opacity-0 focus-within:opacity-100 group-hover:opacity-100"
-      >
-        <div>
-          <Menu.Button className="-m-2 flex items-center rounded-full p-1.5 text-gray-500 hover:text-gray-600">
-            <span className="sr-only">Open options</span>
-            <DotsVerticalIcon className="w-6 h-6" aria-hidden="true" />
-          </Menu.Button>
-        </div>
-
-        <Transition
-          as={Fragment}
-          enter="transition ease-out duration-100"
-          enterFrom="transform opacity-0 scale-95"
-          enterTo="transform opacity-100 scale-100"
-          leave="transition ease-in duration-75"
-          leaveFrom="transform opacity-100 scale-100"
-          leaveTo="transform opacity-0 scale-95"
-        >
-          <Menu.Items className="absolute right-0 z-10 mt-2 origin-top-right bg-white rounded-md shadow-lg w-36 ring-1 ring-black ring-opacity-5 focus:outline-none">
-            <div className="py-1">
-              <Menu.Item>
-                {({ active }) => (
-                  <a
-                    href="#"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'block px-4 py-2 text-sm'
-                    )}
-                  >
-                    Edit
-                  </a>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <a
-                    href="#"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'block px-4 py-2 text-sm'
-                    )}
-                  >
-                    Cancel
-                  </a>
-                )}
-              </Menu.Item>
-            </div>
-          </Menu.Items>
-        </Transition>
-      </Menu> */}
+     
     </li>
   )
 }
