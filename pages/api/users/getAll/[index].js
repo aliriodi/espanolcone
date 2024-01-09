@@ -3,7 +3,7 @@ import Users from '../../../../models/Users'
 
 export default async function getTeachersWithAgendaFromTomorrow(req, res) {
     const {
-        query: { page },
+        query: { index },
         method,
     } = req;
 
@@ -11,7 +11,7 @@ export default async function getTeachersWithAgendaFromTomorrow(req, res) {
         case 'GET':
             try {
                 console.log('CONNECTING TO MONGO DB');
-                await dbConnect();
+                // await dbConnect();
                 console.log('CONNECTED TO MONGO DB');
 
                 // const maxResults = 18;
