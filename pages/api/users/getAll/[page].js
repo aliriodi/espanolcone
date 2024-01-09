@@ -39,14 +39,6 @@ export default async function GetAllUsers(req, res) {
                     res.status(200).json({ message: "Acceso Denegado" });
                 }
 
-                res.status(200).json(
-                    {
-                        // message:"Hola Mundo"
-                        users: output,
-                        totalUsers: allUsers.length
-                    }
-                );
-
             }
 
             catch (error) {
