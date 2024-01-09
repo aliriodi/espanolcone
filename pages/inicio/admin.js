@@ -35,17 +35,19 @@ export default function Admin(){
         setIsLoading(true);
         try {
     
-            await fetch(`/api/users/getAll/${currentPage}`)
-                  .then(users=>users.json())
-                  .then(users=>{
-                    setIsLoading(false);
-                    setCurrentUsers(users.users)
-                    setTotalUsers(users.totalUsers)
-                })
+            const response = await fetch(`/api/users/getAll/${currentPage}`);
+            if (!response.ok) {
+                throw new Error(`Error en la respuesta de la API: ${response.status} - ${response.statusText}`);
+            }
+
+            const users = await response.json();
+            setIsLoading(false);
+            setCurrentUsers(users.users);
+            setTotalUsers(users.totalUsers);
         }
         catch (error) {
             setIsLoading(false);
-            console.error('Error al cargar los datos de profesores:', error);
+            console.error('Error al cargar los datos:', error);
         }
     }
 
