@@ -4,9 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import ClassAssignmentList from "./ClassAssignmentList";
 import Spinner from "../Spinner";
 
-export default function MenuUsers({ user, validZeller }){
+export default function MenuUsers({ user, validZeller, updateUser, loading }){
     const [openMenu, setOpenMenu] = useState(false)
     const [openModalClass, setOpenModalClass] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
 
     const [currentClasses, setCurrentClasses] = useState(null)
 
@@ -32,8 +33,16 @@ export default function MenuUsers({ user, validZeller }){
     }, []);
 
     useEffect(()=>{
+        setIsLoading(loading)
+    },[loading])
+
+    useEffect(()=>{
         if(openModalClass && !currentClasses)getAllClass()
     },[openModalClass])
+
+    useEffect(()=>{
+        // console.log("currentClasses",currentClasses)
+    },[currentClasses])
     
     async function getAllClass(){
         try {
@@ -42,9 +51,13 @@ export default function MenuUsers({ user, validZeller }){
                 .then(classes=>classes.json())
                 .then(classes=>{
                     let levels = []
-
+                    let levelsUser = [] 
+                    user?.classes?.map((level)=>{
+                        levelsUser[level?.level] = level;
+                    })
+                    
                     classes?.class1?.map((unit, index) =>{
-
+                        let userUnit = levelsUser[unit?.level]?.units?.find(unitUser => unitUser?.unitID == unit._id)
                         // En caso de no encontrar el nivel de la unidad lo agrega junto a la nueva unidad
                         if(!levels[unit?.level]){
                             let newLevel = {
@@ -54,11 +67,13 @@ export default function MenuUsers({ user, validZeller }){
                                         number: parseInt(unit.unit.match(/\d+/), 10) ? parseInt(unit.unit.match(/\d+/), 10) : -1,
                                         name: unit.unit ? unit.unit : "¯\_(ツ)_/¯",
                                         unitID:unit._id,
-                                        description: unit.description,
-                                        done:false,
-                                        enable:false
+                                        description: unit?.description,
+                                        done: userUnit?.done ? userUnit?.done : false,
+                                        enable: userUnit?.enable ? userUnit?.enable : false,
+                                        assigned: userUnit != undefined
                                     }
-                                ]
+                                ],
+                                assigned: levelsUser[unit?.level] != null
                             }
                             levels[newLevel.level] = newLevel
                         }
@@ -68,19 +83,82 @@ export default function MenuUsers({ user, validZeller }){
                                 name: unit.unit ? unit.unit : "¯\_(ツ)_/¯",
                                 unitID:unit._id,
                                 description: unit.description,
-                                done:false,
-                                enable:false
-                            })                         
+                                done: userUnit?.done ? userUnit?.done : false,
+                                enable: userUnit?.enable ? userUnit?.enable : false,
+                                assigned: userUnit != undefined
+                            })                       
                         }
                     })
 
-                    console.log(Object.values(levels))
-                    setCurrentClasses(Object.values(levels))
+                    const orderedLevel = [...Object.values(levels)].sort((a, b) => {
+                        // Comparar los nombres de los niveles para ordenar
+                        if (a.level < b.level) {
+                          return -1;
+                        }
+                        if (a.level > b.level) {
+                          return 1;
+                        }
+                        return 0;
+                    }).map(level => ({
+                        ...level,
+                        units: [...level.units].sort((unitA, unitB) => {
+                          // Comparar las unidades dentro de cada objeto
+                          if (unitA.name < unitB.name) {
+                            return -1;
+                          }
+                          if (unitA.name > unitB.name) {
+                            return 1;
+                          }
+                          return 0;
+                        }),
+                    }));
+
+                    setCurrentClasses(orderedLevel)
                 })
         }
         catch (error) {
             console.error('Error al cargar los datos de profesores:', error);
         }
+    }
+
+    function classesAssignment(){
+
+        if(isLoading)return
+        
+        let newUser = user;
+        let finalClasses = [...currentClasses]
+        finalClasses = finalClasses?.map(
+            (level)=>{
+                if(level.assigned){
+
+                    let newLevel = {...level};
+
+                    newLevel.units = newLevel.units.map(
+                        (unit)=>{
+
+                            if(unit.assigned){
+                                let newUnit = {...unit}
+                                delete newUnit.assigned
+                                // console.log("Unit ",unit)
+                                return newUnit
+                            }
+                            return null;
+                        }
+                    ).filter(Boolean);
+
+                    delete newLevel.assigned
+                    console.log(`${level.level} `,newLevel)
+                    
+                    return newLevel
+                }
+
+                return null;
+            }
+        ).filter(Boolean);
+        
+        newUser.classes = finalClasses
+
+        updateUser(newUser)
     }
 
     // Handlers
@@ -90,6 +168,25 @@ export default function MenuUsers({ user, validZeller }){
 
     function handlerModalClass(value){
         setOpenModalClass(value)
+    }
+
+    function handlerChangeUnit(indexLevel, indexUnit, newUnit){
+        let newClasses = currentClasses;
+        
+        
+        newClasses[indexLevel].units[indexUnit] = newUnit;
+
+        setCurrentClasses(newClasses)
+    }
+    
+    function handlerChangeLevel(indexLevel, newLevel){
+        let newClasses = currentClasses;
+        
+        
+        newClasses[indexLevel] = newLevel;
+        console.log("newClasses ",newClasses)
+
+        setCurrentClasses(newClasses)
     }
 
     return(
@@ -169,11 +266,6 @@ export default function MenuUsers({ user, validZeller }){
 
         </li>
 
-        {
-            // No funciona :/
-            // <ClassAssignmentModal open={openModalClass} handlerModalClass={handlerModalClass}/>
-        }
-
         {/* Modal de Clases */}
         {
             openModalClass &&
@@ -183,20 +275,36 @@ export default function MenuUsers({ user, validZeller }){
 
                 <div
                 onClick={(e)=>e.stopPropagation()}
-                className=" rounded-[7px] bg-white w-[90%] min-h-[500px] max-h-full overflow-auto relative">
+                className=" rounded-[7px] bg-white w-[90%] min-h-[500px] max-h-full overflow-auto relative flex flex-col justify-between">
                     <h2 className="border-b-2 p-4 font-semibold">Asignar clase</h2>
 
-                    <div className="p-3">
+                    <div className="p-3 flex-grow-[1]">
                         {
                             currentClasses && currentClasses?.length > 0 ?
                             currentClasses?.map((level, index)=>
-                                <ClassAssignmentList key={index} level={level}/>
+                                <ClassAssignmentList key={index} indexLevel={index} level={level} handlerChangeUnit={handlerChangeUnit} handlerChangeLevel={handlerChangeLevel}/>
                             )
                             :
                             <div className="w-full h-full flex justify-center items-center absolute top-0 left-0">
                                 <Spinner/>
                             </div>
                         }
+                    </div>
+
+                    <div className="m-4">
+                        <button
+                        onClick={classesAssignment}
+                        className=" btn-primary py-2 px-10 w-full text-[18px]">
+                            {
+                            isLoading ?
+                            (
+                                <div
+                                className={`inline-block  h-7 w-7 animate-spin rounded-full border-white border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite] ${isLoading &&"pointer-events-none"}`}
+                                role="status"
+                                ></div>
+                            ) :
+                            "Asignar clases"}
+                        </button>
                     </div>
                 </div>
 

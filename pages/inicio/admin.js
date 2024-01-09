@@ -149,7 +149,7 @@ export default function Admin(){
                         {
                             currentUsers &&
                             currentUsers?.map((user,index)=>
-                                <MenuUsers key={index} user={user} validZeller={validZeller}/>
+                                <MenuUsers loading={isLoading} key={index} user={user} validZeller={validZeller} updateUser={updateUser}/>
                             )
                         }
 
