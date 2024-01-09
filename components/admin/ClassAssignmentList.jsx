@@ -1,11 +1,20 @@
 import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import UnitList from "./UnitList";
 
-export default function ClassAssignmentList({level}){
+export default function ClassAssignmentList({ level, handlerChangeUnit, indexLevel, handlerChangeLevel }){
     const [isOpen, setIsOpen] = useState(false)
-    const [asigned, setAsigned] = useState(false)
+    const [assigned, setAsigned] = useState(level?.assigned)
+    
+    
+    useEffect(()=>{
+        let newLevel = {
+            ...level,
+            assigned: assigned
+        }
+        handlerChangeLevel(indexLevel, newLevel)
+    },[assigned])
 
     return(
         <div
@@ -19,10 +28,10 @@ export default function ClassAssignmentList({level}){
                 {/* Titulo / Check box */}
                 <div className="flex items-center">
                     <input
-                    value={asigned}
-                    checked={asigned}
+                    value={assigned}
+                    checked={assigned}
                     onChange={(e)=>{
-                        setAsigned(!asigned)
+                        setAsigned(!assigned)
                     }}
                     onClick={(e)=>e.stopPropagation()}
                     className="checkbox mr-2"
@@ -37,11 +46,11 @@ export default function ClassAssignmentList({level}){
             {/* Unidades */}
             {
                 isOpen &&
-                <ul className={`${asigned == false  && "opacity-50 pointer-events-none"}`}>
+                <ul className={`${assigned == false  && "opacity-50 pointer-events-none"}`}>
                     {
                         level?.units && level?.units?.length > 0  &&
                         level?.units?.map((unit, index)=>
-                        <UnitList key={index} unit={unit}/>
+                        <UnitList key={index} unit={unit} indexLevel={indexLevel} indexUnit={index} handlerChangeUnit={handlerChangeUnit}/>
                         )
                     }
                 </ul>
