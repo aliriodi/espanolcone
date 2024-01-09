@@ -43,7 +43,7 @@ export default function Admin(){
             const users = await response.json();
             setIsLoading(false);
             setCurrentUsers(users.users);
-            setTotalUsers(users.totalUsers);
+            // setTotalUsers(users.totalUsers);
         }
         catch (error) {
             setIsLoading(false);

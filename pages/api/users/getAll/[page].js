@@ -30,7 +30,7 @@ export default async function getTeachersWithAgendaFromTomorrow(req, res) {
                     res.status(200).json(
                         {
                             users: output,
-                            totalUsers: allUsers.length
+                            // totalUsers: allUsers.length
                         }
                     );
                 }
