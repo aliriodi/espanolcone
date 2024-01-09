@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Logo from '../public/imgs/logo-gradient.png';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faAngleRight,faCalendarDays,faEnvelope, faHouse, faPersonHiking, faChalkboardUser, faLaptop, faAddressCard, faPen, faBell, faBars, faUser, faMoneyBill, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faAngleRight,faCalendarDays,faEnvelope, faHouse, faPersonHiking, faChalkboardUser, faLaptop, faAddressCard, faPen, faBell, faBars, faUser, faMoneyBill, faArrowLeft, faUserTie } from '@fortawesome/free-solid-svg-icons';
 import SignOutBtn from './signOut/SignOutBtn';
 import { setshowClass } from '../redux/ECEActions';
 import { useSession } from "next-auth/react";
@@ -279,6 +279,21 @@ const Menu = (props) => {
                                     </button>
                                     {isOpenMail && <ModalSendEmail open={setIsOpenMail} />}
                                 </li>
+
+                                {/* Panel Admin */}
+                                {
+                                session && session.user && session.user.role.includes('admin') &&
+                                    <li>
+                                        <Link
+                                            className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
+                                        ${currentPathName == '/inicio/admin' && "bg-primary text-white"}
+                                    hover:bg-primary hover:text-white`}
+                                            href="/inicio/admin">
+                                            <FontAwesomeIcon icon={faUserTie} className=" mr-[10px]" />
+                                            <p>Administracion</p>
+                                        </Link>
+                                    </li>
+                                }
 
                                 {/* Cargar Clase */}
                                 {session && session.user && session.user.role.includes('admin') ?
