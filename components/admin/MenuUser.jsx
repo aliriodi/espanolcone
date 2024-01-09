@@ -1,7 +1,6 @@
 import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useRef, useState } from "react";
-import ClassAssignmentModal from "./classAssignmentModal";
 import ClassAssignmentList from "./ClassAssignmentList";
 import Spinner from "../Spinner";
 
