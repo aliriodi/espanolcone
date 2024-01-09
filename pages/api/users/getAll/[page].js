@@ -14,13 +14,13 @@ export default async function getTeachersWithAgendaFromTomorrow(req, res) {
                 await dbConnect();
                 console.log('CONNECTED TO MONGO DB');
 
-                const maxResults = 18;
+                // const maxResults = 18;
 
-                const allUsers = await Users.find().exec();
+                // const allUsers = await Users.find().exec();
 
-                const filteredUser = allUsers.slice((maxResults * page) - maxResults, maxResults * page);
+                // const filteredUser = allUsers.slice((maxResults * page) - maxResults, maxResults * page);
 
-                const  output = filteredUser
+                // const  output = filteredUser
 
                 // Verifica procedencia de solicitud 
                 console.log("/////////////////////////////// ",req.headers.accept == "*/*" ? "Solicitud desde Codigo": "Solicitud desde Navegador"," ///////////////////////////////")
@@ -41,7 +41,8 @@ export default async function getTeachersWithAgendaFromTomorrow(req, res) {
 
                 res.status(200).json(
                     {
-                        users: output,
+                        message:"Hola Mundo"
+                        // users: output,
                         // totalUsers: allUsers.length
                     }
                 );
