@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
+const {sendEmail,hola} = require('./functionAssigmentMeet')
 
 export default function MeetAssigment({ renders, meeting }) {
 
@@ -28,17 +29,15 @@ export default function MeetAssigment({ renders, meeting }) {
        
 
 
-
         //console.log(renders.user.calendar)
         renders.user.calendar.map(meet => {
             if (meet.startDatetime === meeting.startDatetime) {
                 meet['meet'] = inputString;
-               // console.log(meet)
+                console.log(meet)
             }
 
         })
-       
-       console.log(massageTeacher)
+        sendEmail(renders,meeting)          
         setMeetAsigning(false)
     };
     return (
@@ -81,11 +80,11 @@ export default function MeetAssigment({ renders, meeting }) {
                                 <div className='p-1 text-center'>
 
                                     {messageReady ?
-                                        <button className={' bg-primary rounded-md text-white w-1/3 p-2 mt-1 '}
+                                        <button className={' bg-primary rounded-md text-white w-1/3 p-2 mt-1 ' }
                                             onClick={() => SendMeetAssigment()}>
                                             Asignar Meet
                                         </button> :
-                                        <button className={'opacity-50 bg-primary rounded-md text-white w-1/3 p-2 mt-1 '} disabled>
+                                        <button className={'bg-primary rounded-md text-white w-1/3 p-2 mt-1 opacity-50'} disabled>
                                             Asignar Meet
                                         </button>
                                     }
