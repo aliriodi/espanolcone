@@ -3,7 +3,7 @@ import Users from '../../../../models/Users'
 
 export default async function getTeachersWithAgendaFromTomorrow(req, res) {
     const {
-        query: { page },
+        query: { currentPage },
         method,
     } = req;
 
@@ -18,7 +18,7 @@ export default async function getTeachersWithAgendaFromTomorrow(req, res) {
 
                 const allUsers = await Users.find().exec();
 
-                const filteredUser = allUsers.slice((maxResults * page) - maxResults, maxResults * page);
+                const filteredUser = allUsers.slice((maxResults * currentPage) - maxResults, maxResults * currentPage);
 
                 const  output = filteredUser
 
