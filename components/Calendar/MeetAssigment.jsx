@@ -1,6 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
+import { get } from 'mongoose';
+
+const { sendEmail,  sendBDmeet , modifyUserCalendar} = require('./functionAssigmentMeet')
 
 export default function MeetAssigment({ renders, meeting }) {
 
@@ -9,6 +12,12 @@ export default function MeetAssigment({ renders, meeting }) {
     //Definir cuando el mensaje esta listo para enviar
     const [messageReady, setmessageReady] = useState(false);
     const [remainingCharacters, setRemainingCharacters] = useState(120);
+
+    //Este useEffect es para cambiar el estado de la ruta del meet a 
+    // medida que se cambia el meet
+    useEffect(() => {
+        setInputString(meeting?.meet ? meeting.meet : '');
+    }, [meeting])
 
     // Función para manejar cambios en el input
     function handleInputChange(event) {
@@ -25,21 +34,25 @@ export default function MeetAssigment({ renders, meeting }) {
     };
     //funcion para enviar meet
     function SendMeetAssigment() {
-       
-
-
-
         //console.log(renders.user.calendar)
+        modifyUserCalendar(meeting.iduser,meeting,inputString)
+
         renders.user.calendar.map(meet => {
             if (meet.startDatetime === meeting.startDatetime) {
                 meet['meet'] = inputString;
-               // console.log(meet)
+              //  console.log(meet)
             }
-
         })
        
-       console.log(massageTeacher)
+        
+    
+        //Envio correos a estudiante y a teacher
+        sendEmail(renders, meeting)
+        
+        //actualizo el calendario del teacher
+        sendBDmeet(renders.user.email, renders.user.calendar)
         setMeetAsigning(false)
+     
     };
     return (
         <div>
@@ -85,7 +98,7 @@ export default function MeetAssigment({ renders, meeting }) {
                                             onClick={() => SendMeetAssigment()}>
                                             Asignar Meet
                                         </button> :
-                                        <button className={'opacity-50 bg-primary rounded-md text-white w-1/3 p-2 mt-1 '} disabled>
+                                        <button className={'bg-primary rounded-md text-white w-1/3 p-2 mt-1 opacity-50'} disabled>
                                             Asignar Meet
                                         </button>
                                     }
