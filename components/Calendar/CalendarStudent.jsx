@@ -1009,7 +1009,7 @@ export default function Schedule() {
                     className='btn-primary px-5 py-2.5 mb-2 w-full text-[16px]'>
                       Confirmar
                       </button> }
-                  {openModalDescription && <ModalDescAssig renders={renders} meeting={null} personSchedule={personSchedule} openPay={setPayModal} openButton={setopenModalDescription}/>}
+                  {openModalDescription && <ModalDescAssig renders={renders} meeting={null} personSchedule={personSchedule} openPay={openPlan} openButton={setopenModalDescription}/>}
                   {OpenP && <Plan Confirm={Confirm} newMeeting={newMeeting} closePlan={closePlan} />}
 
                   {
