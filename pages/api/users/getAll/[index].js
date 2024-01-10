@@ -1,7 +1,7 @@
 import dbConnect from '../../../../config/mongo'
 import Users from '../../../../models/Users'
 
-export default async function GetAllUsers(req, res) {
+export default async function GetUsersPage(req, res) {
     const {
         query: { index },
         method,
