@@ -156,39 +156,48 @@ function ContactUS() {
 
             <Layout className='bg-white relative overflow-x-hidden'>
                 <Navbar light={true} />
-                <section className='flex items-center justify-center flex-col bg-white px-[170px] min-h-screen py-[187px] relative
-        md:px-[20px]'>
+                <section className='flex items-center justify-center flex-col bg-white  min-h-screen py-[187px] relative
+                md:px-[25px]'>
 
                     {/* Titulo */}
-                    <h1 className='underlined-title mb-[111px] z-10'> {t("title")}</h1>
+                    <h1 className='underlined-title mb-[40px] z-10'> {t("title")}</h1>
 
                     <div className="flex items-center justify-center z-10
-          md:flex-col">
+                    md:flex-col">
 
-                        <section id="contact" className="ptb_150" style={{ background: '#F7F8FD' }}>
+                        <section id="contact" className="ptb_150">
+
                             <div className="container" >
-                                <div className="row justify-content-center">
+
+                                <div className="row justify-content-center mb-8">
                                     <div className="col-12 col-md-10 col-lg-6">
                                         {/* Section Heading */}
-                                        <div className="section-heading ">
+                                        <div className="section-heading text-center text-violet_dark">
 
-                                            <p className="d-sm-block mt-4">{t("paragraph1")}</p>
-                                            <p style={{ paddingBottom: "20px" }} className="d-sm-block mt-4">{t("paragraph2")}</p>
+                                            <p className="text-violet_dark mt-2 text-[18px]">{t("paragraph1")}</p>
+                                            <p className="text-violet_dark mt-2 text-[18px]">{t("paragraph2")}</p>
                                         </div>
                                     </div>
                                 </div>
+
                                 <div style={{ justifyContent: 'center' }} className="contact-section ">
                                     <div className="">
+
                                         {/* Contact Box */}
-                                        <div className="contact-box text-center">
+                                        <div className="">
+                                            
                                             {/* Contact Form */}
                                             <form ref={form} onSubmit={sendEmail} >
-                                                <div style={{ margin: '0', justifyContent: 'center' }} className="">
+
+                                                <div>
+
                                                     <div className="">
+
+                                                        {/* Nombre */}
                                                         <div className="form-group">
                                                             <input
                                                                 type="text"
-                                                                className="form-control"
+                                                                className="w-full border-2 rounded-[7px] p-2 my-2 outline-primary"
                                                                 name="name"
                                                                 value={name}
                                                                 onChange={handleInputChange}
@@ -196,10 +205,12 @@ function ContactUS() {
                                                                 required="required"
                                                             />
                                                         </div>
+
+                                                        {/* Email */}
                                                         <div className="form-group">
                                                             <input
                                                                 type="email"
-                                                                className="form-control"
+                                                                className="w-full border-2 rounded-[7px] p-2 my-2 outline-primary"
                                                                 name="email"
                                                                 onChange={handleInputChange}
                                                                 placeholder={t("email")}
@@ -207,11 +218,13 @@ function ContactUS() {
                                                                 required="required"
                                                             />
                                                         </div>
+
+                                                        {/* Mensaje */}
                                                         <div className="">
                                                             <div className="form-group">
                                                                 <textarea
-                                                                    className="form-control"
-                                                                    name="message"
+                                                                    className="w-full border-2 rounded-[7px] p-2 my-2 outline-primary"
+                                                                    name="message "
                                                                     placeholder={t("message")}
                                                                     onChange={handleInputChange}
                                                                     value={message}
@@ -219,20 +232,21 @@ function ContactUS() {
                                                                 />
                                                             </div>
 
-                                                            <button className={'btn-action bg-primary rounded-md text-white '} style={{ position: 'absolute', right: '33%', width: '78px', height: '40px' }} type="submit"  >{t("send")}</button>
+                                                            <button className={'btn-primary rounded-md w-full py-2 font-medium'} type="submit"  >{t("send")}</button>
 
                                                         </div>
                                                     </div>
                                                 </div>
                                             </form>
+
                                         </div>
-                                        <img style={{ position: 'absolute', top: '58%', left: '73%' }} src='https://res.cloudinary.com/dfddh08q8/image/upload/v1694366433/images/icon-profe-contact_seoqfp.png' className="teacher-contact" />
-                                        <img style={{ position: 'absolute', top: '25%', transform: 'scaleX(-1)', left: "0%" }} src='/img/ellipse-70.png' className="ellipse-contact" />
+                                        <img style={{ position: 'absolute', top:'80%', right: '10%' }} src='https://res.cloudinary.com/dfddh08q8/image/upload/v1694366433/images/icon-profe-contact_seoqfp.png' className="teacher-contact" />
                                         <div style={{ position: 'absolute', top: '20%', left: '96%', borderColor: '#33BB99' }} className='shape-2'>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                         </section>
 
 

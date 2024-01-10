@@ -293,8 +293,11 @@ export default function Ofrece() {
                 {t("card4.2.list.3")}
                 </p>
               </div>
+
               {/* Boton de anotarse en lista de guias */}
-           <div className='flex justify-center bg-primary rounded-md text-white '  style={{ width: '128px', height: '38px' }}><button onClick={()=>setList(!List)}>{t("card4.2.button")}</button></div>
+              <button
+              className="w-[90%] bg-gradient-to-r from-primary to-success rounded-[7px] text-white p-2 absolute bottom-4 left-[50%] translate-x-[-50%] transition-all
+              hover:shadow-[0px_4px_14px_0px_#8438FFA6]" onClick={()=>setList(!List)}>{t("card4.2.button")}</button>
            
             </div>
             <div>{List && <ModalListTourist open={setList}/> }</div>
