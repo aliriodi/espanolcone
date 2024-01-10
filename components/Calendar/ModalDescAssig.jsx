@@ -83,18 +83,20 @@ export default function MeetAssigment({ renders, meeting, personSchedule, openPa
 
                             <div
                                 onClick={(e) => e.stopPropagation()}
-                                className='bg-white rounded-md p-5 flex flex-col w-[700px] relative'>
+                                className='bg-white rounded-md p-5 flex flex-col w-[700px] relative
+                                md:w-full'>
 
                                 <FontAwesomeIcon
                                     onClick={() => { openButton(false) }}
                                     icon={faX}
                                     className='absolute right-5 top-5 text-violet_dark' />
-                                <div>Si desea incluir un tema especifico para profundizar en su clase seleccione <span className='text-primary'><b>SI / YES</b></span>, en caso contrario seleccione <span className='text-primary'><b>NO / NO</b></span> y sera dirigido a la seccion de pagos.</div>
+                                <div className=' text-violet_dark'>Si desea incluir un tema especifico para profundizar en su clase seleccione <span className='text-primary'><b>SI / YES</b></span>, en caso contrario seleccione <span className='text-primary'><b>NO / NO</b></span> y sera dirigido a la seccion de pagos.</div>
                                 
-                                <div className='relative top-2'>If you want to include a specific topic to delve into in your class, select <span className='text-primary'><b>SI / YES</b></span>, otherwise select <span className='text-primary'><b>NO / NO</b></span> and you will be directed to the payment section.</div>
-                                <div className=' grid  grid-cols-2  content-center top-2 relative'>
-                                    <div><button onClick={() => YeAssinGTP()} className={' bg-primary rounded-md text-white w-1/3 p-2 mt-1 '}>SI / YES</button></div>
-                                    <div><button onClick={() => NoAssignGTP()} className={' bg-primary rounded-md text-white w-1/3 p-2 mt-1 '}>NO / NO</button></div>
+                                <div className='relative top-2 text-light'>If you want to include a specific topic to delve into in your class, select <span className='text-primary'><b>SI / YES</b></span>, otherwise select <span className='text-primary'><b>NO / NO</b></span> and you will be directed to the payment section.</div>
+
+                                <div className='flex flex-col content-center top-2 relative mt-2'>
+                                    <div><button onClick={() => YeAssinGTP()} className={' bg-primary rounded-md text-white w-full p-2 my-1 '}>SI / YES</button></div>
+                                    <div><button onClick={() => NoAssignGTP()} className={' border-2 border-primary rounded-md text-primary font-medium w-full p-2 my-1 '}>NO / NO</button></div>
                                 </div>
 
                             </div>
