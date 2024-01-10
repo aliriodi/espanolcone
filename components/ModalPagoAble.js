@@ -27,7 +27,8 @@ export default function ModalPagoABLE(props) {
 
           <div
          onClick={(e)=>e.stopPropagation()}
-          className='bg-white rounded-md p-5'>
+          className='bg-white rounded-md p-5 relative
+          md:w-full md:px-0 md:rounded-none'>
 
             {/* Logo */}
             <div className=' flex justify-center flex-col border-b-2 pb-5 items-center relative'>
@@ -40,7 +41,8 @@ export default function ModalPagoABLE(props) {
             {/* Metodo de pago */}
             <div
             className='w-[750px] max-h-[70vh] flex-col flex justify-center p-3 mt-7
-            overflow-y-scroll modal-paypal'>
+            overflow-y-scroll modal-paypal
+            md:w-full'>
                 <button
                     type="button"
                     onClick={() => {props.open1(),props.close()}}

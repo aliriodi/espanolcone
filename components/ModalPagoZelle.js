@@ -23,6 +23,8 @@ import {
   parseISO,
   startOfToday,
 } from 'date-fns'
+import { faCircleCheck, faX } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 export default function ModalPagoZELLE(props) {
@@ -506,24 +508,25 @@ console.log(props.dates)
 
           <div
           onClick={(e)=>e.stopPropagation()}
-          className='bg-white rounded-md'>
+          className='bg-white rounded-md relative
+          md:w-full md:rounded-none'>
 
-            {/* Logo */}
-            {/* <div className=' flex justify-center flex-col border-b-2 pb-5 items-center relative'>
-
-              <Image  src={Logo} className='mb-6' style={{ width: '100px' }} alt="Logo" />
-
-              <p className='text-[18px] text-light font-medium absolute bottom-[-13px] bg-white px-2'>Métodos de pago:</p>
-            </div> */}
+            {/* Boton para cerrar modal */}
+            <FontAwesomeIcon
+            onClick={closeModal}
+            icon={faX}
+            className='absolute right-5 top-5 text-white z-[999]'/>
 
             {/* Metodo de pago */}
             <div
             className='w-[750px] max-h-[70vh]  flex justify-center
-            overflow-y-auto'>
+            overflow-y-auto
+            md:w-full md:max-h-screen'>
               
               <div className='w-full m-auto'>
                 {/* Zelle Logo */}
-                <div className='bg-[#7422e0] py-3 px-6 mb-5 rounded-[5px_5px_0_0]'>
+                <div className='bg-[#7422e0] py-3 px-6 mb-5 rounded-[5px_5px_0_0]
+                md:rounded-none'>
                   <Image  src={Zelle} className='' style={{ width: '100px' }} alt="Zelle" />
                 </div>
 

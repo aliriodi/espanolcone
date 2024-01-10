@@ -28,7 +28,8 @@ export default function ModalPagoPAYPALL(props) {
 
           <div
           onClick={(e)=>e.stopPropagation()}
-          className='bg-white rounded-md p-5'>
+          className='bg-white rounded-md p-5
+          md:w-full md:rounded-none'>
 
             {/* Logo */}
             <div className=' flex justify-center flex-col border-b-2 pb-5 items-center relative'>
@@ -41,7 +42,8 @@ export default function ModalPagoPAYPALL(props) {
             {/* Metodo de pago */}
             <div
             className='w-[750px] max-h-[70vh]  flex justify-center p-3 mt-7
-            overflow-y-scroll modal-paypal'>
+            overflow-y-scroll modal-paypal
+            md:w-full md:px-0'>
               
               <div className='w-full m-auto'>
                 {
