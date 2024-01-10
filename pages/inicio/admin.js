@@ -21,12 +21,9 @@ export default function Admin(){
     useEffect(()=>{
         if(status && status != "loading" && !session?.user?.role?.includes('admin'))window.location.href = "/inicio/home";
     },[status])
-
-    useEffect(()=>{
-        window.scrollTo({top: 0});
-    },[currentPage])
     
     useEffect(()=>{
+        window.scrollTo({top: 0});
         getAllUsers();
     },[currentPage])
 

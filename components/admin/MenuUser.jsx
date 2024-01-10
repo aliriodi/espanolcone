@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useRef, useState } from "react";
 import ClassAssignmentList from "./ClassAssignmentList";
 import Spinner from "../Spinner";
-import { set } from "date-fns/esm/fp";
 
 export default function MenuUsers({ user, validZeller, updateUser, loading }){
     const [openMenu, setOpenMenu] = useState(false)
@@ -18,7 +17,7 @@ export default function MenuUsers({ user, validZeller, updateUser, loading }){
     useEffect(() => {
         
         // setCurrentPathName(window.location.pathname)
-
+        console.log("Holis")
         function handleClickOutside(event) {
             if (menuRef.current && !menuRef.current.contains(event.target)) {
                 setOpenMenu(false);
