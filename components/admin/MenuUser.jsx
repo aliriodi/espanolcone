@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useRef, useState } from "react";
 import ClassAssignmentList from "./ClassAssignmentList";
 import Spinner from "../Spinner";
+import { set } from "date-fns/esm/fp";
 
 export default function MenuUsers({ user, validZeller, updateUser, loading }){
     const [openMenu, setOpenMenu] = useState(false)
@@ -10,6 +11,7 @@ export default function MenuUsers({ user, validZeller, updateUser, loading }){
     const [isLoading, setIsLoading] = useState(false)
 
     const [currentClasses, setCurrentClasses] = useState(null)
+    const [currentPosition, setCurrentPosition] = useState(null)
 
     const menuRef = useRef(null);
 
@@ -40,9 +42,10 @@ export default function MenuUsers({ user, validZeller, updateUser, loading }){
         if(openModalClass && !currentClasses)getAllClass()
     },[openModalClass])
 
-    useEffect(()=>{
-        // console.log("currentClasses",currentClasses)
-    },[currentClasses])
+    // useEffect(()=>{
+    //     console.log(user)
+    //     if(currentPosition && user?.position)setCurrentPosition(user.position)
+    // },[user])
     
     async function getAllClass(){
         try {
@@ -156,8 +159,10 @@ export default function MenuUsers({ user, validZeller, updateUser, loading }){
             }
         ).filter(Boolean);
         
-        newUser.classes = finalClasses
+        newUser.classes = finalClasses;
+        if(currentPosition)newUser.position = currentPosition;
 
+        console.log("newUser ",newUser)
         updateUser(newUser)
     }
 
@@ -179,6 +184,54 @@ export default function MenuUsers({ user, validZeller, updateUser, loading }){
         setCurrentClasses(newClasses)
     }
     
+    function handlerLastUnitDone(indexLevel, indexUnit, Unit,maxPages){
+        let newClasses = [...currentClasses];
+
+        newClasses.map((level, currentIndexLevel)=>{
+
+            // En caso que el nivel este antes de la unidad actual, se marca como completo todas las unidades
+            if(currentIndexLevel < indexLevel && level.assigned){
+                level.units = level.units?.map(currentUnit=>{
+                    return{
+                        ...currentUnit,
+                        done: true,
+                        enable:true
+                    }
+                })
+            }
+            
+            // En caso que el nivel este despues de la unidad actual, se desabilitan todas las unidades
+            if(currentIndexLevel > indexLevel && level.assigned){
+                level.units = level.units?.map(currentUnit=>{
+                    return{
+                        ...currentUnit,
+                        done: false,
+                        enable:false
+                    }
+                })
+                
+            }
+
+            // En caso
+            if(currentIndexLevel == indexLevel && level.assigned){
+                level.units = level.units?.map((currentUnit,index)=>{
+
+                    if(index < indexUnit && currentUnit?.assigned)return {...currentUnit,done: true,enable:true}
+
+                    if(index == indexUnit && currentUnit?.assigned)return{...currentUnit,done: false,enable:true}
+
+                    if(index > indexUnit && currentUnit?.assigned)return{...currentUnit,done: false,enable:false}
+
+                    return currentUnit
+                })
+            }
+        })
+
+        setCurrentClasses(newClasses)
+        setCurrentPosition({id:Unit.unitID,index:0,maxpages:maxPages})
+        // position
+    }
+    
     function handlerChangeLevel(indexLevel, newLevel){
         let newClasses = currentClasses;
         
@@ -188,6 +241,7 @@ export default function MenuUsers({ user, validZeller, updateUser, loading }){
 
         setCurrentClasses(newClasses)
     }
+
 
     return(
         <>
@@ -282,7 +336,7 @@ export default function MenuUsers({ user, validZeller, updateUser, loading }){
                         {
                             currentClasses && currentClasses?.length > 0 ?
                             currentClasses?.map((level, index)=>
-                                <ClassAssignmentList key={index} indexLevel={index} level={level} handlerChangeUnit={handlerChangeUnit} handlerChangeLevel={handlerChangeLevel}/>
+                                <ClassAssignmentList key={index} indexLevel={index} level={level} handlerChangeUnit={handlerChangeUnit} handlerChangeLevel={handlerChangeLevel} handlerLastUnitDone={handlerLastUnitDone}/>
                             )
                             :
                             <div className="w-full h-full flex justify-center items-center absolute top-0 left-0">
@@ -295,17 +349,17 @@ export default function MenuUsers({ user, validZeller, updateUser, loading }){
                         <button
                         onClick={classesAssignment}
                         className=" btn-primary py-2 px-10 w-full text-[18px]">
-                            {
-                            isLoading ?
-                            (
-                                <div
-                                className={`inline-block  h-7 w-7 animate-spin rounded-full border-white border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite] ${isLoading &&"pointer-events-none"}`}
-                                role="status"
-                                ></div>
-                            ) :
-                            "Asignar clases"}
+                            Asignar clases
                         </button>
                     </div>
+
+                    {/* Loader */}
+                    {
+                        isLoading &&
+                        <div className="fixed w-full h-full bg-[#fffa] top-0 left-0 z-50 flex justify-center items-center">
+                            <Spinner/>
+                        </div>
+                    }
                 </div>
 
             </div>

@@ -19,7 +19,7 @@ export default function Admin(){
     },[])
     
     useEffect(()=>{
-        if(status != "loading" && !session?.user?.role?.includes('admin'))window.location.href = "/inicio/home";
+        if(status && status != "loading" && !session?.user?.role?.includes('admin'))window.location.href = "/inicio/home";
     },[status])
 
     useEffect(()=>{

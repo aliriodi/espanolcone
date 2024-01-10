@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import UnitList from "./UnitList";
 
-export default function ClassAssignmentList({ level, handlerChangeUnit, indexLevel, handlerChangeLevel }){
+export default function ClassAssignmentList({ level, handlerChangeUnit, indexLevel, handlerChangeLevel, handlerLastUnitDone }){
     const [isOpen, setIsOpen] = useState(false)
     const [assigned, setAsigned] = useState(level?.assigned)
     
@@ -50,7 +50,7 @@ export default function ClassAssignmentList({ level, handlerChangeUnit, indexLev
                     {
                         level?.units && level?.units?.length > 0  &&
                         level?.units?.map((unit, index)=>
-                        <UnitList key={index} unit={unit} indexLevel={indexLevel} indexUnit={index} handlerChangeUnit={handlerChangeUnit}/>
+                        <UnitList key={index} unit={unit} indexLevel={indexLevel} indexUnit={index} handlerChangeUnit={handlerChangeUnit} handlerLastUnitDone={handlerLastUnitDone}/>
                         )
                     }
                 </ul>
