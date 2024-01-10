@@ -143,6 +143,7 @@ export default function Example() {
     // console.log(startDatetime1,typeof(endDatetime1))
     hoursOfDay.push({
       assigned: false,
+      description:'',
       preassigned: false,
       role: "",
       locationCreated: country,

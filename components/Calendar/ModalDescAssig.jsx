@@ -5,7 +5,7 @@ import { get } from 'mongoose';
 
 const { sendEmail, sendBDmeet, modifyUserCalendar } = require('./functionAssigmentMeet')
 
-export default function MeetAssigment({ renders, meeting, personSchedule, openPay, openButton }) {
+export default function MeetAssigment({ renders, meeting, personSchedule, openPay, openButton,setDescription }) {
 
     const [buttonOn, setButtonOn] = useState(true);
     const [descAsigment, setDescAsigment] = useState(false);
@@ -34,7 +34,7 @@ export default function MeetAssigment({ renders, meeting, personSchedule, openPa
 
     };
     //funcion para enviar description al teacher
-    function SendMeetAssigment() {
+    function SendDescAssigment() {
         // //console.log(renders.user.calendar)
         // modifyUserCalendar(meeting.iduser, meeting, inputString)
 
@@ -44,7 +44,12 @@ export default function MeetAssigment({ renders, meeting, personSchedule, openPa
         //         //  console.log(meet)
         //     }
         // })
-        alert('enviando descrition')
+        //alert('enviando descrition')
+        setTimeout(function() {
+            setDescription(inputString);
+          }, 500);
+        
+
         openPay(true);
        
         setDescAsigment(false)
@@ -137,11 +142,11 @@ export default function MeetAssigment({ renders, meeting, personSchedule, openPa
 
                                     {messageReady ?
                                         <button className={' bg-primary rounded-md text-white w-1/3 p-2 mt-1 '}
-                                            onClick={() => SendMeetAssigment()}>
-                                            Asignar Meet
+                                            onClick={() => SendDescAssigment()}>
+                                            Asignar tema
                                         </button> :
                                         <button className={'bg-primary rounded-md text-white w-1/3 p-2 mt-1 opacity-50'} disabled>
-                                            Asignar Meet
+                                            Asignar tema
                                         </button>
                                     }
 
