@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'next-i18next';
+import Logo from '../../public/imgs/logo-gradient.png';
+import Image from 'next/image';
+import { faCircleCheck, faX } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function ModalListTourist(props) {
     const { t } = useTranslation('index');
@@ -47,43 +51,63 @@ export default function ModalListTourist(props) {
         <div>
             <div
                 onClick={() => props.open(false)}
-                className='fixed w-screen min-h-screen top-0 left-0 bg-[#000000aa] flex flex-col justify-center items-center z-50'>
+                className='fixed w-screen min-h-screen top-0 left-0 bg-[#000000aa] flex flex-col justify-center items-center z-[999]'>
 
 
 
                 <div
-                    onClick={(e) => e.stopPropagation()}
-                    className='bg-white rounded-md p-5'>
+                onClick={(e) => e.stopPropagation()}
+                className='bg-white rounded-md p-5 flex flex-col w-[700px] relative
+                md:w-full md:rounded-none'>
 
+                    {/* Boton de cerrar modal */}
+                    <FontAwesomeIcon
+                        onClick={() => props.open(false)}
+                        icon={faX}
+                        className='absolute right-5 top-5 text-violet_dark w-[12px] z-50 ursor-pointer'/>
+                    
                     {/* Logo */}
-                    <div className=' flex justify-rigth flex-col border-b-2 pb-5 items-center relative'>
-
-                        {/* <Image  src={Logo} className='mb-6' style={{ width: '100px' }} alt="Logo" /> */}
-                        <button className='rounded-md text-white  bg-red-500' onClick={() => props.open(false)}> X </button>
-                        <div className='text-[18px] text-light bg-white'>
-                            {!emailok && t("card4.2.messageModal")}
-                        </div>
-                        {!emailok && <input className='border-2 ' type="text" value={inputString} onChange={handleInputChange} />}
-
-                        {/* Email Invalido o valido message */}
-                        {/* {inputString.length > 6 && !validateEmail && <div className='text-red-500'> {t("card4.2.emailInvalid")}</div>} */}
-
-                        {/* boton de enviar */}
-                        {!emailok &&  <div className='flex justify-center  text-center '>
-                                          <button className={'bg-primary rounded-md text-white ' +
-                                                           (!validateEmail && 'hidden') }
-                                                  style={{ width: '68px', height: '30px' }}
-                                                  onClick={() => sendList()}>{t("card4.2.send")}</button>
-                                                  
-                                                  <div className={'  bg-primary rounded-md text-white ' +
-                                                           (validateEmail && 'hidden') }
-                                                           style={{ width: '68px', height: '30px' }}> {t("card4.2.send")}</div>
-                                     </div>}
-
-
-                        {/* Mostrar mensaje email agendado */}
-                        {emailok && <div>{t("card4.2.sendOK")}</div>}
+                    <div className=' flex justify-center flex-col items-center relative mb-[30px]'>
+                        <Image  src={Logo} className='' style={{ width: '100px' }} alt="Logo" />
                     </div>
+
+                    {/* Anotate en la lista */}
+                    <div className=' font-medium text-[28px] bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text min-h-[28px] text-center mb-[25px]
+                    md:text-[21px]'>
+                        {!emailok && t("card4.2.messageModal")}
+                    </div>
+
+                    {/* Input */}
+                    {
+                    !emailok &&
+                    <input
+                    placeholder='Escribe tu email'
+                    className='rounded-md border-2 border-primary outline-primary_hover p-3 w-full mb-3'
+                    type="text"
+                    value={inputString} onChange={handleInputChange} />}
+
+                    {/* Email Invalido o valido message */}
+                    {/* {inputString.length > 6 && !validateEmail && <div className='text-red-500'> {t("card4.2.emailInvalid")}</div>} */}
+
+                    {/* boton de enviar */}
+                    {
+                    !emailok &&
+                    <div className='flex justify-center  text-center '>
+                        <button 
+                        className={`bg-primary rounded-md text-white w-full p-2 ${!validateEmail && 'hidden'} transition-all
+                        hover:bg-[#4ED5F2] hover:shadow-[0px_4px_14px_0px_#3CBBD661]`}
+                        onClick={() => sendList()}>{t("card4.2.send")}</button>
+                                
+                        <div
+                        className={`bg-primary rounded-md text-white w-full p-2 ${validateEmail && 'hidden'} opacity-50 pointer-events-none`}>
+                            {t("card4.2.send")}
+                        </div>
+                    </div>}
+
+
+                    {/* Mostrar mensaje email agendado */}
+                    {emailok && <div>{t("card4.2.sendOK")}</div>}
+                    
                 </div>
             </div>
         </div>

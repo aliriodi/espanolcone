@@ -170,7 +170,8 @@ export default function ModalSendEmail(props) {
 
                 <div
                     onClick={(e) => e.stopPropagation()}
-                    className='bg-white rounded-md p-5 flex flex-col w-[700px] relative'>
+                    className='bg-white rounded-md p-5 flex flex-col w-[700px] relative
+                    md:w-full md:rounded-none'>
 
                     <FontAwesomeIcon
                         onClick={() => props.open(false)}
@@ -179,7 +180,9 @@ export default function ModalSendEmail(props) {
                     
                     <div className='flex items-center mb-[30px] flex-col'>
                         <Image src={Logo} alt={'Logo'} className='w-[123px] h-[78px]'/>
-                        <h3 className=' font-medium text-[28px] bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text min-h-[28px] text-center'>Contactanos por email</h3>
+                        <h3
+                        className=' font-medium text-[28px] bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text min-h-[28px] text-center
+                        md:text-[21px]'>Contactanos por email</h3>
                     </div>
                     
                     {/* Campo */}
