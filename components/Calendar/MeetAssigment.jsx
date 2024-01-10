@@ -90,6 +90,10 @@ export default function MeetAssigment({ renders, meeting }) {
                                     maxLength={120}
                                     rows={2} // Establecer un número inicial de filas
                                 />
+                                {meeting?.description?
+                                <><div>Tema a dictar:</div>
+                                <div>{meeting.description}</div></>:null
+                                }
                                 <div className='px-4 text-right'>{remainingCharacters + '/120'}</div>
                                 <div className='p-1 text-center'>
 

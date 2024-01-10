@@ -58,6 +58,7 @@ export default function Schedule() {
   //variable para asignar New Meeting en caso de asignar hora
   let [newMeeting, setNewMeeting] = useState()
   const [openModalDescription, setopenModalDescription] = useState(false)
+  const [Description, setDescription] = useState('')
   const [paypalModal, setPaypalModal] = useState(false)
   const [paypalDates, setPaypalDates] = useState(null)
   const [ZelleModal, setZelleModal] = useState(false)
@@ -409,6 +410,7 @@ export default function Schedule() {
         newcalendar.push({
           assigned: true,
           preassgined:false,
+          description:Description,
           id: personSchedule['_id'],
           iduser: renders.user['_id'],
           nameuser: renders.user.first_name + ' ' + renders.user.last_name,
@@ -433,6 +435,7 @@ export default function Schedule() {
           iduser: renders.user._id,
           assigned: true,
           preassgined:false,
+          description:Description,
           first_name: personSchedule.first_name,
           last_name: personSchedule.last_name,
           email: personSchedule.email,
@@ -1009,7 +1012,7 @@ export default function Schedule() {
                     className='btn-primary px-5 py-2.5 mb-2 w-full text-[16px]'>
                       Confirmar
                       </button> }
-                  {openModalDescription && <ModalDescAssig renders={renders} meeting={null} personSchedule={personSchedule} openPay={openPlan} openButton={setopenModalDescription}/>}
+                  {openModalDescription && <ModalDescAssig renders={renders} meeting={null} personSchedule={personSchedule} openPay={openPlan} openButton={setopenModalDescription} setDescription={setDescription}/>}
                   {OpenP && <Plan Confirm={Confirm} newMeeting={newMeeting} closePlan={closePlan} />}
 
                   {
