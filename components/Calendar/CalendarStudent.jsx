@@ -29,6 +29,7 @@ import { Fragment, useState, useEffect } from 'react'
 import ModalPago from '../ModalPagoPAYPAL';
 import ModalPago2 from '../ModalPagoZelle';
 import ModalPagoABLE from '../ModalPagoAble';
+import ModalDescAssig from './ModalDescAssig';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoneyBill } from '@fortawesome/free-solid-svg-icons';
 import { apiBaseUrl } from 'next-auth/client/_utils';
@@ -56,7 +57,11 @@ export default function Schedule() {
   let [personSchedule, setPersonSchedule] = useState({})
   //variable para asignar New Meeting en caso de asignar hora
   let [newMeeting, setNewMeeting] = useState()
-
+  const [openModalDescription, setopenModalDescription] = useState(false)
+  const [paypalModal, setPaypalModal] = useState(false)
+  const [paypalDates, setPaypalDates] = useState(null)
+  const [ZelleModal, setZelleModal] = useState(false)
+  const [PayModal, setPayModal] = useState(false)
   const [isPaymentConfirmed, setIsPaymentConfirmed] = useState(false);
   const [paymentCancelled, setPaymentCancelled] = useState(false);
   const [OpenP, setOpenP] = useState(false);
@@ -74,16 +79,7 @@ export default function Schedule() {
     setPaymentCancelled(false); // Asegúrate de restablecer el otro estado
       };
 
-      // const handlePaymentSuccess1 =async  (data,response) => {
-      //   // alert('ahi vengo')
-      //    console.log('data',data)
-      //    console.log('response',response)
-      //    setPreassgined(true)
-      //    setIsPaymentConfirmed(true);
-      //    await PAYOK(paypalDates,response).then(response=>Confirm());
-      //    setPaymentCancelled(false); // Asegúrate de restablecer el otro estado
-      //      };
-
+     
   const handlePaymentCancel = () => {
     setIsPaymentConfirmed(false);
     PAYNOK();
@@ -204,10 +200,7 @@ export default function Schedule() {
 
   }
 
-  const [paypalModal, setPaypalModal] = useState(false)
-  const [paypalDates, setPaypalDates] = useState(null)
-  const [ZelleModal, setZelleModal] = useState(false)
-  const [PayModal, setPayModal] = useState(false)
+ 
 
   const openPaypalModal = (VALUE) => {
     setPaypalModal(true)
@@ -1004,7 +997,7 @@ export default function Schedule() {
                    session.user.planSync[lastplansyc-1].valid&&
                   <button
                     type="button"
-                    onClick={() => openPlan()}
+                    onClick={()=>setopenModalDescription(true)}
                     className='btn-primary px-5 py-2.5 mb-2 w-full text-[16px]'>
                       Confirmar
                       </button> }
@@ -1016,7 +1009,7 @@ export default function Schedule() {
                     className='btn-primary px-5 py-2.5 mb-2 w-full text-[16px]'>
                       Confirmar
                       </button> }
-
+                  {openModalDescription && <ModalDescAssig renders={renders} meeting={null} personSchedule={personSchedule} openPay={setPayModal} openButton={setopenModalDescription}/>}
                   {OpenP && <Plan Confirm={Confirm} newMeeting={newMeeting} closePlan={closePlan} />}
 
                   {
