@@ -4,9 +4,10 @@ import Spinner from "../Spinner";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 
-export default function UnitList({ unit, indexUnit, indexLevel, handlerChangeUnit }){
+export default function UnitList({ unit, indexUnit, indexLevel, handlerChangeUnit, handlerLastUnitDone }){
     const [isOpen, setIsOpen] = useState(false)
-    const [ firstPage, setFirstPage ] = useState(null)
+    const [firstPage, setFirstPage ] = useState(null)
+    const [maxPages, setMaxPages] = useState(0)
     const [assigned, setAsigned] = useState(unit?.assigned)
 
     useEffect(()=>{
@@ -19,6 +20,7 @@ export default function UnitList({ unit, indexUnit, indexLevel, handlerChangeUni
                 return response.json();
             })
             .then((response) => {
+                setMaxPages(response.class1?.sheets?.length)
                 setFirstPage(response.class1?.sheets[0]);
                 console.log(response.class1?.sheets[0])
                 console.log(response.class1?.sheets[0].data?.find(element => element?.type == "image"))
@@ -39,6 +41,16 @@ export default function UnitList({ unit, indexUnit, indexLevel, handlerChangeUni
         }
         handlerChangeUnit(indexLevel, indexUnit, newUnit)
     },[assigned])
+
+    function lastUnitDone(e){
+        e.stopPropagation()
+
+        let newUnit = {
+            ...unit,
+            assigned: assigned
+        }
+        handlerLastUnitDone(indexLevel, indexUnit, newUnit,maxPages)
+    }
 
     return(
         <li
@@ -66,9 +78,16 @@ export default function UnitList({ unit, indexUnit, indexLevel, handlerChangeUni
                     {unit?.name}
                 </div>
 
+                {/* Check de unidad Echa */}
                 {
                     unit?.done &&
-                    <FontAwesomeIcon icon={faCircleCheck} className=" text-secondary"/>
+                    <FontAwesomeIcon icon={faCircleCheck} className=" text-secondary z-20"/>
+                }
+
+                {/* Unidad actual */}
+                {
+                    !unit?.done && unit?.enable &&
+                    <div className="w-[14px] h-[14px] rounded-full bg-success border-2 border-white z-20"></div>
                 }
             </div>
 
@@ -95,11 +114,14 @@ export default function UnitList({ unit, indexUnit, indexLevel, handlerChangeUni
                             </div>
 
                             {/* Boton */}
-                            <button
-                            onClick={(e)=>e.stopPropagation()}
-                            className=" w-fit bg-secondary text-white p-2 rounded-[7px]">
-                                Ultima clase <FontAwesomeIcon icon={faCircleCheck} className=" text-white"/>
-                            </button>
+                            {
+                                assigned &&
+                                <button
+                                onClick={lastUnitDone}
+                                className={` w-fit py-2 px-6 rounded-[7px] transition-all ${!unit.done && unit.enable ? "pointer-events-none border-2 border-success text-success font-medium" : "btn-success"}`}>
+                                    {!unit.done && unit.enable ? "Unidad actual" : "Marcar como unidad actual"}
+                                </button>
+                            }
                         </div>
 
                         {/* Imagen */}
