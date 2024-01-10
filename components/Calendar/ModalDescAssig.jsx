@@ -45,8 +45,11 @@ export default function MeetAssigment({ renders, meeting, personSchedule, openPa
         //     }
         // })
         //alert('enviando descrition')
-        setDescription(inputString);
+        setTimeout(function() {
+            setDescription(inputString);
+          }, 500);
         
+
         openPay(true);
        
         setDescAsigment(false)
