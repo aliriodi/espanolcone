@@ -4,49 +4,17 @@ import Logo from '../../public/imgs/logo-gradient.png';
 import Image from 'next/image';
 import { faCircleCheck, faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import PlansAync from '../Plan/PlansAync';
 
-export default function ModalListTourist({open,setOpen}) {
+export default function ModalListTourist({setOpen}) {
     const { t } = useTranslation('index');
 
-    // Definir el estado para almacenar la cadena
-    const [inputString, setInputString] = useState('');
-    const [validateEmail, setvalidateEmail] = useState(false);
-    const [emailok, setEmailok] = useState(false);
+   
 
 
+   
 
-    // Función para manejar cambios en el input
-    const handleInputChange = (event) => {
-        setInputString(event.target.value);
-        // Expresión regular para validar un correo electrónico
-        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        setvalidateEmail(regex.test(event.target.value))
-    };
-
-    async function sendList() {
-        try {
-
-            await fetch('/api/email/add',
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-
-                    body: JSON.stringify({ email: inputString, suscribe: true }),
-                })
-
-
-        } catch (error) {
-            console.log(error);
-        }
-        setEmailok(true)
-        setTimeout(function () {
-            props.open(false)
-        }, 2000);
-
-
-    }
+   
     return (
         <div>
             <div
@@ -71,7 +39,7 @@ export default function ModalListTourist({open,setOpen}) {
                         <Image  src={Logo} className='' style={{ width: '100px' }} alt="Logo" />
                     </div>
 
-                
+                    <PlansAync closePlan={setOpen}/ >
                 
 
                 
