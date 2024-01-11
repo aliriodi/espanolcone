@@ -10,7 +10,7 @@ export default function ModalPagoABLE({ open, setOpen }) {
 
   const closeModal = () => {
     setOpen(false)
-    setIsOpen(false)
+    
   }
 
   useEffect(() => {
@@ -30,14 +30,14 @@ export default function ModalPagoABLE({ open, setOpen }) {
               onClick={(e) => e.stopPropagation()}
               className='bg-white rounded-md p-5 relative
           md:w-full md:px-0 md:rounded-none'>
-              {/* X de cierre */}
-              <FontAwesomeIcon
-                onClick={() => props.open(false)}
-                icon={faX}
-                className='absolute right-5 top-5 text-violet_dark' />
+             
               {/* Logo */}
               <div className=' flex justify-center flex-col border-b-2 pb-5 items-center relative'>
-
+ {/* X de cierre */}
+ <FontAwesomeIcon
+                onClick={ closeModal }
+                icon={faX}
+                className='absolute right-5 top-5 text-violet_dark' />
                 <Image src={Logo} className='mb-6' style={{ width: '100px' }} alt="Logo" />
 
                 <p className='text-[18px] text-light font-medium absolute bottom-[-13px] bg-white px-2'>Modal Generico</p>
