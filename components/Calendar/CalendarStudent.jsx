@@ -273,7 +273,7 @@ export default function Schedule() {
       const length = newplan.length;
       newplan[length-1].classview=newplan[length-1].classview+1;
       try{
-        fetch('/api/users/update',
+       await fetch('/api/users/update',
         {
           method: "POST",
           headers: {
@@ -293,7 +293,7 @@ export default function Schedule() {
   async function PAYOK(VALUE,DATESPAYPAL){
     //alert('265 entre en payok()')
     try{
-      fetch('/api/users/update',
+     await fetch('/api/users/update',
       {
         method: "POST",
         headers: {
@@ -333,7 +333,7 @@ export default function Schedule() {
       //envio recibo a BD
              
       try{
-        fetch('/api/receipt/add',
+     await   fetch('/api/receipt/add',
         {
           method: "POST",
           headers: {
