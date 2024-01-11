@@ -410,7 +410,6 @@ export default function Schedule() {
         newcalendar.push({
           assigned: true,
           preassgined:false,
-          description:Description,
           id: personSchedule['_id'],
           iduser: renders.user['_id'],
           nameuser: renders.user.first_name + ' ' + renders.user.last_name,
@@ -426,7 +425,8 @@ export default function Schedule() {
           startDatetime: meeting.startDatetime,
           endDatetime: meeting.endDatetime,
           userstartDatetime: meeting.userstartDatetime,
-          userendDatetime: meeting.userendDatetime
+          userendDatetime: meeting.userendDatetime,
+          description:Description,
         })
         //aca asigno el profesor al calendario del alumno
         renders.user.calendar.map(calendar => newcalendarS.push(calendar))
@@ -435,7 +435,6 @@ export default function Schedule() {
           iduser: renders.user._id,
           assigned: true,
           preassgined:false,
-          description:Description,
           first_name: personSchedule.first_name,
           last_name: personSchedule.last_name,
           email: personSchedule.email,
@@ -449,7 +448,8 @@ export default function Schedule() {
           locationCreated: meeting.locationCreated,
           locationscheduled: country,
           userstartDatetime: meeting.userstartDatetime,
-          userendDatetime: meeting.userendDatetime
+          userendDatetime: meeting.userendDatetime,
+          description:Description,
         })
 
         newcalendarS.sort((a, b) => {

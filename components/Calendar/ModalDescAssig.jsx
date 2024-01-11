@@ -22,6 +22,7 @@ export default function MeetAssigment({ renders, meeting, personSchedule, openPa
 
     // Función para manejar cambios en el input
     function handleInputChange(event) {
+        setDescription(inputString);
         const remainingChars = 120 - event.target.value.length;
         if (remainingChars >= 0) {
             setInputString(event.target.value);
@@ -35,23 +36,7 @@ export default function MeetAssigment({ renders, meeting, personSchedule, openPa
     };
     //funcion para enviar description al teacher
     function SendDescAssigment() {
-        // //console.log(renders.user.calendar)
-        // modifyUserCalendar(meeting.iduser, meeting, inputString)
-
-        // renders.user.calendar.map(meet => {
-        //     if (meet.startDatetime === meeting.startDatetime) {
-        //         meet['meet'] = inputString;
-        //         //  console.log(meet)
-        //     }
-        // })
-        //alert('enviando descrition')
-        setTimeout(function() {
-            setDescription(inputString);
-          }, 500);
-        
-
         openPay(true);
-       
         setDescAsigment(false)
         openButton(false);
     };
