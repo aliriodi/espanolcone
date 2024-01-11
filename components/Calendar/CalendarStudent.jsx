@@ -7,6 +7,9 @@ import { useRouter } from 'next/router';
 import Spinner from '../Spinner';
 import styles from '../../styles/navbar.module.css';
 import Plan from '../Plan/Plansync';
+
+
+
 import { es } from 'date-fns/locale';
 import {
   add,
@@ -68,6 +71,8 @@ export default function Schedule() {
   const [OpenP, setOpenP] = useState(false);
   const [preassgined, setPreassgined] = useState(false);
   const [assigned, setAssgined] = useState(false);
+
+
   const lastplansyc = session?.user?.planSync?.length;
   //PAGO DE PAYPAL OK
   const handlePaymentSuccess =async  (data,response) => {
@@ -942,6 +947,7 @@ export default function Schedule() {
           {/* Seccion asignacion de calendarios de acuerdo a disponibildiad */}
           <section className='w-[20%] relative flex justify-start flex-col
           md:w-full'>
+          
             {
               personSchedule?.calendar?.length &&
               session.user.planSync[session.user.planSync.length-1].qty - session.user.planSync[session.user.planSync.length-1].classview > 0 ?

@@ -31,7 +31,8 @@ export default async function POST(req, res){
           image,
           image2,
           aux,
-          aux2
+          aux2,
+          
         });
     
         await newUser.save();
