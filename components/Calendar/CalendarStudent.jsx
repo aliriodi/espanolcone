@@ -466,7 +466,10 @@ export default function Schedule() {
           // Compare the dates
           return dateA - dateB;
         });
-
+          
+        function descriptionApp(){
+          if(Description.length>4){return `<p>Tema a tratar: ${Description}</p>`}
+        }
         function AMOPM(meetingTime){
           const timeString = meetingTime?.slice(meetingTime?.indexOf("T") + 1);
           if (timeString) {
@@ -567,6 +570,7 @@ export default function Schedule() {
               <p>y termina a las <b>${AMOPM(newMeeting.endDatetime)}</b>,</p> 
               <p class="mt">El horario del alumno inicia a las <b>${AMOPM(newMeeting.userstartDatetime)}</b></p>
               <p>y termina a las <b>${AMOPM(newMeeting.userendDatetime) /*+newMeeting?.userendDatetime.slice(newMeeting?.userendDatetime?.indexOf("T") + 1)*/}</b></p>
+              ${descriptionApp()}
             </div>
             
             <footer style="font-size: 18px;">
@@ -650,6 +654,7 @@ export default function Schedule() {
               <p>Se te asignó una clase para el día <b>${newMeeting?.userstartDatetime.slice(0, newMeeting?.startDatetime?.indexOf("T"))}</b>,</p>
               <p>a partir de las <b>${AMOPM(meeting.userstartDatetime)}</b>,</p>
               <p>y termina a las <b>${AMOPM(meeting.userendDatetime)}</b>,</p> 
+              ${descriptionApp()}
             </div>
             
             <footer style="font-size: 18px;">

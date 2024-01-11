@@ -51,11 +51,11 @@
         "Desfrutar de eventos e atividades exclusivas do Español con E.",
         "Praticar espanhol com falantes nativos e conhecer novas pessoas."
       ],
-      "button":"PT Saber mas",
-      "messageModal":"PT Anotate en la lista",
-      "send":"PT send",
-      "sendOK":"PT  email agendado",
-      "emailInvalid":"PT Email no valido"
+      "button":"Cadastre-se para receber informações exclusivas",
+      "messageModal":"Viva a experiência única do turismo linguístico. Saiba mais sobre nossa próxima viagem em abril de 2023. Cadastre-se para receber informações exclusivas.",
+      "send":"Enviar",
+      "sendOK":"E-mail agendado",
+      "emailInvalid":"e-mail inválido"
     }
   ],
   "card5": [
