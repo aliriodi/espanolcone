@@ -175,7 +175,7 @@ export default function Ofrece() {
                   {/* Boton Modal de pagos ofertas */}
                   <div className='w-[100%] relative top-4'>
                   <button
-                    className="w-[116%] bg-gradient-to-r from-primary to-success rounded-[7px] text-white p-2 relative top-16 left-[50%] translate-x-[-50%] transition-all
+                    className="w-[116%] bg-gradient-to-l from-primary to-success rounded-[7px] text-white p-2 relative top-16 left-[50%] translate-x-[-50%] transition-all
                     hover:shadow-[0px_4px_14px_0px_#8438FFA6]" onClick={() => setOffer(!Offer)}>{t("card4.1.button")}</button>           
                 </div>
               
