@@ -1,4 +1,4 @@
-import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
+import { faArrowUpFromBracket, faChalkboard, faChalkboardTeacher, faEllipsisVertical, faPersonHiking, faUser, faUserTie } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useRef, useState } from "react";
 import ClassAssignmentList from "./ClassAssignmentList";
@@ -6,21 +6,27 @@ import Spinner from "../Spinner";
 
 export default function MenuUsers({ user, validZeller, updateUser, loading }){
     const [openMenu, setOpenMenu] = useState(false)
+    const [openMenuRole, setOpenMenuRole] = useState(false)
     const [openModalClass, setOpenModalClass] = useState(false)
+
     const [isLoading, setIsLoading] = useState(false)
 
     const [currentClasses, setCurrentClasses] = useState(null)
     const [currentPosition, setCurrentPosition] = useState(null)
+    const [currentRole, setCurrentRole] = useState([])
 
     const menuRef = useRef(null);
+    const menuRoleRef = useRef(null)
 
     useEffect(() => {
         
         // setCurrentPathName(window.location.pathname)
-        console.log("Holis")
         function handleClickOutside(event) {
             if (menuRef.current && !menuRef.current.contains(event.target)) {
                 setOpenMenu(false);
+            }
+            if (menuRoleRef.current && !menuRoleRef.current.contains(event.target)) {
+                setOpenMenuRole(false);
             }
         }
 
@@ -42,9 +48,17 @@ export default function MenuUsers({ user, validZeller, updateUser, loading }){
     },[openModalClass])
 
     // useEffect(()=>{
-    //     console.log(user)
-    //     if(currentPosition && user?.position)setCurrentPosition(user.position)
-    // },[user])
+    //     if(!openMenuRole){
+    //         updateUser({
+    //             ...user,
+    //             role:currentRole
+    //         })
+    //     }
+    // },[openMenuRole])
+
+    useEffect(()=>{
+        if(currentRole != user?.role)setCurrentRole(user?.role)
+    },[user])
     
     async function getAllClass(){
         try {
@@ -241,6 +255,14 @@ export default function MenuUsers({ user, validZeller, updateUser, loading }){
         setCurrentClasses(newClasses)
     }
 
+    function handlerChangeRole(role){
+        let newCurrentRole = [...currentRole]
+        if(!currentRole?.includes(role)) newCurrentRole.push(role)
+        else newCurrentRole = newCurrentRole.filter(r=> r != role)
+
+        setCurrentRole(newCurrentRole)
+    }
+
 
     return(
         <>
@@ -258,7 +280,7 @@ export default function MenuUsers({ user, validZeller, updateUser, loading }){
                 <p className="w-[220px]">{user?.email}</p>
 
                 {/* Role */}
-                <p className="w-[120px]">{user?.role}</p>
+                <p className="w-[120px]">{currentRole}</p>
 
                 {/* Menu */}
                 <div className="relative">
@@ -282,11 +304,81 @@ export default function MenuUsers({ user, validZeller, updateUser, loading }){
                     {/* Opciones */}
                     {
                         openMenu &&
-                        <ul className="absolute top-[50%] shadow-[0px_4px_24px_#0000002F] right-0 bg-white w-max z-20 overflow-hidden rounded-[7px]">
+                        <ul className="absolute top-[50%] shadow-[0px_4px_24px_#0000002F] right-0 bg-white w-max z-20 rounded-[7px]">
                             {/* Actualizar rol */}
-                            <li className=" py-[8px] px-[20px] border-b-[1px] cursor-pointer transition-all
+                            <li
+                            onClick={(e)=>{
+                                e.stopPropagation()
+                                setOpenMenuRole(!openMenuRole)
+                            }}
+                            className=" py-[8px] px-[20px] border-b-[1px] cursor-pointer transition-all rounded-[7px_7px_0_0] relative
                             hover:bg-primary_flat_hover">
                                 Actualizar rol
+
+                                {/* Roles */}
+                                {
+                                    openMenuRole &&
+                                    <ul
+                                    ref={menuRoleRef}
+                                    onClick={(e)=>e.stopPropagation()}
+                                    className="absolute top-[95%] right-[95%] bg-white rounded-[7px]  shadow-[0px_4px_24px_#0000002F] z-[90]">
+
+                                        {/* Administrador */}
+                                        <li
+                                        onClick={()=>handlerChangeRole("admin")}
+                                        className={`flex items-center  py-[8px] px-[20px] transition-all z-[90] relative rounded-[7px_7px_0_0]
+                                        ${currentRole?.length > 0 && currentRole?.includes("admin") ? "bg-primary text-white" : "hover:bg-primary_flat_hover"}`}>
+                                            <FontAwesomeIcon
+                                            className=" mr-3"
+                                            icon={faUserTie}/>
+                                            Administrador
+                                        </li>
+                                        
+                                        {/* Profesor */}
+                                        <li
+                                        onClick={()=>handlerChangeRole("teacher")}
+                                        className={`flex items-center  py-[8px] px-[20px] transition-all
+                                        ${currentRole?.length > 0 && currentRole?.includes("teacher") ? "bg-primary text-white" : "hover:bg-primary_flat_hover"}`}>
+                                            <FontAwesomeIcon
+                                            className=" mr-3"
+                                            icon={faChalkboardTeacher}/>
+                                            Profesor
+                                        </li>
+                                        
+                                        
+                                        {/* Guia turistica */}
+                                        <li
+                                        onClick={()=>handlerChangeRole("guide")}
+                                        className={`flex items-center  py-[8px] px-[20px] transition-all
+                                        ${currentRole?.length > 0 && currentRole?.includes("guide") ? "bg-primary text-white" : "hover:bg-primary_flat_hover"}`}>
+                                            <FontAwesomeIcon
+                                            className=" mr-3"
+                                            icon={faPersonHiking}/>
+                                            Guía turistico 
+                                        </li>
+
+                                        
+                                        {/* Administrador */}
+                                        <li
+                                        onClick={()=>handlerChangeRole("user")}
+                                        className={`flex items-center  py-[8px] px-[20px] transition-all rounded-[0_0_7px_7px]
+                                        ${currentRole?.length > 0 && currentRole?.includes("user") ? "bg-primary text-white" : "hover:bg-primary_flat_hover"}`}>
+                                            <FontAwesomeIcon
+                                            className=" mr-3"
+                                            icon={faUser}/>
+                                            Usuario
+                                        </li>
+
+                                        {/* Actualizar */}
+                                        <li
+                                        onClick={()=>updateUser({...user,role:currentRole})}
+                                        title="Actualizar rol de usuario"
+                                        className="absolute bg-white text-primary bottom-[95%] right-[95%] flex justify-center items-center w-10 h-10 rounded-full shadow-[0px_4px_24px_#0000002F] border-2 border-primary transition-all
+                                        hover:bg-primary hover:text-white ">
+                                            <FontAwesomeIcon className=" " icon={faArrowUpFromBracket}/>
+                                        </li>
+                                    </ul>
+                                }
                             </li>
 
                             {/* Asignar Clases */}
@@ -300,7 +392,7 @@ export default function MenuUsers({ user, validZeller, updateUser, loading }){
                             {/* Validar Zeller */}
                             <li
                             onClick={handlerValidZeller}
-                            className={`relative py-[8px] px-[20px] cursor-pointer transition-all ${user?.planSync?.length > 0 && !user?.planSync[user?.planSync?.length - 1]?.valid ? "opacity-1": "opacity-50 pointer-events-none"}
+                            className={`relative py-[8px] px-[20px] cursor-pointer transition-all ${user?.planSync?.length > 0 && !user?.planSync[user?.planSync?.length - 1]?.valid ? "opacity-1": "opacity-50 pointer-events-none rounded-[0_0_7px_7px]"}
                             hover:bg-primary_flat_hover`}>
 
                                 {/* Indicador de Zeller */}
@@ -355,7 +447,7 @@ export default function MenuUsers({ user, validZeller, updateUser, loading }){
                     {/* Loader */}
                     {
                         isLoading &&
-                        <div className="fixed w-full h-full bg-[#fffa] top-0 left-0 z-50 flex justify-center items-center">
+                        <div className="fixed w-full h-full bg-[#fffa] top-0 left-0 z-[100] flex justify-center items-center">
                             <Spinner/>
                         </div>
                     }
