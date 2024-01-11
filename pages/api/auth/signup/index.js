@@ -32,7 +32,7 @@ export default async function POST(req, res){
           image2,
           aux,
           aux2,
-          
+          planSync:{clasview:1,qty:1}
         });
     
         await newUser.save();

@@ -8,7 +8,7 @@ import Spinner from '../Spinner';
 import styles from '../../styles/navbar.module.css';
 import Plan from '../Plan/Plansync';
 
-
+import Modalgenerico from '../ModalGENERICO'
 
 import { es } from 'date-fns/locale';
 import {
@@ -72,7 +72,7 @@ export default function Schedule() {
   const [preassgined, setPreassgined] = useState(false);
   const [assigned, setAssgined] = useState(false);
 
-
+  const [OpenP2, setOpenP2] = useState(false);
   const lastplansyc = session?.user?.planSync?.length;
   //PAGO DE PAYPAL OK
   const handlePaymentSuccess =async  (data,response) => {
@@ -947,7 +947,8 @@ export default function Schedule() {
           {/* Seccion asignacion de calendarios de acuerdo a disponibildiad */}
           <section className='w-[20%] relative flex justify-start flex-col
           md:w-full'>
-          
+            <div><button onClick={()=>setOpenP2(true)}>OPEN</button></div>
+            {OpenP2&&<Modalgenerico open={OpenP2} setOpen={setOpenP2}/>}
             {
               personSchedule?.calendar?.length &&
               session.user.planSync[session.user.planSync.length-1].qty - session.user.planSync[session.user.planSync.length-1].classview > 0 ?
