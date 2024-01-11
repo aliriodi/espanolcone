@@ -14,7 +14,15 @@ Cuando el pago es Zelle en la BD  hay que validar para modificar los siguientes 
 Corremos el server como 
 $ npm run dev
 
-1. api de clases como
+1. Creacion de Modal generico ubicado en 
+./componentes/ModalGEENRICO.jsx
+sedebe pasar por props un valor de 
+open = variable de estado local en valor true para que habra
+setOpen = funcion que descativa el modal en el padre debe haber algo como 
+conts [open,setOpen]=useState(false)
+y una funcion o boton que use el setOpen(true) para que habilite el modal 
+
+2. api de clases como
    
 /api/class/get
 
@@ -31,7 +39,7 @@ $ npm run dev
 /api/featureclass/get
 
 
-5. api de users
+4. api de users
    
 /api/users/get
 
@@ -43,7 +51,7 @@ $ npm run dev
 
 /api/users/image
 
-6. api de teachers
+5. api de teachers
 
    /api/teachers/get
 
@@ -51,14 +59,13 @@ $ npm run dev
 
    /api/teachers/getcalendar      (teachers con disponibilidad cargada a partir de manana)
 
-7. api features class
+6. api features class
 
    /api/features/add
    
    /api/features/get
 
-9. api de correos /api/mail   por   req.body {to:"email",subject:"titulo o asunto", text:"cuerpo o correo como tal"}
+7. api de correos /api/mail   por   req.body {to:"email",subject:"titulo o asunto", text:"cuerpo o correo como tal"}
 
-
-10. El archivo /styles/class.module.css  posee todas los estilos del componente que renderiza las clases
+8. El archivo /styles/class.module.css  posee todas los estilos del componente que renderiza las clases
 
