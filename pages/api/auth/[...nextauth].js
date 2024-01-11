@@ -51,7 +51,8 @@ export default NextAuth({
           image: {
             url: profile.picture,
             public_id: ""
-          }
+          },
+          planSync:{clasview:1,qty:1}
         }
 
         signInUser(newUser)
