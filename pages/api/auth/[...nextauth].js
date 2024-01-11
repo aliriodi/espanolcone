@@ -11,29 +11,29 @@ export default NextAuth({
     CredentialsProvider({
       name: 'credentials',
       credentials: {
-        email: { label: "Email", type: "email", placeholder: "yourEmail@gmail.com"},
-        password: { label: "Password", type: "password", placeholder: "***********"}
+        email: { label: "Email", type: "email", placeholder: "yourEmail@gmail.com" },
+        password: { label: "Password", type: "password", placeholder: "***********" }
       },
       async authorize(credentials, req) {
-        
-        try{
+
+        try {
           const userFound = await getUser(credentials.email);
-          if(!userFound) throw new Error("incorrect email");
+          if (!userFound) throw new Error("incorrect email");
 
           const passwordMatch = userFound.password == credentials.password;
-          if(!passwordMatch) throw new Error("incorrect password");
+          if (!passwordMatch) throw new Error("incorrect password");
 
           return { email: credentials.email, password: credentials.password };
         }
-        catch(error){
+        catch (error) {
           throw error;
         }
 
       }
     }),
     GoogleProvider({
-        clientId: process.env.GOOGLE_CLIENT_ID,
-        clientSecret: process.env.GOOGLE_CLIENT_SECRET
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET
     }),
     FacebookProvider({
       clientId: process.env.FACEBOOK_CLIENT_ID,
@@ -50,31 +50,35 @@ export default NextAuth({
           last_name: profile.family_name,
           image: {
             url: profile.picture,
-            public_id: ""
+            public_id: "",
           },
-          planSync:{clasview:1,qty:1}
+          planSync: {
+            clasview: 0,
+            qty: 0,
+            valid: true
+          }
         }
 
         signInUser(newUser)
-        
+
         return profile.email_verified
       }
       // console.log(account)
-      return true 
+      return true
     },
     async session({ session, token }) {
       //  Define lo que va a devolver session.user
-        if (session.user) {
-          let user = await getUser(session.user.email)
+      if (session.user) {
+        let user = await getUser(session.user.email)
 
-          // Se configuran Session
-          session.user = user;
+        // Se configuran Session
+        session.user = user;
 
-          // Se configura Token
-          // token.role = user?.role;
-        }
+        // Se configura Token
+        // token.role = user?.role;
+      }
 
-        return session
+      return session
     }
   },
   pages: {
@@ -83,28 +87,28 @@ export default NextAuth({
 });
 
 
-async function signInUser(user){
-  try{
+async function signInUser(user) {
+  try {
     await dbConnect()
-    
+
     const existingUser = await Users.findOne({ email: user.email });
 
     if (!existingUser) await Users.create(user)
   }
-  catch(e){
+  catch (e) {
     console.log(e)
   }
 }
 
-async function getUser(email){
-  try{
+async function getUser(email) {
+  try {
     await dbConnect()
-    
+
     const user = await Users.findOne({ email: email });
 
     return user
   }
-  catch(e){
+  catch (e) {
     console.log(e)
   }
 }
