@@ -1,10 +1,12 @@
 import Image from 'next/image'
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import { useTranslation } from 'next-i18next';
 import ModalListTourist from './ModalListTourist';
+import ModalPagoLanding from './ModalPagoLanding';
 
 export default function Ofrece() {
   let [List, setList] = useState(false)
+  let [Offer, setOffer] = useState(false)
   const { t } = useTranslation('index');
 
   return (
@@ -26,7 +28,7 @@ export default function Ofrece() {
 
           {/* Subtitulo */}
           <p className='flex justify-center items-center my-[36px] text-center font-medium' style={{ fontSize: '18px', color: '#5E6063', maxWidth: '535px' }}>
-            {t("card4.0.text")} 
+            {t("card4.0.text")}
           </p>
         </div>
 
@@ -38,12 +40,12 @@ export default function Ofrece() {
           <div
             className="bg-white shadow-lg rounded-lg  w-[500px] h-min-[646px] mr-[19px] py-[66px] px-[33px]
             md:mx-0 md:w-full md:px-[16px] md:mb-[19px]"
-            style={{boxShadow: '0px 4px 26px #00000040' }}>
+            style={{ boxShadow: '0px 4px 26px #00000040' }}>
 
             {/* Encabezado */}
             <div className="flex items-center
             md:flex-col"
-            style={{ borderBottom: '1px #DEDEDE solid', paddingBottom: '1.2em' }}>
+              style={{ borderBottom: '1px #DEDEDE solid', paddingBottom: '1.2em' }}>
 
               {/* Imagen */}
               <div className=" flex justify-center items-center p-1
@@ -58,8 +60,8 @@ export default function Ofrece() {
 
               {/* Titulo */}
               <div
-              
-              style={{ minWidth: '260px', marginLeft: '10px' }}>
+
+                style={{ minWidth: '260px', marginLeft: '10px' }}>
 
                 <h2
                   className="font-semibold
@@ -74,7 +76,7 @@ export default function Ofrece() {
                   md:text-center'
                   style={{ color: '#6E6B7B', marginTop: '10px', fontSize: '16px' }}>
                   {t("card4.1.text")}
-                                  
+
                 </p>
 
               </div>
@@ -87,23 +89,23 @@ export default function Ofrece() {
 
               <p className='flex justify-center items-start text-left' >
                 {t("card4.1.paragraph")}
-               </p>
+              </p>
 
               <p className='flex justify-center items-start text-left my-6'>
-              {t("card4.1.pargraph2")}
-               </p>
+                {t("card4.1.pargraph2")}
+              </p>
 
 
-              
-                          {/* Lista */}
+
+              {/* Lista */}
               <div className='flex justify-center items-start text-left mb-5'>
                 <div className="md:w-[38px]">
                   <span className='flex justify-center items-center bg-primary rounded-full mr-2' style={{ width: '18px', height: '18px' }}>
                     <Image
-                    width={12.38}
-                    height={12.38}
-                    src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
-                    alt='check'
+                      width={12.38}
+                      height={12.38}
+                      src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
+                      alt='check'
                     />
                   </span>
                 </div>
@@ -111,17 +113,18 @@ export default function Ofrece() {
 
                   {t("card4.1.list.0")}
                 </p>
+
               </div>
 
-              
+
               <div className='flex justify-center items-start text-left mb-5'>
                 <div className="md:w-[38px]">
                   <span className='flex justify-center items-center bg-primary rounded-full mr-2' style={{ width: '18px', height: '18px' }}>
                     <Image
-                    width={12.38}
-                    height={12.38}
-                    src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
-                    alt='check'
+                      width={12.38}
+                      height={12.38}
+                      src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
+                      alt='check'
                     />
                   </span>
                 </div>
@@ -131,15 +134,15 @@ export default function Ofrece() {
                 </p>
               </div>
 
-              
+
               <div className='flex justify-center items-start text-left mb-5'>
                 <div className="md:w-[38px]">
                   <span className='flex justify-center items-center bg-primary rounded-full mr-2' style={{ width: '18px', height: '18px' }}>
                     <Image
-                    width={12.38}
-                    height={12.38}
-                    src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
-                    alt='check'
+                      width={12.38}
+                      height={12.38}
+                      src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
+                      alt='check'
                     />
                   </span>
                 </div>
@@ -149,45 +152,53 @@ export default function Ofrece() {
                 </p>
               </div>
 
-              
+
               <div className='flex justify-center items-start text-left mb-5'>
                 <div className="md:w-[38px]">
                   <span className='flex justify-center items-center bg-primary rounded-full mr-2' style={{ width: '18px', height: '18px' }}>
                     <Image
-                    width={12.38}
-                    height={12.38}
-                    src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
-                    alt='check'
+                      width={12.38}
+                      height={12.38}
+                      src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
+                      alt='check'
                     />
                   </span>
                 </div>
                 <p className='flex justify-center items-start text-left'>
 
                   {t("card4.1.list.3")}
+
                 </p>
-              </div>
-
-
+                
+                
+                </div>
+                  {/* Boton Modal de pagos ofertas */}
+                  <div className='w-[100%] relative top-4'>
+                  <button
+                    className="w-[116%] bg-gradient-to-r from-primary to-success rounded-[7px] text-white p-2 relative top-16 left-[50%] translate-x-[-50%] transition-all
+                    hover:shadow-[0px_4px_14px_0px_#8438FFA6]" onClick={() => setOffer(!Offer)}>{t("card4.1.button")}</button>           
+                </div>
+              
             </div>
-
+            <div>{Offer && <ModalPagoLanding open={Offer} setOpen={setOffer} />}</div>
           </div>
 
           {/* Conoce Cordoba */}
           <div
             className="bg-white rounded-lg w-[500px] h-min-[646px] ml-[19px] py-[66px] px-[33px] relative
             md:mx-0 md:w-full md:px-[16px] md:mt-[19px]"
-            style={{boxShadow: '0px 4px 26px #00000040' }}>
+            style={{ boxShadow: '0px 4px 26px #00000040' }}>
 
             {/* Encabezado */}
             <div className="flex items-center
             md:flex-col"
-            style={{ borderBottom: '1px #DEDEDE solid', paddingBottom: '1.7em' }}>
+              style={{ borderBottom: '1px #DEDEDE solid', paddingBottom: '1.7em' }}>
 
               {/* Imagen */}
               <div className="flex justify-center items-center p-1 relative
               md:max-w-[400px] md:w-full">
                 <Image
-                className='md:mx-[60px] '
+                  className='md:mx-[60px] '
                   src="https://res.cloudinary.com/dfddh08q8/image/upload/v1694437864/images/icons-06_ihevx7.png"
                   alt="montaña"
                   width={400}
@@ -197,22 +208,22 @@ export default function Ofrece() {
 
               {/* Titulo */}
               <div
-              
-              style={{ minWidth: '260px', marginLeft: '10px' }}>
+
+                style={{ minWidth: '260px', marginLeft: '10px' }}>
                 <h2
                   className="font-semibold
                   md:text-center"
                   style={{ fontSize: '20px' }}
                 >
                   {t("card4.2.title")}
-                  
+
                 </h2>
                 <p
                   className='font-medium
                   md:text-center'
                   style={{ color: '#6E6B7B', marginTop: '10px', fontSize: '16px' }}>
                   {t("card4.2.text")}
-                  
+
                 </p>
               </div>
             </div>
@@ -221,11 +232,11 @@ export default function Ofrece() {
             <div className='flex justify-center flex-col pb-3 mt-8 text-violet_dark items-start px-6'>
 
               <p className='flex justify-center items-start text-left'>
-              {t("card4.2.paragraph")}
+                {t("card4.2.paragraph")}
               </p>
 
               <p className='flex justify-center items-start text-left my-6'>
-              {t("card4.2.paragraph2")}
+                {t("card4.2.paragraph2")}
               </p>
 
               {/* Lista */}
@@ -233,15 +244,15 @@ export default function Ofrece() {
                 <div className='w-[38px]'>
                   <span className='flex justify-center items-center bg-primary rounded-full mr-2' style={{ width: '18px', height: '18px' }}>
                     <Image
-                    width={12.38}
-                    height={12.38}
-                    src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
-                    alt='check'
+                      width={12.38}
+                      height={12.38}
+                      src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
+                      alt='check'
                     />
                   </span>
                 </div>
                 <p style={{ maxWidth: '353px' }}>
-                {t("card4.2.list.0")}
+                  {t("card4.2.list.0")}
                 </p>
               </div>
 
@@ -250,15 +261,15 @@ export default function Ofrece() {
                 <div className='w-[38px]'>
                   <span className='flex justify-center items-center bg-primary rounded-full mr-2' style={{ width: '18px', height: '18px' }}>
                     <Image
-                    width={12.38}
-                    height={12.38}
-                    src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
-                    alt='check'
+                      width={12.38}
+                      height={12.38}
+                      src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
+                      alt='check'
                     />
                   </span>
                 </div>
                 <p style={{ maxWidth: '353px' }}>
-                {t("card4.2.list.1")}
+                  {t("card4.2.list.1")}
                 </p>
               </div>
 
@@ -266,15 +277,15 @@ export default function Ofrece() {
                 <div className='w-[38px]'>
                   <span className='flex justify-center items-center bg-primary rounded-full mr-2' style={{ width: '18px', height: '18px' }}>
                     <Image
-                    width={12.38}
-                    height={12.38}
-                    src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
-                    alt='check'
+                      width={12.38}
+                      height={12.38}
+                      src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
+                      alt='check'
                     />
                   </span>
                 </div>
                 <p style={{ maxWidth: '353px' }}>
-                {t("card4.2.list.2")}
+                  {t("card4.2.list.2")}
                 </p>
               </div>
 
@@ -282,25 +293,26 @@ export default function Ofrece() {
                 <div className='w-[38px]'>
                   <span className='flex justify-center items-center bg-primary rounded-full mr-2' style={{ width: '18px', height: '18px' }}>
                     <Image
-                    width={12.38}
-                    height={12.38}
-                    src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
-                    alt='check'
+                      width={12.38}
+                      height={12.38}
+                      src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
+                      alt='check'
                     />
                   </span>
                 </div>
                 <p className='break-normal' style={{ maxWidth: '353px' }}>
-                {t("card4.2.list.3")}
+                  {t("card4.2.list.3")}
                 </p>
               </div>
 
               {/* Boton de anotarse en lista de guias */}
               <button
-              className="w-[90%] bg-gradient-to-r from-primary to-success rounded-[7px] text-white p-2 absolute bottom-4 left-[50%] translate-x-[-50%] transition-all
-              hover:shadow-[0px_4px_14px_0px_#8438FFA6]" onClick={()=>setList(!List)}>{t("card4.2.button")}</button>
-           
+                className="w-[90%] bg-gradient-to-r from-primary to-success rounded-[7px] text-white p-2 absolute bottom-4 left-[50%] translate-x-[-50%] transition-all
+              hover:shadow-[0px_4px_14px_0px_#8438FFA6]" onClick={() => setList(!List)}>{t("card4.2.button")}</button>
+
             </div>
-            <div>{List && <ModalListTourist open={setList}/> }</div>
+            <div>{List && <ModalListTourist open={setList} />}</div>
+
           </div>
 
         </div>
