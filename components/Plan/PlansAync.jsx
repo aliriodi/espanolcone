@@ -15,21 +15,8 @@ export default function Plansync({ Confirm, closePlan}) {
   Object.keys(plan).map((planX) =>
     plan[planX].type.includes('Sinc') ? plan1.push(plan[planX]) : null
   );
-  function validarEntrada(event) {
-    // console.log(typeof(event.target.value))
-    // console.log(typeof(parseInt(event.target.value, 10)))    
-    // console.log(parseInt(event.target.value, 10))
-    // console.log(isNaN(parseInt(event.target.value, 10)))
-    if(isNaN(parseInt(event, 10))){setValorInput(parseInt(4,10))}
-    else(setValorInput(parseInt(event,10)))
-  }
-  function aumentarClases(){
-    validarEntrada(valorInput + 1)
-  }
-  function restarClases(){
-    validarEntrada(valorInput - 1 >= 4 ? valorInput - 1 : 4)
-  }
 
+ 
   return (
 
     <div
