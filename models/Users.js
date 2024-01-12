@@ -73,7 +73,8 @@ const UserSchema = new Schema(
               points: Number,
               maxPoints: Number,
               maxPages: Number,
-              currentPage: Number
+              currentPage: Number,
+              toPay:Boolean
             }
           ],
 
