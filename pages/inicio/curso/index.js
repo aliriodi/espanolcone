@@ -30,9 +30,10 @@ export default function Curso(){
 
     useEffect(()=>{
         // Actualiza Niveles
-        setLevels(session?.user.classes.map((level)=>
+        setLevels(session?.user.classes.map((level, index)=>
                 {
                     return{
+                        index:index,
                         value: level.level,
                         label: level.level,
                         modules: level.units
@@ -40,7 +41,6 @@ export default function Curso(){
                 }
             )
         )
-        console.log(currentLevel)
     },[session])
     
     useEffect(()=>
@@ -59,6 +59,7 @@ export default function Curso(){
         for(let i = 0; i < (12 - currentLevel?.modules?.length); i++){
             newMissingUnits.push({ number : (i + currentLevel?.modules?.length) + 1})
         }
+        console.log(currentLevel)
 
         setMissingUnits(newMissingUnits)
     },[currentLevel])
@@ -148,11 +149,12 @@ export default function Curso(){
                 <>
                     {
                         // Modulo
-                        currentLevel?.modules.map((module)=>(
+                        currentLevel?.modules.map((module, index)=>(
                             <Link
                             // onClick={()=>dispatch(classid(module.unitID))}
                             key={module.number}
-                            href={`/inicio/curso/unidad?classId=${module.unitID}`}
+                            href={`/inicio/curso/unidad?classId=${module.unitID}&currentLevelIndex=${currentLevel.index}&currentUnitIndex=${index}`}
+                            as={`/inicio/curso/unidad?classId=${module.unitID}&currentLevelIndex=${currentLevel.index}&currentUnitIndex=${index}`}
                             className={`bg-white flex flex-col shadow-[0px_0px_4px_#00000040] rounded-[8px] py-[12px] justify-center min-w-[145px] items-center mx-[20px] mb-[50px] relative
                             transition-all hover:min-w-[160px]
                             md:py-[8px] md:px-[10px] md:mb-[10px]
@@ -177,6 +179,12 @@ export default function Curso(){
                                     md:text-[16px]">{module.number}</p>
                                 </div>
 
+                                {/* Pagar */}
+                                {
+                                module.pay == true &&
+                                <div className="absolute bottom-0 font-semibold text-primary">Pagar</div>
+                                }
+
                                 {/* Check */}
                                 {
                                 module.done &&
@@ -184,15 +192,6 @@ export default function Curso(){
                                     className="absolute bg-secondary text-white right-1 rounded-full py-[6px] px-[7px] text-[20px]
                                     md:text-[15px]"
                                     icon={faCheck}/>
-                                }
-
-                                {/* Check fail */}
-                                {
-                                // !module.done && module?.points != undefined&&
-                                //     <FontAwesomeIcon
-                                //     className="absolute bg-danger text-white right-1 rounded-full py-[5px] px-[7px] text-[20px] 
-                                //     md:text-[15px]"
-                                //     icon={faXmark}/>
                                 }
 
                             </Link>

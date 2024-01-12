@@ -15,7 +15,7 @@ export default function Courses() {
   const dispatch = useDispatch();
 
   const router = useRouter();
-  const { id } = router.query;
+  const { id, currentLevelIndex, currentUnitIndex } = router.query;
   // const id = useSelector((state) => state.datos.classid);
   const page = useSelector((state) => state.datos.classPage);
 
@@ -25,11 +25,6 @@ export default function Courses() {
   //   // Hacer algo con los datos recibidos del hijo
   //   setTitle(datos);
   // };
-
-  useEffect(() => {
-    // console.log(page)
-  }, [page]);
-
 
 
   return (
@@ -53,6 +48,8 @@ export default function Courses() {
             <Class 
             id={id} 
             page={page}
+            currentLevelIndex={currentLevelIndex}
+            currentUnitIndex={currentUnitIndex}
             //  updateTitle={updateTitle}
              ></Class></div> 
             :

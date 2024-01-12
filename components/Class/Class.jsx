@@ -272,7 +272,7 @@ export default function Class(props) {
         
     if(typeActivitys.length > 0 && allActivitysHaveResult() && data?.sheets[props.page].section?.number == 5) activitysHaveResult()
       
-    updateIndexPosition()
+    updateIndexPosition(1)
   }
   //como son n sheets retrocedo con el boton de forward
   function Back(i) {
@@ -301,21 +301,34 @@ export default function Class(props) {
   async function updateIndexPosition(nextIndex){
     // En caso de que la actual unidad este echa o el indice actual en menor al indice indicad en "position"
     // no hay necesidad de actualizar el "position"
-    if(currentUnitDone || data?.sheets?.indexOf(sheetsOfSection[i]) < session?.user?.position?.index) return
+    if(currentUnitDone || data?.sheets?.indexOf(sheetsOfSection[i]) < session?.user?.classes[props?.currentLevelIndex]?.units[props?.currentUnitIndex]?.currentPage) return
     
     let newIndex = data?.sheets.indexOf(sheetsOfSection[i])
 
-    newIndex = nextIndex && newIndex + nextIndex <= session?.user?.position?.maxpages ? 
-    newIndex + nextIndex :
+    newIndex = nextIndex && newIndex + nextIndex <= session?.user?.classes[props?.currentLevelIndex].units[props?.currentUnitIndex]?.maxPages ? 
+    newIndex + nextIndex : 
     newIndex
 
-    let updates = {
-      ...session?.user,
-      position:{
-          ...session?.user.position,
-          index:newIndex 
-      }
-    }
+    ////// Codigo anterior //////
+    // let updates = {
+    //   ...session?.user,
+    //   position:{
+    //       ...session?.user.position,
+    //       index:newIndex 
+    //   }
+    // }
+    ////////////////////////////
+
+    let updates = {...session?.user}
+
+    let newUnit = { ...(updates?.classes[props?.currentLevelIndex]?.units[props?.currentUnitIndex] || {}) };
+    newUnit = {
+      ...newUnit,
+      currentPage: newIndex
+    };
+
+    updates.classes[props?.currentLevelIndex].units[props?.currentUnitIndex] = newUnit;
+
     console.log("POSICION ACTUALIZADA ", updates)
 
     await updateUser(updates)
