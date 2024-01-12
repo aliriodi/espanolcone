@@ -62,6 +62,8 @@ export default function Plansync({ Confirm, closePlan }) {
               <p className=' text-violet_dark text-[16px]'>
                 * <b>1</b> <span className="italic">Master Class.</span> </p>
               <p className=' text-violet_dark text-[16px]'>
+                * <b>1</b> Clase grupal.</p>
+              <p className=' text-violet_dark text-[16px]'>
                 * Acceso por <b>1 mes</b> de todo el contenido de la plataforma. </p>
               <p className='text-center'><b>Promoción valida hasta el 15 de febrero de 2024</b></p>
             </div>
