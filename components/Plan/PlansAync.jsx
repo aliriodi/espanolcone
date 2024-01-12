@@ -99,10 +99,11 @@ export default function Plansync({ Confirm, closePlan }) {
               </p>
               {/* Descripcion */}
               <div className='relative top-4'>
-                <p className='text-violet_dark text-[16px]'>
-                * Acceso por <b>1 mes</b> a todo el contenido de la plataforma. </p>
+                
                 <p className='text-violet_dark text-[16px]'>
                 * <b>1</b> <span className="italic">Master Class.</span> </p>
+                <p className='text-violet_dark text-[16px]'>
+                * Acceso por <b>1 mes</b> a todo el contenido de la plataforma. </p>
               </div>
             </div>
             {/* Contenido */}
