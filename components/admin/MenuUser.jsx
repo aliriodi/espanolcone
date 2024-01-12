@@ -3,11 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useRef, useState } from "react";
 import ClassAssignmentList from "./ClassAssignmentList";
 import Spinner from "../Spinner";
+import ModalZelleValidation from './ModalZelleValidation';
 
-export default function MenuUsers({ user, validZeller, updateUser, loading }){
+export default function MenuUsers({ user, validZeller, updateUser, loading ,InvalidZeller}){
     const [openMenu, setOpenMenu] = useState(false)
     const [openMenuRole, setOpenMenuRole] = useState(false)
     const [openModalClass, setOpenModalClass] = useState(false)
+    const [openModalZelle, setOpenModalZelle] = useState(false)
 
     const [isLoading, setIsLoading] = useState(false)
 
@@ -391,7 +393,7 @@ export default function MenuUsers({ user, validZeller, updateUser, loading }){
 
                             {/* Validar Zeller */}
                             <li
-                            onClick={handlerValidZeller}
+                            onClick={()=>setOpenModalZelle(true)}
                             className={`relative py-[8px] px-[20px] cursor-pointer transition-all ${user?.planSync?.length > 0 && !user?.planSync[user?.planSync?.length - 1]?.valid ? "opacity-1": "opacity-50 pointer-events-none rounded-[0_0_7px_7px]"}
                             hover:bg-primary_flat_hover`}>
 
@@ -403,9 +405,10 @@ export default function MenuUsers({ user, validZeller, updateUser, loading }){
 
                                 Validar pago de Zeller
                             </li> 
-
+                        
                         </ul>
                     }
+                      {openModalZelle&&  <ModalZelleValidation open={openModalZelle} setOpen={setOpenModalZelle} user={user} validZeller={validZeller} InvalidZeller={InvalidZeller} setOpenMenu={setOpenMenu}/>}
                 </div>
             </div>
 
