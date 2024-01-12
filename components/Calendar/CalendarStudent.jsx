@@ -81,7 +81,8 @@ export default function Schedule() {
     console.log('response',response)
     setAssgined(true)
     setIsPaymentConfirmed(true);
-    await PAYOK(paypalDates,response).then(response=>Confirm());
+    setTimeout(function() {PAYOK(paypalDates,response);},500)
+    Confirm();
     setPaymentCancelled(false); // Asegúrate de restablecer el otro estado
       };
 
