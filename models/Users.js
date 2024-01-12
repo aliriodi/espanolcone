@@ -71,7 +71,9 @@ const UserSchema = new Schema(
               done: Boolean,
               enable: Boolean,
               points: Number,
-              maxPoints: Number
+              maxPoints: Number,
+              maxPages: Number,
+              currentPage: Number
             }
           ],
 
