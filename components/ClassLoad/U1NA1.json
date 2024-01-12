@@ -686,7 +686,7 @@
             },
             {
                 "type": "selectsimple",
-                "value": "1. ¡Hola! ¿qué tal?, ________________ Mateo",
+                "value": "1. ¡Hola! ¿Qué tal?, ________________ Mateo",
                 "option": "b. me llamo",
                 "options": [
                     "a. Alberto",
@@ -780,7 +780,7 @@
                         {
                             "type": "dropup-center",
                             "content_start": "1. Claudia: ",
-                            "content_end": ", soy Claudia!",
+                            "content_end": ", soy Claudia",
                             "value": "Hola",
                             "id": "DropUp1"
                         },
@@ -788,13 +788,13 @@
                             "type": "dropup-center",
                             "content_start": "2. Lucas: ¡Hola Claudia!, ",
                             "content_end": "",
-                            "value": "¿Cómo estás?",
+                            "value": "¿cómo estás?",
                             "id": "DropUp2"
                         },
                         {
                             "type": "dropup-center",
                             "content_start": "3. Claudia: ",
-                            "content_end": ", ¿Y vos?",
+                            "content_end": ", ¿y vos?",
                             "value": "Bien gracias",
                             "id": "DropUp3"
                         },
@@ -848,7 +848,7 @@
                             "id": "DragBox3"
                         },
                         {
-                            "value": "¿Cómo estás?",
+                            "value": "¿cómo estás?",
                             "id": "DragBox4"
                         },
                         {

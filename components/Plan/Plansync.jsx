@@ -155,6 +155,9 @@ export default function Plansync({ Confirm, closePlan}) {
               </p>
               {/* Descripcion */}
               <p className=' text-violet_dark text-[16px]'>
+                PROMOCIÓN DE LANZAMIENTO
+              </p>
+              <p className=' text-violet_dark text-[16px]'>
                 Combo de <b>{plan1[2].qty}</b> clases 
               </p>
               <p>promoción válida por 10 días o </p>
