@@ -38,7 +38,7 @@ export default function Plansync({ Confirm, closePlan }) {
           <Image src={Logo} alt={'Logo'} className='w-[123px] h-[78px] ' />
           <div className='relative top-5'>
             <h3 className=' font-medium text-[28px] bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text min-h-[28px] text-center'>
-              Elige algunas de nuestras opciones</h3></div>
+              Elige algunas de nuestras opciones promocionales</h3></div>
         </div>
 
         {/* Planes */}
