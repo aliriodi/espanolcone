@@ -37,7 +37,7 @@ export default function Unidad(){
 
     const dispatch = useDispatch();
     
-    const { classId } = router.query;
+    const { classId, currentLevelIndex, currentUnitIndex } = router.query;
     
     // const classId = useSelector((state) => state.datos.classid);
 
@@ -173,11 +173,20 @@ export default function Unidad(){
     }
 
     async function retryEvaluation(sheets){
+
         let newUser = {...session?.user}
         setFailedModal(true)
         console.log("MALLLL")
 
-        newUser.position.index = sheets?.indexOf(sheets?.find(sheet => sheet?.section?.number == 5))
+        let newUnit = { ...(newUser?.classes[currentLevelIndex]?.units[currentUnitIndex] || {}) };
+
+        newUnit = {
+            ...newUnit,
+            currentPage: sheets?.indexOf(sheets?.find(sheet => sheet?.section?.number == 5))
+        };
+
+        newUser.classes[currentLevelIndex].units[currentUnitIndex] = newUnit;
+        // newUser.position.index = sheets?.indexOf(sheets?.find(sheet => sheet?.section?.number == 5))
         
         updateUser(newUser)
         setMaxSessionReached(5)
@@ -264,39 +273,86 @@ export default function Unidad(){
 
     useEffect(()=>{
         // En este useEffect se va a comprobar hasta que seccion esta realizada
-
         let currentUnit = unit
-        // session?.user?.classes?.map((level)=>level?.units?.find((unit)=>unit?.unitID == classId))
-        if(!currentUnit){
-            session?.user?.classes?.map((level)=>{
-                level?.units?.find((unit)=>{
-                    if(unit?.unitID == classId){
-                        currentUnit = unit;
-                        setUnit(unit)
-                    }
-                })
-            })
+        
+        if(!currentUnit || session?.user?.classes[currentLevelIndex]?.units[currentUnitIndex]){
+            currentUnit = session?.user?.classes[currentLevelIndex]?.units[currentUnitIndex]
+            setUnit(currentUnit)
         }
+        console.log("session?.user ",session?.user)
+
+        // ----------------------------------------------- Unidades Dependientes del position ----------------------------------------------- //
         // Primero se comprueba si la ultima clase realizada es igual a la ultima que hizo el usuario
         // en caso de ser asi a maxSessionReached se le asigna hasta que seccion llego el usuario
-        if(session && classId && session?.user?.position?.id == classId){
-            setIsLoading(true)
+        // if(session && classId && session?.user?.position?.id == classId){
+        //     setIsLoading(true)
 
+        //     fetch(`/api/class/${classId}`)
+        //     .then((response) => response.json())
+        //     .then((json) =>{ 
+        //         setCurrentClass(json.class1.sheets)
+        //         setMaxSessionReached(session?.user?.position?.index > 0 ? json.class1.sheets[(session?.user?.position?.index)]?.section?.number : session?.user?.position?.index)
+
+        //         // En caso de concretar correctamente la evaluacion pasa a la siguiente unidad
+        //         if(session?.user?.position?.index == session?.user?.position?.maxpages && currentUnit?.maxPoints > 0 && currentUnit?.points >= 18 )updatePosition()
+                
+        //         // En caso de que haga mal la evaluacion obliga al usuario a reintentarlo 
+        //         if(session?.user?.position?.index == session?.user?.position?.maxpages && currentUnit?.maxPoints > 0 && currentUnit?.points < 18) retryEvaluation(json.class1.sheets)
+                
+        //         setIsLoading(false)
+
+        //         return;
+        //     })
+        //     .catch((error) =>{
+        //         console.log(error)
+
+        //         setIsLoading(false)
+        //     });
+        // }
+
+        // // De lo contrario se busca en el resto de clases comprobando el valor de la propiedad done
+        // else{
+        //     let currentClasses = [];
+        //     let currentClass;
+            
+        //     for(let i = 0; session?.user?.classes.length > i; i++){
+        //         // Se ponen todas las clases en un mismo array 
+        //         currentClasses = [...currentClasses, ...session?.user?.classes[i]?.units]
+        //     }
+            
+        //     currentClass = currentClasses.find((c)=> c.unitID == classId)// Se busca en que clase estamos
+            
+        //     // En caso de ser "True" se le pone el numero de seccion maxima  En caso de ser "False" se le pone -1
+        //     setMaxSessionReached(currentClass?.done ? 6 : -1)
+        // }
+
+
+        // ----------------------------------------------- Unidades Independientes ----------------------------------------------- //
+        // Primero se comprueba si la clase no esta terminada pero esta habilitada
+        // en tal caso comprueba hasta que pagina llego
+        if(session && !currentUnit.done && currentUnit.enable){
+            
+            // En caso de que la unidad no tenga asignado "maxPages"(el numero maximo de paginas), se le asignan
+            setIsLoading(true)
+            
             fetch(`/api/class/${classId}`)
             .then((response) => response.json())
-            .then((json) =>{ 
+            .then(async (json) =>{ 
+                
+                // Asignan la actual clase(currentClass) junto al numero de la ultima seccion(maxSessionReached)
                 setCurrentClass(json.class1.sheets)
-                setMaxSessionReached(session?.user?.position?.index > 0 ? json.class1.sheets[(session?.user?.position?.index)]?.section?.number : session?.user?.position?.index)
+
+                // Asigna hasta donde llego el usuario 
+                setMaxSessionReached(currentUnit?.currentPage && currentUnit?.currentPage > 0 ? json.class1.sheets[(currentUnit?.currentPage)]?.section?.number : 0)
 
                 // En caso de concretar correctamente la evaluacion pasa a la siguiente unidad
-                if(session?.user?.position?.index == session?.user?.position?.maxpages && currentUnit?.maxPoints > 0 && currentUnit?.points >= 18 )updatePosition()
+                if(currentUnit?.currentPage == currentUnit?.maxPages && currentUnit?.maxPoints > 0 && currentUnit?.points >= 18 )updatePosition()
                 
                 // En caso de que haga mal la evaluacion obliga al usuario a reintentarlo 
-                if(session?.user?.position?.index == session?.user?.position?.maxpages && currentUnit?.maxPoints > 0 && currentUnit?.points < 18) retryEvaluation(json.class1.sheets)
-                
-                setIsLoading(false)
+                if(currentUnit?.currentPage == currentUnit?.maxPages && currentUnit?.maxPoints > 0 && currentUnit?.points < 18) retryEvaluation(json.class1.sheets)
 
-                return;
+                                    
+                setIsLoading(false)
             })
             .catch((error) =>{
                 console.log(error)
@@ -323,7 +379,49 @@ export default function Unidad(){
     },[session])
 
     useEffect(()=>{
-        
+        // Actualiza le unidad y le asigna las variables faltantes(maxPages)
+        let currentUnit = unit 
+        if(!currentUnit || session?.user?.classes[currentLevelIndex]?.units[currentUnitIndex]){
+            currentUnit = session?.user?.classes[currentLevelIndex]?.units[currentUnitIndex]
+            setUnit(currentUnit)
+        }
+
+        if(session && (!currentUnit.done && currentUnit.enable) && !currentUnit?.maxPages){
+            
+            // En caso de que la unidad no tenga asignado "maxPages"(el numero maximo de paginas), se le asignan
+            setIsLoading(true)
+            
+            fetch(`/api/class/${classId}`)
+            .then((response) => response.json())
+            .then(async (json) =>{ 
+                // Asignan correctamente las nuevas variables a la Unidad actual en caso de no tenerlas
+                let newUser = { ...session?.user };
+
+                
+                let newUnit = { ...(newUser?.classes[currentLevelIndex]?.units[currentUnitIndex] || {}) };
+
+                newUnit = {
+                    ...newUnit,
+                    maxPages: json.class1.sheets.length,
+                    // currentPage: 0
+                };
+
+                newUser.classes[currentLevelIndex].units[currentUnitIndex] = newUnit;
+                
+
+                await updateUser(newUser)
+
+                setIsLoading(false)
+            })
+            .catch((error) =>{
+                console.log(error)
+
+                setIsLoading(false)
+            });
+        }
+    },[])
+
+    useEffect(()=>{
         // Este fetch se encarga de actualizar "currentClass"
         if(classId){
             fetch(`/api/class/${classId}`)
@@ -348,22 +446,22 @@ export default function Unidad(){
         })
 
         // En caso de no tener la clase correcta se actualiza a la correspondiente
-        if(!currentUnit?.done && currentUnit?.enable && session?.user?.position?.id != classId && currentClass){
+        // if(!currentUnit?.done && currentUnit?.enable && session?.user?.position?.id != classId && currentClass){
 
-            let newUser = {
-                ...session?.user,
-                position:{
-                    ...session?.user.position,
-                    id:currentUnit?.unitID,
-                    index:0,
-                    maxpages:currentClass?.length > 0 ? currentClass?.length - 1 : 0,
-                }
-            }
+        //     let newUser = {
+        //         ...session?.user,
+        //         position:{
+        //             ...session?.user.position,
+        //             id:currentUnit?.unitID,
+        //             index:0,
+        //             maxpages:currentClass?.length > 0 ? currentClass?.length - 1 : 0,
+        //         }
+        //     }
 
-            updateUser(newUser);
-        }
+        //     updateUser(newUser);
+        // }
 
-
+        
 
     },[classId])
 
@@ -440,7 +538,9 @@ export default function Unidad(){
                             Finalizaste la <b>{unit?.name}</b> del <b>{level?.level}</b>
                         </p>
 
-                        <Link href={`/inicio/curso?level=${nextLevelLabel}`} className="btn-primary p-2 w-full text-[21px]
+                        <Link
+                        href={`/inicio/curso?level=${nextLevelLabel}`}
+                        className="btn-primary p-2 w-full text-[21px]
                         md:text-[14px]">
                             Continuar
                         </Link>
@@ -492,7 +592,8 @@ export default function Unidad(){
 
                         <Link
                         onClick={()=>setSection(5)}
-                        href={`/inicio/curso/unidad/${classId}`}
+                        href={`/inicio/curso/unidad/${classId}?currentLevelIndex=${currentLevelIndex}&currentUnitIndex=${currentUnitIndex}`}
+                        as={`/inicio/curso/unidad/${classId}?currentLevelIndex=${currentLevelIndex}&currentUnitIndex=${currentUnitIndex}`}
                         className="btn-primary p-2 w-full text-[21px] mb-3
                         md:text-[14px]">
                             ¡Si!
@@ -578,7 +679,8 @@ export default function Unidad(){
                         {numbersOfSections.includes(0) &&
                         <Link
                         onClick={(e)=>setSection(0)}
-                        href={`/inicio/curso/unidad/${classId}`}
+                        href={`/inicio/curso/unidad/${classId}?currentLevelIndex=${currentLevelIndex}&currentUnitIndex=${currentUnitIndex}`}
+                        as={`/inicio/curso/unidad/${classId}?currentLevelIndex=${currentLevelIndex}&currentUnitIndex=${currentUnitIndex}`}
                         className={`
                         ${(maxSessionReached) < 0 && "opacity-[50%]"}
                         ${(maxSessionReached) < 0 && session && !session?.user?.role?.includes("admin") && "pointer-events-none"}
@@ -619,7 +721,8 @@ export default function Unidad(){
                         {numbersOfSections.includes(1) &&
                         <Link
                         onClick={()=>setSection(1)}
-                        href={`/inicio/curso/unidad/${classId}`}
+                        href={`/inicio/curso/unidad/${classId}?currentLevelIndex=${currentLevelIndex}&currentUnitIndex=${currentUnitIndex}`}
+                        as={`/inicio/curso/unidad/${classId}?currentLevelIndex=${currentLevelIndex}&currentUnitIndex=${currentUnitIndex}`}
                         className={`
                         ${(maxSessionReached) < 1 && "opacity-[50%]"}
                         ${(maxSessionReached) < 1 && session && !session?.user?.role?.includes("admin") && "pointer-events-none"}
@@ -660,7 +763,8 @@ export default function Unidad(){
                         {numbersOfSections.includes(2) &&
                         <Link
                         onClick={()=>setSection(2)}
-                        href={`/inicio/curso/unidad/${classId}`}
+                        href={`/inicio/curso/unidad/${classId}?currentLevelIndex=${currentLevelIndex}&currentUnitIndex=${currentUnitIndex}`}
+                        as={`/inicio/curso/unidad/${classId}?currentLevelIndex=${currentLevelIndex}&currentUnitIndex=${currentUnitIndex}`}
                         className={`
                         ${(maxSessionReached) < 2 && "opacity-[50%]"}
                         ${(maxSessionReached) < 2 && session && !session?.user?.role?.includes("admin") && "pointer-events-none"}
@@ -701,7 +805,8 @@ export default function Unidad(){
                         {numbersOfSections.includes(3) &&
                         <Link
                         onClick={()=>setSection(3)}
-                        href={`/inicio/curso/unidad/${classId}`}
+                        href={`/inicio/curso/unidad/${classId}?currentLevelIndex=${currentLevelIndex}&currentUnitIndex=${currentUnitIndex}`}
+                        as={`/inicio/curso/unidad/${classId}?currentLevelIndex=${currentLevelIndex}&currentUnitIndex=${currentUnitIndex}`}
                         className={`
                         ${(maxSessionReached) < 3 && "opacity-[50%]"}
                         ${(maxSessionReached) < 3 && session && !session?.user?.role?.includes("admin") && "pointer-events-none"}
@@ -742,7 +847,8 @@ export default function Unidad(){
                         {numbersOfSections.includes(4) &&
                         <Link
                         onClick={()=>setSection(4)}
-                        href={`/inicio/curso/unidad/${classId}`}
+                        href={`/inicio/curso/unidad/${classId}?currentLevelIndex=${currentLevelIndex}&currentUnitIndex=${currentUnitIndex}`}
+                        as={`/inicio/curso/unidad/${classId}?currentLevelIndex=${currentLevelIndex}&currentUnitIndex=${currentUnitIndex}`}
                         className={`
                         ${(maxSessionReached) < 4 && "opacity-[50%]"}
                         ${(maxSessionReached) < 4 && session && !session?.user?.role?.includes("admin") && "pointer-events-none"}
@@ -783,7 +889,8 @@ export default function Unidad(){
                         {numbersOfSections.includes(5) &&
                         <Link
                         onClick={()=>setSection(5)}
-                        href={`/inicio/curso/unidad/${classId}`}
+                        href={`/inicio/curso/unidad/${classId}?currentLevelIndex=${currentLevelIndex}&currentUnitIndex=${currentUnitIndex}`}
+                        as={`/inicio/curso/unidad/${classId}?currentLevelIndex=${currentLevelIndex}&currentUnitIndex=${currentUnitIndex}`}
                         className={`
                         ${maxSessionReached < 5 || maxSessionReached > 5 && session && !session?.user?.role?.includes("admin") && "pointer-events-none"}
                         mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
