@@ -112,7 +112,8 @@ console.log(props.dates)
                     qty:props.dates.qty,
                     cost:props.dates.cost,
                     planing:0,
-                    classview:0
+                    classview:0,
+                    image:ImageUrl
                   }
               ]
             }
