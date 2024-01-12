@@ -93,7 +93,13 @@ export default function Admin(){
         let newUser = {...user}
         newUser.planSync[newUser?.planSync?.length - 1] = {
             ...newUser.planSync[newUser?.planSync?.length - 1],
-            valid: true
+            valid: true,
+            classview:1,
+            plannung:1
+        }
+        newUser.calendar[0] = {
+            ...newUser.calendar[0],
+            assigned: true
         }
 
         updateUser(newUser)
