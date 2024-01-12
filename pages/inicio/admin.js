@@ -6,7 +6,7 @@ import Spinner from "../../components/Spinner"
 import MenuUsers from "../../components/admin/MenuUser"
 import { useSession } from "next-auth/react"
 
-export default function Admin(){
+export default function Admin() {
     const [currentUsers, setCurrentUsers] = useState(null)
     const [totalUsers, setTotalUsers] = useState(null)
     const [currentPage, setCurrentPage] = useState(1)
@@ -14,24 +14,24 @@ export default function Admin(){
 
     const { data: session, status } = useSession();
 
-    useEffect(()=>{
-        if(!currentUsers) getAllUsers()
-    },[])
-    
-    useEffect(()=>{
-        if(status && status != "loading" && !session?.user?.role?.includes('admin'))window.location.href = "/inicio/home";
-    },[status])
-    
-    useEffect(()=>{
-        window.scrollTo({top: 0});
+    useEffect(() => {
+        if (!currentUsers) getAllUsers()
+    }, [])
+
+    useEffect(() => {
+        if (status && status != "loading" && !session?.user?.role?.includes('admin')) window.location.href = "/inicio/home";
+    }, [status])
+
+    useEffect(() => {
+        window.scrollTo({ top: 0 });
         getAllUsers();
-    },[currentPage])
+    }, [currentPage])
 
     // Metodos de Usuarios
-    async function getAllUsers(){
+    async function getAllUsers() {
         setIsLoading(true);
         try {
-    
+
             const response = await fetch(`/api/users/getAll/${currentPage}`);
             if (!response.ok) {
                 throw new Error(`Error en la respuesta de la API: ${response.status} - ${response.statusText}`);
@@ -59,11 +59,11 @@ export default function Admin(){
             const response = await fetch('/api/users/update', {
                 method: 'POST',
                 headers: {
-                'Content-Type': 'application/json',
+                    'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ email:updates?.email, updates: updates}),
+                body: JSON.stringify({ email: updates?.email, updates: updates }),
             });
-      
+
             if (response.ok) {
                 const data = await response.json();
 
@@ -89,34 +89,77 @@ export default function Admin(){
         }
     }
 
-    function validZeller(user){
-        let newUser = {...user}
+
+    async function getUser(id) {
+        try {
+
+            const response = await fetch('/api/users/' + id, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+
+            });
+          console.log(response)
+            if (response.ok) {
+                const data = await response.json();
+
+                if (data) {
+                    console.log('te envio datos del'+ data.role);
+                    return data
+                     } else {
+                    console.error('Error al actualizar el usuario:', data.error);
+                }
+            } else {
+                console.error('Error al realizar la solicitud:', response.status);
+            }
+
+            setIsLoading(false)
+        } catch (error) {
+            setIsLoading(false)
+            console.error('Error al realizar la solicitud:', error);
+        }
+
+
+    }
+
+   async  function validZeller(user) {
+        let newUser = { ...user }
         newUser.planSync[newUser?.planSync?.length - 1] = {
             ...newUser.planSync[newUser?.planSync?.length - 1],
             valid: true,
-            classview:1,
-            plannung:1
+            classview: 1,
+            planing: 1
         }
         newUser.calendar[0] = {
             ...newUser.calendar[0],
             assigned: true
         }
 
-        updateUser(newUser)
+       let newUser2 = {...await  getUser(newUser.calendar[0].id)}
+       console.log(newUser2)
+       await newUser2.userid.calendar.map(meet =>
+                        {if(newUser.calendar[0].startDatetime===meet.startDatetime)
+                            {meet['assigned']=true;}
+                         })
+
+
+       updateUser(newUser)
+       updateUser(newUser2.userid)
     }
 
     // Paginado
-    function nextPage(){
+    function nextPage() {
         setCurrentPage(currentPage + 1)
     }
-    
-    function prevPage(){
-        setCurrentPage(currentPage - 1 < 1 ? 1 : currentPage - 1 )
+
+    function prevPage() {
+        setCurrentPage(currentPage - 1 < 1 ? 1 : currentPage - 1)
     }
-    
-    return(
+
+    return (
         <>
-            <Menu/>
+            <Menu />
 
             <div className="px-[60px] py-[119px]
             md:px-[25px]">
@@ -145,7 +188,7 @@ export default function Admin(){
 
                         {/* Filter */}
                         <li>
-                            <FontAwesomeIcon icon={faFilter}/>
+                            <FontAwesomeIcon icon={faFilter} />
                         </li>
                     </ul>
 
@@ -153,8 +196,8 @@ export default function Admin(){
                     <ul className="relative min-h-[500px]">
                         {
                             currentUsers &&
-                            currentUsers?.map((user,index)=>
-                                <MenuUsers loading={isLoading} key={index} user={user} validZeller={validZeller} updateUser={updateUser}/>
+                            currentUsers?.map((user, index) =>
+                                <MenuUsers loading={isLoading} key={index} user={user} validZeller={validZeller} updateUser={updateUser} />
                             )
                         }
 
@@ -162,26 +205,26 @@ export default function Admin(){
                         {
                             isLoading &&
                             <div className="bg-[#fff7] top-0 left-0 w-full h-full absolute flex justify-center items-center">
-                                <Spinner/>
+                                <Spinner />
                             </div>
                         }
                     </ul>
-                    
+
                 </div>
 
                 {/* Botones Paginado */}
                 <div className="flex justify-between mt-3">
                     {/* previo */}
                     {
-                    currentPage > 1 ?
-                        <button
-                        onClick={prevPage}
-                        className=" w-[42px] h-[42px] flex justify-center items-center bg-white rounded-full text-violet_dark shadow-[0px_4px_24px_#0000002F] font-semibold transition-all
+                        currentPage > 1 ?
+                            <button
+                                onClick={prevPage}
+                                className=" w-[42px] h-[42px] flex justify-center items-center bg-white rounded-full text-violet_dark shadow-[0px_4px_24px_#0000002F] font-semibold transition-all
                         hover:bg-[#F3F2F7]">
-                            <FontAwesomeIcon icon={faAngleLeft}/>
-                        </button>
-                        :
-                        <span className="flex w-[42px] h-[42px]"></span>
+                                <FontAwesomeIcon icon={faAngleLeft} />
+                            </button>
+                            :
+                            <span className="flex w-[42px] h-[42px]"></span>
                     }
 
                     {/* Pagina Actual */}
@@ -189,10 +232,10 @@ export default function Admin(){
 
                     {/* Siguiente */}
                     <button
-                    onClick={nextPage}
-                    className=" w-[42px] h-[42px] flex justify-center items-center bg-white rounded-full text-violet_dark shadow-[0px_4px_24px_#0000002F] font-semibold transition-all
+                        onClick={nextPage}
+                        className=" w-[42px] h-[42px] flex justify-center items-center bg-white rounded-full text-violet_dark shadow-[0px_4px_24px_#0000002F] font-semibold transition-all
                     hover:bg-[#F3F2F7]">
-                        <FontAwesomeIcon icon={faAngleRight}/>
+                        <FontAwesomeIcon icon={faAngleRight} />
                     </button>
 
                 </div>
