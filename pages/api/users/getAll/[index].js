@@ -14,11 +14,9 @@ export default async function GetUsersPage(req, res) {
 
         const maxResults = 18;
 
-        const allUsers = await Users.find().exec();
+        const allUsers = await Users.find().skip((maxResults * index)- maxResults).limit(maxResults * index);
 
-        const filteredUser = allUsers.slice((maxResults * index) - maxResults, maxResults * index);
-
-        const  output = filteredUser
+        const  output = allUsers
 
         // Verifica procedencia de solicitud 
         console.log("/////////////////////////////// ",req.headers.accept == "*/*" ? "Solicitud desde Codigo": "Solicitud desde Navegador"," ///////////////////////////////")
