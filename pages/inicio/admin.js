@@ -100,14 +100,14 @@ export default function Admin() {
                 }
 
             });
-          console.log(response)
+            console.log(response)
             if (response.ok) {
                 const data = await response.json();
 
                 if (data) {
-                    console.log('te envio datos del'+ data.role);
+                    console.log('te envio datos del' + data.role);
                     return data
-                     } else {
+                } else {
                     console.error('Error al actualizar el usuario:', data.error);
                 }
             } else {
@@ -123,7 +123,8 @@ export default function Admin() {
 
     }
 
-   async  function validZeller(user) {
+    //funcion para valdiar zelle
+    async function validZeller(user) {
         let newUser = { ...user }
         newUser.planSync[newUser?.planSync?.length - 1] = {
             ...newUser.planSync[newUser?.planSync?.length - 1],
@@ -136,17 +137,48 @@ export default function Admin() {
             assigned: true
         }
 
-       let newUser2 = {...await  getUser(newUser.calendar[0].id)}
-       console.log(newUser2)
-       await newUser2.userid.calendar.map(meet =>
-                        {if(newUser.calendar[0].startDatetime===meet.startDatetime)
-                            {meet['assigned']=true;}
-                         })
+        let newUser2 = { ...await getUser(newUser.calendar[0].id) }
+        console.log(newUser2)
+        await newUser2.userid.calendar.map(meet => {
+            if (newUser.calendar[0].startDatetime === meet.startDatetime) { meet['assigned'] = true; }
+        })
 
 
-       updateUser(newUser)
-       updateUser(newUser2.userid)
+        updateUser(newUser)
+        updateUser(newUser2.userid)
     }
+
+    //funcion para INvalidar zelle
+    async function InvalidZeller(user) {
+        let newUser = { ...user }
+        newUser.planSync[newUser?.planSync?.length - 1] = {
+            ...newUser.planSync[newUser?.planSync?.length - 1],
+            valid: true,
+            classview: 4,
+            planing: 4
+        }
+        newUser.calendar.shift();
+
+        let newUser2 = { ...await getUser(newUser.calendar[0].id) }
+        console.log(newUser2)
+        await newUser2.userid.calendar.map(meet => {
+            if (newUser.calendar[0].startDatetime === meet.startDatetime) {
+                meet['assigned'] = false;
+                meet['preassgined'] = false;
+                meet['preassigned'] = false;
+                meet.first_name = '';
+                meet.last_name = '';
+                meet.nameuser = '';
+                meet.image = '';
+            }
+        })
+
+
+        updateUser(newUser)
+        updateUser(newUser2.userid)
+    }
+
+
 
     // Paginado
     function nextPage() {
@@ -197,7 +229,7 @@ export default function Admin() {
                         {
                             currentUsers &&
                             currentUsers?.map((user, index) =>
-                                <MenuUsers loading={isLoading} key={index} user={user} validZeller={validZeller} updateUser={updateUser} />
+                                <MenuUsers loading={isLoading} key={index} user={user} validZeller={validZeller} InvalidZeller={InvalidZeller} updateUser={updateUser} />
                             )
                         }
 
