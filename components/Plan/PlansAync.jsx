@@ -87,7 +87,7 @@ export default function Plansync({ Confirm, closePlan }) {
 
           {/* Combo de Clase 10 */}
 
-          <div className='flex flex-col px-4 w-[400px] border-r-2 justify-between
+          <div className='flex flex-col px-4 w-[400px] justify-between
           md:w-full md:py-10 md:border-b-2 md:border-r-0'>
 
             {/* Titulo */}

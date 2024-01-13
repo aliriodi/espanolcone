@@ -122,6 +122,12 @@ export default function Unidad(){
                 if(unit?.unitID == classId){
                     currentLevel =level;
                     currentUnit = unit;
+                    // toPay
+                    // unit = {
+                    //     ...unit,
+                    //     done:true,
+                    //     enable:true
+                    // }
                     unit.done=true
                     unit.enable=true
                 }
@@ -176,18 +182,18 @@ export default function Unidad(){
 
         let newUser = {...session?.user}
         setFailedModal(true)
-        console.log("MALLLL")
-
+        
         let newUnit = { ...(newUser?.classes[currentLevelIndex]?.units[currentUnitIndex] || {}) };
-
+        
         newUnit = {
             ...newUnit,
             currentPage: sheets?.indexOf(sheets?.find(sheet => sheet?.section?.number == 5))
         };
-
+        
         newUser.classes[currentLevelIndex].units[currentUnitIndex] = newUnit;
         // newUser.position.index = sheets?.indexOf(sheets?.find(sheet => sheet?.section?.number == 5))
         
+        console.log("MALLLL", newUser)
         updateUser(newUser)
         setMaxSessionReached(5)
     }
@@ -279,7 +285,9 @@ export default function Unidad(){
             currentUnit = session?.user?.classes[currentLevelIndex]?.units[currentUnitIndex]
             setUnit(currentUnit)
         }
-        console.log("session?.user ",session?.user)
+        
+        // En caso de tener que pagar la unidad y aceder a esta seccion se lo redirige
+        if (status && status != "loading" && currentUnit?.toPay == true) window.location.href = "/inicio/curso";
 
         // ----------------------------------------------- Unidades Dependientes del position ----------------------------------------------- //
         // Primero se comprueba si la ultima clase realizada es igual a la ultima que hizo el usuario
@@ -363,6 +371,7 @@ export default function Unidad(){
 
         // De lo contrario se busca en el resto de clases comprobando el valor de la propiedad done
         else{
+            console.log("ELSE ",currentUnit)
             let currentClasses = [];
             let currentClass;
             
