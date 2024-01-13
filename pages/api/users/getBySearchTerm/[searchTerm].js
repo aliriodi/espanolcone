@@ -19,6 +19,14 @@ export default async function GetByEmail(req, res) {
 
         console.log('/api/users/[searchTerm] user with searchTerm:', searchTerm);
 
+        const totalResults = await Users.countDocuments({
+          $or: [
+            { first_name: { $regex: new RegExp(searchTerm, 'i') } },
+            { last_name: { $regex: new RegExp(searchTerm, 'i') } },
+            { email: { $regex: new RegExp(searchTerm, 'i') } },
+          ],
+        });
+
         const results = await Users.find({
           $or: [
             { first_name: { $regex: new RegExp(searchTerm, 'i') } },
@@ -39,7 +47,7 @@ export default async function GetByEmail(req, res) {
 
         if (req.headers.accept === "*/*") {
           // Solicitud desde el código
-          return res.status(200).json({ results });
+          return res.status(200).json({ results, totalResults });
         } else {
           // Solicitud desde el navegador
           res.status(200).json({ message: "Acceso Denegado" });
