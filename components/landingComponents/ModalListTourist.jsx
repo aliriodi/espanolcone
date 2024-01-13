@@ -33,7 +33,7 @@ export default function ModalListTourist(props) {
                         "Content-Type": "application/json",
                     },
 
-                    body: JSON.stringify({ email: inputString, suscribe: true }),
+                    body: JSON.stringify({ email: inputString, suscribe: true ,from:'tourist'}),
                 })
 
 
