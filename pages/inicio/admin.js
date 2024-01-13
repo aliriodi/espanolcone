@@ -1,16 +1,23 @@
 import { useEffect, useState } from "react"
 import Menu from "../../components/Menu"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faAngleLeft, faAngleRight, faEllipsisVertical, faFilter } from "@fortawesome/free-solid-svg-icons"
+import { faAngleLeft, faAngleRight, faEllipsisVertical, faFilter, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
 import Spinner from "../../components/Spinner"
 import MenuUsers from "../../components/admin/MenuUser"
 import { useSession } from "next-auth/react"
 
 export default function Admin() {
     const [currentUsers, setCurrentUsers] = useState(null)
+
     const [totalUsers, setTotalUsers] = useState(null)
+
     const [currentPage, setCurrentPage] = useState(1)
+
+    const [maxResults, setMaxResults] = useState(18)
+
     const [isLoading, setIsLoading] = useState(false)
+
+    const[searchInput, setSearchInput] = useState("")
 
     const { data: session, status } = useSession();
 
@@ -27,12 +34,18 @@ export default function Admin() {
         getAllUsers();
     }, [currentPage])
 
+    useEffect(()=>{
+        setCurrentPage(1)
+        if(searchInput?.length > 0)getUserBySearchTerm(searchInput)
+        else getAllUsers()
+    },[searchInput])
+
     // Metodos de Usuarios
     async function getAllUsers() {
         setIsLoading(true);
         try {
 
-            const response = await fetch(`/api/users/getAll/${currentPage}`);
+            const response = await fetch(`/api/users/getAll/${currentPage}?maxResults=${maxResults}`);
             if (!response.ok) {
                 throw new Error(`Error en la respuesta de la API: ${response.status} - ${response.statusText}`);
             }
@@ -45,6 +58,28 @@ export default function Admin() {
         catch (error) {
             setIsLoading(false);
             console.error('Error al cargar los datos:', error);
+        }
+    }
+
+    async function getUserBySearchTerm(searchTerm){
+        setIsLoading(true)
+        try {
+
+            const response = await fetch(`/api/users/getBySearchTerm/${searchTerm}?page=1&maxResults=${maxResults}`);
+            if (!response.ok) {
+                throw new Error(`Error en la respuesta de la API: ${response.status} - ${response.statusText}`);
+            }
+
+            const users = await response.json();
+            setCurrentUsers(users.results);
+            console.log("users ",users.results)
+            setIsLoading(false)
+
+        }
+        catch (error) {
+            setIsLoading(false);
+            console.error('Error al cargar los datos:', error);
+            setIsLoading(false)
         }
     }
 
@@ -195,7 +230,22 @@ export default function Admin() {
 
             <div className="px-[60px] py-[119px]
             md:px-[25px]">
-                <div></div>
+
+                {/* Barra de busqueda */}
+                <div className="w-[584px] mx-auto flex justify-center bg-white rounded-full p-3 mb-5 shadow-[0px_4px_24px_#0000002F] relative">
+                    
+                    {/* Input */}
+                    <input
+                    className=" flex-grow-[1] outline-none"
+                    placeholder='Busca por "Nombre", "Apellido" o "Email"' 
+                    onChange={(e)=>setSearchInput(e.target.value)}
+                    type="text"/>
+
+                    {/* Icono */}
+                    <div className=" w-6">
+                        <FontAwesomeIcon className=" text-violet_dark" icon={faMagnifyingGlass}/>
+                    </div>
+                </div>
 
                 {/* Usuarios */}
                 <div className="bg-white rounded-[7px] shadow-[0px_4px_24px_#0000000F] text-violet_dark">
@@ -227,10 +277,14 @@ export default function Admin() {
                     {/* Listado de Usuarios */}
                     <ul className="relative min-h-[500px]">
                         {
-                            currentUsers &&
+                            currentUsers?.length > 0 ?
                             currentUsers?.map((user, index) =>
                                 <MenuUsers loading={isLoading} key={index} user={user} validZeller={validZeller} InvalidZeller={InvalidZeller} updateUser={updateUser} />
                             )
+                            :
+                            <div className="h-full w-full justify-center items-center flex absolute top-0 left-0 text-light text-[18px]">
+                                No se encontraron usuarios
+                            </div>
                         }
 
                         {/* Loader */}
