@@ -9,7 +9,7 @@ import { useSession } from "next-auth/react"
 export default function Admin() {
     const [currentUsers, setCurrentUsers] = useState(null)
 
-    const [totalUsers, setTotalUsers] = useState(null)
+    const [totalUsersResult, setTotalUsersResult] = useState(null)
 
     const [currentPage, setCurrentPage] = useState(1)
 
@@ -53,7 +53,7 @@ export default function Admin() {
             const users = await response.json();
             setIsLoading(false);
             setCurrentUsers(users.users);
-            // setTotalUsers(users.totalUsers);
+            setTotalUsersResult(users.totalUsers);
         }
         catch (error) {
             setIsLoading(false);
@@ -72,7 +72,7 @@ export default function Admin() {
 
             const users = await response.json();
             setCurrentUsers(users.results);
-            console.log("users ",users.results)
+            setTotalUsersResult(users.totalResults);
             setIsLoading(false)
 
         }
@@ -247,6 +247,19 @@ export default function Admin() {
                     </div>
                 </div>
 
+                {/* Contador de Usuarios */}
+                {
+                     currentUsers?.length > 0 &&
+                    <p className=" text-light my-2">
+                        {
+                            totalUsersResult > 1 ?
+                            `Se encontraron ${totalUsersResult} usuarios`
+                            :
+                            `Se encontro ${totalUsersResult} usuario`
+                        }
+                    </p>
+                }
+
                 {/* Usuarios */}
                 <div className="bg-white rounded-[7px] shadow-[0px_4px_24px_#0000000F] text-violet_dark">
 
@@ -278,10 +291,15 @@ export default function Admin() {
                     <ul className="relative min-h-[500px]">
                         {
                             currentUsers?.length > 0 ?
+
+                            // Usuarios
                             currentUsers?.map((user, index) =>
                                 <MenuUsers loading={isLoading} key={index} user={user} validZeller={validZeller} InvalidZeller={InvalidZeller} updateUser={updateUser} />
                             )
                             :
+
+                            // No se Encontraron usuarios
+                            !isLoading &&
                             <div className="h-full w-full justify-center items-center flex absolute top-0 left-0 text-light text-[18px]">
                                 No se encontraron usuarios
                             </div>
@@ -317,12 +335,17 @@ export default function Admin() {
                     <p className=" w-[42px] h-[42px] bg-primary text-white flex justify-center items-center rounded-full font-semibold">{currentPage}</p>
 
                     {/* Siguiente */}
-                    <button
-                        onClick={nextPage}
-                        className=" w-[42px] h-[42px] flex justify-center items-center bg-white rounded-full text-violet_dark shadow-[0px_4px_24px_#0000002F] font-semibold transition-all
-                    hover:bg-[#F3F2F7]">
-                        <FontAwesomeIcon icon={faAngleRight} />
-                    </button>
+                    {
+                        (maxResults * currentPage + 1) < totalUsersResult ?
+                        <button
+                            onClick={nextPage}
+                            className=" w-[42px] h-[42px] flex justify-center items-center bg-white rounded-full text-violet_dark shadow-[0px_4px_24px_#0000002F] font-semibold transition-all
+                        hover:bg-[#F3F2F7]">
+                            <FontAwesomeIcon icon={faAngleRight} />
+                        </button>
+                        :
+                        <span className="flex w-[42px] h-[42px]"></span>
+                    }
 
                 </div>
             </div>
