@@ -9,7 +9,11 @@ const emailsendSchema = new Schema(
     },
     suscribe : {
         type:Boolean
-    }
+    },
+    from: {
+      type: String,
+      
+    },
   },
   {
     timestamps: true,
