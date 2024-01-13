@@ -1,6 +1,6 @@
 import { useSession } from "next-auth/react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMedal, faBookOpen, faCheck, faListCheck, faBook, faPencil, faCircleInfo, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faMedal, faBookOpen, faCheck, faListCheck, faBook, faPencil, faCircleInfo, faXmark, faLock } from '@fortawesome/free-solid-svg-icons';
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -11,7 +11,8 @@ import { useDispatch } from "react-redux";
 import { useRouter } from 'next/router';
 import Head from 'next/head'
 import Copyright from "../../../components/Class/Copyright";
-
+import Logo from '../../../public/imgs/logo-gradient.png';
+import PlansAync from '../../../components/Plan/PlansAync'
 
 export default function Curso(){
     const {data: session,status} = useSession();
@@ -24,6 +25,8 @@ export default function Curso(){
     const [currentLevel, setCurrentLevel] = useState()
 
     const [missingUnits, setMissingUnits] = useState()
+
+    const [openModalPay, setOpenModalPay] = useState(false)
 
     const dispatch = useDispatch()
     
@@ -59,6 +62,7 @@ export default function Curso(){
         for(let i = 0; i < (12 - currentLevel?.modules?.length); i++){
             newMissingUnits.push({ number : (i + currentLevel?.modules?.length) + 1})
         }
+        
         console.log(currentLevel)
 
         setMissingUnits(newMissingUnits)
@@ -69,6 +73,9 @@ export default function Curso(){
         router.push(`/inicio/curso?level=${e?.value?.slice(e?.value?.length - 2, e?.value?.length)}`)
     }
 
+    function handleModalPay(){
+
+    }
     return(
         <>
         <Head>
@@ -151,10 +158,10 @@ export default function Curso(){
                         // Modulo
                         currentLevel?.modules.map((module, index)=>(
                             <Link
-                            // onClick={()=>dispatch(classid(module.unitID))}
+                            onClick={()=> module.toPay == true && setOpenModalPay(true)}
                             key={module.number}
-                            href={`/inicio/curso/unidad?classId=${module.unitID}&currentLevelIndex=${currentLevel.index}&currentUnitIndex=${index}`}
-                            as={`/inicio/curso/unidad?classId=${module.unitID}&currentLevelIndex=${currentLevel.index}&currentUnitIndex=${index}`}
+                            href={module.toPay == true ? "#" :`/inicio/curso/unidad?classId=${module.unitID}&currentLevelIndex=${currentLevel.index}&currentUnitIndex=${index}`}
+                            as={module.toPay == true ? "#" :`/inicio/curso/unidad?classId=${module.unitID}&currentLevelIndex=${currentLevel.index}&currentUnitIndex=${index}`}
                             className={`bg-white flex flex-col shadow-[0px_0px_4px_#00000040] rounded-[8px] py-[12px] justify-center min-w-[145px] items-center mx-[20px] mb-[50px] relative
                             transition-all hover:min-w-[160px]
                             md:py-[8px] md:px-[10px] md:mb-[10px]
@@ -181,8 +188,8 @@ export default function Curso(){
 
                                 {/* Pagar */}
                                 {
-                                module.pay == true &&
-                                <div className="absolute bottom-0 font-semibold text-primary">Pagar</div>
+                                module.toPay == true &&
+                                <FontAwesomeIcon className="absolute top-2 right-2 text-violet_dark" icon={faLock}/>
                                 }
 
                                 {/* Check */}
@@ -269,6 +276,31 @@ export default function Curso(){
                 }
 
             </div>
+
+            {/* Modal de pago */}
+            {
+                openModalPay &&
+                <div
+                onClick={()=>setOpenModalPay(false)}
+                className='fixed w-screen min-h-screen top-0 left-0 bg-[#000000aa] flex flex-col justify-center items-center z-50'>
+
+                    <div
+                    onClick={(e) => e.stopPropagation()}
+                    className='bg-white rounded-md p-5 relative
+                    md:w-full md:px-0 md:rounded-none'>
+                        {/* Titulo */}
+                        <div class="flex items-center mb-[30px] flex-col">
+                            <Image alt="Logo" src={Logo} width={492} height={313} class="w-[123px] h-[78px]"/>
+                            <h3 class=" font-medium text-[28px] bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text min-h-[28px] text-center">Elige algunas de nuestras opciones</h3>
+                        </div>
+
+                        {/* Contenido */}
+                        <div>
+                            <PlansAync closePlan={(value)=>setOpenModalPay(value)}/>
+                        </div>
+                    </div>
+                </div>
+            }
 
         </section>
 

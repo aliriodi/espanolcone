@@ -21,6 +21,7 @@ import Copyright from '../../components/Class/Copyright';
 export default function Home() {
   const [totalUnits, setTotalUnits] = useState()
   const [unitsDone, setUnitsDone] = useState()
+  const [pendingUnit, setPendingUnit] = useState(null)
   const [level, setLevel] = useState()
   const [showPlans, setShowPlans] = useState(false)
   const [GeneralProgress, setGeneralProgress] = useState(0)
@@ -49,10 +50,10 @@ export default function Home() {
     let classesDone;
 
     // En caso de que el id de position sea null significa que hizo el 100% de las unidades
-    if(session?.user?.position?.id == null){
-      setGeneralProgress(100)
-      return;
-    }
+    // if(session?.user?.position?.id == null){
+    //   setGeneralProgress(100)
+    //   return;
+    // }
 
     for (let i = 0; session?.user?.classes.length > i; i++) {
       // Se ponen todas las clases en un mismo array 
@@ -63,7 +64,7 @@ export default function Home() {
     clasesLength = currentClasses.length
 
     // Se le asigna la cantidad de clases completadas totales
-    classesDone = currentClasses.indexOf(currentClasses.find((c) => c.unitID == session?.user?.position.id))
+    classesDone = currentClasses.indexOf(currentClasses.find((c) => c.enable && !c.done))
     
     // En caso de no haber clases se devuelve 0
     if(clasesLength <= 0){
@@ -81,33 +82,43 @@ export default function Home() {
   function calculateUnitsDone() {
     // Esta funcion calcula las cantidad de clases completadas en el nivel actual
 
-    let currentLevel;
-    let currentUnitDone;
+    let currentLevel = 0;
+    let currentUnitDone = 0;
+    let newUnitPending;
 
     // Busca el nivel actual correspondiente a la position
     for (let i = 0; session?.user?.classes.length > i; i++) {
-      if (session?.user?.classes[i]?.units.find((unit) => unit.unitID == session?.user?.position.id)) {
+      if (session?.user?.classes[i]?.units?.find((unit) => !unit.done && unit.enable && unit.toPay != true)) {
+        newUnitPending = {
+          levelIndex: i
+        }
         currentLevel = session?.user?.classes[i];
         break;
       }
     }
-
+    
     setLevel(currentLevel?.level)
-
+    
     // Busca hasta que unidad llego en el nivel actual
     for (let i = 0; currentLevel?.units?.length > i; i++) {
-      if (currentLevel?.units[i]?.unitID == session?.user?.position.id) {
+      if (currentLevel?.units[i]?.enable && !currentLevel?.units[i]?.done && currentLevel?.units[i]?.toPay != true) {
         currentUnitDone = i;
+        newUnitPending = {
+          ...newUnitPending,
+          unitIndex: i,
+          id: currentLevel?.units[i]?.unitID
+        }
         break;
       }
     }
 
+    setPendingUnit(newUnitPending)
     setUnitsDone(currentUnitDone  != undefined ? currentUnitDone : 0)
-    setTotalUnits(currentLevel?.units?.length  != undefined ? currentLevel?.units?.length : 0)
+    setTotalUnits(currentLevel?.units?.length  != undefined ? currentLevel?.units?.filter((unit)=> !unit.toPay)?.length : 0)
   }
   useEffect(()=>{
-    console.log("currentUnitDone ",unitsDone)
-    console.log("currentLevel?.units?.length ",totalUnits)
+    // console.log("currentUnitDone ",unitsDone)
+    // console.log("currentLevel?.units?.length ",totalUnits)
   },[totalUnits, unitsDone])
 
   useEffect(() => {
@@ -300,7 +311,7 @@ export default function Home() {
           
           {/* Ir a Clase Actual */}
           {
-            session?.user?.position?.id &&
+            pendingUnit &&
             <div className='bg-white shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000040] py-[24px] px-[28px] rounded-[8.12px] mt-[20px] w-full'>
               
               <div className='w-full flex justify-between items-center
@@ -314,7 +325,8 @@ export default function Home() {
                   // onClick={dispatch(classid(session?.user.position?.id))}
                   className='btn-primary px-[70px] py-[9px] shadow-[0px_5.410437107086182px_5.410437107086182px_#00000040]
               md:w-full md:mt-0 md:text-center'
-                  href={`/inicio/curso/unidad?classId=${session?.user?.position?.id}`}
+                  href={`/inicio/curso/unidad?classId=${pendingUnit.id}&currentLevelIndex=${pendingUnit.levelIndex}&currentUnitIndex=${pendingUnit.unitIndex}`}
+                  as={`/inicio/curso/unidad?classId=${pendingUnit.id}&currentLevelIndex=${pendingUnit.levelIndex}&currentUnitIndex=${pendingUnit.unitIndex}`}
                   style={{ display: 'inline-block' }}>
                   Ir a mi clase
                 </Link>
@@ -497,9 +509,9 @@ export default function Home() {
                           <p className='text-[12px] text-white'>{session?.user?.planSync[session?.user?.planSync?.length - 1]?.classview} / {session?.user?.planSync[session?.user?.planSync?.length - 1]?.qty}</p>
                         </animated.div>
                         :
-                        <div className="progress-bar rounded-l-full h-[14px] flex justify-center items-center bg-warning w-full"
+                        <div className="progress-bar rounded-l-full h-[14px] flex justify-center items-center bg-warning_flat_hover w-full"
                         onClick={()=>console.log(session)}>
-                          <p className='text-[12px] text-white'>No tienes clases</p>
+                          <p className='text-[12px] text-warning font-semibold'>No tienes clases</p>
                         </div>
                       }
                       </div>

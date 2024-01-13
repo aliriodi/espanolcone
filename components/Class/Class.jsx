@@ -73,6 +73,11 @@ export default function Class(props) {
   // Tests
   const [isTest, setIsTest] = useState(false)
 
+  useEffect(()=>{
+    // En caso de que el usuario tenga todavia que pagar la unidad se lo redireciona
+    if (status && status != "loading" && session?.user?.classes[props?.currentLevelIndex].units[props?.currentUnitIndex]?.toPay == true) window.location.href = "/inicio/curso";
+  },[session])
+
   useEffect(() => {
     //me traigo todas las clase de base de datos por _id trida por props.id
     fetch('/api/class/'+props.id)
@@ -318,7 +323,6 @@ export default function Class(props) {
     //   }
     // }
     ////////////////////////////
-
     let updates = {...session?.user}
 
     let newUnit = { ...(updates?.classes[props?.currentLevelIndex]?.units[props?.currentUnitIndex] || {}) };
@@ -327,6 +331,7 @@ export default function Class(props) {
       currentPage: newIndex
     };
 
+    
     updates.classes[props?.currentLevelIndex].units[props?.currentUnitIndex] = newUnit;
 
     console.log("POSICION ACTUALIZADA ", updates)
