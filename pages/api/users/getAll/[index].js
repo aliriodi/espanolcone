@@ -3,7 +3,7 @@ import Users from '../../../../models/Users'
 
 export default async function GetUsersPage(req, res) {
     const {
-        query: { index },
+        query: { index, maxResults },
         method,
     } = req;
 
@@ -12,7 +12,8 @@ export default async function GetUsersPage(req, res) {
         await dbConnect();
         console.log('CONNECTED TO MONGO DB');
 
-        const maxResults = 18;
+        // const maxResults = 18;
+        const totalCount = await Users.countDocuments();
 
         const allUsers = await Users.find().skip((maxResults * index)- maxResults).limit(maxResults * index);
 
@@ -26,7 +27,7 @@ export default async function GetUsersPage(req, res) {
             res.status(200).json(
                 {
                     users: output,
-                    totalUsers: allUsers.length
+                    totalUsers: totalCount
                 }
             );
         }
