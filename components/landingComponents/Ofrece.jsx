@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 import ModalListTourist from './ModalListTourist';
 import ModalPagoLanding from './ModalPagoLanding';
 import ModalPagoABLE from '../ModalPagoAble';
@@ -14,6 +15,11 @@ export default function Ofrece() {
   const [paypalDates, setPaypalDates] = useState(null);
   const [ZelleModal, setZelleModal] = useState(false);
   const [paypalModal, setPaypalModal] = useState(false);
+  const { locale } = useRouter()
+  //funcion de estilos
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
+  }
 //Funciones para modales de pago
 function closePayModal() {setPayModal(false)}
   const handleChangePaypalModal = (data) => {
@@ -200,8 +206,11 @@ function closePayModal() {setPayModal(false)}
                   {/* Boton Modal de pagos ofertas */}
                   <div className='w-[100%] relative top-4'>
                   <button
-                    className="w-[116%] bg-gradient-to-l from-primary to-success rounded-[7px] text-white p-2 relative top-16 left-[50%] translate-x-[-50%] transition-all
-                    hover:shadow-[0px_4px_14px_0px_#8438FFA6]" onClick={() => setOffer(!Offer)}>{t("card4.1.button")}</button>           
+                    className={
+                      classNames('w-[116%] bg-gradient-to-l from-primary to-success rounded-[7px] text-white p-2 relative  left-[50%] translate-x-[-50%] transition-all hover:shadow-[0px_4px_14px_0px_#8438FFA6]  '
+                      , locale==='pt'? 'top-12':'top-16' )
+                    }
+                     onClick={() => setOffer(!Offer)}>{t("card4.1.button")}</button>           
                 </div>
               
             </div>
