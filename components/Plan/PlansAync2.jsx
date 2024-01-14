@@ -5,9 +5,12 @@ import Logo from '../../public/imgs/logo-gradient.png';
 import { useSession } from "next-auth/react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
+import ModalPagoABLE from '../ModalPagoAble';
+import { send } from 'react-ga';
+import { sendEmail } from '../landingComponents/functions';
 const plan = require('./planes.json');
 
-export default function Plansync( {closePlan }) {
+export default function Plansync( {closePlan, openaEmailIN }) {
   const [valorInput, setValorInput] = useState(4);
   const { data: session, status, update } = useSession();
   const plan1 = [];
@@ -16,13 +19,14 @@ export default function Plansync( {closePlan }) {
     plan[planX].type.includes('Sinc') ? plan1.push(plan[planX]) : null
   );
 
+  
   function Confirm(Value){
-      function openModalPay(VALUE)  {
-    setPayModal(true)
-    setPaypalDates(VALUE)
+    
+      setPayModal(true)
+      setPaypalDates(Value)
+    
   }
-  }
-
+  
   return (
 
     <div
@@ -86,8 +90,8 @@ export default function Plansync( {closePlan }) {
                 Monto total: <b>{25}$usd</b>
               </p>
             </div>
-
-            <button onClick={() => { Confirm({ qty: 1, cost: plan1[0].ammountUnit }); closePlan() }} className="bg-secondary p-2 rounded-[5px] text-white">Obtener</button>
+             {true&&<button onClick={()=> openaEmailIN() } className="bg-secondary p-2 rounded-[5px] text-white">Saber Mas...</button> }
+             {false&&<button onClick={() => { Confirm({ qty: 1, cost: plan1[0].ammountUnit }); closePlan() }} className="bg-secondary p-2 rounded-[5px] text-white">Obtener</button>}
           </div>
 
 
@@ -121,14 +125,17 @@ export default function Plansync( {closePlan }) {
               </p>
             </div>
 
-            <button onClick={() => { Confirm({ qty: plan1[2].qty, cost: plan1[2].qty * plan1[2].ammountUnit }); closePlan() }} className="bg-secondary p-2 rounded-[5px] text-white">Obtener</button>
+            {true&&<button onClick={()=> openaEmailIN() } className="bg-secondary p-2 rounded-[5px] text-white">Saber Mas...</button> }
+             {false&&<button onClick={() => { Confirm({ qty: 1, cost: plan1[0].ammountUnit }); closePlan() }} className="bg-secondary p-2 rounded-[5px] text-white">Obtener</button>}
           </div>
 
         </div>
 
       </div>
 
+<div>
 
+</div>
     </div>
   );
 }

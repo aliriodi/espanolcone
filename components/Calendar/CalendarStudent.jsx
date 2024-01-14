@@ -475,6 +475,7 @@ export default function Schedule() {
           
         function descriptionApp(){
           if(Description.length>4){return `<p>Tema a tratar: ${Description}</p>`}
+          else return ''
         }
         function AMOPM(meetingTime){
           const timeString = meetingTime?.slice(meetingTime?.indexOf("T") + 1);
