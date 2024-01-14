@@ -3,10 +3,35 @@ import React, { useState } from 'react'
 import { useTranslation } from 'next-i18next';
 import ModalListTourist from './ModalListTourist';
 import ModalPagoLanding from './ModalPagoLanding';
-
+import ModalPagoABLE from '../ModalPagoAble';
 export default function Ofrece() {
   let [List, setList] = useState(false)
   let [Offer, setOffer] = useState(false)
+
+  //creando variables para habilitar y enviar datos modal de Pagos
+  
+  const [PayModal, setPayModal] = useState(false);
+  const [paypalDates, setPaypalDates] = useState(null);
+  const [ZelleModal, setZelleModal] = useState(false);
+  const [paypalModal, setPaypalModal] = useState(false);
+//Funciones para modales de pago
+function closePayModal() {setPayModal(false)}
+  const handleChangePaypalModal = (data) => {
+    setPayModal(data)
+    setZelleModal(data)
+    setPaypalModal(data)
+  }
+  
+  const openPaypalModal = (VALUE) => {
+    setPaypalModal(true)
+    //setPaypalDates(VALUE)
+  }
+
+  const openZelleModal = (VALUE) => {
+    setZelleModal(true)
+  //  setPaypalDates(VALUE)
+  }
+//
   const { t } = useTranslation('index');
 
   return (
@@ -314,7 +339,20 @@ export default function Ofrece() {
             <div>{List && <ModalListTourist open={setList} />}</div>
 
           </div>
+          {/* MODALES DE PAGO */}
+<section>
+<div>
 
+{/* Modal de Pago habilitacion*/}
+<ModalPagoABLE
+  close={closePayModal}
+  modalPay={handleChangePaypalModal}
+  open={PayModal}
+  open1={openPaypalModal}
+  open2={openZelleModal}
+/>
+</div>
+</section>
         </div>
       </section>
     </>

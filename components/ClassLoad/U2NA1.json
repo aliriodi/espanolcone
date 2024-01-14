@@ -341,12 +341,12 @@
                                 },
                                 {
                                     "type": "text",
-                                    "content": "<strong style='color: #33BB99'>Diógenes:</strong> Bien, Thainá. ¿y vos? ¿ya están en Córdoba?"
+                                    "content": "<strong style='color: #33BB99'>Diógenes:</strong> Bien, Thainá. ¿Y vos?, ¿ya están en Córdoba?"
                                 },
                                 {
                                     "type": "dropup-center",
                                     "content_start": "<strong style='color: #EB792A'>Thainá:</strong> Sí, ",
-                                    "content_end": "Sí, estamos acá, pero perdimos una maleta.",
+                                    "content_end": ", estamos acá, pero perdimos una maleta.",
                                     "value": "yo bien",
                                     "id": "DropUp2"
                                 },
