@@ -33,7 +33,8 @@ export default NextAuth({
     }),
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      redirectUri:'https://espanolcone.com'
     }),
     FacebookProvider({
       clientId: process.env.FACEBOOK_CLIENT_ID,
