@@ -12,9 +12,18 @@ import { useRouter } from 'next/router';
 import Head from 'next/head'
 import Copyright from "../../../components/Class/Copyright";
 import Logo from '../../../public/imgs/logo-gradient.png';
-import PlansAync from '../../../components/Plan/PlansAync'
+//linea comentada mientras se desarrolla modal de pago real
+//import PlansAync from '../../../components/Plan/PlansAync'
+
+//para modal de pago
+import PlansAync from '../../../components/landingComponents/ModalPagoLanding'
+import { useTranslation } from 'next-i18next';
+import nextI18NextConfig from "../../../next-i18next.config";
 
 export default function Curso(){
+    //para modal de pago TEMPORAL
+    const { t } = useTranslation('index');
+    //
     const {data: session,status} = useSession();
     
     const router = useRouter();
@@ -63,7 +72,7 @@ export default function Curso(){
             newMissingUnits.push({ number : (i + currentLevel?.modules?.length) + 1})
         }
         
-        console.log(currentLevel)
+    //    console.log(currentLevel)
 
         setMissingUnits(newMissingUnits)
     },[currentLevel])
@@ -296,7 +305,9 @@ export default function Curso(){
 
                         {/* Contenido */}
                         <div>
-                            <PlansAync closePlan={(value)=>setOpenModalPay(value)}/>
+                            {/* <PlansAync closePlan={(value)=>setOpenModalPay(value)}/> */}
+                            {/*Modal de pago que no anda aun */}
+                      { <PlansAync setOpen={setOpenModalPay} email2={session?.user?.email} / >}
                         </div>
                     </div>
                 </div>
