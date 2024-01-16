@@ -35,14 +35,14 @@ export default function ModalPagoLanding({ setOpen, email2 }) {
 
     }
     return (
-        <div className='md:h-screen md:overflow-auto'>
+        <div >
             <div
                 onClick={() => setOpen(false)}
                 className='fixed w-screen min-h-screen top-0 left-0 bg-[#000000aa] flex flex-col justify-center items-center z-[999]'>
                 <div
                     onClick={(e) => e.stopPropagation()}
                     className='bg-white rounded-md p-5 flex flex-col w-[700px] relative
-                md:w-full md:rounded-none'>
+                    md:h-screen md:overflow-auto md:w-full md:rounded-none'>
 
                     {/* Boton de cerrar modal */}
                     <FontAwesomeIcon
