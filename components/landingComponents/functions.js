@@ -1,7 +1,11 @@
 
-async function sendEmail(email){
+async function sendEmail(email, value) {
   try {
     //envio email a candidato
+    let mensaje = '';
+    if (value === '0') { mensaje = massage }
+    if (value === '1') { mensaje = massage25 }
+    if (value === '2') { mensaje = massage10 }
     await
       fetch('/api/mail/',
         {
@@ -11,8 +15,8 @@ async function sendEmail(email){
           },
           body: JSON.stringify({
             to: email,
-            subject: 'Mensaje promoción Español con E / Promotion message Español con E ',
-            html: massage
+            subject: 'Promotion message Español con E ',
+            html: massage25
           })
         })
     //Envio email a academia
@@ -25,25 +29,269 @@ async function sendEmail(email){
           },
           body: JSON.stringify({
             to: 'aliriodi@gmail.com,eucarodriguez.com,espanolconeacademy@gmail.com',
-            subject: 'Se ha enviado mensaje promoción a: '+email,
+            subject: 'Se ha enviado mensaje promoción a: ' + email,
             html: 'enviado'
           })
         })
-        await fetch('/api/email/add',
-        {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
+    await fetch('/api/email/add',
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
 
-            body: JSON.stringify({ email: email, suscribe: true ,from:'student'}),
-        })
+        body: JSON.stringify({ email: email, suscribe: true, from: 'student' }),
+      })
   } catch (error) {
     console.error(error);
   }
 
 }
 // Mensajes via Email
+
+
+const massage25 = `
+ <!DOCTYPE html>
+ <html>
+ <head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <style>
+     *{
+         font-family: 'Montserrat', sans-serif;
+         color: #000;
+     }
+     body {
+     /* background-color: #f4f4f4; */
+     margin: 0;
+     padding: 0;
+     }
+
+     .container{
+       background:white;
+       text-color:black;
+     }
+
+     
+
+     header {
+     padding: 25px;
+     text-align: center;
+     background-color: #fff;
+     border-radius: 0 0 60px;
+     /*border-radius: 0 0 60% 60%;*/
+     position: relative;
+     }
+     header img{
+       width: 123px;
+       height: 78.25px;
+       margin-bottom: 15px;
+       position: relative;
+       z-index: 90;
+     }
+     header h1{
+       position: relative;
+       font-size: 28px;
+       color: black;
+       margin: 0;
+     }
+
+     .main {   
+       text-align: justify;
+       padding: 25px;
+       font-weight: 500;
+       color: black;
+     }
+     .main p{
+         margin: 0;
+     }
+     .main .mt{
+         margin-top: 12px;
+     }
+   td {
+    width:200px;
+   }
+     th, td {
+      border: 1px solid #dddddd;
+      text-align: center;
+      padding: 10px;
+  }
+     footer {
+     /* background-color: #007bff; */
+     color: black;
+     padding: 20px;
+     font-weight: 500;
+     text-align: center;
+     }
+ </style>
+ </head>
+ <body>
+
+   <div class="container">
+     <header>
+       <img src="https://espanolcone-five.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdfddh08q8%2Fimage%2Fupload%2Fs--4NefY4Ug--%2Fv1701173990%2Fimages%2Fl9hxqqm6urwlk6x8qdih.png&w=384&q=75"/>
+       <h1 style=" z-index: 90;">Promotion information: </h1>
+     </header>
+     
+     <div class="main" style="flex-direction: column; align-items: center; font-size: 18px;">
+     
+      <p><b>1. Customized individual class: </b> this class is 60 minutes long and you can schedule it through our platform. If you want to study or talk about a specific topic, you can indicate it at the time of scheduling.</p>
+      <br>
+      <p><b>2. Master Class:</b> this will be a class broadcast on the YouTube channel on February 10 at 5 pm in Argentina, with interesting topics for Spanish students of any level: 
+      <p>
+      <br>
+      <p>* Sounds of Spanish.</p> 
+      <p>* Spanish giants: <b>Ser</b> and <b>Estar</b>; <b>Por</b> and <b>Para</b>; <b>The subjunctive.</b></p>
+      <p>* The three E's of “Español con E”: <b>Enfoque</b>; <b>Estrategia</b> and <b>Emoción</b>.</p>
+      <p>* Complementary technological tools.</p> 
+      <p>* Motivation and recommendations.</p> 
+      <br>
+      <p><b>3. Group class:</b> there will be several group classes of different topics and levels, so you can choose the one that suits you best. </p>
+      <p>Here is a list of the classes we have planned so far. You will be notified by email of classes that are added later.</p>
+     <br><br>
+     <div style="flex-direction: column; align-items: center;">
+     
+      <table border="1">
+      <thead style='background-color: #4CCFEB;'>
+          <tr style='height:100px; text-align:center;'>
+              <th><b>Class topic</b></th>
+              <th><b>Level class</b></th>
+              <th><b>Date</b></th>
+              <th><b>Argentina timetable</b></th>
+          </tr>
+      </thead>
+      <tbody>
+        
+          <tr>
+              <td>Expectativas de año nuevo</td>
+              <td>Basic</td>
+              <td>January, Friday 26Th</td>
+              <td>from 21:00 to 22:00</td>
+          </tr>
+          <tr>
+              <td>Expectativas de año nuevo </td>
+              <td>Intermediate and Advanced </td>
+              <td>January, Saturday 27Th</td>
+              <td>from 17:00 to 18:00</td>
+          </tr>
+          <tr>
+              <td> ¿Vegano o carnívoro?</td>
+              <td>Advanced</td>
+              <td>February, Friday 2nd</td>
+              <td>from 11:00 to 12:00</td>
+          </tr>
+          <tr>
+              <td> 
+                   ¿Qué quieres hacer?
+                   ¿Ya tienes un plan?
+              </td>
+              <td>Basic</td>
+              <td>February, Friday 2nd</td>
+              <td>from 17:00 to 18:00</td>
+          </tr>
+          <tr>
+              <td>Quiero estar saludable y ser feliz</td>
+              <td>Intermediate</td>
+              <td>February, Saturday 3rd</td>
+              <td>from 14:30 to 15:30</td>
+          </tr>
+          <tr>
+              <td>¿Qué te gustaría hacer? Vamos a hacer un plan</td>
+              <td>Intermediate and Advanced</td>
+              <td>February, Saturday 3rd</td>
+              <td>from 16:00 to 17:00</td>
+          </tr>
+          <tr>
+          <td> ¿Esto o aquello?</td>
+          <td>Basic</td>
+          <td>February, Thursday 8th</td>
+          <td>from 14:00 to 15:00</td>
+      </tr>
+          <tr>
+              <td>Gustos y preferencias</td>
+              <td>All levels</td>
+              <td>February, Thursday 8th</td>
+              <td>from 17:00 to 18:00</td>
+          </tr>
+          <tr>
+          <td>Ya, todavía, aún no</td>
+          <td>Intermediate</td>
+          <td>February, Thursday 8th</td>
+          <td>from 21:00 to 22:00</td>
+      </tr>
+      <tr>
+      <td>Cuentame una anécdota</td>
+      <td>Intermediate and Advanced</td>
+      <td>February, Monday 12nd</td>
+      <td>from 11:00 to 12:00</td>
+  </tr>
+  <tr>
+  <td>Comparando ciudades</td>
+  <td>All levels</td>
+  <td>February, Monday 12nd</td>
+  <td>from 15:00 to 16:00</td>
+</tr>
+<tr>
+<td>Antes y ahora</td>
+<td>All levels</td>
+<td>February, Monday 12nd</td>
+<td>from 21:30 to 22:30</td>
+</tr>
+<tr>
+<td>Querer - Gustar - Amar</td>
+<td>Basic</td>
+<td>February, Tuesday 13rd</td>
+<td>from 15:00 to 16:00</td>
+</tr>
+<tr>
+<td> Hablemos de relaciones</td>
+<td>Intermediate and Advanced</td>
+<td>February, Wednesday 14th</td>
+<td>from 15:00 to 16:00</td>
+</tr>
+<tr>
+<td>Del internet a la inteligencia artificial</td>
+<td>Advanced</td>
+<td>February, Thursday 15th</td>
+<td>from 15:00 to 16:00</td>
+</tr>
+<tr>
+<td>Mi rutina. Estructura y conversación</td>
+<td>Basic</td>
+<td>February, Thursday 15th</td>
+<td>from 17:00 to 18:00</td>
+</tr>
+      </tbody>
+  </table>
+</div>
+
+
+      
+     <br><br>
+     <p> Payment platforms: </p>
+     <br>
+     <p> <img src="https://res.cloudinary.com/dfddh08q8/image/upload/s--_tWStOu3--/v1705239348/images/gubfxjdtjhslu6ny6r6b.png" height="40" width="80" />:
+     <b>espanolconeacademy@gmail.com</b></p>
+     <br>
+     <p> <img src="https://res.cloudinary.com/dfddh08q8/image/upload/s--KjPoyaFB--/v1705239434/images/rzftwxl7vgfxmmocl15k.png" height="30" width="80"  />
+     : <b>aliriodi@gmail.com            </b></p>
+     <div>
+     <br><br>
+     
+     <p>Once the payment has been made, send payment support to <b> espanolconeacademy@gmail.com </b> and we will proceed to create your account within a period of 1 hour.</p></div>
+     </div>
+ 
+     
+     <footer style="font-size: 18px;">
+       <p>¡We are waiting in https://espanolcone.com !</p>
+     
+     </footer>
+   </div>
+ </body>
+ </html>
+ `
+
+
 
 const massage = `
  <!DOCTYPE html>
@@ -205,10 +453,10 @@ const massage = `
  </body>
  </html>
  `
- 
 
- // Exporta las funciones
+
+// Exporta las funciones
 module.exports = {
   sendEmail
-  
+
 };
