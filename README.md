@@ -1,6 +1,8 @@
 Este es un proyecto de una academia de nombre Español con E
 Usamos como BD mongo db
 
+https://espanolcone.com
+
 Usamos cloudynari para cargar archivos tipo imagenes en: 
 http://localhost:3000/cloudinary
 
