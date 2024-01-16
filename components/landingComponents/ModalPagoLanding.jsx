@@ -35,7 +35,7 @@ export default function ModalPagoLanding({ setOpen, email2 }) {
 
     }
     return (
-        <div>
+        <div className='md:h-screen md:overflow-auto'>
             <div
                 onClick={() => setOpen(false)}
                 className='fixed w-screen min-h-screen top-0 left-0 bg-[#000000aa] flex flex-col justify-center items-center z-[999]'>
