@@ -31,7 +31,7 @@ export default function Plansync( {closePlan, openaEmailIN }) {
 
     <div
       className="fixed bg-[#0009] w-screen h-screen top-0 left-0 flex justify-center items-center z-[900] overflow-hidden
-    md:px-[25px]"
+    md:px-[25px] md:h-screen md:overflow-auto"
       onClick={() => closePlan(false)}>
       <div
         onClick={(e) => e.stopPropagation()}
