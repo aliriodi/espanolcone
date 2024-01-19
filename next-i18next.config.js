@@ -4,7 +4,7 @@
 module.exports = {
   i18n: {
     locales: ['es', 'en', 'pt'],
-      defaultLocale: 'es',
+      defaultLocale: 'en',
    
    //  namespaces: ['landing', 'navbar', 'common', 'menu'],
   },

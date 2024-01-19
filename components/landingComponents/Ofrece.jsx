@@ -204,11 +204,11 @@ function closePayModal() {setPayModal(false)}
                 
                 </div>
                   {/* Boton Modal de pagos ofertas */}
-                  <div className='w-[100%] relative top-4'>
+                  <div className='w-[100%] relative top-6'>
                   <button
                     className={
                       classNames('w-[116%] md:w-[95%] bg-gradient-to-l from-primary to-success rounded-[7px] text-white p-2  relative  left-[50%] translate-x-[-50%] transition-all hover:shadow-[0px_4px_14px_0px_#8438FFA6]  '
-                      , locale==='pt'? 'top-12 md:top-10':'top-16 md:top-12' )
+                      , locale==='pt'? ' top-10 md:top-8':'top-14  md:top-10' )
                     }
                      onClick={() => setOffer(!Offer)}>{t("card4.1.button")}</button>           
                 </div>
