@@ -24,7 +24,11 @@ export default function Blog({ devDotToPosts }) {
             <Layout className='bg-white relative overflow-x-hidden'>
                 <NAVBAR className="bg-[transparent]" />
                 <TopButton />
-                <h2 className="mb-4 font-bold text-3xl">Posts{' ' + devDotToPosts.length}</h2>
+                <section className='flex items-center justify-center flex-col bg-white px-[170px] min-h-screen py-[107px] relative
+        md:px-[20px]'>
+          
+                <h1 className='underlined-title mb-[111px] z-10'> Posts</h1>
+                
                 <div className="flex flex-wrap sm:flex-col">
                 <div className='grid grid-cols-4    w-full sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4'> 
                  {/* className="grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3" */}
@@ -52,7 +56,7 @@ export default function Blog({ devDotToPosts }) {
                         }
                     )}
 
-                </div></div>
+                </div></div></section>
                 </Layout>
             <Footer className='bg-[#F5F6FCCC]' />
         </div >
