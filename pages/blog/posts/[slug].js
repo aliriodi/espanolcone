@@ -1,10 +1,21 @@
 import Head from 'next/head';
 import Link from 'next/link';
-
+import { useState } from "react";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import Image from 'next/image';
+import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 import TopButton from '../../../components/landingComponents/blog/TopButton';
+import Layout from '../../../components/Layout';
+import Footer from '../../../components/Footer/Footer';
+import nextI18NextConfig from "../../../next-i18next.config";
+import NAVBAR from "../../../components/Navbar/Navbar"
 
 export default function Post({ devDotToPost }) {
-  
+
+  const { locale, locales, push } = useRouter()
+  const { t } = useTranslation(['landing', 'navbar', 'index', 'register'])
+
   const {
     title,
     published_at,
@@ -16,12 +27,13 @@ export default function Post({ devDotToPost }) {
     canonical_url
   } = devDotToPost;
   const date = new Date(published_at);
-  const formatedDate = `${date.getDate()}/${
-    parseInt(date.getMonth(), 10) + 1
-  }/${date.getFullYear()}`;
+  const formatedDate = `${date.getDate()}/${parseInt(date.getMonth(), 10) + 1
+    }/${date.getFullYear()}`;
+
+
 
   return (
-    <div>
+    <div id='nav'>
       <Head>
         <meta property="og:type" content={type_of} />
         <meta property="og:title" content={title} />
@@ -29,9 +41,12 @@ export default function Post({ devDotToPost }) {
         <meta property="og:image" content={social_image} />
         <meta property="og:url" content={canonical_url} />
       </Head>
+      <Layout className='bg-white relative overflow-x-hidden'>
+      <NAVBAR className="bg-[transparent]" />
+      <TopButton />
       <div className="flex justify-center">
-      
-        <TopButton />
+       
+        
         <article className="text-xs w-full md:w-3/4 ">
           <div className="border-2 text-black bg-white md:rounded-lg overflow-hidden">
             <img className="w-full" src={social_image} alt={title} />
@@ -70,22 +85,25 @@ export default function Post({ devDotToPost }) {
               Back
             </a>
           </Link>
-          
+
         </article>
       </div>
+      </Layout>
+      <Footer className='bg-[#F5F6FCCC]' />
     </div>
   );
 }
 
-export const getStaticProps = async ({ params }) => {
-    
+export const getStaticProps = async ({ params, locale }) => {
+
   const devDotToPost = await fetch(
-         `https://dev.to/api/articles/${process.env.DEV_USERNAME}/${params.slug}`
+    `https://dev.to/api/articles/${process.env.DEV_USERNAME}/${params.slug}`
   );
   const res = await devDotToPost.json();
 
   return {
     props: {
+      ...(await serverSideTranslations(locale, ['landing', 'navbar', 'common', 'menu', 'aboutus', 'index', 'footer', 'register'], nextI18NextConfig)),
       devDotToPost: res
     }
   };
@@ -98,7 +116,7 @@ export async function getStaticPaths() {
   const posts = await devDotToPosts.json();
 
   return {
-    paths: posts.map((post,index) => {
+    paths: posts.map((post, index) => {
       return {
         params: {
           slug: post.slug
