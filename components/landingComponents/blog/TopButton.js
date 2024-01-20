@@ -11,7 +11,7 @@ export default function TopButton() {
 
   const scrollFunction = () => {
     if (window.pageYOffset > 20) {
-      setDisplay('block');
+      setDisplay('hidden');
     } else {
       setDisplay('hidden');
     }
@@ -27,7 +27,7 @@ export default function TopButton() {
       type="button"
       title="Go to top"
       onClick={topFunction}
-      className={`${display} fixed bottom-0 right-0 m-8 z-50 bg-black text-white cursor-pointer p-2 rounded-full text-3xl outline-none focus:outline-none hover:bg-gray-800`}
+      className={`${display} fixed bottom-0 right-0 m-8 z-50 bg-primary text-white cursor-pointer p-2 rounded-full text-3xl outline-none focus:outline-none hover:bg-gray-800`}
     >
       <svg
         className="w-6 h-6"

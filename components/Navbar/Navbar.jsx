@@ -363,7 +363,7 @@ function Navbar(props) {
             <Link href={"/contactus"}>{t('CONTACTUS').toUpperCase()}</Link>
           </li>
           <li>
-            <Link href={"#TEAM"}>{'blog'.toUpperCase()}</Link>
+            <Link href={"/blog"}>{'blog'.toUpperCase()}</Link>
           </li>
         </ul>
 
