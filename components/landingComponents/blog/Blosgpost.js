@@ -18,7 +18,7 @@ export default function BlogPost({
   }/${date.getFullYear()}`;
 
   return (
-    
+   
     <Link  href={`/blog/posts/${slug}`} as={`/blog/posts/${slug}`} passHref legacyBehavior>
       <article className="h-full border-2 bg-white rounded-lg overflow-hidden flex flex-col cursor-pointer">
         <Image
@@ -98,5 +98,6 @@ export default function BlogPost({
         </div>
       </article>
     </Link>
+    
      );
 }
