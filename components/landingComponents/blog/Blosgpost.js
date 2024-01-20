@@ -1,5 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import nextI18NextConfig from "../../../next-i18next.config";
+//import { serverSideTranslations } from 'next-i18next/serverSideTranslations';   
+import { useRouter } from 'next/router';
 
 export default function BlogPost({
   img,
@@ -11,7 +14,11 @@ export default function BlogPost({
   comments,
   tagList,
   id
-}) {
+})
+
+{
+    const { locale, locales, push } = useRouter()
+   // const { t } = useTranslation(['landing', 'navbar', 'index','register'])
   const date = new Date(createdAt);
   const formatedDate = `${date.getDate()}/${
     parseInt(date.getMonth(), 10) + 1
@@ -19,7 +26,7 @@ export default function BlogPost({
 
   return (
    
-    <Link  href={`/blog/posts/${slug}`} as={`/blog/posts/${slug}`} passHref legacyBehavior>
+    <Link  href={`/blog/posts/[slug]`} as={`/blog/posts/${slug}`}  >
       <article className="h-full border-2 bg-white rounded-lg overflow-hidden flex flex-col cursor-pointer">
         <Image
           className="lg:h-48 md:h-36 w-96 object-cover object-center"
@@ -47,7 +54,7 @@ export default function BlogPost({
           ))}
         </div>
         <div className="flex items-center flex-wrap px-6 py-4">
-          <a className="text-blue-500 inline-flex items-center md:mb-2 lg:mb-0">
+          <div className="text-blue-500 inline-flex items-center md:mb-2 lg:mb-0">
             Continue Reading
             <svg
               className="w-4 h-4 ml-2"
@@ -61,7 +68,7 @@ export default function BlogPost({
               <path d="M5 12h14" />
               <path d="M12 5l7 7-7 7" />
             </svg>
-          </a>
+          </div>
           <span className="text-gray-600 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-300">
             <svg
               className="w-4 h-4 mr-1"
@@ -101,3 +108,20 @@ export default function BlogPost({
     
      );
 }
+
+export const getStaticProps = async ({ params, locale }) => {
+    console.log(params.slug)
+      const devDotToPost = await fetch(
+        `https://dev.to/api/articles/${process.env.DEV_USERNAME}/${params.slug}`
+      );
+      const res = await devDotToPost.json();
+    
+      return {
+        props: {
+          //...(await serverSideTranslations(locale, ['landing', 'navbar', 'common', 'menu', 'aboutus', 'index', 'footer', 'register'], nextI18NextConfig)),
+          devDotToPost: res
+        }
+      };
+    };
+      
+    

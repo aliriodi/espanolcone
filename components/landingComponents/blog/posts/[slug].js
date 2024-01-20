@@ -86,6 +86,7 @@ export const getStaticProps = async ({ params }) => {
 
   return {
     props: {
+      ...(await serverSideTranslations(locale, ['landing', 'navbar', 'common', 'menu', 'aboutus', 'index', 'footer','register'], nextI18NextConfig)),
       devDotToPost: res
     }
   };

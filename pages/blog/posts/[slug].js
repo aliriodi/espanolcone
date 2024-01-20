@@ -11,7 +11,8 @@ import Footer from '../../../components/Footer/Footer';
 import nextI18NextConfig from "../../../next-i18next.config";
 import NAVBAR from "../../../components/Navbar/Navbar"
 
-export default function Post({ devDotToPost }) {
+
+export default function SLUG({ devDotToPost }) {
 
   const { locale, locales, push } = useRouter()
   const { t } = useTranslation(['landing', 'navbar', 'index', 'register'])
@@ -46,8 +47,32 @@ export default function Post({ devDotToPost }) {
       <TopButton />
       <div className="flex justify-center">
        
-        
-        <article className="text-xs w-full md:w-3/4 ">
+      <article className="text-xs w-full md:w-3/4">
+  <div className="border-2 text-black bg-white md:rounded-lg overflow-hidden p-4 md:p-8">
+    <div className='grid grid-cols-2  w-full sm:grid-cols-1 md:grid-cols-1  gap-4'>
+      <img className=" max-h-15"   src={social_image} alt={title} />
+      <h1 className="text-2xl font-bold mb-2">{title}</h1>
+    </div>
+    
+    <div className="mt-4">
+      <h1 className="text-2xl font-bold mb-2">{title}</h1>
+      <div className="flex items-center text-gray-600">
+        <img
+          className="rounded-full w-8 h-8 mr-2"
+          src={user.profile_image_90}
+          alt={user.name}
+        />
+        <div className="flex flex-col">
+          <span className="font-semibold">{user.name}</span>
+          <span className="text-sm">{formatedDate}</span>
+        </div>
+      </div>
+      <div className="mt-4 markdown" dangerouslySetInnerHTML={{ __html: body_html }} />
+    </div>
+  </div>
+</article>
+
+        {/* <article className="text-xs w-full md:w-3/4 ">
           <div className="border-2 text-black bg-white md:rounded-lg overflow-hidden">
             <img className="w-full" src={social_image} alt={title} />
             <div className="p-4 md:p-32">
@@ -69,7 +94,8 @@ export default function Post({ devDotToPost }) {
               />
             </div>
           </div>
-          <Link href="/blog" passHref legacyBehavior>
+           */}
+          {/* <Link href="/blog" passHref legacyBehavior>
             <a className="text-blue-500 inline-flex items-center md:mb-2 lg:mb-0 cursor-pointer text-base pb-8">
               <svg
                 className="w-4 h-4 mr-2"
@@ -84,9 +110,9 @@ export default function Post({ devDotToPost }) {
               </svg>
               Back
             </a>
-          </Link>
+          </Link> */}
 
-        </article>
+        {/* </article> */}
       </div>
       </Layout>
       <Footer className='bg-[#F5F6FCCC]' />
@@ -94,8 +120,9 @@ export default function Post({ devDotToPost }) {
   );
 }
 
-export const getStaticProps = async ({ params, locale }) => {
 
+export const getStaticProps = async ({ params, locale }) => {
+console.log(params.slug)
   const devDotToPost = await fetch(
     `https://dev.to/api/articles/${process.env.DEV_USERNAME}/${params.slug}`
   );
@@ -108,7 +135,7 @@ export const getStaticProps = async ({ params, locale }) => {
     }
   };
 };
-
+  
 export async function getStaticPaths() {
   const devDotToPosts = await fetch(
     `https://dev.to/api/articles?username=${process.env.DEV_USERNAME}`

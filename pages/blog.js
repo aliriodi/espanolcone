@@ -9,10 +9,10 @@ import Head from 'next/head'
 import Layout from '../components/Layout';
 import Footer from "../components/Footer/Footer";
 import Image from 'next/image';
-import { useTranslation } from 'next-i18next';
+import { useTranslation,withTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 
-export default function Blog({ devDotToPosts }) {
+ function Blog({ devDotToPosts }) {
     const { locale, locales, push } = useRouter()
     const { t } = useTranslation(['landing', 'navbar', 'index','register'])
     return (
@@ -92,3 +92,4 @@ export async function getStaticProps({ locale }) {
       },
     }
   }
+  export default withTranslation(['navbar', 'aboutus'])(Blog);
