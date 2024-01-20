@@ -30,7 +30,7 @@ export default function Blog({ devDotToPosts }) {
                 <h1 className='underlined-title mb-[111px] z-10'> Posts</h1>
                 
                 <div className="flex flex-wrap sm:flex-col">
-                <div className='grid grid-cols-4    w-full sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4'> 
+                <div className='grid grid-cols-4    w-full sm:grid-cols-1 md:grid-cols-1  gap-4'> 
                  {/* className="grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3" */}
                     {devDotToPosts.map(
                         (post) => {
