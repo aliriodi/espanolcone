@@ -9,7 +9,8 @@ export default function BlogPost({
   slug,
   likes,
   comments,
-  tagList
+  tagList,
+  id
 }) {
   const date = new Date(createdAt);
   const formatedDate = `${date.getDate()}/${
@@ -39,8 +40,8 @@ export default function BlogPost({
           <p className="leading-relaxed mb-3">{desc}</p>
         </div>
         <div className="px-6 pt-4 pb-2">
-          {tagList.map(tag => (
-            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+          {tagList.map((tag,index) => (
+            <span key={index+id} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
               #{tag}
             </span>
           ))}

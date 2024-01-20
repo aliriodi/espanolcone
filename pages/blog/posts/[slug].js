@@ -45,8 +45,8 @@ export default function Post({ devDotToPost }) {
                   width='100'
                   height='500'
                 />
-                <span className="mx-4">{user.name}</span>
-                <span className="text-sm">{formatedDate}</span>
+                <div className="mx-4">{user.name}</div>
+                <div className="text-sm">{formatedDate}</div>
               </div>
               <div
                 className="markdown"
@@ -98,7 +98,7 @@ export async function getStaticPaths() {
   const posts = await devDotToPosts.json();
 
   return {
-    paths: posts.map(post => {
+    paths: posts.map((post,index) => {
       return {
         params: {
           slug: post.slug
