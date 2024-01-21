@@ -121,13 +121,10 @@ import NAVBAR from "../../../components/Navbar/Navbar"
 }
 
 
-export const getStaticProps = async ({ params , locale }) => {
-console.log(params.slug)
-console.log(params)
-console.log(locale)
+export const getStaticProps = async ({  locale }) => {
 
   const devDotToPost = await fetch(
-    `https://dev.to/api/articles/${process.env.DEV_USERNAME}/${params.slug}`
+    `https://dev.to/api/articles/${process.env.DEV_USERNAME}/post-de-prueba-13a9`
   );
   const res = await devDotToPost.json();
 
@@ -141,23 +138,3 @@ console.log(locale)
   };
 };
   
-export async function getStaticPaths() {
-  const devDotToPosts = await fetch(
-    `https://dev.to/api/articles?username=${process.env.DEV_USERNAME}`
-  );
-  const posts = await devDotToPosts.json();
-
-  return {
-    paths: posts.map((post, index) => {
-      return {
-        params: {
-          slug: post.slug,
-          
-        }
-      };
-    }),
-    fallback: false
-  };
-}
-
-//export default withTranslation(['navbar', 'footer','aboutus','landing'])(SLUG);

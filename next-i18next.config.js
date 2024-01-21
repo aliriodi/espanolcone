@@ -9,6 +9,8 @@ module.exports = {
    //  namespaces: ['landing', 'navbar', 'common', 'menu'],
   },
       ns: ['landing', 'navbar', 'common', 'menu','aboutus','index','footer','register','contactus'],  
- 
+      react: {
+        useSuspense: false, // Intenta cambiar a true
+      },
 }
 

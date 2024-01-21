@@ -385,4 +385,4 @@ function Navbar(props) {
     </>
   )
 }
-export default withTranslation(['navbar', 'aboutus'])(Navbar);
+export default withTranslation(['navbar', 'aboutus','footer'])(Navbar);

@@ -1,7 +1,10 @@
 import BlogPost from '../components/landingComponents/blog/Blosgpost';
 import TopButton from '../components/landingComponents/blog/TopButton';
 import stylesblog from '../styles/blog.module.css'
+import React, { useEffect } from 'react';
+import ReactGA, { initialize } from "react-ga";
 import { useState } from "react";
+import { useTranslation,withTranslation } from 'next-i18next';
 import nextI18NextConfig from "../next-i18next.config";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';   
 import NAVBAR from "../components/Navbar/Navbar"
@@ -9,12 +12,17 @@ import Head from 'next/head'
 import Layout from '../components/Layout';
 import Footer from "../components/Footer/Footer";
 import Image from 'next/image';
-import { useTranslation,withTranslation } from 'next-i18next';
+
 import { useRouter } from 'next/router';
 
  function Blog({ devDotToPosts }) {
+
     const { locale, locales, push } = useRouter()
-    const { t } = useTranslation(['landing', 'navbar', 'index','register'])
+    const { t } = useTranslation(['navbar', 'landing', 'index','register'])
+    useEffect(() => {
+        ReactGA.pageview(window.location.pathname);
+      }, []);
+
     return (
         <div id='nav'>
             <Head>
@@ -49,6 +57,7 @@ import { useRouter } from 'next/router';
                                         likes={post.positive_reactions_count}
                                         comments={post.comments_count}
                                         tagList={post.tag_list}
+                                        locale={locale}
                                     />  </div>
                                 )
                               
@@ -63,21 +72,6 @@ import { useRouter } from 'next/router';
     );
 }
 
-export const getStaticProps2 = async () => {
-    const devDotToPosts = await fetch(
-        `https://dev.to/api/articles?username=${process.env.DEV_USERNAME}`
-    );
-
-    const res = await devDotToPosts.json();
-
-    return {
-        props: {
-            devDotToPosts: res
-        },
-
-    };
-};
-
 export async function getStaticProps({ locale }) {
     const devDotToPosts = await fetch(
         `https://dev.to/api/articles?username=${process.env.DEV_USERNAME}`
@@ -87,9 +81,9 @@ export async function getStaticProps({ locale }) {
 
     return {
       props: {
-        ...(await serverSideTranslations(locale, ['landing', 'navbar', 'common', 'menu', 'aboutus', 'index', 'footer','register'], nextI18NextConfig)),
+        ...(await serverSideTranslations(locale, ['navbar', 'footer','landing', 'common', 'menu', 'aboutus','index','register'], nextI18NextConfig)),
         devDotToPosts: res
       },
     }
   }
-  export default withTranslation(['navbar', 'aboutus'])(Blog);
+  export default withTranslation(['navbar', 'footer','aboutus','landing'])(Blog);

@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import nextI18NextConfig from "../../../next-i18next.config";
-//import { serverSideTranslations } from 'next-i18next/serverSideTranslations';   
 import { useRouter } from 'next/router';
+import nextI18NextConfig from "../../../next-i18next.config";
+import { useTranslation,withTranslation } from 'next-i18next';
+
+
 
 export default function BlogPost({
   img,
@@ -14,19 +16,31 @@ export default function BlogPost({
   comments,
   tagList,
   id
+  
 })
 
 {
     const { locale, locales, push } = useRouter()
-   // const { t } = useTranslation(['landing', 'navbar', 'index','register'])
+   
+   const { t } = useTranslation(['navbar'])
   const date = new Date(createdAt);
   const formatedDate = `${date.getDate()}/${
     parseInt(date.getMonth(), 10) + 1
   }/${date.getFullYear()}`;
 
-  return (
+function moveSlug(){
    
-    <Link  href={`/blog/posts/[slug]`} as={`/blog/posts/${slug}`}  >
+  push('/blog/posts/[slug]', `/blog/posts/${slug}`);
+
+}
+
+  return (
+   <button onClick={()=>moveSlug()}>
+    {/* <Link  href={{ pathname: '/blog/[posts]/[slug]',
+        query: {  posts: 'posts', slug: slug },
+      }}
+               as={`/blog/posts/${slug}`}  > */}
+
       <article className="h-full border-2 bg-white rounded-lg overflow-hidden flex flex-col cursor-pointer">
         <Image
           className="lg:h-48 md:h-36 w-96 object-cover object-center"
@@ -36,9 +50,10 @@ export default function BlogPost({
           height='100'
           unsized='true'
         />
-
+    
         <div className="p-6 flex-1">
           <h2 className="tracking-widest text-xs title-font font-medium text-gray-500 mb-1">
+            {locale}
             {formatedDate}
           </h2>
           <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
@@ -104,13 +119,14 @@ export default function BlogPost({
           </span>
         </div>
       </article>
-    </Link>
-    
+      
+    {/* </Link> */}
+    </button>
      );
 }
 
-export const getStaticProps = async ({ params, locale }) => {
-    console.log(params.slug)
+export const getStaticProps = async ({ params  }) => {
+  
       const devDotToPost = await fetch(
         `https://dev.to/api/articles/${process.env.DEV_USERNAME}/${params.slug}`
       );
@@ -118,10 +134,11 @@ export const getStaticProps = async ({ params, locale }) => {
     
       return {
         props: {
-          //...(await serverSideTranslations(locale, ['landing', 'navbar', 'common', 'menu', 'aboutus', 'index', 'footer', 'register'], nextI18NextConfig)),
+          
           devDotToPost: res
         }
       };
     };
       
+ 
     
