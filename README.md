@@ -16,7 +16,30 @@ Cuando el pago es Zelle en la BD  hay que validar para modificar los siguientes 
 Corremos el server como 
 $ npm run dev
 
-1. Creacion de Modal generico ubicado en 
+0. Se crea Blog temporal mediante la estrategia:
+   
+   https://dev.to/nimbel/como-montar-un-blog-estatico-con-next-js-y-dev-to-como-cms-4jmc
+
+   La cuenta para actualziar los blog es
+
+   https://dev.to/aliriodi/post-de-prueba-13a9
+
+   se escribe codigo en
+   /pages/blog
+   /pages/blog/posts/[slug].js
+ 
+    Lo a continuacion se hace porque el i18n con rutas dinamicas no trabaja bien por lo
+   que se decide crear rutas estaticas por cada post, n la linea  127 se cambia el
+
+   Nombre-id-delPost
+
+   en la promesa y alli se actualiza la ruta a estatica y se autorenderiza el post con la nueva
+   ruta esto debdio a que la ruta cuando se refresca se pierde el slug o el elemento dinamico y queda en
+   404 Not Found
+
+   /pages/blog/posts/'Nombre-id-del-Post/js'
+
+2. Creacion de Modal generico ubicado en 
 ./componentes/ModalGEENRICO.jsx
 sedebe pasar por props un valor de 
 open = variable de estado local en valor true para que habra
@@ -24,7 +47,7 @@ setOpen = funcion que descativa el modal en el padre debe haber algo como
 conts [open,setOpen]=useState(false)
 y una funcion o boton que use el setOpen(true) para que habilite el modal 
 
-2. api de clases como
+3. api de clases como
    
 /api/class/get
 
