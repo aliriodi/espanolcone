@@ -26,7 +26,7 @@ $ npm run dev
 
    se escribe codigo en
    /pages/blog
-   /pages/blog/posts/[slug].js
+   /pages/blog/posts/[slug].js  el elemento [slug].js lo pase a slug.txt porque sino VERCEL DABA PROblemas al compilar!!!
  
     Lo a continuacion se hace porque el i18n con rutas dinamicas no trabaja bien por lo
    que se decide crear rutas estaticas por cada post, n la linea  127 se cambia el
