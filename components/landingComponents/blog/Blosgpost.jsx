@@ -30,7 +30,7 @@ export default function BlogPost({
 
 function moveSlug(){
    
-  push('/blog/posts/[slug]', `/blog/posts/${slug}`);
+  push( `/blog/posts/${slug}`);
 
 }
 
