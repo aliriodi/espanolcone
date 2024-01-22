@@ -51,7 +51,7 @@ export default function SLUG({ devDotToPost }) {
             <div className=" border-2 text-black bg-white md:rounded-lg overflow-hidden p-4 md:p-8">
               <div className='grid grid-cols-1  w-full sm:grid-cols-1 md:grid-cols-1  gap-4'>
               <h1 className="flex items-center justify-center text-gray-600 h-full text-5x5 font-bold mb-8">{title }</h1>
-              <div className=' grid grid-cols-2   justify-center gap-4'>
+              <div className=' grid grid-cols-2 md:grid-cols-1 sm:grid-cols-1  justify-center gap-4'>
               <div className={styles['principal']}>
               <div className=' grid grid-cols-1   justify-center gap-4'>
                 {social_image?<img className="border rounded  max-h-15" src={social_image} alt={title} />  :null}
