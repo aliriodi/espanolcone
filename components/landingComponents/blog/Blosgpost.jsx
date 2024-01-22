@@ -41,7 +41,7 @@ function moveSlug(){
       }}
                as={`/blog/posts/${slug}`}  > */}
 
-      <article className="h-full border-2 bg-white rounded-lg overflow-hidden flex flex-col cursor-pointer">
+      <article className=" hover:shadow-[0px_4px_14px_0px_#4CCFEB] transition duration-300 ease-in-out    h-full border-2  bg-white rounded-lg overflow-hidden flex flex-col cursor-pointer">
         <Image
           className="lg:h-48 md:h-36 w-96 object-cover object-center"
           src={img}
