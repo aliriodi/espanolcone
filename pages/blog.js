@@ -45,7 +45,9 @@ import { useRouter } from 'next/router';
                             return (
                             
                                 post.type_of === 'article' && (
-                                    <div key={post.id} className="bg-white p-4 rounded-lg shadow-md">    
+                                    <div key={post.id} className="bg-white  p-4 rounded-lg shadow-md"> 
+                                       {/* hover:shadow-[0px_4px_14px_0px_#9156F0] */}
+                                       {/* hover:shadow-[0px_4px_14px_0px_#4ED5F2] */}
                                     <BlogPost
                                         key={post.id}
                                         id={post.id}
