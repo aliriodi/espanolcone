@@ -9,7 +9,8 @@ import TopButton from '../../../components/landingComponents/blog/TopButton';
 import Layout from '../../../components/Layout';
 import Footer from '../../../components/Footer/Footer';
 import nextI18NextConfig from "../../../next-i18next.config";
-import NAVBAR from "../../../components/Navbar/Navbar"
+import NAVBAR from "../../../components/Navbar/Navbar";
+import styles from '../../../styles/blog.module.css';
 
 export default function SLUG({ devDotToPost }) {
 
@@ -53,7 +54,9 @@ export default function SLUG({ devDotToPost }) {
               <h1 className="flex items-center justify-center text-gray-600 h-full text-5x5 font-bold mb-8">{title }</h1>
               <div className='grid grid-cols-2   justify-center gap-4'>
               <img className="border rounded rounded-tl-full rounded-tr-full max-h-15" src={social_image} alt={title} />
+              <div className={styles['principal']}>
               <div className="mt-4 markdown text-lg list-disc" dangerouslySetInnerHTML={{ __html: body_html }} />
+              </div>
               </div>
               {console.log( body_html)}
               </div>

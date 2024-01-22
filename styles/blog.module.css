@@ -1,7 +1,28 @@
 /* blog style */
 
+.principal {
+  /* border: 2px solid black; */
+  display: flex;
+  align-items: center; /* Centra verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+  height: auto;
+}
+.principal p {
+  padding-top: 2%;
+  
+  
+}
+
+.principal p a[href^="mailto:"] {
+  color: inherit;
+  text-decoration: underline;
+}
 
 
+.principal  li p {
+  color:red;
+  padding-top: 2%
+}
 
 .markdown {
   padding: 1rem 0;
