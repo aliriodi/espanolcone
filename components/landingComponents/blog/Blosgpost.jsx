@@ -56,8 +56,8 @@ function moveSlug(){
             
             {formatedDate}
           </h2>
-          <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
-            {title}
+          <h1 className="text-success title-font text-lg font-medium  mb-3">
+           <b> {title}</b>
           </h1>
           <p className="leading-relaxed mb-3">{desc}</p>
         </div>
