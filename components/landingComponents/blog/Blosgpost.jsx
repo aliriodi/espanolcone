@@ -53,7 +53,7 @@ function moveSlug(){
     
         <div className="p-6 flex-1">
           <h2 className="tracking-widest text-xs title-font font-medium text-gray-500 mb-1">
-            {locale}
+            
             {formatedDate}
           </h2>
           <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
