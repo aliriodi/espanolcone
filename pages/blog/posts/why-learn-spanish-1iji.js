@@ -52,7 +52,8 @@ export default function SLUG({ devDotToPost }) {
               <div className='grid grid-cols-1  w-full sm:grid-cols-1 md:grid-cols-1  gap-4'>
               <h1 className="flex items-center justify-center text-gray-600 h-full text-5x5 font-bold mb-8">{title }</h1>
               <div className='grid grid-cols-2   justify-center gap-4'>
-              <img className="border rounded  max-h-15" src={social_image} alt={title} />
+                {social_image?<img className="border rounded  max-h-15" src={social_image} alt={title} />:null}
+              
               <div className="mt-4 markdown text-lg list-disc" dangerouslySetInnerHTML={{ __html: body_html }} />
               </div>
               {console.log( body_html)}
