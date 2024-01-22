@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useState } from "react";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Image from 'next/image';
-import { useTranslation,withTranslation } from 'next-i18next';
+import { useTranslation, withTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import TopButton from '../../../components/landingComponents/blog/TopButton';
 import Layout from '../../../components/Layout';
@@ -11,7 +11,7 @@ import Footer from '../../../components/Footer/Footer';
 import nextI18NextConfig from "../../../next-i18next.config";
 import NAVBAR from "../../../components/Navbar/Navbar"
 
- export default function SLUG({ devDotToPost }) {
+export default function SLUG({ devDotToPost }) {
 
   const { locale, locales, push } = useRouter()
   const { t } = useTranslation('navbar')
@@ -30,49 +30,48 @@ import NAVBAR from "../../../components/Navbar/Navbar"
   const formatedDate = `${date.getDate()}/${parseInt(date.getMonth(), 10) + 1
     }/${date.getFullYear()}`;
 
-
+  { console.log(devDotToPost) }
 
   return (
     <div id='nav'>
       <Head>
         <meta property="og:type" content={type_of} />
-        <meta property="og:title" content={t('title')} />
-        {/* <meta property="og:title" content={title} /> */}
+        <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={social_image} />
         <meta property="og:url" content={canonical_url} />
       </Head>
       <Layout className='bg-white relative overflow-x-hidden'>
-      <NAVBAR className="bg-[transparent]" />
-      <TopButton />
-      <div className="flex justify-center">
-       
-      <article className="text-xs w-full md:w-3/4">
-  <div className="border-2 text-black bg-white md:rounded-lg overflow-hidden p-4 md:p-8">
-    <div className='grid grid-cols-2  w-full sm:grid-cols-1 md:grid-cols-1  gap-4'>
-      <img className=" max-h-15"   src={social_image} alt={title} />
-      <h1 className="text-2xl font-bold mb-2">{title+'   '+locale}</h1>
-    </div>
-    
-    <div className="mt-4">
-      <h1 className="text-2xl font-bold mb-2">{title}</h1>
-      <div className="flex items-center text-gray-600">
-        <img
-          className="rounded-full w-8 h-8 mr-2"
-          src={user.profile_image_90}
-          alt={user.name}
-        />
-        <div className="flex flex-col">
-          <span className="font-semibold">{user.name}</span>
-          <span className="text-sm">{formatedDate}</span>
-        </div>
-      </div>
-      <div className="mt-4 markdown" dangerouslySetInnerHTML={{ __html: body_html }} />
-    </div>
-  </div>
-</article>
+        <NAVBAR className="bg-[transparent]" />
+        <TopButton />
+        <div className="flex justify-center">
 
-        {/* <article className="text-xs w-full md:w-3/4 ">
+          <article className="text-xs w-full md:w-3/4">
+            <div className="border-2 text-black bg-white md:rounded-lg overflow-hidden p-4 md:p-8">
+              <div className='grid grid-cols-2  w-full sm:grid-cols-1 md:grid-cols-1  gap-4'>
+                <img className=" max-h-15" src={social_image} alt={title} />
+                <h1 className="text-2xl font-bold mb-2">{title + '   ' + locale}</h1>
+              </div>
+
+              <div className="mt-4">
+                <h1 className="text-2xl font-bold mb-2">{title}</h1>
+                <div className="flex items-center justify-center text-primary h-full">
+                  <img
+                    className="rounded-full w-8 h-8 mr-2"
+                    src={user.profile_image_90}
+                    alt={user.name}
+                  />
+                  <div className="flex flex-col">
+                    <span className="font-semibold">{user.name}</span>
+                    <span className="text-sm">{formatedDate}</span>
+                  </div>
+                </div>
+                <div className="mt-4 markdown" dangerouslySetInnerHTML={{ __html: body_html }} />
+              </div>
+            </div>
+          </article>
+
+          {/* <article className="text-xs w-full md:w-3/4 ">
           <div className="border-2 text-black bg-white md:rounded-lg overflow-hidden">
             <img className="w-full" src={social_image} alt={title} />
             <div className="p-4 md:p-32">
@@ -112,8 +111,8 @@ import NAVBAR from "../../../components/Navbar/Navbar"
             </a>
           </Link> */}
 
-        {/* </article> */}
-      </div>
+          {/* </article> */}
+        </div>
       </Layout>
       <Footer className='bg-[#F5F6FCCC]' />
     </div>
@@ -121,7 +120,7 @@ import NAVBAR from "../../../components/Navbar/Navbar"
 }
 
 
-export const getStaticProps = async ({  locale }) => {
+export const getStaticProps = async ({ locale }) => {
 
   const devDotToPost = await fetch(
     `https://dev.to/api/articles/${process.env.DEV_USERNAME}/las-playas-son-mi-paraiso-2okf`
@@ -130,11 +129,10 @@ export const getStaticProps = async ({  locale }) => {
 
   return {
     props: {
-    ...(await serverSideTranslations(locale, ['navbar','footer'], nextI18NextConfig)),
+      ...(await serverSideTranslations(locale, ['navbar', 'footer'], nextI18NextConfig)),
       devDotToPost: res,
-      
+
 
     }
   };
 };
-  
