@@ -27,7 +27,7 @@ useEffect(() => {
     async function blog(){
     const devDotToPosts = await fetch(`/api/blog/posts/${ultimaParte}` );
     const res = await devDotToPosts.json();
-//    console.log(res)
+    console.log(res)
     setPost(res.postid)
     }
     blog()
@@ -57,9 +57,9 @@ useEffect(() => {
     <div id='nav'>
       <Head>
         <meta property="og:type" content={type_of} />
-        {locale==='en'?<meta property="og:title" content={en.title} />:null}
-        {locale==='es'?<meta property="og:title" content={es.title} />:null}
-        {locale==='pt'?<meta property="og:title" content={pt.title} />:null}
+        {locale==='en'?<meta property="og:title" content={en?.title} />:null}
+        {locale==='es'?<meta property="og:title" content={es?.title} />:null}
+        {locale==='pt'?<meta property="og:title" content={es?.title} />:null}
         <meta property="og:description" content={description} />
         <meta property="og:image" content={social_image} />
         <meta property="og:url" content={canonical_url} />
@@ -72,11 +72,11 @@ useEffect(() => {
       <article className="text-xs w-full md:w-3/4">
   <div className="border-2 text-black bg-white md:rounded-lg overflow-hidden p-4 md:p-8">
     <div className='grid grid-cols-2  w-full sm:grid-cols-1 md:grid-cols-1  gap-4'>
-      <img className=" max-h-15"   src={social_image} alt={en.title} />
+      <img className=" max-h-15"   src={social_image} alt={title} />
 
-      {locale==='en'?<h1 className="text-2xl font-bold mb-2">{en.title}</h1>:null}
-      {locale==='pt'?<h1 className="text-2xl font-bold mb-2">{pt.title}</h1>:null}
-      {locale==='es'?<h1 className="text-2xl font-bold mb-2">{es.title}</h1>:null}
+      {locale==='en'?<h1 className="text-2xl font-bold mb-2">{en?.title}</h1>:null}
+      {locale==='pt'?<h1 className="text-2xl font-bold mb-2">{pt?.title}</h1>:null}
+      {locale==='es'?<h1 className="text-2xl font-bold mb-2">{es?.title}</h1>:null}
     </div>
     
     <div className="mt-4">
