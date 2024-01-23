@@ -57,8 +57,9 @@ useEffect(() => {
     <div id='nav'>
       <Head>
         <meta property="og:type" content={type_of} />
-        <meta property="og:title" content={t('title')} />
-        <meta property="og:title" content={title} />
+        {locale==='en'?<meta property="og:title" content={en.title} />:null}
+        {locale==='es'?<meta property="og:title" content={es.title} />:null}
+        {locale==='pt'?<meta property="og:title" content={pt.title} />:null}
         <meta property="og:description" content={description} />
         <meta property="og:image" content={social_image} />
         <meta property="og:url" content={canonical_url} />
@@ -79,7 +80,7 @@ useEffect(() => {
     </div>
     
     <div className="mt-4">
-      <h1 className="text-2xl font-bold mb-2">{title}</h1>
+      
       <div className="flex items-center text-gray-600">
         <img
           className="rounded-full w-8 h-8 mr-2"
