@@ -76,10 +76,10 @@ import { useRouter } from 'next/router';
 }
 
 export async function getStaticProps({ locale }) {
-    const devDotToPosts = await fetch(`https://espanolcone.com/api/blog/posts/get` );
+    const devDotToPosts = await fetch(`/api/blog/posts/get` );
     //const devDotToPosts = await fetch( `https://dev.to/api/articles?username=${process.env.DEV_USERNAME}` );
     const res = await devDotToPosts.json();
-   console.log(res)
+   
 
 
 
