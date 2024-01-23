@@ -21,7 +21,6 @@ import { useRouter } from 'next/router';
     useEffect(() => {
         async function blog(){
         const devDotToPosts = await fetch(`/api/blog/posts/get` );
-        //const devDotToPosts = await fetch( `https://dev.to/api/articles?username=${process.env.DEV_USERNAME}` );
         const res = await devDotToPosts.json();
         setBlogs(res.posts)}
         blog()
