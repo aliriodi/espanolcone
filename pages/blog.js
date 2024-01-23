@@ -22,7 +22,7 @@ import { useRouter } from 'next/router';
         async function blog(){
         const devDotToPosts = await fetch(`/api/blog/posts/get` );
         const res = await devDotToPosts.json();
-        setBlogs(res.posts)}
+        setBlogs(res.posts.reverse())}
         blog()
              }, []);
 
