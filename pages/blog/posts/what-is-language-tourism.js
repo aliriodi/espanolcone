@@ -11,7 +11,7 @@ import Layout from '../../../components/Layout';
 import Footer from '../../../components/Footer/Footer';
 import nextI18NextConfig from "../../../next-i18next.config";
 import NAVBAR from "../../../components/Navbar/Navbar"
-
+import styles from '../../../styles/blog.module.css';
 
 export default  function SLUG({ devDotToPost }) {
   const [post,setPost]=useState('')
@@ -70,16 +70,24 @@ useEffect(() => {
       <div className="flex justify-center">
        
       <article className="text-xs w-full md:w-3/4">
-  <div className="border-2 text-black bg-white md:rounded-lg overflow-hidden p-4 md:p-8">
-    <div className='grid grid-cols-2  w-full sm:grid-cols-1 md:grid-cols-1  gap-4'>
-      <img className=" max-h-15"   src={social_image} alt={title} />
-
-      {locale==='en'?<h1 className="text-2xl font-bold mb-2">{en?.title}</h1>:null}
-      {locale==='pt'?<h1 className="text-2xl font-bold mb-2">{pt?.title}</h1>:null}
-      {locale==='es'?<h1 className="text-2xl font-bold mb-2">{es?.title}</h1>:null}
+      <div className=" border-2 text-black bg-white md:rounded-lg overflow-hidden p-4 md:p-8">
+              <div className='grid grid-cols-1  w-full sm:grid-cols-1 md:grid-cols-1  gap-4'>
+              
+      {locale==='en'?<h1 className="flex items-center justify-center text-gray-600 h-full text-5x5 font-bold mb-8">{en?.title}</h1>:null}
+      {locale==='pt'?<h1 className="flex items-center justify-center text-gray-600 h-full text-5x5 font-bold mb-8">{pt?.title}</h1>:null}
+      {locale==='es'?<h1 className="flex items-center justify-center text-gray-600 h-full text-5x5 font-bold mb-8">{es?.title}</h1>:null}
+      <div className='grid grid-cols-2   justify-center gap-4'>
+      <img className=" border rounded rounded-tl-full rounded-tr-full max-h-15"   src={social_image} alt={title} />
+      <div className={styles['principal']}>
+      {locale==='pt'?<div className="mt-4 markdown text-lg list-disc" dangerouslySetInnerHTML={{ __html: pt?.body_html }} />:null}
+      {locale==='en'?<div className="mt-4 markdown text-lg list-disc" dangerouslySetInnerHTML={{ __html: en?.body_html }} />:null}
+      {locale==='es'?<div className="mt-4 markdown text-lg list-disc" dangerouslySetInnerHTML={{ __html: es?.body_html }} />:null}
+      </div>
+      </div>
+      
     </div>
     
-    <div className="mt-4">
+    <div className="mt-4 flex  justify-end ">
       
       <div className="flex items-center text-gray-600">
         <img
@@ -93,10 +101,8 @@ useEffect(() => {
           <span className="text-sm">{formatedDate}</span>
         </div>
       </div>
-      {locale==='pt'?<div className="mt-4 markdown" dangerouslySetInnerHTML={{ __html: pt?.body_html }} />:null}
-      {locale==='en'?<div className="mt-4 markdown" dangerouslySetInnerHTML={{ __html: en?.body_html }} />:null}
-      {locale==='es'?<div className="mt-4 markdown" dangerouslySetInnerHTML={{ __html: es?.body_html }} />:null}
-      {/* <div className="mt-4 markdown" dangerouslySetInnerHTML={{ __html: body_html }} /> */}
+    
+      
     </div>
   </div>
 </article>
