@@ -91,7 +91,7 @@ useEffect(() => {
       
       <div className="flex items-center text-gray-600">
         <img
-          className="rounded-full w-8 h-8 mr-2"
+          className="rounded-full w-16 h-16 mr-2"
           src={user?.profile_image_90}
           alt={user?.name}
         />
