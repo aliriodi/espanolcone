@@ -20,7 +20,7 @@ export default async function IdUser(req, res) {
         console.log('CONNECTED TO MONGO DB');
         console.log('/api/blog/posts/[id] post with id:',  id)
 
-        const postid = await Post.findById({_id:id});
+        const postid = await Post.findOne({slug:id});
 
         if (!postid) {
           return res.status(404).json({ message: 'Post no existe' });
@@ -30,7 +30,7 @@ export default async function IdUser(req, res) {
         // Verifica procedencia de solicitud 
         console.log("/////////////////////////////// ",req.headers.accept == "*/*" ? "Solicitud desde Codigo": "Solicitud desde Navegador"," ///////////////////////////////")
 
-        if(req.headers.accept == "*/*"){
+        if(req.headers.accept == "*/*"||true){
           // Solicitud desde el codigo
           return res.status(200).json({postid});
         }

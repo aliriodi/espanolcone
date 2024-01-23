@@ -127,20 +127,20 @@ function moveSlug(){
      );
 }
 
-export const getStaticProps = async ({ params  }) => {
+// export const getStaticProps = async ({ params  }) => {
   
-      const devDotToPost = await fetch(
-        `https://dev.to/api/articles/${process.env.DEV_USERNAME}/${params.slug}`
-      );
-      const res = await devDotToPost.json();
+//       const devDotToPost = await fetch(
+//         `https://dev.to/api/articles/${process.env.DEV_USERNAME}/${params.slug}`
+//       );
+//       const res = await devDotToPost.json();
     
-      return {
-        props: {
+//       return {
+//         props: {
           
-          devDotToPost: res
-        }
-      };
-    };
+//           devDotToPost: res
+//         }
+//       };
+//     };
       
  
     
