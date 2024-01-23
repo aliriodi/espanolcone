@@ -30,7 +30,7 @@ export default async function getAllUsers(req, res) {
     // Verifica procedencia de solicitud 
     console.log("/////////////////////////////// ",req.headers.accept == "*/*" ? "Solicitud desde Codigo": "Solicitud desde Navegador"," ///////////////////////////////")
 
-    if(req.headers.accept == "*/*"||true){
+    if(req.headers.accept == "*/*"){
       // Solicitud desde el codigo
       return res.status(200).json({ posts });
     }

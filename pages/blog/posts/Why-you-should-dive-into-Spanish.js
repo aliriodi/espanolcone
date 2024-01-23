@@ -79,9 +79,9 @@ useEffect(() => {
       <div className='grid grid-cols-2   justify-center gap-4'>
       <img className=" border rounded max-h-15"   src={social_image} alt={title} />
       <div className={styles['principal']}>
-      {locale==='pt'?<div className="mt-4 markdown text-lg list-disc" dangerouslySetInnerHTML={{ __html: pt?.body_html }} />:null}
-      {locale==='en'?<div className="mt-4 markdown text-lg list-disc" dangerouslySetInnerHTML={{ __html: en?.body_html }} />:null}
-      {locale==='es'?<div className="mt-4 markdown text-lg list-disc" dangerouslySetInnerHTML={{ __html: es?.body_html }} />:null}
+      {locale==='pt'?<div className="mt-4 markdown text-lg " dangerouslySetInnerHTML={{ __html: pt?.body_html }} />:null}
+      {locale==='en'?<div className="mt-4 markdown text-lg " dangerouslySetInnerHTML={{ __html: en?.body_html }} />:null}
+      {locale==='es'?<div className="mt-4 markdown text-lg " dangerouslySetInnerHTML={{ __html: es?.body_html }} />:null}
       </div>
       </div>
       

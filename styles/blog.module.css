@@ -26,15 +26,17 @@
 .principal  li  {
   color: var(--primary);
   padding-left: 1%;
-  list-style-type:initial;
+  padding-top:2%;
 
 }
 .principal  li  p{
   color: black;
   padding-top: 2%;
-  
-
-}
+  }
+  .principal  li  black{
+    color: black;
+    padding-top: 2%;
+    }
 .markdown {
   padding: 1rem 0;
   text-align: left;
