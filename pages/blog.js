@@ -1,9 +1,8 @@
 import BlogPost from '../components/landingComponents/blog/Blosgpost';
 import TopButton from '../components/landingComponents/blog/TopButton';
 import stylesblog from '../styles/blog.module.css'
-import React, { useEffect } from 'react';
+import React, { useEffect , useState} from 'react';
 import ReactGA, { initialize } from "react-ga";
-import { useState } from "react";
 import { useTranslation,withTranslation } from 'next-i18next';
 import nextI18NextConfig from "../next-i18next.config";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';   
@@ -16,12 +15,17 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
  function Blog({ devDotToPosts }) {
-
+    const [blogs,setBlogs]=useState([])
     const { locale, locales, push } = useRouter()
     const { t } = useTranslation(['navbar', 'landing', 'index','register'])
     useEffect(() => {
-        ReactGA.pageview(window.location.pathname);
-      }, []);
+        async function blog(){
+        const devDotToPosts = await fetch(`/api/blog/posts/get` );
+        //const devDotToPosts = await fetch( `https://dev.to/api/articles?username=${process.env.DEV_USERNAME}` );
+        const res = await devDotToPosts.json();
+        setBlogs(res.posts)}
+        blog()
+             }, []);
 
     return (
         <div id='nav'>
@@ -39,9 +43,9 @@ import { useRouter } from 'next/router';
                 
                 <div className="flex flex-wrap sm:flex-col">
                 <div className='grid grid-cols-4    w-full sm:grid-cols-1 md:grid-cols-1  gap-4'> 
-                {console.log(devDotToPosts)}
+                
                  {/* className="grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3" */}
-                    {devDotToPosts.map(
+                    {blogs.map(
                         (post) => {
                             return (
                             
@@ -76,17 +80,14 @@ import { useRouter } from 'next/router';
 }
 
 export async function getStaticProps({ locale }) {
-    const devDotToPosts = await fetch(`/api/blog/posts/get` );
+   // const devDotToPosts = await fetch(`/api/blog/posts/get` );
     //const devDotToPosts = await fetch( `https://dev.to/api/articles?username=${process.env.DEV_USERNAME}` );
-    const res = await devDotToPosts.json();
+  //  const res = await devDotToPosts.json();
    
-
-
-
     return  {
       props: {
         ...(await serverSideTranslations(locale, ['navbar', 'footer','landing', 'common', 'menu', 'aboutus','index','register'], nextI18NextConfig)),
-        devDotToPosts: res.posts
+   //     devDotToPosts: res.posts
       },
     }
   }
