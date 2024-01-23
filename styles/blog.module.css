@@ -6,6 +6,7 @@
   align-items: center; /* Centra verticalmente */
   justify-content: center; /* Centra horizontalmente */
   height: auto;
+  padding-left: 3%;
 }
 .principal p {
   padding-top: 2%;
@@ -14,16 +15,26 @@
 }
 
 .principal p a[href^="mailto:"] {
-  color: inherit;
+  color: #4299e1;
+  text-decoration: underline;
+}
+.principal p a[href^="mailto:"]:hover {
+  color: #2b6cb0;
   text-decoration: underline;
 }
 
+.principal  li  {
+  color: var(--primary);
+  padding-left: 1%;
+  list-style-type:initial;
 
-.principal  li p {
-  color:red;
-  padding-top: 2%
 }
+.principal  li  p{
+  color: black;
+  padding-top: 2%;
+  
 
+}
 .markdown {
   padding: 1rem 0;
   text-align: left;
