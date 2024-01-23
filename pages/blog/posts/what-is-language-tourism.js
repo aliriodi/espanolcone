@@ -38,6 +38,9 @@ useEffect(() => {
     published_at,
     social_image,
     body_html,
+    es,
+    en,
+    pt,
     user,
     type_of,
     description,
@@ -68,25 +71,31 @@ useEffect(() => {
       <article className="text-xs w-full md:w-3/4">
   <div className="border-2 text-black bg-white md:rounded-lg overflow-hidden p-4 md:p-8">
     <div className='grid grid-cols-2  w-full sm:grid-cols-1 md:grid-cols-1  gap-4'>
-      <img className=" max-h-15"   src={social_image} alt={title} />
-      <h1 className="text-2xl font-bold mb-2">{title+'   '+locale}</h1>
+      <img className=" max-h-15"   src={social_image} alt={en.title} />
+
+      {locale==='en'?<h1 className="text-2xl font-bold mb-2">{en.title}</h1>:null}
+      {locale==='pt'?<h1 className="text-2xl font-bold mb-2">{pt.title}</h1>:null}
+      {locale==='es'?<h1 className="text-2xl font-bold mb-2">{es.title}</h1>:null}
     </div>
     
     <div className="mt-4">
       <h1 className="text-2xl font-bold mb-2">{title}</h1>
       <div className="flex items-center text-gray-600">
-        {/* <img
+        <img
           className="rounded-full w-8 h-8 mr-2"
-          src={user.profile_image_90}
-          alt={user.name}
-        /> */}
-        {pathname}
+          src={user?.profile_image_90}
+          alt={user?.name}
+        />
+       
         <div className="flex flex-col">
-          {/* <span className="font-semibold">{user.name}</span> */}
+          <span className="font-semibold">{user?.name}</span>
           <span className="text-sm">{formatedDate}</span>
         </div>
       </div>
-      <div className="mt-4 markdown" dangerouslySetInnerHTML={{ __html: body_html }} />
+      {locale==='pt'?<div className="mt-4 markdown" dangerouslySetInnerHTML={{ __html: pt?.body_html }} />:null}
+      {locale==='en'?<div className="mt-4 markdown" dangerouslySetInnerHTML={{ __html: en?.body_html }} />:null}
+      {locale==='es'?<div className="mt-4 markdown" dangerouslySetInnerHTML={{ __html: es?.body_html }} />:null}
+      {/* <div className="mt-4 markdown" dangerouslySetInnerHTML={{ __html: body_html }} /> */}
     </div>
   </div>
 </article>
