@@ -39,26 +39,27 @@ import { useRouter } from 'next/router';
                 
                 <div className="flex flex-wrap sm:flex-col">
                 <div className='grid grid-cols-4    w-full sm:grid-cols-1 md:grid-cols-1  gap-4'> 
+                {console.log(devDotToPosts)}
                  {/* className="grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3" */}
                     {devDotToPosts.map(
                         (post) => {
                             return (
                             
                                 post.type_of === 'article' && (
-                                    <div key={post.id} className="bg-white hover:shadow-[0px_4px_14px_0px_#9156F0] p-4 rounded-lg shadow-md"> 
+                                    <div key={post._id} className="bg-white hover:shadow-[0px_4px_14px_0px_#9156F0] p-4 rounded-lg shadow-md"> 
                                        {/* hover:shadow-[0px_4px_14px_0px_#9156F0] */}
                                        {/* hover:shadow-[0px_4px_14px_0px_#4ED5F2] */}
                                     <BlogPost
-                                        key={post.id}
-                                        id={post.id}
+                                        key={post._id}
+                                        id={post._id}
                                         img={post.social_image}
                                         createdAt={post.published_at}
-                                        title={post.title}
-                                        desc={post.description}
+                                        title={post[locale].title}
+                                        desc={post[locale].description}
                                         slug={post.slug}
                                         likes={post.positive_reactions_count}
                                         comments={post.comments_count}
-                                        tagList={post.tag_list}
+                                        tagList={post[locale].tag_list}
                                         locale={locale}
                                     />  </div>
                                 )
@@ -75,16 +76,17 @@ import { useRouter } from 'next/router';
 }
 
 export async function getStaticProps({ locale }) {
-    const devDotToPosts = await fetch(
-        `https://dev.to/api/articles?username=${process.env.DEV_USERNAME}`
-    );
-
+    const devDotToPosts = await fetch(`http://localhost:3000/api/blog/posts/get` );
+    //const devDotToPosts = await fetch( `https://dev.to/api/articles?username=${process.env.DEV_USERNAME}` );
     const res = await devDotToPosts.json();
+   console.log(res)
 
-    return {
+
+
+    return  {
       props: {
         ...(await serverSideTranslations(locale, ['navbar', 'footer','landing', 'common', 'menu', 'aboutus','index','register'], nextI18NextConfig)),
-        devDotToPosts: res
+        devDotToPosts: res.posts
       },
     }
   }
