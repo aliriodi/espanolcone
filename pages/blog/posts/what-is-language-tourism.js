@@ -27,7 +27,7 @@ useEffect(() => {
     async function blog(){
     const devDotToPosts = await fetch(`/api/blog/posts/${ultimaParte}` );
     const res = await devDotToPosts.json();
-    console.log(res)
+//    console.log(res)
     setPost(res.postid)
     }
     blog()
