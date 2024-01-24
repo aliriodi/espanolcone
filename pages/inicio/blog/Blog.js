@@ -30,7 +30,7 @@ export default function Blogcargar() {
       {/* <!-- Tipo de contenido --> */}
       <div class="mb-4">
         <label for="type_of" class="block text-sm font-medium text-gray-600">Tipo de Contenido</label>
-        <input type="text" id="type_of" name="type_of" class="mt-1 p-2 w-full border rounded-md">entrada</input>
+        <input type="text" id="type_of" name="type_of" class="mt-1 p-2 w-full border rounded-md" />
       </div>
 
       {/* <!-- Descripción --> */}
@@ -42,19 +42,19 @@ export default function Blogcargar() {
       {/* <!-- Título en Español --> */}
       <div class="mb-4">
         <label for="titulo_es" class="block text-sm font-medium text-gray-600">Título en Español</label>
-        <input type="text" id="titulo_es" name="titulo_es" class="mt-1 p-2 w-full border rounded-md"></input>
+        <input type="text" id="titulo_es" name="titulo_es" class="mt-1 p-2 w-full border rounded-md" />
       </div>
 
       {/* <!-- Título en Inglés --> */}
       <div class="mb-4">
         <label for="titulo_en" class="block text-sm font-medium text-gray-600">Título en Inglés</label>
-        <input type="text" id="titulo_en" name="titulo_en" class="mt-1 p-2 w-full border rounded-md"></input>
+        <input type="text" id="titulo_en" name="titulo_en" class="mt-1 p-2 w-full border rounded-md" />
       </div>
 
       {/* <!-- Título en Portugués --> */}
       <div class="mb-4">
         <label for="titulo_pt" class="block text-sm font-medium text-gray-600">Título en Portugués</label>
-        <input type="text" id="titulo_pt" name="titulo_pt" class="mt-1 p-2 w-full border rounded-md"></input>
+        <input type="text" id="titulo_pt" name="titulo_pt" class="mt-1 p-2 w-full border rounded-md" />
       </div>
 
       {/* <!-- Botón de enviar --> */}
