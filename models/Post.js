@@ -50,6 +50,9 @@ const PostSchema = new Schema(
         },
         user: {
             type:{}
+        },
+        reviews: {
+            type:[]
         }
 
 

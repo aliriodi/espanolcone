@@ -12,6 +12,7 @@ import Footer from '../../../components/Footer/Footer';
 import nextI18NextConfig from "../../../next-i18next.config";
 import NAVBAR from "../../../components/Navbar/Navbar"
 import styles from '../../../styles/blog.module.css';
+import Reviews from './Reviews'
 
 export default  function SLUG({ devDotToPost }) {
   const [post,setPost]=useState('')
@@ -44,7 +45,9 @@ useEffect(() => {
     user,
     type_of,
     description,
-    canonical_url
+    canonical_url,
+    reviews,
+    slug
   } = post;
   
  const date = new Date(published_at);
@@ -107,50 +110,15 @@ useEffect(() => {
     
       
     </div>
+     <section>
+      {/* Resenas */}
+     {false && <Reviews reviews={reviews} slug={slug} />}
+
+     </section>
   </div>
+
 </article>
 
-        {/* <article className="text-xs w-full md:w-3/4 ">
-          <div className="border-2 text-black bg-white md:rounded-lg overflow-hidden">
-            <img className="w-full" src={social_image} alt={title} />
-            <div className="p-4 md:p-32">
-              <h1>{title}</h1>
-              <div className="flex items-center text-gray-600">
-                <img
-                  className="rounded-full w-12"
-                  src={user.profile_image_90}
-                  alt={user.name}
-                  width='100'
-                  height='500'
-                />
-                <div className="mx-4">{user.name}</div>
-                <div className="text-sm">{formatedDate}</div>
-              </div>
-              <div
-                className="markdown"
-                dangerouslySetInnerHTML={{ __html: body_html }}
-              />
-            </div>
-          </div>
-           */}
-          {/* <Link href="/blog" passHref legacyBehavior>
-            <a className="text-blue-500 inline-flex items-center md:mb-2 lg:mb-0 cursor-pointer text-base pb-8">
-              <svg
-                className="w-4 h-4 mr-2"
-                stroke="currentColor"
-                strokeWidth="2"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                viewBox="0 0 24 24"
-              >
-                <path d="M19 12H5M12 19l-7-7 7-7" />
-              </svg>
-              Back
-            </a>
-          </Link> */}
-
-        {/* </article> */}
       </div>
       </Layout>
       <Footer className='bg-[#F5F6FCCC]' />

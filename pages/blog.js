@@ -48,7 +48,7 @@ import { useRouter } from 'next/router';
                         (post) => {
                             return (
                             
-                                post.type_of === 'article' && (
+                                post.type_of === 'article' && post.publish &&(
                                     <div key={post._id} className="bg-white hover:shadow-[0px_4px_14px_0px_#9156F0] p-4 rounded-lg shadow-md"> 
                                        {/* hover:shadow-[0px_4px_14px_0px_#9156F0] */}
                                        {/* hover:shadow-[0px_4px_14px_0px_#4ED5F2] */}
@@ -64,6 +64,7 @@ import { useRouter } from 'next/router';
                                         comments={post.comments_count}
                                         tagList={post[locale].tag_list}
                                         locale={locale}
+                                        
                                     />  </div>
                                 )
                               
