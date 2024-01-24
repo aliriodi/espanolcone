@@ -5,7 +5,14 @@ const nextConfig = {
   reactStrictMode: true,
   i18n,
   images: {
-    domains: ['res.cloudinary.com','images.unsplash.com','lh3.googleusercontent.com','localhost:3000','espanolcone-five.vercel.app'],
+    domains: ['res.cloudinary.com',
+      'images.unsplash.com',
+      'lh3.googleusercontent.com',
+      'localhost:3000',
+      'espanolcone-five.vercel.app',
+      'media.dev.to'
+
+    ],
   },
 };
 

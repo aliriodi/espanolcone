@@ -194,7 +194,7 @@ function Navbar(props) {
         {/* Botones Baner */}
         <ul
         className={`${styles["navbar-btns"]}`}
-        style={language.label==='INGLÉS'?{ minWidth: '680px' }:{ minWidth: '710px' }}>
+        style={language.label==='INGLÉS'?{ minWidth: '680px' }:{ minWidth: '800px' }}>
 
           <li className={styles["select-languages"]} onClick={handleOnChangeLanguage} ref={scrollNavBar ? menuLanguage : null}>
 
@@ -258,6 +258,9 @@ function Navbar(props) {
           </li>
           <li>
             <Link href={"/contactus"}>{t('CONTACTUS').toUpperCase()}</Link>
+          </li>
+          <li>
+            <Link href={"/blog"}>{'blog'.toUpperCase()}</Link>
           </li>
         </ul>
 
@@ -295,7 +298,7 @@ function Navbar(props) {
         {/* Botones Baner */}
         <ul
         className={`${styles["navbar-btns"]}`}
-        style={language.label==='INGLÉS'?{ minWidth: '680px' }:{ minWidth: '710px' }}>
+        style={language.label==='INGLÉS'?{ minWidth: '680px' }:{ minWidth: '800px' }}>
 
           <li className={styles["select-languages"]} onClick={handleOnChangeLanguage} ref={scrollNavBar ? menuLanguage : null}>
 
@@ -359,6 +362,9 @@ function Navbar(props) {
           <li>
             <Link href={"/contactus"}>{t('CONTACTUS').toUpperCase()}</Link>
           </li>
+          <li>
+            <Link href={"/blog"}>{'blog'.toUpperCase()}</Link>
+          </li>
         </ul>
 
         {/* Iniciar Secion */}
@@ -379,4 +385,4 @@ function Navbar(props) {
     </>
   )
 }
-export default withTranslation(['navbar', 'aboutus'])(Navbar);
+export default withTranslation(['navbar', 'aboutus','footer'])(Navbar);
