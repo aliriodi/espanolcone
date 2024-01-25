@@ -85,9 +85,9 @@ useEffect(() => {
       </div>
       <div className='grid grid-cols-1 md:grid-cols-1 sm:grid-cols-1  justify-center '>
       <div className={styles['principal']}>
-      {locale==='pt'?<div className="mt-2  markdown text-justify text-lg md:text-sm sm:text-xs " dangerouslySetInnerHTML={{ __html: pt?.body_html }} />:null}
-      {locale==='en'?<div className="mt-2  markdown text-justify text-lg md:text-sm sm:text-xs " dangerouslySetInnerHTML={{ __html: en?.body_html }} />:null}
-      {locale==='es'?<div className="mt-2  markdown text-justify text-lg md:text-sm sm:text-xs " dangerouslySetInnerHTML={{ __html: es?.body_html }} />:null}
+      {locale==='pt'?<div className="mt-2  markdown text-justify text-lg md:text-lg sm:text-xs " dangerouslySetInnerHTML={{ __html: pt?.body_html }} />:null}
+      {locale==='en'?<div className="mt-2  markdown text-justify text-lg md:text-lg sm:text-xs " dangerouslySetInnerHTML={{ __html: en?.body_html }} />:null}
+      {locale==='es'?<div className="mt-2  markdown text-justify text-lg md:text-lg sm:text-xs " dangerouslySetInnerHTML={{ __html: es?.body_html }} />:null}
       </div></div>
       </div>
       
