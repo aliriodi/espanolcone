@@ -62,7 +62,7 @@ useEffect(() => {
         <meta property="og:type" content={type_of} />
         {locale==='en'?<meta property="og:title" content={en?.title} />:null}
         {locale==='es'?<meta property="og:title" content={es?.title} />:null}
-        {locale==='pt'?<meta property="og:title" content={es?.title} />:null}
+        {locale==='pt'?<meta property="og:title" content={pt?.title} />:null}
         <meta property="og:description" content={description} />
         <meta property="og:image" content={social_image} />
         <meta property="og:url" content={canonical_url} />
@@ -80,7 +80,7 @@ useEffect(() => {
       {locale==='pt'?<h1 className="flex items-center justify-center text-gray-600 h-full text-5x5 font-bold mb-8">{pt?.title}</h1>:null}
       {locale==='es'?<h1 className="flex items-center justify-center text-gray-600 h-full text-5x5 font-bold mb-8">{es?.title}</h1>:null}
       <div className=' grid grid-cols-2  md:grid-cols-1 sm:grid-cols-1  gap-4'>
-      <div className='flex items-center'>
+      <div className='flex '>
       <img className="border rounded max-h-15"   src={social_image} alt={title} />
       </div>
       <div className='grid grid-cols-1 md:grid-cols-1 sm:grid-cols-1  justify-center '>
