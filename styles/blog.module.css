@@ -126,3 +126,14 @@
     flex-direction: column;
   }
 }
+
+@media (max-width: 400px) {
+  .table-wrapper-paragraph table {
+    display: flex;
+  }
+
+  .table-wrapper-paragraph table tr {
+    display: flex;
+    flex-direction: column;
+  }
+}
