@@ -53,6 +53,9 @@ const PostSchema = new Schema(
         },
         reviews: {
             type:[]
+        },
+        publish:{
+            type:Boolean
         }
 
 
