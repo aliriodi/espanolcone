@@ -173,8 +173,8 @@ export default function Blogcargar() {
                                 </div>
                                 {/* <!-- Descripción --> */}
                                 <div className="mb-4">
-                                    <label htmlFor="descriptionES" className="block text-sm font-medium text-gray-600">Descripción General</label>
-                                    <textarea id="descriptionES" name="descriptionES" rows="4" className="mt-1 p-2 w-full border rounded-md"
+                                    <label htmlFor="descriptionES" className="block text-sm font-medium text-gray-600">Resumen (1 linea)</label>
+                                    <textarea id="descriptionES" name="descriptionES" rows="1" className="mt-1 p-2 w-full border rounded-md"
                                         value={descriptionES}
                                         onChange={() => {
                                             handleChange(document.getElementById('descriptionES').value, setDescriptionES);
@@ -209,8 +209,8 @@ export default function Blogcargar() {
                                         }} > </textarea>
                                 </div>
                                 <div className="mb-4">
-                                    <label htmlFor="descriptionEN" className="block text-sm font-medium text-gray-600">Description</label>
-                                    <textarea id="descriptionEN" name="descriptionEN" rows="4" className="mt-1 p-2 w-full border rounded-md"
+                                    <label htmlFor="descriptionEN" className="block text-sm font-medium text-gray-600">Abstract (1 line)</label>
+                                    <textarea id="descriptionEN" name="descriptionEN" rows="1" className="mt-1 p-2 w-full border rounded-md"
                                         value={descriptionEN}
                                         onChange={() => {
                                             handleChange(document.getElementById('descriptionEN').value, setDescriptionEN);
@@ -245,8 +245,8 @@ export default function Blogcargar() {
                                         }} > </textarea>
                                 </div>
                                 <div className="mb-4">
-                                    <label htmlFor="descriptionPT" className="block text-sm font-medium text-gray-600">Descrição</label>
-                                    <textarea id="descriptionPT" name="descriptionPT" rows="4" className="mt-1 p-2 w-full border rounded-md"
+                                    <label htmlFor="descriptionPT" className="block text-sm font-medium text-gray-600">Resumo (1 linha)</label>
+                                    <textarea id="descriptionPT" name="descriptionPT" rows="1" className="mt-1 p-2 w-full border rounded-md"
                                         value={descriptionPT}
                                         onChange={() => {
                                             handleChange(document.getElementById('descriptionPT').value, setDescriptionPT);
