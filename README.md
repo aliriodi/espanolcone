@@ -22,9 +22,9 @@ $ npm run dev
   hay un front para cargar blogs en 
   /inicio/blog/Blog
   cada idioma tiene sus parametros se usa full html para cargara las separaciones 
-  <p></p><br>
-  <b></b>
-  <a href='mailto:espanolconeacademy@gmail.com'> espanolconeacademy@gmail.com</a>
+  "<p></p><br>"
+  "<b></b>"
+  {<a href='mailto:espanolconeacademy@gmail.com'> espanolconeacademy@gmail.com</a>}
   
    se escribe codigo en
    /pages/blog
