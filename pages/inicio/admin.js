@@ -4,7 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faAngleLeft, faAngleRight, faEllipsisVertical, faFilter, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
 import Spinner from "../../components/Spinner"
 import MenuUsers from "../../components/admin/MenuUser"
-import { useSession } from "next-auth/react"
+import { useSession } from "next-auth/react";
+import { useRouter } from 'next/router';
 
 export default function Admin() {
     const [currentUsers, setCurrentUsers] = useState(null)
@@ -17,9 +18,11 @@ export default function Admin() {
 
     const [isLoading, setIsLoading] = useState(false)
 
-    const[searchInput, setSearchInput] = useState("")
+    const [searchInput, setSearchInput] = useState("")
 
     const { data: session, status } = useSession();
+
+    const router = useRouter();
 
     useEffect(() => {
         if (!currentUsers) getAllUsers()
@@ -34,11 +37,11 @@ export default function Admin() {
         getAllUsers();
     }, [currentPage])
 
-    useEffect(()=>{
+    useEffect(() => {
         setCurrentPage(1)
-        if(searchInput?.length > 0)getUserBySearchTerm(searchInput)
+        if (searchInput?.length > 0) getUserBySearchTerm(searchInput)
         else getAllUsers()
-    },[searchInput])
+    }, [searchInput])
 
     // Metodos de Usuarios
     async function getAllUsers() {
@@ -61,7 +64,7 @@ export default function Admin() {
         }
     }
 
-    async function getUserBySearchTerm(searchTerm){
+    async function getUserBySearchTerm(searchTerm) {
         setIsLoading(true)
         try {
 
@@ -228,34 +231,39 @@ export default function Admin() {
         <>
             <Menu />
 
-            <div className="px-[60px] py-[119px]
-            md:px-[25px]">
+            <div className="px-[60px] py-[119px]    md:px-[25px]">
 
-                {/* Barra de busqueda */}
-                <div className="w-[584px] mx-auto flex justify-center bg-white rounded-full p-3 mb-5 shadow-[0px_4px_24px_#0000002F] relative">
-                    
-                    {/* Input */}
-                    <input
-                    className=" flex-grow-[1] outline-none"
-                    placeholder='Busca por "Nombre", "Apellido" o "Email"' 
-                    onChange={(e)=>setSearchInput(e.target.value)}
-                    type="text"/>
+                <div className="grid grid-cols-1    w-full sm:grid-cols-1 md:grid-cols-1 ">
+                   
+                    {/* Barra de busqueda */}
+                    <div className="w-[584px] mx-auto flex justify-center bg-white rounded-full p-3 mb-5 shadow-[0px_4px_24px_#0000002F] relative">
 
-                    {/* Icono */}
-                    <div className=" w-6">
-                        <FontAwesomeIcon className=" text-violet_dark" icon={faMagnifyingGlass}/>
+                        {/* Input */}
+                        <input
+                            className=" flex-grow-[1] outline-none"
+                            placeholder='Busca por "Nombre", "Apellido" o "Email"'
+                            onChange={(e) => setSearchInput(e.target.value)}
+                            type="text" />
+
+                        {/* Icono */}
+                        <div className=" w-6">
+                            <FontAwesomeIcon className=" text-violet_dark" icon={faMagnifyingGlass} />
+                        </div>
+                    </div>
+                     {/* Boton para ir a seccion de Blogs */}
+                     <div onClick={()=>router.push('/inicio/blog/Blog')} className='w-[100px] mx-auto flex justify-center bg-white rounded-full p-3 mb-5 shadow-[0px_4px_24px_#0000002F] relative cursor-pointer'>
+                        BLOGS
                     </div>
                 </div>
-
                 {/* Contador de Usuarios */}
                 {
-                     currentUsers?.length > 0 &&
+                    currentUsers?.length > 0 &&
                     <p className=" text-light my-2">
                         {
                             totalUsersResult > 1 ?
-                            `Se encontraron ${totalUsersResult} usuarios`
-                            :
-                            `Se encontro ${totalUsersResult} usuario`
+                                `Se encontraron ${totalUsersResult} usuarios`
+                                :
+                                `Se encontro ${totalUsersResult} usuario`
                         }
                     </p>
                 }
@@ -292,17 +300,17 @@ export default function Admin() {
                         {
                             currentUsers?.length > 0 ?
 
-                            // Usuarios
-                            currentUsers?.map((user, index) =>
-                                <MenuUsers loading={isLoading} key={index} user={user} validZeller={validZeller} InvalidZeller={InvalidZeller} updateUser={updateUser} />
-                            )
-                            :
+                                // Usuarios
+                                currentUsers?.map((user, index) =>
+                                    <MenuUsers loading={isLoading} key={index} user={user} validZeller={validZeller} InvalidZeller={InvalidZeller} updateUser={updateUser} />
+                                )
+                                :
 
-                            // No se Encontraron usuarios
-                            !isLoading &&
-                            <div className="h-full w-full justify-center items-center flex absolute top-0 left-0 text-light text-[18px]">
-                                No se encontraron usuarios
-                            </div>
+                                // No se Encontraron usuarios
+                                !isLoading &&
+                                <div className="h-full w-full justify-center items-center flex absolute top-0 left-0 text-light text-[18px]">
+                                    No se encontraron usuarios
+                                </div>
                         }
 
                         {/* Loader */}
@@ -337,14 +345,14 @@ export default function Admin() {
                     {/* Siguiente */}
                     {
                         (maxResults * currentPage + 1) < totalUsersResult ?
-                        <button
-                            onClick={nextPage}
-                            className=" w-[42px] h-[42px] flex justify-center items-center bg-white rounded-full text-violet_dark shadow-[0px_4px_24px_#0000002F] font-semibold transition-all
+                            <button
+                                onClick={nextPage}
+                                className=" w-[42px] h-[42px] flex justify-center items-center bg-white rounded-full text-violet_dark shadow-[0px_4px_24px_#0000002F] font-semibold transition-all
                         hover:bg-[#F3F2F7]">
-                            <FontAwesomeIcon icon={faAngleRight} />
-                        </button>
-                        :
-                        <span className="flex w-[42px] h-[42px]"></span>
+                                <FontAwesomeIcon icon={faAngleRight} />
+                            </button>
+                            :
+                            <span className="flex w-[42px] h-[42px]"></span>
                     }
 
                 </div>

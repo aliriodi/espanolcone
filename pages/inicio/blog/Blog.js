@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { useSession } from "next-auth/react"
+import React, { useEffect, useState } from 'react';
+import { useSession } from "next-auth/react";
 import { formatISO, parseISO } from 'date-fns';
-import Cloudinary from '../../../components/cloudinary/cloudinary'
+import Cloudinary from '../../../components/cloudinary/cloudinary';
+import Spinner from "../../../components/Spinner";
+import Menu from "../../../components/Menu";
 
 export default function Blogcargar() {
 
@@ -93,7 +95,7 @@ export default function Blogcargar() {
                         positive_reactions_count: positive_reactions_count,
                         cover_image: cover_image,
                         social_image: social_image,
-                        published_at:formatISO(fechaActual, { representation: 'complete' }),
+                        published_at: formatISO(fechaActual, { representation: 'complete' }),
                         last_comment_at: formatISO(fechaActual, { representation: 'complete' }),
                         es: {
                             tags: tagsES,
@@ -135,154 +137,161 @@ export default function Blogcargar() {
 
 
     }
-    return (
-        <div>
+    return (<>
 
-            <div className="w-3/4 mx-auto bg-white p-6 rounded-md shadow-md">
-                <h2 className="text-2xl font-semibold mb-4">Cargar Contenido de Blog</h2>
-                <form id="bloghtmlForm">
-                    {/* <!-- Tipo de contenido --> */}
-                    <div className="mb-4">
-                        <label htmlFor="type_of" className="block text-sm font-medium text-gray-600">Tipo de Contenido</label>
-                        <input type="text" id="type_of" name="type_of" className="mt-1 p-2 w-full border rounded-md"
-                            value={type_of}
-                            onChange={() => handleChange(document.getElementById('type_of').value, setType_of)} />
-                    </div>
+    <Menu />
+       
+        {!session?.user ? 
+        <div className='pt-24'><div className="flex justify-center w-ful mx-auto p-6 rounded-md "><Spinner /></div></div>
+         : 
+            <div className='pt-24'>
 
-                    <div className='p-2'>  <Cloudinary imageurl={Imageurl} /></div>
-                    <div className=''>
-
-                        {/* <!-- Título en Español --> */}
-                        <div className='pt-0'>
-                            <div className=' border-primary w-1/5 border-solid border-2 rounded-[5px] flex-grow-[1] mx-1 text-white bg-primary ' onClick={() => setSeccionES(!seccionES)}>SECCION ESPAÑOL</div>
-                            {seccionES && <>   <div className="mb-4">
-                                <label htmlFor="titulo_es" className="block text-sm font-medium text-gray-600">Título</label>
-                                <input type="text" id="titulo_es" name="titulo_es" className="mt-1 p-2 w-full border rounded-md"
-                                    value={tituloES}
-                                    onChange={() => handleChange(document.getElementById('titulo_es').value, setTituloEs)} />
-                            </div>
-                                {/* <!-- tags --> */}
-                                <div className="mb-4">
-                                    <label htmlFor="tagsES" className="block text-sm font-medium text-gray-600">Tags separados por comas (,)</label>
-                                    <textarea id="tagsES" name="tagsES" rows="1" className="mt-1 p-2 w-full border rounded-md"
-                                        value={tagsES}
-                                        onChange={() => {
-                                            handleChange(document.getElementById('tagsES').value, setTagES);
-                                            handleChange(document.getElementById('tagsES').value.split(','), setTags_ListES)
-                                        }} > </textarea>
-                                </div>
-                                {/* <!-- Descripción --> */}
-                                <div className="mb-4">
-                                    <label htmlFor="descriptionES" className="block text-sm font-medium text-gray-600">Resumen (1 linea)</label>
-                                    <textarea id="descriptionES" name="descriptionES" rows="1" className="mt-1 p-2 w-full border rounded-md"
-                                        value={descriptionES}
-                                        onChange={() => {
-                                            handleChange(document.getElementById('descriptionES').value, setDescriptionES);
-                                        }} ></textarea>
-                                </div>
-                                {/* <!-- Body html para el detalle --> */}
-                                <div className="mb-4">
-                                    <label htmlFor="body_htmlES" className="block text-sm font-medium text-gray-600">Descripción para el detalle</label>
-                                    <textarea id="body_htmlES" name="body_htmlES" rows="4" className="mt-1 p-2 w-full border rounded-md"
-                                        value={body_htmlES}
-                                        onChange={() => handleChange(document.getElementById('body_htmlES').value, setBody_htmlES)}
-                                    ></textarea>
-                                </div>
-                            </>}</div>
-
-                        {/* <!-- Título en Inglés --> */}
-                        <div className='pt-2'>
-                            <div className=' border-primary w-1/5 border-solid border-2 rounded-[5px] flex-grow-[1] mx-1 text-white bg-primary ' onClick={() => setSeccionEN(!seccionEN)}>SECCION INGLES</div>
-                            {seccionEN && <> <div className="mb-4">
-                                <label htmlFor="titulo_en" className="block text-sm font-medium text-gray-600">Title in English</label>
-                                <input type="text" id="titulo_en" name="titulo_en" className="mt-1 p-2 w-full border rounded-md"
-                                    value={tituloEN}
-                                    onChange={() => handleChange(document.getElementById('titulo_en').value, setTituloEN)} />
-                            </div>
-                                <div className="mb-4">
-                                    <label htmlFor="tagsEN" className="block text-sm font-medium text-gray-600">Comma separated tags (,)</label>
-                                    <textarea id="tagsEN" name="tagsEN" rows="1" className="mt-1 p-2 w-full border rounded-md"
-                                        value={tagsEN}
-                                        onChange={() => {
-                                            handleChange(document.getElementById('tagsEN').value, setTagEN);
-                                            handleChange(document.getElementById('tagsEN').value.split(','), setTags_ListEN)
-                                        }} > </textarea>
-                                </div>
-                                <div className="mb-4">
-                                    <label htmlFor="descriptionEN" className="block text-sm font-medium text-gray-600">Abstract (1 line)</label>
-                                    <textarea id="descriptionEN" name="descriptionEN" rows="1" className="mt-1 p-2 w-full border rounded-md"
-                                        value={descriptionEN}
-                                        onChange={() => {
-                                            handleChange(document.getElementById('descriptionEN').value, setDescriptionEN);
-                                        }} ></textarea>
-                                </div>
-                                {/* <!-- Body html para el detalle INGLES--> */}
-                                <div className="mb-4">
-                                    <label htmlFor="body_htmlEN" className="block text-sm font-medium text-gray-600">Description detail</label>
-                                    <textarea id="body_htmlEN" name="body_htmlEN" rows="4" className="mt-1 p-2 w-full border rounded-md"
-                                        value={body_htmlEN}
-                                        onChange={() => handleChange(document.getElementById('body_htmlEN').value, setBody_htmlEN)}
-                                    ></textarea>
-                                </div>
-                            </>}</div>
-                        {/* <!-- Título en Portugués --> */}
-                        <div className='pt-2'>
-                            <div className=' border-primary w-1/5 border-solid border-2 rounded-[5px] flex-grow-[1] mx-1 text-white bg-primary ' onClick={() => setSeccionPT(!seccionPT)}>SECCION PORTUGUES</div>
-                            {seccionPT && <>
-                                <div className="mb-4">
-                                    <label htmlFor="titulo_pt" className="block text-sm font-medium text-gray-600">Título em português</label>
-                                    <input type="text" id="titulo_pt" name="titulo_pt" className="mt-1 p-2 w-full border rounded-md"
-                                        value={tituloPT}
-                                        onChange={() => handleChange(document.getElementById('titulo_pt').value, setTituloPT)} />
-                                </div>
-                                <div className="mb-4">
-                                    <label htmlFor="tagsPT" className="block text-sm font-medium text-gray-600">Tags separadas por vírgula (,)</label>
-                                    <textarea id="tagsPT" name="tagsPT" rows="1" className="mt-1 p-2 w-full border rounded-md"
-                                        value={tagsPT}
-                                        onChange={() => {
-                                            handleChange(document.getElementById('tagsPT').value, setTagPT);
-                                            handleChange(document.getElementById('tagsPT').value.split(','), setTags_ListPT)
-                                        }} > </textarea>
-                                </div>
-                                <div className="mb-4">
-                                    <label htmlFor="descriptionPT" className="block text-sm font-medium text-gray-600">Resumo (1 linha)</label>
-                                    <textarea id="descriptionPT" name="descriptionPT" rows="1" className="mt-1 p-2 w-full border rounded-md"
-                                        value={descriptionPT}
-                                        onChange={() => {
-                                            handleChange(document.getElementById('descriptionPT').value, setDescriptionPT);
-                                        }} ></textarea>
-                                </div>
-                                {/* <!-- Body html para el detalle Portugues--> */}
-                                <div className="mb-4">
-                                    <label htmlFor="body_htmlPT" className="block text-sm font-medium text-gray-600">Detalhe da descrição</label>
-                                    <textarea id="body_htmlPT" name="body_htmlPT" rows="4" className="mt-1 p-2 w-full border rounded-md"
-                                        value={body_htmlPT}
-                                        onChange={() => handleChange(document.getElementById('body_htmlPT').value, setBody_htmlPT)}
-                                    ></textarea>
-                                </div>
-                            </>}
-
-                        </div>
-                    </div>
-
-                    {/* Publicar Blog  */}
-                    <div className='pt-2'>
+                <div className="w-3/4 mx-auto bg-white p-6 rounded-md shadow-md">
+                    <h2 className="text-2xl font-semibold mb-4">Cargar Contenido de Blog</h2>
+                    <form id="bloghtmlForm">
+                        {/* <!-- Tipo de contenido --> */}
                         <div className="mb-4">
-                            <label htmlFor="publish" className="block text-sm font-medium text-gray-600 ">Publicar Blog {'  '}
-                                <input type="checkbox" id="publish" name="publish" className="border rounded-md"
-                                    value={publish}
-                                    onChange={() => handleChange(!publish, setPublish)} />
-                            </label>
-                        </div></div>
+                            <label htmlFor="type_of" className="block text-sm font-medium text-gray-600">Tipo de Contenido</label>
+                            <input type="text" id="type_of" name="type_of" className="mt-1 p-2 w-full border rounded-md"
+                                value={type_of}
+                                onChange={() => handleChange(document.getElementById('type_of').value, setType_of)} />
+                        </div>
 
-                    {/* <!-- Botón de enviar --> */}
-                    <div className="text-center">
-                        <button type="button" onClick={() => cargarContenido()} className="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600">Cargar Contenido</button>
-                    </div>
-                </form>
-            </div>
+                        <div className='p-2'>  <Cloudinary imageurl={Imageurl} /></div>
+                        <div className=''>
+
+                            {/* <!-- Título en Español --> */}
+                            <div className='pt-0'>
+                                <div className=' border-primary w-1/5 border-solid border-2 rounded-[5px] flex-grow-[1] mx-1 text-white bg-primary cursor-pointer' onClick={() => setSeccionES(!seccionES)}>SECCION ESPAÑOL</div>
+                                {seccionES && <>   <div className="mb-4">
+                                    <label htmlFor="titulo_es" className="block text-sm font-medium text-gray-600">Título</label>
+                                    <input type="text" id="titulo_es" name="titulo_es" className="mt-1 p-2 w-full border rounded-md"
+                                        value={tituloES}
+                                        onChange={() => handleChange(document.getElementById('titulo_es').value, setTituloEs)} />
+                                </div>
+                                    {/* <!-- tags --> */}
+                                    <div className="mb-4">
+                                        <label htmlFor="tagsES" className="block text-sm font-medium text-gray-600">Tags separados por comas (,)</label>
+                                        <textarea id="tagsES" name="tagsES" rows="1" className="mt-1 p-2 w-full border rounded-md"
+                                            value={tagsES}
+                                            onChange={() => {
+                                                handleChange(document.getElementById('tagsES').value, setTagES);
+                                                handleChange(document.getElementById('tagsES').value.split(','), setTags_ListES)
+                                            }} > </textarea>
+                                    </div>
+                                    {/* <!-- Descripción --> */}
+                                    <div className="mb-4">
+                                        <label htmlFor="descriptionES" className="block text-sm font-medium text-gray-600">Resumen (1 linea)</label>
+                                        <textarea id="descriptionES" name="descriptionES" rows="1" className="mt-1 p-2 w-full border rounded-md"
+                                            value={descriptionES}
+                                            onChange={() => {
+                                                handleChange(document.getElementById('descriptionES').value, setDescriptionES);
+                                            }} ></textarea>
+                                    </div>
+                                    {/* <!-- Body html para el detalle --> */}
+                                    <div className="mb-4">
+                                        <label htmlFor="body_htmlES" className="block text-sm font-medium text-gray-600">Descripción para el detalle</label>
+                                        <textarea id="body_htmlES" name="body_htmlES" rows="4" className="mt-1 p-2 w-full border rounded-md"
+                                            value={body_htmlES}
+                                            onChange={() => handleChange(document.getElementById('body_htmlES').value, setBody_htmlES)}
+                                        ></textarea>
+                                    </div>
+                                </>}</div>
+
+                            {/* <!-- Título en Inglés --> */}
+                            <div className='pt-2'>
+                                <div className=' border-primary w-1/5 border-solid border-2 rounded-[5px] flex-grow-[1] mx-1 text-white bg-primary cursor-pointer' onClick={() => setSeccionEN(!seccionEN)}>SECCION INGLES</div>
+                                {seccionEN && <> <div className="mb-4">
+                                    <label htmlFor="titulo_en" className="block text-sm font-medium text-gray-600">Title in English</label>
+                                    <input type="text" id="titulo_en" name="titulo_en" className="mt-1 p-2 w-full border rounded-md"
+                                        value={tituloEN}
+                                        onChange={() => handleChange(document.getElementById('titulo_en').value, setTituloEN)} />
+                                </div>
+                                    <div className="mb-4">
+                                        <label htmlFor="tagsEN" className="block text-sm font-medium text-gray-600">Comma separated tags (,)</label>
+                                        <textarea id="tagsEN" name="tagsEN" rows="1" className="mt-1 p-2 w-full border rounded-md"
+                                            value={tagsEN}
+                                            onChange={() => {
+                                                handleChange(document.getElementById('tagsEN').value, setTagEN);
+                                                handleChange(document.getElementById('tagsEN').value.split(','), setTags_ListEN)
+                                            }} > </textarea>
+                                    </div>
+                                    <div className="mb-4">
+                                        <label htmlFor="descriptionEN" className="block text-sm font-medium text-gray-600">Abstract (1 line)</label>
+                                        <textarea id="descriptionEN" name="descriptionEN" rows="1" className="mt-1 p-2 w-full border rounded-md"
+                                            value={descriptionEN}
+                                            onChange={() => {
+                                                handleChange(document.getElementById('descriptionEN').value, setDescriptionEN);
+                                            }} ></textarea>
+                                    </div>
+                                    {/* <!-- Body html para el detalle INGLES--> */}
+                                    <div className="mb-4">
+                                        <label htmlFor="body_htmlEN" className="block text-sm font-medium text-gray-600">Description detail</label>
+                                        <textarea id="body_htmlEN" name="body_htmlEN" rows="4" className="mt-1 p-2 w-full border rounded-md"
+                                            value={body_htmlEN}
+                                            onChange={() => handleChange(document.getElementById('body_htmlEN').value, setBody_htmlEN)}
+                                        ></textarea>
+                                    </div>
+                                </>}</div>
+                            {/* <!-- Título en Portugués --> */}
+                            <div className='pt-2'>
+                                <div className=' border-primary w-1/5 border-solid border-2 rounded-[5px] flex-grow-[1] mx-1 text-white bg-primary cursor-pointer' onClick={() => setSeccionPT(!seccionPT)}>SECCION PORTUGUES</div>
+                                {seccionPT && <>
+                                    <div className="mb-4">
+                                        <label htmlFor="titulo_pt" className="block text-sm font-medium text-gray-600">Título em português</label>
+                                        <input type="text" id="titulo_pt" name="titulo_pt" className="mt-1 p-2 w-full border rounded-md"
+                                            value={tituloPT}
+                                            onChange={() => handleChange(document.getElementById('titulo_pt').value, setTituloPT)} />
+                                    </div>
+                                    <div className="mb-4">
+                                        <label htmlFor="tagsPT" className="block text-sm font-medium text-gray-600">Tags separadas por vírgula (,)</label>
+                                        <textarea id="tagsPT" name="tagsPT" rows="1" className="mt-1 p-2 w-full border rounded-md"
+                                            value={tagsPT}
+                                            onChange={() => {
+                                                handleChange(document.getElementById('tagsPT').value, setTagPT);
+                                                handleChange(document.getElementById('tagsPT').value.split(','), setTags_ListPT)
+                                            }} > </textarea>
+                                    </div>
+                                    <div className="mb-4">
+                                        <label htmlFor="descriptionPT" className="block text-sm font-medium text-gray-600">Resumo (1 linha)</label>
+                                        <textarea id="descriptionPT" name="descriptionPT" rows="1" className="mt-1 p-2 w-full border rounded-md"
+                                            value={descriptionPT}
+                                            onChange={() => {
+                                                handleChange(document.getElementById('descriptionPT').value, setDescriptionPT);
+                                            }} ></textarea>
+                                    </div>
+                                    {/* <!-- Body html para el detalle Portugues--> */}
+                                    <div className="mb-4">
+                                        <label htmlFor="body_htmlPT" className="block text-sm font-medium text-gray-600">Detalhe da descrição</label>
+                                        <textarea id="body_htmlPT" name="body_htmlPT" rows="4" className="mt-1 p-2 w-full border rounded-md"
+                                            value={body_htmlPT}
+                                            onChange={() => handleChange(document.getElementById('body_htmlPT').value, setBody_htmlPT)}
+                                        ></textarea>
+                                    </div>
+                                </>}
+
+                            </div>
+                        </div>
+
+                        {/* Publicar Blog  */}
+                        <div className='pt-2'>
+                            <div className="mb-4">
+                                <label htmlFor="publish" className="block text-sm font-medium text-gray-600 ">Publicar Blog {'  '}
+                                    <input type="checkbox" id="publish" name="publish" className="border rounded-md"
+                                        value={publish}
+                                        onChange={() => handleChange(!publish, setPublish)} />
+                                </label>
+                            </div></div>
+
+                        {/* <!-- Botón de enviar --> */}
+                        <div className="text-center">
+                            <button type="button" onClick={() => cargarContenido()} className="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 ">Cargar Contenido</button>
+                        </div>
+                    </form>
+                </div>
 
 
-        </div>
+            </div>}
+    </>
     )
 }
