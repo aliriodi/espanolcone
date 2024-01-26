@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSession } from "next-auth/react"
+import { formatISO, parseISO } from 'date-fns';
+import Cloudinary from '../../../components/cloudinary/cloudinary'
 
 export default function Blogcargar() {
 
@@ -13,6 +15,13 @@ export default function Blogcargar() {
     const [publish, setPublish] = useState(false);
     //Tipo
     const [type_of, setType_of] = useState('article');
+    //Commentarios contados
+    const [comments_count, setComment_counts] = useState(0);
+    const [public_rections_counts, setPublicrectionscounts] = useState(0);
+    const [positive_reactions_count, setPositive_reactions_count] = useState(0);
+    //Imagenes del anuncio
+    const [cover_image, setCover_image] = useState('');
+    const [social_image, setSocial_image] = useState('');
     //Titulo
     const [tituloES, setTituloEs] = useState('');
     const [tituloEN, setTituloEN] = useState('');
@@ -23,8 +32,8 @@ export default function Blogcargar() {
     const [descriptionPT, setDescriptionPT] = useState('');
     //Descripcion
     const [body_htmlPT, setBody_htmlPT] = useState('');
-    const [body_htmlES, setBody_htmlEN] = useState('');
-    const [body_htmlEN, setBody_htmlES] = useState('');
+    const [body_htmlES, setBody_htmlES] = useState('');
+    const [body_htmlEN, setBody_htmlEN] = useState('');
     // Tags
     const [tagsES, setTagES] = useState('');
     const [tagsEN, setTagEN] = useState('');
@@ -32,9 +41,29 @@ export default function Blogcargar() {
     const [tags_ListES, setTags_ListES] = useState('');
     const [tags_ListEN, setTags_ListEN] = useState('');
     const [tags_ListPT, setTags_ListPT] = useState('');
+    //Usuario que hace el post
+    const [name, setName] = useState('Español con E');
+    const [username, setUseraname] = useState('');
+    const [user_id, setUser_id] = useState('');
+    const [profile_image, setProfile_image] = useState('https://res.cloudinary.com/dfddh08q8/image/upload/s--LSRn8RfV--/c_thumb,w_200,g_face/v1/images/rc6firxrtnaj16l0i1kt.png');
+    const [profile_image_90, setProfile_image_90] = useState('https://res.cloudinary.com/dfddh08q8/image/upload/s--LSRn8RfV--/c_thumb,w_200,g_face/v1/images/rc6firxrtnaj16l0i1kt.png');
+
+    const { data: session, status } = useSession();
+
+    useEffect(() => {
+        session?.user?._id ? setUser_id(session.user._id) : null
+    }, [])
+
+    useEffect(() => {
+        if (status && status != "loading" && !session?.user?.role?.includes('admin')) window.location.href = "/inicio/home";
+    }, [status])
 
     function handleChange(value, cb) { cb(value) }
 
+    function Imageurl(data) {
+        setSocial_image(data);
+        setCover_image(data);
+    }
 
     function newSLUG(cadena) {
         // Eliminar espacios en blanco y caracteres especiales
@@ -44,45 +73,83 @@ export default function Blogcargar() {
         return limpiada;
     }
 
-    function cargarContenido() {
-        newSLUG(tituloEN)
+    async function cargarContenido() {
+        const fechaActual = new Date();
+        try {
+            await fetch('/api/blog/posts/add/',
+                {  //redirect: 'follow',
+                    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                    mode: 'cors', // no-cors, *cors, same-origin
+                    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                    credentials: 'same-origin', // include, *same-origin, omit
+                    headers: {
+                        'Content-Type': 'application/json'  // 'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: JSON.stringify({
+                        type_of: type_of,
+                        slug: newSLUG(tituloEN),
+                        comments_count: comments_count,
+                        public_rections_counts: public_rections_counts,
+                        positive_reactions_count: positive_reactions_count,
+                        cover_image: cover_image,
+                        social_image: social_image,
+                        published_at:formatISO(fechaActual, { representation: 'complete' }),
+                        last_comment_at: formatISO(fechaActual, { representation: 'complete' }),
+                        es: {
+                            tags: tagsES,
+                            tag_list: tags_ListES,
+                            title: tituloES,
+                            description: descriptionES,
+                            body_html: body_htmlES,
+                            body_markdown: body_htmlES
+                        },
+                        en: {
+                            tags: tagsEN,
+                            tag_list: tags_ListEN,
+                            title: tituloEN,
+                            description: descriptionEN,
+                            body_html: body_htmlEN,
+                            body_markdown: body_htmlEN
+                        },
+                        pt: {
+                            tags: tagsPT,
+                            tag_list: tags_ListPT,
+                            title: tituloPT,
+                            description: descriptionPT,
+                            body_html: body_htmlPT,
+                            body_markdown: body_htmlPT
+                        },
+                        user: {
+                            name: name,
+                            username: username,
+                            user_id: user_id,
+                            profile_image: profile_image,
+                            profile_image_90: profile_image_90
+                        },
+                        publish: publish
+                    })
+                }).then(response => { response.json(); console.log('Blog cargado') })
+        }
+        catch (error) { console.log('Error al cargar el Blog:', error) }
 
 
-        // Recuperar los valores del htmlFormulario
 
-        // Aquí puedes realizar acciones como enviar los datos a un servidor o agregarlos a la página
-        console.log('slug', newSLUG(tituloEN))
-        console.log("Tipo de Contenido:", type_of);
-        console.log("tags_ListES", tags_ListES);
-        console.log("tagsES", tagsES);
-        console.log("tags_ListPT", tags_ListPT);
-        console.log("tagsPT", tagsPT);
-        console.log("DescripciónES:", descriptionES);
-        console.log("DescripciónEn:", descriptionEN);
-        console.log("DescripciónPT:", descriptionPT);
-        console.log("body_htmlES", body_htmlES);
-        console.log("body_htmlEN", body_htmlEN);
-        console.log("body_htmlPT", body_htmlPT);
-        console.log("Título en Español:", tituloES);
-        console.log("Título en Inglés:", tituloEN);
-        console.log("Título en Portugués:", tituloPT);
-
-        // Puedes agregar lógica adicional aquí según tus necesidades
     }
     return (
         <div>
 
             <div className="w-3/4 mx-auto bg-white p-6 rounded-md shadow-md">
                 <h2 className="text-2xl font-semibold mb-4">Cargar Contenido de Blog</h2>
-                <htmlForm id="bloghtmlForm">
+                <form id="bloghtmlForm">
                     {/* <!-- Tipo de contenido --> */}
                     <div className="mb-4">
                         <label htmlFor="type_of" className="block text-sm font-medium text-gray-600">Tipo de Contenido</label>
                         <input type="text" id="type_of" name="type_of" className="mt-1 p-2 w-full border rounded-md"
-                         value={type_of}
-                         onChange={() => handleChange(document.getElementById('type_of').value, setType_of)} />
+                            value={type_of}
+                            onChange={() => handleChange(document.getElementById('type_of').value, setType_of)} />
                     </div>
 
+                    <div className='p-2'>  <Cloudinary imageurl={Imageurl} /></div>
                     <div className=''>
 
                         {/* <!-- Título en Español --> */}
@@ -107,12 +174,19 @@ export default function Blogcargar() {
                                 {/* <!-- Descripción --> */}
                                 <div className="mb-4">
                                     <label htmlFor="descriptionES" className="block text-sm font-medium text-gray-600">Descripción General</label>
-                                    <textarea id="descriptionES" name="descriptionES" rows="4" className="mt-1 p-2 w-full border rounded-md"></textarea>
+                                    <textarea id="descriptionES" name="descriptionES" rows="4" className="mt-1 p-2 w-full border rounded-md"
+                                        value={descriptionES}
+                                        onChange={() => {
+                                            handleChange(document.getElementById('descriptionES').value, setDescriptionES);
+                                        }} ></textarea>
                                 </div>
                                 {/* <!-- Body html para el detalle --> */}
                                 <div className="mb-4">
                                     <label htmlFor="body_htmlES" className="block text-sm font-medium text-gray-600">Descripción para el detalle</label>
-                                    <textarea id="body_htmlES" name="body_htmlES" rows="4" className="mt-1 p-2 w-full border rounded-md"></textarea>
+                                    <textarea id="body_htmlES" name="body_htmlES" rows="4" className="mt-1 p-2 w-full border rounded-md"
+                                        value={body_htmlES}
+                                        onChange={() => handleChange(document.getElementById('body_htmlES').value, setBody_htmlES)}
+                                    ></textarea>
                                 </div>
                             </>}</div>
 
@@ -136,12 +210,19 @@ export default function Blogcargar() {
                                 </div>
                                 <div className="mb-4">
                                     <label htmlFor="descriptionEN" className="block text-sm font-medium text-gray-600">Description</label>
-                                    <textarea id="descriptionEN" name="descriptionEN" rows="4" className="mt-1 p-2 w-full border rounded-md"></textarea>
+                                    <textarea id="descriptionEN" name="descriptionEN" rows="4" className="mt-1 p-2 w-full border rounded-md"
+                                        value={descriptionEN}
+                                        onChange={() => {
+                                            handleChange(document.getElementById('descriptionEN').value, setDescriptionEN);
+                                        }} ></textarea>
                                 </div>
                                 {/* <!-- Body html para el detalle INGLES--> */}
                                 <div className="mb-4">
                                     <label htmlFor="body_htmlEN" className="block text-sm font-medium text-gray-600">Description detail</label>
-                                    <textarea id="body_htmlEN" name="body_htmlEN" rows="4" className="mt-1 p-2 w-full border rounded-md"></textarea>
+                                    <textarea id="body_htmlEN" name="body_htmlEN" rows="4" className="mt-1 p-2 w-full border rounded-md"
+                                        value={body_htmlEN}
+                                        onChange={() => handleChange(document.getElementById('body_htmlEN').value, setBody_htmlEN)}
+                                    ></textarea>
                                 </div>
                             </>}</div>
                         {/* <!-- Título en Portugués --> */}
@@ -165,7 +246,11 @@ export default function Blogcargar() {
                                 </div>
                                 <div className="mb-4">
                                     <label htmlFor="descriptionPT" className="block text-sm font-medium text-gray-600">Descrição</label>
-                                    <textarea id="descriptionPT" name="descriptionPT" rows="4" className="mt-1 p-2 w-full border rounded-md"></textarea>
+                                    <textarea id="descriptionPT" name="descriptionPT" rows="4" className="mt-1 p-2 w-full border rounded-md"
+                                        value={descriptionPT}
+                                        onChange={() => {
+                                            handleChange(document.getElementById('descriptionPT').value, setDescriptionPT);
+                                        }} ></textarea>
                                 </div>
                                 {/* <!-- Body html para el detalle Portugues--> */}
                                 <div className="mb-4">
@@ -194,7 +279,7 @@ export default function Blogcargar() {
                     <div className="text-center">
                         <button type="button" onClick={() => cargarContenido()} className="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600">Cargar Contenido</button>
                     </div>
-                </htmlForm>
+                </form>
             </div>
 
 
