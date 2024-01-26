@@ -18,12 +18,14 @@ $ npm run dev
 
 0. Se crea Blog temporal mediante la estrategia:
    
-   https://dev.to/nimbel/como-montar-un-blog-estatico-con-next-js-y-dev-to-como-cms-4jmc
-
-   La cuenta para actualziar los blog es
-
-   https://dev.to/aliriodi/post-de-prueba-13a9
-
+  Se crea Tabla en BD para blogs
+  hay un front para cargar blogs en 
+  /inicio/blog/Blog
+  cada idioma tiene sus parametros se usa full html para cargara las separaciones 
+  <p></p><br>
+  <b></b>
+  <a href='mailto:espanolconeacademy@gmail.com'> espanolconeacademy@gmail.com</a>
+  
    se escribe codigo en
    /pages/blog
    /pages/blog/posts/[slug].js  el elemento [slug].js lo pase a slug.txt porque sino VERCEL DABA PROblemas al compilar!!!
