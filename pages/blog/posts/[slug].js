@@ -25,46 +25,34 @@ import { AiOutlineMan } from 'react-icons/ai';
     ReactGA.pageview(window.location.pathname);
 }, []);
 
-useEffect(() => {
-  const partesDeLaRuta = pathname.split('/');
-  const ultimaParte = partesDeLaRuta[partesDeLaRuta.length - 1];
-    async function blog(){
-    const devDotToPosts = await fetch(`/api/blog/posts/${ultimaParte}` );
-    const res = await devDotToPosts.json();
-   // console.log(res)
-    setPost(res.postid)
-    }
-    blog()
-}, []);
+// useEffect(() => {
+//   const partesDeLaRuta = pathname.split('/');
+//   const ultimaParte = partesDeLaRuta[partesDeLaRuta.length - 1];
+//     async function blog(){
+//     const devDotToPosts = await fetch(`/api/blog/posts/${ultimaParte}` );
+//     const res = await devDotToPosts.json();
+//    // console.log(res)
+//     setPost(res.postid)
+//     }
+//     blog()
+// }, []);
 
-  const {
-    title,
-    published_at,
-    social_image,
-    body_html,
-    es,
-    en,
-    pt,
-    user,
-    type_of,
-    description,
-    canonical_url,
-    reviews,
-    slug
-  } = post;
-  
- const date = new Date(published_at);
- const formatedDate = `${date.getDate()}/${parseInt(date.getMonth(), 10) + 1
-   }/${date.getFullYear()}`;
+const {
 
-
-
-//console.log('devDotToPost',devDotToPost)
-//console.log(devDotToPost)
- console.log(post)
+  createdAt,
+  es,
+  pt,
+  en,
+  social_image,
+  user,
+  type_of,
  
+} = devDotToPost; 
 
-
+const date = new Date(createdAt);
+const formatedDate = `${date.getDate()}/${
+  parseInt(date.getMonth(), 10) + 1
+}/${date.getFullYear()}`;
   return (
     <div id='nav'>
       <Head>
@@ -136,13 +124,15 @@ useEffect(() => {
   );
 }
 
+
 export const getStaticProps = async ({ params,locale }) => {
 console.log('slug 181',params.slug)
 //const partesDeLaRuta = pathname.split('/');
 //const ultimaParte = partesDeLaRuta[partesDeLaRuta.length - 1];
   const devDotToPost = await fetch(
-    `http://localhost:3000/api/blog/posts/${params.slug}`
+    `${process.env.URLPOST}/api/blog/posts/${params.slug}`
   );
+  
   const res = await devDotToPost.json();
 console.log('188')
   //console.log(res)
@@ -153,19 +143,23 @@ console.log('188')
     }
   };
 };
+
+
 export async function getStaticPaths() {
   const devDotToPost = await fetch(
-    `http://localhost:3000/api/blog/posts/get`
+    `${process.env.URLPOST}/api/blog/posts/get`
   );
   const res = await devDotToPost.json();
-  console.log('202')
+  console.log('161')
  console.log( res.posts.map(post=>{
   return  post.slug}))
 
   return {
+   
     paths: res.posts.map(post=>{
       return {params:{ slug: '/blog/posts/'+post.slug}}}),
     fallback: true,
   }
 }
+
 export default withTranslation(['navbar', 'footer','aboutus','landing'])(SLUG);
