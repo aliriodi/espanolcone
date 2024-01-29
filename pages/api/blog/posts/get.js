@@ -25,7 +25,7 @@ export default async function getAllUsers(req, res) {
 
     const posts = await Posts.find().exec();
 
-    console.log('USERS READY TO GO!!!');
+    console.log('POSTS READY TO GO!!!');
     
     // Verifica procedencia de solicitud 
     console.log("/////////////////////////////// ",req.headers.accept == "*/*" ? "Solicitud desde Codigo": "Solicitud desde Navegador"," ///////////////////////////////")

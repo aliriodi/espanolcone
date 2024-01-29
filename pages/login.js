@@ -5,7 +5,7 @@ import React, { useEffect } from "react";
 import { Inter } from "next/font/google"
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
-import Logo from '../public/imgs/logo.png'
+import Logos from '../public/imgs/logo.png'
 import Background from '../public/imgs/logIn-background.png'
 import Vector1 from '../public/imgs/vector-1.png'
 import Vector2 from '../public/imgs/vector-2.png'
@@ -115,7 +115,7 @@ export default function Home() {
           <div
           className="loging-fondo  flex justify-evenly items-center flex-col h-screen w-full relative z-40 md:hidden"
           style={{background: 'radial-gradient(57.61% 52.49% at 42.81% 47.51%, #3CBBD6 0%, #05839D 100%)'}}>
-            <Image src={Logo} style={{width: '200px'}} alt='Logo' className='z-40' />
+            <Image src={Logos} style={{width: '200px'}} alt='Logos118' className='z-40' />
             <div className="loging-fondo_text z-40">
               <p className="text-white text-5xl font-semibold mb-4 text-center text-shadow">{t("img1")}</p>
               <p className="text-white text-5xl font-semibold mb-4 text-center text-shadow">{t("img2")}</p>
@@ -142,7 +142,7 @@ export default function Home() {
 
               {/* Logo  */}
               <div className='w-full h-full absolute top-0 flex items-center justify-center'>
-                <Image src={Logo} alt='Logo' className='z-40 w-[95.04px] mx-auto flex'/>
+                <Image src={Logos} alt='Logos145' className='z-40 w-[95.04px] mx-auto flex'/>
               </div>
             </div>
 

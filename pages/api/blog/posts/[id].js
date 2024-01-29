@@ -23,15 +23,16 @@ export default async function IdUser(req, res) {
         const postid = await Post.findOne({slug:id});
 
         if (!postid) {
-          return res.status(404).json({ message: 'Post no existe' });
+          return res.status(404).json({ message: 'id o slug no cargado' });
         }
 
         
         // Verifica procedencia de solicitud 
         console.log("/////////////////////////////// ",req.headers.accept == "*/*" ? "Solicitud desde Codigo": "Solicitud desde Navegador"," ///////////////////////////////")
 
-        if(req.headers.accept == "*/*"||true){
+        if(req.headers.accept == "*/*"){
           // Solicitud desde el codigo
+          
           return res.status(200).json({postid});
         }
         else{

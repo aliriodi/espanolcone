@@ -299,7 +299,7 @@ export default function Curso(){
                     md:w-full md:px-0 md:rounded-none'>
                         {/* Titulo */}
                         <div class="flex items-center mb-[30px] flex-col">
-                            <Image alt="Logo" src={Logo} width={492} height={313} class="w-[123px] h-[78px]"/>
+                            <Image alt="Logo302" src={Logo} width={492} height={313} class="w-[123px] h-[78px]"/>
                             <h3 class=" font-medium text-[28px] bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text min-h-[28px] text-center">Elige algunas de nuestras opciones</h3>
                         </div>
 
