@@ -37,17 +37,24 @@ import { AiOutlineMan } from 'react-icons/ai';
 //     blog()
 // }, []);
 
-const {
+let createdAt='';
+let es='';
+let pt='';
+let en='';
+let social_image='';
+let user='';
+let type_of='';
+if(devDotToPost){
+  createdAt= devDotToPost.createdAt; 
+  es= devDotToPost.es; 
+  en= devDotToPost.en; 
+  pt= devDotToPost.pt; 
+  social_image=devDotToPost.social_image;
+  user=devDotToPost.user;
+  type_of= devDotToPost.type_of;
+}
 
-  createdAt,
-  es,
-  pt,
-  en,
-  social_image,
-  user,
-  type_of,
- 
-} = devDotToPost; 
+
 
 const date = new Date(createdAt);
 const formatedDate = `${date.getDate()}/${
