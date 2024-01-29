@@ -13,6 +13,7 @@ import nextI18NextConfig from "../../../next-i18next.config";
 import NAVBAR from "../../../components/Navbar/Navbar"
 import styles from '../../../styles/blog.module.css';
 import Reviews from './Reviews'
+import Spinner from '../../../components/Spinner'
 
 export default  function SLUG({ devDotToPost }) {
   const [post,setPost]=useState('')
@@ -70,6 +71,8 @@ useEffect(() => {
       <Layout className='bg-white relative overflow-x-hidden'>
       <NAVBAR className="bg-[transparent]" />
       <TopButton />
+
+      {social_image? 
       <div className="flex justify-center">
        
       <article className="text-xs w-full md:w-3/4">
@@ -119,7 +122,13 @@ useEffect(() => {
 
 </article>
 
+      </div>: 
+       <div className="flex justify-center">
+       <div className='p-24'>
+            <Spinner />
+            </div>
       </div>
+      }
       </Layout>
       <Footer className='bg-[#F5F6FCCC]' />
     </div>
@@ -130,7 +139,7 @@ useEffect(() => {
 export const getStaticProps = async ({ params , locale }) => {
 
   const devDotToPost = await fetch(
-    `https://dev.to/api/articles/${process.env.DEV_USERNAME}/what-is-language-tourism-4g6l`
+    `https://dev.to/api/articles/${process.env.DEV_USERNAME}/what-is-language-tourism`
   );
   const res = await devDotToPost.json();
 
