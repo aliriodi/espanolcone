@@ -23,7 +23,7 @@ function SLUG({ devDotToPost }) {
 
   useEffect(() => {
     ReactGA.pageview(window.location.pathname);
-  }, []);
+  }, [locale]);
 
   // useEffect(() => {
   //   const partesDeLaRuta = pathname.split('/');
