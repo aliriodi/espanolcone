@@ -67,9 +67,11 @@ const formatedDate = `${date.getDate()}/${
         {locale==='en'?<meta property="og:title" content={en?.title} />:null}
         {locale==='es'?<meta property="og:title" content={es?.title} />:null}
         {locale==='pt'?<meta property="og:title" content={pt?.title} />:null}
-        <meta property="og:description" content={description} />
+        {locale==='en'?<meta property="og:title" content={en?.description} />:null}
+        {locale==='es'?<meta property="og:title" content={es?.description} />:null}
+        {locale==='pt'?<meta property="og:title" content={pt?.description} />:null}
         <meta property="og:image" content={social_image} />
-        <meta property="og:url" content={canonical_url} />
+        
       </Head>
       <Layout className='bg-white relative overflow-x-hidden'>
       <NAVBAR className="bg-[transparent]" />
