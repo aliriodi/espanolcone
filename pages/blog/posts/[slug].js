@@ -87,7 +87,7 @@ const formatedDate = `${date.getDate()}/${
       {locale==='es'?<h1 className="flex items-center justify-center text-gray-600 h-full text-5x5 font-bold mb-8">{es?.title}asdadsad</h1>:null}
       <div className=' grid grid-cols-2  md:grid-cols-1 sm:grid-cols-1  gap-4'>
       <div className=' '> {/*className= flex justify-center */}
-      <img className="border rounded max-h-15"   src={social_image} alt={title} />
+      <img className="border rounded max-h-15"   src={social_image} alt={en?.title} />
       </div>
       <div className='grid grid-cols-1 md:grid-cols-1 sm:grid-cols-1  justify-center '>
       <div className={styles['principal']}>
