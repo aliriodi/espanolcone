@@ -23,6 +23,7 @@ function SLUG({ devDotToPost }) {
 
   useEffect(() => {
     ReactGA.pageview(window.location.pathname);
+    push('/'+locale+'/blog/posts/'+devDotToPost.slug)
   }, [locale]);
 
   // useEffect(() => {
