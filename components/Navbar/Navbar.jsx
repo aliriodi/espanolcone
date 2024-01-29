@@ -38,9 +38,9 @@ function Navbar(props) {
   //Me traigo las imagenes banderas de los Json 
   ///public/locales/ idiomas que son lo mismo para los 3
 
-  const languages2 = [{ value: 'es', label: 'ESPAÑOL', image: t("flages") },
-  { value: 'en', label: 'INGLÉS', image: t("flagen") },
-  { value: 'pt', label: 'PORTUGUÉS', image: t("flagpt") }];
+  const languages2 = [{ value: 'es', label: 'ESPAÑOL', image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694363931/images/sp_tmnhok.jpg" },
+  { value: 'en', label: 'INGLÉS', image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694363928/images/en_pybv0j.jpg" },
+  { value: 'pt', label: 'PORTUGUÉS', image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694363923/images/br_qj0a0o.jpg" }];
 
   const [language, setLanguage] = useState(languages2.find(objeto => objeto.value === locale));
 
@@ -179,13 +179,14 @@ function Navbar(props) {
       {/* Nav Bar */}
       <nav className={`${styles["navbar"]} ${lightNavBar && styles["light"]}`}>
 
-      {/* Logo */}
+      {/* Logos */}
       <Link href='/'>
         <Image
           className={styles["navbar-logo"]}
           width={'100'}
           height={'100'}
-          src={lightNavBar ? "https://res.cloudinary.com/dfddh08q8/image/upload/v1694520319/images/logo-gradient_ssl8cl.png" : t("logo")} alt="Español con E" />
+          src={lightNavBar ? "https://res.cloudinary.com/dfddh08q8/image/upload/v1694520319/images/logo-gradient_ssl8cl.png" : "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366258/images/logo_etoaae.png"} 
+          alt="Español con E" />
       </Link>
 
       {/* Menu */}
@@ -289,7 +290,8 @@ function Navbar(props) {
           className={styles["navbar-logo"]}
           width={'100'}
           height={'100'}
-          src={lightNavBar ? "https://res.cloudinary.com/dfddh08q8/image/upload/v1694520319/images/logo-gradient_ssl8cl.png" : t("logo")} alt="Español con E" />
+          src={lightNavBar ? "https://res.cloudinary.com/dfddh08q8/image/upload/v1694520319/images/logo-gradient_ssl8cl.png" :"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366258/images/logo_etoaae.png"} 
+          alt="Español con E" />
       </Link>
 
       {/* Menu */}
@@ -330,18 +332,18 @@ function Navbar(props) {
                     onClick={() => handleOnChange(language2)}
                     value={language2}
                     className={styles["select-languages_languages"]}
-                    key={language2.value}>
+                    key={language2?.value}>
                     {/* Icono */}
                     <Image
                       width={25}
                       height={17}
-                      src={language2.image}
-                      alt={language2.label}
+                      src={language2?.image}
+                      alt={language2?.label}
                       className={styles["select-languages_img"]}/>
 
                     {/* Label */}
                     <label style={{ marginLeft: "8px" }}>
-                      {language2.label}
+                      {language2?.label}
                     </label>
                   </li>
                 )
