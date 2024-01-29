@@ -2,21 +2,21 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useState, useEffect } from "react";
 import ReactGA, { initialize } from "react-ga";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+//import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Image from 'next/image';
 import { useTranslation, withTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import TopButton from '../../../components/landingComponents/blog/TopButton';
 import Layout from '../../../components/Layout';
 import Footer from '../../../components/Footer/Footer';
-import nextI18NextConfig from "../../../next-i18next.config";
+//import nextI18NextConfig from "../../../next-i18next.config";
 import NAVBAR from "../../../components/Navbar/Navbar"
 import styles from '../../../styles/blog.module.css';
 import Reviews from './Reviews'
 import { AiOutlineMan } from 'react-icons/ai';
 
 
-function SLUG({ devDotToPost }) {
+export default function SLUG({ devDotToPost }) {
   const [post, setPost] = useState('')
   const { locale, locales, push, pathname } = useRouter()
   const { t } = useTranslation('navbar')
@@ -183,4 +183,4 @@ export async function getStaticPaths(locale) {
   }
 }
 
-export default withTranslation(['navbar', 'footer', 'aboutus', 'landing'])(SLUG);
+//export default withTranslation(['navbar', 'footer', 'aboutus', 'landing'])(SLUG);
