@@ -22,7 +22,7 @@ export default function BlogPost({
 {
     const { locale, locales, push } = useRouter()
    
-   const { t } = useTranslation(['navbar'])
+   const { t } = useTranslation('navbar')
   const date = new Date(createdAt);
   const formatedDate = `${date.getDate()}/${
     parseInt(date.getMonth(), 10) + 1
