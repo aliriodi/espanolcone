@@ -174,7 +174,7 @@ export async function getStaticPaths(locale) {
 
     const paths = aux.flatMap(locale => {
       if (locale !== false) {
-        return slugs.map(slug => ({ params: { slug:  [locale, slug].join('/') } }));
+        return slugs.map(slug => ({ params: { slug:  [locale, slug].join("/") } }));
       } else {
         return slugs.map(slug => ({ params: { slug } }));
       }
