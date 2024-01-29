@@ -157,7 +157,7 @@ export async function getStaticPaths() {
   return {
    
     paths: res.posts.map(post=>{
-      return {params:{ slug: '/blog/posts/'+post.slug}}}),
+      return {params:{ slug: post.slug}}}),
     fallback: true,
   }
 }
