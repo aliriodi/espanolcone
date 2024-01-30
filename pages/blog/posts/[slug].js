@@ -20,11 +20,11 @@ import { AiOutlineMan } from 'react-icons/ai';
   const [post, setPost] = useState('')
   const { locale, locales, push, pathname } = useRouter()
   const { t } = useTranslation(['navbar', 'landing', 'index','register'])
-
+//console.log(params.locale)
   useEffect(() => {
     ReactGA.pageview(window.location.pathname);
 
-    push('/'+params.locale+'/blog/posts/'+devDotToPost.slug)
+    push('/blog/posts/'+devDotToPost.slug,undefined,{locale})
   }, [t('BEGIN')]);
 
   // useEffect(() => {
@@ -46,6 +46,8 @@ import { AiOutlineMan } from 'react-icons/ai';
   let social_image = '';
   let user = '';
   let type_of = '';
+  let slug = '';
+  let reviews = '';
   if (devDotToPost) {
     createdAt = devDotToPost.createdAt;
     es = devDotToPost.es;
@@ -54,6 +56,8 @@ import { AiOutlineMan } from 'react-icons/ai';
     social_image = devDotToPost.social_image;
     user = devDotToPost.user;
     type_of = devDotToPost.type_of;
+    slug=devDotToPost.slug;
+    reviews=devDotToPost.reviews;
   }
 
 

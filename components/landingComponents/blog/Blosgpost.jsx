@@ -29,8 +29,8 @@ export default function BlogPost({
   }/${date.getFullYear()}`;
 
 function moveSlug(){
-   
-  push( `/blog/posts/${slug}`);
+  push(`/blog/posts/${slug}`, undefined, { locale:locale });
+  
 
 }
 
