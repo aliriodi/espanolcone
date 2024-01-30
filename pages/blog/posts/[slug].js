@@ -168,13 +168,19 @@ export async function getStaticPaths(locale) {
   
 
   locale.locales.map(l => aux.push(l));
-  aux.push(false);
+  
 
     console.log(166)
   
     const slugs = res.posts.map(post => post.slug);
 
-    const paths =  slugs.map(slug => ({ params: { slug:slug }}));
+    const paths =  slugs.map(slug => 
+                              aux.map(l=> ({ params: { slug:slug },
+                                              locale:l})
+                              )
+    
+    
+    );
       
      
    return {
