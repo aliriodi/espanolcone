@@ -16,7 +16,7 @@ import Reviews from './Reviews'
 import { AiOutlineMan } from 'react-icons/ai';
 
 
-export default function SLUG({ devDotToPost }) {
+ function SLUG({ devDotToPost }) {
   const [post, setPost] = useState('')
   const { locale, locales, push, pathname } = useRouter()
   const { t } = useTranslation(['navbar', 'landing', 'index','register'])
@@ -184,4 +184,4 @@ export async function getStaticPaths(locale) {
   }
 }
 
-//export default withTranslation(['navbar', 'footer', 'aboutus', 'landing'])(SLUG);
+export default withTranslation(['navbar', 'footer', 'aboutus', 'landing'])(SLUG);
