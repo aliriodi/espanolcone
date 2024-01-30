@@ -159,40 +159,40 @@ export const getServerSideProps  = async ({ params, locale }) => {
 };
 
 
-export async function getStaticPaths(locale) {
-  const devDotToPost = await fetch(
-    `${process.env.URLPOST}/api/blog/posts/get`
-  );
-  const res = await devDotToPost.json();
-  console.log('161')
-  console.log(res.posts.map(post => {
-    return post.slug
-  }))
-  const aux = [];
+// export async function getStaticPaths(locale) {
+//   const devDotToPost = await fetch(
+//     `${process.env.URLPOST}/api/blog/posts/get`
+//   );
+//   const res = await devDotToPost.json();
+//   console.log('161')
+//   console.log(res.posts.map(post => {
+//     return post.slug
+//   }))
+//   const aux = [];
   
 
-  locale.locales.map(l => aux.push(l));
+//   locale.locales.map(l => aux.push(l));
   
 
-    console.log(166)
+//     console.log(166)
   
-    const slugs = res.posts.map(post => post.slug);
+//     const slugs = res.posts.map(post => post.slug);
 
-    const paths =  slugs.flatMap(slug => 
-                              aux.map(l=> ({ params: { slug:slug,
-                                                       locale:l },
-                                              })
-                              )
+//     const paths =  slugs.flatMap(slug => 
+//                               aux.map(l=> ({ params: { slug:slug,
+//                                                        locale:l },
+//                                               })
+//                               )
     
     
-    );
+//     );
       
      
-   return {
+//    return {
 
-    paths,
-    fallback: true,
-  }
-}
+//     paths,
+//     fallback: true,
+//   }
+// }
 
 export default withTranslation(['navbar', 'footer', 'aboutus', 'landing'])(SLUG);
