@@ -29,10 +29,15 @@ function Navbar(props) {
   function handleClickLan(l) {
     push('/', undefined, { locale: l });
   }
-  function handleOnChange(lang) {
+  function handleOnChange(lang,slug) {
+    if(!slug){
     push('', undefined, { locale: lang.value });
-    setLanguage(languages2.find(objeto => objeto.value === lang.value))
-  }
+    setLanguage(languages2.find(objeto => objeto.value === lang.value))}
+    else {
+      push('', undefined, { locale: lang.value ,slug:slug});
+    setLanguage(languages2.find(objeto => objeto.value === lang.value))}
+    }
+  
 
   const { t } = useTranslation(['navbar', 'aboutus'])
   //Me traigo las imagenes banderas de los Json 
