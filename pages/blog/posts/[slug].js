@@ -83,9 +83,9 @@ import { AiOutlineMan } from 'react-icons/ai';
             <div className=" border-2 text-black bg-white md:rounded-lg overflow-hidden p-4 md:p-8">
               <div className='grid grid-cols-1  w-full sm:grid-cols-1 md:grid-cols-1  gap-4'>
 
-                {locale === 'en' ? <h1 className="flex items-center justify-center text-gray-600 h-full text-5x5 font-bold mb-8">{en?.title+locale}</h1> : null}
-                {locale === 'pt' ? <h1 className="flex items-center justify-center text-gray-600 h-full text-5x5 font-bold mb-8">{pt?.title+locale}</h1> : null}
-                {locale === 'es' ? <h1 className="flex items-center justify-center text-gray-600 h-full text-5x5 font-bold mb-8">{es?.title+locale}</h1> : null}
+                {locale === 'en' ? <h1 className="flex items-center justify-center text-gray-600 h-full text-5x5 font-bold mb-8">{en?.title}</h1> : null}
+                {locale === 'pt' ? <h1 className="flex items-center justify-center text-gray-600 h-full text-5x5 font-bold mb-8">{pt?.title}</h1> : null}
+                {locale === 'es' ? <h1 className="flex items-center justify-center text-gray-600 h-full text-5x5 font-bold mb-8">{es?.title}</h1> : null}
                 <div className=' grid grid-cols-2  md:grid-cols-1 sm:grid-cols-1  gap-4'>
                   <div className=' '> {/*className= flex justify-center */}
                     <img className="border rounded max-h-15" src={social_image} alt={en?.title} />
