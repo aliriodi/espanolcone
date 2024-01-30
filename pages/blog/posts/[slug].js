@@ -138,8 +138,8 @@ import { AiOutlineMan } from 'react-icons/ai';
   );
 }
 
-
-export const getStaticProps = async ({ params, locale }) => {
+export const getServerSideProps  = async ({ params, locale }) => {
+//export const getStaticProps = async ({ params, locale }) => {
   console.log('slug 181', params.slug)
   //const partesDeLaRuta = pathname.split('/');
   //const ultimaParte = partesDeLaRuta[partesDeLaRuta.length - 1];
