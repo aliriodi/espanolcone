@@ -24,7 +24,7 @@ import { AiOutlineMan } from 'react-icons/ai';
   useEffect(() => {
     ReactGA.pageview(window.location.pathname);
 
-    push('/'+locale+'/blog/posts/'+devDotToPost.slug)
+    push('/'+params.locale+'/blog/posts/'+devDotToPost.slug)
   }, [t('BEGIN')]);
 
   // useEffect(() => {
