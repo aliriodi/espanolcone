@@ -19,7 +19,7 @@ import { AiOutlineMan } from 'react-icons/ai';
  function SLUG({ devDotToPost }) {
   const [post, setPost] = useState('')
   const { locale, locales, push, pathname } = useRouter()
-  const { t } = useTranslation(['navbar', 'landing', 'index','register'])
+  const { t } = useTranslation(['navbar', 'footer','landing', 'index','register'])
 //console.log(params.locale)
   useEffect(() => {
     ReactGA.pageview(window.location.pathname);
