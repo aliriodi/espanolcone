@@ -175,7 +175,7 @@ export async function getStaticPaths(locale) {
     const slugs = res.posts.map(post => post.slug);
 
     const paths =  slugs.flatMap(slug => 
-                              aux.map(l=> ({ params: { slug:[l,slug].join('/'),
+                              aux.map(l=> ({ params: { slug:slug,
                                                        locale:l },
                                               })
                               )
