@@ -149,7 +149,7 @@ export default NextAuth({
             }
           ],
           planSync: {
-            clasview: 0,
+            classview: 0,
             qty: 0,
             valid: true
           }
