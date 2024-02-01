@@ -136,10 +136,8 @@ export default function Blogcargar() {
                 }).then(response => { response.json(); console.log('Blog cargado') })
         }
         catch (error) { console.log('Error al cargar el Blog:', error) }
-
-
-
     }
+    
     return (<>
 
     <Menu />

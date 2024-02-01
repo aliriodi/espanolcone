@@ -251,7 +251,7 @@ export default function Admin() {
                         </div>
                     </div>
                      {/* Boton para ir a seccion de Blogs */}
-                     <div onClick={()=>router.push('/inicio/blog/Blog')} className='w-[100px] mx-auto flex justify-center bg-white rounded-full p-3 mb-5 shadow-[0px_4px_24px_#0000002F] relative cursor-pointer'>
+                     <div onClick={()=>router.push('/inicio/blog/')} className='w-[100px] mx-auto flex justify-center bg-white rounded-full p-3 mb-5 shadow-[0px_4px_24px_#0000002F] relative cursor-pointer'>
                         BLOGS
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 import dbConnect from '../../../../config/mongo'
-import Users from '../../../../models/Users'
+import Posts from '../../../../models/Post'
 
 /**
  * 
@@ -12,22 +12,23 @@ export default async function updateUsers(req, res) {
 
   try {
     //pasar por body 
-    const { email, updates } = req.body; 
-  //  console.log('email',email)
+    const { slug, updates } = req.body; 
+    console.log('slug',slug)
   //  console.log('updates',updates)
     console.log('CONNECTING TO MONGO DB');
-    console.log(req.body)
+    //console.log(req.body)
+    
     await dbConnect()
 
     console.log('CONNECTED TO MONGO DB');
 
-    console.log('UPDATING DOCUMENT');
+    console.log('UPDATING POST');
 
-    const result = await Users.updateOne({email:email},{$set:updates })
+    const result = await Posts.updateOne({slug:slug},{$set:updates})
     
    // console.log('UPDATED DOCUMENT', result);
     
-   res.json({ message: 'Usuario actualizado con éxito',email });
+   res.json({ message: 'POST actualizado con éxito',slug });
 
  //  res.json({ result })
 
