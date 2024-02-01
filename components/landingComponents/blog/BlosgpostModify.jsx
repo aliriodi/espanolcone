@@ -5,7 +5,10 @@ import nextI18NextConfig from "../../../next-i18next.config";
 import { useTranslation,withTranslation } from 'next-i18next';
 
 
-
+//Este componente es llamado por /pages/inicio/BlogModify y esta
+//hehco para visualizar los Blogs por encima antes de modificarlos
+//Tambien muestra los BLOGS no publicados pero que estan cargados en la BD
+// a traves de la propiedad publish
 export default function BlogPost({
   img,
   createdAt,
@@ -15,12 +18,14 @@ export default function BlogPost({
   likes,
   comments,
   tagList,
-  id
+  id,
+  publish
   
 })
 
 {
     const { locale, locales, push } = useRouter()
+    const router = useRouter()
    
    const { t } = useTranslation(['navbar'])
   const date = new Date(createdAt);
@@ -29,8 +34,9 @@ export default function BlogPost({
   }/${date.getFullYear()}`;
 
 function moveSlug(){
-   
-  push( `/blog/posts/${slug}`);
+//   alert(slug)
+  router.push( {pathname:`/inicio/blog/BlogModify2`,
+         query:{ locale:locale ,slug:slug}});
 
 }
 
@@ -51,6 +57,8 @@ function moveSlug(){
           unsized='true'
         />
     <div className='bg-primary text-white'>PARA MODIFICAR</div>
+    {publish?<div className='bg-success text-white'>PUBLICADO</div>:
+              <div className='bg-warning text-white'>NO PUBLICADO</div>    }
         <div className="p-6 flex-1">
           <h2 className="tracking-widest text-xs title-font font-medium text-gray-500 mb-1">
             
@@ -62,7 +70,7 @@ function moveSlug(){
           <p className="leading-relaxed mb-3">{desc}</p>
         </div>
         <div className="px-6 pt-4 pb-2">
-          {tagList.map((tag,index) => (
+          {tagList&&tagList.map((tag,index) => (
             <span key={index+id} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
               #{tag}
             </span>

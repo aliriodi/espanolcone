@@ -4,9 +4,12 @@ import { formatISO, parseISO } from 'date-fns';
 import Cloudinary from '../../../components/cloudinary/cloudinary';
 import Spinner from "../../../components/Spinner";
 import Menu from "../../../components/Menu";
-
+import { useRouter } from 'next/router';
 export default function Blogcargar() {
-
+    const router = useRouter();
+    function gotoModify(){
+        router.push('/inicio/blog/BlogModify')
+    }
     //Habilitacion de secciones para visualizar que vamos a cargar
     const [seccionES, setSeccionES] = useState(false)
     const [seccionEN, setSeccionEN] = useState(false)
@@ -145,7 +148,7 @@ export default function Blogcargar() {
         <div className='pt-24'><div className="flex justify-center w-ful mx-auto p-6 rounded-md "><Spinner /></div></div>
          : 
             <div className='pt-24'>
-
+<button type="button" onClick={() => gotoModify()} className='w-[200px] mx-auto flex justify-center bg-white rounded-full p-3 mb-5 shadow-[0px_4px_24px_#0000002F] relative cursor-pointer'>Modificar BLOG</button>
                 <div className="w-3/4 mx-auto bg-white p-6 rounded-md shadow-md">
                     <h2 className="text-2xl font-semibold mb-4">Cargar Contenido de Blog</h2>
                     <form id="bloghtmlForm">
@@ -162,7 +165,7 @@ export default function Blogcargar() {
 
                             {/* <!-- Título en Español --> */}
                             <div className='pt-0'>
-                                <div className=' border-primary w-1/5 border-solid border-2 rounded-[5px] flex-grow-[1] mx-1 text-white bg-primary cursor-pointer' onClick={() => setSeccionES(!seccionES)}>SECCION ESPAÑOL</div>
+                                <div className=' border-primary w-1/5 border-solid border-2 rounded-[5px] flex  justify-center mx-1 text-white bg-primary cursor-pointer' onClick={() => setSeccionES(!seccionES)}>SECCION ESPAÑOL</div>
                                 {seccionES && <>   <div className="mb-4">
                                     <label htmlFor="titulo_es" className="block text-sm font-medium text-gray-600">Título</label>
                                     <input type="text" id="titulo_es" name="titulo_es" className="mt-1 p-2 w-full border rounded-md"
@@ -200,7 +203,7 @@ export default function Blogcargar() {
 
                             {/* <!-- Título en Inglés --> */}
                             <div className='pt-2'>
-                                <div className=' border-primary w-1/5 border-solid border-2 rounded-[5px] flex-grow-[1] mx-1 text-white bg-primary cursor-pointer' onClick={() => setSeccionEN(!seccionEN)}>SECCION INGLES</div>
+                                <div className=' border-primary w-1/5 border-solid border-2 rounded-[5px] flex  justify-center mx-1 text-white bg-primary cursor-pointer' onClick={() => setSeccionEN(!seccionEN)}>SECCION INGLES</div>
                                 {seccionEN && <> <div className="mb-4">
                                     <label htmlFor="titulo_en" className="block text-sm font-medium text-gray-600">Title in English</label>
                                     <input type="text" id="titulo_en" name="titulo_en" className="mt-1 p-2 w-full border rounded-md"
@@ -235,7 +238,7 @@ export default function Blogcargar() {
                                 </>}</div>
                             {/* <!-- Título en Portugués --> */}
                             <div className='pt-2'>
-                                <div className=' border-primary w-1/5 border-solid border-2 rounded-[5px] flex-grow-[1] mx-1 text-white bg-primary cursor-pointer' onClick={() => setSeccionPT(!seccionPT)}>SECCION PORTUGUES</div>
+                                <div className=' border-primary w-1/5 border-solid border-2 rounded-[5px] flex  justify-center mx-1 text-white bg-primary cursor-pointer' onClick={() => setSeccionPT(!seccionPT)}>SECCION PORTUGUES</div>
                                 {seccionPT && <>
                                     <div className="mb-4">
                                         <label htmlFor="titulo_pt" className="block text-sm font-medium text-gray-600">Título em português</label>
@@ -286,6 +289,7 @@ export default function Blogcargar() {
                         {/* <!-- Botón de enviar --> */}
                         <div className="text-center">
                             <button type="button" onClick={() => cargarContenido()} className="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 ">Cargar Contenido</button>
+                            
                         </div>
                     </form>
                 </div>

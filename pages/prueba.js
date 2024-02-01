@@ -46,7 +46,21 @@ export default function prueba() {
    //   onReady={_onReady} 
      /> <br/>
      <b>este video tiene subtitulos en portugues</b>
-     </div>    
+     </div>
+     <div>
+     {/* <video width="560" height="315" controls> */}
+  {/* <source src="https://res.cloudinary.com/tu-nombre-de-usuario/video/upload/tu-video.mp4" type="video/mp4" /> */}
+  Tu navegador no soporta la etiqueta de video.
+{/* </video> */}
+
+     <br/><b>Video Cloudinary</b></div>
+     
+     <div><br/><iframe width="560" height="315" src="https://www.youtube.com/embed/qOCgDGIo6hg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+     <br/><b>Video Publico</b></div>
+
+
+
+    
      </div>
     </div>
   )
