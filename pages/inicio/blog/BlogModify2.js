@@ -30,6 +30,7 @@ export default  function SLUG({ devDotToPost ,slug}) {
 useEffect(() => {
   const partesDeLaRuta = pathname.split('/');
   const ultimaParte = partesDeLaRuta[partesDeLaRuta.length - 1];
+  
     async function blog(){
         console.log('28',router.query)
         console.log('29',router.params)
@@ -39,6 +40,8 @@ useEffect(() => {
     const res = await devDotToPosts.json();
    // console.log(res)
     setPost(res.postid)
+    setSocial_image(res.postid.social_image)
+    setPublished_at(res.postid.createdAt)
     }
     blog()
 }, []);
@@ -86,7 +89,7 @@ useEffect(() => {
     const [user_id, setUser_id] = useState('');
     const [profile_image, setProfile_image] = useState('https://res.cloudinary.com/dfddh08q8/image/upload/s--LSRn8RfV--/c_thumb,w_200,g_face/v1/images/rc6firxrtnaj16l0i1kt.png');
     const [profile_image_90, setProfile_image_90] = useState('https://res.cloudinary.com/dfddh08q8/image/upload/s--LSRn8RfV--/c_thumb,w_200,g_face/v1/images/rc6firxrtnaj16l0i1kt.png');
-
+     const[published_at,setPublished_at]=useState('')
     const { data: session, status } = useSession();
 
     useEffect(() => {
@@ -113,22 +116,9 @@ useEffect(() => {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
   const {
     title,
-    published_at,
+  //  published_at,
    // social_image,
     body_html,
     es,

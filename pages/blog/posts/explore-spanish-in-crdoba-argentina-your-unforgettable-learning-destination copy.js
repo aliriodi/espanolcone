@@ -83,16 +83,15 @@ useEffect(() => {
       {locale==='pt'?<h1 className="flex items-center justify-center text-gray-600 h-full text-5x5 font-bold mb-8">{pt?.title}</h1>:null}
       {locale==='es'?<h1 className="flex items-center justify-center text-gray-600 h-full text-5x5 font-bold mb-8">{es?.title}</h1>:null}
       <div className=' grid grid-cols-2  md:grid-cols-1 sm:grid-cols-1  gap-4'>
-      
+      <div className=' '> {/*className= flex justify-center */}
+      <img className="border rounded max-h-15"   src={social_image} alt={title} />
+      </div>
       <div className='grid grid-cols-1 md:grid-cols-1 sm:grid-cols-1  justify-center '>
       <div className={styles['principal']}>
       {locale==='pt'?<div className="mt-2  markdown text-justify text-lg md:text-lg sm:text-xs " dangerouslySetInnerHTML={{ __html: pt?.body_html }} />:null}
       {locale==='en'?<div className="mt-2  markdown text-justify text-lg md:text-lg sm:text-xs " dangerouslySetInnerHTML={{ __html: en?.body_html }} />:null}
       {locale==='es'?<div className="mt-2  markdown text-justify text-lg md:text-lg sm:text-xs " dangerouslySetInnerHTML={{ __html: es?.body_html }} />:null}
       </div></div>
-      <div className=' '> {/*className= flex justify-center */}
-      <img className="border rounded max-h-15"   src={social_image} alt={title} />
-      </div>
       </div>
       
     </div>
