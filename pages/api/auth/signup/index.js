@@ -127,7 +127,7 @@ export default async function POST(req, res){
               ]
             }
           ],
-          planSync:{clasview:0,qty:0,valid:true}
+          planSync:{classview:0,qty:0,valid:true}
         });
     
         await newUser.save();
