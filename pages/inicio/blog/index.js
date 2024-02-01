@@ -41,6 +41,7 @@ export default function Blog({ devDotToPosts }) {
                     <Menu />
                     <TopButton />
 
+                       <div className='pt-20'>
                     <section className='grid grid-cols-2  justify-center flex-col bg-white px-[170px] py-[107px] relative   md:px-[20px]'>
 
                         <div onClick={() => router.push('/inicio/blog/Blog')} className='w-[200px]  mx-auto flex justify-center bg-white rounded-full p-3 mb-5 shadow-[0px_4px_24px_#0000002F] relative cursor-pointer'>
@@ -48,12 +49,11 @@ export default function Blog({ devDotToPosts }) {
                         </div>
                         <div onClick={() => router.push('/inicio/blog/BlogModify')} className='w-[300px]  mx-auto flex justify-center bg-white rounded-full p-3 mb-5 shadow-[0px_4px_24px_#0000002F] relative cursor-pointer'>
                             Modificar Blog Existente
-                        </div>
-
-
+                       </div>
                     </section>
+                    </div>
                 </Layout>
-                <Footer className='bg-[#F5F6FCCC]' />
+
             </div ></>
     );
 }
