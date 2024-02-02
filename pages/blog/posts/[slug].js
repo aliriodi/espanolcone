@@ -16,6 +16,8 @@ import Reviews from './Reviews'
 import { AiOutlineMan } from 'react-icons/ai';
 
 
+  
+
   function SLUG({ devDotToPost }) {
   const [post, setPost] = useState('')
   const { locale, locales, push, pathname } = useRouter()
@@ -26,8 +28,9 @@ import { AiOutlineMan } from 'react-icons/ai';
 
     push('/blog/posts/'+devDotToPost.slug,undefined,{locale:locale})
   }, []);
-console.log(locale)
+console.log(' 29  ----- [slug].js',locale)
   // useEffect(() => {
+    
   //   const partesDeLaRuta = pathname.split('/');
   //   const ultimaParte = partesDeLaRuta[partesDeLaRuta.length - 1];
   //     async function blog(){
@@ -37,7 +40,7 @@ console.log(locale)
   //     setPost(res.postid)
   //     }
   //     blog()
-  // }, []);
+  // }, [locale]);
 
   let createdAt = '';
   let es = '';
@@ -138,26 +141,38 @@ console.log(locale)
   );
 }
 
-export const getServerSideProps  = async ({ params, locale }) => {
-//export const getStaticProps = async ({ params, locale }) => {
-  console.log('slug 143', params.slug)
-  console.log('[slug] 144',locale,params.locale)
-  //const partesDeLaRuta = pathname.split('/');
-  //const ultimaParte = partesDeLaRuta[partesDeLaRuta.length - 1];
-  const devDotToPost = await fetch(
-    `${process.env.URLPOST}/api/blog/posts/${params.slug}`
-  );
 
-  const res = await devDotToPost.json();
-  console.log('151')
-  //console.log(res)
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['navbar', 'footer'], nextI18NextConfig)),
-      devDotToPost: res.postid,
+
+export const getServerSideProps  = async ({ params, locale ,req}) => {
+  //export const getStaticProps = async ({ params, locale }) => {
+   
+ //   console.log('------- slug 143', params.slug)
+ //   console.log('------ [slug] 144',locale,params)
+ //   console.log('------[slug].js 145',req.url)
+
+    function Language(req){
+      if(req.url.includes('/pt/blog/posts/')){return 'pt'}
+      if(req.url.includes('/en/blog/posts/')){return 'en'}
+      if(req.url.includes('/es/blog/posts/')){return 'es'}
+      else {return 'en'}
     }
+    
+    //const partesDeLaRuta = pathname.split('/');
+    //const ultimaParte = partesDeLaRuta[partesDeLaRuta.length - 1];
+    const devDotToPost = await fetch(
+      `${process.env.URLPOST}/api/blog/posts/${params.slug}`
+    );
+  
+    const res = await devDotToPost.json();
+  //  console.log('154')
+    //console.log(res)
+    return {
+      props: {
+        ...(await serverSideTranslations(Language(req), ['navbar', 'footer'], nextI18NextConfig)),
+        devDotToPost: res.postid,
+      }
+    };
   };
-};
 
 
 // export async function getStaticPaths(locale) {

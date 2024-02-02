@@ -29,7 +29,7 @@ export default function BlogPost({
   }/${date.getFullYear()}`;
 
 function moveSlug(){
-  push(`/blog/posts/${slug}`,null, {slug:slug, locale:locale ,locales:locales });
+  push(`/blog/posts/${slug}`,undefined, {params:{slug:slug, locale:locale ,locales:locales }});
  
 
 
