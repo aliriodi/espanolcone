@@ -5,7 +5,6 @@ import nextI18NextConfig from "../../../next-i18next.config";
 import { useTranslation,withTranslation } from 'next-i18next';
 
 
-
 export default function BlogPost({
   img,
   createdAt,
@@ -20,6 +19,7 @@ export default function BlogPost({
 })
 
 {
+  
     const { locale, locales, push } = useRouter()
    
    const { t } = useTranslation('navbar')
@@ -29,8 +29,9 @@ export default function BlogPost({
   }/${date.getFullYear()}`;
 
 function moveSlug(){
-  push(`/blog/posts/${slug}`, undefined, { locale:locale });
-  
+  push(`/blog/posts/${slug}`,null, {slug:slug, locale:locale ,locales:locales });
+ 
+
 
 }
 

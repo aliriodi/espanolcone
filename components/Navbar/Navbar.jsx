@@ -24,17 +24,22 @@ function Navbar(props) {
   const [showMenuResponsive, setShowMenuResponsive] =useState(false)
 
   //Traduccion
-  const { locale, locales, push } = useRouter()
+  const { locale, locales, push,pathname } = useRouter()
 
   function handleClickLan(l) {
     push('/', undefined, { locale: l });
   }
-  function handleOnChange(lang,slug) {
-    if(!slug){
-    push('', undefined, { locale: lang.value });
-    setLanguage(languages2.find(objeto => objeto.value === lang.value))}
+  function handleOnChange(lang) {
+    if(props.slug){
+   //alert(34+props.slug)
+   //alert(locale)
+  // alert(lang.value)
+      push(`/blog/posts/${props.slug}`,`/${lang.value}/blog/posts/${props.slug}`, { locale: lang.value});
+      setLanguage(languages2.find(objeto => objeto.value === lang.value))  
+    }
     else {
-      push('', undefined, { locale: lang.value ,slug:slug});
+  //   alert(40+props)
+      push('', undefined, { locale: lang.value });
     setLanguage(languages2.find(objeto => objeto.value === lang.value))}
     }
   
