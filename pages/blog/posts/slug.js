@@ -16,18 +16,21 @@ import Reviews from './Reviews'
 import { AiOutlineMan } from 'react-icons/ai';
 
 
- function SLUG({ devDotToPost }) {
+  
+
+  function SLUG({ devDotToPost }) {
   const [post, setPost] = useState('')
   const { locale, locales, push, pathname } = useRouter()
-  const { t } = useTranslation(['navbar', 'footer','landing', 'index','register'])
+  const { t } = useTranslation(['navbar', 'footer'])
 //console.log(params.locale)
   useEffect(() => {
     ReactGA.pageview(window.location.pathname);
 
-    push('/blog/posts/'+devDotToPost.slug,undefined,{locale})
-  }, [t('BEGIN')]);
-
+    push('/blog/posts/'+devDotToPost.slug,undefined,{locale:locale})
+  }, []);
+console.log(' 29  ----- [slug].js',locale)
   // useEffect(() => {
+    
   //   const partesDeLaRuta = pathname.split('/');
   //   const ultimaParte = partesDeLaRuta[partesDeLaRuta.length - 1];
   //     async function blog(){
@@ -37,7 +40,7 @@ import { AiOutlineMan } from 'react-icons/ai';
   //     setPost(res.postid)
   //     }
   //     blog()
-  // }, []);
+  // }, [locale]);
 
   let createdAt = '';
   let es = '';
@@ -79,7 +82,7 @@ import { AiOutlineMan } from 'react-icons/ai';
 
       </Head>
       <Layout className='bg-white relative overflow-x-hidden'>
-        <NAVBAR className="bg-[transparent]" />
+        <NAVBAR slug ={slug} locale={locale} className="bg-[transparent]" />
         <TopButton />
         <div className="flex justify-center">
 
@@ -138,25 +141,38 @@ import { AiOutlineMan } from 'react-icons/ai';
   );
 }
 
-export const getServerSideProps  = async ({ params, locale }) => {
-//export const getStaticProps = async ({ params, locale }) => {
-  console.log('slug 181', params.slug)
-  //const partesDeLaRuta = pathname.split('/');
-  //const ultimaParte = partesDeLaRuta[partesDeLaRuta.length - 1];
-  const devDotToPost = await fetch(
-    `${process.env.URLPOST}/api/blog/posts/${params.slug}`
-  );
 
-  const res = await devDotToPost.json();
-  console.log('188')
-  //console.log(res)
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['navbar', 'footer'], nextI18NextConfig)),
-      devDotToPost: res.postid,
+
+export const getServerSideProps  = async ({ params, locale ,req}) => {
+  //export const getStaticProps = async ({ params, locale }) => {
+   
+ //   console.log('------- slug 143', params.slug)
+ //   console.log('------ [slug] 144',locale,params)
+ //   console.log('------[slug].js 145',req.url)
+
+    function Language(req){
+      if(req.url.includes('/pt/blog/posts/')){return 'pt'}
+      if(req.url.includes('/en/blog/posts/')){return 'en'}
+      if(req.url.includes('/es/blog/posts/')){return 'es'}
+      else {return 'en'}
     }
+    
+    //const partesDeLaRuta = pathname.split('/');
+    //const ultimaParte = partesDeLaRuta[partesDeLaRuta.length - 1];
+    const devDotToPost = await fetch(
+      `${process.env.URLPOST}/api/blog/posts/${params.slug}`
+    );
+  
+    const res = await devDotToPost.json();
+  //  console.log('154')
+    //console.log(res)
+    return {
+      props: {
+        ...(await serverSideTranslations(Language(req), ['navbar', 'footer'], nextI18NextConfig)),
+        devDotToPost: res.postid,
+      }
+    };
   };
-};
 
 
 // export async function getStaticPaths(locale) {
@@ -166,8 +182,9 @@ export const getServerSideProps  = async ({ params, locale }) => {
 //   const res = await devDotToPost.json();
 //   console.log('161')
 //   console.log(res.posts.map(post => {
-//     return post.slug
-//   }))
+//    if(post.publish){return post.slug}
+    
+//   }).filter(element => element !== null && element !== undefined),)
 //   const aux = [];
   
 
@@ -176,23 +193,20 @@ export const getServerSideProps  = async ({ params, locale }) => {
 
 //     console.log(166)
   
-//     const slugs = res.posts.map(post => post.slug);
+//     const slugs = res.posts.map(post =>{ if(post.publish){post.slug}});
 
 //     const paths =  slugs.flatMap(slug => 
 //                               aux.map(l=> ({ params: { slug:slug,
 //                                                        locale:l },
 //                                               })
-//                               )
-    
-    
-//     );
+//                               )  );
       
      
 //    return {
 
-//     paths,
+//     paths:paths.filter(element => element.params.slug !== null && element.params.slug !== undefined),
 //     fallback: true,
 //   }
 // }
 
-export default withTranslation(['navbar', 'footer', 'aboutus', 'landing'])(SLUG);
+export default withTranslation(['navbar', 'footer'])(SLUG);
