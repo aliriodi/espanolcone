@@ -11,11 +11,11 @@ export default function Conoce() {
 
   return (
     <>
-      <section className='grid grid-cols-10 gap-4 h-[600px] px-[173px] bg-primary
+      <section className='flex h-[860px] px-[173px] bg-primary justify-between 
       md:px-[20px]'>
 
-        <div className='col-span-7 mt-[100px] text-white min-w-[644px]  mr-[117px]
-        md:min-w-full md:mr-0 md:col-span-10'>
+        <div className='mt-[137px] text-white w-[460px]
+        md:min-w-full '>
 
           {/* Titulo */}
           <h2 className='flex justify-start text-4xl text-white font-bold ' style={{textShadow: '0px 1px 2px #00000040'}}>
@@ -23,17 +23,39 @@ export default function Conoce() {
           </h2>
 
           {/* Texto */}
-          <p className='mt-[40px] mb-[120px] flex justify-start text-xl font-semibold
+          <p className='mt-[40px] flex justify-start text-xl font-semibold
           md:my-[32px] md:text-[16px] md:drop-shadow-[0px_1px_2px_#00000040]'
           style={{textShadow: '0px 1px 2px #00000040'}}>
           {t("card3Text")}
           </p>
 
+          {/* Lista */}
+          <ul className='flex flex-col justify-start text-[20px] font-semibold my-4
+          md:text-[16px] md:drop-shadow-[0px_1px_2px_#00000040]'
+          style={{textShadow: '0px 1px 2px #00000040'}}>
+          
+            <li className='flex items-center'> <p className='bg-white w-2 h-2 rounded-full mx-2 shadow-[0px_1px_2px_#00000040]'></p> {t("card3List.0")}</li>
+
+            <li className='flex items-center'> <p className='bg-white w-2 h-2 rounded-full mx-2 shadow-[0px_1px_2px_#00000040]'></p> {t("card3List.1")}</li>
+
+            <li className='flex items-center'> <p className='bg-white w-2 h-2 rounded-full mx-2 shadow-[0px_1px_2px_#00000040]'></p> {t("card3List.2")}</li>
+
+            <li className='flex items-center'> <p className='bg-white w-2 h-2 rounded-full mx-2 shadow-[0px_1px_2px_#00000040]'></p> {t("card3List.3")}</li>
+
+          </ul>
+
+          {/* Texto Inferior */}
+          <p className='mb-[54px] flex justify-start text-xl font-semibold
+          md:my-[32px] md:text-[16px] md:drop-shadow-[0px_1px_2px_#00000040]'
+          style={{textShadow: '0px 1px 2px #00000040'}}>
+          {t("card3Text2")}
+          </p>
+
           {/* Iniciar secion */}
           <Link
             type="button"
-            className="text-primary bg-white font-medium rounded-md text-sm px-5 py-2.5  active:bg-primary active:text-white focus:outline-none"
-            style={{fontSize:'20px',padding: '18px 28px', boxShadow: '0px 2px 8px 0px #00000040'}}   
+            className="text-primary bg-white rounded-full w-[305px] h-[57px] text-center text-[20px] font-semibold flex items-center justify-center  active:bg-primary active:text-white focus:outline-none"
+            style={{ boxShadow: '0px 2px 8px 0px #00000040'}}   
             href={'/aboutus'}
             >
             {t("card3Button")}
@@ -42,14 +64,13 @@ export default function Conoce() {
         </div>
 
         {/* Imagen Celular */}
-        <div className='col-span-3 flex justify-start items-end
+        <div className=' flex justify-center items-center
         lg:hidden'>
           <Image
-            src="https://res.cloudinary.com/dfddh08q8/image/upload/v1694437853/images/Group_14.4_nzv8eu.png"
+            src="https://res.cloudinary.com/dfddh08q8/image/upload/v1707245411/images/r5wp8viaocuxmtgcpn8s.png"
             alt="Teléfono"
-            width={405.17}
-            height={695.72}
-            className='absolute right-[122px]'
+            width={562.99}
+            height={697.72}
           />
         </div>
 

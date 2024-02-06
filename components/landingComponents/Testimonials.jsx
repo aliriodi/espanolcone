@@ -62,13 +62,6 @@ const TestimonialsSlider = () => {
         className='bottom-0 absolute w-full z-0 '
         alt='curva marron'
         />
-
-        
-        {/* Ellipse Naranja */}
-        <span
-        className='rounded-full h-[110px] w-[110px] z-20 absolute  border-warning right-[-43px] bottom-1/2
-        md:hidden'
-        style={{border: '20px solid #ff7438'}}></span>
       </section>
     </>
   );

@@ -57,7 +57,7 @@ export default function ModalListTourist(props) {
 
                 <div
                 onClick={(e) => e.stopPropagation()}
-                className='bg-white rounded-md p-5 flex flex-col w-[700px] relative
+                className='bg-white rounded-[20px] p-5 flex flex-col w-[700px] relative
                 md:w-full md:rounded-none'>
 
                     {/* Boton de cerrar modal */}

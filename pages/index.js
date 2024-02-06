@@ -15,6 +15,7 @@ import Image from 'next/image';
 import Testimonials from '../components/landingComponents/Testimonials';
 import Footer from "../components/Footer/Footer";
 import pelota from '../styles/pelota.module.css';
+import WaitList from '../components/landingComponents/WaitList';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -30,6 +31,7 @@ export default function Home() {
         <meta name="landing" content="welcome" />
       </Head>
       <Layout className='bg-white relative overflow-x-hidden'>
+        
         <NAVBAR className="bg-[transparent]"/>
 
         {/* Encabezado */}
@@ -58,8 +60,8 @@ export default function Home() {
               {/* Iniciar secion */}
               <button
                 type="button"
-                className="text-primary bg-white font-medium rounded-md text-sm px-5 py-2.5 mr-2 mt-[20px]  active:bg-primary active:text-white focus:outline-none"
-                style={{ fontSize: '20px', padding: '18px 28px', boxShadow: '0px 2px 8px 0px #00000040' }}         
+                className="text-primary bg-white rounded-full w-[308px] h-[80px] mt-[20px] text-[20px] font-semibold active:bg-primary active:text-white focus:outline-none"
+                style={{  boxShadow: '0px 2px 8px 0px #00000040' }}         
                 onClick={()=>push('/login')} >
                 {t("index:card1Button")}
               </button>
@@ -70,9 +72,7 @@ export default function Home() {
           <div className="w-1/2 z-10 ml-[20px]
           md:w-full md:ml-0 md:mb-[90px] md:mt-[40px]">
             <div className=' justify-center items-end relative'>
-              {/* <div className='mt-[50px] mr-40 bg-slate-500 flex items-center justify-center rounded-full w-[500px] h-[500px]'> */}
-              {/* <h1 className='text-white '>poner imagen 1 aqui</h1> */}
-              {/* "cascade":"", */}
+
               <Image
                 src="https://res.cloudinary.com/dfddh08q8/image/upload/v1694366393/images/banner-principal_pqirib.png"
                 alt="Teléfono"
@@ -112,13 +112,26 @@ export default function Home() {
           style={{borderRadius:'0 0 50% 50% /0 0 100% 100% '}}/>
         </header>
 
+        {/* Cuatro Iconos */}
         <Four />
-        <Conoce />
+        
+        {/* Descubre nuestros planes */}
         <Ofrece />
+
+        {/* Explora nuestra App */}
+        <Conoce />
+
+        {/* Lista Blanca */}
+        <WaitList/>
+
+        {/* Equipo de Expertos */}
         <div id="TEAM">
           <Experts />
         </div>
+
+        {/* Testimonnos */}
         <Testimonials />
+
       </Layout>
 
       <Footer className='bg-[#F5F6FCCC]' />

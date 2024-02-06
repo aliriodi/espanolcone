@@ -68,11 +68,11 @@
 .footer-welcome_item .btn-signUp{
     background-color: var(--white);
     border: 3px solid var(--white);
-    border-radius: 6px;
+    border-radius: 100px;
     padding: 7px 40px;
     color: var(--primary);
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 600;
     margin: 19.75px 0;
     box-shadow: 0px 2px 8px 0px #00000040;
     transition: .3s;

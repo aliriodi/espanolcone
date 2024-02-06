@@ -101,11 +101,6 @@ export default function Experts() {
           ))}
         </Swiper>
       </div>
-
-      {/* Ellipse Violeta */}
-      <span
-      className='rounded-full h-[143px] w-[143px] z-20 absolute left-[-73px] border-success'
-      style={{border: '27px solid #8438ff'}}></span>
     </section>
   );
 }

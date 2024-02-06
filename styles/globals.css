@@ -117,12 +117,13 @@ h3{
 .underlined-title{
   text-align: center;
   display: flex;
-  line-height: 55.62px;
+  line-height: 48.76px;
   justify-content: center;
   align-items: center;
-  font-size: 45.62px;
+  font-size: 40px;
+  font-weight: 600;
   flex-direction: column;
-  color: #323030;
+  color: #555555;
 }
 .underlined-title::after{
   content: '';

@@ -42,47 +42,48 @@ function closePayModal() {setPayModal(false)}
 
   return (
     <>
-      <section className='h-auto bg-[#F6F7FF] mb-[100px] pb-[126px] pt-[187px] relative
+      <section className='h-auto bg-[#F6F7FF] pb-[324px] pt-[187px] relative
       md:px-[20px]'>
 
         {/* Titulo */}
-        <div className=' mb-[50px] flex flex-col justify-center items-center'>
+        <div className=' mb-[50px] flex flex-col justify-center items-center z-10 relative'>
 
           {/* Titulo */}
           <div className='flex justify-center items-center flex-col'>
-            <h2 className='underlined-title' style={{ fontSize: '30px', color: '#323030' }}>
-              {t("card4.0.title")}
+
+            <h2 className='underlined-title'>
+              {t("card42.0.title")}
             </h2>
 
-            <span className='bg-secondary flex' style={{ height: '2px', width: '80.8px' }}></span>
           </div>
 
           {/* Subtitulo */}
-          <p className='flex justify-center items-center my-[36px] text-center font-medium' style={{ fontSize: '18px', color: '#5E6063', maxWidth: '535px' }}>
-            {t("card4.0.text")}
+          <p className='flex flex-col items-center my-[36px] text-center font-medium max-w-[535px] text-[24px] text-[#676767]'>
+            {t("card42.0.text")}
+            <b>{t("card42.0.textPromotion")}</b>
           </p>
         </div>
 
 
-        <div className="flex justify-center 
+        <div className="flex justify-center z-10 relative
         md:flex-col md:items-center">
 
           {/* Nuestros Programas */}
           <div
-            className="bg-white shadow-lg rounded-lg  w-[500px] h-min-[646px] mr-[19px] py-[66px] px-[33px]
+            className="bg-white shadow-lg rounded-[15px]  w-[419px] h-min-[635px] mr-[15px] py-[29px] px-[36px] relative
             md:mx-0 md:w-full md:px-[16px] md:mb-[19px]"
             style={{ boxShadow: '0px 4px 26px #00000040' }}>
 
             {/* Encabezado */}
-            <div className="flex items-center
-            md:flex-col"
-              style={{ borderBottom: '1px #DEDEDE solid', paddingBottom: '1.2em' }}>
+            <div className="flex items-center flex-col border-b-2 border-gray_border"
+              style={{  paddingBottom: '1.2em' }}>
 
               {/* Imagen */}
               <div className=" flex justify-center items-center p-1
               md:max-w-[400px] md:mx-[60px]">
                 <Image
-                  src="https://res.cloudinary.com/dfddh08q8/image/upload/v1694437860/images/icons-05_xkbram.png"
+                  className='h-[98px] w-auto'
+                  src="https://res.cloudinary.com/dfddh08q8/image/upload/v1694437864/images/icons-06_ihevx7.png"
                   alt="Personas"
                   width={400}
                   height={200}
@@ -95,38 +96,30 @@ function closePayModal() {setPayModal(false)}
                 style={{ minWidth: '260px', marginLeft: '10px' }}>
 
                 <h2
-                  className="font-semibold
-                  md:text-center"
+                  className="font-semibold text-center"
                   style={{ fontSize: '20px' }}
                 >
-                  {t("card4.1.title")}
+                  {t("card42.1.title")}
                 </h2>
 
-                <p
-                  className='font-medium
-                  md:text-center'
-                  style={{ color: '#6E6B7B', marginTop: '10px', fontSize: '16px' }}>
-                  {t("card4.1.text")}
+              </div>
 
-                </p>
+              {/* Precios */}
+              <div className='text-center w-full flex items-center flex-col'>
+
+                {/* Precio de Oferta */}
+                <h4 className=' font-semibold text-[60px] text-primary'>{t("card42.1.priceOffer")}</h4>
+
+                {/* Precio Real */}
+                <p className='line-through font-semibold text-[20px] text-danger'>{t("card42.1.priceReal")}</p>
 
               </div>
 
             </div>
 
             {/* Contenido */}
-            <div className='flex justify-center flex-col pb-3 mt-8 text-violet_dark items-start px-6
+            <div className='flex justify-center flex-col pb-3 mt-8 text-violet_dark items-start px-6 mb-[80px]
             md:px-0'>
-
-              <p className='flex justify-center items-start text-left' >
-                {t("card4.1.paragraph")}
-              </p>
-
-              <p className='flex justify-center items-start text-left my-6'>
-                {t("card4.1.pargraph2")}
-              </p>
-
-
 
               {/* Lista */}
               <div className='flex justify-center items-start text-left mb-5'>
@@ -140,9 +133,9 @@ function closePayModal() {setPayModal(false)}
                     />
                   </span>
                 </div>
-                <p className='flex justify-center items-start text-left mb-5'>
+                <p className='flex justify-center items-start text-left text-[18px] font-medium'>
 
-                  {t("card4.1.list.0")}
+                  {t("card42.1.list.0")}
                 </p>
 
               </div>
@@ -159,9 +152,9 @@ function closePayModal() {setPayModal(false)}
                     />
                   </span>
                 </div>
-                <p className='flex justify-center items-start text-left mb-5'>
+                <p className='flex justify-center items-start text-left text-[18px] font-medium'>
 
-                  {t("card4.1.list.1")}
+                  {t("card42.1.list.1")}
                 </p>
               </div>
 
@@ -177,9 +170,9 @@ function closePayModal() {setPayModal(false)}
                     />
                   </span>
                 </div>
-                <p className='flex justify-center items-start text-left mb-5'>
+                <p className='flex justify-center items-start text-left text-[18px] font-medium'>
 
-                  {t("card4.1.list.2")}
+                  {t("card42.1.list.2")}
                 </p>
               </div>
 
@@ -195,45 +188,54 @@ function closePayModal() {setPayModal(false)}
                     />
                   </span>
                 </div>
-                <p className='flex justify-center items-start text-left'>
 
-                  {t("card4.1.list.3")}
+                <p className='flex justify-center items-start text-left text-[18px] font-medium'>
 
-                </p>
-                
-                
-                </div>
-                  {/* Boton Modal de pagos ofertas */}
-                  <div className='w-[100%] relative top-6'>
-                  <button
-                    className={
-                      classNames('w-[116%] md:w-[95%] bg-gradient-to-l from-primary to-success rounded-[7px] text-white p-2  relative  left-[50%] translate-x-[-50%] transition-all hover:shadow-[0px_4px_14px_0px_#8438FFA6]  '
-                      , locale==='pt'? ' top-10 md:top-8':'top-14  md:top-10' )
-                    }
-                     onClick={() => setOffer(!Offer)}>{t("card4.1.button")}</button>           
-                </div>
+                  {t("card42.1.list.3")}
+
+                </p>  
+
+              </div>
+
+              
+              {/* Boton */}
+              <button
+              className="w-[255px] bg-primary rounded-full text-white py-[13px] absolute bottom-[29px] left-[50%] translate-x-[-50%] transition-all text-[20px]
+              hover:shadow-[0px_4px_14px_0px_#8438FFA6]"
+              onClick={() => setOffer(!Offer)}>
+                {t("card42.1.button")}
+              </button>
+              {/* Boton Modal de pagos ofertas */}
+              {/* <div className='w-[100%] relative top-6'>
+                <button
+                  className={
+                    classNames('w-[116%] md:w-[95%] bg-gradient-to-l from-primary to-success rounded-[7px] text-white p-2  relative  left-[50%] translate-x-[-50%] transition-all hover:shadow-[0px_4px_14px_0px_#8438FFA6]  '
+                    , locale==='pt'? ' top-10 md:top-8':'top-14  md:top-10' )
+                  }
+                    onClick={() => setOffer(!Offer)}>{t("card4.1.button")}</button>           
+              </div> */}
               
             </div>
+            
             <div>{Offer && <ModalPagoLanding open={Offer} setOpen={setOffer} />}</div>
           </div>
 
           {/* Conoce Cordoba */}
           <div
-            className="bg-white rounded-lg w-[500px] h-min-[646px] ml-[19px] py-[66px] px-[33px] relative
+            className="bg-white shadow-lg rounded-[15px]  w-[419px] h-min-[635px] ml-[15px] py-[29px] px-[36px] relative
             md:mx-0 md:w-full md:px-[16px] md:mt-[19px]"
             style={{ boxShadow: '0px 4px 26px #00000040' }}>
 
             {/* Encabezado */}
-            <div className="flex items-center
-            md:flex-col"
-              style={{ borderBottom: '1px #DEDEDE solid', paddingBottom: '1.7em' }}>
+            <div className="flex items-center flex-col border-b-2 border-gray_border"
+              style={{  paddingBottom: '1.2em' }}>
 
               {/* Imagen */}
               <div className="flex justify-center items-center p-1 relative
               md:max-w-[400px] md:w-full">
                 <Image
-                  className='md:mx-[60px] '
-                  src="https://res.cloudinary.com/dfddh08q8/image/upload/v1694437864/images/icons-06_ihevx7.png"
+                  className='h-[98px] w-auto'
+                  src="https://res.cloudinary.com/dfddh08q8/image/upload/v1694437860/images/icons-05_xkbram.png"
                   alt="montaña"
                   width={400}
                   height={200}
@@ -245,33 +247,29 @@ function closePayModal() {setPayModal(false)}
 
                 style={{ minWidth: '260px', marginLeft: '10px' }}>
                 <h2
-                  className="font-semibold
-                  md:text-center"
+                  className="font-semibold text-center"
                   style={{ fontSize: '20px' }}
                 >
-                  {t("card4.2.title")}
+                  {t("card42.2.title")}
 
                 </h2>
-                <p
-                  className='font-medium
-                  md:text-center'
-                  style={{ color: '#6E6B7B', marginTop: '10px', fontSize: '16px' }}>
-                  {t("card4.2.text")}
-
-                </p>
               </div>
+
+              {/* Precios */}
+              <div className='text-center w-full flex items-center flex-col'>
+
+                {/* Precio de Oferta */}
+                <h4 className=' font-semibold text-[60px] text-primary'>{t("card42.2.priceOffer")}</h4>
+
+                {/* Precio Real */}
+                <p className='line-through font-semibold text-[20px] text-danger'>{t("card42.2.priceReal")}</p>
+
+              </div>
+
             </div>
 
             {/* Contenido */}
             <div className='flex justify-center flex-col pb-3 mt-8 text-violet_dark items-start px-6'>
-
-              <p className='flex justify-center items-start text-left'>
-                {t("card4.2.paragraph")}
-              </p>
-
-              <p className='flex justify-center items-start text-left my-6'>
-                {t("card4.2.paragraph2")}
-              </p>
 
               {/* Lista */}
               <div className='flex justify-center items-start text-left mb-5'>
@@ -285,25 +283,8 @@ function closePayModal() {setPayModal(false)}
                     />
                   </span>
                 </div>
-                <p style={{ maxWidth: '353px' }}>
-                  {t("card4.2.list.0")}
-                </p>
-              </div>
-
-
-              <div className='flex justify-center items-start text-left mb-5'>
-                <div className='w-[38px]'>
-                  <span className='flex justify-center items-center bg-primary rounded-full mr-2' style={{ width: '18px', height: '18px' }}>
-                    <Image
-                      width={12.38}
-                      height={12.38}
-                      src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
-                      alt='check'
-                    />
-                  </span>
-                </div>
-                <p style={{ maxWidth: '353px' }}>
-                  {t("card4.2.list.1")}
+                <p className='text-[18px] font-medium' style={{ maxWidth: '353px' }}>
+                  {t("card42.2.list.0")}
                 </p>
               </div>
 
@@ -318,51 +299,64 @@ function closePayModal() {setPayModal(false)}
                     />
                   </span>
                 </div>
-                <p style={{ maxWidth: '353px' }}>
-                  {t("card4.2.list.2")}
+                <p className='text-[18px] font-medium' style={{ maxWidth: '353px' }}>
+                  {t("card42.2.list.1")}
                 </p>
               </div>
 
-              <div className='flex justify-center items-start text-left mb-5'>
-                <div className='w-[38px]'>
-                  <span className='flex justify-center items-center bg-primary rounded-full mr-2' style={{ width: '18px', height: '18px' }}>
-                    <Image
-                      width={12.38}
-                      height={12.38}
-                      src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1695142545/images/imagen_2023-09-19_135546187_yzq6cg.png"}
-                      alt='check'
-                    />
-                  </span>
-                </div>
-                <p className='break-normal' style={{ maxWidth: '353px' }}>
-                  {t("card4.2.list.3")}
-                </p>
-              </div>
-
-              {/* Boton de anotarse en lista de guias */}
+              {/* Boton */}
               <button
-                className="w-[90%] bg-gradient-to-r from-primary to-success rounded-[7px] text-white p-2 absolute bottom-4 left-[50%] translate-x-[-50%] transition-all
-              hover:shadow-[0px_4px_14px_0px_#8438FFA6]" onClick={() => setList(!List)}>{t("card4.2.button")}</button>
+              className="w-[255px] bg-primary rounded-full text-white py-[13px] absolute bottom-[29px] left-[50%] translate-x-[-50%] transition-all text-[20px]
+              hover:shadow-[0px_4px_14px_0px_#8438FFA6]" onClick={() => setList(!List)}>
+                {t("card42.2.button")}
+              </button>
 
             </div>
             <div>{List && <ModalListTourist open={setList} />}</div>
 
           </div>
-          {/* MODALES DE PAGO */}
-<section>
-<div>
 
-{/* Modal de Pago habilitacion*/}
-<ModalPagoABLE
-  close={closePayModal}
-  modalPay={handleChangePaypalModal}
-  open={PayModal}
-  open1={openPaypalModal}
-  open2={openZelleModal}
-/>
-</div>
-</section>
+
+
+          {/* MODALES DE PAGO */}
+          <section>
+          <div>
+
+          {/* Modal de Pago habilitacion*/}
+          <ModalPagoABLE
+            close={closePayModal}
+            modalPay={handleChangePaypalModal}
+            open={PayModal}
+            open1={openPaypalModal}
+            open2={openZelleModal}
+          />
+          </div>
+          </section>
         </div>
+
+        {/* Ellipse */}
+        <div className='absolute top-0 left-0 w-full h-full z-0 overflow-hidden' >
+
+          <div className='w-full h-full bg-gray_light' style={{filter:"contrast(100)  hue-rotate(41deg)"}}>
+            {/* <Image brightness(98%)
+            className='z-0 h-auto left-0 opacity-0'
+            src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1707226057/images/juswytwdg2g5ulivawuv.png"}
+            height={100}
+            width={100}
+            quality={100}
+            /> */}
+
+            <div className='h-[90%] absolute top-0  w-[60%] max-w-[820px]' >
+              <div className=' w-full h-[65%] rounded-[34%_66%_77%_23%_/_58%_100%_0%_42%] absolute top-0 left-[-50%] ' style={{filter:"blur(60px)", backgroundColor:"#3cbbd6"}}></div>
+              <div className=' w-full h-[70%] rounded-[0%_100%_100%_0%_/_56%_32%_68%_44%] absolute bottom-0 left-[-10%] ' style={{filter:"blur(60px)", backgroundColor:"#3cbbd6"}}></div>
+            </div>
+
+          </div>
+
+          {/* <div className=' absolute top-0 left-0 w-full h-full bg-[#a33] opacity-[30%]'></div> */}
+
+        </div>
+        
       </section>
     </>
   )

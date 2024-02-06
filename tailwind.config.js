@@ -46,6 +46,7 @@ module.exports = {
 
         gray_clear: '#e1e0e6',
         gray_light: '#f5f5f5',
+        gray_border: '#B2B2B2',
 
         white: '#fff',
 
