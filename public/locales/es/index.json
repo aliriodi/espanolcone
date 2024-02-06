@@ -1,30 +1,30 @@
 {
   "card1Title": "Descubre el mundo del español",
-  "card1Text": "Experimenta el idioma y la cultura en primera persona",
+  "card1Text": "Adquiera fluidez mientras se sumerge en nuevas culturas y visiones del mundo.",
   "card1Button": "Regístrate ahora",
   "card2": [
     {
       "title": "Conecta con tus intereses",
-      "paragraph": "Integra el español en tu rutina diaria, en tus pasatiempos y aficiones"
+      "paragraph": "Incorpora el español a la perfección en tu rutina diaria, pasatiempos y pasiones"
     },
     {
       "title": "Aprende haciendo",
-      "paragraph": "Aumenta tu fluidez con proyectos, actividades y conversaciones con nativos"
+      "paragraph": "Aumente su fluidez a través de proyectos, actividades y conversaciones"
     },
     {
       "title": "Viaja y descubre la cultura",
-      "paragraph": "Conoce paises hispanohablantes junto a profesores y guías turísticos"
+      "paragraph": "Explora países de habla hispana con nuestros profesores y guías turísticos"
     },
     {
       "title": "Únete a nuestra comunidad",
-      "paragraph": "Conversa sobre tus temas favoritos con profesores y estudiantes"
+      "paragraph": "Participa en conversaciones sobre tus temas favoritos en español"
     }
   ],
-  "card3Title": "Conoce Español con E",
-  "card3Text": "Aprender español no se trata solo de lecciones y gramática. Sumérgete en la cultura de los países hispanohablantes. Así, lograrás hablar con fluidez mientras disfrutas de experiencias únicas.",
-  "card3List":["","","",""], 
-  "card3Text2":"",
-  "card3Button": "Descubre más",
+  "card3Title": "Explora nuestra app",
+  "card3Text": "Mejora tus habilidades en español estés donde estés y a tu propio ritmo. Sumérgete en un curso de español completo adaptado a tu nivel de dominio, que incluye:",
+  "card3List":["Datos y consejos culturales.","Explicaciones de vocabulario y gramática.","Actividades interactivas.","Retos para reforzar tu aprendizaje."], 
+  "card3Text2":"Además, tiene la opción de programar lecciones personalizadas con nuestros profesores experimentados para profundizar en cualquier tema.",
+  "card3Button": "Pruébalo gratis",
   "card4": [
     {
       "title": "Lo que ofrecemos",
@@ -63,45 +63,45 @@
   ],
   "card42":[
     {
-           "title": "ES Discover our early bird plans",
-           "text": "ES Unlock the perks of being among our first users for a limited time. Try our platform’s features and exclusive programs.",
-           "textPromotion":"ES *Promotion valid until march 15th 2024."
+           "title": "Descubre nuestros planes anticipados",
+           "text": "Desbloquea las ventajas de estar entre nuestros primeros usuarios por tiempo limitado. Pruebe las funciones y programas exclusivos de nuestra plataforma.",
+           "textPromotion":"*Promoción válida hasta el 15 de marzo de 2024."
            
     }  ,
     {              
-           "title": "ES Full Experience",
+           "title": "Experiencia completa",
            "priceOffer":"$25",
            "priceReal":"$100",
            "list": [
-                  "1 ES individual personalized lesson",
-                  "1 ES Master Class",
-                  "1 ES group lesson",
-                  "3 ES interactive in-app lessons"
+                  "1 lección individual personalizada",
+                  "1 Clase maestra",
+                  "1 lección grupal",
+                  "3 lecciones interactivas en la aplicación"
            ],
-           "button":"ESGet started"       
+           "button":"Empezar"       
     },
     {
     
-           "title": "ES Full Experience",
+           "title": "Prueba un poco",
            "priceOffer":"$10",
            "priceReal":"$45",
            "list": [
                   "1 ES Master Class",
-                  "3 ES interactive in-app lessons"
+                  "3 lecciones interactivas en la aplicación"
            ],
-           "button":"ES Get started"       
+           "button":"Empezar"       
 
     }
     
     
 ],
 
-"card43Title":"ES Experience language and culture in Córdoba",
-"card43SubTitle":"ES Get to know this beautiful province of Argentina while perfecting your Spanish.",
-"card43Paragraph0":"ES Join our trip in June 2024 and enjoy a unique mix of learning and tourism. You will have the opportunity to:",
-"card43List":["ES Discover iconic places through immersion in the local culture.","Hire certified tourist guides.","Enjoy Español con E’s exclusive events and activities.","Practice Spanish with native speakers and meet new people."],
-"card43Paragraph1":"ES Become one of the first to receive exclusive information and save your spot!",
-"card43Button":"ES Join the waitlist",
+"card43Title":"Experimenta la lengua y la cultura en Córdoba",
+"card43SubTitle":"Conoce esta hermosa provincia de Argentina mientras perfeccionas tu español.",
+"card43Paragraph0":"Únase a nuestro viaje en junio de 2024 y disfrute de una combinación única de aprendizaje y turismo. Tendrás la oportunidad de:",
+"card43List":["Descubre lugares icónicos a través de la inmersión en la cultura local.","Contrata guías turísticos certificados.","Disfruta de los eventos y actividades exclusivos de Español con E.","Practica español con hablantes nativos y conoce gente nueva."],
+"card43Paragraph1":"¡Sé uno de los primeros en recibir información exclusiva y reserva tu lugar!",
+"card43Button":"Únete a la lista de espera",
 
 "card5": [
     {
