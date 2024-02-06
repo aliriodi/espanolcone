@@ -92,7 +92,7 @@ export default function Blogcargar() {
                     },
                     body: JSON.stringify({
                         type_of: type_of,
-                        slug: newSLUG(tituloEN),
+                        slug: newSLUG(tituloEN).toLowerCase(),
                         comments_count: comments_count,
                         public_rections_counts: public_rections_counts,
                         positive_reactions_count: positive_reactions_count,

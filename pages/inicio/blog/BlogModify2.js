@@ -70,7 +70,7 @@ export default function SLUG({ devDotToPost, slug }) {
             setTags_ListES(res.postid.es.tag_list)
             setTags_ListPT(res.postid.pt.tag_list)
             setUseraname(res.postid.user.username)
-
+            setSlug(res.postid.slug)
             console.log(res)
         }
         blog()
@@ -122,6 +122,7 @@ export default function SLUG({ devDotToPost, slug }) {
     const [profile_image, setProfile_image] = useState('https://res.cloudinary.com/dfddh08q8/image/upload/s--LSRn8RfV--/c_thumb,w_200,g_face/v1/images/rc6firxrtnaj16l0i1kt.png');
     const [profile_image_90, setProfile_image_90] = useState('https://res.cloudinary.com/dfddh08q8/image/upload/s--LSRn8RfV--/c_thumb,w_200,g_face/v1/images/rc6firxrtnaj16l0i1kt.png');
     const [published_at, setPublished_at] = useState('')
+    const [slugModify, setSlug] = useState('')
     const { data: session, status } = useSession();
 
     useEffect(() => {
@@ -144,8 +145,8 @@ export default function SLUG({ devDotToPost, slug }) {
         // Eliminar espacios en blanco y caracteres especiales
         let limpiada = cadena.replace(/\s+/g, '-') // Reemplazar espacios en blanco por guiones
             .replace(/[^\w\s-]/g, '') // Eliminar caracteres especiales excepto letras, números y guiones
-
-        return limpiada;
+         
+        return limpiada.toLowerCase();
     }
 
 
@@ -165,10 +166,10 @@ export default function SLUG({ devDotToPost, slug }) {
                         'Content-Type': 'application/json'  // 'Content-Type': 'application/x-www-form-urlencoded',
                     },
                     body: JSON.stringify({
-                        slug: newSLUG(tituloEN),
+                        slug: slugModify,
                         updates: {
                             type_of: type_of,
-                            slug: newSLUG(tituloEN),
+                            slug: slugModify,
                             comments_count: comments_count,
                             public_rections_counts: public_rections_counts,
                             positive_reactions_count: positive_reactions_count,
