@@ -22,6 +22,8 @@
   ],
   "card3Title": "Conheça o Español con E",
   "card3Text": "Aprender espanhol não se trata apenas de lições e gramática. Mergulhe na cultura dos países de língua espanhola. Dessa forma, você conseguirá falar fluentemente enquanto desfruta de experiências únicas.",
+  "card3List":["","","",""], 
+  "card3Text2":"",
   "card3Button": "Saiba mais",
   "card4": [
     {
@@ -59,6 +61,48 @@
       "emailInvalid":"e-mail inválido"
     }
   ],
+  "card42":[
+    {
+           "title": "PT Discover our early bird plans",
+           "text": "PT Unlock the perks of being among our first users for a limited time. Try our platform’s features and exclusive programs.",
+           "textPromotion":"PT *Promotion valid until march 15th 2024."
+           
+    }  ,
+    {              
+           "title": "PT Full Experience",
+           "priceOffer":"$25",
+           "priceReal":"$100",
+           "list": [
+                  "1 PT individual personalized lesson",
+                  "1 PT Master Class",
+                  "1 PT group lesson",
+                  "3 PT interactive in-app lessons"
+           ],
+           "button":"PT Get started"       
+    },
+    {
+    
+           "title": "PT Full Experience",
+           "priceOffer":"$10",
+           "priceReal":"$45",
+           "list": [
+                  "1 PT Master Class",
+                  "3 PT interactive in-app lessons"
+           ],
+           "button":"PT Get started"       
+    }
+       
+],
+
+
+"card43Title":"ES Experience language and culture in Córdoba",
+"card43SubTitle":"ES Get to know this beautiful province of Argentina while perfecting your Spanish.",
+"card43Paragraph0":"ES Join our trip in June 2024 and enjoy a unique mix of learning and tourism. You will have the opportunity to:",
+"card43List":["ES Discover iconic places through immersion in the local culture.","Hire certified tourist guides.","Enjoy Español con E’s exclusive events and activities.","Practice Spanish with native speakers and meet new people."],
+"card43Paragraph1":"ES Become one of the first to receive exclusive information and save your spot!",
+"card43Button":"ES Join the waitlist",
+
+
   "card5": [
     {
       "title": "Conheça nossos especialistas",
