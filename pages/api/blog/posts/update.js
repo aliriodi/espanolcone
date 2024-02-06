@@ -27,7 +27,7 @@ export default async function updateUsers(req, res) {
     const result = await Posts.updateOne({slug:slug},{$set:updates})
     
     console.log('UPDATED DOCUMENT', result);
-    console.log(updates)
+    
     
    res.json({ message: 'POST actualizado con éxito',slug });
 
