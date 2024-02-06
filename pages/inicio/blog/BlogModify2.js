@@ -144,8 +144,8 @@ export default function SLUG({ devDotToPost, slug }) {
         // Eliminar espacios en blanco y caracteres especiales
         let limpiada = cadena.replace(/\s+/g, '-') // Reemplazar espacios en blanco por guiones
             .replace(/[^\w\s-]/g, '') // Eliminar caracteres especiales excepto letras, números y guiones
-
-        return limpiada;
+         
+        return limpiada.toLowerCase();
     }
 
 
