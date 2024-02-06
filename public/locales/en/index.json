@@ -1,16 +1,16 @@
 {
-       "card1Title": "Discover the Spanish World",
-       "card1Text": "Immerse yourself in the language and culture firsthand",
-       "card1Button": "Sign Up Now",
+       "card1Title": "Discover the Spanish world",
+       "card1Text": "Become fluent while diving into new cultures and worldviews",
+       "card1Button": "Sign up now",
        "card2": [
               {
                      "title": "Connect with your interests",
-                     "paragraph": "Integrate Spanish into your daily routine, hobbies, and interests"
+                     "paragraph": "Incorporate Spanish seamlessly into your daily routine, hobbies, and passions"
                      
               },
               {
                      "title": "Learn by doing",
-                     "paragraph": "Boost your fluency through projects, activities, and conversations with native speakers"
+                     "paragraph": "Boost your fluency through projects, activities, and conversations"
               },
               {
                      "title": "Travel and explore culture",
@@ -18,12 +18,14 @@
               },
               {
                      "title": "Join our community",
-                     "paragraph": "Engage in conversations about your favorite topics with teachers and fellow students"
+                     "paragraph": "Engage in conversations about your favorite topics in Spanish"
               }
        ],
-       "card3Title": "Get to know Español con E",
-       "card3Text": "Learning Spanish isn't just about lessons and grammar. Immerse yourself in the culture of Spanish-speaking countries. This way, you'll get fluency while enjoying unique experiences.",
-       "card3Button": "Learn more",
+       "card3Title": "Explore our app",
+       "card3Text": "Enhance your Spanish skills wherever you are, at your own pace. Immerse yourself in a full Spanish course tailored to your proficiency level, featuring:",
+       "card3List":["Cultural facts and tips.","Vocabulary and grammar explanations.","Interactive activities.","Challenges to reinforce your learning."], 
+       "card3Text2":"Additionally, you have the option to schedule personalized lessons with our experienced teachers to dig into any topic.",
+       "card3Button": "Try it for free",
        "card4": [
               {
                      "title": "What we offer",
@@ -60,6 +62,47 @@
                      "emailInvalid":"Not valid email"
               }
        ],
+       "card42":[
+              {
+                     "title": "Discover our early bird plans",
+                     "text": "Unlock the perks of being among our first users for a limited time. Try our platform’s features and exclusive programs.",
+                     "textPromotion":"*Promotion valid until march 15th 2024."
+                     
+              }  ,
+              {              
+                     "title": "FULL EXPERIENCE",
+                     "priceOffer":"$25",
+                     "priceReal":"$100",
+                     "list": [
+                            "1 individual personalized lesson",
+                            "1 Master Class",
+                            "1 group lesson",
+                            "3 interactive in-app lessons"
+                     ],
+                     "button":"Get started"       
+              },
+              {
+              
+                     "title": "SNEAK PEAK",
+                     "priceOffer":"$10",
+                     "priceReal":"$45",
+                     "list": [
+                            "1 Master Class",
+                            "3 interactive in-app lessons"
+                     ],
+                     "button":"Get started"       
+
+              }
+              
+       ],
+
+       "card43Title":"Experience language and culture in Córdoba",
+       "card43SubTitle":"Get to know this beautiful province of Argentina while perfecting your Spanish.",
+       "card43Paragraph0":"Join our trip in June 2024 and enjoy a unique mix of learning and tourism. You will have the opportunity to:",
+       "card43List":["Discover iconic places through immersion in the local culture.","Hire certified tourist guides.","Enjoy Español con E’s exclusive events and activities.","Practice Spanish with native speakers and meet new people."],
+       "card43Paragraph1":"Become one of the first to receive exclusive information and save your spot!",
+       "card43Button":"Join the waitlist",
+
        "card5": [
               {
                      "title": "Meet our team experts",
