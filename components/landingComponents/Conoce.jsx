@@ -56,7 +56,7 @@ export default function Conoce() {
             type="button"
             className="text-primary bg-white rounded-full w-[305px] h-[57px] text-center text-[20px] font-semibold flex items-center justify-center  active:bg-primary active:text-white focus:outline-none"
             style={{ boxShadow: '0px 2px 8px 0px #00000040'}}   
-            href={'/aboutus'}
+            href={'/login'}
             >
             {t("card3Button")}
           </Link>
