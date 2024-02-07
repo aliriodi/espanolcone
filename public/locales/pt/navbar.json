@@ -3,14 +3,15 @@
     "flages":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694363931/images/sp_tmnhok.jpg",
     "flagpt":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694363923/images/br_qj0a0o.jpg",
     "flagen":"https://res.cloudinary.com/dfddh08q8/image/upload/v1694363928/images/en_pybv0j.jpg",
-    "img12":"EXPLORA,",
+    "img12": "Explora,",
     "SP": "ESPAÑOL  ",
     "BR": "PORTUGUÉS",
     "US": "INGLÉS   ",
-    "BEGIN":  "Início",
-    "ABOUTUS":"Sobre nós",
-    "TEAM":   "Equipe",
-    "CONTACTUS":"CONTATE-NOS",
+    "BEGIN": "Início",
+    "ABOUTUS": "Sobre nós",
+    "TEAM": "Equipe",
+    "CONTACTUS": "Contate-nos",
     "SIGNIN": "Iniciar sessão",
-    "aboutus1":"test3"
+    "aboutus1": "Test3",
+    "labelLanguage":"Pt"
 }

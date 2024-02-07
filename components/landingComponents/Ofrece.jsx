@@ -201,7 +201,7 @@ function closePayModal() {setPayModal(false)}
               {/* Boton */}
               <button
               className="w-[255px] bg-primary rounded-full text-white py-[13px] absolute bottom-[29px] left-[50%] translate-x-[-50%] transition-all text-[20px]
-              hover:shadow-[0px_4px_14px_0px_#8438FFA6]"
+              hover:shadow-[0px_4px_14px_0px_#4ED5F2]"
               onClick={() => setOffer(!Offer)}>
                 {t("card42.1.button")}
               </button>
@@ -307,7 +307,7 @@ function closePayModal() {setPayModal(false)}
               {/* Boton */}
               <button
               className="w-[255px] bg-primary rounded-full text-white py-[13px] absolute bottom-[29px] left-[50%] translate-x-[-50%] transition-all text-[20px]
-              hover:shadow-[0px_4px_14px_0px_#8438FFA6]" onClick={() => setList(!List)}>
+              hover:shadow-[0px_4px_14px_0px_#4ED5F2]" onClick={() => setList(!List)}>
                 {t("card42.2.button")}
               </button>
 

@@ -17,7 +17,7 @@ export default function Four() {
   return (
 
     <>
-      <section className='flex justify-between mt-[90px] mb-[250px] px-[172px] relative
+      <section className='flex justify-between mt-[90px] mb-[10px] px-[172px] relative
       md:px-[20px] md:hidden'
       >
         {images2.map((image, index) => (
@@ -41,7 +41,7 @@ export default function Four() {
         ))}
 
         {/* Bola Naranja */}
-        <span className='bg-warning h-[159px] w-[159px] absolute rounded-full left-[-100px] bottom-[-10%]'/>
+        <span className='bg-warning h-[159px] w-[159px] absolute rounded-full left-[-100px] bottom-[-25%] z-[30]'/>
       </section>
 
       
