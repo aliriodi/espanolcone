@@ -142,11 +142,11 @@ export default function ModalListTourist(props) {
                     <div className=' font-semibold text-[24px] text-[#4F4F4F] text-center mb-[25px] mt-[37px]
                     md:text-[21px]'>
 
-                        You’re on the list! 
+                        {"You're on the list! "}
 
                         {/* Text */}
                         <p className='text-[16px] font-medium mt-[20px]'>
-                            We'll keep you posted on all the latest news.
+                            {"We'll keep you posted on all the latest news."}
                             {/* {t("card4.2.sendOK")} */}
                         </p>
 
