@@ -10,7 +10,8 @@ export default function WaitList(){
     const { t } = useTranslation('index');
 
     return(
-        <section className="py-[200px] px-[164px] relative">
+        <section className="py-[200px] px-[164px] relative
+        md:px-[20px]">
             {/* Titulo */}
             <div className=' mb-[50px] flex flex-col justify-center items-center z-10 relative max-w-[654px] mx-auto'>
 
@@ -34,6 +35,7 @@ export default function WaitList(){
 
                 {/* Imagen */}
                 <Image
+                className='md:hidden'
                 height={555}
                 width={628}
                 src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1707252084/images/tjr3druswjkupftx0yay.png"}/>
@@ -57,7 +59,7 @@ export default function WaitList(){
                     {/* Boton */}
                     <button
                     className="min-w-[255px] px-[20px] bg-primary rounded-full text-white py-[13px] transition-all text-[20px] mt-[35px]
-                    hover:shadow-[0px_4px_14px_0px_#8438FFA6]" onClick={() => setList(!List)}>
+                    hover:shadow-[0px_4px_14px_0px_#4ED5F2]" onClick={() => setList(!List)}>
                         {t("card43Button")}
                     </button>
 
@@ -70,7 +72,8 @@ export default function WaitList(){
             
             {/* Ellipse Violeta */}
             <span
-            className='rounded-full h-[143px] w-[143px] z-20 absolute left-[-73px] border-success top-[50%] '
+            className='rounded-full h-[143px] w-[143px] z-20 absolute left-[-73px] border-success top-[50%]
+            md:left-[-80px] md:h-[100px] md:w-[100px]'
             style={{border: '27px solid #8438ff'}}></span>
 
             

@@ -13,8 +13,6 @@ export default function ModalListTourist(props) {
     const [validateEmail, setvalidateEmail] = useState(false);
     const [emailok, setEmailok] = useState(false);
 
-
-
     // Función para manejar cambios en el input
     const handleInputChange = (event) => {
         setInputString(event.target.value);
@@ -41,40 +39,41 @@ export default function ModalListTourist(props) {
             console.log(error);
         }
         setEmailok(true)
-        setTimeout(function () {
-            props.open(false)
-        }, 2000);
+        // setTimeout(function () {
+        //     props.open(false)
+        // }, 2000);
 
 
     }
     return (
         <div>
             <div
-                onClick={() => props.open(false)}
-                className='fixed w-screen min-h-screen top-0 left-0 bg-[#000000aa] flex flex-col justify-center items-center z-[999]'>
-
-
-
+            onClick={() => props.open(false)}
+            className='fixed w-screen min-h-screen top-0 left-0 bg-[#000000aa] flex flex-col justify-center items-center z-[999]'>
+                {
+                !emailok ?
                 <div
                 onClick={(e) => e.stopPropagation()}
-                className='bg-white rounded-[20px] p-5 flex flex-col w-[700px] relative
+                className='bg-white rounded-[20px] p-[50px] flex flex-col justify-between w-[475px] h-[551px] relative
                 md:w-full md:rounded-none'>
 
                     {/* Boton de cerrar modal */}
                     <FontAwesomeIcon
-                        onClick={() => props.open(false)}
-                        icon={faX}
-                        className='absolute right-5 top-5 text-violet_dark w-[12px] z-50 ursor-pointer'/>
+                    onClick={() => props.open(false)}
+                    icon={faX}
+                    className='absolute right-5 top-5 text-violet_dark w-[12px] z-50 ursor-pointer'/>
                     
-                    {/* Logo */}
-                    <div className=' flex justify-center flex-col items-center relative mb-[30px]'>
-                        <Image  src={Logo} className='' style={{ width: '100px' }} alt="Logo" />
-                    </div>
 
                     {/* Anotate en la lista */}
-                    <div className=' font-medium text-[28px] bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text min-h-[28px] text-center mb-[25px]
+                    <div className=' font-semibold text-[24px] text-[#4F4F4F] text-center mb-[25px]
                     md:text-[21px]'>
-                        {!emailok && t("card4.2.messageModal")}
+
+                        Trip in June 2024
+
+                        {/* Text */}
+                        <p className='text-[16px] font-medium'>
+                            {!emailok && t("card4.2.messageModal")}
+                        </p>
                     </div>
 
                     {/* Input */}
@@ -89,26 +88,80 @@ export default function ModalListTourist(props) {
                     {/* Email Invalido o valido message */}
                     {/* {inputString.length > 6 && !validateEmail && <div className='text-red-500'> {t("card4.2.emailInvalid")}</div>} */}
 
-                    {/* boton de enviar */}
-                    {
-                    !emailok &&
-                    <div className='flex justify-center  text-center '>
-                        <button 
-                        className={`bg-primary rounded-md text-white w-full p-2 ${!validateEmail && 'hidden'} transition-all
-                        hover:bg-[#4ED5F2] hover:shadow-[0px_4px_14px_0px_#3CBBD661]`}
-                        onClick={() => sendList()}>{t("card4.2.send")}</button>
-                                
-                        <div
-                        className={`bg-primary rounded-md text-white w-full p-2 ${validateEmail && 'hidden'} opacity-50 pointer-events-none`}>
-                            {t("card4.2.send")}
-                        </div>
-                    </div>}
+
+                    <div>
+                        {/* Boton de enviar */}
+                        {
+                        <div className='flex justify-center  text-center mb-[20px]'>
+                            <button 
+                            className={`bg-primary rounded-full text-white w-full p-2 text-[20px] ${!validateEmail && 'hidden'} transition-all
+                            hover:bg-[#4ED5F2] hover:shadow-[0px_4px_14px_0px_#3CBBD661]`}
+                            onClick={() => sendList()}>{t("card4.2.send")}</button>
+                                    
+                            <div
+                            className={`bg-primary rounded-full text-white w-full p-2 text-[20px] ${validateEmail && 'hidden'} opacity-50 pointer-events-none`}>
+                                {t("card4.2.send")}
+                            </div>
+                        </div>}
 
 
-                    {/* Mostrar mensaje email agendado */}
-                    {emailok && <div>{t("card4.2.sendOK")}</div>}
+                        {/* Mostrar mensaje email agendado */}
+                        {emailok && <div>{t("card4.2.sendOK")}</div>}
+
+                        <button
+                        className={`border-2 border-primary rounded-full text-primary w-full p-2 text-[20px] transition-all font-medium
+                        hover:bg-primary_flat_hover hover:shadow-[0px_4px_14px_0px_#3CBBD661]`}
+                        onClick={() => props.open(false)}>
+                            Cancel
+                        </button>
+
+                    </div>
                     
                 </div>
+                :
+                // Email enviado
+                <div
+                onClick={(e) => e.stopPropagation()}
+                className='bg-white rounded-[20px] p-[50px] flex flex-col justify-center items-center w-[475px] h-[551px] relative
+                md:w-full md:rounded-none'>
+
+                    {/* Boton de cerrar modal */}
+                    <FontAwesomeIcon
+                    onClick={() => props.open(false)}
+                    icon={faX}
+                    className='absolute right-5 top-5 text-violet_dark w-[12px] z-50 ursor-pointer'/>
+
+                    {/* Imagen */}
+                    <Image
+                    src="https://res.cloudinary.com/dfddh08q8/image/upload/v1707320677/images/jfiusky8gpmn9cu8qkfw.png"
+                    width={141}
+                    height={140}
+                    />
+
+                    {/* Texto */}
+                    <div className=' font-semibold text-[24px] text-[#4F4F4F] text-center mb-[25px] mt-[37px]
+                    md:text-[21px]'>
+
+                        {"You're on the list! "}
+
+                        {/* Text */}
+                        <p className='text-[16px] font-medium mt-[20px]'>
+                            {"We'll keep you posted on all the latest news."}
+                            {/* {t("card4.2.sendOK")} */}
+                        </p>
+
+                        {/* Boton */}
+                        <button 
+                        className={`bg-primary rounded-full text-white w-full p-2 text-[20px] transition-all mt-[37px]
+                        hover:bg-[#4ED5F2] hover:shadow-[0px_4px_14px_0px_#3CBBD661]`}
+                        onClick={() => props.open(false)}>
+                            Great!
+                        </button>
+                    </div>
+
+
+                </div>
+                }
             </div>
         </div>
     )

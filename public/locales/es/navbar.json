@@ -7,10 +7,11 @@
     "SP": "ESPAÑOL  ",
     "BR": "PORTUGUÉS",
     "US": "INGLÉS   ",
-    "BEGIN":  "INICIO",
-    "ABOUTUS":"SOBRE NOSOTROS",
-    "TEAM":   "EQUIPO",
-    "CONTACTUS":"CONTÁCTANOS",
+    "BEGIN":  "Inicio",
+    "ABOUTUS":"Sobre nosotros",
+    "TEAM":   "Equipo",
+    "CONTACTUS":"Contáctanos",
     "SIGNIN": "Inicia sesión",
-    "aboutus1":"test2"
+    "aboutus1":"Test2",
+    "labelLanguage":"Es"
 }

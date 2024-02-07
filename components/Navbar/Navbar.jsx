@@ -221,7 +221,7 @@ function Navbar(props) {
               {/* Label */}
               <label
                 className={styles["select-languages_label"]}>
-                {language?.label}
+                {t("labelLanguage")}
               </label>
 
               {/* Flecha del Responsive */}
@@ -259,24 +259,24 @@ function Navbar(props) {
 
           </li>
           <li>
-            <Link href={"/"}>{t('BEGIN').toUpperCase()}</Link>
+            <Link href={"/"}>{t('BEGIN')}</Link>
           </li>
           <li>
-            <Link href={"/aboutus"}>{t('ABOUTUS').toUpperCase()}</Link>
+            <Link href={"/aboutus"}>{t('ABOUTUS')}</Link>
           </li>
           <li>
-            <Link href={"#TEAM"}>{t('TEAM').toUpperCase()}</Link>
+            <Link href={"#TEAM"}>{t('TEAM')}</Link>
           </li>
           <li>
-            <Link href={"/contactus"}>{t('CONTACTUS').toUpperCase()}</Link>
+            <Link href={"/contactus"}>{t('CONTACTUS')}</Link>
           </li>
           <li>
-            <Link href={"/blog"}>{'blog'.toUpperCase()}</Link>
+            <Link href={"/blog"}>{'blog'}</Link>
           </li>
         </ul>
 
         {/* Iniciar Secion */}
-        <Link className={styles['btn-signUp']} href='/login'>{t('SIGNIN').toUpperCase()}</Link>
+        <Link className={styles['btn-signUp']} href='/login'>{t('SIGNIN')}</Link>
 
 
       </div>
@@ -326,7 +326,7 @@ function Navbar(props) {
               {/* Label */}
               <label
                 className={styles["select-languages_label"]}>
-                {language?.label}
+                {t("labelLanguage")}
               </label>
 
               {/* Flecha del Responsive */}
@@ -363,24 +363,24 @@ function Navbar(props) {
 
           </li>
           <li>
-            <Link href={"/"}>{t('BEGIN').toUpperCase()}</Link>
+            <Link href={"/"}>{t('BEGIN')}</Link>
           </li>
           <li>
-            <Link href={"/aboutus"}>{t('ABOUTUS').toUpperCase()}</Link>
+            <Link href={"/aboutus"}>{t('ABOUTUS')}</Link>
           </li>
           <li>
-            <Link href={"#TEAM"}>{t('TEAM').toUpperCase()}</Link>
+            <Link href={"#TEAM"}>{t('TEAM')}</Link>
           </li>
           <li>
-            <Link href={"/contactus"}>{t('CONTACTUS').toUpperCase()}</Link>
+            <Link href={"/contactus"}>{t('CONTACTUS')}</Link>
           </li>
           <li>
-            <Link href={"/blog"}>{'blog'.toUpperCase()}</Link>
+            <Link href={"/blog"}>{'blog'}</Link>
           </li>
         </ul>
 
         {/* Iniciar Secion */}
-        <Link className={styles['btn-signUp']} href='/login'>{t('SIGNIN').toUpperCase()}</Link>
+        <Link className={styles['btn-signUp']} href='/login'>{t('SIGNIN')}</Link>
 
 
       </div>
