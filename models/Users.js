@@ -105,6 +105,9 @@ const UserSchema = new Schema(
       features: {
         type: [Object]
       },
+      description:{
+        type: String
+      }
     },
     test: {
       name: {

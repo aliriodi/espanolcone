@@ -68,7 +68,7 @@ export default function ModalListTourist(props) {
                     <div className=' font-semibold text-[24px] text-[#4F4F4F] text-center mb-[25px]
                     md:text-[21px]'>
 
-                        Trip in June 2024
+                      {t("card4.2.trip")}  
 
                         {/* Text */}
                         <p className='text-[16px] font-medium'>
@@ -80,7 +80,7 @@ export default function ModalListTourist(props) {
                     {
                     !emailok &&
                     <input
-                    placeholder='Escribe tu email'
+                    placeholder= {t("card4.2.holder")}  
                     className='rounded-md border-2 border-primary outline-primary_hover p-3 w-full mb-3'
                     type="text"
                     value={inputString} onChange={handleInputChange} />}
@@ -112,7 +112,7 @@ export default function ModalListTourist(props) {
                         className={`border-2 border-primary rounded-full text-primary w-full p-2 text-[20px] transition-all font-medium
                         hover:bg-primary_flat_hover hover:shadow-[0px_4px_14px_0px_#3CBBD661]`}
                         onClick={() => props.open(false)}>
-                            Cancel
+                            {t("card4.2.cancel")}
                         </button>
 
                     </div>

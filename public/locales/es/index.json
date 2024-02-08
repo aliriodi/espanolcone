@@ -57,8 +57,11 @@
       "button":"Apuntate para recibir información exclusiva",
       "messageModal":"Vive una experiencia única de Turismo idiomático. Descubre más sobre nuestro viaje en abril de 2024. Regístrate para recibir información exclusiva.",
       "send":"Enviar",
+      "cancel":"Cancelar",
       "sendOK":"Email agendado",
-      "emailInvalid":"Email no valido"
+      "emailInvalid":"Email no valido",
+      "trip":"Viaje en junio de 2024",
+      "holder":"Escribe tu email"
     }
   ],
   "card42":[
