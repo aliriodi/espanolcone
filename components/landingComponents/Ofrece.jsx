@@ -70,11 +70,11 @@ export default function Ofrece() {
 
     }
     catch (error) { console.log('Ofrece.jsx', error) }
-
+   console.log(User)
 
     if (NewUser) {
       console.log('soy un nuevo usuario')
-      console.log('User', User.results.planSync)
+      //console.log('User', User.results.planSync)
       try {
         await fetch('/api/users/update',
           {
@@ -88,7 +88,7 @@ export default function Ofrece() {
                 updates: {
 
                   planSync:
-                    [...User.results.planSync, {
+                    [... User?.results?.planSync||User?.planSync, {
                       type: 'plansync',
                       payment: 'PAYPAL',
                       valid: true,
@@ -161,7 +161,7 @@ export default function Ofrece() {
                 updates: {
 
                   planSync:
-                    [...User.results.planSync, {
+                    [...User.planSync, {
                       type: 'plansync',
                       payment: 'PAYPAL',
                       valid: true,

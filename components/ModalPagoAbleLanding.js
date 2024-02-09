@@ -49,7 +49,7 @@ export default function ModalPagoABLE(props) {
         }).then(response => response.json())
         .then(response => {
           //Si usuario existe
-          if (response.totalResults) { IncrementAppoinment(response.results) }
+          if (response.totalResults) { IncrementAppoinment(response.results) ,props.open1(),props.close()}
           //Si usuario no existe
           else { createUser() }
         })
@@ -76,7 +76,7 @@ export default function ModalPagoABLE(props) {
         }).then(response => response.json())
         .then(response => {
           //Si usuario existe
-          if (response.totalResults) { IncrementAppoinment(response.results) }
+          if (response.totalResults) { IncrementAppoinment(response.results) ,props.open2(), props.close()}
           //Si usuario no existe
           else { createUser2() }
         })
