@@ -392,7 +392,7 @@ export default function Ofrece() {
 
             <div className='flex justify-center items-center '>
             <div className='   mb-5'>
-                
+                {/* Falta centrar este ITEM (solo para los niveles A1, A2 y B1) */}
                 <p className='text-center   text-[14px] font-semibold'>
                   {t("card42.1.list.4")}
                 </p>
@@ -510,6 +510,7 @@ export default function Ofrece() {
                   
                 </div>
                 <p className='flex justify-center items-start text-left text-[14px] font-semibold'>
+                  {/* Falta centrar este ITEM (solo para los niveles A1, A2 y B1) */}
                   {t("card42.2.list.2")}
                 </p>
             </div>
