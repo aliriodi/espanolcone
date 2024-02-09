@@ -5,8 +5,10 @@ import Image from 'next/image';
 import Zelle from '../public/imgs/zelle-logo-0.png';
 import axios from 'axios';
 import { createStructuredSelector } from 'reselect';
+import { useTranslation } from 'next-i18next';
 
 export default function ModalPagoABLE(props) {
+  const { t } = useTranslation(['index','register'])
   const [isOpen, setIsOpen] = useState(false)
   //PARA EL FORMULARIO
   const [nombre, setNombre] = useState('');
@@ -174,7 +176,8 @@ export default function ModalPagoABLE(props) {
                 <form onSubmit={handleSubmit}>
                   <div>
                     <label>
-                      Nombre:
+                      {/* Nombre */}
+                      {t('name')}:
                       <input
                         type="text"
                         value={nombre}
@@ -184,7 +187,8 @@ export default function ModalPagoABLE(props) {
                   </div>
                   <div>
                     <label>
-                      Apellido:
+                      {/* Apellido */}
+                    {t('lastname')}:
                       <input
                         type="text"
                         value={apellido}
@@ -194,7 +198,8 @@ export default function ModalPagoABLE(props) {
                   </div>
                   <div>
                     <label>
-                      Correo Electrónico:
+                      {/* Correo Electronico */}
+                      {t('email')}
                       <input
                         type="email"
                         value={email}

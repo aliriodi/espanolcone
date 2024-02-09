@@ -22,8 +22,13 @@
   ],
   "card3Title": "Explora nuestra app",
   "card3Text": "Mejora tus habilidades en español estés donde estés y a tu propio ritmo. Sumérgete en un curso de español completo adaptado a tu nivel de dominio, que incluye:",
-  "card3List":["Datos y consejos culturales.","Explicaciones de vocabulario y gramática.","Actividades interactivas.","Retos para reforzar tu aprendizaje."], 
-  "card3Text2":"Además, tiene la opción de programar lecciones personalizadas con nuestros profesores experimentados para profundizar en cualquier tema.",
+  "card3List": [
+    "Datos y consejos culturales.",
+    "Explicaciones de vocabulario y gramática.",
+    "Actividades interactivas.",
+    "Retos para reforzar tu aprendizaje."
+  ],
+  "card3Text2": "Además, tiene la opción de programar lecciones personalizadas con nuestros profesores experimentados para profundizar en cualquier tema.",
   "card3Button": "Pruébalo gratis",
   "card4": [
     {
@@ -41,7 +46,7 @@
         "Profesores certificados y nativos.",
         "Inmersión cultural en países hispanohablantes."
       ],
-      "button":"Ve nuestras ofertas"
+      "button": "Ve nuestras ofertas"
     },
     {
       "title": "CONOCE CÓRDOBA",
@@ -54,63 +59,60 @@
         "Disfrutar de eventos y actividades exclusivas propias de Español con E.",
         "Practicar el español con hablantes nativos y conocer nuevas personas."
       ],
-      "button":"Apuntate para recibir información exclusiva",
-      "messageModal":"Vive una experiencia única de Turismo idiomático. Descubre más sobre nuestro viaje en abril de 2024. Regístrate para recibir información exclusiva.",
-      "send":"Enviar",
-      "cancel":"Cancelar",
-      "sendOK":"Email agendado",
-      "emailInvalid":"Email no valido",
-      "trip":"Viaje en junio de 2024",
-      "holder":"Escribe tu email"
+      "button": "Apuntate para recibir información exclusiva",
+      "messageModal": "Vive una experiencia única de Turismo idiomático. Descubre más sobre nuestro viaje en abril de 2024. Regístrate para recibir información exclusiva.",
+      "send": "Enviar",
+      "cancel": "Cancelar",
+      "sendOK": "Email agendado",
+      "emailInvalid": "Email no valido",
+      "trip": "Viaje en junio de 2024",
+      "holder": "Escribe tu email"
     }
   ],
-  "card42":[
+  "card42": [
     {
-           "title": "Descubre nuestros planes anticipados",
-           "text": "Desbloquea las ventajas de estar entre nuestros primeros usuarios por tiempo limitado. Pruebe las funciones y programas exclusivos de nuestra plataforma.",
-           "textPromotion":"*Promoción válida hasta el 15 de marzo de 2024."
-           
-    }  ,
-    {              
-           "title": "Experiencia completa",
-           "priceOffer":"$25",
-           "priceReal":"$100",
-           "list": [
-                  "1 lección individual personalizada",
-                  "1 Clase maestra",
-                  "1 lección grupal",
-                  "3 lecciones interactivas en la aplicación"
-           ],
-           "button":"Empezar"       
+      "title": "Descubre nuestros planes anticipados",
+      "text": "Desbloquea las ventajas de estar entre nuestros primeros usuarios por tiempo limitado. Pruebe las funciones y programas exclusivos de nuestra plataforma.",
+      "textPromotion": "*Promoción válida hasta el 15 de marzo de 2024."
     },
     {
-    
-           "title": "Prueba un poco",
-           "priceOffer":"$10",
-           "priceReal":"$45",
-           "list": [
-                  "1 ES Master Class",
-                  "3 lecciones interactivas en la aplicación"
-           ],
-           "button":"Empezar"       
-
+      "title": "Experiencia completa",
+      "priceOffer": "$25",
+      "priceReal": "$100",
+      "list": [
+        "1 lección individual personalizada",
+        "1 Clase maestra",
+        "1 lección grupal",
+        "3 lecciones interactivas en la aplicación"
+      ],
+      "button": "Empezar"
+    },
+    {
+      "title": "Prueba un poco",
+      "priceOffer": "$10",
+      "priceReal": "$45",
+      "list": [
+        "1 ES Master Class",
+        "3 lecciones interactivas en la aplicación"
+      ],
+      "button": "Empezar"
     }
-    
-    
-],
-
-"card43Title":"Experimenta la lengua y la cultura en Córdoba",
-"card43SubTitle":"Conoce esta hermosa provincia de Argentina mientras perfeccionas tu español.",
-"card43Paragraph0":"Únase a nuestro viaje en junio de 2024 y disfrute de una combinación única de aprendizaje y turismo. Tendrás la oportunidad de:",
-"card43List":["Descubre lugares icónicos a través de la inmersión en la cultura local.","Contrata guías turísticos certificados.","Disfruta de los eventos y actividades exclusivos de Español con E.","Practica español con hablantes nativos y conoce gente nueva."],
-"card43Paragraph1":"¡Sé uno de los primeros en recibir información exclusiva y reserva tu lugar!",
-"card43Button":"Únete a la lista de espera",
-
-"card5": [
+  ],
+  "card43Title": "Experimenta la lengua y la cultura en Córdoba",
+  "card43SubTitle": "Conoce esta hermosa provincia de Argentina mientras perfeccionas tu español.",
+  "card43Paragraph0": "Únase a nuestro viaje en junio de 2024 y disfrute de una combinación única de aprendizaje y turismo. Tendrás la oportunidad de:",
+  "card43List": [
+    "Descubre lugares icónicos a través de la inmersión en la cultura local.",
+    "Contrata guías turísticos certificados.",
+    "Disfruta de los eventos y actividades exclusivos de Español con E.",
+    "Practica español con hablantes nativos y conoce gente nueva."
+  ],
+  "card43Paragraph1": "¡Sé uno de los primeros en recibir información exclusiva y reserva tu lugar!",
+  "card43Button": "Únete a la lista de espera",
+  "card5": [
     {
       "title": "Conoce nuestro equipo de expertos",
       "title1": "Nuestro Equipo",
-
       "p1": {
         "image": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366482/images/team-photo-01_svprcr.png",
         "name": "Eucaris Rodriguez",
@@ -135,7 +137,7 @@
         "image": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696617466/images/Nahuel_zcuysp.png",
         "name": "Nahuel Escujuri",
         "function": "Web Developer"
- }
+      }
     }
   ],
   "card6": [
@@ -164,6 +166,17 @@
       "paragraph": "It has been almost two years that I have been learning Spanish with Español Con E (Señora Rodríguez). I had some basic knowledge of Spanish, however ever since I started with Español con E my Spanish skills have incredibly improved. It has been a long time dream of mine to be able to speak, and write Spanish. I can honestly say that it has been a wonderful experience. At times very challenging, but we’ve worked through it all with her patience, professionalism, honesty, and most of all her sincerity. I have the outmost respect for her and her organization.Thank you."
     }
   ],
-
-  "modalEmailLanding":["Por favor introduce tu email para enviar mas detalles.","Enviar","Escribe tu email"]
+  "modalEmailLanding": [
+    "Por favor introduce tu email para enviar mas detalles.",
+    "Enviar",
+    "Escribe tu email"
+  ],
+  "sendpay": "Enviar pago",
+  "loadimage": "Cargue una imagen de su comprobante",
+  "accountzelle": "Cuenta Zelle",
+  "ammount": "Monto a transferir",
+  "quantityt": "Cantidad de clases",
+  "name": "Nombre",
+  "lastname": "Apellido",
+  "email": "Correo Electrónico"
 }
