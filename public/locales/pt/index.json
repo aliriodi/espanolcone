@@ -1,30 +1,30 @@
 {
-  "card1Title": "Descubra o mundo do espanhol",
-  "card1Text": "Torne-se fluente enquanto mergulha em novas culturas e visões de mundo",
-  "card1Button": "Inscreva-se agora",
+  "card1Title": "Descubra o mundo  da língua  espanhola",
+  "card1Text": "Aumente sua fluência enquanto descobre outras culturas e perspectivas",
+  "card1Button": "Registre-se agora",
   "card2": [
     {
-      "title": "Conecte-se aos seus interesses",
-      "paragraph": "Incorpore o espanhol perfeitamente em sua rotina diária, hobbies e paixões"
+      "title": "Conecte-se com seus interesses",
+      "paragraph": "Integre o espanhol na sua rotina diária, nos seus hobbies e atividades"
     },
     {
       "title": "Aprenda fazendo",
-      "paragraph": "Aumente sua fluência por meio de projetos, atividades e conversas"
+      "paragraph": "Aumente sua fluência com projetos, atividades e conversas com nativos"
     },
     {
       "title": "Viaje e descubra a cultura",
-      "paragraph": "Explore países de língua espanhola com nossos professores e guias turísticos"
+      "paragraph": "Conheça países de língua espanhola com professores e guias turísticos"
     },
     {
       "title": "Junte-se à nossa comunidade",
-      "paragraph": "Participe de conversas sobre seus tópicos favoritos em espanhol"
+      "paragraph": "Converse sobre seus temas favoritos com professores e alunos"
     }
   ],
-  "card3Title": "Explore nosso app",
-  "card3Text": "Aprimore suas habilidades em espanhol onde quer que esteja, no seu próprio ritmo. Mergulhe em um curso de espanhol completo adaptado ao seu nível de proficiência, apresentando:",
-  "card3List":["Fatos e dicas culturais.","Explicações de vocabulário e gramática.","Atividades interativas.","Desafios para reforçar seu aprendizado."], 
-  "card3Text2":"Além disso, você tem a opção de agendar aulas personalizadas com nossos professores experientes para se aprofundar em qualquer assunto.",
-  "card3Button": "Pruébalo gratis",
+  "card3Title": "Explore nosso aplicativo",
+  "card3Text": "Melhore seu espanhol onde estiver, no seu próprio ritmo. Mergulhe em um curso completo adaptado ao seu nível que inclui:",
+  "card3List":[" Dicas e fatos culturais.","Explicações de vocabulário e gramática.","Atividades interativas.","Desafios para reforçar seu aprendizado."], 
+  "card3Text2":"Além disso, você pode agendar aulas personalizadas com nossos professores para aprofundar qualquer tópico.",
+  "card3Button": "Experimente grátis",
 
   "card4": [
     {
@@ -67,8 +67,8 @@
   ],
   "card42":[
     {
-           "title": "Descubra nossos planos para madrugadores",
-           "text": "Desbloqueie as vantagens de estar entre nossos primeiros usuários por tempo limitado. Experimente os recursos e programas exclusivos da nossa plataforma",
+           "title": "Descubra nossos planos de lançamento",
+           "text": "Aproveite as vantagens de ser um dos nossos primeiros usuários por tempo limitado",
            "textPromotion":"*Promoção válida até 15 de março de 2024."
            
     }  ,
@@ -77,40 +77,41 @@
            "priceOffer":"$25",
            "priceReal":"$100",
            "list": [
-                  "1 aula personalizada individual",
-                  "1 Classe mestre",
+                  "1 aula individual personalizada",
+                  "1 Master Class",
                   "1 aula em grupo",
-                  "3 aulas interativas dentro do aplicativo"
+                  "3 aulas interativas no aplicativo",
+                  "(apenas para os níveis A1, A2 e B1)"
            ],
-           "button":"Iniciar"       
+           "button":"Junte-se a nós"       
     },
     {
     
-           "title": "PICO SNEAKER",
+           "title": "Dê uma olhada",
            "priceOffer":"$10",
            "priceReal":"$45",
            "list": [
-                  "1 Classe mestre",
-                  "3 aulas interativas dentro do aplicativo"
+                  "1 Master Class",
+                  "3 aulas interativas no aplicativo"
            ],
-           "button":"Iniciar"       
+           "button":"Junte-se a nós"       
     }
        
 ],
 
 
-"card43Title":"Experimente o idioma e a cultura em Córdoba",
-"card43SubTitle":"Conheça esta bela província da Argentina enquanto aperfeiçoa seu espanhol.",
-"card43Paragraph0":"Participe da nossa viagem em junho de 2024 e desfrute de uma combinação única de aprendizado e turismo. Você terá a oportunidade de:",
-"card43List":["Descubra lugares icônicos através da imersão na cultura local.","Contrate guias turísticos certificados.","Aproveite os eventos e atividades exclusivas do Español con E.","Pratique espanhol com falantes nativos e conheça novas pessoas."],
+"card43Title":"Experimente a língua e a cultura em Córdoba",
+"card43SubTitle":"Conheça esta bela província da Argentina enquanto aperfeiçoa seu espanhol",
+"card43Paragraph0":"Junte-se a esta viagem em junho de 2024 e desfrute de uma mistura única de aprendizado e turismo. Você terá a oportunidade de:",
+"card43List":[" Descobrir a cultura local e lugares icônicos.","Contratar guias turísticos certificados.","Desfrutar de atividades e eventos exclusivos da Español con E.","Praticar seu espanhol com nativos e conhecer diferentes pessoas.","Garanta seu lugar e seja uma das primeiras pessoas a receber informações exclusivas."],
 "card43Paragraph1":"Seja um dos primeiros a receber informações exclusivas e garanta sua vaga!",
 "card43Button":"Entre na lista de espera",
 
 
   "card5": [
     {
-      "title": "Conheça nossos especialistas",
-      "title1": "Nossa equipe",
+      "title": "Junte-se à lista de espera",
+      "title1": "Conheça nossa equipe",
       "p1": {
         "image": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366482/images/team-photo-01_svprcr.png",
         "name": "Eucaris Rodriguez",
@@ -140,7 +141,7 @@
   ],
   "card6": [
     {
-      "title": "Não confie apenas em nossas palavras",
+      "title": "Não apenas acredite em nossas palavras",
       "sentence": "Leia o que nossos alunos têm a dizer sobre sua experiência conosco."
     },
     {
