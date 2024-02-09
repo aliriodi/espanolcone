@@ -4,30 +4,43 @@ import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import ModalListTourist from './ModalListTourist';
 import ModalPagoLanding from './ModalPagoLanding';
-import ModalPagoABLE from '../ModalPagoAble';
+import ModalPagoABLE from '../ModalPagoAbleLanding';
+import ModalPago from '../ModalPagoPAYPALLanding';
+import ModalPago2 from '../ModalPagoZelleLanding';
+
 export default function Ofrece() {
   let [List, setList] = useState(false)
   let [Offer, setOffer] = useState(false)
 
   //creando variables para habilitar y enviar datos modal de Pagos
-  
+
   const [PayModal, setPayModal] = useState(false);
   const [paypalDates, setPaypalDates] = useState(null);
   const [ZelleModal, setZelleModal] = useState(false);
   const [paypalModal, setPaypalModal] = useState(false);
+  const [nombre, setNombre] = useState('');
+  const [apellido, setApellido] = useState('');
+  const [email, setEmail] = useState('');
+  const [passwd, setPasswd] = useState('');
+  const [NewUser, setNewUser] = useState(false);
+  const [User, setUser] = useState('')
+
+  const closeZelleModal = () => {
+    setZelleModal(false)
+  }
   const { locale } = useRouter()
   //funcion de estilos
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
   }
-//Funciones para modales de pago
-function closePayModal() {setPayModal(false)}
+  //Funciones para modales de pago
+  function closePayModal() { setPayModal(false);  }
   const handleChangePaypalModal = (data) => {
     setPayModal(data)
     setZelleModal(data)
     setPaypalModal(data)
   }
-  
+
   const openPaypalModal = (VALUE) => {
     setPaypalModal(true)
     //setPaypalDates(VALUE)
@@ -35,10 +48,194 @@ function closePayModal() {setPayModal(false)}
 
   const openZelleModal = (VALUE) => {
     setZelleModal(true)
-  //  setPaypalDates(VALUE)
+    //  setPaypalDates(VALUE)
   }
-//
+  //
   const { t } = useTranslation('index');
+
+  //En caso de aprobar pago PAYPAL
+  const handlePaymentSuccess = async (data, response) => {
+    // alert('ahi vengo')
+    console.log('data', data)
+    console.log('response', response)
+    try {
+      await fetch('/api/users/getUserEmail/' + email,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          }
+        }).then(response => response.json())
+        .then(response => setUser(response))
+
+    }
+    catch (error) { console.log('Ofrece.jsx', error) }
+
+
+    if (NewUser) {
+      console.log('soy un nuevo usuario')
+      console.log('User', User.results.planSync)
+      try {
+        await fetch('/api/users/update',
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(
+              {
+                email: email,
+                updates: {
+
+                  planSync:
+                    [...User.results.planSync, {
+                      type: 'plansync',
+                      payment: 'PAYPAL',
+                      valid: true,
+                      qty: paypalDates.qty,
+                      cost: paypalDates.cost,
+                      description: paypalDates,
+                      planing: 0,
+                      classview: 0
+                    }]
+
+                }
+              }
+            ),
+          })
+
+          .then(response => {
+            setPaypalDates(null)
+            //   console.log("Clase asignado ",response.json())    
+          })
+
+      } catch (error) {
+        setPaypalDates(null)
+
+        console.error(error);
+      }
+
+      //envio recibo a BD
+
+      try {
+        await fetch('/api/receipt/add',
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(
+              {
+                idUser: email,
+                idPlan: 'plansync',
+                qty: paypalDates.qty,
+                ammount: paypalDates.cost,
+                dates: { paypalDates, type: "PAYPAL" }
+              }
+            ),
+          }).then(response => {
+            setPaypalDates(null)
+            //  console.log("Clase asignado ",response.json())
+
+          })
+
+      } catch (error) {
+        setPaypalDates(null)
+
+        console.error(error);
+      }
+    }
+    else {
+      console.log('NO soy un nuevo usuario')
+
+      try {
+        await fetch('/api/users/update',
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(
+              {
+                email: email,
+                updates: {
+
+                  planSync:
+                    [...User.results.planSync, {
+                      type: 'plansync',
+                      payment: 'PAYPAL',
+                      valid: true,
+                      qty: paypalDates.qty,
+                      cost: paypalDates.cost,
+                      description: paypalDates,
+                      planing: 0,
+                      classview: 0
+                    }]
+
+                }
+              }
+            ),
+          })
+
+          .then(response => {
+            setPaypalDates(null)
+            //   console.log("Clase asignado ",response.json())    
+          })
+
+      } catch (error) {
+        setPaypalDates(null)
+
+        console.error(error);
+      }
+
+      //envio recibo a BD
+
+      try {
+        await fetch('/api/receipt/add',
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(
+              {
+                idUser: email,
+                idPlan: 'plansync',
+                qty: paypalDates.qty,
+                ammount: paypalDates.cost,
+                dates: { paypalDates, type: "PAYPAL" }
+              }
+            ),
+          }).then(response => {
+            setPaypalDates(null)
+            //  console.log("Clase asignado ",response.json())
+
+          })
+
+      } catch (error) {
+        setPaypalDates(null)
+
+        console.error(error);
+      }
+
+
+
+    }
+    //setAssgined(true)
+    //setIsPaymentConfirmed(true);
+    //setTimeout(function() {PAYOK(paypalDates,response);},500)
+    //Confirm();
+    //setPaymentCancelled(false); // Asegúrate de restablecer el otro estado
+  };
+
+  //En caso de pago Cancelado Paypal
+  const handlePaymentCancel = () => {
+    alert('Pago cancelado intente nuevamente')
+    // setIsPaymentConfirmed(false);
+    //  PAYNOK();
+    //  setPaymentCancelled(true); // Asegúrate de restablecer el otro estado
+  };
+
 
   return (
     <>
@@ -76,7 +273,7 @@ function closePayModal() {setPayModal(false)}
 
             {/* Encabezado */}
             <div className="flex items-center flex-col border-b-2 border-gray_border"
-              style={{  paddingBottom: '1.2em' }}>
+              style={{ paddingBottom: '1.2em' }}>
 
               {/* Imagen */}
               <div className=" flex justify-center items-center p-1
@@ -193,17 +390,18 @@ function closePayModal() {setPayModal(false)}
 
                   {t("card42.1.list.3")}
 
-                </p>  
+                </p>
 
               </div>
 
-              
+
               {/* Boton */}
               <button
-              className="w-[255px] bg-primary rounded-full text-white py-[13px] absolute bottom-[29px] left-[50%] translate-x-[-50%] transition-all text-[20px]
+                className="w-[255px] bg-primary rounded-full text-white py-[13px] absolute bottom-[29px] left-[50%] translate-x-[-50%] transition-all text-[20px]
               hover:shadow-[0px_4px_14px_0px_#4ED5F2]"
-              onClick={() => setOffer(!Offer)}>
+                onClick={() => { setPayModal(true); setPaypalDates({ qty: 1, cost: 25, descripion: "1claseIndividual 1masterclass 1claseengrupo 3unidadesporNivel" }); }}>
                 {t("card42.1.button")}
+                {/* para habilitar el pago de 1era CARD 25usd */}
               </button>
               {/* Boton Modal de pagos ofertas */}
               {/* <div className='w-[100%] relative top-6'>
@@ -214,10 +412,10 @@ function closePayModal() {setPayModal(false)}
                   }
                     onClick={() => setOffer(!Offer)}>{t("card4.1.button")}</button>           
               </div> */}
-              
+
             </div>
-            
-            <div>{Offer && <ModalPagoLanding open={Offer} setOpen={setOffer} />}</div>
+
+            <div>{false && Offer && <ModalPagoLanding open={Offer} setOpen={setOffer} />}</div>
           </div>
 
           {/* Conoce Cordoba */}
@@ -228,7 +426,7 @@ function closePayModal() {setPayModal(false)}
 
             {/* Encabezado */}
             <div className="flex items-center flex-col border-b-2 border-gray_border"
-              style={{  paddingBottom: '1.2em' }}>
+              style={{ paddingBottom: '1.2em' }}>
 
               {/* Imagen */}
               <div className="flex justify-center items-center p-1 relative
@@ -306,9 +504,10 @@ function closePayModal() {setPayModal(false)}
 
               {/* Boton */}
               <button
-              className="w-[255px] bg-primary rounded-full text-white py-[13px] absolute bottom-[29px] left-[50%] translate-x-[-50%] transition-all text-[20px]
-              hover:shadow-[0px_4px_14px_0px_#4ED5F2]" onClick={() => setList(!List)}>
+                className="w-[255px] bg-primary rounded-full text-white py-[13px] absolute bottom-[29px] left-[50%] translate-x-[-50%] transition-all text-[20px]
+              hover:shadow-[0px_4px_14px_0px_#4ED5F2]"  onClick={() => { setPayModal(true); setPaypalDates({ first_name: nombre, last_name: apellido, email: email, qty: 0, cost: 10, descripion: " 1masterclass 3unidadesporNivel" }) }}>
                 {t("card42.2.button")}
+                {/* Para oferta d 10 usd O 2DA TARJETA */}
               </button>
 
             </div>
@@ -320,24 +519,54 @@ function closePayModal() {setPayModal(false)}
 
           {/* MODALES DE PAGO */}
           <section>
-          <div>
+            <div>
 
-          {/* Modal de Pago habilitacion*/}
-          <ModalPagoABLE
-            close={closePayModal}
-            modalPay={handleChangePaypalModal}
-            open={PayModal}
-            open1={openPaypalModal}
-            open2={openZelleModal}
-          />
-          </div>
+              {/* Modal de Pago habilitacion*/}
+              {<ModalPagoABLE
+                setNombre={setNombre}
+                setApellido={setApellido}
+                setEmail={setEmail}
+                setPasswd={setPasswd}
+                setNewUser={setNewUser}
+                setUser={setUser}
+                close={closePayModal}
+                modalPay={handleChangePaypalModal}
+                open={PayModal}
+                open1={openPaypalModal}
+                open2={openZelleModal}
+              />}
+            </div>
+            {/* Modal Pago Paypal */}
+            <div>
+              <ModalPago
+                onPaymentSuccess={handlePaymentSuccess}
+                onPaymentCancel={handlePaymentCancel}
+                modalPaypal={handleChangePaypalModal}
+                open={paypalModal}
+                dates={paypalDates}
+              />
+
+            </div>
+            {/* Modal Pago Zelle */}
+            <div>
+              <ModalPago2
+                // onPaymentSuccess={handlePaymentSuccess1}
+                onPaymentCancel={handlePaymentCancel}
+                modalClose={closeZelleModal}
+                User={User}
+                NewUser={NewUser}
+                passwd={passwd}
+                open={ZelleModal}
+                dates={paypalDates}
+              />
+            </div>
           </section>
         </div>
 
         {/* Ellipse */}
         <div className='absolute top-0 left-0 w-full h-full z-0 overflow-hidden' >
 
-          <div className='w-full h-full bg-gray_light' style={{filter:"contrast(100)  hue-rotate(41deg)"}}>
+          <div className='w-full h-full bg-gray_light' style={{ filter: "contrast(100)  hue-rotate(41deg)" }}>
             {/* <Image brightness(98%)
             className='z-0 h-auto left-0 opacity-0'
             src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1707226057/images/juswytwdg2g5ulivawuv.png"}
@@ -347,8 +576,8 @@ function closePayModal() {setPayModal(false)}
             /> */}
 
             <div className='h-[90%] absolute top-0  w-[60%] max-w-[820px]' >
-              <div className=' w-full h-[65%] rounded-[34%_66%_77%_23%_/_58%_100%_0%_42%] absolute top-0 left-[-50%] ' style={{filter:"blur(60px)", backgroundColor:"#3cbbd6"}}></div>
-              <div className=' w-full h-[70%] rounded-[0%_100%_100%_0%_/_56%_32%_68%_44%] absolute bottom-0 left-[-10%] ' style={{filter:"blur(60px)", backgroundColor:"#3cbbd6"}}></div>
+              <div className=' w-full h-[65%] rounded-[34%_66%_77%_23%_/_58%_100%_0%_42%] absolute top-0 left-[-50%] ' style={{ filter: "blur(60px)", backgroundColor: "#3cbbd6" }}></div>
+              <div className=' w-full h-[70%] rounded-[0%_100%_100%_0%_/_56%_32%_68%_44%] absolute bottom-0 left-[-10%] ' style={{ filter: "blur(60px)", backgroundColor: "#3cbbd6" }}></div>
             </div>
 
           </div>
@@ -356,7 +585,7 @@ function closePayModal() {setPayModal(false)}
           {/* <div className=' absolute top-0 left-0 w-full h-full bg-[#a33] opacity-[30%]'></div> */}
 
         </div>
-        
+
       </section>
     </>
   )

@@ -25,6 +25,7 @@
   "card3List":["Fatos e dicas culturais.","Explicações de vocabulário e gramática.","Atividades interativas.","Desafios para reforçar seu aprendizado."], 
   "card3Text2":"Além disso, você tem a opção de agendar aulas personalizadas com nossos professores experientes para se aprofundar em qualquer assunto.",
   "card3Button": "Pruébalo gratis",
+
   "card4": [
     {
      "title": "O que oferecemos",
@@ -57,8 +58,11 @@
       "button":"Cadastre-se para receber informações exclusivas",
       "messageModal":"Viva a experiência única do turismo linguístico. Saiba mais sobre nossa viagem em abril de 2024. Cadastre-se para receber informações exclusivas.",
       "send":"Enviar",
+      "cancel":"Cancelar",
       "sendOK":"E-mail agendado",
-      "emailInvalid":"e-mail inválido"
+      "emailInvalid":"e-mail inválido",
+      "trip":"Viagem em junho de 2024",
+      "holder":"Escreva seu e-mail"
     }
   ],
   "card42":[

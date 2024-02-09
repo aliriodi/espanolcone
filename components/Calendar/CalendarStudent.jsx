@@ -73,7 +73,7 @@ export default function Schedule() {
   const [assigned, setAssgined] = useState(false);
 
 
-  const lastplansyc = session?.user?.planSync?.length;
+  const lastplansyc = session?.upaypalDatesser?.planSync?.length;
   //PAGO DE PAYPAL OK
   const handlePaymentSuccess =async  (data,response) => {
    // alert('ahi vengo')
@@ -266,6 +266,8 @@ export default function Schedule() {
       //El valor de value creo que hay que ponerlo en un estado 
       //para irlo pasando entre las funciones
       //inicialmenye asi openPaypalModal(VALUE) ahora
+      // {OpenP && <Plan Confirm={Confirm} newMeeting={newMeeting} closePlan={closePlan} />}
+      // LINEA 1029 para verl el VALUE 
       openModalPay(VALUE)
             
     }

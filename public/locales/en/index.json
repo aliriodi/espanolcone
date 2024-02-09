@@ -58,8 +58,11 @@
                      "button":"Sign up to receive exclusive information",
                      "messageModal":"Live the unique experience of language tourism. Find out more about our trip in April 2024. Sign up to receive exclusive information.",
                      "send":"Send",
+                     "cancel":"Cancel",
                      "sendOK":"Scheduled email",
-                     "emailInvalid":"Not valid email"
+                     "emailInvalid":"Not valid email",
+                     "trip":"Trip in June 2024",
+                     "holder":"Write your email"
               }
        ],
        "card42":[
