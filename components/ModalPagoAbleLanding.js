@@ -8,7 +8,7 @@ import { createStructuredSelector } from 'reselect';
 import { useTranslation } from 'next-i18next';
 
 export default function ModalPagoABLE(props) {
-  const { t } = useTranslation(['index','register'])
+  const { t } = useTranslation(['index', 'register'])
   const [isOpen, setIsOpen] = useState(false)
   //PARA EL FORMULARIO
   const [nombre, setNombre] = useState('');
@@ -51,7 +51,7 @@ export default function ModalPagoABLE(props) {
         }).then(response => response.json())
         .then(response => {
           //Si usuario existe
-          if (response.totalResults) { IncrementAppoinment(response.results) ,props.open1(),props.close()}
+          if (response.totalResults) { IncrementAppoinment(response.results), props.open1(), props.close() }
           //Si usuario no existe
           else { createUser() }
         })
@@ -78,7 +78,7 @@ export default function ModalPagoABLE(props) {
         }).then(response => response.json())
         .then(response => {
           //Si usuario existe
-          if (response.totalResults) { IncrementAppoinment(response.results) ,props.open2(), props.close()}
+          if (response.totalResults) { IncrementAppoinment(response.results), props.open2(), props.close() }
           //Si usuario no existe
           else { createUser2() }
         })
@@ -87,14 +87,14 @@ export default function ModalPagoABLE(props) {
     catch (error) {
       console.log(error);
     }
-    
+
     { props.open2(), props.close() }
 
   }
 
   async function createUser() {
-  setNewUser(true);
-  props.setNewUser(true);
+    setNewUser(true);
+    props.setNewUser(true);
     try {
       console.log('creando usuario')
       await axios.post('/api/auth/signup',
@@ -105,9 +105,9 @@ export default function ModalPagoABLE(props) {
           email: email,
           password: passwd,
           confirm_password: passwd,
-          roles: ['student','user']
+          roles: ['student', 'user']
         }
-      ).then(response=> {console.log(response),props.open1(), props.close() });
+      ).then(response => { console.log(response), props.open1(), props.close() });
 
     } catch (error) { console.log(error) }
   }
@@ -116,23 +116,23 @@ export default function ModalPagoABLE(props) {
   async function createUser2() {
     setNewUser(true);
     props.setNewUser(true);
-      try {
-        console.log('creando usuario')
-        await axios.post('/api/auth/signup',
-          {
-            first_name: nombre,
-            last_name: apellido,
-            country: "",
-            email: email,
-            password: passwd,
-            confirm_password: passwd,
-            roles: ['student','user']
-          }
-        ).then(response=> {console.log(response),props.open2(), props.close(),MakeAndPay2() });
-  
-      } catch (error) { console.log(error) }
-    }
-  
+    try {
+      console.log('creando usuario')
+      await axios.post('/api/auth/signup',
+        {
+          first_name: nombre,
+          last_name: apellido,
+          country: "",
+          email: email,
+          password: passwd,
+          confirm_password: passwd,
+          roles: ['student', 'user']
+        }
+      ).then(response => { console.log(response), props.open2(), props.close(), MakeAndPay2() });
+
+    } catch (error) { console.log(error) }
+  }
+
 
   async function IncrementAppoinment(user) {
     try {
@@ -172,36 +172,43 @@ export default function ModalPagoABLE(props) {
 
                 <Image src={Logo} className='mb-0' style={{ width: '100px' }} alt="Logo" />
               </div>
-              <div>
+              <div className='pt-2'>
                 <form onSubmit={handleSubmit}>
-                  <div>
-                    <label>
+                  <div className='p-2'>
+                    {/* <label className='border border-gray-300 p-2'> */}
+                    <label className='p-2'>
                       {/* Nombre */}
                       {t('name')}:
                       <input
+                        className='ml-2 border focus-visible:outline-none rounded-md border-gray-300 '
                         type="text"
                         value={nombre}
+                        placeholder={'  '+t('name')}
                         onChange={(e) => setNombre(e.target.value)}
                       />
                     </label>
                   </div>
-                  <div>
-                    <label>
+                  <div className='p-2'>
+                  <label className='p-2'>
                       {/* Apellido */}
-                    {t('lastname')}:
+                      {t('lastname')}:
                       <input
+                        className='ml-2 border focus-visible:outline-none rounded-md border-gray-300 '
                         type="text"
                         value={apellido}
+                        placeholder={'  '+t('lastname')}
                         onChange={(e) => setApellido(e.target.value)}
                       />
                     </label>
                   </div>
-                  <div>
-                    <label>
+                  <div className='p-2'>
+                  <label className='p-2'>
                       {/* Correo Electronico */}
                       {t('email')}:
-                      <input 
+                      <input
+                        className='ml-2 border  focus-visible:outline-none rounded-md border-gray-300 '
                         type="email"
+                        placeholder='  johndoe@gmail.com'
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                       />
