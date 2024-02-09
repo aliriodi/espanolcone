@@ -188,11 +188,11 @@ export default function ModalPagoABLE(props) {
                       />
                     </label>
                   </div>
-                  <div className='p-2'>
+                  {/* <div className='p-2'>
                   <label className='p-2'>
                       {/* Apellido */}
-                      {t('lastname')}:
-                      <input
+                      {/* {t('lastname')}: */}
+                      {/* <input
                         className='ml-2 border focus-visible:outline-none rounded-md border-gray-300 '
                         type="text"
                         value={apellido}
@@ -200,7 +200,7 @@ export default function ModalPagoABLE(props) {
                         onChange={(e) => setApellido(e.target.value)}
                       />
                     </label>
-                  </div>
+                  </div> */} 
                   <div className='p-2'>
                   <label className='p-2'>
                       {/* Correo Electronico */}
