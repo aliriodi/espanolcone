@@ -121,8 +121,17 @@ export default function Paragragraphcomplete(props) {
                     ${props?.type == "content" && "w-full"}
                     border-[2px] border- border-solid transition-all rounded-[5px] bg-transparent text-center outline-none
                     ${inputValues[index]?.answer == "" && "border-primary"}
-                    ${props.inEvaluation && "border-primary"}
-                    ${!props.inEvaluation && 
+                    ${props.inEvaluation && !props.isAdmin && "border-primary"}
+                    ${!props.inEvaluation  && 
+                      (
+                        inputValues[index]?.answer != "" && inputValues[index]?.answer == inputValues[index]?.option ||
+                        (inputValues[index]?.option == "" && inputValues[index]?.answer?.length > 0)
+                        ? "border-secondary" 
+                        : "border-danger"
+                      )
+                    }
+
+                    ${props.inEvaluation && props?.isAdmin && //En caso de ser administrador se muestra si la respuesta es correcta o no
                       (
                         inputValues[index]?.answer != "" && inputValues[index]?.answer == inputValues[index]?.option ||
                         (inputValues[index]?.option == "" && inputValues[index]?.answer?.length > 0)
@@ -134,6 +143,7 @@ export default function Paragragraphcomplete(props) {
                   }
                   value={inputValues[index]?.answer}
                   size={value.block}
+                  onClick={()=>console.log(!props.inEvaluation ||(props.inEvaluation && props?.isAdmin))}
                   onChange={(e) => handleInputChange(index, e.target.value)}
                 />
 
