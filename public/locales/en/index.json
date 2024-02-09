@@ -80,7 +80,8 @@
                             "1 individual personalized lesson",
                             "1 Master Class",
                             "1 group lesson",
-                            "3 interactive in-app lessons"
+                            "3 interactive in-app lessons",
+                            "(for A1, A2 and B1 levels)"
                      ],
                      "button":"Get started"       
               },
@@ -91,7 +92,8 @@
                      "priceReal":"$45",
                      "list": [
                             "1 Master Class",
-                            "3 interactive in-app lessons"
+                            "3 interactive in-app lessons",
+                            "(for A1, A2 and B1 levels)"
                      ],
                      "button":"Get started"       
 
