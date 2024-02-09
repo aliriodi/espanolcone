@@ -200,7 +200,7 @@ export default function ModalPagoABLE(props) {
                     <label>
                       {/* Correo Electronico */}
                       {t('email')}:
-                      <input
+                      <input 
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
