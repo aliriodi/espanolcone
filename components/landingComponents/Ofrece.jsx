@@ -34,7 +34,7 @@ export default function Ofrece() {
     return classes.filter(Boolean).join(' ')
   }
   //Funciones para modales de pago
-  function closePayModal() { setPayModal(false); alert(passwd) }
+  function closePayModal() { setPayModal(false);  }
   const handleChangePaypalModal = (data) => {
     setPayModal(data)
     setZelleModal(data)
@@ -553,7 +553,8 @@ export default function Ofrece() {
                 // onPaymentSuccess={handlePaymentSuccess1}
                 onPaymentCancel={handlePaymentCancel}
                 modalClose={closeZelleModal}
-                renders={User}
+                User={User}
+                NewUser={NewUser}
                 open={ZelleModal}
                 dates={paypalDates}
               />

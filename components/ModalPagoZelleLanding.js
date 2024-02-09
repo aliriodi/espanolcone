@@ -41,6 +41,7 @@ console.log(props.dates)
 
   const closeModal = () => {
     props?.modalClose(false)
+    
     setIsOpen(false)
   }
 
@@ -93,6 +94,7 @@ console.log(props.dates)
 
   //si el pago es ok envio a la BD el pago
   async function PAYOK(){
+    console.log(props.User)
     //alert('265 entre en payok()')
     try{
       fetch('/api/users/update',
@@ -102,7 +104,7 @@ console.log(props.dates)
           "Content-Type": "application/json",
         },
         body: JSON.stringify(
-          { email: props.renders.user.email,
+          { email: props.User.email,
               updates: {
                 planSync:[...props.User.planSync,
                   {

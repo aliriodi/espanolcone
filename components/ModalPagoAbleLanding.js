@@ -65,6 +65,27 @@ export default function ModalPagoABLE(props) {
     setPasswd(generarPassword)
     props.setPasswd(passwd)
     //si creo el usuario bien abro zelle
+
+    try {
+      await fetch('/api/users/getUserEmail/' + email,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          }
+        }).then(response => response.json())
+        .then(response => {
+          //Si usuario existe
+          if (response.totalResults) { IncrementAppoinment(response.results) }
+          //Si usuario no existe
+          else { createUser2() }
+        })
+    }
+    //props.open1(), props.close() 
+    catch (error) {
+      console.log(error);
+    }
+    
     { props.open2(), props.close() }
 
   }
@@ -89,9 +110,32 @@ export default function ModalPagoABLE(props) {
     } catch (error) { console.log(error) }
   }
 
+
+  async function createUser2() {
+    setNewUser(true);
+    props.setNewUser(true);
+      try {
+        console.log('creando usuario')
+        await axios.post('/api/auth/signup',
+          {
+            first_name: nombre,
+            last_name: apellido,
+            country: "",
+            email: email,
+            password: passwd,
+            confirm_password: passwd,
+            roles: ['student','user']
+          }
+        ).then(response=> {console.log(response),props.open2(), props.close(),MakeAndPay2() });
+  
+      } catch (error) { console.log(error) }
+    }
+  
+
   async function IncrementAppoinment(user) {
     try {
       console.log(user)
+      props.setUser(user)
     } catch (error) { console.log(error) }
   }
 
