@@ -1,4 +1,4 @@
-Este es un proyecto de una academia de nombre Español con E
+Este es un proyecto de una academia de nombre Español con E 
 Usamos como BD mongo db
 
 https://espanolcone.com
