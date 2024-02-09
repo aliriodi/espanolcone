@@ -555,6 +555,7 @@ export default function Ofrece() {
                 modalClose={closeZelleModal}
                 User={User}
                 NewUser={NewUser}
+                passwd={passwd}
                 open={ZelleModal}
                 dates={paypalDates}
               />
