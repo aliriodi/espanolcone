@@ -9,7 +9,7 @@ import SELECTSIMPLE from './Selectsimple';
 import PARAGGRAPHCOMPLETE from './paragragraphcomplete';
 import style from '../../styles/class.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faAngleRight, faAngleUp, faArrowLeft, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faAngleRight, faAngleUp, faArrowLeft, faCheck, faStar } from '@fortawesome/free-solid-svg-icons';
 import DragablesBox from './DragableBox/DragablesBox';
 import Selectsimple from './Selectsimple';
 import { useSpring, animated } from 'react-spring';
@@ -23,6 +23,8 @@ import Table from './Table';
 export default function Class(props) {
   //elemento a renderizar  
   const [data, setData] = useState(null);
+  const [currentPointsEvaluetions, setCurrentPointsEvaluetions] = useState(0)
+  const [isPointsHighlighted ,setIsPointsHighlighted] = useState(false)
 
   // Las paginas que hay en la seccion
   const [sheetsOfSection, setSheetsOfSection] = useState([])
@@ -630,6 +632,34 @@ export default function Class(props) {
   useEffect(()=>{
 
   },[isTest])
+
+  // Contador de Puntos
+  useEffect(()=>{
+
+    if(data?.sheets[props.page]?.section?.number == 5 && session?.user?.role?.includes("admin")){
+      
+      console.log("Points", session?.user?.classes)
+      session?.user?.classes?.map((level)=>{
+        let newUnit = level?.units?.find((unit)=> unit?.unitID == props?.id)
+        if(newUnit){
+          setCurrentPointsEvaluetions(newUnit.points);
+        }
+      })
+
+    }
+    
+  },[session?.user])
+
+  useEffect(() => {
+    
+    setIsPointsHighlighted(true)
+
+    const timeoutId = setTimeout(() => {
+      setIsPointsHighlighted(false); // Desactivar iluminación después de 0.5 segundos
+    }, 500);
+
+    return () => clearTimeout(timeoutId);
+  }, [currentPointsEvaluetions])
   //https://docs.google.com/presentation/d/10lxVnbNdlLZ6OlsXJTU9-uZ3GDJPz140/edit#slide=id.g27c3e69a393_0_0
   //https://www.figma.com/file/JZZzrLkQhTDEuUPkAsacuB/ECE-%2F-Prototipos?type=design&node-id=403-9008&mode=design&t=RIjgbE4EDSxOXwZ9-0
 
@@ -660,6 +690,21 @@ export default function Class(props) {
           >
             <FontAwesomeIcon className='w-[40%] h-[40%] p-[25%] rounded-full text-secondary text-[28px]' icon={faCheck}/>
         </animated.div>
+
+        {/* Puntos Evaluacion */}
+        {
+          session?.user?.role?.includes("admin") &&
+          data?.sheets[props.page]?.section?.number == 5 &&
+          <div
+          className='absolute z-[999] top-2 left-2 p-3 rounded-full shadow-[0px_4px_24px_#18292F1A] bg-white text-violet_dark font-semibold justify-center items-center '>
+
+            {/* Estrella */}
+            <FontAwesomeIcon className={`mr-2 text-[14px] transition-all ${isPointsHighlighted && "text-info text-[18px]"}`} icon={faStar}/>
+            
+            {/* Cantidad de Puntos */}
+            {currentPointsEvaluetions}
+          </div>
+        }
 
         {/* Paginacion */}
         {
@@ -935,7 +980,7 @@ export default function Class(props) {
                     
                     {/* Drag Box */}
                     {c.type === 'dragable-box' &&
-                    <DragablesBox done={sheetsState[i]?.done} key={index} style={c.style}  allowFollow={allowFollow} containerPosition={c?.containerPosition} options={c.value} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5}/>}
+                    <DragablesBox done={sheetsState[i]?.done} key={index} style={c.style}  allowFollow={allowFollow} containerPosition={c?.containerPosition} options={c.value} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} isAdmin={session?.user?.role?.includes("admin")}/>}
                     
                     {/* Parrafo */}
                     {c.type === 'paragraph' &&
@@ -944,7 +989,7 @@ export default function Class(props) {
                     
                     {/* SelectSimple */}
                     {c.type === 'selectsimple' &&
-                    <div className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`} style={c.style}><SELECTSIMPLE done={sheetsState[i]?.done} key={c.option} data={c} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5}/></div>}
+                    <div className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`} style={c.style}><SELECTSIMPLE done={sheetsState[i]?.done} key={c.option} data={c} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} isAdmin={session?.user?.role?.includes("admin")}/></div>}
                     
                     {/* Texto */}
                     {c.type === 'text' &&
@@ -953,11 +998,11 @@ export default function Class(props) {
                     
                     {/* Parrafo a Completar */}
                     {c.type === 'paragraph-complete' &&
-                    <div key={index} style={c.style}  className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} data={c}/></div> }
+                    <div key={index} style={c.style}  className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} data={c} isAdmin={session?.user?.role?.includes("admin")}/></div> }
                     
                     {/* Parrafo a Completar con Imagenes */}
                     {c.type === 'paragraph-complete-content' &&
-                    <div key={index} style={c.style}  className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`}><PARAGGRAPHCOMPLETE type={"content"} done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} data={c}/></div> }
+                    <div key={index} style={c.style}  className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`}><PARAGGRAPHCOMPLETE type={"content"} done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} data={c} isAdmin={session?.user?.role?.includes("admin")}/></div> }
                     
                     {/* PopUp de Dialogos */}
                     {c.type === 'popUp-dialogues' &&
@@ -966,11 +1011,11 @@ export default function Class(props) {
                     
                     {/* Parrafo a Completar de lista */}
                     {c.type === 'complete-li' &&
-                    <div key={index} style={c.style}  className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} data={c}/> </div> }
+                    <div key={index} style={c.style}  className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} data={c} isAdmin={session?.user?.role?.includes("admin")}/> </div> }
                     
                     {/* Parrafo a Completar de lista con persona*/}
                     {c.type === 'complete-li-personal' &&
-                    <div key={index} style={c.style}  className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} data={c}/> </div> }
+                    <div key={index} style={c.style}  className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} data={c} isAdmin={session?.user?.role?.includes("admin")}/> </div> }
                     
                     {/* <p dangerouslySetInnerHTML={{ __html: c.value }}></p> */}
 
