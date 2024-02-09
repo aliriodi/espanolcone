@@ -49,7 +49,13 @@ export default function Selectsimple(props) {
 
             {options ? options?.map(option =>
 
-                <p className={`px-3 ${style["icon-container"]} ${selectedOption && !props?.inEvaluation && (selectedOption === option && (isCorrect ? style["done"] : style["danger"]))} ${selectedOption && selectedOption === option && props?.inEvaluation && style["select"]}`}  key={option}>
+                <p
+                className={`px-3
+                ${style["icon-container"]}
+                ${selectedOption && (!props?.inEvaluation || props?.isAdmin) && (selectedOption === option && (isCorrect ? style["done"] : style["danger"]))}
+                ${selectedOption && selectedOption === option && (props?.inEvaluation && !props?.isAdmin) && style["select"]}`}
+                key={option}>
+
                     <label className='flex items-center'>
 
                         {/* Input */}
@@ -67,7 +73,7 @@ export default function Selectsimple(props) {
                         {/* Icono de respuesta */}
                         <div className={`w-[24px] h-[24px] rounded-full flex justify-center items-center text-white relative
                         md:h-[20px] md:w-[20px]`}>
-                            {selectedOption && !props?.inEvaluation && (
+                            {selectedOption && (!props?.inEvaluation || props?.isAdmin) && (
                                 <>
                                 {/* Para renderizar culito */}
                                     {selectedOption === option ? (

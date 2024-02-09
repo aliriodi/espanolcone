@@ -13,6 +13,7 @@ export default function DropContainer({
     handleDoneOption,
     canCheck,
     inEvaluation,
+    isAdmin,
     containerPosition
 })
 {
@@ -73,6 +74,7 @@ export default function DropContainer({
                             {dragBoxs?.map((dragBox) => (
                                 <DragBox
                                     inEvaluation={inEvaluation}
+                                    isAdmin={isAdmin}
                                     dropUpValue={dropUp?.value} 
                                     key={dragBox.id}
                                     dragBox={dragBox}
@@ -103,6 +105,7 @@ export default function DropContainer({
                                 {dragBoxs?.map((dragBox) => (
                                     <DragBox
                                         inEvaluation={inEvaluation}
+                                    isAdmin={isAdmin}
                                         dropUpValue={dropUp?.value} 
                                         key={dragBox.id}
                                         dragBox={dragBox}
@@ -125,6 +128,7 @@ export default function DropContainer({
                                         handleDoneOption={handleDoneOption}
                                         canCheck={canCheck}
                                         inEvaluation={inEvaluation}
+                                    isAdmin={isAdmin}
                                     />
                                     
                                 ))}
@@ -163,6 +167,7 @@ export default function DropContainer({
                                     handleDoneOption={handleDoneOption}
                                     canCheck={canCheck}
                                     inEvaluation={inEvaluation}
+                                    isAdmin={isAdmin}
                                 />
                                 
                             ))}
@@ -186,6 +191,7 @@ export default function DropContainer({
                             {dragBoxs?.map((dragBox) => (
                                 <DragBox
                                     inEvaluation={inEvaluation}
+                                    isAdmin={isAdmin}
                                     dropUpValue={dropUp?.value} 
                                     key={dragBox.id}
                                     dragBox={dragBox}
@@ -227,6 +233,7 @@ export default function DropContainer({
                             {dragBoxs?.map((dragBox) => (
                                 <DragBox
                                     inEvaluation={inEvaluation}
+                                    isAdmin={isAdmin}
                                     dropUpValue={dropUp?.value} 
                                     key={dragBox.id}
                                     dragBox={dragBox}
@@ -279,6 +286,7 @@ export default function DropContainer({
                         {dragBoxs?.map((dragBox) => (
                             <DragBox
                                 inEvaluation={inEvaluation}
+                                    isAdmin={isAdmin}
                                 dropUpValue={dropUp?.value} 
                                 key={dragBox.id}
                                 dragBox={dragBox}

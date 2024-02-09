@@ -225,6 +225,7 @@ export default function DragableBox( props ){
                                     handleDoneOption={handleDoneOption}
                                     canCheck={canCheck}
                                     inEvaluation={props?.inEvaluation}
+                                    isAdmin={props?.isAdmin}
                                     containerPosition={props?.containerPosition}
                                     
                                     // se le pasan las respectivas opciones que corresponden a cada  contenedor
