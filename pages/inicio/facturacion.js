@@ -121,8 +121,10 @@ export default function Blog({ devDotToPosts }) {
                                 {/* Encabezado */}
                                 <button className='w-[140px] text-white mx-auto  bg-primary rounded-full p-2 mb-5 shadow-[0px_4px_24px_#0000002F] relative cursor-pointer' onClick={() => Invert()}>Invertir orden</button>
                                 <p>Cantidad de recibos actuales: {' ' + receipt.length}</p>
+                                <>Estos montos no toman en cuenta si estan validados los de Zelle</>
                                 <p>Montos Paypal: {ammountPaypal}</p>
                                 <p>Montos Zelle: {ammountZelle}</p>
+                                <p>Monto Total: {ammountZelle+ammountPaypal}</p>
 
                                 <ul className="bg-[#F3F2F7] w-full flex py-[19px] px-[35px] font-semibold justify-between">
 
