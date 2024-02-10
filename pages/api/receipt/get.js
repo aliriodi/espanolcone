@@ -21,17 +21,18 @@ export default async function getAllRecepipt(req, res) {
 
 
 
-    console.log('LOOKING USERS');
+    console.log('LOOKING RECEIPT');
 
     const receipt = await Receipt.find().exec();
 
-    console.log('Plans READY TO GO!!!');
+    console.log('RECEIPT READY TO GO!!!');
     
     // Verifica procedencia de solicitud 
     console.log("/////////////////////////////// ",req.headers.accept == "*/*" ? "Solicitud desde Codigo": "Solicitud desde Navegador"," ///////////////////////////////")
 
     if(req.headers.accept == "*/*"){
       // Solicitud desde el codigo
+    //  console.log(receipt)
       return res.status(200).json({ receipt });
     }
     else{
