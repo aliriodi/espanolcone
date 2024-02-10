@@ -103,22 +103,32 @@ return fechaFormateada; // Output: "09/02/24"
 
                                     {/* Nombre y apellido */}
                                     <li className="w-[220px]">
-                                        NOMBRE Y APELLIDO
+                                        ITEM
                                     </li>
 
                                     {/* Email */}
                                     <li className="w-[220px]">
-                                        EMAIL
+                                        FECHA
                                     </li>
 
-                                    {/* rol */}
+                                    {/* NPMBRE */}
                                     <li className="w-[120px]">
-                                        ROL
+                                        NOMBRE
                                     </li>
 
-                                    {/* Filter */}
+                                    {/* METODO DE PAGO */}
                                     <li>
-                                        {/* <FontAwesomeIcon icon={faFilter} /> */}
+                                       METODO DE PAGO
+                                    </li>
+
+                                    {/* MMONTO USD */}
+                                    <li>
+                                       MOTON USD$
+                                    </li>
+
+                                    {/* MMONTO USD */}
+                                    <li>
+                                       IMAGEN ZELLE
                                     </li>
                                 </ul>
 
