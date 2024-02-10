@@ -14,32 +14,50 @@ import NombreID from "../../components/facturacion/FacturacionID"
 export default function Blog({ devDotToPosts }) {
     const [receipt, setReceipt] = useState([])
     const [ShowReceipt, setShowReceipt] = useState({ show: false, id: 0 })
+    const [ammountPaypal, setammountPaypal] = useState(0)
+    const [ammountZelle, setammountZelle] = useState(0)
+
     const { locale, locales, push } = useRouter()
     const router = useRouter();
     //   const { t } = useTranslation(['navbar', 'landing', 'index','register'])
+       
     useEffect(() => {
         async function blog() {
             const devDotToPosts = await fetch(`/api/receipt/get`);
             const res = await devDotToPosts.json();
             setReceipt(res.receipt.reverse())
+           
         }
         blog()
-
-    }, []);
- //   console.log(receipt)
-
-    function getname(id,type) {
-        if(type=='PAYPAL'){
-        if (checkEmail(id)) {
-              return <NombreEmail id={id} />
-        }
-        else { return <NombreID id={id}/> }}
-        if(type=='ZELLE'){
-            if (checkEmail(id)) {
-                  return <NombreEmail id={id} />
-            }
-            else { return <NombreID id={id}/> }}
+         }, []);
+  
+         useEffect(() => {
+            let totalAmmountPaypal = 0;
+            let totalAmmountZelle = 0;
         
+            receipt.forEach(receipt => {
+                if (receipt.dates.type === 'PAYPAL') {
+                    totalAmmountPaypal += receipt.ammount;
+                }
+                if (receipt.dates.type === 'ZELLE') {
+                    totalAmmountZelle += receipt.ammount;
+                }
+            });
+        
+            setammountPaypal(prevAmmount => prevAmmount + totalAmmountPaypal);
+            setammountZelle(prevAmmount => prevAmmount + totalAmmountZelle);
+        }, [receipt]);
+
+         
+         //console.log(receipt)
+
+    function getname(id) {
+
+        if (checkEmail(id)) {
+            return <NombreEmail id={id} />
+        }
+        else { return <NombreID id={id} /> }
+
     }
 
 
@@ -49,18 +67,23 @@ export default function Blog({ devDotToPosts }) {
         return regex.test(email);
     }
 
-    function DateT(date){
+    function DateT(date) {
 
-const fecha = new Date(date);
-const dia = fecha.getDate().toString().padStart(2, '0');
-const mes = (fecha.getMonth() + 1).toString().padStart(2, '0'); // Los meses son base 0 en JavaScript
-const año = fecha.getFullYear().toString().substr(-2); // Obtener solo los últimos dos dígitos del año
+        const fecha = new Date(date);
+        const dia = fecha.getDate().toString().padStart(2, '0');
+        const mes = (fecha.getMonth() + 1).toString().padStart(2, '0'); // Los meses son base 0 en JavaScript
+        const año = fecha.getFullYear().toString().substr(-2); // Obtener solo los últimos dos dígitos del año
 
-const fechaFormateada = `${dia}/${mes}/${año}`;
+        const fechaFormateada = `${dia}/${mes}/${año}`;
 
-return fechaFormateada; // Output: "09/02/24"
+        return fechaFormateada; // Output: "09/02/24"
 
 
+    }
+    function Invert() {
+        setammountPaypal(0)
+        setammountZelle(0)
+        setReceipt([...receipt].reverse())
     }
 
     return (
@@ -96,8 +119,10 @@ return fechaFormateada; // Output: "09/02/24"
                             <div className="bg-white rounded-[7px] shadow-[0px_4px_24px_#0000000F] text-violet_dark">
 
                                 {/* Encabezado */}
-                                <button className='w-[140px] text-white mx-auto  bg-primary rounded-full p-2 mb-5 shadow-[0px_4px_24px_#0000002F] relative cursor-pointer' onClick={() => setReceipt([...receipt].reverse())}>Invertir orden</button>
-                               <p>Cantidad de recibos actuales: {' '+receipt.length}</p>
+                                <button className='w-[140px] text-white mx-auto  bg-primary rounded-full p-2 mb-5 shadow-[0px_4px_24px_#0000002F] relative cursor-pointer' onClick={() => Invert()}>Invertir orden</button>
+                                <p>Cantidad de recibos actuales: {' ' + receipt.length}</p>
+                                <p>Montos Paypal: {ammountPaypal}</p>
+                                <p>Montos Zelle: {ammountZelle}</p>
 
                                 <ul className="bg-[#F3F2F7] w-full flex py-[19px] px-[35px] font-semibold justify-between">
 
@@ -118,45 +143,54 @@ return fechaFormateada; // Output: "09/02/24"
 
                                     {/* METODO DE PAGO */}
                                     <li>
-                                       METODO DE PAGO
+                                        METODO DE PAGO
                                     </li>
 
                                     {/* MMONTO USD */}
                                     <li>
-                                       MOTON USD$
+                                        MONTO USD$
+                                    </li>
+                                    {/* Validado */}
+                                    <li>
+                                        Validado
                                     </li>
 
-                                    {/* MMONTO USD */}
+
+                                    {/* Imagen */}
                                     <li>
-                                       IMAGEN ZELLE
+                                        IMAGEN ZELLE
                                     </li>
                                 </ul>
 
-                                {/* Listado de Usuarios */}
+                                {/* Listado de Recibos */}
                                 <ul className="relative min-h-[500px]">
                                     {
                                         receipt?.length > 0 ?
 
-                                            // Usuarios
+                                            // Recibos
                                             receipt?.map((receipt, index) =>
-                                                <div className='grid grid-cols-6' key={receipt._id}>
-                                                    <div>{index+1}</div>
-                                                    <div>{DateT(receipt.createdAt)}</div>
-                                                    <div>{getname(receipt.idUser,receipt.dates.type)}</div>
-                                                    <div>{receipt?.dates?.type}</div>
-                                                    <div>{receipt.ammount}</div>
-                                                    <div>{receipt?.dates?.type == 'ZELLE' ?
-                                                        <><button onClick={() => setShowReceipt({ show: !ShowReceipt.show, id: index })}>Mostrar Zelle Imagen</button>
-                                                            {ShowReceipt.id == index && ShowReceipt.show && <img src={receipt?.dates?.ImageUrl?.ImageZelle} />}</> : null}</div>
+                                                <li key={receipt._id}
+                                                    className="border-b-2 last-of-type:border-0">
+                                                    <div className="flex py-[19px] px-[35px] justify-between">
+                                                        {/* <div className='grid grid-cols-6' key={receipt._id}> */}
+                                                        <div>{index + 1}</div>
+                                                        <div>{DateT(receipt.createdAt)}</div>
+                                                        <div>{getname(receipt.idUser)}</div>
+                                                        <div>{receipt?.dates?.type}</div>
+                                                        <div>{receipt.ammount}</div>
+                                                        <div>{receipt?.dates?.type==='PAYPAL'?'Auto':receipt?.dates?.valid?'SI':'NO'}</div>
+                                                        <div>{receipt?.dates?.type == 'ZELLE' ?
+                                                            <><button onClick={() => setShowReceipt({ show: !ShowReceipt.show, id: index })}>Mostrar Zelle Imagen</button>
+                                                                {ShowReceipt.id == index && ShowReceipt.show && <img src={receipt?.dates?.ImageUrl?.ImageZelle} />}</> : <div>No posee Imagen</div>}</div>
 
-                                                </div>
+                                                    </div></li>
                                             )
                                             :
 
                                             // No se Encontraron usuarios
                                             // !isLoading &&
                                             <div className="h-full w-full justify-center items-center flex absolute top-0 left-0 text-light text-[18px]">
-                                                No se encontraron usuarios
+                                                No se encontraron recibos
                                             </div>
                                     }
                                 </ul>
