@@ -20,36 +20,36 @@ export default function Blog({ devDotToPosts }) {
     const { locale, locales, push } = useRouter()
     const router = useRouter();
     //   const { t } = useTranslation(['navbar', 'landing', 'index','register'])
-       
+
     useEffect(() => {
         async function blog() {
             const devDotToPosts = await fetch(`/api/receipt/get`);
             const res = await devDotToPosts.json();
             setReceipt(res.receipt.reverse())
-           
+
         }
         blog()
-         }, []);
-  
-         useEffect(() => {
-            let totalAmmountPaypal = 0;
-            let totalAmmountZelle = 0;
-        
-            receipt.forEach(receipt => {
-                if (receipt.dates.type === 'PAYPAL') {
-                    totalAmmountPaypal += receipt.ammount;
-                }
-                if (receipt.dates.type === 'ZELLE') {
-                    totalAmmountZelle += receipt.ammount;
-                }
-            });
-        
-            setammountPaypal(prevAmmount => prevAmmount + totalAmmountPaypal);
-            setammountZelle(prevAmmount => prevAmmount + totalAmmountZelle);
-        }, [receipt]);
+    }, []);
 
-         
-         //console.log(receipt)
+    useEffect(() => {
+        let totalAmmountPaypal = 0;
+        let totalAmmountZelle = 0;
+
+        receipt.forEach(receipt => {
+            if (receipt.dates.type === 'PAYPAL') {
+                totalAmmountPaypal += receipt.ammount;
+            }
+            if (receipt.dates.type === 'ZELLE') {
+                totalAmmountZelle += receipt.ammount;
+            }
+        });
+
+        setammountPaypal(prevAmmount => prevAmmount + totalAmmountPaypal);
+        setammountZelle(prevAmmount => prevAmmount + totalAmmountZelle);
+    }, [receipt]);
+
+
+    //console.log(receipt)
 
     function getname(id) {
 
@@ -124,7 +124,7 @@ export default function Blog({ devDotToPosts }) {
                                 <>Estos montos no toman en cuenta si estan validados los de Zelle</>
                                 <p>Montos Paypal: {ammountPaypal}</p>
                                 <p>Montos Zelle: {ammountZelle}</p>
-                                <p>Monto Total: {ammountZelle+ammountPaypal}</p>
+                                <p>Monto Total: {ammountZelle + ammountPaypal}</p>
 
                                 <ul className="bg-[#F3F2F7] w-full flex py-[19px] px-[35px] font-semibold justify-between">
 
@@ -180,7 +180,7 @@ export default function Blog({ devDotToPosts }) {
                                                         <div>{getname(receipt.idUser)}</div>
                                                         <div>{receipt?.dates?.type}</div>
                                                         <div>{receipt.ammount}</div>
-                                                        <div>{receipt?.dates?.type==='PAYPAL'?'Auto':receipt?.dates?.valid?'SI':'NO'}</div>
+                                                        <div>{receipt?.dates?.type === 'PAYPAL' ? 'Auto' : receipt?.dates?.valid ? 'SI' : 'NO'}</div>
                                                         <div>{receipt?.dates?.type == 'ZELLE' ?
                                                             <><button onClick={() => setShowReceipt({ show: !ShowReceipt.show, id: index })}>Mostrar Zelle Imagen</button>
                                                                 {ShowReceipt.id == index && ShowReceipt.show && <img src={receipt?.dates?.ImageUrl?.ImageZelle} />}</> : <div>No posee Imagen</div>}</div>
