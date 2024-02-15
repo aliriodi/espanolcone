@@ -40,7 +40,7 @@ export default function Home() {
         style={{ zIndex: -0 }}>
           
           {/* Contenido */}
-          <div className="w-1/2 flex flex-col z-10 items-start mr-[20px]
+          <div className="w-1/2 flex flex-col z-10 items-start mr-[20px] max-w-[533px]
           md:w-full md:mr-0" >
 
               {/* Titulo */}
@@ -52,7 +52,7 @@ export default function Home() {
 
               {/* Texto */}
               <div className='my-[20px] text-3xl text-white font-semibold text-[36px] leading-[43.88px]
-              md:text-[16px] md:leading-normal'
+              md:text-[21px] md:leading-normal'
               style={{ textShadow: '0px 1px 2px #00000040'}}>
                 {t("index:card1Text")}
               </div>
