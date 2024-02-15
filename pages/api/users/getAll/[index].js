@@ -12,6 +12,20 @@ export default async function GetUsersPage(req, res) {
         await dbConnect();
         console.log('CONNECTED TO MONGO DB');
 
+        // ----------- Test ----------- //
+        // const test = await Users.find({
+        //     "classes": {
+        //       "$elemMatch": {
+        //         "units": {
+        //           "$elemMatch": {
+        //             "number": 2,
+        //             "done": true
+        //           }
+        //         }
+        //       }
+        //     }
+        // })
+
         // const maxResults = 18;
         const totalCount = await Users.countDocuments();
 

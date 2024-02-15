@@ -74,7 +74,8 @@ const UserSchema = new Schema(
               maxPoints: Number,
               maxPages: Number,
               currentPage: Number,
-              toPay:Boolean
+              toPay:Boolean,
+              madeReview:Boolean
             }
           ],
 

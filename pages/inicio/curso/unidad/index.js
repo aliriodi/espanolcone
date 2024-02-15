@@ -1,6 +1,6 @@
 import { useSession } from "next-auth/react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMedal, faBookOpen, faCheck, faListCheck, faPuzzlePiece, faRotateRight } from '@fortawesome/free-solid-svg-icons';
+import { faMedal, faBookOpen, faCheck, faListCheck, faPuzzlePiece, faRotateRight, faStar } from '@fortawesome/free-solid-svg-icons';
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -14,6 +14,7 @@ import { useRouter } from 'next/router';
 import Spinner from "../../../../components/Spinner";
 import Head from 'next/head'
 import Copyright from "../../../../components/Class/Copyright";
+import axios from 'axios';
 
 
 export default function Unidad(){
@@ -25,6 +26,7 @@ export default function Unidad(){
 
     const [congratulationsModal, setCongratulationsModal] = useState(false)
     const [failedModal, setFailedModal] = useState(false)
+    const [reviewModal, setReviewModal] = useState(false)
 
     const [currentClass, setCurrentClass] = useState(null)
     const [unit, setUnit] = useState(null)
@@ -34,6 +36,10 @@ export default function Unidad(){
 
     const [isLoading, setIsLoading] = useState(false)
     const [resetIsLoading, setResetIsLoading] = useState(false)
+
+    const [currentEvaluetionDone, setCurrentEvaluetionDone] = useState(null)
+    const [reviewPoint, setReviewPoint] = useState(0)
+    const [reviewComment, setReviewComment] = useState("")
 
     const dispatch = useDispatch();
     
@@ -107,7 +113,7 @@ export default function Unidad(){
         })
         .catch((error) => console.log(error));
     }
-
+    
     async function updatePosition(){
         // Esta funcion se encarga de actualizar el position a la siguiente unidad 
         // y actualizar la unidad actual marcandola como echa
@@ -193,7 +199,7 @@ export default function Unidad(){
         newUser.classes[currentLevelIndex].units[currentUnitIndex] = newUnit;
         // newUser.position.index = sheets?.indexOf(sheets?.find(sheet => sheet?.section?.number == 5))
         
-        console.log("MALLLL", newUser)
+        // console.log("MALLLL", newUser)
         updateUser(newUser)
         setMaxSessionReached(5)
     }
@@ -230,23 +236,28 @@ export default function Unidad(){
 
                 mapLevel?.units?.map((mapUnit, unitIndex)=>{
 
+                    // En la unidad Actual
                     if(unitIndex == currentIndexUnit){
                         mapUnit.done=false
                         mapUnit.enable=true
                         mapUnit.maxPoints = 0
                         mapUnit.points = 0
+                        mapUnit.currentPage = 0
                     }
 
+                    // Unidades por debajo de la Unidad Actual
                     if(unitIndex < currentIndexUnit){
                         mapUnit.done=true
                         mapUnit.enable=true
                     }
                     
+                    // Unidades por ensima de la Unidad Actual
                     if(unitIndex > currentIndexUnit){
                         mapUnit.done=false
                         mapUnit.enable=false
                         mapUnit.maxPoints = 0
                         mapUnit.points = 0
+                        mapUnit.currentPage = 0
                     }
                 })
             }
@@ -275,6 +286,59 @@ export default function Unidad(){
         await updateUser(newUser)
 
         setResetIsLoading(false)
+    }
+
+    function correctEvaluation(sheets, evaluationDone){
+
+        setCurrentEvaluetionDone(evaluationDone)
+
+        let unit = { ...(session?.user?.classes[currentLevelIndex]?.units[currentUnitIndex] || {}) };
+        if(unit?.madeReview != true)setReviewModal(true)
+        
+        if(evaluationDone) updatePosition();
+        else retryEvaluation(sheets);
+    }
+
+    async function addReview(){
+        // Este metodo se encarga de agregar una review
+        // Primero marca en la unidad del usuario que ya se realizo una review
+        let newUser = {...session?.user}
+
+        let newUnit = { ...(newUser?.classes[currentLevelIndex]?.units[currentUnitIndex] || {}) };
+
+        newUnit = {
+            ...newUnit,
+            madeReview: true
+        }
+
+        newUser.classes[currentLevelIndex].units[currentUnitIndex] = newUnit;
+        
+        updateUser(newUser)
+
+        // Y luego se crea una review
+        let newReview = {
+            user_ID: session?.user?._id,               
+            user_first_name: session?.user?.first_name,        
+            user_last_name: session?.user?.last_name,        
+            user_email: session?.user?.email,        
+            user_picture: session?.user?.image?.url,
+            unit_ID: newUnit?.unitID,
+            unit_number: newUnit?.number,
+            level:newUser.classes[currentLevelIndex]?.level,        
+            score: reviewPoint,        
+            comment: reviewComment
+        }
+        
+        try{
+            await axios.post('/api/review/unit/add', newReview);
+        }
+        catch (error) {
+            console.error("No se pudo hacer la reseña: ",error);
+        }
+
+        setReviewModal(false)
+
+        
     }
 
     useEffect(()=>{
@@ -353,11 +417,31 @@ export default function Unidad(){
                 // Asigna hasta donde llego el usuario 
                 setMaxSessionReached(currentUnit?.currentPage && currentUnit?.currentPage > 0 ? json.class1.sheets[(currentUnit?.currentPage)]?.section?.number : 0)
 
-                // En caso de concretar correctamente la evaluacion pasa a la siguiente unidad
-                if(currentUnit?.currentPage == currentUnit?.maxPages && currentUnit?.maxPoints > 0 && currentUnit?.points >= 18 )updatePosition()
+                // "Corrige" la Evaluacion 
+                // if(currentUnit?.currentPage == currentUnit?.maxPages && currentUnit?.maxPoints > 0){
+
+                //     // En caso de concretar correctamente la evaluacion pasa a la siguiente unidad
+                //     if(currentUnit?.currentPage == currentUnit?.maxPages && currentUnit?.maxPoints > 0 && currentUnit?.points >= 18 )updatePosition()
+                    
+                //     // En caso de que haga mal la evaluacion obliga al usuario a reintentarlo 
+                //     if(currentUnit?.currentPage == currentUnit?.maxPages && currentUnit?.maxPoints > 0 && currentUnit?.points < 18) retryEvaluation(json.class1.sheets)
+
+                // }
+
                 
-                // En caso de que haga mal la evaluacion obliga al usuario a reintentarlo 
-                if(currentUnit?.currentPage == currentUnit?.maxPages && currentUnit?.maxPoints > 0 && currentUnit?.points < 18) retryEvaluation(json.class1.sheets)
+                // "Corrige" la Evaluacion 
+                if(currentUnit?.currentPage == currentUnit?.maxPages && currentUnit?.maxPoints > 0){
+                    let evaluationDone;
+                    
+                    // En caso de concretar correctamente la evaluacion pasa a la siguiente unidad
+                    if(currentUnit?.points >= 18 ) evaluationDone = true
+                    
+                    // En caso de que haga mal la evaluacion obliga al usuario a reintentarlo 
+                    if(currentUnit?.points < 18) evaluationDone = false
+            
+                    
+                    correctEvaluation(json.class1.sheets, evaluationDone)
+                }
 
                                     
                 setIsLoading(false)
@@ -493,7 +577,7 @@ export default function Unidad(){
 
         {/* Modal de Felitaciones */}
         {
-            congratulationsModal &&
+            congratulationsModal && !reviewModal &&
 
             <div
             onClick={()=>setCongratulationsModal(false)}
@@ -563,7 +647,7 @@ export default function Unidad(){
 
         {/* Modal de Evaluacopin fallada */}
         {
-            failedModal &&
+            failedModal && !reviewModal &&
             
             <div
             onClick={()=>setFailedModal(false)}
@@ -619,7 +703,77 @@ export default function Unidad(){
                 </div>
                 
             </div>
-        }     
+        }
+
+        {/* Modal de Reviews */}
+        {
+            reviewModal &&
+            <div
+            onClick={()=>setReviewModal(false)}
+            className={`bg-[#000a] fixed w-screen h-screen z-[400] flex justify-center items-center transition-all`}>
+
+                {/* Modal */}
+                <div
+                onClick={(e)=>e.stopPropagation()}
+                className={`bg-white rounded-[20px] relative overflow-hidden z-[600] w-[475px] h-[551px] flex justify-center items-center flex-col px-[50px]
+                md:w-[90%]`}>
+
+                    {/* Encabezado */}
+                    <div className="">
+                        <p className="text-[#4F4F4F] text-[24px] font-bold">¿Que te parecio esta unidad?</p>
+                    </div>
+
+                    {/* Extrellas */}
+                    <div className=" text-light text-[45px] flex w-full justify-between mt-[37px] pb-[15px]">
+
+                        {/* Estrella 1 */}
+                        <FontAwesomeIcon
+                        icon={faStar} onClick={()=> setReviewPoint(1)}
+                        className={`transition-all duration-75 cursor-pointer ${1 <= reviewPoint && "text-info"}`} />
+
+                        {/* Estrella 2 */}
+                        <FontAwesomeIcon
+                        icon={faStar} onClick={()=> setReviewPoint(2)}
+                        className={`transition-all duration-75 cursor-pointer ${2 <= reviewPoint && "text-info"}`} />
+
+                        {/* Estrella 3 */}
+                        <FontAwesomeIcon
+                        icon={faStar} onClick={()=> setReviewPoint(3)}
+                        className={`transition-all duration-75 cursor-pointer ${3 <= reviewPoint && "text-info"}`} />
+
+                        {/* Estrella 4 */}
+                        <FontAwesomeIcon
+                        icon={faStar} onClick={()=> setReviewPoint(4)}
+                        className={`transition-all duration-75 cursor-pointer ${4 <= reviewPoint && "text-info"}`} />
+
+                        {/* Estrella 5 */}
+                        <FontAwesomeIcon
+                        icon={faStar} onClick={()=> setReviewPoint(5)}
+                        className={`transition-all duration-75 cursor-pointer ${5 <= reviewPoint && "text-info"}`} />
+                    </div>
+
+                    {/* Campo */}
+                    <div className={`overflow-hidden w-full transition-all ${reviewPoint == 0 && "h-0"}`}>
+                        <input
+                        value={reviewComment}
+                        onChange={(e)=> setReviewComment(e.target.value)}
+                        className=" px-[10px] py-[15px] w-full rounded-[6px] border-[1px] border-[#9F9F9F] outline-none"
+                        type="text"
+                        placeholder="¡Deja tu comentario!"/>
+                    </div>
+
+                    {/* Button */}
+                    <button
+                    onClick={reviewPoint > 0 && addReview}
+                    className={`btn-primary p-2 w-full text-[21px] mb-3  mt-[25px] ${reviewPoint == 0 && " opacity-[60%] pointer-events-none"}
+                    md:text-[14px]`}>
+                        Continuar
+                    </button>
+                    
+                </div>
+
+            </div>
+        }
 
         <div className="flex">
             <Menu/>
