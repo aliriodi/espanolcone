@@ -265,13 +265,10 @@ function Navbar(props) {
             <Link href={"/aboutus"}>{t('ABOUTUS')}</Link>
           </li>
           <li>
-            <Link href={"#TEAM"}>{t('TEAM')}</Link>
-          </li>
-          <li>
             <Link href={"/contactus"}>{t('CONTACTUS')}</Link>
           </li>
           <li>
-            <Link href={"/blog"}>{'blog'}</Link>
+            <Link href={"/blog"}>{'Blog'}</Link>
           </li>
         </ul>
 
@@ -369,13 +366,10 @@ function Navbar(props) {
             <Link href={"/aboutus"}>{t('ABOUTUS')}</Link>
           </li>
           <li>
-            <Link href={"#TEAM"}>{t('TEAM')}</Link>
-          </li>
-          <li>
             <Link href={"/contactus"}>{t('CONTACTUS')}</Link>
           </li>
           <li>
-            <Link href={"/blog"}>{'blog'}</Link>
+            <Link href={"/blog"}>{'Blog'}</Link>
           </li>
         </ul>
 

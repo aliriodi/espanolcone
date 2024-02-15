@@ -255,7 +255,8 @@ export default function Ofrece() {
           </div>
 
           {/* Subtitulo */}
-          <p className='flex flex-col items-center my-[36px] text-center font-medium max-w-[535px] text-[24px] text-[#676767]'>
+          <p className='flex flex-col items-center my-[36px] text-center font-medium max-w-[535px] text-[24px] text-[#676767]
+          md:text-[16px]'>
             {t("card42.0.text")}
             <b>{t("card42.0.textPromotion")}</b>
           </p>
@@ -267,7 +268,7 @@ export default function Ofrece() {
 
           {/* Nuestros Programas */}
           <div
-            className="bg-white shadow-lg rounded-[15px]  w-[419px] h-min-[635px] mr-[15px] py-[29px] px-[36px] relative
+            className="bg-white shadow-lg rounded-[15px]  w-[419px] h-min-[666px] mr-[15px] py-[29px] px-[36px] relative
             md:mx-0 md:w-full md:px-[16px] md:mb-[19px]"
             style={{ boxShadow: '0px 4px 26px #00000040' }}>
 
@@ -373,7 +374,6 @@ export default function Ofrece() {
                 </p>
               </div>
 
-
               <div className='flex justify-center items-start text-left mb-5'>
                 <div className="md:w-[38px]">
                   <span className='flex justify-center items-center bg-primary rounded-full mr-2' style={{ width: '18px', height: '18px' }}>
@@ -388,25 +388,25 @@ export default function Ofrece() {
                 <p className='flex justify-center items-start text-left text-[18px] font-medium'>
                   {t("card42.1.list.3")}
                 </p>
-            </div>
+              </div>
 
-            <div className='flex justify-center items-center '>
-            <div className='   mb-5'>
-                {/* Falta centrar este ITEM (solo para los niveles A1, A2 y B1) */}
+              {/* (solo para los niveles A1, A2 y B1) */}
+              <div className='flex justify-center items-center w-full'>
+
                 <p className='text-center   text-[14px] font-semibold'>
                   {t("card42.1.list.4")}
                 </p>
-            </div>
-            </div>
 
-            {/* Boton */}
-            <button
-              className="w-[255px] bg-primary rounded-full text-white py-[13px] absolute bottom-[29px] left-[50%] translate-x-[-50%] transition-all text-[20px]
-              hover:shadow-[0px_4px_14px_0px_#4ED5F2]"
-              onClick={() => { setPayModal(true); setPaypalDates({ qty: 1, cost: 25, descripion: "1claseIndividual 1masterclass 1claseengrupo 3unidadesporNivel" }); }}>
-              {t("card42.1.button")}
-              {/* para habilitar el pago de 1era CARD 25usd */}
-            </button>
+              </div>
+
+              {/* Boton */}
+              <button
+                className="w-[255px] bg-primary rounded-full text-white py-[13px] absolute bottom-[29px] left-[50%] translate-x-[-50%] transition-all text-[20px]
+                hover:shadow-[0px_4px_14px_0px_#4ED5F2]"
+                onClick={() => { setPayModal(true); setPaypalDates({ qty: 1, cost: 25, descripion: "1claseIndividual 1masterclass 1claseengrupo 3unidadesporNivel" }); }}>
+                {t("card42.1.button")}
+                {/* para habilitar el pago de 1era CARD 25usd */}
+              </button>
             {/* Boton Modal de pagos ofertas */}
             {/* <div className='w-[100%] relative top-6'>
                 <button
@@ -422,10 +422,12 @@ export default function Ofrece() {
           <div>{false && Offer && <ModalPagoLanding open={Offer} setOpen={setOffer} />}</div>
         </div>
 
+
+
         {/* Conoce Cordoba */}
         <div
-          className="bg-white shadow-lg rounded-[15px]  w-[419px] h-min-[635px] ml-[15px] py-[29px] px-[36px] relative
-            md:mx-0 md:w-full md:px-[16px] md:mt-[19px]"
+          className="bg-white shadow-lg rounded-[15px]  w-[419px] h-min-[666px] ml-[15px] py-[29px] px-[36px] relative
+            md:mx-0 md:w-full md:px-[16px] md:mt-[19px] md:h-[666px]"
           style={{ boxShadow: '0px 4px 26px #00000040' }}>
 
           {/* Encabezado */}
@@ -505,14 +507,14 @@ export default function Ofrece() {
                 {t("card42.2.list.1")}
               </p>
             </div>
-            <div className='flex justify-center items-start text-left mb-5'>
-                <div className="md:w-[28px]">
-                  
-                </div>
-                <p className='flex justify-center items-start text-left text-[14px] font-semibold'>
-                  {/* Falta centrar este ITEM (solo para los niveles A1, A2 y B1) */}
-                  {t("card42.2.list.2")}
-                </p>
+            
+            {/* (solo para los niveles A1, A2 y B1) */}
+            <div className='flex justify-center items-center w-full'>
+
+              <p className='text-center   text-[14px] font-semibold'>
+                {t("card42.1.list.4")}
+              </p>
+
             </div>
 
             {/* Boton */}
