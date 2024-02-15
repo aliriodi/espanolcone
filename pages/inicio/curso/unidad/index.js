@@ -14,6 +14,7 @@ import { useRouter } from 'next/router';
 import Spinner from "../../../../components/Spinner";
 import Head from 'next/head'
 import Copyright from "../../../../components/Class/Copyright";
+import axios from 'axios';
 
 
 export default function Unidad(){
@@ -198,7 +199,7 @@ export default function Unidad(){
         newUser.classes[currentLevelIndex].units[currentUnitIndex] = newUnit;
         // newUser.position.index = sheets?.indexOf(sheets?.find(sheet => sheet?.section?.number == 5))
         
-        console.log("MALLLL", newUser)
+        // console.log("MALLLL", newUser)
         updateUser(newUser)
         setMaxSessionReached(5)
     }
@@ -290,14 +291,51 @@ export default function Unidad(){
     function correctEvaluation(sheets, evaluationDone){
 
         setCurrentEvaluetionDone(evaluationDone)
-        setReviewModal(true)
+
+        let unit = { ...(session?.user?.classes[currentLevelIndex]?.units[currentUnitIndex] || {}) };
+        if(unit?.madeReview != true)setReviewModal(true)
         
         if(evaluationDone) updatePosition();
         else retryEvaluation(sheets);
     }
 
     async function addReview(){
+        // Este metodo se encarga de agregar una review
+        // Primero marca en la unidad del usuario que ya se realizo una review
         let newUser = {...session?.user}
+
+        let newUnit = { ...(newUser?.classes[currentLevelIndex]?.units[currentUnitIndex] || {}) };
+
+        newUnit = {
+            ...newUnit,
+            madeReview: true
+        }
+
+        newUser.classes[currentLevelIndex].units[currentUnitIndex] = newUnit;
+        
+        updateUser(newUser)
+
+        // Y luego se crea una review
+        let newReview = {
+            user_ID: session?.user?._id,               
+            user_first_name: session?.user?.first_name,        
+            user_last_name: session?.user?.last_name,        
+            user_email: session?.user?.email,        
+            user_picture: session?.user?.image?.url,
+            unit_ID: newUnit?.unitID,
+            unit_number: newUnit?.number,
+            level:newUser.classes[currentLevelIndex]?.level,        
+            score: reviewPoint,        
+            comment: reviewComment
+        }
+        
+        try{
+            await axios.post('/api/review/unit/add', newReview);
+        }
+        catch (error) {
+            console.error("No se pudo hacer la reseña: ",error);
+        }
+
         setReviewModal(false)
 
         
@@ -675,7 +713,9 @@ export default function Unidad(){
             className={`bg-[#000a] fixed w-screen h-screen z-[400] flex justify-center items-center transition-all`}>
 
                 {/* Modal */}
-                <div className={`bg-white rounded-[20px] relative overflow-hidden z-[600] w-[475px] h-[551px] flex justify-center items-center flex-col px-[50px]
+                <div
+                onClick={(e)=>e.stopPropagation()}
+                className={`bg-white rounded-[20px] relative overflow-hidden z-[600] w-[475px] h-[551px] flex justify-center items-center flex-col px-[50px]
                 md:w-[90%]`}>
 
                     {/* Encabezado */}
@@ -715,16 +755,18 @@ export default function Unidad(){
                     {/* Campo */}
                     <div className={`overflow-hidden w-full transition-all ${reviewPoint == 0 && "h-0"}`}>
                         <input
+                        value={reviewComment}
                         onChange={(e)=> setReviewComment(e.target.value)}
-                        className=" px-[10px] py-[15px] w-full rounded-[6px] border-[1px] border-[#9F9F9F] mb-[25px] outline-none"
+                        className=" px-[10px] py-[15px] w-full rounded-[6px] border-[1px] border-[#9F9F9F] outline-none"
                         type="text"
                         placeholder="¡Deja tu comentario!"/>
                     </div>
 
                     {/* Button */}
                     <button
-                     className="btn-primary p-2 w-full text-[21px] mb-3
-                     md:text-[14px]">
+                    onClick={reviewPoint > 0 && addReview}
+                    className={`btn-primary p-2 w-full text-[21px] mb-3  mt-[25px] ${reviewPoint == 0 && " opacity-[60%] pointer-events-none"}
+                    md:text-[14px]`}>
                         Continuar
                     </button>
                     

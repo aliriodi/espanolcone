@@ -75,10 +75,7 @@ const UserSchema = new Schema(
               maxPages: Number,
               currentPage: Number,
               toPay:Boolean,
-              review:{
-                score: Number,
-                comment: String
-              }
+              madeReview:Boolean
             }
           ],
 
