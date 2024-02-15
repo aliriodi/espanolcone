@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
 import Menu from "../../../components/Menu"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faAngleLeft, faAngleRight, faEllipsisVertical, faFilter, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
+import { faAngleLeft, faAngleRight, faBook, faEllipsisVertical, faFilter, faMagnifyingGlass, faMoneyBillTrendUp, faNewspaper, faUsers } from "@fortawesome/free-solid-svg-icons"
 import Spinner from "../../../components/Spinner"
 import MenuUsers from "../../../components/admin/MenuUser"
 import { useSession } from "next-auth/react";
 import { useRouter } from 'next/router';
+import NavBarAdmin from "../../../components/admin/NavBarAdmin"
 
 export default function Admin() {
     const [currentUsers, setCurrentUsers] = useState(null)
@@ -236,32 +237,7 @@ export default function Admin() {
                 <div className="grid grid-cols-1    w-full sm:grid-cols-1 md:grid-cols-1 ">
                     
                     {/* Opciones */}
-                    <div className="grid grid-cols-2">
-                        {/* Boton para ir a seccion de Blogs */}
-                        <div onClick={()=>router.push('/inicio/blog/')} className='w-[100px] mx-auto flex justify-center bg-white rounded-full p-3 mb-5 shadow-[0px_4px_24px_#0000002F] relative cursor-pointer'>
-                            BLOGS
-                        </div>
-                        {/* Boton para ir a seccion de recibos */}
-                        <div onClick={()=>router.push('/inicio/facturacion/')} className='w-[180px] mx-auto flex justify-center bg-white rounded-full p-3 mb-5 shadow-[0px_4px_24px_#0000002F] relative cursor-pointer'>
-                            FACTURACION
-                        </div>
-                    </div>
-                   
-                    {/* Barra de busqueda */}
-                    <div className="w-[584px] mx-auto flex justify-center bg-white rounded-full p-3 mb-5 shadow-[0px_4px_24px_#0000002F] relative">
-
-                        {/* Input */}
-                        <input
-                            className=" flex-grow-[1] outline-none"
-                            placeholder='Busca por "Nombre", "Apellido" o "Email"'
-                            onChange={(e) => setSearchInput(e.target.value)}
-                            type="text" />
-
-                        {/* Icono */}
-                        <div className=" w-6">
-                            <FontAwesomeIcon className=" text-violet_dark" icon={faMagnifyingGlass} />
-                        </div>
-                    </div>
+                    {/* <NavBarAdmin/> */}
                     
                 </div>
                 {/* Contador de Usuarios */}
@@ -279,6 +255,24 @@ export default function Admin() {
 
                 {/* Usuarios */}
                 <div className="bg-white rounded-[7px] shadow-[0px_4px_24px_#0000000F] text-violet_dark">
+
+                    <p className="text-[18px] text-title_color font-medium border-b-2 pb-[25px] pt-[26px] px-[35px]">Administracion de usuarios</p>
+                    
+                    {/* Barra de busqueda */}
+                    <div className="w-[400px] flex justify-center bg-white rounded-[7px] p-1 border-2 my-[20px] mx-[25px] relative">
+
+                        {/* Input */}
+                        <input
+                            className=" flex-grow-[1] outline-none"
+                            placeholder='Busca por "Nombre", "Apellido" o "Email"'
+                            onChange={(e) => setSearchInput(e.target.value)}
+                            type="text" />
+
+                        {/* Icono */}
+                        <div className=" w-6">
+                            <FontAwesomeIcon className=" text-violet_dark" icon={faMagnifyingGlass} />
+                        </div>
+                    </div>
 
                     {/* Encabezado */}
                     <ul className="bg-[#F3F2F7] w-full flex py-[19px] px-[35px] font-semibold justify-between">
