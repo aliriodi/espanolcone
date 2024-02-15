@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
-import Menu from "../../components/Menu"
+import Menu from "../../../components/Menu"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faAngleLeft, faAngleRight, faEllipsisVertical, faFilter, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
-import Spinner from "../../components/Spinner"
-import MenuUsers from "../../components/admin/MenuUser"
+import Spinner from "../../../components/Spinner"
+import MenuUsers from "../../../components/admin/MenuUser"
 import { useSession } from "next-auth/react";
 import { useRouter } from 'next/router';
 
@@ -234,6 +234,18 @@ export default function Admin() {
             <div className="px-[60px] py-[119px]    md:px-[25px]">
 
                 <div className="grid grid-cols-1    w-full sm:grid-cols-1 md:grid-cols-1 ">
+                    
+                    {/* Opciones */}
+                    <div className="grid grid-cols-2">
+                        {/* Boton para ir a seccion de Blogs */}
+                        <div onClick={()=>router.push('/inicio/blog/')} className='w-[100px] mx-auto flex justify-center bg-white rounded-full p-3 mb-5 shadow-[0px_4px_24px_#0000002F] relative cursor-pointer'>
+                            BLOGS
+                        </div>
+                        {/* Boton para ir a seccion de recibos */}
+                        <div onClick={()=>router.push('/inicio/facturacion/')} className='w-[180px] mx-auto flex justify-center bg-white rounded-full p-3 mb-5 shadow-[0px_4px_24px_#0000002F] relative cursor-pointer'>
+                            FACTURACION
+                        </div>
+                    </div>
                    
                     {/* Barra de busqueda */}
                     <div className="w-[584px] mx-auto flex justify-center bg-white rounded-full p-3 mb-5 shadow-[0px_4px_24px_#0000002F] relative">
@@ -250,16 +262,7 @@ export default function Admin() {
                             <FontAwesomeIcon className=" text-violet_dark" icon={faMagnifyingGlass} />
                         </div>
                     </div>
-                    <div className="grid grid-cols-2">
-                     {/* Boton para ir a seccion de Blogs */}
-                     <div onClick={()=>router.push('/inicio/blog/')} className='w-[100px] mx-auto flex justify-center bg-white rounded-full p-3 mb-5 shadow-[0px_4px_24px_#0000002F] relative cursor-pointer'>
-                        BLOGS
-                    </div>
-                       {/* Boton para ir a seccion de recibos */}
-                       <div onClick={()=>router.push('/inicio/facturacion/')} className='w-[180px] mx-auto flex justify-center bg-white rounded-full p-3 mb-5 shadow-[0px_4px_24px_#0000002F] relative cursor-pointer'>
-                        FACTURACION
-                    </div>
-                    </div>
+                    
                 </div>
                 {/* Contador de Usuarios */}
                 {
