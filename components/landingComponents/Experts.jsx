@@ -36,7 +36,7 @@ export default function Experts() {
 
       {/* Titulo */}
       <h2 className='underlined-subtitle'>
-        {t("card5.0.title1")}
+        {t("card5.0.title")}
         </h2>
 
       {/* Carrucel */}
@@ -46,7 +46,7 @@ export default function Experts() {
         slidesPerView={4}
         loop={true}
         autoplay={{
-          delay: 1500,
+          delay: 3000,
           disableOnInteraction: false,
         }}
         modules={[Autoplay, Pagination, Navigation]}
@@ -78,7 +78,7 @@ export default function Experts() {
         slidesPerView={1}
         loop={true}
         autoplay={{
-          delay: 1500,
+          delay: 3000,
           disableOnInteraction: false,
         }}
         modules={[Autoplay, Pagination, Navigation]}

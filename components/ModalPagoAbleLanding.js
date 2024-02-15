@@ -8,7 +8,7 @@ import { createStructuredSelector } from 'reselect';
 import { useTranslation } from 'next-i18next';
 
 export default function ModalPagoABLE(props) {
-  const { t } = useTranslation(['index','register'])
+  const { t } = useTranslation(['index', 'register'])
   const [isOpen, setIsOpen] = useState(false)
   //PARA EL FORMULARIO
   const [nombre, setNombre] = useState('');
@@ -16,15 +16,26 @@ export default function ModalPagoABLE(props) {
   const [email, setEmail] = useState('');
   const [passwd, setPasswd] = useState('');
   const [NewUser, setNewUser] = useState(false);
+  //Validacion de condiciones para activar compra
+  const [emailOk, setEmailOk] = useState(false);
+  const [nombreOk, setNombreOk] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     props.setApellido(apellido)
     props.setNombre(nombre)
     props.setEmail(email)
-
+  
     // Aquí puedes enviar los datos a tu backend o hacer lo que necesites con ellos
   };
+  function validate(nombre,email){
+    props.setApellido(apellido)
+    props.setNombre(nombre)
+    props.setEmail(email)
+    var validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(nombre.length>1){setNombreOk(true)} else{setNombreOk(false)}
+    if( validEmail.test(email) ){setEmailOk(true)}else{setEmailOk(false)}
+  }
   function generarPassword() {
     const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let password = '';
@@ -51,7 +62,7 @@ export default function ModalPagoABLE(props) {
         }).then(response => response.json())
         .then(response => {
           //Si usuario existe
-          if (response.totalResults) { IncrementAppoinment(response.results) ,props.open1(),props.close()}
+          if (response.totalResults) { IncrementAppoinment(response.results), props.open1(), props.close() }
           //Si usuario no existe
           else { createUser() }
         })
@@ -78,7 +89,7 @@ export default function ModalPagoABLE(props) {
         }).then(response => response.json())
         .then(response => {
           //Si usuario existe
-          if (response.totalResults) { IncrementAppoinment(response.results) ,props.open2(), props.close()}
+          if (response.totalResults) { IncrementAppoinment(response.results), props.open2(), props.close() }
           //Si usuario no existe
           else { createUser2() }
         })
@@ -87,14 +98,14 @@ export default function ModalPagoABLE(props) {
     catch (error) {
       console.log(error);
     }
-    
+
     { props.open2(), props.close() }
 
   }
 
   async function createUser() {
-  setNewUser(true);
-  props.setNewUser(true);
+    setNewUser(true);
+    props.setNewUser(true);
     try {
       console.log('creando usuario')
       await axios.post('/api/auth/signup',
@@ -105,9 +116,9 @@ export default function ModalPagoABLE(props) {
           email: email,
           password: passwd,
           confirm_password: passwd,
-          roles: ['student','user']
+          roles: ['student', 'user']
         }
-      ).then(response=> {console.log(response),props.open1(), props.close() });
+      ).then(response => { console.log(response), props.open1(), props.close() });
 
     } catch (error) { console.log(error) }
   }
@@ -116,23 +127,23 @@ export default function ModalPagoABLE(props) {
   async function createUser2() {
     setNewUser(true);
     props.setNewUser(true);
-      try {
-        console.log('creando usuario')
-        await axios.post('/api/auth/signup',
-          {
-            first_name: nombre,
-            last_name: apellido,
-            country: "",
-            email: email,
-            password: passwd,
-            confirm_password: passwd,
-            roles: ['student','user']
-          }
-        ).then(response=> {console.log(response),props.open2(), props.close(),MakeAndPay2() });
-  
-      } catch (error) { console.log(error) }
-    }
-  
+    try {
+      console.log('creando usuario')
+      await axios.post('/api/auth/signup',
+        {
+          first_name: nombre,
+          last_name: apellido,
+          country: "",
+          email: email,
+          password: passwd,
+          confirm_password: passwd,
+          roles: ['student', 'user']
+        }
+      ).then(response => { console.log(response), props.open2(), props.close(), MakeAndPay2() });
+
+    } catch (error) { console.log(error) }
+  }
+
 
   async function IncrementAppoinment(user) {
     try {
@@ -153,6 +164,9 @@ export default function ModalPagoABLE(props) {
     setIsOpen(props.open)
   }, [props.open])
 
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
+  }
   return (
     <>
 
@@ -172,40 +186,49 @@ export default function ModalPagoABLE(props) {
 
                 <Image src={Logo} className='mb-0' style={{ width: '100px' }} alt="Logo" />
               </div>
-              <div>
+              <div className='pt-2'>
                 <form onSubmit={handleSubmit}>
-                  <div>
-                    <label>
+                  <div className='p-2'>
+                    {/* <label className='border border-gray-300 p-2'> */}
+                    <label className='p-2'>
                       {/* Nombre */}
                       {t('name')}:
                       <input
+                        className={classNames('ml-2 border  focus-visible:outline-none rounded-md ',!nombreOk? 'border-gray-300': ' shadow-md  shadow-primary border-green-300')}
                         type="text"
                         value={nombre}
-                        onChange={(e) => setNombre(e.target.value)}
+                        placeholder={'  '+t('name')}
+                        onChange={(e) => {setNombre(e.target.value),validate(e.target.value,email)  }}
                       />
                     </label>
+                    {/* {nombreOk?<>Valido</>:<>Invalido</>}+{' '+nombre.length+' '+nombre} */}
                   </div>
-                  <div>
-                    <label>
+                  {/* <div className='p-2'>
+                  <label className='p-2'>
                       {/* Apellido */}
-                    {t('lastname')}:
-                      <input
+                      {/* {t('lastname')}: */}
+                      {/* <input
+                        className='ml-2 border focus-visible:outline-none rounded-md border-gray-300 '
                         type="text"
                         value={apellido}
+                        placeholder={'  '+t('lastname')}
                         onChange={(e) => setApellido(e.target.value)}
                       />
                     </label>
-                  </div>
-                  <div>
-                    <label>
+                  </div> */} 
+                  <div className='p-2'>
+                  <label className='p-2'>
                       {/* Correo Electronico */}
                       {t('email')}:
-                      <input 
+                      <input
+                        className={classNames('ml-2 border  focus-visible:outline-none rounded-md ',!emailOk? 'border-gray-300': ' shadow-md  shadow-primary border-green-300')}
                         type="email"
+                        placeholder='  johndoe@gmail.com'
                         value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        onChange={(e) => {setEmail(e.target.value),validate(nombre,e.target.value)}}
                       />
                     </label>
+                    {/* {emailOk?<>Valido</>:<>Invalido email </>} */}
                   </div>
 
 
@@ -217,18 +240,19 @@ export default function ModalPagoABLE(props) {
                   </div>
 
                   {/* Metodo de pago */}
-                  <div
+                {emailOk && nombreOk ?  <div
                     className='w-[750px] max-h-[70vh] flex-col flex justify-center p-3 mt-7
             overflow-y-scroll modal-paypal
             md:w-full'>
                     <button
                       type="submit"
-                      onClick={() => MakeAndPay()}
+                     onClick={() => MakeAndPay()}
                       className='rounded-[5px] text-white px-5 py-2.5 mb-4 w-full text-[21px] italic font-semibold bg-gradient-to-r from-[#253b80] to-[#2997d8]  flex justify-center
                     hover:shadow-[0px_4px_14px_#253b80]'>
                       {/* <Image src={Zelle} alt='zelle' className='w-[60px]'/>  */}
                       PayPal
                     </button>
+
                     <button
                       type="submit"
                       onClick={() => MakeAndPay2()}
@@ -239,6 +263,32 @@ export default function ModalPagoABLE(props) {
                     <div className='w-full m-auto'>
                     </div>
                   </div>
+:
+                  <div
+                    className='w-[750px] max-h-[70vh] flex-col flex justify-center p-3 mt-7
+            overflow-y-scroll modal-paypal
+            md:w-full'>
+                    <button
+                      type="submit"
+                     onClick={() => alert(t('email')+' o '+t('name')+' Invalido')}
+                      className='rounded-[5px] text-white px-5 py-2.5 mb-4 w-full text-[21px] italic font-semibold bg-gradient-to-r from-[#253b80] to-[#2997d8]  flex justify-center
+                    hover:shadow-[0px_4px_14px_#253b80]'>
+                      {/* <Image src={Zelle} alt='zelle' className='w-[60px]'/>  */}
+                      PayPal
+                    </button>
+
+                    <button
+                      type="submit"
+                      onClick={() => alert(t('email')+' o '+t('name')+' Invalido')}
+                      className='rounded-[5px] text-white px-5 py-2.5 w-full mb-4 text-[16px] font-semibold bg-[#7422e0] flex justify-center
+                    hover:shadow-[0px_4px_14px_#7422e0]'>
+                      <Image src={Zelle} alt='zelle' className='w-[60px]' />
+                    </button>
+                    <div className='w-full m-auto'>
+                    </div>
+                  </div>
+      }
+
                 </form>
 
 

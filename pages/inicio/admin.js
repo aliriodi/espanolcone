@@ -138,12 +138,12 @@ export default function Admin() {
                 }
 
             });
-            console.log(response)
+          //  console.log(response)
             if (response.ok) {
                 const data = await response.json();
 
                 if (data) {
-                    console.log('te envio datos del' + data.role);
+           //         console.log('te envio datos del' + data.role);
                     return data
                 } else {
                     console.error('Error al actualizar el usuario:', data.error);
@@ -176,7 +176,7 @@ export default function Admin() {
         }
 
         let newUser2 = { ...await getUser(newUser.calendar[0].id) }
-        console.log(newUser2)
+      //  console.log(newUser2)
         await newUser2.userid.calendar.map(meet => {
             if (newUser.calendar[0].startDatetime === meet.startDatetime) { meet['assigned'] = true; }
         })
@@ -250,9 +250,15 @@ export default function Admin() {
                             <FontAwesomeIcon className=" text-violet_dark" icon={faMagnifyingGlass} />
                         </div>
                     </div>
+                    <div className="grid grid-cols-2">
                      {/* Boton para ir a seccion de Blogs */}
                      <div onClick={()=>router.push('/inicio/blog/')} className='w-[100px] mx-auto flex justify-center bg-white rounded-full p-3 mb-5 shadow-[0px_4px_24px_#0000002F] relative cursor-pointer'>
                         BLOGS
+                    </div>
+                       {/* Boton para ir a seccion de recibos */}
+                       <div onClick={()=>router.push('/inicio/facturacion/')} className='w-[180px] mx-auto flex justify-center bg-white rounded-full p-3 mb-5 shadow-[0px_4px_24px_#0000002F] relative cursor-pointer'>
+                        FACTURACION
+                    </div>
                     </div>
                 </div>
                 {/* Contador de Usuarios */}

@@ -35,7 +35,6 @@ useEffect(() => {
     blog()
 }, []);
 
-
   const {
     title,
     published_at,

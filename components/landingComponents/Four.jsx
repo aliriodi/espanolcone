@@ -52,7 +52,7 @@ export default function Four() {
         slidesPerView={1}
         loop={true}
         autoplay={{
-          delay: 1500,
+          delay: 3500,
           disableOnInteraction: false,
         }}
         modules={[Autoplay, Pagination, Navigation]}

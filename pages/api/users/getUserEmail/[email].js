@@ -39,8 +39,8 @@ export default async function GetByEmail(req, res) {
 
         if (req.headers.accept === "*/*") {
           // Solicitud desde el código
-          console.log(results)
-          console.log(totalResults)
+        //  console.log(results)
+       //   console.log(totalResults)
          
           return res.status(200).json({ results, totalResults });
         } else {

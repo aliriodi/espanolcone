@@ -1,34 +1,34 @@
 {
   "card1Title": "Descubre el mundo del español",
-  "card1Text": "Adquiera fluidez mientras se sumerge en nuevas culturas y visiones del mundo.",
+  "card1Text": "Aumenta tu fluidez mientras descubres otras culturas y perspectivas",
   "card1Button": "Regístrate ahora",
   "card2": [
     {
       "title": "Conecta con tus intereses",
-      "paragraph": "Incorpora el español a la perfección en tu rutina diaria, pasatiempos y pasiones"
+      "paragraph": "Integra el español en tu rutina diaria, en tus pasatiempos y aficiones"
     },
     {
       "title": "Aprende haciendo",
-      "paragraph": "Aumente su fluidez a través de proyectos, actividades y conversaciones"
+      "paragraph": "Aumenta tu fluidez con proyectos, actividades y conversaciones con nativos"
     },
     {
       "title": "Viaja y descubre la cultura",
-      "paragraph": "Explora países de habla hispana con nuestros profesores y guías turísticos"
+      "paragraph": "Conoce países hispanohablantes junto a profesores y guías turísticos"
     },
     {
       "title": "Únete a nuestra comunidad",
-      "paragraph": "Participa en conversaciones sobre tus temas favoritos en español"
+      "paragraph": "Conversa sobre tus temas favoritos con profesores y estudiantes"
     }
   ],
   "card3Title": "Explora nuestra app",
-  "card3Text": "Mejora tus habilidades en español estés donde estés y a tu propio ritmo. Sumérgete en un curso de español completo adaptado a tu nivel de dominio, que incluye:",
+  "card3Text": "Mejora tu español donde estés, a tu propio ritmo. Sumérgete en un curso completo adaptado a tu nivel que incluye:",
   "card3List": [
-    "Datos y consejos culturales.",
+    "Tips y datos culturales.",
     "Explicaciones de vocabulario y gramática.",
     "Actividades interactivas.",
-    "Retos para reforzar tu aprendizaje."
+    "Desafíos para reforzar tu aprendizaje."
   ],
-  "card3Text2": "Además, tiene la opción de programar lecciones personalizadas con nuestros profesores experimentados para profundizar en cualquier tema.",
+  "card3Text2": "Además, puedes agendar clases personalizadas con nuestros profesores para profundizar en cualquier tema.",
   "card3Button": "Pruébalo gratis",
   "card4": [
     {
@@ -71,47 +71,49 @@
   ],
   "card42": [
     {
-      "title": "Descubre nuestros planes anticipados",
-      "text": "Desbloquea las ventajas de estar entre nuestros primeros usuarios por tiempo limitado. Pruebe las funciones y programas exclusivos de nuestra plataforma.",
-      "textPromotion": "*Promoción válida hasta el 15 de marzo de 2024."
+      "title": "Descubre nuestros planes de lanzamiento",
+      "text": "Disfruta las ventajas de estar entre nuestros primeros usuarios por tiempo limitado.",
+      "textPromotion": "*Promoción válida hasta el 15 de marzo del 2024"
     },
     {
       "title": "Experiencia completa",
       "priceOffer": "$25",
       "priceReal": "$100",
       "list": [
-        "1 lección individual personalizada",
-        "1 Clase maestra",
-        "1 lección grupal",
-        "3 lecciones interactivas en la aplicación"
+        "1 clase individual personalizada",
+        "1 Master Class",
+        "1 clase grupal",
+        "2 clases interactivas en la app",
+        "(solo para los niveles A1, A2 y B1)"
       ],
-      "button": "Empezar"
+      "button": "Únete"
     },
     {
-      "title": "Prueba un poco",
+      "title": "Echa un vistazo",
       "priceOffer": "$10",
       "priceReal": "$45",
       "list": [
-        "1 ES Master Class",
-        "3 lecciones interactivas en la aplicación"
+        "1 Master Class",
+        "2 clases interactivas en la app",
+        "(solo para los niveles A1, A2 y B1)"
       ],
-      "button": "Empezar"
+      "button": "Únete"
     }
   ],
   "card43Title": "Experimenta la lengua y la cultura en Córdoba",
   "card43SubTitle": "Conoce esta hermosa provincia de Argentina mientras perfeccionas tu español.",
-  "card43Paragraph0": "Únase a nuestro viaje en junio de 2024 y disfrute de una combinación única de aprendizaje y turismo. Tendrás la oportunidad de:",
+  "card43Paragraph0": "Súmate a este viaje en junio del 2024 y disfruta una mezcla única de aprendizaje y turismo.  Tendrás la oportunidad de:",
   "card43List": [
-    "Descubre lugares icónicos a través de la inmersión en la cultura local.",
-    "Contrata guías turísticos certificados.",
-    "Disfruta de los eventos y actividades exclusivos de Español con E.",
-    "Practica español con hablantes nativos y conoce gente nueva."
+    "Descubrir la cultura local y lugares icónicos.",
+    "Contratar guías turísticos certificados.",
+    "Disfrutar actividades y eventos exclusivos de Español con E.",
+    "Practicar español con hablantes nativos y conocer gente nueva."
   ],
-  "card43Paragraph1": "¡Sé uno de los primeros en recibir información exclusiva y reserva tu lugar!",
+  "card43Paragraph1": "¡Asegura tu lugar y sé una de las primeras personas en recibir información exclusiva!",
   "card43Button": "Únete a la lista de espera",
   "card5": [
     {
-      "title": "Conoce nuestro equipo de expertos",
+      "title": "Conoce nuestro equipo",
       "title1": "Nuestro Equipo",
       "p1": {
         "image": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366482/images/team-photo-01_svprcr.png",
