@@ -237,7 +237,7 @@ export default function Admin() {
                 <div className="grid grid-cols-1    w-full sm:grid-cols-1 md:grid-cols-1 ">
                     
                     {/* Opciones */}
-                    <NavBarAdmin/>
+                    {/* <NavBarAdmin/> */}
                     
                 </div>
                 {/* Contador de Usuarios */}
