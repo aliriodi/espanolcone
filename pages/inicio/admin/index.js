@@ -7,6 +7,7 @@ import MenuUsers from "../../../components/admin/MenuUser"
 import { useSession } from "next-auth/react";
 import { useRouter } from 'next/router';
 import NavBarAdmin from "../../../components/admin/NavBarAdmin"
+import ModalGeneric from "../../../components/GenericsElements/modalGeneric"
 
 export default function Admin() {
     const [currentUsers, setCurrentUsers] = useState(null)
@@ -182,6 +183,16 @@ export default function Admin() {
             if (newUser.calendar[0].startDatetime === meet.startDatetime) { meet['assigned'] = true; }
         })
 
+        // Envia emails
+        let email = {
+            to: newUser?.email,
+            subject: "Confirmación de pago validado por Zelle",
+            title: "Confirmación de pago validado por Zelle",
+            content:`<p>Es un placer confirmar que hemos recibido exitosamente su pago a través de Zelle. Queremos agradecerle por su pronta atención y colaboración en este proceso de pago.</p>
+            <p>Saludos cordiales,</p>`
+        }
+
+        await axios.post('/api/mail/template/1', email)
 
         updateUser(newUser)
         updateUser(newUser2.userid)
@@ -212,6 +223,20 @@ export default function Admin() {
             }
         })
 
+        // Envia emails
+        let email = {
+            to: newUser?.email,
+            subject: "Notificación de pago invalidado por Zelle",
+            title: "Notificación de pago invalidado por Zelle",
+            content:`<p>Lamentamos informarle que el pago que intentó realizar a través de Zelle ha sido invalidado. Queremos asegurarle que estamos comprometidos a brindarle asistencia y resolver cualquier problema que pueda surgir en el proceso de pago.</p>
+            <p>Nuestro equipo ha revisado la transacción y hemos determinado que, por razones específicas, el pago no pudo ser procesado con éxito. Por favor, tenga en cuenta que su solicitud de pago ha sido anulada y no se ha registrado ningún cargo en su cuenta.</p>
+            <p>Si tiene alguna pregunta o necesita asistencia adicional para completar su pago, por favor no dude en ponerse en contacto con nosotros. Estamos aquí para ayudarlo y encontrar una solución adecuada para resolver este inconveniente.</p>
+            <p>Apreciamos su comprensión y paciencia mientras trabajamos para resolver este problema. Valoramos su negocio y esperamos poder servirle de manera efectiva en el futuro.</p>
+            <p>Saludos cordiales</p>`
+        }
+
+        await axios.post('/api/mail/template/1', email)
+
 
         updateUser(newUser)
         updateUser(newUser2.userid)
@@ -232,14 +257,14 @@ export default function Admin() {
         <>
             <Menu />
 
+
+            <ModalGeneric>pepe</ModalGeneric>
+
             <div className="px-[60px] py-[119px]    md:px-[25px]">
 
-                <div className="grid grid-cols-1    w-full sm:grid-cols-1 md:grid-cols-1 ">
+                {/* Opciones */}
+                <NavBarAdmin/>
                     
-                    {/* Opciones */}
-                    <NavBarAdmin/>
-                    
-                </div>
                 {/* Contador de Usuarios */}
                 {
                     currentUsers?.length > 0 &&
@@ -256,6 +281,7 @@ export default function Admin() {
                 {/* Usuarios */}
                 <div className="bg-white rounded-[7px] shadow-[0px_4px_24px_#0000000F] text-violet_dark">
 
+                    {/* Titulo */}
                     <p className="text-[18px] text-title_color font-medium border-b-2 pb-[25px] pt-[26px] px-[35px]">Administracion de usuarios</p>
                     
                     {/* Barra de busqueda */}

@@ -47,13 +47,26 @@ export default function ModalPagoABLE({ open, setOpen,InvalidZeller,validZeller,
               {/* Metodo de pago */}
               <div
                 className='w-[750px] max-h-[70vh] flex-col flex justify-center p-3 mt-7
-            overflow-y-scroll modal-paypal
-            md:w-full'>
-              <img src={user.planSync[user.planSync.length-1].image.ImageZelle} alt='pago zelle'/>
-                <button onClick={()=>{validZeller(user);closeModal()}}>Validar Pago</button>
-                <button onClick={()=>{InvalidZeller(user);closeModal()}}>Invalidar Pago</button>
-                <div className='w-full m-auto'>
+                overflow-y-scroll modal-paypal
+                md:w-full'>
+                <img src={user.planSync[user.planSync.length-1].image.ImageZelle} alt='pago zelle'/>
+
+                <div className='flex mt-5'>
+                  {/* Validar zeller */}
+                  <button
+                  className=' bg-primary text-white rounded-[7px] text-[18px] py-2 px-6 mr-2'
+                  onClick={()=>{validZeller(user);closeModal()}}>
+                    Validar Pago
+                  </button>
+
+                  {/* Invalidar zeller */}
+                  <button
+                  className=' border-danger border-2 text-danger rounded-[7px] text-[18px] py-2 px-6'
+                  onClick={()=>{InvalidZeller(user);closeModal()}}>
+                    Invalidar Pago
+                  </button>
                 </div>
+
               </div>
 
             </div>

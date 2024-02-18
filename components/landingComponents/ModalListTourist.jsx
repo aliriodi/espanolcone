@@ -4,6 +4,7 @@ import Logo from '../../public/imgs/logo-gradient.png';
 import Image from 'next/image';
 import { faCircleCheck, faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
 
 export default function ModalListTourist(props) {
     const { t } = useTranslation('index');
@@ -32,24 +33,37 @@ export default function ModalListTourist(props) {
                     },
 
                     body: JSON.stringify({ email: inputString, suscribe: true ,from:'tourist'}),
-                })
+            })
+
+            // Envia emails
+            let email = {
+                to: inputString,
+                subject: "Conocer Córdoba",
+                title: "¡Bienvenido/a a la lista blanca para Conocer Córdoba!",
+                content:`<p>Nos complace enormemente que hayas decidido unirte a nuestra comunidad de aprendizaje y exploración.</p>
+                <p>Este es un emocionante paso que has dado para sumergirte en la cultura y la belleza de Córdoba mientras trabajas en mejorar tu español. Estamos ansiosos por brindarte experiencias enriquecedoras y memorables que te ayudarán a desarrollar tus habilidades lingüísticas mientras descubres los encantos de esta ciudad histórica.</p>
+                <p>A partir de ahora, recibirás actualizaciones periódicas sobre nuestras actividades, eventos especiales y recursos para ayudarte en tu viaje de aprendizaje. Si tienes alguna pregunta o necesitas asistencia adicional, no dudes en ponerte en contacto con nuestro equipo en cualquier momento.</p>
+                <p>Gracias una vez más por unirte a nosotros en esta emocionante aventura. Esperamos conocerte pronto y compartir juntos momentos inolvidables en Córdoba.</p>
+                <p>¡Saludos cordiales!</p>`
+            }
+
+            await axios.post('/api/mail/template/1', email)
 
 
         } catch (error) {
             console.log(error);
         }
         setEmailok(true)
-        // setTimeout(function () {
-        //     props.open(false)
-        // }, 2000);
-
 
     }
     return (
+
+
         <div>
             <div
             onClick={() => props.open(false)}
             className='fixed w-screen min-h-screen top-0 left-0 bg-[#000000aa] flex flex-col justify-center items-center z-[999]'>
+
                 {
                 !emailok ?
                 <div
@@ -162,6 +176,7 @@ export default function ModalListTourist(props) {
 
                 </div>
                 }
+                
             </div>
         </div>
     )
