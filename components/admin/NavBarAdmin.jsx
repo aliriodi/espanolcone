@@ -8,7 +8,7 @@ export default function NavBarAdmin(){
 
     useEffect(()=> setCurrentPathName(window.location.pathname) ,[])
     return(
-        <div className="flex">
+        <div className="flex mb-[24px]">
 
             {/* Usuarios */}
             <Link
@@ -20,8 +20,7 @@ export default function NavBarAdmin(){
 
             {/* Unidades */}
             <Link
-            href={'#'}
-            // onClick={()=>router.push('/inicio/admin/')}
+            href={'/inicio/admin/units'}
             className={`text-title_color px-[22px] py-[10px] cursor-pointer ${currentPathName == "/inicio/admin/units" && "btn-success-active"}`}>
                 <FontAwesomeIcon className="mr-[5px]" icon={faBook}/>
                 Unidades
