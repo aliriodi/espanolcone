@@ -257,9 +257,6 @@ export default function Admin() {
         <>
             <Menu />
 
-
-            <ModalGeneric>pepe</ModalGeneric>
-
             <div className="px-[60px] py-[119px]    md:px-[25px]">
 
                 {/* Opciones */}
