@@ -182,7 +182,8 @@ export default function Home() {
 
             {/* Texto */}
             <p className='text-white text-[21px] mt-[21px] text-center
-            md:text-[14px]'>¿Listo para empezar una lección de español?</p>
+          md:text-[14px]'>Bienvenidos a Español con E</p>
+          {/* md:text-[14px]'>¿Listo para empezar una lección de español?</p> */}
             <div>
               {/* <button onClick={()=>setShowPlans(true)} className="bg-secondary p-2 rounded-[5px] text-white">¡Hazte Premium!</button> */}
               {/* {showPlans&&<PLANS/>} */}
