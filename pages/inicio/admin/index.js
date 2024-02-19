@@ -7,7 +7,6 @@ import MenuUsers from "../../../components/admin/MenuUser"
 import { useSession } from "next-auth/react";
 import { useRouter } from 'next/router';
 import NavBarAdmin from "../../../components/admin/NavBarAdmin"
-import ModalGeneric from "../../../components/GenericsElements/modalGeneric"
 
 export default function Admin() {
     const [currentUsers, setCurrentUsers] = useState(null)
