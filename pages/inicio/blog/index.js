@@ -11,6 +11,9 @@ import Footer from "../../../components/Footer/Footer";
 import Image from 'next/image';
 import Menu from "../../../components/Menu";
 import { useRouter } from 'next/router';
+import NavBarAdmin from '../../../components/admin/NavBarAdmin';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFile, faFilePen } from '@fortawesome/free-solid-svg-icons';
 
 export default function Blog({ devDotToPosts }) {
     const [blogs, setBlogs] = useState([])
@@ -36,23 +39,37 @@ export default function Blog({ devDotToPosts }) {
 
                 </Head>
 
-                <Layout className='bg-white relative overflow-x-hidden'>
-                    {/* <NAVBAR className="bg-[transparent]" /> */}
-                    <Menu />
-                    <TopButton />
+                <Menu />
 
-                       <div className='pt-20'>
-                    <section className='grid grid-cols-2  justify-center flex-col bg-white px-[170px] py-[107px] relative   md:px-[20px]'>
+                <div className="px-[60px] py-[119px]    md:px-[25px]">
 
-                        <div onClick={() => router.push('/inicio/blog/Blog')} className='w-[200px]  mx-auto flex justify-center bg-white rounded-full p-3 mb-5 shadow-[0px_4px_24px_#0000002F] relative cursor-pointer'>
-                            Crear Blog
+                    <NavBarAdmin/>
+
+                    <Layout className='relative overflow-x-hidden'>
+                        {/* <NAVBAR className="bg-[transparent]" /> */}
+
+                        
+                        <TopButton />
+
+                        <div className='pt-20'>
+
+                            <section className='grid grid-cols-2  justify-center flex-col px-[170px] py-[107px] relative   md:px-[20px]'>
+
+                                <div onClick={() => router.push('/inicio/blog/Blog')} className='w-[200px]  mx-auto flex justify-center bg-white rounded-full p-3 mb-5 shadow-[0px_4px_24px_#0000002F] relative cursor-pointer'>
+                                    Crear Blog
+                                    <FontAwesomeIcon icon={faFile}/>
+                                </div>
+
+                                <div onClick={() => router.push('/inicio/blog/BlogModify')} className='w-[300px]  mx-auto flex justify-center bg-white rounded-full p-3 mb-5 shadow-[0px_4px_24px_#0000002F] relative cursor-pointer'>
+                                    Modificar Blog Existente
+                                    <FontAwesomeIcon icon={faFilePen}/>
+                                </div>
+                            </section>
+
                         </div>
-                        <div onClick={() => router.push('/inicio/blog/BlogModify')} className='w-[300px]  mx-auto flex justify-center bg-white rounded-full p-3 mb-5 shadow-[0px_4px_24px_#0000002F] relative cursor-pointer'>
-                            Modificar Blog Existente
-                       </div>
-                    </section>
-                    </div>
-                </Layout>
+                    </Layout>
+
+                </div>
 
             </div ></>
     );

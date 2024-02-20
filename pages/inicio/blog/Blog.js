@@ -5,6 +5,7 @@ import Cloudinary from '../../../components/cloudinary/cloudinary';
 import Spinner from "../../../components/Spinner";
 import Menu from "../../../components/Menu";
 import { useRouter } from 'next/router';
+import NavBarAdmin from '../../../components/admin/NavBarAdmin';
 export default function Blogcargar() {
     const router = useRouter();
     function gotoModify(){
@@ -143,10 +144,16 @@ export default function Blogcargar() {
     <Menu />
        
         {!session?.user ? 
-        <div className='pt-24'><div className="flex justify-center w-ful mx-auto p-6 rounded-md "><Spinner /></div></div>
-         : 
-            <div className='pt-24'>
-<button type="button" onClick={() => gotoModify()} className='w-[200px] mx-auto flex justify-center bg-white rounded-full p-3 mb-5 shadow-[0px_4px_24px_#0000002F] relative cursor-pointer'>Modificar BLOG</button>
+            <div className='px-[60px] py-[119px]    md:px-[25px]'>
+                <NavBarAdmin/>
+                <div className="flex justify-center w-ful mx-auto p-6 rounded-md "><Spinner /></div>
+            </div>
+            : 
+            <div className='px-[60px] py-[119px]    md:px-[25px]'>
+                <NavBarAdmin/>
+
+                {/* <button type="button" onClick={() => gotoModify()} className='w-[200px] mx-auto flex justify-center bg-white rounded-full p-3 mb-5 shadow-[0px_4px_24px_#0000002F] relative cursor-pointer'>Modificar BLOG</button> */}
+                
                 <div className="w-3/4 mx-auto bg-white p-6 rounded-md shadow-md">
                     <h2 className="text-2xl font-semibold mb-4">Cargar Contenido de Blog</h2>
                     <form id="bloghtmlForm">

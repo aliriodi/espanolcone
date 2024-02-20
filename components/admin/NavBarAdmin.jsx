@@ -8,7 +8,7 @@ export default function NavBarAdmin(){
 
     useEffect(()=> setCurrentPathName(window.location.pathname) ,[])
     return(
-        <div className="flex mb-[24px]">
+        <div className="flex mb-[24px] w-full">
 
             {/* Usuarios */}
             <Link
@@ -37,8 +37,8 @@ export default function NavBarAdmin(){
 
             {/* Boton para ir a seccion de recibos */}
             <Link
-            href={'/inicio/facturacion/'}
-            className={`text-title_color px-[22px] py-[10px] cursor-pointer ${currentPathName == "/inicio/facturacion" && "btn-success-active"}`}>
+            href={'/inicio/admin/facturacion/'}
+            className={`text-title_color px-[22px] py-[10px] cursor-pointer ${currentPathName == "/inicio/admin/facturacion" && "btn-success-active"}`}>
                 <FontAwesomeIcon className="mr-[5px]" icon={faMoneyBillTrendUp}/>
                 Facturacion
             </Link>
