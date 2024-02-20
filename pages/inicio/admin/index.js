@@ -166,19 +166,21 @@ export default function Admin() {
     //funcion para valdiar zelle
     async function validZeller(user) {
         let newUser = { ...user }
+
         newUser.planSync[newUser?.planSync?.length - 1] = {
             ...newUser.planSync[newUser?.planSync?.length - 1],
             valid: true,
             classview: 1,
             planing: 1
         }
+
         newUser.calendar[0] = {
             ...newUser.calendar[0],
             assigned: true
         }
 
-        let newUser2 = { ...await getUser(newUser.calendar[0].id) }
-      //  console.log(newUser2)
+        let newUser2 = { ...await getUser(newUser?._id) }
+        console.log(newUser2)
         await newUser2.userid.calendar.map(meet => {
             if (newUser.calendar[0].startDatetime === meet.startDatetime) { meet['assigned'] = true; }
         })
@@ -195,7 +197,7 @@ export default function Admin() {
         await axios.post('/api/mail/template/1', email)
 
         updateUser(newUser)
-        updateUser(newUser2.userid)
+        // updateUser(newUser2.userid)
     }
 
     //funcion para INvalidar zelle
@@ -209,8 +211,9 @@ export default function Admin() {
         }
         newUser.calendar.shift();
 
-        let newUser2 = { ...await getUser(newUser.calendar[0].id) }
-        console.log(newUser2)
+        console.log("newUser ",newUser)
+        let newUser2 = { ...await getUser(newUser?._id) }
+        console.log("newUser2 213 ",newUser2)
         await newUser2.userid.calendar.map(meet => {
             if (newUser.calendar[0].startDatetime === meet.startDatetime) {
                 meet['assigned'] = false;
