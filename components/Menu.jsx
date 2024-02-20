@@ -288,7 +288,7 @@ const Menu = (props) => {
                                             className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
                                         ${currentPathName == '/inicio/admin' && "bg-primary text-white"}
                                     hover:bg-primary hover:text-white`}
-                                            href="/inicio/admin">
+                                            href={"/inicio/admin/"}>
                                             <FontAwesomeIcon icon={faUserTie} className=" mr-[10px]" />
                                             <p>Administracion</p>
                                         </Link>

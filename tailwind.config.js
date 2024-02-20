@@ -20,6 +20,7 @@ module.exports = {
         secondary:'#33bb99',
         secondary_hover:'#31DDB2',
         secondary_light: '#33BB9933',
+        secondary_flat:'#28C76F33',
 
         success:'#8438ff',
         success_hover:'#9156F0',
