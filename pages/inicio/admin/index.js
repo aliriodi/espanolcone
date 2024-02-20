@@ -7,6 +7,7 @@ import MenuUsers from "../../../components/admin/MenuUser"
 import { useSession } from "next-auth/react";
 import { useRouter } from 'next/router';
 import NavBarAdmin from "../../../components/admin/NavBarAdmin"
+import axios from "axios"
 
 export default function Admin() {
     const [currentUsers, setCurrentUsers] = useState(null)
