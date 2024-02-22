@@ -73,7 +73,8 @@ export default function Schedule() {
   const [assigned, setAssgined] = useState(false);
 
 
-  const lastplansyc = session?.upaypalDatesser?.planSync?.length;
+  const lastplansyc = session?.user?.planSync?.length;
+  //upaypalDatesser
   //PAGO DE PAYPAL OK
   const handlePaymentSuccess =async  (data,response) => {
    // alert('ahi vengo')
