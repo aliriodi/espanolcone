@@ -7,6 +7,7 @@ import ModalPagoLanding from './ModalPagoLanding';
 import ModalPagoABLE from '../ModalPagoAbleLanding';
 import ModalPago from '../ModalPagoPAYPALLanding';
 import ModalPago2 from '../ModalPagoZelleLanding';
+import axios from 'axios';
 
 export default function Ofrece() {
   let [List, setList] = useState(false)
@@ -28,6 +29,7 @@ export default function Ofrece() {
   const closeZelleModal = () => {
     setZelleModal(false)
   }
+
   const { locale } = useRouter()
   //funcion de estilos
   function classNames(...classes) {
@@ -55,9 +57,61 @@ export default function Ofrece() {
 
   //En caso de aprobar pago PAYPAL
   const handlePaymentSuccess = async (data, response) => {
-    // alert('ahi vengo')
+    // Una ves echo el pago este metodo se va a encargar de:
+    // - Verificar si el usuario ya esta creado de caso contrario lo crea
+    // - Asignar el respectivo Plan 
+    // - Crear un resivo
+    // - Enviar el respectivo email
     console.log('data', data)
     console.log('response', response)
+
+    let finalUser;
+
+    let temporalPassword = generarPassword()
+    
+    // Genera el mensage dependiendo del plan
+    let emailMessage = {
+      to: email,
+      subject: "¡Bienvenido a Español con E!",
+      content:`
+      ${paypalDates?.descripion == "1claseIndividual 1masterclass 1claseengrupo 3unidadesporNivel" ? 
+      // Mensage de Plan "Experiencia completa"
+      `<p>¡Hola ${nombre}!</p>
+
+        <p><b>¡Bienvenido a Español con E!</b> Estamos encantados de tenerte como parte de nuestra comunidad de aprendizaje de español. Queremos que sepas que estamos aquí para apoyarte en cada paso de tu viaje lingüístico.</p>
+
+        <p>Nos alegra mucho tenerte con nosotros y queremos expresarte nuestro agradecimiento por haber elegido nuestro paquete <b>"Aprende y Disfruta".</b></p>
+        <p>Aquí te detallamos lo que has adquirido con tu compra:</p>
+
+        <p><b>Paquete Especial "Aprende y Disfruta" valorado en $100 ¡por solo $25 dólares!</b>,  valido hasta el 23 de abril del 2024.</p>
+
+        <p><b>1. Clase individual personalizada:</b> Una sesión de 60 minutos, adaptable a tus necesidades. </p>
+        
+        <p><b>2. Clase magistral:</b> Únete a nuestra clase especial por Zoom el viernes 22 de marzo a las 17 horas (hora de Argentina). Te sumergirás en temas fascinantes para estudiantes de español de todos los niveles. Desde los sonidos del español hasta consejos de motivación, ¡tenemos mucho por explorar!</p>
+
+        <p><b>3. Clase en grupo:</b> Será una clase de 90 minutos. Se ofrecerán varias sesiones de diferentes temas y niveles. Podrás elegir la que mejor se adapte a tus intereses y disponibilidad. La lista completa de clases y horarios te la enviaremos por correo electrónico pronto.</p>
+
+        <p>Además, queremos que sepas que en nuestra plataforma encontrarás dos unidades didácticas interactivas y explicativas para los niveles A1, A2 y B1 y que continuaremos añadiendo contenido el cual podrás disfrutar durante el tiempo promocional.  Estamos comprometidos a brindarte contenido de calidad que te ayude a avanzar en tu aprendizaje del español.</p>`
+      :
+      // Mensage de Plan "Echa un vistazo"
+      `<p><b>¡Hola ${nombre}!</b></p>
+
+        <p>Nos alegra mucho tenerte con nosotros y queremos expresarte nuestro agradecimiento por haber elegido nuestro paquete <b>"Echa un vistazo".</b></p>
+
+        <p>Aquí te detallamos todo lo que has adquirido con tu compra:</p>
+
+        <p><b>Paquete Especial "Echa un vistazo" valorado en $45 ¡por solo $10 dólares!</b> valido hasta el 23 de abril del 2024.</p>
+
+        <p><b>1. Clase Magistral:</b> Únete a nuestra clase especial por Zoom el viernes 22 de marzo a las 17 horas (hora de Argentina). Te sumergirás en temas fascinantes para estudiantes de español de todos los niveles. Desde los sonidos del español hasta consejos de motivación, ¡tenemos mucho por explorar!</p>
+
+        <p><b>2. Clases interactivas en la app:</b> En nuestra plataforma encontrarás dos unidades didácticas interactivas y explicativas para los niveles A1, A2 y B1 y que continuaremos añadiendo contenido el cual podrás disfrutar durante el tiempo promocional. Estamos comprometidos a brindarte contenido de calidad que te ayude a avanzar en tu aprendizaje del español.</p>
+      `}
+      `
+    }
+
+    console.log(emailMessage?.content)
+
+    // Obtiene el usuario final en caso de haberlo
     try {
       await fetch('/api/users/getUserEmail/' + email,
         {
@@ -65,88 +119,101 @@ export default function Ofrece() {
           headers: {
             "Content-Type": "application/json",
           }
-        }).then(response => response.json())
-        .then(response => setUser(response))
+        }
+      )
+      .then(response => response.json())
+      .then(response =>{
 
+        if(response?.results) finalUser = response?.results;         
+        setUser(response)
+
+      })
     }
-    catch (error) { console.log('Ofrece.jsx', error) }
-    console.log(User)
-
-    if (NewUser) {
-      console.log('soy un nuevo usuario')
-      //console.log('User', User.results.planSync)
+    catch (error){
+      console.log('Ofrece.jsx', error)
+    }    
+    
+    // En caso de ser un nuevo usuario
+    if (!finalUser) {
+      
       try {
-        await fetch('/api/users/update',
+          await axios.post('/api/auth/signup',
           {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(
-              {
-                email: email,
-                updates: {
+            first_name: nombre,
+            last_name: apellido,
+            country: "",
+            email: email,
+            password: temporalPassword,
+            confirm_password: temporalPassword,
+            roles: ['student', 'user'],
+            planSync:
+            [...User?.results?.planSync || User?.planSync, {
+              type: 'plansync',
+              payment: 'PAYPAL',
+              valid: true,
+              qty: paypalDates.qty,
+              cost: paypalDates.cost,
+              description: paypalDates,
+              planing: 0,
+              classview: 0
+            }]
+          }
+        ).then(response => {
+          // Se asigna la parte final para el mensaje por email
+          emailMessage.content = emailMessage.content + `
+          <p>
+          Como eres un nuevo usuario, se ha creado una cuenta para ti dentro de nuestra plataforma con la siguiente clave temporal: <b>${temporalPassword}</b>
+          Te sugerimos cambiar tu clave y por favor, no dudes en ponerte en contacto con nosotros si tienes alguna pregunta o necesitas ayuda con algo. Estamos aquí para ayudarte en cada paso del camino.
+          </p>
 
-                  planSync:
-                    [...User?.results?.planSync || User?.planSync, {
-                      type: 'plansync',
-                      payment: 'PAYPAL',
-                      valid: true,
-                      qty: paypalDates.qty,
-                      cost: paypalDates.cost,
-                      description: paypalDates,
-                      planing: 0,
-                      classview: 0
-                    }]
+          <p>¡Gracias nuevamente por elegirnos como tu compañero de aprendizaje!<p>
 
-                }
-              }
-            ),
-          })
+          <p>¡Saludos!</p>
 
-          .then(response => {
-            setPaypalDates(null)
-            //   console.log("Clase asignado ",response.json())    
-          })
+          <p><b>Equipo de Español con E</b></p>
+          `;
+          setPaypalDates(null)
+        });
 
-      } catch (error) {
+      }
+      catch (error) {
         setPaypalDates(null)
 
         console.error(error);
       }
 
       //envio recibo a BD
+      // try {
+      //   await fetch('/api/receipt/add',
+      //     {
+      //       method: "POST",
+      //       headers: {
+      //         "Content-Type": "application/json",
+      //       },
+      //       body: JSON.stringify(
+      //         {
+      //           idUser: email,
+      //           idPlan: 'plansync',
+      //           qty: paypalDates.qty,
+      //           ammount: paypalDates.cost,
+      //           dates: { paypalDates, type: "PAYPAL" }
+      //         }
+      //       ),
+      //     }).then(response => {
+      //       setPaypalDates(null)
+      //       //  console.log("Clase asignado ",response.json())
 
-      try {
-        await fetch('/api/receipt/add',
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(
-              {
-                idUser: email,
-                idPlan: 'plansync',
-                qty: paypalDates.qty,
-                ammount: paypalDates.cost,
-                dates: { paypalDates, type: "PAYPAL" }
-              }
-            ),
-          }).then(response => {
-            setPaypalDates(null)
-            //  console.log("Clase asignado ",response.json())
+      //     })
+      // }
+      // catch (error) {
+      //   setPaypalDates(null)
 
-          })
-
-      } catch (error) {
-        setPaypalDates(null)
-
-        console.error(error);
-      }
+      //   console.error(error);
+      // }
     }
+
+    // // En caso de NO ser un nuevo usuario
     else {
-      console.log('NO soy un nuevo usuario')
 
       try {
         await fetch('/api/users/update',
@@ -161,7 +228,7 @@ export default function Ofrece() {
                 updates: {
 
                   planSync:
-                    [...User.planSync, {
+                    [...finalUser.planSync, {
                       type: 'plansync',
                       payment: 'PAYPAL',
                       valid: true,
@@ -177,50 +244,88 @@ export default function Ofrece() {
             ),
           })
 
-          .then(response => {
-            setPaypalDates(null)
-            //   console.log("Clase asignado ",response.json())    
+          .then(response => {            
+            emailMessage.content = emailMessage.content + `
+            <p>¡Gracias nuevamente por elegirnos como tu compañero de aprendizaje!<p>
+
+            <p>¡Saludos!</p>
+
+            <p><b>Equipo de Español con E</b></p>
+            `;
           })
 
-      } catch (error) {
+      }
+      catch (error) {
         setPaypalDates(null)
 
         console.error(error);
       }
 
       //envio recibo a BD
+      // try {
+      //   await fetch('/api/receipt/add',
+      //     {
+      //       method: "POST",
+      //       headers: {
+      //         "Content-Type": "application/json",
+      //       },
+      //       body: JSON.stringify(
+      //         {
+      //           idUser: email,
+      //           idPlan: 'plansync',
+      //           qty: paypalDates.qty,
+      //           ammount: paypalDates.cost,
+      //           dates: { paypalDates, type: "PAYPAL" }
+      //         }
+      //       ),
+      //     }).then(response => {
+      //       setPaypalDates(null)
+      //       //  console.log("Clase asignado ",response.json())
 
-      try {
-        await fetch('/api/receipt/add',
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(
-              {
-                idUser: email,
-                idPlan: 'plansync',
-                qty: paypalDates.qty,
-                ammount: paypalDates.cost,
-                dates: { paypalDates, type: "PAYPAL" }
-              }
-            ),
-          }).then(response => {
-            setPaypalDates(null)
-            //  console.log("Clase asignado ",response.json())
+      //     })
 
-          })
+      // }
+      // catch (error) {
+      //   setPaypalDates(null)
 
-      } catch (error) {
-        setPaypalDates(null)
-
-        console.error(error);
-      }
-
-
-
+      //   console.error(error);
+      // }
     }
+
+    ///////////// Envio recibo a BD /////////////
+    try {
+      await fetch('/api/receipt/add',
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(
+            {
+              idUser: email,
+              idPlan: 'plansync',
+              qty: paypalDates.qty,
+              ammount: paypalDates.cost,
+              dates: { paypalDates, type: "PAYPAL" }
+            }
+          ),
+        }).then(response => {
+          setPaypalDates(null)
+          //  console.log("Clase asignado ",response.json())
+
+        })
+    }
+    catch (error) {
+      setPaypalDates(null)
+
+      console.error(error);
+    }
+
+    
+    ///////////// Envio de Email /////////////
+    await axios.post('/api/mail/template/1', emailMessage)
+
+
     //setAssgined(true)
     //setIsPaymentConfirmed(true);
     //setTimeout(function() {PAYOK(paypalDates,response);},500)
@@ -236,9 +341,22 @@ export default function Ofrece() {
     //  setPaymentCancelled(true); // Asegúrate de restablecer el otro estado
   };
 
+  function generarPassword() {
+    const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let password = '';
+
+    for (let i = 0; i < 8; i++) {
+      const randomIndex = Math.floor(Math.random() * caracteres.length);
+      password += caracteres.charAt(randomIndex);
+    }
+
+    return password;
+  }
+
 
   return (
     <>
+    <button onClick={handlePaymentSuccess} className=' w-full'>BOTON</button>
       <section className='h-auto bg-[#F6F7FF] pb-[324px] pt-[187px] relative
       md:px-[20px]'>
 
@@ -266,7 +384,7 @@ export default function Ofrece() {
         <div className="flex justify-center z-10 relative
         md:flex-col md:items-center">
 
-          {/* Nuestros Programas */}
+          {/* Experiencia completa */}
           <div
             className="bg-white shadow-lg rounded-[15px]  w-[419px] h-min-[666px] mr-[15px] py-[29px] px-[36px] relative
             md:mx-0 md:w-full md:px-[16px] md:mb-[19px]"
@@ -424,7 +542,7 @@ export default function Ofrece() {
 
 
 
-        {/* Conoce Cordoba */}
+        {/* Echa un vistazo */}
         <div
           className="bg-white shadow-lg rounded-[15px]  w-[419px] h-min-[666px] ml-[15px] py-[29px] px-[36px] relative
             md:mx-0 md:w-full md:px-[16px] md:mt-[19px] md:h-[666px]"
@@ -531,52 +649,7 @@ export default function Ofrece() {
         </div>
 
 
-
-        {/* MODALES DE PAGO */}
-        <section>
-          <div>
-
-            {/* Modal de Pago habilitacion*/}
-            {<ModalPagoABLE
-              setNombre={setNombre}
-              setApellido={setApellido}
-              setEmail={setEmail}
-              setPasswd={setPasswd}
-              setNewUser={setNewUser}
-              setUser={setUser}
-              close={closePayModal}
-              modalPay={handleChangePaypalModal}
-              open={PayModal}
-              open1={openPaypalModal}
-              open2={openZelleModal}
-            />}
-          </div>
-          {/* Modal Pago Paypal */}
-          <div>
-            <ModalPago
-              onPaymentSuccess={handlePaymentSuccess}
-              onPaymentCancel={handlePaymentCancel}
-              modalPaypal={handleChangePaypalModal}
-              open={paypalModal}
-              dates={paypalDates}
-            />
-
-          </div>
-          {/* Modal Pago Zelle */}
-          <div>
-            <ModalPago2
-              // onPaymentSuccess={handlePaymentSuccess1}
-              onPaymentCancel={handlePaymentCancel}
-              modalClose={closeZelleModal}
-              User={User}
-              NewUser={NewUser}
-              passwd={passwd}
-              open={ZelleModal}
-              dates={paypalDates}
-            />
-          </div>
-        </section>
-      </div>
+        </div>
 
       {/* Ellipse */}
       <div className='absolute top-0 left-0 w-full h-full z-0 overflow-hidden' >
@@ -602,6 +675,48 @@ export default function Ofrece() {
       </div>
 
     </section >
+
+    
+    {/* //////////////////////// MODALES DE PAGO //////////////////////// */}
+
+    {/* Modal de Pago habilitacion*/}
+    <ModalPagoABLE
+      setNombre={setNombre}
+      setApellido={setApellido}
+      setEmail={setEmail}
+      setPasswd={setPasswd}
+      setNewUser={setNewUser}
+      setUser={setUser}
+      close={closePayModal}
+      modalPay={handleChangePaypalModal}
+      open={PayModal}
+      open1={openPaypalModal}
+      open2={openZelleModal}
+    />
+
+    {/* Modal Pago Paypal */}
+    <ModalPago
+      onPaymentSuccess={handlePaymentSuccess}
+      onPaymentCancel={handlePaymentCancel}
+      modalPaypal={handleChangePaypalModal}
+      open={paypalModal}
+      dates={paypalDates}
+    />
+
+    {/* Modal Pago Zelle */}
+    <ModalPago2
+      // onPaymentSuccess={handlePaymentSuccess1}
+      onPaymentCancel={handlePaymentCancel}
+      modalClose={closeZelleModal}
+      generarPassword={generarPassword}
+      User={User}
+      NewUser={NewUser}
+      email={email}
+      nombre={nombre}
+      passwd={passwd}
+      open={ZelleModal}
+      dates={paypalDates}
+    />
     </>
   )
 }
