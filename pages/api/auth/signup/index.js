@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import Users from "../../../../models/Users";
 import dbConnect from "../../../../config/mongo"
 import addUsers from "../../users/add";
+import axios from "axios"
 
 export default async function POST(req, res){
     if (req.method !== 'POST') {
@@ -11,7 +12,7 @@ export default async function POST(req, res){
       try {
         await dbConnect(); // Conecta con la base de datos
     
-        const { first_name, last_name, email, password, rol, phone1, phone2, postcode, image, image2, aux, aux2 } = req.body;
+        const { first_name, last_name, email, password, rol, phone1, phone2, postcode, image, image2, aux, aux2, planSync } = req.body;
         // Verifica si el correo electrónico ya existe en la base de datos
         const existingUser = await Users.findOne({ email });
         if (existingUser) {
@@ -127,10 +128,24 @@ export default async function POST(req, res){
               ]
             }
           ],
-          planSync:{classview:0,qty:0,valid:true}
+          planSync: planSync ? planSync :{classview:0,qty:0,valid:true}
         });
-    
+
         await newUser.save();
+
+      //   // Envia email
+      //   let emailMessage = {
+      //     to: inputString,
+      //     subject: "¡Bienvenido a Español con E!",
+      //     // title: "¡Bienvenido/a a la lista blanca para Conocer Córdoba!",
+      //     content:`<p>¡Hola ${newUser.first_name}!</p>
+      //     <p><b>¡Bienvenido a Español con E!</b> Estamos encantados de tenerte como parte de nuestra comunidad de aprendizaje de español. Queremos que sepas que estamos aquí para apoyarte en cada paso de tu viaje lingüístico.</p>
+      //     <p>A partir de ahora, recibirás actualizaciones periódicas sobre nuestras actividades, eventos especiales y recursos para ayudarte en tu viaje de aprendizaje. Si tienes alguna pregunta o necesitas asistencia adicional, no dudes en ponerte en contacto con nuestro equipo en cualquier momento.</p>
+      //     <p>Gracias una vez más por unirte a nosotros en esta emocionante aventura. Esperamos conocerte pronto y compartir juntos momentos inolvidables en Córdoba.</p>
+      //     <p>¡Saludos cordiales!</p>`
+      // }
+
+      // await axios.post('/api/mail/template/1', emailMessage)
     
         res.status(201).json({ message: 'User created successfully', user: newUser });
       } catch (error) {

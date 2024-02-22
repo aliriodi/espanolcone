@@ -98,50 +98,210 @@ export default function ModalPagoZELLE(props) {
 
   //si el pago es ok envio a la BD el pago
   async function PAYOK() {
-    console.log(props.User)
-    //alert('265 entre en payok()')
+    let finalUser;
+
+    let temporalPassword = props.generarPassword()
+    
+    // Genera el mensage dependiendo del plan
+    let emailMessage = {
+      to: props?.email,
+      subject: "¡Bienvenido a Español con E!",
+      content:`
+      ${props?.dates?.descripion == "1claseIndividual 1masterclass 1claseengrupo 3unidadesporNivel" ? 
+      // Mensage de Plan "Experiencia completa"
+      `<p>¡Hola ${props?.nombre}!</p>
+
+        <p><b>¡Bienvenido a Español con E!</b> Estamos encantados de tenerte como parte de nuestra comunidad de aprendizaje de español. Queremos que sepas que estamos aquí para apoyarte en cada paso de tu viaje lingüístico.</p>
+
+        <p>Nos alegra mucho tenerte con nosotros y queremos expresarte nuestro agradecimiento por haber elegido nuestro paquete <b>"Aprende y Disfruta".</b></p>
+        <p>Aquí te detallamos lo que has adquirido con tu compra:</p>
+
+        <p><b>Paquete Especial "Aprende y Disfruta" valorado en $100 ¡por solo $25 dólares!</b>,  valido hasta el 23 de abril del 2024.</p>
+
+        <p><b>1. Clase individual personalizada:</b> Una sesión de 60 minutos, adaptable a tus necesidades. </p>
+        
+        <p><b>2. Clase magistral:</b> Únete a nuestra clase especial por Zoom el viernes 22 de marzo a las 17 horas (hora de Argentina). Te sumergirás en temas fascinantes para estudiantes de español de todos los niveles. Desde los sonidos del español hasta consejos de motivación, ¡tenemos mucho por explorar!</p>
+
+        <p><b>3. Clase en grupo:</b> Será una clase de 90 minutos. Se ofrecerán varias sesiones de diferentes temas y niveles. Podrás elegir la que mejor se adapte a tus intereses y disponibilidad. La lista completa de clases y horarios te la enviaremos por correo electrónico pronto.</p>
+
+        <p>Además, queremos que sepas que en nuestra plataforma encontrarás dos unidades didácticas interactivas y explicativas para los niveles A1, A2 y B1 y que continuaremos añadiendo contenido el cual podrás disfrutar durante el tiempo promocional.  Estamos comprometidos a brindarte contenido de calidad que te ayude a avanzar en tu aprendizaje del español.</p>`
+      :
+      // Mensage de Plan "Echa un vistazo"
+      `<p><b>¡Hola ${nombre}!</b></p>
+
+        <p>Nos alegra mucho tenerte con nosotros y queremos expresarte nuestro agradecimiento por haber elegido nuestro paquete <b>"Echa un vistazo".</b></p>
+
+        <p>Aquí te detallamos todo lo que has adquirido con tu compra:</p>
+
+        <p><b>Paquete Especial "Echa un vistazo" valorado en $45 ¡por solo $10 dólares!</b> valido hasta el 23 de abril del 2024.</p>
+
+        <p><b>1. Clase Magistral:</b> Únete a nuestra clase especial por Zoom el viernes 22 de marzo a las 17 horas (hora de Argentina). Te sumergirás en temas fascinantes para estudiantes de español de todos los niveles. Desde los sonidos del español hasta consejos de motivación, ¡tenemos mucho por explorar!</p>
+
+        <p><b>2. Clases interactivas en la app:</b> En nuestra plataforma encontrarás dos unidades didácticas interactivas y explicativas para los niveles A1, A2 y B1 y que continuaremos añadiendo contenido el cual podrás disfrutar durante el tiempo promocional. Estamos comprometidos a brindarte contenido de calidad que te ayude a avanzar en tu aprendizaje del español.</p>
+      `}
+      `
+    }
+    
+    // Obtiene el usuario final en caso de haberlo
     try {
-      fetch('/api/users/update',
+      await fetch('/api/users/getUserEmail/' + props?.email,
         {
-          method: "POST",
+          method: "GET",
           headers: {
             "Content-Type": "application/json",
-          },
-          body: JSON.stringify(
-            {
-              email: props.User.email,
-              updates: {
-                planSync: [...props.User.planSync,
-                {
-                  type: 'plansync',
-                  payment: 'ZELLE',
-                  valid: false,
-                  qty: props.dates.qty,
-                  cost: props.dates.cost,
-                  planing: 0,
-                  classview: 0,
-                  image: ImageUrl
-                }
-                ]
-              }
-            }
-          ),
-        })
+          }
+        }
+      )
+      .then(response => response.json())
+      .then(response =>{
 
-        .then(response => {
-          closeModal()
-          // setPaypalDates(null)
-          //   console.log("Clase asignado ",response.json())    
-        })
+        if(response?.results) finalUser = response?.results;         
+        // setUser(response)
 
-    } catch (error) {
-      //  setPaypalDates(null)
 
-      console.error(error);
+      })
+    }
+    catch (error){
+      console.log('Ofrece.jsx', error)
     }
 
+    // En caso de ser un nuevo usuario
+    if (!finalUser) {
+      
+      try {
+          await axios.post('/api/auth/signup',
+          {
+            first_name: props?.nombre,
+            // last_name: ,
+            country: "",
+            email: props?.email,
+            password: temporalPassword,
+            confirm_password: temporalPassword,
+            roles: ['student', 'user'],
+            planSync: [
+              {
+                type: 'plansync',
+                payment: 'ZELLE',
+                valid: false,
+                qty: props.dates.qty,
+                cost: props.dates.cost,
+                planing: 0,
+                classview: 0,
+                image: ImageUrl
+              }
+            ]
+          }
+        ).then(response => {
+          console.log("response ",response)
 
+          // Se asigna la parte final para el mensaje por email
+          emailMessage.content = emailMessage.content + `
+          <p>
+          Como eres un nuevo usuario, se ha creado una cuenta para ti dentro de nuestra plataforma con la siguiente clave temporal: <b>${temporalPassword}</b>
+          Te sugerimos cambiar tu clave y por favor, no dudes en ponerte en contacto con nosotros si tienes alguna pregunta o necesitas ayuda con algo. Estamos aquí para ayudarte en cada paso del camino.
+          </p>
 
+          <p>¡Gracias nuevamente por elegirnos como tu compañero de aprendizaje!<p>
+
+          <p>¡Saludos!</p>
+
+          <p><b>Equipo de Español con E</b></p>
+          `;
+        });
+
+      }
+      catch (error) {
+        console.error(error);
+      }
+    }
+
+    // // En caso de NO ser un nuevo usuario
+    else {
+
+      try {
+        await fetch('/api/users/update',
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(
+              {
+                email: props?.email,
+                updates: {
+
+                  planSync: [...finalUser.planSync,
+                    {
+                      type: 'plansync',
+                      payment: 'ZELLE',
+                      valid: false,
+                      qty: props.dates.qty,
+                      cost: props.dates.cost,
+                      planing: 0,
+                      classview: 0,
+                      image: ImageUrl
+                    }
+                  ]
+
+                }
+              }
+            ),
+          })
+
+          .then(response => {
+            
+            emailMessage.content = emailMessage.content + `
+            <p>¡Gracias nuevamente por elegirnos como tu compañero de aprendizaje!<p>
+
+            <p>¡Saludos!</p>
+
+            <p><b>Equipo de Español con E</b></p>
+            `;
+          })
+
+      }
+      catch (error) {
+        console.error(error);
+      }
+    }
+    
+    ///////////// Envio de Email /////////////
+    await axios.post('/api/mail/template/1', emailMessage)
+    ////////////////////////////////////////
+    // try {
+    //   fetch('/api/users/update',
+    //     {
+    //       method: "POST",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //       body: JSON.stringify(
+    //         {
+    //           email: props.User.email,
+    //           updates: {
+    //             planSync: [...props.User.planSync,
+    //             {
+    //               type: 'plansync',
+    //               payment: 'ZELLE',
+    //               valid: false,
+    //               qty: props.dates.qty,
+    //               cost: props.dates.cost,
+    //               planing: 0,
+    //               classview: 0,
+    //               image: ImageUrl
+    //             }
+    //             ]
+    //           }
+    //         }
+    //       ),
+    //     })
+    //     .then(response => {
+    //       closeModal() 
+    //     })
+    // }
+    // catch (error) {
+    //   console.error(error);
+    // }
   }
 
   //si el pago es no OK
@@ -160,7 +320,7 @@ export default function ModalPagoZELLE(props) {
         <>
           <div
             onClick={closeModal}
-            className='fixed w-screen min-h-screen top-0 left-0 bg-[#000000aa] flex flex-col justify-center items-center z-50'>
+            className='fixed w-screen min-h-screen top-0 left-0 bg-[#000000aa] flex flex-col justify-center items-center z-[999]'>
 
             <div
               onClick={(e) => e.stopPropagation()}
@@ -224,7 +384,8 @@ export default function ModalPagoZELLE(props) {
                     {/* aca deberia ser que se esclarezca el estilo mientras no haya imagen cargada */}
 
                     {/* Enviar Pago */}
-                    {ImageUrl && <button className='btn-success px-5 py-2.5 mt-3 w-full  text-[16px]' onClick={() => { sendBD(); PAYOK(); }}>
+                    {ImageUrl && <button className='btn-success px-5 py-2.5 mt-3 w-full  text-[16px]' onClick={() => { //sendBD();
+                       PAYOK(); }}>
                       {t('sendpay')}</button>}
 
                     {!ImageUrl && <button className={`btn-success px-5 py-2.5 mt-3 w-full text-[16px] l opacity-[50%] pointer-events-none`} onClick={() => alert('falta imagen de pago')}>

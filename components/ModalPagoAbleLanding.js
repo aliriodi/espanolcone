@@ -28,6 +28,7 @@ export default function ModalPagoABLE(props) {
   
     // Aquí puedes enviar los datos a tu backend o hacer lo que necesites con ellos
   };
+
   function validate(nombre,email){
     props.setApellido(apellido)
     props.setNombre(nombre)
@@ -49,8 +50,53 @@ export default function ModalPagoABLE(props) {
   }
 
   async function MakeAndPay() {
-    setPasswd(generarPassword)
+    // Este metodo se encarga de hacer el respespectivo pago por Paypal
+
+    // Genera contraseña temporal
+    let temporalPassword = generarPassword()
+    setPasswd(temporalPassword)
     props.setPasswd(passwd)
+
+    // Genera el mensage dependiendo del plan
+    // let emailMessage = {
+    //   to: email,
+    //   subject: "¡Bienvenido a Español con E!",
+    //   content:`
+    //   ${props?.descripion == "1claseIndividual 1masterclass 1claseengrupo 3unidadesporNivel" ? 
+    //   // Mensage de Plan "Experiencia completa"
+    //   `<p>¡Hola ${nombre}!</p>
+
+    //     <p><b>¡Bienvenido a Español con E!</b> Estamos encantados de tenerte como parte de nuestra comunidad de aprendizaje de español. Queremos que sepas que estamos aquí para apoyarte en cada paso de tu viaje lingüístico.</p>
+
+    //     <p>Nos alegra mucho tenerte con nosotros y queremos expresarte nuestro agradecimiento por haber elegido nuestro paquete <b>"Aprende y Disfruta".</b></p>
+    //     <p>Aquí te detallamos lo que has adquirido con tu compra:</p>
+
+    //     <p><b>Paquete Especial "Aprende y Disfruta" valorado en $100 ¡por solo $25 dólares!</b>,  valido hasta el 23 de abril del 2024.</p>
+
+    //     <p><b>1. Clase individual personalizada:</b> Una sesión de 60 minutos, adaptable a tus necesidades. </p>
+        
+    //     <p><b>2. Clase magistral:</b> Únete a nuestra clase especial por Zoom el viernes 22 de marzo a las 17 horas (hora de Argentina). Te sumergirás en temas fascinantes para estudiantes de español de todos los niveles. Desde los sonidos del español hasta consejos de motivación, ¡tenemos mucho por explorar!</p>
+
+    //     <p><b>3. Clase en grupo:</b> Será una clase de 90 minutos. Se ofrecerán varias sesiones de diferentes temas y niveles. Podrás elegir la que mejor se adapte a tus intereses y disponibilidad. La lista completa de clases y horarios te la enviaremos por correo electrónico pronto.</p>
+
+    //     <p>Además, queremos que sepas que en nuestra plataforma encontrarás dos unidades didácticas interactivas y explicativas para los niveles A1, A2 y B1 y que continuaremos añadiendo contenido el cual podrás disfrutar durante el tiempo promocional.  Estamos comprometidos a brindarte contenido de calidad que te ayude a avanzar en tu aprendizaje del español.</p>`
+    //   :
+    //   // Mensage de Plan "Echa un vistazo"
+    //   `<p><b>¡Hola ${nombre}!</b></p>
+
+    //     <p>Nos alegra mucho tenerte con nosotros y queremos expresarte nuestro agradecimiento por haber elegido nuestro paquete <b>"Echa un vistazo".</b></p>
+
+    //     <p>Aquí te detallamos todo lo que has adquirido con tu compra:</p>
+
+    //     <p><b>Paquete Especial "Echa un vistazo" valorado en $45 ¡por solo $10 dólares!</b> valido hasta el 23 de abril del 2024.</p>
+
+    //     <p><b>1. Clase Magistral:</b> Únete a nuestra clase especial por Zoom el viernes 22 de marzo a las 17 horas (hora de Argentina). Te sumergirás en temas fascinantes para estudiantes de español de todos los niveles. Desde los sonidos del español hasta consejos de motivación, ¡tenemos mucho por explorar!</p>
+
+    //     <p><b>2. Clases interactivas en la app:</b> En nuestra plataforma encontrarás dos unidades didácticas interactivas y explicativas para los niveles A1, A2 y B1 y que continuaremos añadiendo contenido el cual podrás disfrutar durante el tiempo promocional. Estamos comprometidos a brindarte contenido de calidad que te ayude a avanzar en tu aprendizaje del español.</p>
+    //   `}
+    //   `
+    // }
+
 
     try {
       await fetch('/api/users/getUserEmail/' + email,
@@ -59,12 +105,49 @@ export default function ModalPagoABLE(props) {
           headers: {
             "Content-Type": "application/json",
           }
-        }).then(response => response.json())
-        .then(response => {
+        })
+        .then(response => response.json())
+        .then(async(response) => {
+
           //Si usuario existe
-          if (response.totalResults) { IncrementAppoinment(response.results), props.open1(), props.close() }
-          //Si usuario no existe
-          else { createUser() }
+          if (response.totalResults) {
+
+            IncrementAppoinment(response.results), props.open1(), props.close()
+
+            // Al mensage de email se le agrega el saludo
+            // emailMessage.content = emailMessage.content + `
+            // <p>¡Gracias nuevamente por elegirnos como tu compañero de aprendizaje!<p>
+
+            // <p>¡Saludos!</p>
+
+            // <p><b>Equipo de Español con E</b></p>
+            // `;
+
+          }
+
+          //Si usuario NO existe
+          else {
+
+            createUser()
+            
+            // Al mensage de email se le agrega la contraseña temporal y el saludo
+            // emailMessage.content = emailMessage.content + `
+            // <p>
+            // Como eres un nuevo usuario, se ha creado una cuenta para ti dentro de nuestra plataforma con la siguiente clave temporal: <b>${temporalPassword}</b>
+            // Te sugerimos cambiar tu clave y por favor, no dudes en ponerte en contacto con nosotros si tienes alguna pregunta o necesitas ayuda con algo. Estamos aquí para ayudarte en cada paso del camino.
+            // </p>
+
+            // <p>¡Gracias nuevamente por elegirnos como tu compañero de aprendizaje!<p>
+
+            // <p>¡Saludos!</p>
+
+            // <p><b>Equipo de Español con E</b></p>
+            // `;
+
+          }
+          
+          // Envia email
+          // await axios.post('/api/mail/template/1', emailMessage)
         })
     }
     //props.open1(), props.close() 
@@ -74,56 +157,59 @@ export default function ModalPagoABLE(props) {
     //si creo usuario bien anro paypal
   }
   async function MakeAndPay2() {
+    
+    props.open2();
+    props.close();
+    // setPasswd(generarPassword)
+    // props.setPasswd(passwd)
+    
+    // //si creo el usuario bien abro zelle
+    // try {
+    //   await fetch('/api/users/getUserEmail/' + email,
+    //     {
+    //       method: "GET",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       }
+    //     })
+    //     .then(response => response.json())
+    //     .then(response => {
 
-    setPasswd(generarPassword)
-    props.setPasswd(passwd)
-    //si creo el usuario bien abro zelle
+    //       //Si usuario existe
+    //       if (response.totalResults) { IncrementAppoinment(response.results), props.open2(), props.close() }
 
-    try {
-      await fetch('/api/users/getUserEmail/' + email,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          }
-        }).then(response => response.json())
-        .then(response => {
-          //Si usuario existe
-          if (response.totalResults) { IncrementAppoinment(response.results), props.open2(), props.close() }
-          //Si usuario no existe
-          else { createUser2() }
-        })
-    }
-    //props.open1(), props.close() 
-    catch (error) {
-      console.log(error);
-    }
+    //       //Si usuario no existe
+    //       else { createUser2() }
+    //     })
+    // }
+    // //props.open1(), props.close() 
+    // catch (error) {
+    //   console.log(error);
+    // }
 
-    { props.open2(), props.close() }
 
   }
 
   async function createUser() {
     setNewUser(true);
     props.setNewUser(true);
-    try {
-      console.log('creando usuario')
-      await axios.post('/api/auth/signup',
-        {
-          first_name: nombre,
-          last_name: apellido,
-          country: "",
-          email: email,
-          password: passwd,
-          confirm_password: passwd,
-          roles: ['student', 'user']
-        }
-      ).then(response => { console.log(response), props.open1(), props.close() });
+    // try {
+    //   console.log('creando usuario')
+    //   // Borrar creacion de usuario y dejar la parte en la que cierran los popUps
+    //   await axios.post('/api/auth/signup',
+    //     {
+    //       first_name: nombre,
+    //       last_name: apellido,
+    //       country: "",
+    //       email: email,
+    //       password: passwd,
+    //       confirm_password: passwd,
+    //       roles: ['student', 'user']
+    //     }
+    //   ).then(response => {console.log(response), props.open1(), props.close() });
 
-    } catch (error) { console.log(error) }
+    // } catch (error) { console.log(error) }
   }
-
-
   async function createUser2() {
     setNewUser(true);
     props.setNewUser(true);
@@ -151,7 +237,6 @@ export default function ModalPagoABLE(props) {
       props.setUser(user)
     } catch (error) { console.log(error) }
   }
-
   const closeModal = () => {
     props.modalPay(false)
     setIsOpen(false)
@@ -174,7 +259,7 @@ export default function ModalPagoABLE(props) {
         <>
           <div
             onClick={closeModal}
-            className='fixed w-screen min-h-screen top-0 left-0 bg-[#000000aa] flex flex-col justify-center items-center z-50'>
+            className='fixed w-screen min-h-screen top-0 left-0 bg-[#000000aa] flex flex-col justify-center items-center z-[999]'>
 
             <div
               onClick={(e) => e.stopPropagation()}
@@ -240,50 +325,60 @@ export default function ModalPagoABLE(props) {
                   </div>
 
                   {/* Metodo de pago */}
-                {emailOk && nombreOk ?  <div
-                    className='w-[750px] max-h-[70vh] flex-col flex justify-center p-3 mt-7
-            overflow-y-scroll modal-paypal
-            md:w-full'>
-                    <button
-                      type="submit"
-                     onClick={() => MakeAndPay()}
-                      className='rounded-[5px] text-white px-5 py-2.5 mb-4 w-full text-[21px] italic font-semibold bg-gradient-to-r from-[#253b80] to-[#2997d8]  flex justify-center
-                    hover:shadow-[0px_4px_14px_#253b80]'>
-                      {/* <Image src={Zelle} alt='zelle' className='w-[60px]'/>  */}
-                      PayPal
-                    </button>
+                {emailOk && nombreOk ?
 
-                    <button
-                      type="submit"
-                      onClick={() => MakeAndPay2()}
-                      className='rounded-[5px] text-white px-5 py-2.5 w-full mb-4 text-[16px] font-semibold bg-[#7422e0] flex justify-center
-                    hover:shadow-[0px_4px_14px_#7422e0]'>
-                      <Image src={Zelle} alt='zelle' className='w-[60px]' />
-                    </button>
+                // Botones validos
+                <div
+                className='w-[750px] max-h-[70vh] flex-col flex justify-center p-3 mt-7
+                overflow-y-scroll modal-paypal
+                md:w-full'>
+
+                      {/* Paypal */}
+                      <button
+                        type="submit"
+                      onClick={() => MakeAndPay()}
+                        className='rounded-[5px] text-white px-5 py-2.5 mb-4 w-full text-[21px] italic font-semibold bg-gradient-to-r from-[#253b80] to-[#2997d8]  flex justify-center
+                      hover:shadow-[0px_4px_14px_#253b80]'>
+                        PayPal
+                      </button>
+
+                      {/* Zeller */}
+                      <button
+                        type="submit"
+                        onClick={() => MakeAndPay2()}
+                        className='rounded-[5px] text-white px-5 py-2.5 w-full mb-4 text-[16px] font-semibold bg-[#7422e0] flex justify-center
+                      hover:shadow-[0px_4px_14px_#7422e0]'>
+                        <Image src={Zelle} alt='zelle' className='w-[60px]' />
+                      </button>
                     <div className='w-full m-auto'>
                     </div>
                   </div>
-:
+                  :
+                  // Botones de invalidacion
                   <div
-                    className='w-[750px] max-h-[70vh] flex-col flex justify-center p-3 mt-7
-            overflow-y-scroll modal-paypal
-            md:w-full'>
+                  className='w-[750px] max-h-[70vh] flex-col flex justify-center p-3 mt-7
+                  overflow-y-scroll modal-paypal
+                  md:w-full'>
+
+                    {/* Paypal */}
                     <button
-                      type="submit"
-                     onClick={() => alert(t('email')+' o '+t('name')+' Invalido')}
-                      className='rounded-[5px] text-white px-5 py-2.5 mb-4 w-full text-[21px] italic font-semibold bg-gradient-to-r from-[#253b80] to-[#2997d8]  flex justify-center
+                    type="submit"
+                    onClick={() => alert(t('email')+' o '+t('name')+' Invalido')}
+                    className='rounded-[5px] text-white px-5 py-2.5 mb-4 w-full text-[21px] italic font-semibold bg-gradient-to-r from-[#253b80] to-[#2997d8]  flex justify-center opacity-[50%] pointer-events-none
                     hover:shadow-[0px_4px_14px_#253b80]'>
                       {/* <Image src={Zelle} alt='zelle' className='w-[60px]'/>  */}
                       PayPal
                     </button>
 
+                    {/* Zeller */}
                     <button
                       type="submit"
                       onClick={() => alert(t('email')+' o '+t('name')+' Invalido')}
-                      className='rounded-[5px] text-white px-5 py-2.5 w-full mb-4 text-[16px] font-semibold bg-[#7422e0] flex justify-center
+                      className='rounded-[5px] text-white px-5 py-2.5 w-full mb-4 text-[16px] font-semibold bg-[#7422e0] flex justify-center opacity-[50%] pointer-events-none
                     hover:shadow-[0px_4px_14px_#7422e0]'>
                       <Image src={Zelle} alt='zelle' className='w-[60px]' />
                     </button>
+
                     <div className='w-full m-auto'>
                     </div>
                   </div>
