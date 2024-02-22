@@ -976,7 +976,7 @@ export default function Schedule() {
 
                   {isAfter(selectedDay, today) && personSchedule?.calendar?.map((meeting, index) => {
                      
-                    if (!meeting.preassigned&&!meeting.assigned && isSameDay(parseISO(meeting.userstartDatetime), selectedDay)) {
+                    if (!meeting.preassgined&&!meeting.assigned && isSameDay(parseISO(meeting.userstartDatetime), selectedDay)) {
                       return (
 
                         <li key={index}>
