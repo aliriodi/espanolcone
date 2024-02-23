@@ -175,5 +175,6 @@
   "quantityt":"Número de aulas",
   "name": "Nome",
   "lastname": "Sobrenome",
-  "email": "E-mail"
+  "email": "E-mail",
+  "labelLanguage":"Pt"
 }
