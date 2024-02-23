@@ -72,7 +72,7 @@ export default function Ofrece() {
     // Genera el mensage dependiendo del plan
     let emailMessage = {
       to: email,
-      subject: "¡Bienvenido a Español con E!",
+      subject: "¡Bienvenido/a! Detalles de tu compra y más",
       content:`
       ${paypalDates?.descripion == "1claseIndividual 1masterclass 1claseengrupo 3unidadesporNivel" ? 
       // Mensage de Plan "Experiencia completa"
@@ -302,7 +302,7 @@ export default function Ofrece() {
           },
           body: JSON.stringify(
             {
-              idUser: email,
+              idUser: finalUser?._id,
               idPlan: 'plansync',
               qty: paypalDates.qty,
               ammount: paypalDates.cost,
@@ -356,7 +356,6 @@ export default function Ofrece() {
 
   return (
     <>
-    <button onClick={handlePaymentSuccess} className=' w-full'>BOTON</button>
       <section className='h-auto bg-[#F6F7FF] pb-[324px] pt-[187px] relative
       md:px-[20px]'>
 
