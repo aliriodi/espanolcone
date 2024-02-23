@@ -62,7 +62,8 @@
                      "sendOK":"Scheduled email",
                      "emailInvalid":"Not valid email",
                      "trip":"Trip in June 2024",
-                     "holder":"Write your email"
+                     "holder":"Write your email",
+                     "name": "Enter your name"
               }
        ],
        "card42":[

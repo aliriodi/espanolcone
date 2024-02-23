@@ -105,7 +105,7 @@ export default function ModalPagoZELLE(props) {
     // Genera el mensage dependiendo del plan
     let emailMessage = {
       to: props?.email,
-      subject: "¡Bienvenido a Español con E!",
+      subject: "¡Bienvenido/a! Detalles de tu compra y más",
       content:`
       ${props?.dates?.descripion == "1claseIndividual 1masterclass 1claseengrupo 3unidadesporNivel" ? 
       // Mensage de Plan "Experiencia completa"
@@ -192,7 +192,8 @@ export default function ModalPagoZELLE(props) {
             ]
           }
         ).then(response => {
-          console.log("response ",response)
+
+          finalUser = response
 
           // Se asigna la parte final para el mensaje por email
           emailMessage.content = emailMessage.content + `
@@ -264,9 +265,40 @@ export default function ModalPagoZELLE(props) {
         console.error(error);
       }
     }
+
+    console.log("finalUser ",finalUser)
     
-    ///////////// Envio de Email /////////////
+    /////////// Envio de Email /////////////
     await axios.post('/api/mail/template/1', emailMessage)
+
+    ///////////// Envio de Resivo /////////////
+    try {
+      fetch('/api/receipt/add',
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(
+            {
+              idUser: finalUser._id,
+              idPlan: 'plansync',
+              qty: props.dates.qty,
+              ammount: props.dates.cost,
+              dates: { ImageUrl, type: 'ZELLE', valid: false }
+            }
+          ),
+        }).then(response => {
+          alert('Su pago esta siendo procesado y analizado en un tiempo máximo de 4 horas su clase debe ser asiganda')
+          closeModal()
+
+        })
+
+    } catch (error) {
+      console.error(error);
+    }
+
+
     ////////////////////////////////////////
     // try {
     //   fetch('/api/users/update',
@@ -384,8 +416,7 @@ export default function ModalPagoZELLE(props) {
                     {/* aca deberia ser que se esclarezca el estilo mientras no haya imagen cargada */}
 
                     {/* Enviar Pago */}
-                    {ImageUrl && <button className='btn-success px-5 py-2.5 mt-3 w-full  text-[16px]' onClick={() => { //sendBD();
-                       PAYOK(); }}>
+                    {ImageUrl && <button className='btn-success px-5 py-2.5 mt-3 w-full  text-[16px]' onClick={() => { PAYOK(); }}>
                       {t('sendpay')}</button>}
 
                     {!ImageUrl && <button className={`btn-success px-5 py-2.5 mt-3 w-full text-[16px] l opacity-[50%] pointer-events-none`} onClick={() => alert('falta imagen de pago')}>

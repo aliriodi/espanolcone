@@ -10,9 +10,11 @@ export default function ModalListTourist(props) {
     const { t } = useTranslation('index');
 
     // Definir el estado para almacenar la cadena
+    const [name, setName] = useState('');
     const [inputString, setInputString] = useState('');
     const [validateEmail, setvalidateEmail] = useState(false);
     const [emailok, setEmailok] = useState(false);
+    const [loading, setLoading] = useState(false)
 
     // Función para manejar cambios en el input
     const handleInputChange = (event) => {
@@ -23,6 +25,9 @@ export default function ModalListTourist(props) {
     };
 
     async function sendList() {
+
+        setLoading(true)
+        
         try {
 
             await fetch('/api/email/add',
@@ -38,20 +43,38 @@ export default function ModalListTourist(props) {
             // Envia emails
             let email = {
                 to: inputString,
-                subject: "Conocer Córdoba",
-                title: "¡Bienvenido/a a la lista blanca para Conocer Córdoba!",
-                content:`<p>Nos complace enormemente que hayas decidido unirte a nuestra comunidad de aprendizaje y exploración.</p>
-                <p>Este es un emocionante paso que has dado para sumergirte en la cultura y la belleza de Córdoba mientras trabajas en mejorar tu español. Estamos ansiosos por brindarte experiencias enriquecedoras y memorables que te ayudarán a desarrollar tus habilidades lingüísticas mientras descubres los encantos de esta ciudad histórica.</p>
-                <p>A partir de ahora, recibirás actualizaciones periódicas sobre nuestras actividades, eventos especiales y recursos para ayudarte en tu viaje de aprendizaje. Si tienes alguna pregunta o necesitas asistencia adicional, no dudes en ponerte en contacto con nuestro equipo en cualquier momento.</p>
-                <p>Gracias una vez más por unirte a nosotros en esta emocionante aventura. Esperamos conocerte pronto y compartir juntos momentos inolvidables en Córdoba.</p>
-                <p>¡Saludos cordiales!</p>`
+                subject: "¡Descubre la Experiencia de Turismo Idiomático en Córdoba!",
+                content:`
+                <p><b>¡Hola ${name}!</b></p>
+
+                <p>Esperamos que estés muy bien. Queríamos expresarte nuestro agradecimiento por haber mostrado interés en nuestra experiencia de turismo idiomático en Córdoba. ¡Nos alegra mucho la posibilidad de compartir contigo esta increíble aventura!</p>
+
+                <p>Córdoba es una ciudad llena de encanto, historia y cultura. Desde sus hermosos paisajes naturales hasta su rica gastronomía y su vibrante vida nocturna, hay tanto por descubrir y disfrutar. Te aseguramos que te enamorarás de cada rincón de esta maravillosa ciudad.</p>
+
+                <p>Nuestra experiencia de turismo idiomático te ofrece la oportunidad perfecta para sumergirte en el idioma español mientras exploras los tesoros de Córdoba. Durante una semana, del 17 al 22 de junio, tendrás la oportunidad de vivir una experiencia única que te permitirá tomar clases de español a diario bajo un contexto totalmente diferente al usual, mejorar tus habilidades lingüísticas, conocer gente nueva y sumergirte en la cultura local.</p>
+
+                <p>Si estás interesado en obtener más información sobre esta experiencia o si deseas agendar una videollamada para conversar sobre los detalles, no dudes en ponerte en contacto con nosotros a través de nuestro correo electrónico <a href="mailto:espanolconeacademy@gmail.com">espanolconeacademy@gmail.com</a>. Estamos aquí para responder a todas tus preguntas y ayudarte en cada paso del proceso.</p>
+
+                <p>Pronto te proporcionaremos más detalles sobre el viaje, incluyendo el itinerario, las actividades programadas y toda la información que necesitas para prepararte para esta aventura inolvidable.</p>
+
+                <p>Una vez más, te agradecemos por tu interés en nuestra experiencia de turismo idiomático en Córdoba. Sería un placer tenerte a bordo y de compartir esta experiencia contigo.</p>
+
+                <p>¡Esperamos poder saludarte personalmente en Córdoba pronto!</p>
+
+                <p>¡Saludos cordiales!</p>
+
+                <p>[Nombre del Equipo / Empresa]</p>
+
+                `
             }
 
             await axios.post('/api/mail/template/1', email)
+            setLoading(false)
 
 
         } catch (error) {
             console.log(error);
+            setLoading(false)
         }
         setEmailok(true)
 
@@ -93,11 +116,22 @@ export default function ModalListTourist(props) {
                     {/* Input */}
                     {
                     !emailok &&
-                    <input
-                    placeholder= {t("card4.2.holder")}  
-                    className='rounded-md border-2 border-primary outline-primary_hover p-3 w-full mb-3'
-                    type="text"
-                    value={inputString} onChange={handleInputChange} />}
+                    <>
+                        <input
+                        placeholder= {t("card4.2.name")}  
+                        className='rounded-md border-2 border-primary outline-primary_hover p-3 w-full mb-3'
+                        type="text"
+                        value={name}
+                        onChange={(e)=>setName(e.target.value)} />
+
+                        <input
+                        placeholder= {t("card4.2.holder")}  
+                        className='rounded-md border-2 border-primary outline-primary_hover p-3 w-full mb-3'
+                        type="text"
+                        value={inputString}
+                        onChange={handleInputChange} />
+                    </>
+                    }
 
                     {/* Email Invalido o valido message */}
                     {/* {inputString.length > 6 && !validateEmail && <div className='text-red-500'> {t("card4.2.emailInvalid")}</div>} */}
@@ -108,12 +142,24 @@ export default function ModalListTourist(props) {
                         {
                         <div className='flex justify-center  text-center mb-[20px]'>
                             <button 
-                            className={`bg-primary rounded-full text-white w-full p-2 text-[20px] ${!validateEmail && 'hidden'} transition-all
+                            className={`bg-primary rounded-full text-white w-full p-2 text-[20px] ${(!validateEmail || name == "") && 'hidden'} transition-all
                             hover:bg-[#4ED5F2] hover:shadow-[0px_4px_14px_0px_#3CBBD661]`}
-                            onClick={() => sendList()}>{t("card4.2.send")}</button>
+                            onClick={() => sendList()}>
+
+                                {
+                                    !loading ?
+                                    `${t("card4.2.send")}`
+                                    :
+                                    <div
+                                    className="inline-block  h-4 w-4 animate-spin rounded-full border-white border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                                    role="status"
+                                    ></div>
+                                }
+                                
+                            </button>
                                     
                             <div
-                            className={`bg-primary rounded-full text-white w-full p-2 text-[20px] ${validateEmail && 'hidden'} opacity-50 pointer-events-none`}>
+                            className={`bg-primary rounded-full text-white w-full p-2 text-[20px] ${validateEmail && name.length > 0 && 'hidden'} opacity-50 pointer-events-none`}>
                                 {t("card4.2.send")}
                             </div>
                         </div>}

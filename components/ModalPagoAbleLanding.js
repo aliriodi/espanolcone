@@ -274,19 +274,18 @@ export default function ModalPagoABLE(props) {
               <div className='pt-2'>
                 <form onSubmit={handleSubmit}>
                   <div className='p-2'>
-                    {/* <label className='border border-gray-300 p-2'> */}
-                    <label className='p-2'>
+
                       {/* Nombre */}
-                      {t('name')}:
+                      <label className='p-2 text-violet_dark'>
+                        {t('name')}:
+                      </label>
                       <input
-                        className={classNames('ml-2 border  focus-visible:outline-none rounded-md ',!nombreOk? 'border-gray-300': ' shadow-md  shadow-primary border-green-300')}
+                        className={classNames('ml-2 border p-2 w-full focus-visible:outline-none rounded-md ',!nombreOk? 'border-gray-300': ' shadow-md  shadow-primary border-green-300')}
                         type="text"
                         value={nombre}
-                        placeholder={'  '+t('name')}
+                        placeholder={t('name')}
                         onChange={(e) => {setNombre(e.target.value),validate(e.target.value,email)  }}
                       />
-                    </label>
-                    {/* {nombreOk?<>Valido</>:<>Invalido</>}+{' '+nombre.length+' '+nombre} */}
                   </div>
                   {/* <div className='p-2'>
                   <label className='p-2'>
@@ -302,18 +301,20 @@ export default function ModalPagoABLE(props) {
                     </label>
                   </div> */} 
                   <div className='p-2'>
-                  <label className='p-2'>
-                      {/* Correo Electronico */}
+
+                    {/* Correo Electronico */}
+                    <label className='p-2 text-violet_dark'>
                       {t('email')}:
-                      <input
-                        className={classNames('ml-2 border  focus-visible:outline-none rounded-md ',!emailOk? 'border-gray-300': ' shadow-md  shadow-primary border-green-300')}
-                        type="email"
-                        placeholder='  johndoe@gmail.com'
-                        value={email}
-                        onChange={(e) => {setEmail(e.target.value),validate(nombre,e.target.value)}}
-                      />
                     </label>
-                    {/* {emailOk?<>Valido</>:<>Invalido email </>} */}
+
+                    <input
+                      className={classNames('ml-2 border p-2 w-full  focus-visible:outline-none rounded-md ',!emailOk? 'border-gray-300': ' shadow-md  shadow-primary border-green-300')}
+                      type="email"
+                      placeholder='  johndoe@gmail.com'
+                      value={email}
+                      onChange={(e) => {setEmail(e.target.value),validate(nombre,e.target.value)}}
+                    />
+
                   </div>
 
 
