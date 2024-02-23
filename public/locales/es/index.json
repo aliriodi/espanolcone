@@ -181,5 +181,6 @@
   "quantityt": "Cantidad de clases",
   "name": "Nombre",
   "lastname": "Apellido",
-  "email": "Correo Electrónico"
+  "email": "Correo Electrónico",
+  "labelLanguage":"Es"
 }

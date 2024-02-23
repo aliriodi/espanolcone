@@ -174,5 +174,6 @@
        "quantityt":"Number of classes",
        "name":"First Name",
        "lastname":"Last Name",
-       "email":"Email"
+       "email":"Email",
+       "labelLanguage":"En"
 }

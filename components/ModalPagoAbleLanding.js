@@ -57,103 +57,63 @@ export default function ModalPagoABLE(props) {
     setPasswd(temporalPassword)
     props.setPasswd(passwd)
 
-    // Genera el mensage dependiendo del plan
-    // let emailMessage = {
-    //   to: email,
-    //   subject: "¡Bienvenido a Español con E!",
-    //   content:`
-    //   ${props?.descripion == "1claseIndividual 1masterclass 1claseengrupo 3unidadesporNivel" ? 
-    //   // Mensage de Plan "Experiencia completa"
-    //   `<p>¡Hola ${nombre}!</p>
 
-    //     <p><b>¡Bienvenido a Español con E!</b> Estamos encantados de tenerte como parte de nuestra comunidad de aprendizaje de español. Queremos que sepas que estamos aquí para apoyarte en cada paso de tu viaje lingüístico.</p>
+    // try {
+    //   await fetch('/api/users/getUserEmail/' + email,
+    //     {
+    //       method: "GET",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       }
+    //     })
+    //     .then(response => response.json())
+    //     .then(async(response) => {
 
-    //     <p>Nos alegra mucho tenerte con nosotros y queremos expresarte nuestro agradecimiento por haber elegido nuestro paquete <b>"Aprende y Disfruta".</b></p>
-    //     <p>Aquí te detallamos lo que has adquirido con tu compra:</p>
+    //       //Si usuario existe
+    //       if (response.totalResults) {
 
-    //     <p><b>Paquete Especial "Aprende y Disfruta" valorado en $100 ¡por solo $25 dólares!</b>,  valido hasta el 23 de abril del 2024.</p>
+    //         IncrementAppoinment(response.results), props.open1(), props.close()
 
-    //     <p><b>1. Clase individual personalizada:</b> Una sesión de 60 minutos, adaptable a tus necesidades. </p>
-        
-    //     <p><b>2. Clase magistral:</b> Únete a nuestra clase especial por Zoom el viernes 22 de marzo a las 17 horas (hora de Argentina). Te sumergirás en temas fascinantes para estudiantes de español de todos los niveles. Desde los sonidos del español hasta consejos de motivación, ¡tenemos mucho por explorar!</p>
+    //         // Al mensage de email se le agrega el saludo
+    //         // emailMessage.content = emailMessage.content + `
+    //         // <p>¡Gracias nuevamente por elegirnos como tu compañero de aprendizaje!<p>
 
-    //     <p><b>3. Clase en grupo:</b> Será una clase de 90 minutos. Se ofrecerán varias sesiones de diferentes temas y niveles. Podrás elegir la que mejor se adapte a tus intereses y disponibilidad. La lista completa de clases y horarios te la enviaremos por correo electrónico pronto.</p>
+    //         // <p>¡Saludos!</p>
 
-    //     <p>Además, queremos que sepas que en nuestra plataforma encontrarás dos unidades didácticas interactivas y explicativas para los niveles A1, A2 y B1 y que continuaremos añadiendo contenido el cual podrás disfrutar durante el tiempo promocional.  Estamos comprometidos a brindarte contenido de calidad que te ayude a avanzar en tu aprendizaje del español.</p>`
-    //   :
-    //   // Mensage de Plan "Echa un vistazo"
-    //   `<p><b>¡Hola ${nombre}!</b></p>
+    //         // <p><b>Equipo de Español con E</b></p>
+    //         // `;
 
-    //     <p>Nos alegra mucho tenerte con nosotros y queremos expresarte nuestro agradecimiento por haber elegido nuestro paquete <b>"Echa un vistazo".</b></p>
+    //       }
 
-    //     <p>Aquí te detallamos todo lo que has adquirido con tu compra:</p>
+    //       //Si usuario NO existe
+    //       else {
 
-    //     <p><b>Paquete Especial "Echa un vistazo" valorado en $45 ¡por solo $10 dólares!</b> valido hasta el 23 de abril del 2024.</p>
-
-    //     <p><b>1. Clase Magistral:</b> Únete a nuestra clase especial por Zoom el viernes 22 de marzo a las 17 horas (hora de Argentina). Te sumergirás en temas fascinantes para estudiantes de español de todos los niveles. Desde los sonidos del español hasta consejos de motivación, ¡tenemos mucho por explorar!</p>
-
-    //     <p><b>2. Clases interactivas en la app:</b> En nuestra plataforma encontrarás dos unidades didácticas interactivas y explicativas para los niveles A1, A2 y B1 y que continuaremos añadiendo contenido el cual podrás disfrutar durante el tiempo promocional. Estamos comprometidos a brindarte contenido de calidad que te ayude a avanzar en tu aprendizaje del español.</p>
-    //   `}
-    //   `
-    // }
-
-
-    try {
-      await fetch('/api/users/getUserEmail/' + email,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          }
-        })
-        .then(response => response.json())
-        .then(async(response) => {
-
-          //Si usuario existe
-          if (response.totalResults) {
-
-            IncrementAppoinment(response.results), props.open1(), props.close()
-
-            // Al mensage de email se le agrega el saludo
-            // emailMessage.content = emailMessage.content + `
-            // <p>¡Gracias nuevamente por elegirnos como tu compañero de aprendizaje!<p>
-
-            // <p>¡Saludos!</p>
-
-            // <p><b>Equipo de Español con E</b></p>
-            // `;
-
-          }
-
-          //Si usuario NO existe
-          else {
-
-            createUser()
+    //         createUser()
             
-            // Al mensage de email se le agrega la contraseña temporal y el saludo
-            // emailMessage.content = emailMessage.content + `
-            // <p>
-            // Como eres un nuevo usuario, se ha creado una cuenta para ti dentro de nuestra plataforma con la siguiente clave temporal: <b>${temporalPassword}</b>
-            // Te sugerimos cambiar tu clave y por favor, no dudes en ponerte en contacto con nosotros si tienes alguna pregunta o necesitas ayuda con algo. Estamos aquí para ayudarte en cada paso del camino.
-            // </p>
+    //         // Al mensage de email se le agrega la contraseña temporal y el saludo
+    //         // emailMessage.content = emailMessage.content + `
+    //         // <p>
+    //         // Como eres un nuevo usuario, se ha creado una cuenta para ti dentro de nuestra plataforma con la siguiente clave temporal: <b>${temporalPassword}</b>
+    //         // Te sugerimos cambiar tu clave y por favor, no dudes en ponerte en contacto con nosotros si tienes alguna pregunta o necesitas ayuda con algo. Estamos aquí para ayudarte en cada paso del camino.
+    //         // </p>
 
-            // <p>¡Gracias nuevamente por elegirnos como tu compañero de aprendizaje!<p>
+    //         // <p>¡Gracias nuevamente por elegirnos como tu compañero de aprendizaje!<p>
 
-            // <p>¡Saludos!</p>
+    //         // <p>¡Saludos!</p>
 
-            // <p><b>Equipo de Español con E</b></p>
-            // `;
+    //         // <p><b>Equipo de Español con E</b></p>
+    //         // `;
 
-          }
+    //       }
           
-          // Envia email
-          // await axios.post('/api/mail/template/1', emailMessage)
-        })
-    }
-    //props.open1(), props.close() 
-    catch (error) {
-      console.log(error);
-    }
+    //       // Envia email
+    //       // await axios.post('/api/mail/template/1', emailMessage)
+    //     })
+    // }
+    // catch (error) {
+    //   console.log(error);
+    // }
+    props.open1(), props.close() 
     //si creo usuario bien anro paypal
   }
   async function MakeAndPay2() {
