@@ -119,8 +119,8 @@ function gtag_report_conversion(url) {
   //si el pago es ok envio a la BD el pago
   async function PAYOK() {
     //Envio reporte a GoogleADS
-    gtag_report_conversion()
-    
+    gtag_report_conversion('espanolcone.com')
+
     setLoading(true)
     
     let finalUser;
