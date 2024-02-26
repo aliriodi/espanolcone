@@ -1,30 +1,23 @@
-import Script from "next/script";
-import { useEffect } from "react";
+import Script from 'next/script';
 
-function GoogleADS() {
-    useEffect(() => {
-        // This function will be called once when the component mounts
-        const handleScriptLoad = () => {
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'AW-11324663584');
-        };
+export const GTMscript = () => (
+  <>
+    <Script>{`window.dataLayer = window.dataLayer || [];`}</Script>
+    <Script id="google-tag-manager" strategy="afterInteractive">
+      {` (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K4B69KPW');`}
+    </Script>
+  </>
+);
 
-        // Load Google Analytics script
-        const script = document.createElement("script");
-        script.src = "https://www.googletagmanager.com/gtag/js?id=AW-11324663584";
-        script.async = true;
-        script.onload = handleScriptLoad;
-        document.body.appendChild(script);
-
-        // Cleanup function
-        return () => {
-            document.body.removeChild(script);
-        };
-    }, []);
-
-    return null; // Google Analytics script is loaded asynchronously, so we don't need to render anything
-}
-
-export default GoogleADS;
+export const GTMnoscript = () => (
+  <noscript
+    dangerouslySetInnerHTML={{
+      __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K4B69KPW"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+    }}
+  />
+);
