@@ -15,9 +15,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 export const GTMnoscript = () => (
   <noscript
-    //  id="google-tag-manager" strategy="afterInteractive"
+    strategy="afterInteractive"
     dangerouslySetInnerHTML={{
-      __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K4B69KPW"
+      __html: `<iframe id="google-tag-manager" src="https://www.googletagmanager.com/ns.html?id=GTM-K4B69KPW"
       height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
     }}
   />
