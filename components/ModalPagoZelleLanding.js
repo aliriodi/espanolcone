@@ -276,6 +276,8 @@ export default function ModalPagoZELLE(props) {
           <p><b>Equipo de Español con E</b></p>
 
           `);
+
+          props?.newUserAlertOpen()
         });
 
       }
@@ -371,7 +373,8 @@ export default function ModalPagoZELLE(props) {
             }
           ),
         }).then(response => {
-          alert('Su pago esta siendo procesado y analizado en un tiempo máximo de 4 horas su clase debe ser asiganda')
+          props?.buyAlertOpen()
+          // alert('Su pago esta siendo procesado y analizado en un tiempo máximo de 4 horas su clase debe ser asiganda')
           setLoading(false)
           closeModal()
 

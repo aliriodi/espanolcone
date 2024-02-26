@@ -8,6 +8,8 @@ import ModalPagoABLE from '../ModalPagoAbleLanding';
 import ModalPago from '../ModalPagoPAYPALLanding';
 import ModalPago2 from '../ModalPagoZelleLanding';
 import axios from 'axios';
+import AlertContainer from '../GenericsElements/Alerts/AlertContainer';
+import Alert from '../GenericsElements/Alerts/Alert';
 
 export default function Ofrece() {
   let [List, setList] = useState(false)
@@ -25,6 +27,8 @@ export default function Ofrece() {
   const [passwd, setPasswd] = useState('');
   const [NewUser, setNewUser] = useState(false);
   const [User, setUser] = useState('')
+  const [alertSuccess, setAlertSuccess] = useState(false)
+  const [alertNewUser, setAlertNewUser] = useState(false)
 
   const closeZelleModal = () => {
     setZelleModal(false)
@@ -237,6 +241,7 @@ export default function Ofrece() {
           <p><b>Equipo de Español con E</b></p>
 
           `);
+          setAlertNewUser(true)
           setPaypalDates(null)
         });
 
@@ -435,8 +440,8 @@ export default function Ofrece() {
 
   return (
     <>
-    <button className='w-full flex justify-center' onClick={()=>console.log(t("labelLanguage") == "Es")}>Idioma {t("labelLanguage")}</button>
-      <section className='h-auto bg-[#F6F7FF] pb-[324px] pt-[187px] relative
+    
+    <section className='h-auto bg-[#F6F7FF] pb-[324px] pt-[187px] relative
       md:px-[20px]'>
 
         {/* Titulo */}
@@ -796,7 +801,30 @@ export default function Ofrece() {
       passwd={passwd}
       open={ZelleModal}
       dates={paypalDates}
+      buyAlertOpen={()=>setAlertSuccess(true)}
+      newUserAlertOpen={()=>setAlertNewUser(true)}
     />
+
+    
+    {/* //////////////////////// Alerts //////////////////////// */}
+    <AlertContainer>
+
+      <Alert
+      color='secondary'
+      open={alertSuccess}
+      closeAlert={()=>setAlertSuccess(false)}>
+        Su pago esta siendo procesado y analizado en un tiempo máximo de 4 horas su clase debe ser asiganda
+      </Alert>
+
+      
+      <Alert
+      color='secondary'
+      open={alertNewUser}
+      closeAlert={()=>setAlertNewUser(false)}>
+        Se te a creado una cuenta con tu email y una contraseña temporal
+      </Alert>
+
+    </AlertContainer>
     </>
   )
 }
