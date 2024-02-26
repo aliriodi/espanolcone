@@ -7,6 +7,7 @@ import { appWithTranslation } from 'next-i18next'
 import nextI18NextConfig from '../next-i18next.config';
 import Head from 'next/head';
 import GoogleAnalytics from './GoogleAnalytics'
+import GoogleADS from './GoogleADS';
 import LoadScreen from '../components/LoadScreen';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
@@ -30,12 +31,14 @@ function App({ Component, pageProps }) {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
       </Head>
       <SessionProvider session={pageProps.session}>
         <Provider store={store}>
           {/* <LoadScreen/> */}
           <Component {...pageProps} />
           <GoogleAnalytics />
+          <GoogleADS />
         </Provider>
       </SessionProvider>
     </>
