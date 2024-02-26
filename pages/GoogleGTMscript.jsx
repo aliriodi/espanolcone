@@ -1,6 +1,6 @@
 import Script from 'next/script';
 
-export const GTMscript = () => (
+export default function  GTMscript () {
   <>
     <Script id="data-layer">{`window.dataLayer = window.dataLayer || [];`}</Script>
     <Script id="google-tag-manager" strategy="afterInteractive">
@@ -11,7 +11,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-K4B69KPW');`}
     </Script>
   </>
-);
+};
 
 export const GTMnoscript = () => (
   <noscript

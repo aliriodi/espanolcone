@@ -1,5 +1,5 @@
 import { Html, Head, Main, NextScript } from 'next/document'
-import { GTMnoscript } from './GoogleADS'
+import  GTMnoscript  from './GoogleGTMNoscript'
 export default function Document() {
   return (
     <Html lang="en">
