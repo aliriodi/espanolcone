@@ -176,5 +176,7 @@
   "name": "Nome",
   "lastname": "Sobrenome",
   "email": "E-mail",
-  "labelLanguage":"Pt"
+  "labelLanguage":"Pt",
+  "zellerBuyMessage":"Seu pagamento está sendo processado e analisado. Seu plano será atribuído dentro de um máximo de 4 horas, e você receberá um e-mail com mais detalhes assim que estiver pronto.",
+  "newUserMessage":["Informamos que uma conta foi criada associada ao seu endereço de e-mai","com uma senha temporária","Você pode fazer login","aqui"]
 }

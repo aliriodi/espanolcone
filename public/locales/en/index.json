@@ -175,5 +175,7 @@
        "name":"First Name",
        "lastname":"Last Name",
        "email":"Email",
-       "labelLanguage":"En"
+       "labelLanguage":"En",
+       "zellerBuyMessage":"Your payment is being processed and analyzed. Your plan will be assigned within a maximum of 4 hours, and you will receive an email with further details once it is ready.",
+       "newUserMessage":["We inform you that an account has been created associated with your email address","with a temporary password","You can log in","here"]
 }

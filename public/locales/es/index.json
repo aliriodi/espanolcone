@@ -182,5 +182,7 @@
   "name": "Nombre",
   "lastname": "Apellido",
   "email": "Correo Electrónico",
-  "labelLanguage":"Es"
+  "labelLanguage":"Es",
+  "zellerBuyMessage":"Tu pago está siendo procesado y analizado. En un máximo de 4 horas, tu plan será asignado y recibirás un correo electrónico con más detalles.",
+  "newUserMessage":["Te informamos que se ha creado una cuenta asociada a tu dirección de correo electrónico","con una contraseña temporal","Puedes iniciar sesión","aquí"]
 }
