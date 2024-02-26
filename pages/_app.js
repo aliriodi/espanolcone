@@ -36,9 +36,9 @@ function App({ Component, pageProps }) {
       <SessionProvider session={pageProps.session}>
         <Provider store={store}>
           {/* <LoadScreen/> */}
-          <GoogleADS>
+          {/* <GoogleADS> */}
             <Component {...pageProps} />
-          </GoogleADS>
+          {/* </GoogleADS> */}
           <GoogleAnalytics />
         </Provider>
       </SessionProvider>
