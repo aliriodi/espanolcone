@@ -55,6 +55,19 @@ export default function Home() {
   const [passwordError, setPasswordError]= useState(false)
   const [showPassword, setShowPassword]= useState(false)
 
+  useEffect(()=>{
+
+    // En caso de venir desde el alert que se encuentra en la landing
+    if(sessionStorage.getItem("userPassword")){
+      // Toma los datos del usuario que se encuentran en el "Session Storage"
+      setEmail(sessionStorage.getItem("userEmail"))
+      setPassword(sessionStorage.getItem("userPassword"))
+
+      // Una ves obtenidos elemina los parametros del "Session Storage"
+      sessionStorage.removeItem("userEmail")
+      sessionStorage.removeItem("userPassword")
+    }
+  },[])
 
   //Probando redux
   useEffect(() => { dispatch(getuser());

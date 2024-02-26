@@ -45,6 +45,8 @@ export default function ModalPagoABLE(props) {
       const randomIndex = Math.floor(Math.random() * caracteres.length);
       password += caracteres.charAt(randomIndex);
     }
+    
+    props.setPasswd(password)
 
     return password;
   }
@@ -54,8 +56,6 @@ export default function ModalPagoABLE(props) {
 
     // Genera contraseña temporal
     let temporalPassword = generarPassword()
-    setPasswd(temporalPassword)
-    props.setPasswd(passwd)
 
 
     // try {
