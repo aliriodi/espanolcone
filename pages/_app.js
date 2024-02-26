@@ -31,14 +31,15 @@ function App({ Component, pageProps }) {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        
+
       </Head>
       <SessionProvider session={pageProps.session}>
         <Provider store={store}>
           {/* <LoadScreen/> */}
-          <Component {...pageProps} />
+          <GoogleADS>
+            <Component {...pageProps} />
+          </GoogleADS>
           <GoogleAnalytics />
-          <GoogleADS />
         </Provider>
       </SessionProvider>
     </>
