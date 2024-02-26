@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import ModalListTourist from './ModalListTourist';
@@ -10,6 +10,7 @@ import ModalPago2 from '../ModalPagoZelleLanding';
 import axios from 'axios';
 import AlertContainer from '../GenericsElements/Alerts/AlertContainer';
 import Alert from '../GenericsElements/Alerts/Alert';
+import Link from 'next/link';
 
 export default function Ofrece() {
   let [List, setList] = useState(false)
@@ -29,6 +30,11 @@ export default function Ofrece() {
   const [User, setUser] = useState('')
   const [alertSuccess, setAlertSuccess] = useState(false)
   const [alertNewUser, setAlertNewUser] = useState(false)
+
+  useEffect(()=>{
+    setAlertNewUser(false)
+    setAlertSuccess(false)
+  },[PayModal])
 
   const closeZelleModal = () => {
     setZelleModal(false)
@@ -434,13 +440,18 @@ export default function Ofrece() {
       password += caracteres.charAt(randomIndex);
     }
 
+    setPasswd(password)
+
     return password;
+  }
+  function assingmentLogVaribles(){
+    sessionStorage.setItem("userEmail",email)
+    sessionStorage.setItem("userPassword",passwd)
   }
 
 
   return (
     <>
-    
     <section className='h-auto bg-[#F6F7FF] pb-[324px] pt-[187px] relative
       md:px-[20px]'>
 
@@ -813,7 +824,7 @@ export default function Ofrece() {
       color='secondary'
       open={alertSuccess}
       closeAlert={()=>setAlertSuccess(false)}>
-        Su pago esta siendo procesado y analizado en un tiempo máximo de 4 horas su clase debe ser asiganda
+        {t("zellerBuyMessage")}
       </Alert>
 
       
@@ -821,7 +832,7 @@ export default function Ofrece() {
       color='secondary'
       open={alertNewUser}
       closeAlert={()=>setAlertNewUser(false)}>
-        Se te a creado una cuenta con tu email y una contraseña temporal
+        {t("newUserMessage.0")} <b>( {email} )</b> {t("newUserMessage.1")} <b>( {passwd} )</b> {t("newUserMessage.2")} <Link onClick={assingmentLogVaribles} className='underline' href={'/login'}><b>{t("newUserMessage.3")}</b></Link>
       </Alert>
 
     </AlertContainer>
