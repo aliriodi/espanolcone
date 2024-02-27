@@ -31,7 +31,7 @@ introducirVariable('Por favor introduce el nombre del json Microclase, example: 
     // Introducir la cuarta variable
     introducirVariable('Introduce una descripcion Recuerda que debe ser unica Microclase: ',async  (description) => {
       // Hacer algo con la tercera variable
-      console.log('Procedo a cargar');
+      console.log('',);
       introducirVariable('Introduce tags sepaarados por ",": ',async  (tag) => {
         // Hacer algo con la tercera variable
        const tags = tag.split(',')

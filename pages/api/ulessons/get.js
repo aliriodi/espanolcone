@@ -8,7 +8,7 @@ import Ulessons from '../../../models/Ulessons'
 //  */
 
 
-export default async function getAllClass(req, res) {
+export default async function getAllUlesson(req, res) {
 
   try {
     // const { first_name, last_name, email } = req.body;

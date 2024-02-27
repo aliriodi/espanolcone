@@ -3,7 +3,7 @@ import dbConnect from '../../../config/mongo'
 import Ulessons from '../../../models/Ulessons'
 
 
-export default async function Idclass(req, res) {
+export default async function IdUlesson(req, res) {
   const {
     query: { id },
     method,

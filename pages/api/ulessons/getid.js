@@ -32,7 +32,7 @@ export default async function getAllClass(req, res) {
     // Verifica procedencia de solicitud 
     if(req.headers.accept == "*/*"){
       // Solicitud desde el codigo
-      res.status(200).json({ ulessons });
+      res.status(200).json({ ulesson });
     }
     else{
       // Solicitud desde el navegador
