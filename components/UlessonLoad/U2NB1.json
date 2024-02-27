@@ -1,0 +1,912 @@
+{
+    "page1": {
+        "type": "text",
+        "section": {
+            "number":0,
+            "value":"Mis Metas"
+        },
+        "template": "",
+        "data": [
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--LQuu3n2R--/v1701990674/images/ud1akft7csa9guovs2fm.png",
+                "alt": "EspañolconE",
+                "className": ""
+            },
+            {
+                "type": "title",
+                "value": "QUIERO PASARLA BIEN EN CÓRDOBA",
+                "className": "titleBlack"
+            },
+            {
+                "type": "paragraph",
+                "value": "NIVEL B1",
+                "className": "Portadalev"
+            }
+        ]
+    },
+    "page2": {
+        "type": "text",
+        "section": {
+            "number":0,
+            "value":"Mis Metas"
+        },
+        "template": "template-video-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "¿Qué voy a aprender en esta unidad?",
+                "className": "title-white"
+            },
+            {
+                "type": "table",
+                "value": [
+                    {
+                        "title":"Comunicación",
+                        "content":"<li>- Expresar gustos y preferencias sobre actividades de ocio.</li><li>- Describir y valorar sitios, eventos y espectáculos.</li><li>- Describir y recomendar lugares y locales de ocio.<br>Expresar deseos de hacer algo.</li><li>- Proponer, aceptar y rechazar invitaciones y propuestas.</li><li>- Concertar citas y excusarse.<br>Planificar una actividad para compartir y un dia de paseo.</li><li>- Recursos y herramientas para ponerse de acuerdo para hacer alguna actividad.</li><li>- Buscar información sobre ofertas culturales y de ocio.</li>"
+                    },
+                    {
+                        "title":"Vocabulario",
+                        "content":"<li>- Lugares y actividades de ocio.</li><li>- Adjetivos descriptivos.</li><li>- Adjetivos para valorar lugares, eventos y espectáculos.</li><li>- Descripción de sitios de Córdoba.</li><li>- Vocabulario asociado a ofertas culturales, espectáculos, ofertas gastronómicas y monumentos.</li><li>- Algunas palabras sencillas y frases cortas del argot cordob/li.</li>"
+                    },
+                    {
+                        "title":"Gramática",
+                        "content":"<li>- Pronombres me / te / le / nos / les.</li><li>- Interrogativas: ¿Qué te / le / os apetece hacer?</li><li>- Aceptar una invitación o propuesta: Vale. Dale. Buena idea. Me apetece.</li><li>- Rechazar una invitación o propuesta. Excusarse: Es que  ... / Es que + expresión de tiempo + no puedo.</li><li>- Interrogativas: ¿Dónde quedamos? / ¿A qué hora? / ¿Cuándo? / ¿Con quién o quienes? / ¿Cómo? + te;les + va bien ...?</li><li>- Verbo quedar.</li><li>Condicionales: me iría mejor / me gustaría / nos convendría / preferiría.</li>"
+                    }
+                ],
+                "className": "table"
+            }
+
+        ]
+    },
+    "page3": {
+        "type": "text",
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "¿Qué podés hacer en Córdoba para pasarla bien?",
+                "className": "title-white"
+            },
+            {
+                "type": "image-grid",
+                "center":"true",
+                "value":[
+                    {
+                        "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--EY-Oe4h---/v1699320089/images/atkgrfy91npt1fmjtpgu.png",
+                        "text":"Media Legua de Oro Cultural"
+                    },
+                    {
+                        "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--kI-dwj7G--/v1699320314/images/ndq1hnopetytoyy7uxye.png",
+                        "text":"Oktoberfest en Villa General Belgrano"
+                    },
+                    {
+                        "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--2pjIQK3Q--/v1699320360/images/gwsaejtn8akklna9ix64.png",
+                        "text":"Paseo en lancha en Miramar de Ansenuza"
+                    },
+                    {
+                        "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--zEk5a0Xv--/v1699319855/images/oeyswfp4lxvaxglkwbsw.png",
+                        "text":"Visitar Villa Carlos Paz"
+                    },
+                    {
+                        "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s---aLVkjMh--/v1699320400/images/f1s8uxga3wl6771dywvc.png",
+                        "text":"Escalar el Cerro Champaquí"
+                    },
+                    {
+                        "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--SltW_icM--/v1699320493/images/ikcwxiuurolqvtf46620.png",
+                        "text":"La Cascada de Santa Rosa de Calamuchita"
+                    }
+                ]
+            }
+        ]
+    },
+    "page4": {
+        "type": "text",
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "¿De qué se trata cada propuesta?",
+                "className": "title-white"
+            },
+            {
+                "type": "image-grid",
+                "value":[
+                    {
+                        "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--EY-Oe4h---/v1699320089/images/atkgrfy91npt1fmjtpgu.png",
+                        "text":"<p class='font-semibold'>Media Legua de Oro Cultural en Córdoba Capital</p> <p>Es un recorrido imperdible que abarca desde la histórica Plaza San Martín hasta el barrio Nueva Córdoba. La propuesta consta de 8 espacios destinados a la cultura y el arte en diversas formas. Es un circuito que integra un conglomerado de espacios culturales de gran valor arquitectónico y artístico.</p>"
+                    },
+                    {
+                        "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--kI-dwj7G--/v1699320314/images/ndq1hnopetytoyy7uxye.png",
+                        "text":"<p class='font-semibold'>Oktoberfest en Villa General Belgrano</p> <p>Cada octubre, Villa General Belgrano prepara una gran fiesta para exhibir  las costumbres de la cultura centroeuropea, presenta la música, danzas típicas y la gastronomía de esta particular región del viejo continente. Además, todas las noches se contempla la participación de un grupo musical destacado.</p>"
+                    },
+                    {
+                        "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--2pjIQK3Q--/v1699320360/images/gwsaejtn8akklna9ix64.png",
+                        "text":"<p class='font-semibold'>Paseo en lancha en Miramar de Ansenuza</p> <p>En el segundo mar salado más grande de Sudamérica, nos embarcamos para navegar junto a un biólogo que nos contará sobre las propiedades de las aguas y la riqueza de la fauna. Vivirán un momento mágico cuando el sol se oculte en el horizonte del mar, y contemplen uno de los atardecer más lindos.</p>"
+                    }
+                ]
+            }
+        ]
+    },
+    "page5": {
+        "type": "text",
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "¿De qué se trata cada propuesta?",
+                "className": "title-white"
+            },
+            {
+                "type": "image-grid",
+                "value":[
+                    {
+                        "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--zEk5a0Xv--/v1699319855/images/oeyswfp4lxvaxglkwbsw.png",
+                        "text":"<p class='font-semibold'>Visitar Villa Carlos Paz</p> <p>Entre sus variadas propuestas, podemos subir a la aerosilla que ofrece una vista desde lo alto de la ciudad. Además podemos alquilar bicicletas para pasear por la costanera del lago. Pasar el día en un parque acuático. Y, en verano, encontramos innumerables obras de teatro.</p>"
+                    },
+                    {
+                        "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s---aLVkjMh--/v1699320400/images/f1s8uxga3wl6771dywvc.png",
+                        "text":"<p class='font-semibold'>Escalar el Cerro Champaquí</p> <p>Es una actividad que dura 3 días y 2 noches. Durante el recorrido descubrimos muchos rincones, entre ellos el cementerio del Champaquí y el río Tabaquillos. Disfrutamos llegar a la cima de 2790 msnm, con vistas increíbles al Valle de Calamuchita al este y de Traslasierra y Conlara al oeste.</p>"
+                    },
+                    {
+                        "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--SltW_icM--/v1699320493/images/ikcwxiuurolqvtf46620.png",
+                        "text":"<p class='font-semibold'>La Cascada de Santa Rosa de Calamuchita</p> <p>Es el perfecto equilibrio entre la tranquilidad de la naturaleza y el esfuerzo de tu resistencia, que será recompensada con una experiencia única de alcanzar el espectáculo del salto de agua. El sendero recorre 1.700 mts de bosque autóctono atravesado por un arroyo de vertientes naturales.</p>"
+                    }
+                ]
+            }
+        ]
+    },
+    "page6": {
+        "type": "paragraph-complete",
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Un amigo te pide recomendaciones para hacer algunas actividades en sus vacaciones en Córdoba, ahora que ya conoces varias opciones...",
+                "className": "title-dark"
+            },
+            {
+                "type": "title",
+                "value": "¿A dónde le recomendarías ir en cada caso?<br>Coloca entre paréntesis el numero de la imagen asociada",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "<li>Si querés conectar con la naturaleza y recorrer senderos naturales que te lleven a un lugar relajado y tranquilo, deber ir ",
+                    "(",
+                    {
+                        "block": 1,
+                        "color": "var(--warning)",
+                        "option": "4"
+                    },
+                    ")</li>"
+                    ],
+                "className": "paragraph-complete",
+                "classExtra":"flex"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "<li>Si querés disfrutar de un espectáculo de teatro, tienes que ir a",
+                    "(",
+                    {
+                        "block": 1,
+                        "color": "var(--warning)",
+                        "option": "3"
+                    },
+                    ")</li>"
+                    ],
+                "className": "paragraph-complete",
+                "classExtra":"flex"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "<li>Si querés experimentar una tradición traída por inmigrantes a Argentina, deberías que ir a ",
+                    "(",
+                    {
+                        "block": 1,
+                        "color": "var(--warning)",
+                        "option": "1"
+                    },
+                    ")</li>"
+                    ],
+                "className": "paragraph-complete",
+                "classExtra":"flex"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "<li>Si querés aprender sobre flora y fauna tradicional y a la vez vivir un momento mágico al atardecer, debés visitar ",
+                    "(",
+                    {
+                        "block": 1,
+                        "color": "var(--warning)",
+                        "option": "2"
+                    },
+                    ")</li>"
+                    ],
+                "className": "paragraph-complete",
+                "classExtra":"flex"
+            },
+            {
+                "type": "image-grid",
+                "value":[
+                    {
+                        "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--kI-dwj7G--/v1699320314/images/ndq1hnopetytoyy7uxye.png",
+                        "text":"1. Villa General Belgrano"
+                    },
+                    {
+                        "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--2pjIQK3Q--/v1699320360/images/gwsaejtn8akklna9ix64.png",
+                        "text":"2. Miramar de Ansenuza"
+                    },
+                    {
+                        "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--zEk5a0Xv--/v1699319855/images/oeyswfp4lxvaxglkwbsw.png",
+                        "text":"3. Villa Carlos Paz"
+                    },
+                    {
+                        "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--SltW_icM--/v1699320493/images/ikcwxiuurolqvtf46620.png",
+                        "text":"4. Santa Rosa de Calamuchita"
+                    }
+                ]
+            }
+        ]
+    },
+    "page7": {
+        "type": "video",
+        "section": {
+            "number":2,
+            "value":"Aprendemos"
+        },
+        "template": "template-video-1",
+        "data": [
+            {
+                "type": "video-youtube",
+                "value": "FEn0u4iTafA",
+                "youtuve": "https://www.youtube.com/watch?v=FEn0u4iTafA",
+                "className": "youtube"
+            }
+        ]
+    },
+    "page8": {
+        "type": "video",
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
+        "template": "template-video-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Vamos a conocer más en profundidad de qué se trata<br><span style= 'color: #361769;'>La Media Legua de Oro Cultural</span><br>un recorrido que se puede hacer en la capital de la provincia",
+                "className": "title-white"
+            },
+            {
+                "type": "video-youtube",
+                "value": "GyJtkcbSbmw",
+                "youtuve": "https://www.youtube.com/watch?v=GyJtkcbSbmw",
+                "className": "youtube"
+            }
+        ]
+    },
+    "page9": {
+        "type": "paragraph-complete",
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Después de mirar el video, completá el diálogo entre Bárbara, una mexicana, y Florencia, una cordobesa, que están planeando hacer el recorrido.",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "<b>Para completar los espacios vacíos seleccioná:</b>",
+                "className": "subtitle-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<b>una cárcel de mujeres - Teatro del Libertador San Martín - Ciudad de las Artes - El Origen del Universo - Teatro Real - Plaza España</b>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [ "<span style= 'color: var(--warning)'>Bárbara:</span> Es mi segundo día en la ciudad y no conozco casi nada<br><span style= 'color: var(--success)'>Florencia:</span> ¿Qué te apetece hacer?<br><span style= 'color: var(--warning)'>Bárbara:</span> Me gustaría conocer algunos sitios culturales o importantes de la ciudad<br><span style= 'color: var(--success)'>Florencia:</span> ¿Querés que hagamos el recorrido de la <i>media legua de oro cultural?</i> Está compuesto de ocho de los lugares más interesantes de acá.<br><span style= 'color: var(--warning)'>Bárbara:</span> ¡Dale! ¿En dónde quedamos?<br><span style= 'color: var(--success)'>Florencia:</span> En la Plaza San Martín porque vamos a empezar en el",
+                {
+                    "block": 10,
+                    "color": "var(--warning)",
+                    "option": "Teatro Real"
+                },
+                " y luego vamos a otro teatro, el ",
+                {
+                    "block": 10,
+                    "color": "var(--warning)",
+                    "option": "Teatro del Libertador San Martín"
+                },
+                ", en el que se hacen presentaciones de ópera, orquestas y ballet.<br><span style= 'color: var(--warning)'>Bárbara:</span> ¡Genial! Suena muy interesante. Después, ¿por cuál seguimos?"
+            ],
+                "className": "paragraph-complete"
+            }
+        ]
+    },
+    "page10": {
+        "type": "paragraph-complete",
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Después de mirar el video, completá el diálogo entre Bárbara, una mexicana, y Florencia, una cordobesa, que están planeando hacer el recorrido.",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "<b>Para completar los espacios vacíos seleccioná:</b>",
+                "className": "subtitle-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<b>una cárcel de mujeres - Teatro del Libertador San Martín - Ciudad de las Artes - El Origen del Universo - Teatro Real - Plaza España</b>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [ "<span style= 'color: var(--success)'>Florencia:</span> Después seguimos por el Paseo del Buen Pastor<br><span style= 'color: var(--warning)'>Bárbara:</span> Ah, ¿es el que antes era",
+                {
+                    "block": 10,
+                    "color": "var(--warning)",
+                    "option": "una cárcel de mujeres"
+                },
+                "?<br> <span style= 'color: var(--success)'>Florencia:</span> Sí, ese. Cuando crucemos la",
+
+                {
+                    "block": 10,
+                    "color": "var(--warning)",
+                    "option": "Plaza España"
+                },
+                " llegamos al Palacio Dionisi, es un museo de fotografía.<br><span style= 'color: var(--warning)'>Bárbara:</span> Ese no me llama la atención, prefiero no ir.<br><span style= 'color: var(--success)'>Florencia:</span> Bueno, ¿querés que vayamos directamente al museo de Ciencias Naturales?<br><span style= 'color: var(--warning)'>Bárbara:</span> ¿Qué hay ahí?<br><span style= 'color: var(--success)'>Florencia:</span> Exposiciones sobre la megafauna, paleontología y",
+                {
+                    "block": 10,
+                    "color": "var(--warning)",
+                    "option": "el origen del universo"
+                },
+                "<br><span style= 'color: var(--warning)'>Bárbara:</span> ¡Me copa! Suena muy bueno. ¿En dónde termina el recorrido?<br><span style= 'color: var(--success)'>Florencia:</span> Termina en la",
+                {
+                    "block": 10,
+                    "color": "var(--warning)",
+                    "option": "Ciudad de las artes"
+                },
+                ", que forma parte de la Universidad Provincial de Córdoba<br><span style= 'color: var(--warning)'>Bárbara:</span> ¡De una! Me encanta, nos vemos en la Plaza San Martín en un rato."
+            ],
+                "className": "paragraph-complete"
+            }
+        ]
+    },
+    "page11": {
+        "type": "slide",
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Juliana se ha ganado entradas para ir a un boliche y ha invitado a sus amigos a ir con ella, porque tiene cinco entradas, pero la mayoría de sus amigos ya tienen planes para el fin de semana ...",
+                "className": "title-dark"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--IM8pugNP--/v1702055915/images/n1xeeos48dkjd7nwsegv.png",
+                "className": "",
+                "classExtra":"w-full",
+                "alt": "Boliche"
+            }
+        ]
+    },
+    "page12": {
+        "type": "dragablebox",
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Relaciona las respuestas que le dan sus amigos, colocando el nombre con la imagen que corresponda.",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style= 'color: var(--warning)'>Lucas:</span> ¡De una, me encantaría! ¿Te parece bien si invito a unos amigos del barrio? Es que hace unas semanas se mueren de ganas de salir",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style= 'color: var(--warning)'>Morena:</span> Ay, amiga, yo mejor paso. Es que estuve trabajando mucho toda la semana y prefiero quedarme durmiendo",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style= 'color: var(--warning)'>Abril:</span> Me copa la idea. Pero, es que el domingo me voy a escalar el Champaquí con mi novio. ¡Perdón!",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style= 'color: var(--warning)'>Franco:</span> Uy, disculpá, es que quedé con mi novia para ir al cine a ver una peli.  Me iría mejor si fuera otro día",
+                "className": "paragraph-default"
+            },
+                {
+                "type": "dragable-box",
+                "value":{
+                "DropUps":
+                    [
+                        {
+                            "type":"image",
+                            "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--tVaspz9z--/v1699321484/images/y23w3awsowbgpheclsyz.png",
+                            "value":"Abril",
+                            "id":"DropUp1"
+                        },
+                        {
+                            "type":"image",
+                            "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--aiG54j1T--/v1699321561/images/rweycoqvt0z8xqmh6cfg.png",
+                            "value":"Franco",
+                            "id":"DropUp2"
+                        },
+                        {
+                            "type":"image",
+                            "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--Bvt0L8KK--/v1699321595/images/f4h31oqnxp64k5zowxz6.png",
+                            "value":"Morena",
+                            "id":"DropUp3"
+                        },
+                        {
+                            "type":"image",
+                            "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--aYMk1JfW--/v1699321645/images/lf6ooc8swcpfoypoulqh.png",
+                            "value":"Lucas",
+                            "id":"DropUp4"
+                        }
+                    ],
+                "DragBoxs":[
+                    {
+                        "value":"Abril",
+                        "id":"DragBox1"
+                    },
+                    {
+                        "value":"Franco",
+                        "id":"DragBox2"
+                    },
+                    {
+                        "value":"Morena",
+                        "id":"DragBox3"
+                    },
+                    {
+                        "value":"Lucas",
+                        "id":"DragBox4"
+                    }
+                ]
+            }
+        }]            
+    },
+    "page13": {
+        "type": "text",
+        "section": {
+            "number":4,
+            "value":"Mis retos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Reto Propuesto",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style= 'color: var(--warning)'>Mira el video que se muestra a continuación, contesta las siguientes preguntas y envíale tus respuestas a tu profesor.</span>",
+                "className": "subtitle-default",
+                "classExtra":"w-full text-center"
+            },
+            {
+                "type": "paragraph",
+                "value": "<li>¿Qué quiere decir “pasarla bien”?</li><br><br><li>Explica la frase: “la vida es una sola y hay que disfrutarla”.</li><br><br><li>¿Cómo la pasan bien las personas en el video?</li><br><br><li>¿Y a ti, qué te gusta hacer para pasarla bien?</li><br><br><li>Escoge un sitio o una actividad para pasarla bien el próximo fin de semana y luego comparte tu experiencia en clases.</li>",
+                "className": "paragraph-default"
+            }
+        ]
+    },
+    "page14": {
+        "type": "video",
+        "section": {
+            "number":4,
+            "value":"Mis retos"
+        },
+        "template": "template-video-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Pasarla bien",
+                "className": "title-white"
+            },
+            {
+                "type": "video-youtube",
+                "value": "tWdt2dgxMM0",
+                "youtuve": "https://www.youtube.com/watch?v=tWdt2dgxMM0",
+                "className": "youtube"
+            }
+        ]
+    },
+    "page15": {
+        "type": "paragraph-complete",
+        "section": {
+            "number": 5,
+            "value": "Evaluemos"
+        },
+        "template": "template-title-top-4",
+        "data": [
+            {
+                "type": "title",
+                "value": "Evaluación unidad 2 - Nivel B1",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "A continuación verás <b>20 imágenes</b> que muestran lugares y actividades para pasarla bien. Tendrá una lista para identificar los distintos lugares y actividades, posiciona cada elemento de la lista en la imagen que identifica.",
+                "className": "paragraph-default-center"
+            },
+            {
+                "type": "paragraph",
+                "value": "<b>Cada asociación correcta te sumará un punto</b>, para un total de 20 puntos.<br>Recuerda que apruebas el tes sumando <b>mínimo 18 puntos.</b>",
+                "className": "paragraph-default-center"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style=' color: var(--warning)'>¡Adelante y buena suerte!</span>",
+                "className": "paragraph-default-center"
+            }
+        ]
+    },
+    "page16": {
+        "type": "dragablebox",
+        "section": {
+            "number":5,
+            "value":"Evaluemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Para pasarla bien puedes ir …",
+                "className": "title-white"
+            },
+            
+            {
+            "type": "dragable-box",
+            "value":{
+            "DropUps":
+                [
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--Dqy6TBEm--/v1701293231/images/zoddbzk2ulkljsljecfs.png",
+                    "value":"a la playa",
+                    "id":"DropUp1"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--7i8S0WT4--/v1701293285/images/qnfiamvo3nyfkz4hauba.png",
+                    "value":"al parque mecánico",
+                    "id":"DropUp2"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--2FUOw9cI--/v1701293326/images/wbb4pxgoersqm5qq7ia7.png",
+                    "value":"al cine",
+                    "id":"DropUp3"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--jbRkvSzL--/v1701293370/images/yxyfyjbigfuoua9tg4qe.png",
+                    "value":"a un boliche",
+                    "id":"DropUp4"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--cpAE11NW--/v1701293409/images/qwyunixi8jnfiogygkor.png",
+                    "value":"a un restaurante",
+                    "id":"DropUp5"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--en2PDtQ8--/v1701293445/images/bhsfb0eeas7svrvvueeg.png",
+                    "value":"al teatro",
+                    "id":"DropUp6"
+                }
+            ],
+                "DragBoxs":[
+                    {
+                        "value":"al cine",
+                        "id":"DragBox1"
+                    },
+                    {
+                        "value":"a un boliche",
+                        "id":"DragBox2"
+                    },
+                    {
+                        "value":"a la playa",
+                        "id":"DragBox3"
+                    },
+                    {
+                        "value":"a un restaurante",
+                        "id":"DragBox4"
+                    },
+                    {
+                        "value":"al teatro",
+                        "id":"DragBox5"
+                    },
+                    {
+                        "value":"al parque mecánico",
+                        "id":"DragBox6"
+                    }
+                ]
+            }
+        }]            
+    },
+    "page17": {
+        "type": "dragablebox",
+        "section": {
+            "number":5,
+            "value":"Evaluemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Para pasarla bien puedes …",
+                "className": "title-white"
+            },
+            
+            {
+                "type": "dragable-box",
+                "value":{
+                "DropUps":
+                    [
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--geMabp_V--/v1701294226/images/w9lukw8gya7fumrypins.png",
+                    "value":"usar las redes sociales",
+                    "id":"DropUp1"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--VaalNIUC--/v1701294300/images/uurgsz5vmqgc5glz8mzk.png",
+                    "value":"ver una película o una serie",
+                    "id":"DropUp2"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--y2Ej_ewU--/v1701294350/images/sswktrzmgvxjffiguk5w.png",
+                    "value":"compartir en familia",
+                    "id":"DropUp3"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--MXpElsoh--/v1701294395/images/sew0bdupffqwmohkjjkr.png",
+                    "value":"hacer ejercicio",
+                    "id":"DropUp4"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--2gRyc8cx--/v1701294433/images/imcx6ulh0rkrvqumi6qe.png",
+                    "value":"cocinar",
+                    "id":"DropUp5"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--iyiE3io2--/v1701294466/images/ptex4vv9hjzjycvao8c8.png",
+                    "value":"leer",
+                    "id":"DropUp6"
+                }
+            ],
+                "DragBoxs":[
+                    {
+                        "value":"compartir en familia",
+                        "id":"DragBox1"
+                    },
+                    {
+                        "value":"hacer ejercicio",
+                        "id":"DragBox2"
+                    },
+                    {
+                        "value":"ver una película o una serie",
+                        "id":"DragBox3"
+                    },
+                    {
+                        "value":"cocinar",
+                        "id":"DragBox4"
+                    },
+                    {
+                        "value":"leer",
+                        "id":"DragBox5"
+                    },
+                    {
+                        "value":"usar las redes sociales",
+                        "id":"DragBox6"
+                    }
+                ]
+            }
+            }]            
+    },   
+    "page18": {
+        "type": "dragablebox",
+        "section": {
+            "number":5,
+            "value":"Evaluemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Para pasarla bien puedes ver los siguientes tipos de programas …",
+                "className": "title-white"
+            },
+            
+            {
+                "type": "dragable-box",
+                "value":{
+                "DropUps":
+                    [
+                    {
+                        "type":"image",
+                        "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--XThrutsq--/v1701295103/images/fiybga50bo1zhux7bs7z.png",
+                        "value":"series",
+                        "id":"DropUp1"
+                    },
+                    {
+                        "type":"image",
+                        "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--HYuDFhHq--/v1701295163/images/yvf2dimxbyrewawoz6dy.png",
+                        "value":"novelas",
+                        "id":"DropUp2"
+                    },
+                    {
+                        "type":"image",
+                        "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--H6MQFejA--/v1701295235/images/dchastff6twr8o7hbplq.png",
+                        "value":"programas de música",
+                        "id":"DropUp3"
+                    },
+                    {
+                        "type":"image",
+                        "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--kP5UCymE--/v1701295287/images/o1aw6ykw3bo3n7iinum4.png",
+                        "value":"programas de deportes",
+                        "id":"DropUp4"
+                    }
+                ],
+                "DragBoxs":[
+                    {
+                        "value":"programas de deportes",
+                        "id":"DragBox1"
+                    },
+                    {
+                        "value":"novelas",
+                        "id":"DragBox2"
+                    },
+                    {
+                        "value":"programas de música",
+                        "id":"DragBox3"
+                    },
+                    {
+                        "value":"series",
+                        "id":"DragBox4"
+                    }
+                ]
+            }
+        }]            
+    },
+    "page19": {
+        "type": "dragablebox",
+        "section": {
+            "number":5,
+            "value":"Evaluemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Para pasarla bien puedes ver los siguientes tipos de películas …",
+                "className": "title-white"
+            },
+            
+                {
+                "type": "dragable-box",
+                "value":{
+                "DropUps":
+                    [
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--vJEyrGdr--/v1701295787/images/uffktqltgzteqy6byudo.png",
+                    "value":"comedias",
+                    "id":"DropUp1"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--xKtVdh3S--/v1701295882/images/omslbd3tlnt75omwnqtr.png",
+                    "value":"románticas",
+                    "id":"DropUp2"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--cnjVcmQ2--/v1701295892/images/be8usbi5trorxgy4xv23.png",
+                    "value":"de guerra",
+                    "id":"DropUp3"
+                },
+                {
+                    "type":"image",
+                    "src":"https://res.cloudinary.com/dfddh08q8/image/upload/s--cLrqWGk5--/v1701295937/images/s0w2zqmrztananilvlig.png",
+                    "value":"de acción",
+                    "id":"DropUp4"
+                }
+            ],
+                "DragBoxs":[
+                    {
+                        "value":"románticas",
+                        "id":"DragBox1"
+                    },
+                    {
+                        "value":"de guerra",
+                        "id":"DragBox2"
+                    },
+                    {
+                        "value":"comedias",
+                        "id":"DragBox3"
+                    },
+                    {
+                        "value":"de acción",
+                        "id":"DragBox4"
+                    }
+                ]
+            }
+        }]            
+    },
+    "page20": {
+        "type": "text",
+        "section": {
+            "number":5,
+            "value":"Evaluemos"
+        },
+        "template": "",
+        "data": [
+            {
+                "type": "title",
+                "value": "¡GRACIAS POR TU ATENCIÓN!",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366258/images/logo_etoaae.png",
+                "alt":"Español con E",
+                "className": ""
+            }
+        ]
+    }
+}

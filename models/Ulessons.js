@@ -20,6 +20,9 @@ const UlessonSchema = new Schema(
     sheets: {
       type: [Object],
     },
+    tags:{
+      type: [String],
+    },
     pay:{
       type:Boolean
     }

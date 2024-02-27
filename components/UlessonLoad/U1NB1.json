@@ -1,0 +1,1256 @@
+{
+    "page1": {
+        "type": "text",
+        "section": {
+            "number":0,
+            "value":"Mis Metas"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697579417/images/template4_s2xy5m.png",
+        "data": [
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697635227/images/Untitled_orf4ch.png",
+                "alt": "EspañolconE",
+                "className": "Portadaimg"
+            },
+            {
+                "type": "title",
+                "value": "QUIERO CONOCER GENTE EN CÓRDOBA",
+                "className": "titleBlack2-p0"
+            },
+            {
+                "type": "paragraph",
+                "value": "NIVEL B1"
+            }           
+              ]
+    },
+    "page2": {
+        "type": "text",
+        "section": {
+            "number":0,
+            "value":"Mis Metas"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {"type": "title",
+            "value": "¿Qué voy a aprender en esta unidad?",
+            "className": "centerRightWhite-2"
+            },
+            {
+                "type": "table",
+                "value": [
+                    {
+                        "title":"Comunicación",
+                        "content":"<li>- Dar y pedir información sobre personas.</li><li>- Dar y pedir información acerca de personalidades, gustos y experiencias</li><li>- *Expresar similitudes, diferencias y afinidades entre personas.</li><li>- Valorar personas.</li><li>- Graduar expresiones.</li><li>- Descripción de la personalidad Sujeto + verbo ser + muy / poco / un poco + adjetivo.</li><li>- Expresar sentimientos, gustos y sensaciones.</li><li>- Describir sentimientos.</li><li>- Expresar motivos para estudiar español.</li>"
+                    },
+                    {
+                        "title":"Vocabulario",
+                        "content":"<li>- Adjetivos y sustantivos relacionados con el carácter.</li><li>- Gustos, aficiones y manías.</li><li>- Ámbitos personales: costumbres, familia y experiencias.</li><li>- Virtudes y defectos.</li>"
+                    },
+                    {
+                        "title":"Gramática",
+                        "content":"<li>- Régimen pronominal de verbos como gustar, encantar, interesar: me/te/le/nos/os/les</li><li>- Condicional: verbos regulares e irregulares más frecuentes.</li><li>- Interrogativas: ¿A qué hora?/¿Qué…?/ ¿Cuál? / ¿Qué tipo de..? / ¿Dónde …? / ¿Con quién?</li><li>- Interrogativas indirectas con si e interrogativas directas con: ¿Qué…?/ ¿Dónde …? / ¿Por qué? / ¿Con quién? / ¿Cuándo?</li><li>- Sustantivos femeninos: -dad - ez- eza-ía-ura</li><li>- Muy / tan / demasiado + adjetivo</li>"
+                    }
+                ],
+                "className": "table"
+            }
+        ]
+    },
+   
+    "page3": {
+        "type": "text",
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
+        "template": "template-title-top-2",
+        "data": [
+            {
+                "type": "title",
+                "value": "Vamos a conocer a María Teresa Andruetto",
+                "className": "leftWhite"
+            },
+            {
+                "type":"image",
+                "value":"https://res.cloudinary.com/dfddh08q8/image/upload/v1697590888/images/maria_teresa_kcfi99.png",
+                "alt":"Maria Teresa",
+                "className":""
+            },
+            {
+                "type": "paragraph",
+                "value": "Teresa Andruetto es una escritora cordobesa,  <span style= 'color: var(--primary);' >competente </span> en su profesión. Es una mujer <span style= 'color: var(--primary);' >inteligente y responsable</span>. Estudió Letras Modernas en la Universidad Nacional de Córdoba." ,
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style='color:var(--warning);'>Le gusta mucho</span> <span style='text-decoration: underline;'> vivir en Córdoba</span>, hace 21 años que vive en Unquillo, una ciudad del interior. <span style='color:var(--warning);'>Le encanta</span> <span style='text-decoration: underline;'>ver el bosque</span> de algarrobos y espinillos que rodea su casa, también <span style='color:var(--warning);'>le gusta mucho</span> <span style='text-decoration:underline;'>atender a los animales de su granja</span>. Es una persona <span style='color:var(--primary);'>sensible</span> y le gusta <span style='color:var(--primary);'>la tranquilidad</span> porque le permite escribir sin presiones." ,
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<p><span style='color:var(--warning);'>Le gusta</span> <span style='text-decoration:underline;'>escuchar la radio por la mañana</span> y, cuando sale a la calle, también</p>  <p><span style='color:var(--warning);'>le gusta</span> <span style='text-decoration:underline;'>escuchar las conversaciones</span> que mantienen otras personas, lo que muchas veces le sirve de inspiración para escribir sus cuentos o novelas.</p>  <p> <span style='color:var(--warning);'>Odia</span> <span style='color:var(--primary);text-decoration:underline;'>la monotonía</span> y <span style='color:var(--primary);text-decoration:underline;'>la superficialidad </span> en su trabajo por lo que siempre busca experimentar distintos géneros literarios para distintos tipos de lectores.</p>" ,
+                "className": "paragraph-default"
+            }
+        ]
+    },
+    "page4": {
+        "type": "text",
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
+        "template": "template-title-top-2",
+        "data": [
+            {
+                "type": "title",
+                "value": "Vamos a conocer a Pablo Tamagnini",
+                "className": "leftWhite"
+            },
+            {
+                "type":"image",
+                "value":"https://res.cloudinary.com/dfddh08q8/image/upload/v1697595089/images/Pablo_tk3jzw.png",
+                "alt":"Maria Teresa",
+                "className":""
+            },
+            {
+                "type": "paragraph",
+                "value": "Pablo Tamagnini es un cantante cordobés, muy <span style='color:var(--primary)'>extrovertido</span>, que vive en la capital de la provincia. Es un hombre <span style='color:var(--primary)'>amistoso</span>, forma parte de la banda de cuarteto La K’onga, junto a Diego y Nelson, sus amigos. <span style='color:var(--warning)'>Le encanta</span> cantar y es <span style='color:var(--primary)'>persistente</span> ya que estuvo muchos años buscando la estabilidad económica en su carrera, hasta que pudo consagrarse como cantante de cuarteto." ,
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style='color:var(--warning)'>Le gusta</span> <span style='text-decoration:underline;'> conectar con la gente en los bailes</span>, que es el nombre que tienen los recitales de este género musical. Es <span style='color:var(--primary)'>soñador</span> y <span style='color:var(--warning)'>le interesa</span> <span style='text-decoration:underline;'>llegar con su banda a muchos lugares del mundo</span>, no sólo dentro de Argentina o Latinoamérica." ,
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "Lo que <span style='color:var(--warning);'>no le gusta</span> de su trabajo es <span style='text-decoration:underline'>el sacrificio que implica estar lejos de familia, de sus amigos</span>. A pesar de perderse cumpleaños, casamientos, u otros momentos personales importantes por estar haciendo giras o bailes, es muy <span style='color:var(--primary);'>tenaz</span> porque <span style='color:var(--warning);'>le encanta</span> <span style='text-decoration:underline;'>su trabajo</span> y lo disfruta mucho." ,
+                "className": "paragraph-default"
+            }
+        ]
+    },
+    "page5": {
+        "type": "selectsimple",
+        "section": {
+            "number":1,
+            "value":"Comencemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "A partir de los textos que leímos, vamos a responder las siguientes preguntas",
+                "className": "title-white"
+            },
+           
+          
+            {
+                "type": "selectsimple",
+                "value": "1.¿Teresa y Pablo tienen vidas similares?",
+                "option": "No tanto, a pesar de ser artistas su vida no es tan similar",
+                "options": [
+                    "Sí, ambos son artistas",
+                    "No, trabajan en ámbitos diferentes",
+                    "No tanto, a pesar de ser artistas su vida no es tan similar"
+                ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "2. ¿Cómo describirías la vida de Teresa?",
+                "option": "Tranquila, pero se mantiene activa trabajando",
+                "options": [
+                    "Aburrida, no tiene nada para hacer",
+                    "Tranquila, pero se mantiene activa trabajando",
+                    "Abrumadora, no puede descansar en ningún momento"
+                ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "3. ¿Cómo describirías la vida de Pablo?",
+                "option": "Agitada, pero feliz porque trabaja de lo que ama",
+                "options": [
+                    "Triste, porque no tiene tiempo de calidad con su familia",
+                    "Agitada, pero feliz porque trabaja de lo que ama",
+                    "Solitaria, pasa mucho tiempo sin una buena compañía"
+                ],
+                "className": "selector-simple"
+            }
+        ]
+    },
+    "page6": {
+        "type": "paragraph",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "A partir de los textos que leímos, arrastrá los sustantivos a la imagen que mejor los represente",
+                "className": "title-white"
+            },
+            {
+                "type": "dragable-box",
+                "value": {
+                    "DropUps": [
+                        {
+                            "type": "image",
+                            "src": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697635249/images/jovenes_wdvbgc.png",
+                            "value": "jóvenes",
+                            "id": "DropUp1"
+                        },
+                        {
+                            "type": "image",
+                            "src": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697639695/images/timida_kn1wrv.png",
+                            "value": "tímida",
+                            "id": "DropUp2"
+                        },
+                        {
+                            "type": "image",
+                            "src": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697640114/images/guapo_aisyup.png",
+                            "value": "guapo",
+                            "id": "DropUp3"
+                        },
+                        {
+                            "type": "image",
+                            "src": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697640136/images/persezoso_qtnchw.png",
+                            "value": "perezoso",
+                            "id": "DropUp4"
+                        }
+                    ],
+                    "DragBoxs": [
+                        {
+                            "value": "tímida",
+                            "id": "DragBox1"
+                        },
+                        {
+                            "value": "guapo",
+                            "id": "DragBox2"
+                        },
+                        {
+                            "value": "perezoso",
+                            "id": "DragBox3"
+                        },
+                        {
+                            "value": "jóvenes",
+                            "id": "DragBox4"
+                        }
+                    ]
+                },
+                "className": "dragable-box"
+            }
+        ]
+    },
+    "page7": {
+        "type": "paragraph",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "A partir de los textos que leímos, arrastrá los sustantivos a la imagen que mejor los represente",
+                "className": "title-white"
+            },
+            {
+                "type": "dragable-box",
+                "value": {
+                    "DropUps": [
+                        {
+                            "type": "image",
+                            "src": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697654724/images/alegria_hrdggl.png",
+                            "value": "la alegría",
+                            "id": "DropUp1"
+                        },
+                        {
+                            "type": "image",
+                            "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--sIq_af4e--/v1704261343/images/ddrjasqfp1l0vtd7pain.png",
+                            "value": "el egoísmo",
+                            "id": "DropUp2"
+                        },
+                        {
+                            "type": "image",
+                            "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--fQrXJcWn--/v1704261159/images/kqqgttkl08214r8xzkjf.png",
+                            "value": "el optimismo",
+                            "id": "DropUp3"
+                        },
+                        {
+                            "type": "image",
+                            "src": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697654786/images/tranquilidad_uxk4zl.png",
+                            "value": "la tranquilidad",
+                            "id": "DropUp4"
+                        }
+                    ],
+                    "DragBoxs": [
+                        {
+                            "value": "el egoísmo",
+                            "id": "DragBox1"
+                        },
+                        {
+                            "value": "el optimismo",
+                            "id": "DragBox2"
+                        },
+                        {
+                            "value": "la tranquilidad",
+                            "id": "DragBox3"
+                        },
+                        {
+                            "value": "la alegría",
+                            "id": "DragBox4"
+                        }
+                    ]
+                },
+                "className": "dragable-box"
+            }
+        ]
+    },
+    
+    "page8": {
+        "type": "videoInteractivo",
+        "section": {
+            "number":2,
+            "value":"Aprendemos"
+        },
+        "template": "template-video-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Aprendemos",
+                "className": "title-white"
+            },
+            {
+                "type": "video-youtube",
+                "value": "tMz57dZS0ZY",
+                "className": "youtube",
+                "youtube": "https://youtu.be/tMz57dZS0ZY"
+            }
+        
+                
+            
+        ]
+    },
+    "page9": {
+        "type": "text",
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
+        "template": "template-title-top-6",
+        "data": [
+            {
+                "type": "title",
+                "value": "Lucía y Fernanda son dos hermanas tucumanas. Fernanda vive en Córdoba hace 25 años, su hermana y su sobrino, Benjamín, la visitan cada verano. A continuación vas a leer un diálogo en el cual los tres están haciendo planes para el fin de semana.",
+                "className": "title-dark"
+            },
+            {
+                "type": "title",
+                "value": "<span style='color:var(--success)'>Completa la conversación eligiendo la opción del verbo que corresponda.</span> ",
+                "className": "title-dark"
+            },
+             {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697679111/images/imagpag14_ek8mv7.png",
+                "alt": "Paisaje",
+                "className":"imagepaisaje",
+                "classExtra":"rounded-[7px]"
+            }
+        ]
+
+
+    },
+   
+    "page10": {
+        "type": "complete",
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
+        "template": "template-title-top-6",
+        "classNamePlus": "ellipes-2",
+        "data": [
+           
+           
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "<strong>1. Lucía:</strong> ¡Cómo me",
+                    {
+                        "block": 8,
+                        "color": "orange",
+                        "option": "encanta"
+                    },
+                    "(encanta - encantan) venir a Córdoba! Es mucho menos calurosa que Tucumán.<br>",
+                    "<strong>2. Fernanda:</strong> Sí, Córdoba es hermosa. Lo que más me",
+                    {
+                        "block": 7,
+                        "color": "orange",
+                        "option": "gusta"
+                    },
+                    "(gustan - gusta) es que los fines de semana podés tomar un colectivo y en menos de una hora estás en algún río. <br>",
+                    "<strong>3- Benjamín:</strong>: ¿Este fin de semana vamos a",
+                    {
+                        "block": 3,
+                        "color": "orange",
+                        "option": "ir"
+                    },
+                    "(gustar - ir) a algún lugar?<br>",
+                    "<strong>4. Fernanda:</strong> ¿A dónde te ",
+                    {
+                        "block": 12,
+                        "color": "orange",
+                        "option": "gustaría"
+                    },
+                    "(gusta - gustaría) ir?<br>",
+                    "<strong>5- Benjamín:</strong>: A El Durazno, porque me",
+                    {
+                        "block": 9,
+                        "color": "orange",
+                        "option": "encanta"
+                    },
+                    "(encanta - encantaría) el Río Yuspe, es mi favorito, conozco pocos ríos.<br>",
+                    "<strong>6. Lucía:</strong> Ya fuimos muchas veces, la verdad es que a mí me",
+                    {
+                        "block": 13,
+                        "color": "orange",
+                        "option": "encantaría"
+                    },
+                    "(encantarían - encantaría) conocer el Río Santa Rosa, dicen que es muy lindo. Podemos llevar el mate y unos criollos.<br>",
+                    "<strong>7. Fernanda:</strong> A mí me ",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "preocupa"
+                    },
+                    "(preocupa - preocupan) un poco ir a algún río, en estos días estuvo lloviendo mucho, creo que es un poco peligroso.<br>",
+                    "<strong>8. Lucía:</strong> ¿Te",
+                    {
+                        "block": 8,
+                        "color": "orange",
+                        "option": "preocupa"
+                    },
+                    "(preocupan - preocupa) que los ríos estén crecidos?"
+
+                ],
+                "className": "paragraph-complete"
+            }          
+        ]
+    },
+    "page11": {
+        "type": "complete",
+        "section": {
+            "number":3,
+            "value":"Practiquemos"
+        },
+        "template": "template-title-top-6",
+        "data": [
+           
+           
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "<strong>9. Fernanda:</strong> Sí, eso me",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "preocupa"
+                    },
+                    "(preocupa - preocupan). Me da un poco de miedo.<br>",
+                    "<strong>10. Benjamín:</strong> No pasa nada, tía. No seas miedosa, a mi no me",
+                    {
+                        "block": 3,
+                        "color": "orange",
+                        "option": "da"
+                    },
+                    "(da - dar) miedo.<br>",
+                    "<strong>11- Fernanda:</strong>: Vos sos poco cuidadoso, me",
+                    {
+                        "block": 8,
+                        "color": "orange",
+                        "option": "parece"
+                    },
+                    "(parecen - parece).<br>",
+                    "<strong>12. Lucía:</strong> Imprudente, diría yo. Creo que no",
+                    {
+                        "block": 12,
+                        "color": "orange",
+                        "option": "deberíamos"
+                    },
+                    "(deberíamos - deber) ir.<br>",
+                    "<strong>13- Fernanda:</strong> Es muy lindo ir al río. Sin embargo, tenemos que tener mucha precaución, yo",
+                    {
+                        "block": 7,
+                        "color": "orange",
+                        "option": "adoro"
+                    },
+                    "(adoran - adoro) ir al río, pero en verano llueve mucho y también puede ser peligroso.<br>",
+                    "<strong>14. Benjamín:</strong> ¿Pero podemos hacer algo acá, en la ciudad? A mí me",
+                    {
+                        "block": 8,
+                        "color": "orange",
+                        "option": "gustan"
+                    },
+                    "(gusta - gustan) mucho los helados y las películas.<br>",
+                    "<strong>15. Fernanda:</strong> Entonces, vamos al cine y después los llevo a conocer una nueva heladería que me",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "encanta"
+                    },
+                    "(encanta - encantamos).<br>",
+                    "<strong>16. Lucía:</strong> ¡Me",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "fascina"
+                    },
+                    "(fascina - fascinan) ese plan!"
+
+                ],
+                "className": "paragraph-complete"
+            }          
+        ]
+    },
+    "page12":{
+        "type": "selectsimple",
+        "section": {
+            "number": 3,
+            "value": "Practiquemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Volvamos a leer el texto y ahora veamos:  ¿En cuáles partes de la conversación se usan las expresiones de cantidad: <span style='color:var(--success_blur)'>MUCHO </span>y <span style='color:var(--warning)'>POCO</span>?",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "Selecciona la opción correcta",
+                "className": "subtitle-default",
+                "classExtra":" w-full text-center"
+            },
+            {
+                "type": "div",
+                "value": "<div class='  text-white bg-success w-[45%] p-4 rounded-[7px] text-center'>MUCHO</div> <div class='text-white bg-warning w-[45%] p-4 rounded-[7px] text-center'>POCO</div>",
+                "classExtra":"flex justify-between w-full"
+            },
+            {
+                "type": "selectsimple",
+                "value": "1. tener precaución ",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "2. ser cuidadoso",
+                "option": "  ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "3. tomar helado",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "4. Una tienda con ropa bonita y barata",
+                "option": "  ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "5. ver películas",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "6. conocer ríos",
+                "option": "  ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "7. llover ",
+                "option": "  ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "8. visitar la nueva heladería",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "9. preocuparse por ir al río",
+                "option": "  ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "10. ir al río Yuspe",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            }
+           
+        ]
+    },
+    "page13":
+    {
+        "type": "text",
+        "section": {
+            "number": 4,
+            "value": "Mis Retos"
+        },
+        "template": "template-title-top-4",
+        "data": [
+            {
+                "type": "title",
+                "value": "Reto Propuesto",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "Tu profe de español, conoce a Lucas y a Diana, a continuación ella escribe su opinión acerca de ellos. Lee los textos, contesta las preguntas que se te presentan a continuación y envíale tus respuestas por email a tu profe de español." ,
+                "className": "paragraph-default-center"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style='color:var(--success)'>También puedes compartir tus respuestas en clases, en nuestra comunidad o con un profesor de nuestra plataforma.</span> " ,
+                "className": "paragraph-default-center"
+            }
+        ]
+    },
+    "page14":{
+        "type": "text",
+        "section": {
+            "number": 4,
+            "value": "Mis Retos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Distintas personalidades",
+                "className": "title-white"
+            },
+            {
+                "type": "text",
+                "value": "<div class='flex justify-between   md:flex-col'><img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--gnuFWWBR--/v1704303211/images/mdlvb8pxpu1hgqv0zd2x.png' class='w-[38%] rounded-[7px] shadow-[0px_4px_24px_#18292F1A] object-cover md:w-full'/> <div class='border-2 border-warning asymmetric-rounded p-5 w-[60%]   md:w-full md:mb-3'><p>Lucas es cordobés, es amigable y  alegre. Le encanta la montaña, pasear y comer bien. Le gusta mucho practicar senderismo en las sierras de Córdoba. Es muy divertido, tiene buen gusto y le interesa la moda. Una cualidad que me encanta de él es que es muy detallista. No le gusta la gente sin sentido del humor ni tampoco la gente pesimista y cobarde. Odia la superficialidad y la avaricia y por el contrario le gusta la gente sensible. Lo que no me gusta de Luis es que es terco y le cuesta trabajar en equipo.</p></div></div>",
+                "className": "paragraph-default",
+                "classExtra": ""
+            }
+        ]
+    },
+    "page15": {
+        "type": "text",
+        "section": {
+            "number": 4,
+            "value": "Mis Retos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Distintas personalidades",
+                "className": "title-white"
+            },
+            {
+                "type": "text",
+                "value": "<div class='flex justify-between   md:flex-col'><div class='border-2 border-warning asymmetric-rounded p-5 w-[60%]   md:w-full md:mb-3'> <p>Diana es colombiana, pero vive en Córdoba, es diseñadora de moda y estudió en Francia. Le encanta la naturaleza, ir a la playa y acampar en las montañas. Es muy elegante, tiene buen gusto y le interesa el arte. Le gusta mucho montar bicicleta y hacer senderismo. Algo que me encanta de ella es que es muy solidaria. No le gusta la monotonía y tampoco una vida rutinaria. Odia beber alcohol y comer comida chatarra. Lo que no me gusta de Ana es que es un poco porfiada y le cuesta dar su brazo a torcer.</p> </div> <img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--2QPrXFmo--/v1704303437/images/q01rpqldtne6qziwhjjk.png' class='w-[38%] rounded-[7px] shadow-[0px_4px_24px_#18292F1A] object-cover md:w-full'/> </div>",
+                "className": "paragraph-default",
+                "classExtra": ""
+            }
+        ]
+    },
+    "page16": {
+        "type": "complete",
+        "section": {
+            "number":4,
+            "value":"Mis retos"
+        },
+        "template": "template-void",
+        "data": [
+            {
+                "type": "div",
+                "value": "¿Cómo son?" ,
+                "className": "",
+                "classExtra": "absolute font-bold bg-primary p-5 text-[18px] text-white z-10 rounded-[7px]   md:text-[14px]",
+                "style":{
+                    "top":"20%",
+                    "left":"5%"
+                }
+            },
+            {
+                "type": "div",
+                "value": "¿Qué les gusta?" ,
+                "className": "" ,
+                "classExtra": "absolute font-bold bg-primary p-5 text-[18px] text-white z-10 rounded-[7px]   md:text-[14px]",
+                "style":{
+                    "top":"60%",
+                    "left":"10%"
+                } 
+            }  ,
+            {
+                "type": "div",
+                "value": "¿Qué les interesa?" ,
+                "className": "",
+                "classExtra": "absolute font-bold bg-primary p-5 text-[18px] text-white z-10 rounded-[7px]   md:text-[14px]",
+                "style":{
+                    "top":"20%",
+                    "left":"50%"
+                }    
+            },
+            {
+                "type": "div",
+                "value": "¿Qué hacen?" ,
+                "className": "",
+                "classExtra": "absolute font-bold bg-primary p-5 text-[18px] text-white z-10 rounded-[7px]   md:text-[14px]",
+                "style":{
+                    "top":"60%",
+                    "left":"50%"
+                }    
+            },
+            {
+                "type": "div",
+                "value": "¿Qué no les gusta?" ,
+                "className": "",
+                "classExtra": "absolute font-bold bg-primary p-5 text-[18px] text-white z-10 rounded-[7px]   md:text-[14px]",
+                "style":{
+                    "top":"80%",
+                    "left":"60%"
+                }    
+            },
+            {
+                "type": "div",
+                "value": "¿Qué odian?" ,
+                "className": "" ,
+                "classExtra": "absolute font-bold bg-primary p-5 text-[18px] text-white z-10 rounded-[7px]   md:text-[14px]",
+                "style":{
+                    "text-wrap": "nowrap",
+                    "top":"50%",
+                    "right":"0%"
+                } 
+            },
+            {
+                "type": "div",
+                "value": "Preguntas" ,
+                "className": "",
+                "classExtra": "absolute font-bold text-[25px] text-violet_dark",
+                "style":{
+                    "top":"40px",
+                    "left":"5%"
+                } 
+            },
+            {
+                "type": "image",
+                "alt": "Lines",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1704405841/images/e7yjp9knwfjbh7o8569y.png" ,
+                "className": "background-lines"
+            },
+            {
+                "type": "image",
+                "alt": "Lines",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1704416095/images/toydf0lkbv4wnhhiure9.png" ,
+                "className": "background-lines"
+            }
+            ]
+    },
+    "page17": {
+        "type": "complete",
+        "section": {
+            "number":4,
+            "value":"Mis retos"
+        },
+        "template": "template-void",
+        "data": [
+                {
+                    "type": "div",
+                    "value": "¿A quién te gustaría conocer?" ,
+                    "className": "",
+                    "classExtra": "absolute font-bold bg-primary p-5 text-[18px] text-white z-10 rounded-[7px]   md:text-[14px]",
+                    "style":{
+                        "top":"20%",
+                        "left":"5%"
+                    } 
+                },
+                {
+                    "type": "div",
+                    "value": "¿Con quién podrías compartir casa?" ,
+                    "className": "",
+                    "classExtra": "absolute font-bold bg-primary p-5 text-[18px] text-white z-10 rounded-[7px]   md:text-[14px]",
+                    "style":{
+                        "top":"60%",
+                        "left":"10%"
+                    }  
+                }  ,
+                {
+                    "type": "div",
+                    "value": "¿Con quién irías de compras?" ,
+                    "className": "",
+                    "classExtra": "absolute font-bold bg-primary p-5 text-[18px] text-white z-10 rounded-[7px]   md:text-[14px]",
+                    "style":{
+                        "top":"30%",
+                        "left":"50%"
+                    } 
+                },
+                {
+                    "type": "div",
+                    "value": "¿Con quién harías un viaje largo?" ,
+                    "className": "",
+                    "classExtra": "absolute font-bold bg-primary p-5 text-[18px] text-white z-10 rounded-[7px]   md:text-[14px]",
+                    "style":{
+                        "top":"67%",
+                        "left":"50%"
+                    }   
+                },
+                {
+                    "type": "div",
+                    "value": "¿Con quién no te gustaría trabajar?" ,
+                    "className": "",
+                    "classExtra": "absolute font-bold bg-primary p-5 text-[18px] text-white z-10 rounded-[7px]   md:text-[14px]",
+                    "style":{
+                        "top":"80%",
+                        "left":"60%"
+                    }   
+                },
+                {
+                    "type": "div",
+                    "value": "¿Con quién saldrías a divertirte?" ,
+                    "className": "",
+                    "classExtra": "absolute font-bold bg-primary p-5 text-[18px] text-white z-10 rounded-[7px]   md:text-[14px]",
+                    "style":{
+                        "top":"50%",
+                        "right":"0%"
+                    }   
+                },
+                {
+                    "type": "div",
+                    "value": "Preguntas" ,
+                    "className": "",
+                    "classExtra": "absolute font-bold text-[25px] text-violet_dark",
+                    "style":{
+                        "top":"40px",
+                        "left":"5%"
+                    } 
+                },
+                {
+                    "type": "image",
+                    "alt": "Lines",
+                    "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1704405841/images/e7yjp9knwfjbh7o8569y.png" ,
+                    "className": "background-lines"
+                },
+                {
+                    "type": "image",
+                    "alt": "Lines",
+                    "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1704416095/images/toydf0lkbv4wnhhiure9.png" ,
+                    "className": "background-lines"
+                }
+            ]
+    },
+    "page18":{
+        "type": "paragraph",
+        "section": {
+            "number": 5,
+            "value": "Evaluemos"
+        },
+        "template": "template-title-top-4",
+        "data": [
+            {
+                "type": "title",
+                "value": "Evaluación unidad 1 - Nivel B1",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "La primera evaluación correspondiente al nivel B1, está basada en un video que muestra una entrevista al famoso cantante cordobés Juan Carlos Jiménez Rufino, más conocido como la <span style='color:var(--primary)'> Mona Jiménez</span>, quien es un intérprete y compositor argentino del <span style='color:var(--orange)'>género cuarteto</span>, ​ considerado como su exponente más importante.",
+                "className": "paragraph-default-center"
+            },
+            {
+                "type": "paragraph",
+                "value": "<br>Mira el video y contesta las preguntas, seleccionando la respuesta correcta.",
+                "className": "paragraph-default-center"
+            },
+                       {
+                "type": "paragraph",
+                "value": "<br><b style='color:var(--warning);'>¡Adelante y buena suerte!</b>",
+                "className": "paragraph-default-center"
+            }
+        ]
+    },
+
+"page19": {
+    "type": "complete",
+    "section": {
+        "number":5,
+        "value":"Evaluacion"
+    },
+    "template": "template-video-1",
+    "data": [ 
+        {
+            "type": "videoi-youtube",
+            "id": "qQZlXIo_9WY",
+            "value": "qQZlXIo_9WY",
+            "youtube": "https://youtu.be/qQZlXIo_9WY",
+            "popups": [
+                {
+                    "time": 79,
+                    "title": "1. El nombre de pila de la Mona Jiménez es:",
+                    "reply": "Juan Carlos Jiménez Rufino",
+                    "message": " ",
+                    "type": "checkbox",
+                    "options": [
+                        "Juan Cruz Jiménez",
+                        "Juan Carlos Jiménez Rufino"
+                    ],
+                    "paddingLeft": "10%",
+                    "popUpShown": false,
+                    "value": 0
+                },
+                {
+                    "time": 98,
+                    "title": "2. Su padre falleció en el año:",
+                    "message": "",
+                    "reply": "1969",
+                    "type": "checkbox",
+                    "options": [
+                        "1979",
+                        "1969"
+                    ],
+                    "paddingLeft": "10%",
+                    "popUpShown": false,
+                    "value": 0
+                },
+                {
+                    "time": 100,
+                    "title": "3. Cuando murió su padre él tenía:",
+                    "message": "",
+                    "reply": "17 años",
+                    "type": "checkbox",
+                    "options": [
+                        "17 años",
+                        "20 años"
+                    ],
+                    "paddingLeft": "10%",
+                    "popUpShown": false,
+                    "value": 0
+                },
+                {
+                    "time": 155,
+                    "title": "4. La Mona Jiménez se muestra:",
+                    "message": "",
+                    "reply": "Optimista",
+                    "type": "checkbox",
+                    "options": [
+                        "Pesimista",
+                        "Optimista"
+                    ],
+                    "paddingLeft": "10%",
+                    "popUpShown": false,
+                    "value": 0
+                },
+                {
+                    "time": 195,
+                    "title": "5. Conoció a Juana Delseri a los:",
+                    "message": "",
+                    "reply": "24 años",
+                    "type": "checkbox",
+                    "options": [
+                        "24 años",
+                        "34 años"
+                    ],
+                    "paddingLeft": "10%",
+                    "popUpShown": false,
+                    "value": 0
+                },
+                {
+                    "time": 222,
+                    "title": "6. Es padre de:",
+                    "message": "",
+                    "reply": "tres hijos",
+                    "type": "checkbox",
+                    "options": [
+                        "cinco hijos",
+                        "tres hijos"
+                    ],
+                    "paddingLeft": "10%",
+                    "popUpShown": false,
+                    "value": 0
+                },
+                {
+                    "time": 231,
+                    "title": "7. Es abuelo de:",
+                    "message": "",
+                    "reply": "cinco nietos",
+                    "type": "checkbox",
+                    "options": [
+                        "tres nietos",
+                        "cinco nietos"
+                    ],
+                    "paddingLeft": "10%",
+                    "popUpShown": false,
+                    "value": 0
+                },
+                {
+                    "time": 291,
+                    "title": "8. Según el locutor Eduardo “Pato” Lugones, a la Mona lo caracteriza:",
+                    "message": "",
+                    "reply": "la autenticidad",
+                    "type": "checkbox",
+                    "options": [
+                        "la honestidad",
+                        "la autenticidad"
+                    ],
+                    "paddingLeft": "10%",
+                    "popUpShown": false,
+                    "value": 0
+                },
+                {
+                    "time": 304,
+                    "title": "9. Él es una persona ",
+                    "message": "",
+                    "reply": "alegre",
+                    "type": "checkbox",
+                    "options": [
+                        "alegre",
+                        "triste"
+                    ],
+                    "paddingLeft": "10%",
+                    "popUpShown": false,
+                    "value": 0
+                },
+                {
+                    "time": 421,
+                    "title": "10. La Mona Jiménez se caracteriza:",
+                    "message": "",
+                    "reply": "el carisma",
+                    "type": "checkbox",
+                    "options": [
+                        "la antipatía",
+                        "el carisma"
+                    ],
+                    "paddingLeft": "10%",
+                    "popUpShown": false,
+                    "value": 0
+                },
+                {
+                    "time": 435,
+                    "title": "11. Es un tipo:",
+                    "message": "",
+                    "reply": "auténtico",
+                    "type": "checkbox",
+                    "options": [
+                        "auténtico",
+                        "tímido"
+                    ],
+                    "paddingLeft": "10%",
+                    "popUpShown": false,
+                    "value": 0
+                },
+                {
+                    "time": 443,
+                    "title": "12. Según el cantante Ángel “Negro” Videla, la Mona es:",
+                    "message": "",
+                    "reply": "único",
+                    "type": "checkbox",
+                    "options": [
+                        "insensible",
+                        "único"
+                    ],
+                    "paddingLeft": "10%",
+                    "popUpShown": false,
+                    "value": 0
+                },
+                {
+                    "time": 459,
+                    "title": "13. Según Ulises Bueno, la mona es: ",
+                    "message": "",
+                    "reply": "una gran persona",
+                    "type": "checkbox",
+                    "options": [
+                        "arrogante",
+                        "una gran persona"
+                    ],
+                    "paddingLeft": "10%",
+                    "popUpShown": false,
+                    "value": 0
+                },
+                {
+                    "time": 511,
+                    "title": "14. Según Pablo Tamagnini, la Mona:",
+                    "message": "",
+                    "reply": "es un exponente del cuarteto",
+                    "type": "checkbox",
+                    "options": [
+                        "es un exponente del cuarteto",
+                        "un tonto"
+                    ],
+                    "paddingLeft": "10%",
+                    "popUpShown": false,
+                    "value": 0
+                },
+                {
+                    "time": 511,
+                    "title": "15. Según Rubén “kesito” Pavón, la mona es: ",
+                    "message": "",
+                    "reply": "emblemático ",
+                    "type": "checkbox",
+                    "options": [
+                        "emblemático",
+                        "antipático"
+                    ],
+                    "paddingLeft": "10%",
+                    "popUpShown": false,
+                    "value": 0
+                },
+                {
+                    "time": 649,
+                    "title": "16. En el 2014 la Mona realizó su gira por:",
+                    "message": "",
+                    "reply": "España",
+                    "type": "checkbox",
+                    "options": [
+                        "Norteamérica",
+                        "España"
+                    ],
+                    "paddingLeft": "10%",
+                    "popUpShown": false,
+                    "value": 0
+                },
+                {
+                    "time": 650,
+                    "title": "17. En su gira fue acompañado por: ",
+                    "message": "",
+                    "reply": "España",
+                    "type": "checkbox",
+                    "options": [
+                        "Norteamérica",
+                        "España"
+                    ],
+                    "paddingLeft": "10%",
+                    "popUpShown": false,
+                    "value": 0
+                },
+                {
+                    "time": 659,
+                    "title": "18.  Hizo presentaciones en Málaga, Madrid y: ",
+                    "message": "",
+                    "reply": "Barcelona",
+                    "type": "checkbox",
+                    "options": [
+                        "Valencia",
+                        "Barcelona"
+                    ],
+                    "paddingLeft": "10%",
+                    "popUpShown": false,
+                    "value": 0
+                },
+                {
+                    "time": 699,
+                    "title": "19. Su historia como cantante empezó cuando tenía: (11:39)",
+                    "message": "",
+                    "reply": "16 años",
+                    "type": "checkbox",
+                    "options": [
+                        "16 años",
+                        "20 años"
+                    ],
+                    "paddingLeft": "10%",
+                    "popUpShown": false,
+                    "value": 0
+                },
+                {
+                    "time": 670,
+                    "title": "20. Para el momento de esta entrevista la Mona tiene: ",
+                    "message": "",
+                    "reply": "72 años",
+                    "type": "checkbox",
+                    "options": [
+                        "62 años",
+                        "72 años"
+                    ],
+                    "paddingLeft": "10%",
+                    "popUpShown": false,
+                    "value": 0
+                }
+
+            ],
+            "className": "youtube"
+        }      ]
+},
+    "page20": {
+        "type": "complete",
+        "section": {
+            "number":5,
+            "value":"Evaluacion"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697572892/images/u1p14nib1_oobxox.png",
+        "data": [ 
+            {
+                "type": "title",
+                "value": "¡GRACIAS POR TU ATENCION!",
+                "className": "title-white"
+            }
+        ]
+    }
+    
+  
+
+}

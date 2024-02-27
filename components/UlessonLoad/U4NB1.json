@@ -1,0 +1,1059 @@
+{
+    "page1": {
+        "type": "text",
+        "section": {
+            "number": 0,
+            "value": "Mis Metas"
+        },
+        "template": "",
+        "data": [
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--zor7t6Ia--/v1701991022/images/eoozldckd35wrmni9k71.png",
+                "alt": "Portada",
+                "className": "Portadaimg"
+            },
+            {
+                "type": "title",
+                "value": "QUIERO CONOCER RELATOS Y ANÉDOTAS DE MI VISITA A CÓRDOBA",
+                "className": "TITLE-P0-BLACK"
+            },
+            {
+                "type": "paragraph",
+                "value": "NIVEL B1",
+                "className": "TITLE-P0-BLACK"
+            }
+        ]
+    },
+    "page2": {
+        "type": "text",
+        "section": {
+            "number": 0,
+            "value": "Mis Metas"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "¿Qué voy a aprender en esta unidad?",
+                "className": "title-white"
+            },
+            {
+                "type": "table",
+                "value": [
+                    {
+                        "title": "Comunicación",
+                        "content": "<li> - Describir lugares turísticos en Córdoba.</li><li> - Hablar acerca de diferentes actividades que se pueden hacer en Córdoba.</li> <li> - Hablar de gustos y preferencias asociados a distintos lugares y actividades en Córdoba.</li><li> - Comparar distintos lugares, actividades y experiencias en Córdoba.</li><li> - Describir situaciones y relatar hechos ocurridos en el pasado.</li><li> - Organizar y relatar acciones pasadas anteriores a otras.</li><li> - Situar un relato en el tiempo.</li>"
+                    },
+                    {
+                        "title": "Vocabulario",
+                        "content": "<li> - Nombres de lugares turísticos en Córdoba.</li><li> - Vocabulario relacionado con actividades que se pueden hacer en Córdoba.</li> <li> - Vocabulario para describir y valorar sitios, actividades y experiencias en Córdoba.</li> <li> - Uso de los adjetivos calificativos para describir lugares naturales.</li>"
+                    },
+                    {
+                        "title": "Gramática",
+                        "content": "<li> - Pretérito indefinido y pretérito imperfecto.</li><li> - Contraste entre los usos del indefinido y el imperfecto.</li> <li> - Morfología y uso del pluscuamperfecto.</li> <li> - El pretérito pluscuamperfecto frente al indefinido y al imperfecto.</li> <li> - Recursos narrativos: estilo directo en el diálogo, descripción, narración.</li> <li> - Uso de estar para describir y ubicar lugares </li> <li> - Uso de gustar y otros verbos similares para hablar de preferencias.</li> <li> -  Superlativos y otros gradativos.</li><li>Grados del adjetivo:-Superlativo absoluto: -ísimo.</li>"
+                    }
+                ],
+                "className": "table"
+            }
+        ]
+    },
+    "page3": {
+        "type": "text",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "La Cumbrecita",
+                "className": "title-white"
+            },
+            {
+                "type": "image-grid",
+                "value": [
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/v1701812449/images/lzeqcoeykob65yqlfkiv.webp",
+                        "text": ""
+                    },
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/v1701812454/images/nue6t5wtt6ddtg4p7di2.jpg",
+                        "text": ""
+                    },
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/v1701812460/images/qblombkcz7p7wz5chdl2.jpg",
+                        "text": ""
+                    }
+                ]
+            },
+            {
+                "type": "text",
+                "value": "https://www.cordobaturismo.gov.ar/experiencia/autentica-cumbrecita/",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "text",
+                "value": "https://www.cordobaturismo.gov.ar/experiencia/entre-senderos-cascadas-y-aventura-en-la-cumbrecita/",
+                "className": "paragraph-default"
+            }
+        ]
+    },
+    "page4": {
+        "type": "text",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "El blog de Mariela: De Córdoba a La Cumbrecita",
+                "className": "title-white"
+            },
+            {
+                "type": "text",
+                "value": "30 de Noviembre",
+                "className": "subtitle-default"
+            },
+            {
+                "type": "text",
+                "value": "<span style='color:var(--warning)'>De Córdoba a la Cumbrecita</span>",
+                "className": "subtitle-default"
+            },
+            {
+                "type": "text",
+                "value": "Antes de salir de Córdoba, <span style='color:var(--warning)'>desayunamos</span> en una panadería un café cortado con criollitos y <span style='color:var(--warning)'>salimos</span>  a las 8 de la mañana. Después de dos horas de viaje en auto, <span style='color:var(--warning)'>llegamos</span> a La Cumbrecita. Durante el viaje estaba lloviendo, pero cuando llegamos ya <span style='color:var(--success)'>había terminado</span> de llover. Como  es un pueblo peatonal, <span style='color:var(--warning)'>dejamos</span> el auto en un estacionamiento antes de bajar al pueblo. <span style='color:var(--warning)'>Iniciamos</span> el recorrido cruzando el puente de ingreso, <span style='color:var(--primary)'>había</span> casas <u>lindísimas</u> de estilo centroeuropeo y el pueblo <span style='color:var(--primary)'>estaba</span> rodeado de naturaleza <u>bellísima</u>. Más tarde, <span style='color:var(--warning)'>recorrimos</span> un sendero <u>larguísimo</u> mientras <span style'color:var(--primary)'>disfrutabamos</span> el camino, que <span style='color:var(--primary)'>estaba</span> cubierto por pinos y en el que <span style='color:var(--warning)'>observamos</span> algunas vertientes naturales. A unos metros, <span style='color:var(--warning)'>encontramos</span> la Olla, una pileta natural <u>grandísima</u>, en donde  nos  <span style='color:var(--warning)'>metimos</span> y <span style='color:var(--warning)'>nadamos</span> hasta el mediodía. Después <span style='color:var(--warning)'>almorzamos</span> en el pueblo y por la tarde, <span style='color:var(--warning)'>dormimos</span> una siesta  al costado del río. Por la noche  <span style='color:var(--warning)'>nos hospedamos</span> en una cabaña tipo bungalow, que <span style='color:var(--primary)'>estaba</span> en medio de  la montaña, que <span style='color:var(--success)'>habíamos reservado</span> por internet. <img class='absolute rounded-full' src='https://res.cloudinary.com/dfddh08q8/image/upload/v1704557539/images/kk3rruqijh2tbknuevtd.png' style='box-shadow: 0px 4px 26px #00000060; width: 25%;left: 87%;bottom: 90%;'/>",
+                "className": "paragraph-default",
+                "classExtra": "asymmetric-rounded border-2 border-warning p-10 relative"
+            }
+        ]
+    },
+    "page5": {
+        "type": "text",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "La Cumbrecita",
+                "className": "title-white"
+            },
+            {
+                "type": "text",
+                "value": "31 de Noviembre",
+                "className": "subtitle-default"
+            },
+            {
+                "type": "text",
+                "value": "Al día siguiente un grupo de guías turísticos, <span style='color:var(--warning)'>nos ofrecieron </span> varios recorridos para hacer a pie.  Pero, <span style='color:var(--success)'>habíamos contratado</span> el día anterior un guía para hacer una cabalgata por la sierras. <span style='color:var(--warning)'>Nos adentramos</span> en la inmensidad de la sierra grande, desde donde  <span style='color:var(--warning)'>sacamos</span> fotos a vistas panorámicas únicas del pueblo. Luego, <span style='color:var(--warning)'>compramos</span> un paquete de dos excursiones. En la primera, arborismo, <span style='color:var(--warning)'>nos desplazamos</span> entre las copas de los árboles, mediante puentes colgantes que <span style='color:var(--primary)'>estaban</span> suspendidos a varios metros del suelo. La segunda, la tirolesa , <span style='color:var(--primary)'>implicaba</span> el deslizarse  a través de un cable con un sistema de roldanas suspendido en el aire.  Aunque <span style='color:var(--primary)'>nos daba</span> un un poco de vértigo las vistas <span style='color:var(--primary)'>eran</span> increíbles. Antes de volver,  <span style='color:var(--warning)'>fuimos</span> a la confitería tradicional alemana, Edelweiss, que nos <span style='color:var(--success)'>habían recomendado</span> y <span style='color:var(--warning)'>probamos</span> la famosa  tarta de manzana con canela que <span style='color: var(--primary)'>estaba</span> <u>riquísima</u>. Fue un viaje <u>realmente fantástico.</u> <img class='absolute rounded-full' src='https://res.cloudinary.com/dfddh08q8/image/upload/v1704558327/images/skeggtm4zcmn4zjebmdk.png' style='box-shadow: 0px 4px 26px #00000060; width: 25%;left: 87%;bottom: 90%;'/>",
+                "className": "paragraph-default",
+                "classExtra": "asymmetric-rounded border-2 border-warning p-10 relative"
+            }
+        ]
+    },
+    "page6": {
+        "type": "text",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Práctica",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "¿Cuáles de las cosas de la tabla ha hecho Mariela en su último viaje a Córdoba?",
+                "className": "title-white"
+            },
+            {
+                "type": "text",
+                "value": "Observa la siguiente tabla y marca las notas de Mariela. Luego coméntalo con tu profesora",
+                "className": "subtitle-default"
+            },
+            {
+                "type": "div",
+                "value": "<ul><li class='border-b-2'><strong>Córdoba</strong></li><li class='border-b-2'><span style='color: var(--warning)'>-</span> Criollitos con cortado en el hotel ¡Riquísimo!</li><li class='border-b-2'><strong>La Cumbrecita</strong></li><li class='border-b-2'><span style='color: var(--warning)'>-</span> Pueblo completamente peatonal ¡Mágicos!</li><li class='border-b-2'><span style='color: var(--warning)'>-</span> Pileta natural la Olla ¡Imperdible! </li><li class='border-b-2'><span style='color: var(--warning)'>-</span> Cabañas en el bosque ¡De hadas!</li><li class='border-b-2'><span style='color: var(--warning)'>-</span> Cabalgata por la sierra ¡Inolvidable!</li><li class='border-b-2'><span style='color: var(--warning)'>-</span> Arborismo y Tirolesa en el Peñón del águila</li><li class='border-b-2'><span style='color: var(--warning)'>-</span> Confitería  Edelweiss ¡Fantástico!</li></ul>",
+                "className": "paragraph-default",
+                "classExtra":"border-2 p-3 mb-6 rotate-12 bg-white mx-auto",
+                "style":{
+                    "box-shadow": "0px 4px 26px #00000060",
+                    "transform": "rotate(-8deg)"
+                }
+            },
+
+
+
+            {
+                "type": "selectsimple",
+                "value": "1.  ¿Era una ciudad?",
+                "option": "No",
+                "options": [ "Sí", "No" ],
+                "className": "selector-simple",
+                "classExtra":"border-2 border-warning p-3 w-full",
+                "style":{
+                    "margin":"0",
+                    "background-color":"#F4B081"
+                },
+                "direction":"row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "2. ¿Comió bien?",
+                "option": "Sí",
+                "options": [ "Sí", "No" ],
+                "className": "selector-simple",
+                "classExtra":"border-2 border-warning p-3 w-full",
+                "style":{
+                    "margin":"0",
+                    "border-top": "none",
+                    "background-color":"#FF743833"
+                },
+                "direction":"row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "3. ¿Hizo deporte?",
+                "option": "Sí",
+                "options": [ "Sí", "No" ],
+                "className": "selector-simple",
+                "classExtra":"border-2 border-warning p-3 w-full",
+                "style":{
+                    "margin":"0",
+                    "border-top": "none",
+                    "background-color":"#F4B081"
+                },
+                "direction":"row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "4. ¿Habían hecho reservas?",
+                "option": "Sí",
+                "options": [ "Sí", "No" ],
+                "className": "selector-simple",
+                "classExtra":"border-2 border-warning p-3 w-full",
+                "style":{
+                    "margin":"0",
+                    "border-top": "none",
+                    "background-color":"#FF743833"
+                },
+                "direction":"row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "5. ¿Fueron a conciertos?",
+                "option": "No",
+                "options": [ "Sí", "No" ],
+                "className": "selector-simple",
+                "classExtra":"border-2 border-warning p-3 w-full",
+                "style":{
+                    "margin":"0",
+                    "border-top": "none",
+                    "background-color":"#F4B081"
+                },
+                "direction":"row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "6. ¿Habían recibido consejos?",
+                "option": "Sí",
+                "options": [ "Sí", "No" ],
+                "className": "selector-simple",
+                "classExtra":"border-2 border-warning p-3 w-full",
+                "style":{
+                    "margin":"0",
+                    "border-top": "none",
+                    "background-color":"#FF743833"
+                },
+                "direction":"row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "7. ¿Las excursiones eran en la naturaleza?",
+                "option": "Sí",
+                "options": [ "Sí", "No" ],
+                "className": "selector-simple",
+                "classExtra":"border-2 border-warning p-3 w-full",
+                "style":{
+                    "margin":"0",
+                    "border-top": "none",
+                    "background-color":"#F4B081"
+                },
+                "direction":"row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "8. ¿Recorrieron el lugar en auto?",
+                "option": "No",
+                "options": [ "Sí", "No" ],
+                "className": "selector-simple",
+                "classExtra":"border-2 border-warning p-3 w-full",
+                "style":{
+                    "margin":"0",
+                    "border-top": "none",
+                    "background-color":"#FF743833"
+                },
+                "direction":"row"
+            }
+        ]
+    },
+    "page7": {
+        "type": "video",
+        "section": {
+            "number": 2,
+            "value": "Aprendemos"
+        },
+        "template": "template-video-1",
+        "data": [
+            {
+                "type": "video-youtube",
+                "value": "HAdLnkDm2LU",
+                "youtuve": "https://youtu.be/HAdLnkDm2LU",
+                "className": "youtube"
+            }
+        ]
+    },
+    "page8": {
+        "type": "text",
+        "section": {
+            "number": 3,
+            "value": "Practiquemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Práctica",
+                "className": "title-dark"
+            },
+            {
+                "type": "title",
+                "value": "¿Cuáles de estas actividades hizo Mariela  en su último viaje a Córdoba?",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "Relacioná las imágenes con las actividades",
+                "className": "title-dark"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<b style='color: var(--primary)'>1.</b> Fue a una confitería",
+                "option": "Sí",
+                "options": [ "Sí", "No" ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<b style='color: var(--primary)'>2.</b> Condujo una 4x4",
+                "option": "No",
+                "options": [ "Sí", "No" ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "image-grid",
+                "value": [
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/v1701970278/images/b8ewxxi7o1ap7foty3mj.jpg",
+                        "text": "<span class='absolute top-2 left-2 bg-primary rounded-full text-white w-8 h-8 flex justify-center items-center' style='box-shadow: 0px 4px 26px #00000060'>1</span>"
+                    },
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/v1701970299/images/sl2efypoiyd6zpxfq0wi.png",
+                        "text": "<span class='absolute top-2 left-2 bg-primary rounded-full text-white w-8 h-8 flex justify-center items-center' style='box-shadow: 0px 4px 26px #00000060'>2</span>"
+                    }
+                ]
+            },
+            {
+                "type": "selectsimple",
+                "value": "<b style='color: var(--primary)'>3.</b> Escaló montañas",
+                "option": "No",
+                "options": [ "Sí", "No" ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<b style='color: var(--primary)'>4.</b> Hizo tirolesa",
+                "option": "Sí",
+                "options": [ "Sí", "No" ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "image-grid",
+                "value": [
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/v1701970305/images/fhkbkco9tyz8z9ezz06i.png",
+                        "text": "<span class='absolute top-2 left-2 bg-primary rounded-full text-white w-8 h-8 flex justify-center items-center' style='box-shadow: 0px 4px 26px #00000060'>3</span>"
+                    },
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/v1701970315/images/lcnzdcq8vglngdr3pdqe.png",
+                        "text": "<span class='absolute top-2 left-2 bg-primary rounded-full text-white w-8 h-8 flex justify-center items-center' style='box-shadow: 0px 4px 26px #00000060'>4</span>"
+                    }
+                ]
+            }
+        ]
+    },
+    "page9": {
+        "type": "text",
+        "section": {
+            "number": 3,
+            "value": "Practiquemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Práctica",
+                "className": "title-dark"
+            },
+            {
+                "type": "title",
+                "value": "¿Cuáles de estas actividades hizo Mariela  en su último viaje a Córdoba?",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "Relacioná las imágenes con las actividades",
+                "className": "title-dark"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<b style='color: var(--warning)'>5.</b>Se metió a la pileta natural",
+                "option": "Sí",
+                "options": [ "Sí", "No" ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<b style='color: var(--warning)'>6.</b> Montó a caballo",
+                "option": "No",
+                "options": [ "Sí", "No" ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "image-grid",
+                "value": [
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/v1701970690/images/c5itvkghwzwjw3j8thnc.png",
+                        "text": "<span class='absolute top-2 left-2 bg-warning rounded-full text-white w-8 h-8 flex justify-center items-center' style='box-shadow: 0px 4px 26px #00000060'>5</span>"
+                    },
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/v1701970696/images/mwgzbpaijs0ausoeyg4c.png",
+                        "text": "<span class='absolute top-2 left-2 bg-warning rounded-full text-white w-8 h-8 flex justify-center items-center' style='box-shadow: 0px 4px 26px #00000060'>6</span>"
+                    }
+                ]
+            },
+            {
+                "type": "selectsimple",
+                "value": "<b style='color: var(--warning)'>7.</b>Hizo arborismo",
+                "option": "Sí",
+                "options": [ "Sí", "No" ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<b style='color: var(--warning)'>8.</b> Hizo rafting",
+                "option": "Sí",
+                "options": [ "Sí", "No" ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "image-grid",
+                "value": [
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/v1701970705/images/u6glxfb1drh6yuhx9m35.png",
+                        "text": "<span class='absolute top-2 left-2 bg-warning rounded-full text-white w-8 h-8 flex justify-center items-center' style='box-shadow: 0px 4px 26px #00000060'>7</span>"
+                    },
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/v1701970709/images/wxsolhec19ns4lchzcki.png",
+                        "text": "<span class='absolute top-2 left-2 bg-warning rounded-full text-white w-8 h-8 flex justify-center items-center' style='box-shadow: 0px 4px 26px #00000060'>8</span>"
+                    }
+                ]
+            }
+        ]
+    },
+    "page10": {
+        "type": "paragraph-complete",
+        "section": {
+            "number":3,
+            "value": "Practiquemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "En estas afirmaciones tomadas del blog de Mariela, completa usando la correcta forma verbal correspondiente al verbo que es dentro del paréntesis",
+                "className": "title-white"
+            },
+            {
+                "type": "text",
+                "value": "<span style='color: var(--primary)'>Completa los espacios en blanco con el verbo en pretérito indefinido; pretérito imperfecto o pluscuamperfecto.</span>",
+                "className": "subtitle-default"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "Antes de salir de Córdoba, (desayunar)",
+                    {
+                        "block": 13,
+                        "color": "var(--warning)",
+                        "option": "desayunamos"
+                    },
+                    "en una panadería un café cortado con criollitos<br>",
+                    "Después de dos horas de viaje en auto, (llegar)",
+                    {
+                        "block": 9,
+                        "color": "var(--warning)",
+                        "option": "llegamos"
+                    },
+                    "a La Cumbrecita.<br>",
+                    "Cuando llegamos ya (terminar)",
+                    {
+                        "block": 17,
+                        "color": "var(--warning)",
+                        "option": "había terminado"
+                    },
+                    "de llover.<br>",
+                    "El pueblo (estar)",
+                    {
+                        "block": 7,
+                        "color": "var(--warning)",
+                        "option": "estaba"
+                    },
+                    "rodeado de naturaleza.<br>",
+                    "Pero, (contratar)",
+                    {
+                        "block": 19,
+                        "color": "var(--warning)",
+                        "option": "habíamos contratado"
+                    },
+                    "el día anterior un guía.<br>",
+                    "Luego, (comprar)",
+                    {
+                        "block": 10,
+                        "color": "var(--warning)",
+                        "option": "compramos"
+                    },
+                    "un paquete de dos excursiones.<br>",
+                    "Puentes colgantes que (estar) ",
+                    {
+                        "block": 10,
+                        "color": "var(--warning)",
+                        "option": "compramos"
+                    },
+                    "suspendidos a varios metros del suelo.<br>",
+                    "Las vistas (ser) ",
+                    {
+                        "block": 5,
+                        "color": "var(--warning)",
+                        "option": "eran"
+                    },
+                    "increíbles"
+                ],
+                "className": "paragraph-default"
+            }
+        ]
+    },
+    "page11": {
+        "type": "paragraph-complete",
+        "section": {
+            "number":3,
+            "value": "Practiquemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "En estas afirmaciones tomadas del blog de Mariela, completa los espacios en blanco con el adjetivo superlativo de terminación <span style='color:var(--warning)'>-ísimo</span>",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "Había casas (lindas) ",
+                    {
+                        "block": 12,
+                        "color": "var(--warning)",
+                        "option": "lindisimas"
+                    },
+                    " de estilo centroeuropeo.<br>",
+                    "El pueblo estaba rodeado de naturaleza (bella) ",
+                    {
+                        "block": 10,
+                        "color": "var(--warning)",
+                        "option": "bellísima"
+                    },
+                    "<br>Recorrimos un sendero (largo) ",
+                    {
+                        "block": 12,
+                        "color": "var(--warning)",
+                        "option": "larguísimo"
+                    },
+                    "Encontramos la Olla, una pileta natural (grande) ",
+                    {
+                        "block": 12,
+                        "color": "var(--warning)",
+                        "option": "grandísima"
+                    },
+                    "<br>Probamos la famosa  tarta de manzana con canela que estaba (rica) ",
+                    {
+                        "block": 10,
+                        "color": "var(--warning)",
+                        "option": "riquísima"
+                    }
+                ],
+                "className": "paragraph-default"
+            }
+        ]
+    },
+    "page12": {
+        "type": "text",
+        "section": {
+            "number": 4,
+            "value": "Mis retos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Reto 1",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "Lee las entradas del blog de Mariela, haz una lista de las cosas que ella hizo o ha hecho cada día y coméntalas con tu profesor (a).",
+                "className": "subtitle-default"
+            },
+            {
+                "type": "div",
+                "value": "<span style='color: var(--warning); margin-right: 12px;' class='text-[31px] font-bold'>•</span> ¿Has viajado a Córdoba?",
+                "className": "paragraph-default",
+                "classExtra":"mb-4 flex"
+            },
+            {
+                "type": "div",
+                "value": "<span style='color: var(--warning); margin-right: 12px;' class='text-[31px] font-bold'>•</span> ¿Cuáles países has visitado?",
+                "className": "paragraph-default",
+                "classExtra":"mb-4 flex"
+            },
+            {
+                "type": "div",
+                "value": "<span style='color: var(--warning); margin-right: 12px;' class='text-[31px] font-bold'>•</span> Habla con tu profesora acerca de las experiencias que has tenido en diferentes viajes que has hecho.",
+                "className": "paragraph-default",
+                "classExtra":"mb-4 flex"
+            },
+            {
+                "type": "div",
+                "value": "<span style='color: var(--warning); margin-right: 12px;' class='text-[31px] font-bold'>•</span> Habla con tu profesora acerca de las experiencias que has tenido en diferentes viajes que has hecho.",
+                "className": "paragraph-default",
+                "classExtra":"mb-4 flex"
+            },
+            
+            {
+                "type": "div",
+                "value": "<span style='color:var(--warning)'>ACTIVIDAD ASIGNADA:</span> <p>Imagina que estás de viaje, elabora un diario parecido al de Mariela, y relata las experiencias que has tenido y las cosas que has hecho. <span style='color:var(--warning)'>Envíaselo a tu profesora por email y/o compártelo en clases.</span></p>",
+                "className": "paragraph-default",
+                "classExtra":"p-3",
+                "style":{
+                    "border":"2px dashed var(--warning)"
+                }
+            }
+        ]
+    },
+    "page13": {
+        "type": "text",
+        "section": {
+            "number": 4,
+            "value": "Mis retos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Reto 2",
+                "className": "title-white"
+            },
+            {
+                "type": "text",
+                "value": "Contesta las siguientes preguntas siguiendo el ejemplo dado",
+                "className": "subtitle-default",
+                "style":{
+                    "color":"var(--primary)"
+                }
+            },
+            {
+                "type": "text",
+                "value": "<strong>Ejemplo: </strong>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "text",
+                "value": "<ul><li>• ¿Has viajado en barco?</li><li class='ml-5'>- Sí, <span style='color:var(--warning)'>ya</span> he viajado a… /</li><li class='ml-5'>- <span style='color:var(--warning)'>Todavía no</span> he viajado en barco.</li></ul>",
+                "className": "paragraph-default"
+            },
+
+            {
+                "type": "text",
+                "value": "<span style='color:var(--warning)'>1.</span> ¿Has practicado algún deporte extremo?",
+                "className": "paragraph-default",
+                "classExtra":"my-2"
+            },
+            {
+                "type": "text",
+                "value": "<span style='color:var(--warning)'>2.</span> ¿Has ido a acampar?",
+                "className": "paragraph-default",
+                "classExtra":"my-2"
+            },
+            {
+                "type": "text",
+                "value": "<span style='color:var(--warning)'>3.</span> ¿Has viajado a otro continente?",
+                "className": "paragraph-default",
+                "classExtra":"my-2"
+            },
+            {
+                "type": "text",
+                "value": "<span style='color:var(--warning)'>4.</span> ¿Te has enamorado?",
+                "className": "paragraph-default",
+                "classExtra":"my-2"
+            },
+            {
+                "type": "text",
+                "value": "<span style='color:var(--warning)'>5.</span> ¿Has visto una obra de teatro?",
+                "className": "paragraph-default",
+                "classExtra":"my-2"
+            }
+        ]
+    },
+    "page14": {
+        "type": "text",
+        "section": {
+            "number": 5,
+            "value": "Evaluemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Evaluación unidad 4 - Nivel B1",
+                "className": "title-white"
+            },
+            {
+                "type": "text",
+                "value": "La siguiente evaluación contiene <b>20 espacios en blanco</b> los cuales debes completar con la forma verbal correspondiente.<br>",
+                "className": "paragraph-default-center"
+            },
+            {
+                "type": "text",
+                "value": "Cada verbo que conjugues correctamente vale <b>01 punto.</b>",
+                "className": "paragraph-default-center"
+            },
+            {
+                "type": "text",
+                "value": "Para aprobar la evaluación y pasar a la siguiente unidad debes obtener un <b>mínimo de 18 puntos.</b>",
+                "className": "paragraph-default-center"
+            },
+            {
+                "type": "text",
+                "value": "<span style='color:var(--warning)'>¡Adelante y buena suerte!</span>",
+                "className": "paragraph-default-center"
+            }
+        ]
+    },
+    "page15": {
+        "type": "text",
+        "section": {
+            "number": 5,
+            "value": "Evaluemos"
+        },
+        "template": "template-title-top-2",
+        "data": [
+            {
+                "type": "title",
+                "value": "Leé el texto y elegí el verbo correcto en cada caso. Escribílo en los espacios en blanco",
+                "className": "title-white"
+            },
+            {
+                "type": "text",
+                "value": "<span style='color:var(--warning)'>Visita a Alta Gracia, Córdoba.</span>",
+                "className": "subtitle-default"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "En la primera parada (1) ",
+                    {
+                        "block": 16,
+                        "color": "var(--warning)",
+                        "option": "nos encontramos"
+                    },
+                    " on un conjunto arquitectónico imperdible que (2) ",
+                    {
+                        "block": 22,
+                        "color": "var(--warning)",
+                        "option": "había sido construido"
+                    },
+                    "en 1643 por aborígenes: la Estancia Jesuítica Alta Gracia que (3) ",
+                    {
+                        "block": 8,
+                        "color": "var(--warning)",
+                        "option": "incluía"
+                    },
+                    "la iglesia imponente Nuestra Señora de la Merced que todavía (4) ",
+                    {
+                        "block": 7,
+                        "color": "var(--warning)",
+                        "option": "estaba"
+                    },
+                    "en funcionamiento durante esos años y la residencia que (5) ",
+                    {
+                        "block": 18,
+                        "color": "var(--warning)",
+                        "option": "habían convertido"
+                    },
+                    " en museo y casa cultural en el 1977."
+                ],
+                "className": "paragraph-complete"
+            },
+            {
+                "type": "text",
+                "value": "Opciones:",
+                "className": "subtitle-default",
+                "classExtra":"w-full",
+                "style":{
+                    "margin":"16px 0 0 0",
+                    "color":"var(--primary)"
+                }
+            },
+            {
+                "type": "text",
+                "value": "<ul><li>1  nos encontrábamos - nos encontramos</li><li>2 construían- había sido construido</li><li>3 incluía - incluimos</li><li>4 estuvo - estaba</li><li>5 habían convertido - convirtieron</li></ul>",
+                "className":"paragraph-default"
+            }
+        ]
+    },
+    "page16": {
+        "type": "text",
+        "section": {
+            "number": 5,
+            "value": "Evaluemos"
+        },
+        "template": "template-title-top-2",
+        "data": [
+            {
+                "type": "title",
+                "value": "Leé el texto y elegí el verbo correcto en cada caso. Escribílo en los espacios en blanco",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "En ese lugar impactaba su patio principal: (6) ",
+                    {
+                        "block": 6,
+                        "color": "var(--warning)",
+                        "option": "tenía"
+                    },
+                    " un jardín bien verde  con una escalinata central muy elegante y un patio de trabajo. Luego,(7) ",
+                    {
+                        "block": 12,
+                        "color": "var(--warning)",
+                        "option": "conocimos"
+                    },
+                    " la Casa del Virrey Liniers, una hermosa casa colonial, que (8) ",
+                    {
+                        "block": 10,
+                        "color": "var(--warning)",
+                        "option": "funcionó" 
+                    },
+                    " como la residencia del Virrey de la época. Ya  (9) ",
+                    {
+                        "block": 14,
+                        "color": "var(--warning)",
+                        "option": "habíamos leído"
+                    },
+                    " sobre la vida del Virrey y sus hazañas históricas en los folletos turísticos así que (10) ",
+                    {
+                        "block": 14,
+                        "color": "var(--warning)",
+                        "option": "nos quedamos"
+                    },
+                    "  deambulando por las habitaciones de la casa."
+                ],
+                "className": "paragraph-complete"
+            },
+            {
+                "type": "text",
+                "value": "Opciones:",
+                "className": "subtitle-default",
+                "classExtra":"w-full",
+                "style":{
+                    "margin":"16px 0 0 0",
+                    "color":"var(--primary)"
+                }
+            },
+            {
+                "type": "text",
+                "value": "<ul><li>6 tuvo-tenía</li><li>7  conocíamos - conocimos</li><li>8 había funcionado - funcionó</li><li>9 leímos - habíamos leído</li><li>10 nos quedamos - nos quedábamos</li></ul>",
+                "className":"paragraph-default"
+            }
+        ]
+    },
+    "page17": {
+        "type": "text",
+        "section": {
+            "number": 5,
+            "value": "Evaluemos"
+        },
+        "template": "template-title-top-2",
+        "data": [
+            {
+                "type": "title",
+                "value": "Leé el texto y elegí el verbo correcto en cada caso. Escribílo en los espacios en blanco",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "El segundo día (1) ",
+                    {
+                        "block": 9,
+                        "color": "var(--warning)",
+                        "option": "llegamos"
+                    },
+                    " al Museo del Che Guevara, el famoso revolucionario, quien (2) ",
+                    {
+                        "block": 5,
+                        "color": "var(--warning)",
+                        "option": "pasó"
+                    },
+                    "su infancia en Alta Gracia. Allí se (3) ",
+                    {
+                        "block": 8,
+                        "color": "var(--warning)",
+                        "option": "pudimos" 
+                    },
+                    "ver fotografías y objetos personales que pertenecían al Che.",
+                    "Luego, (4) ",
+                    {
+                        "block": 14,
+                        "color": "var(--warning)",
+                        "option": "nos dirigimos"
+                    },
+                    " hacia el reloj público, que en el pasado (5) ",
+                    {
+                        "block": 12,
+                        "color": "var(--warning)",
+                        "option": "se conocía"
+                    },
+                    " como la Torre del Tajamar."
+                ],
+                "className": "paragraph-complete"
+            },
+            {
+                "type": "text",
+                "value": "Opciones:",
+                "className": "subtitle-default",
+                "classExtra":"w-full",
+                "style":{
+                    "margin":"16px 0 0 0",
+                    "color":"var(--primary)"
+                }
+            },
+            {
+                "type": "text",
+                "value": "<ul><li>1  llegamos - llegábamos</li><li>2 pasó - pasaba</li><li>3 podían -  pudimos</li><li>4 nos dirigimos - nos habíamos dirigido</li><li>5 conocía - se conocía</li></ul>",
+                "className":"paragraph-default"
+            }
+        ]
+    }, 
+    "page18": {
+        "type": "text",
+        "section": {
+            "number": 5,
+            "value": "Evaluemos"
+        },
+        "template": "template-title-top-2",
+        "data": [
+            {
+                "type": "title",
+                "value": "Leé el texto y elegí el verbo correcto en cada caso. Escribílo en los espacios en blanco",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "La Torre del Tajamar, es una obra arquitectónica y cultural que (6) ",
+                    {
+                        "block": 12,
+                        "color": "var(--warning)",
+                        "option": "se inauguró"
+                    },
+                    "en 1938 para celebrar el 350° Aniversario de la ciudad. Finalmente, (7) ",
+                    {
+                        "block": 10,
+                        "color": "var(--warning)",
+                        "option": "caminamos"
+                    },
+                    " hacia el Tajamar. Era un hermoso embalse que (8) ",
+                    {
+                        "block": 20,
+                        "color": "var(--warning)",
+                        "option": "se había edificado" 
+                    },
+                    " en la época colonial. En ese lugar, en la noche se estaba celebrando el Festival de las Colectividades en donde (9) ",
+                    {
+                        "block": 10,
+                        "color": "var(--warning)",
+                        "option": "probamos"
+                    },
+                    " comidas tradicionales de diferentes países del mundo mientras se (10) ",
+                    {
+                        "block": 14,
+                        "color": "var(--warning)",
+                        "option": "disfrutabamos"
+                    },
+                    " de espectáculos en vivo de danzas tradicionales. "
+                ],
+                "className": "paragraph-complete"
+            },
+            {
+                "type": "text",
+                "value": "Opciones:",
+                "className": "subtitle-default",
+                "classExtra":"w-full",
+                "style":{
+                    "margin":"16px 0 0 0",
+                    "color":"var(--primary)"
+                }
+            },
+            {
+                "type": "text",
+                "value": "<ul><li>6 se inauguraba - se inauguró</li><li>7 caminábamos - caminamos</li><li>8  se había edificado - se edificaba</li><li>9 probamos - habíamos probado</li><li>10 se disfrutó - disfrutabamos</li></ul>",
+                "className":"paragraph-default"
+            }
+        ]
+    },
+    "page19": {
+        "type": "text",
+        "section": {
+            "number": 5,
+            "value": "Evaluemos"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696117479/images/4_skpl9k.png",
+        "data": [
+            {
+                "type": "title",
+                "value": "GRACIAS POR TU ATENCIÓN",
+                "className": "title-white"
+            } 
+        ]
+    } 
+}

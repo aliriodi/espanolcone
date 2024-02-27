@@ -1,0 +1,1121 @@
+{
+    "page1": {
+        "type": "text",
+        "section": {
+            "number": 0,
+            "value": "Mis Metas"
+        },
+        "template": "",
+        "data": [
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--POnCW2x9--/v1703790446/images/nd8yalb6dtd7xd8c8ak3.png",
+                "alt": "EspañolconE",
+                "className": "Portadaimg"
+            },
+            {
+                "type": "title",
+                "value": "HABLEMOS ACERCA DE EXPERIENCIAS",
+                "className": "TITLE-P0-BLACK"
+            },
+            {
+                "type": "paragraph",
+                "value": "NIVEL A2",
+                "className": "TITLE-P0-BLACK"
+            }
+        ]
+    },
+    "page2": {
+        "type": "table",
+        "section": {
+            "number": 0,
+            "value": "Mis Metas"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "¿Qué voy a aprender en esta unidad?",
+                "className": "title-white"
+            },
+            {
+                "type": "table",
+                "value": [
+                    {
+                        "title": "Comunicación",
+                        "content": "<li>- Hablar sobre experiencias en Córdoba.</li><li>- Hablar de habilidades, aptitudes, cualidades y defectos de las personas.</li><li>- Comparar distintos lugares, actividades y experiencias en Córdoba.</li><li>- Describir el aspecto físico y la personalidad.</li>"
+                    },
+                    {
+                        "title": "Vocabulario",
+                        "content": "<li>- Adjetivos descriptivos.</li><li>- Adjetivos de carácter.</li><li>- Descripción de sitios de Córdoba.</li><li>- Algunas palabras sencillas y frases cortas del argot cordobés.</li>"
+                    },
+                    {
+                        "title": "Gramática",
+                        "content": "<li>- El pretérito perfecto compuesto.</li><li>- Saber + infinitivo.</li><li>- Poder + infinitivo.</li><li>- Preposiciones de movimiento y de lugar: desde, hasta, hacia, en, etc.</li><li>- Preposiciones de relaciones temporales: a + horas / tiempo; por + partes del día: en + meses, estaciones y años.</li>"
+                    }
+                ],
+                "className": "table"
+            }
+        ]
+    },
+    "page3": {
+        "type": "text",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Distintas personalidades",
+                "className": "title-white"
+            },
+            {
+                "type": "text",
+                "value": "<div class='flex justify-between   md:flex-col'><img src='https://res.cloudinary.com/dfddh08q8/image/upload/v1702327705/images/rmvhpumbcvhoz1viwlcr.png' class='w-[38%] rounded-[7px] shadow-[0px_4px_24px_#18292F1A] object-cover md:w-full'/> <div class='border-2 border-warning asymmetric-rounded p-5 w-[60%]   md:w-full md:mb-3'><p>Jennifer es muy <span style='color:var(--primary) '>simpática</span>. Es una mujer <span style='color:var(--primary) '>inteligente</span> y <span style='color:bluvar(--primary) '>trabajadora</span>, <span style='color: #FF7438 '>sabe tocar el bajo</span>, y canta. Es estadounidense, <u>ha viajado por muchos países de Latinoamérica y ha vivido en Europa.</u></p> <p><span style='color: #FF7438 '>Sabe hablar inglés</span> porque es su lengua materna, <span style='color: #FF7438 '>sabe hablar español</span> y <u>ha estudiado un poco de ruso e italiano.</u></p> <p>Es <span style='color:var(--primary) '>optimista</span> y <span style='color:var(--primary) '>responsable</span>, pero es <span style='color:var(--primary) '>impaciente</span> y a veces un poco <span style='color:var(--primary) '>tímida</span>, así que <u>le cuesta</u> hablar en público. <u>Le gusta</u> el cine y <u>ha visitado muchos teatros.</u> <u>Le molesta</u> el egoísmo y la avaricia, tampoco <u>le gusta hablar de política </u>ni practicar deportes.</p> <p><u>Lo que me encanta</u> de ella es que es muy <span style='color:var(--primary)'>alegre</span> y valora la amistad, pero <u>lo que no me gusta</u> es que <span style='color: #FF7438'>no sabe cocinar</span>, no hace ejercicio y a <u>mí me encanta</u> ir al gimnasio…</p></div></div>",
+                "className": "paragraph-default",
+                "classExtra": ""
+            }
+        ]
+    },
+    "page4": {
+        "type": "text",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Distintas personalidades",
+                "className": "title-white"
+            },
+            {
+                "type": "text",
+                "value": "<div class='flex justify-between   md:flex-col'><div class='border-2 border-warning asymmetric-rounded p-5 w-[60%]   md:w-full md:mb-3'> <p>Alberto es brasileño. Es un chico muy <span style='color:var(--primary)'>guapo</span>. Es músico, <span style='color:#FF7438'>sabe tocar la guitarra</span>, escribe poesía y canta. <u>Ha viajado por todo el mundo y ha vivido en Ámsterdam y Nueva York.</u></p> <p>Es muy <span style='color:var(--primary)'>generoso</span> y <span style='color:var(--primary)'>honesto</span>, pero parece un poco <span style='color:var(--primary)'>despistado</span>. <u>Le gusta</u> el teatro y <u>le interesan</u> los conciertos. Es <span style='color:var(--primary)'>extrovertido</span> y <span style='color:var(--primary)'>creativo</span>. Odia las mentiras y el racismo, <u>tampoco le gusta</u> el reggaetón ni el egoísmo.</p> <p>Lo que me encanta de él es que es <span style='color:var(--primary)'>solidario</span>, pero lo que no me gusta es que odia cocinar y yo amo la cocina...</p> </div> <img src='https://res.cloudinary.com/dfddh08q8/image/upload/v1702327713/images/schlxzmfiffcktjczrtc.jpg' class='w-[38%] rounded-[7px] shadow-[0px_4px_24px_#18292F1A] object-cover md:w-full'/> </div>",
+                "className": "paragraph-default",
+                "classExtra": ""
+            }
+        ]
+    },
+    "page5": {
+        "type": "text",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-top-4",
+        "data": [
+            {
+                "type": "title",
+                "value": "<p style='color:#190B30'>Texto introductorio:</p> <p><span style='color:#FF7438'>Desde</span> Buenos Aires <span style='color:#FF7438'>hacia</span> Córdoba</p>",
+                "className": "title-white"
+            },
+            {
+                "type": "text",
+                "value": "<div class='flex justify-between items-center   md:flex-col'> <p class='md:mb-6'>Los diarios de viaje que muchos viajeros cuelgan en internet son una muy buena manera de informarnos antes de viajar. Alberto, un brasileño que toca la guitarra y escribe poesía y Jennifer, una bajista estadounidense, <span style='color:#FF7438'>se han conocido</span> viajando por Argentina. Como a Jennifer le da vergüenza hablar en español y le cuesta hacer amigos nuevos le <span style='color:#FF7438'>ha pedido</span> a Alberto que conozcan Córdoba juntos.</p> <img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--_5yKeYnz--/v1703668416/images/f9erovp9bo3bo2kguq5q.png'/> </div>",
+                "className": "paragraph-default"
+            }
+        ]
+    },
+    "page6": {
+        "type": "text",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Desde Buenos Aires hacia Córdoba",
+                "className": "title-white"
+            },
+            {
+                "type": "text",
+                "value": "<div class='flex justify-between items-end mb-8   md:items-center '><div><p>23 de noviembre</p> <p style='color:var(--warning)'><strong>Desde Buenos Aires hacia Córdoba</strong></p></div> <img class='w-[30%]' src='https://res.cloudinary.com/dfddh08q8/image/upload/s--JozIONdw--/v1703669049/images/oxokmg29m3pcfqaqvx69.png'/></div>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "text",
+                "value": "Jennifer y Alberto están en Córdoba Capital. <span style='color:var(--orange)'>Han llegado</span> después de 16 horas de viaje en tren desde Buenos Aires. <span style='color:var(--orange)'>Se han hospedado</span> en <span style='color:var(--primary)'><u>un hostel bastante limpio, bonito y barato cerca del centro</u></span> y <span style='color:var(--orange)'>se han acostado a dormir</span> porque estaban muy cansados. <span style='color:var(--orange)'>Han decidido</span> explorar la oferta cultural de la ciudad más tarde.",
+                "className": "paragraph-default",
+                "classExtra":"border-2 border-warning asymmetric-rounded p-5 bg-warning_border_hover"
+            }
+        ]
+    },
+    "page7": {
+        "type": "text",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Córdoba Capital",
+                "className": "title-white"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--J_w9Qtux--/v1703669995/images/mgmhmqugzgiya9omyuvi.png",
+                "alt": "pan1",
+                "className": "",
+                "classExtra": "absolute right-2 top-2 w-40   md:relative md:ml-auto md:w-[100px]"
+            },
+            {
+                "type": "text",
+                "value": "<strong>24 de noviembre.</strong>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "text",
+                "value": "<span style='color:var(--orange)'><strong>En Córdoba Capital, Jeniffer escribe en su blog</strong></span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "text",
+                "value": "¡<span style='color:var(--orange)'>Hoy ha sido</span> un día genial! <span style='color:var(--primary)'>Ya</span> estamos al final de la tarde,  <span style='color:var(--orange)'>hemos hecho muchas cosas</span> y <span style='color:var(--primary)'>todavía</span> tenemos planes para la noche. <span style='color:var(--orange)'>Hemos desayunado</span> en el hostel y los recepcionistas <span style='color:var(--orange)'>nos  han convidado</span> mate. <span style='color:var(--orange)'>Hemos probado</span> las facturas con  crema y el pan con chicharrón. Luego, <span style='color:var(--orange)'>hemos  ido</span> a conocer el  Patio Olmos, un antiguo colegio que <span style='color:var(--orange)'>ha funcionado</span> como centro comercial desde 1995. Yo estaba ansiosa por conocer el cine local así que, <span style='color:var(--primary)'>ya</span>  <span style='color:var(--orange)'>hemos visitado</span> el cineclub municipal Hugo del Carril, vimos una película argentina que <span style='color:var(--orange)'>ha sido reconocida</span> mundialmente. Esta tarde <span style='color:var(--orange)'>nos hemos divertido mucho</span>, <span style='color:var(--orange)'>hemos entrado a</span> una cafetería al aire libre en Barrio Güemes para merendar pero Alberto quiso irse rápido cuando empezó a sonar reggaeton de fondo. Después, regresamos al Hostel a ducharnos para ir al Teatro San Martín y disfrutar de un concierto de la Orquesta Sinfónica local. Alberto <span style='color:var(--orange)'>ha quedado</span> fascinado y <span style='color:var(--primary)'>aún</span> estamos aquí al frente del teatro esperando a sus colegas músicos para felicitarlos, <span style='color:var(--orange)'>hemos esperado por un rato</span> largo y, aunque a mi no me gusta estar con gente desconocida, Alberto los invitó a cenar  esta noche y a ir a un boliche, así que <span style='color:var(--primary)'>todavía</span> nos queda noche por delante …",
+                "className": "paragraph-default",
+                "classExtra": "mb-5 border-2 border-warning p-5 bg-warning_border_hover asymmetric-rounded"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--KGKp5btq--/v1703670312/images/fcvwqzpxeafa7rvepior.png",
+                "alt": "asado",
+                "className": "",
+                "classExtra": " ml-auto w-[165px] mt-3 "
+            }
+        ]
+    },
+    "page8": {
+        "type": "selectsimple",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "<strong>Verdadero o Falso</strong>",
+                "className": "title-white"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<li style='color:var(--primary)'><span style='color:var(--orange)'>Han desayunado</span> <span>mate y pan con chicharrón en un restaurante.</span></li>",
+                "option": "b. Falso.",
+                "options": [
+                    "a. Verdadero.",
+                    "b. Falso."
+                ],
+                "className": "selector-simple",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<li style='color:var(--primary)'><span>Jennifer <span style='color:var(--orange)'>es una aficionada</span> al cine independiente.<span></li>",
+                "option": "a. Verdadero.",
+                "options": [
+                    "a. Verdadero.",
+                    "b. Falso."
+                ],
+                "className": "selector-simple",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<li style='color:var(--primary)'><span>A Alberto <span style='color:var(--orange)'>le gusta</span> tanto el reggaeton  que se <span style='color:var(--orange)'>han quedado un rato más</span> en el restaurante.</span></li>",
+                "option": "b. Falso.",
+                "options": [
+                    "a. Verdadero.",
+                    "b. Falso."
+                ],
+                "className": "selector-simple",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<li style='color:var(--primary)'><span>Jennifer <span style='color:var(--orange)'>es muy extrovertida</span> y <span style='color:var(--orange)'>ha disfrutado</span> mucho de conocer a gente nueva después del concierto.</span></li>",
+                "option": "b. Falso.",
+                "options": [
+                    "a. Verdadero.",
+                    "b. Falso."
+                ],
+                "className": "selector-simple",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<li style='color:var(--primary)'><span>Alberto <span style='color:var(--orange)'>ha conocido</span> a algunos colegas de la música.</span></li>",
+                "option": "a. Verdadero.",
+                "options": [
+                    "a. Verdadero.",
+                    "b. Falso."
+                ],
+                "className": "selector-simple",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<li style='color:var(--primary)'><span>Jeniffer <span style='color:var(--orange)'>cocina muy bien</span> por eso <span style='color:var(--orange)'>ha preparado</span> su cena en el hostel.</span></li>",
+                "option": "b. Falso.",
+                "options": [
+                    "a. Verdadero.",
+                    "b. Falso."
+                ],
+                "className": "selector-simple",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<li style='color:var(--primary)'><span>A Alberto <span style='color:var(--orange)'>le  molestan</span> las mentiras.</span></li>",
+                "option": "a. Verdadero.",
+                "options": [
+                    "a. Verdadero.",
+                    "b. Falso."
+                ],
+                "className": "selector-simple",
+                "direction": "row"
+            }
+        ]
+    },
+    "page9": {
+        "type": "paragraph",
+        "section": {
+            "number": 2,
+            "value": "Aprendemos"
+        },
+        "template": "template-video-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Video explicativo",
+                "className": "title-white"
+            },
+            {
+                "type": "video-youtube",
+                "value": "PWtxHtcSU6s",
+                "youtuve": "https://youtu.be/PWtxHtcSU6s",
+                "className": "youtube"
+            }
+        ]
+    },
+    "page10": {
+        "type": "text",
+        "section": {
+            "number": 3,
+            "value": "Practiquemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "¿Jennifer o Alberto?",
+                "className": "title-dark"
+            },
+            {
+                "type": "title",
+                "value": "A partir de los textos que leímos acerca de Jennifer y Alberto, escribe el nombre que corresponda en la imagen que los identifica",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph-complete-content",
+                "value": [
+                    {
+                        "block": 12,
+                        "color": "orange",
+                        "option": "Jennifer",
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--TUDlhCC1--/v1703746114/images/okqszislwbi9lah6eqxd.png",
+                        "text": " ",
+                        "relation": "160x260=0.61 338x561=0.60"
+                    },
+                    {
+                        "block": 11,
+                        "color": "orange",
+                        "option": "Alberto",
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--6zDcf3cN--/v1703744769/images/nhlhl1zqodjum2z5rjva.png",
+                        "text": " "
+                    },
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "Jennifer",
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--PXPU0RiY--/v1703744796/images/qgcu0yinkoei7jdpzc3c.png",
+                        "text": " "
+                    },
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "Alberto",
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--URoL71JI--/v1703746399/images/dflqx7a23p6nwmubwq6y.png",
+                        "text": " "
+                    },
+                    {
+                        "block": 9,
+                        "color": "orange",
+                        "option": "Alberto",
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--RFyzoZhV--/v1703746560/images/hkwxo4rjiucp9nnecddl.png",
+                        "text": " "
+                    },
+                    {
+                        "block": 8,
+                        "color": "orange",
+                        "option": "Jennifer",
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--x1b3HhjJ--/v1703746880/images/ixsfs0ujbbzaikvpsbur.png",
+                        "text": " "
+                    }
+                ],
+                "className": "flex"
+            },
+            {
+                "type": "text",
+                "value": "Imágenes tomadas de Freepik",
+                "className": "paragraph-copyright"
+            }
+        ]
+    },
+    "page11": {
+        "type": "text",
+        "section": {
+            "number": 3,
+            "value": "Practiquemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "¿Jennifer o Alberto?",
+                "className": "title-dark"
+            },
+            {
+                "type": "title",
+                "value": "A partir de los textos que leímos acerca de Jennifer y Alberto, arrastrá el adjetivo de personalidad que corresponda en la imagen que los identifica",
+                "className": "title-white"
+            },
+            {
+                "type": "dragable-box",
+    "value":{
+        "DropUps":
+        [
+            {
+                "type":"image",
+                "src":"https://res.cloudinary.com/dfddh08q8/image/upload/v1704250918/images/une8gatcnbpvvgriytqu.png",
+                "value":"alegre",
+                "id":"DropUp1"
+            },
+            {
+                "type":"image",
+                "src":"https://res.cloudinary.com/dfddh08q8/image/upload/v1704251083/images/uyauqukji958wxmazxur.png",
+                "value":"creativo",
+                "id":"DropUp2"
+            },
+            {
+                "type":"image",
+                "src":"https://res.cloudinary.com/dfddh08q8/image/upload/v1704251357/images/hnya5cbdfnwxtwcugn1x.png",
+                "value":"extrovertido",
+                "id":"DropUp3"
+            },
+            {
+                "type":"image",
+                "src":"https://res.cloudinary.com/dfddh08q8/image/upload/v1704251435/images/wt4cjf02o621j15pdxoe.png",
+                "value":"trabajadora",
+                "id":"DropUp4"
+            }
+        ],
+
+        "DragBoxs":[
+            {
+                "value":"triste",
+                "id":"DragBoxNone1"
+            },
+            {
+                "value":"alegre",
+                "id":"DragBox1"
+            },
+            {
+                "value":"extrovertido",
+                "id":"DragBox3"
+            },
+            {
+                "value":"trabajadora",
+                "id":"DragBox4"
+            },
+            {
+                "value":"tonto",
+                "id":"DragBoxNone2"
+            },
+            {
+                "value":"creativo",
+                "id":"DragBox2"
+            },
+            {
+                "value":"egoísta",
+                "id":"DragBoxNone3"
+            },
+            {
+                "value":"valiente",
+                "id":"DragBoxNone4"
+            }
+        ]
+    },
+    "className": "dragable-box"
+            },
+            {
+                "type": "text",
+                "value": "Imágenes tomadas de Freepik",
+                "className": "paragraph-copyright"
+            }
+        ]
+    },
+    "page12": {
+        "type": "selectsimple",
+        "section": {
+            "number": 3,
+            "value": "Practiquemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "¿Jennifer o Alberto?",
+                "className": "title-dark"
+            },
+            {
+                "type": "title",
+                "value": "A partir de las fotografías de Jennifer y Alberto, selecciona de la lista, las palabras o adjetivos que corresponden a sus características físicas",
+                "className": "title-white"
+            },
+            {
+                "type": "div",
+                "value": "<img style='width:40%' class='rounded-[7px] shadow-[0px_4px_24px_#18292F1A]' src='https://res.cloudinary.com/dfddh08q8/image/upload/v1702327705/images/rmvhpumbcvhoz1viwlcr.png'/> <img style='width:40%' class='rounded-[7px] shadow-[0px_4px_24px_#18292F1A]' src='https://res.cloudinary.com/dfddh08q8/image/upload/v1702327713/images/schlxzmfiffcktjczrtc.jpg'/>",
+                "classExtra": "w-full flex justify-evenly"
+            },
+            {
+                "type": "selectsimple",
+                "value": "Rubia",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "Guapo",
+                "option": " ",
+                "options": [
+                    "  ",
+                    " "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "Flaca",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "Moreno",
+                "option": " ",
+                "options": [
+                    "  ",
+                    " "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "Cabello largo",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "Delgado",
+                "option": " ",
+                "options": [
+                    "  ",
+                    " "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "Cabello corto",
+                "option": "  ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "Barba",
+                "option": "  ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            }
+        ]
+    },
+    "page13": {
+        "type": "text",
+        "section": {
+            "number": 3,
+            "value": "Practiquemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "En la sección Aprendemos se habla acerca de algunos adjetivos que podemos usar para describir lugares …",
+                "className": "title-white"
+            },
+            {
+                "type": "text",
+                "value": "<span style='color:var(--orange)'>Asocia los siguientes adjetivos descriptivos escribiendo el número debajo de la imagen que corresponde.</span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph-complete-content",
+                "value": [
+                    {
+                        "block": 12,
+                        "color": "orange",
+                        "option": "2",
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--Z_L6U1RC--/v1703830215/images/uyqkmsfl4wu9rcrfgpzx.png",
+                        "text": " ",
+                        "relation": "160x260=0.61 338x561=0.60"
+                    },
+                    {
+                        "block": 11,
+                        "color": "orange",
+                        "option": "1",
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--zqXzkkxq--/v1703830243/images/kiupl9ebtjeboinxyuei.png",
+                        "text": " "
+                    },
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "4",
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--kehUE6OA--/v1703830382/images/qxqz7uyzvx4f9vlshijg.png",
+                        "text": " "
+                    },
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "3",
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--rJqhwo0l--/v1703830456/images/cfetft7kafjexghtoqfc.png",
+                        "text": " "
+                    }
+                ],
+                "className": "flex"
+            },
+            {
+                "type": "text",
+                "value": "<span style='color:var(--orange)'>1. Isla paradisíaca </span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "text",
+                "value": "<span style='color:var(--orange)'>2. Hotel lujoso </span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "text",
+                "value": "<span style='color:var(--orange)'>3. Parque tranquilo</span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "text",
+                "value": "<span style='color:var(--orange)'>4. Lugar concurrido</span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "text",
+                "value": "Imágenes tomadas de Freepik",
+                "className": "paragraph-copyright"
+            }
+        ]
+    },
+    "page14": {
+        "type": "text",
+        "section": {
+            "number": 4,
+            "value": "Mis Retos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "MI RETO",
+                "className": "title-dark"
+            },
+            {
+                "type": "title",
+                "value": "<span style='color:var(--warning)'>Mi blog viajero: Mis experiencias</span>",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "Crea un blog viajero y comparte en tu clase. Puedes enviarselo a tu profesor (a) por email.",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "Puedes usar esta plantilla u otra que quieras y puedes cambiar las fotos y poner las tuyas.",
+                "className": "title-dark"
+            },
+            {
+                "type":"div",
+                "value":"<div class='flex flex-col justify-between my-3'> <div class='border-2 border-warning p-3 rounded-[7px] pb-10'>D&Iacute;A 1 <br> Fecha: <br> Lugar: <br> Experiencias:</div> <img class='rounded-[7px] mt-5 shadow-[0px_4px_26px_#00000040]' src='https://res.cloudinary.com/dfddh08q8/image/upload/s--PqrRgyeO--/v1703831889/images/zzoexnypyfdponpzfbll.png'/> </div>  <div class='flex flex-col mx-3 justify-between my-3   md:w-full md:flex-col-reverse md:mx-0'> <img class='rounded-[7px] mb-5 shadow-[0px_4px_26px_#00000040]   md:mb-0 md:mt-5' src='https://res.cloudinary.com/dfddh08q8/image/upload/s--IC3qLBaG--/v1703831931/images/vpscyhhixcyyn4gfcuwj.png'/> <div class='border-2 border-primary p-3 rounded-[7px] pb-10 '>D&Iacute;A2 <br> Fecha: <br> Lugar: <br> Experiencias:</div></div>  <div class='flex flex-col justify-between my-3'> <div class='border-2 border-success p-3 rounded-[7px] pb-10 '>D&Iacute;A 3 <br> Fecha: <br> Lugar: <br> Experiencias:</div> <img class='rounded-[7px] mt-5 shadow-[0px_4px_26px_#00000040]' src='https://res.cloudinary.com/dfddh08q8/image/upload/s--kg4x20Cp--/v1703831975/images/xltde01rwy1lceoc3xu8.png'/> </div>",
+                "classExtra":"flex   md:flex-col",
+                "className":"paragraph-default"
+            }
+        ]
+    },
+    "page15": {
+        "type": "selectsimple",
+        "section": {
+            "number": 4,
+            "value": "Mis Retos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "<strong>Necesito un guía turístico</strong>",
+                "className": "title-white"
+            },
+            {
+                "type": "text",
+                "value": "<span style='color:var(--warning)'>Te presentamos a Erica y Eduardo, dos guía turísticos con experiencia, conocimientos culturales, alegres y con muchas ganas de acompañarte en tus aventuras.</span>",
+                "className": "paragraph-default-center"
+            },
+            {
+                "type": "text",
+                "value": "<li>¿Cuáles son las cualidades que debe tener un buen guía turístico?</li>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "text",
+                "value": "<li>Debe ser …</li>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "text",
+                "value": "<li>En mi opinión, tiene que ser una persona ….</li>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--4mpsVEgR--/v1703834086/images/yexle2ezilph3j4lrsag.png",
+                "alt": "guias",
+                "className": "",
+                "classExtra": "w-[80%] mx-auto"
+            }
+        ]
+    },
+    "page16": {
+        "type": "paragraph",
+        "section": {
+            "number": 5,
+            "value": "Evaluemos"
+        },
+        "template": "template-title-top-4",
+        "data": [
+            {
+                "type": "title",
+                "value": "Evaluación unidad 2 - Nivel A2",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "La siguiente evaluación contiene <b>20 ejercicios propuestos.</b>",
+                "className": "paragraph-default-center"
+            },
+            {
+                "type": "paragraph",
+                "value": "Cada uno que respondas correctamente vale <b>01 punto.</b>",
+                "className": "paragraph-default-center"
+            },
+            {
+                "type": "paragraph",
+                "value": "Para aprobar la evaluación y pasar a la siguiente unidad debes obtener un mínimo de <b>18 puntos.</b>",
+                "className": "paragraph-default-center"
+            },
+            {
+                "type": "paragraph",
+                "value": "<b style='color:var(--warning);'>¡Adelante y buena suerte!</b>",
+                "className": "paragraph-default-center"
+            }
+        ]
+    },
+    "page17": {
+        "type": "text",
+        "section": {
+            "number": 5,
+            "value": "Evaluemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Desde Córdoba Capital hasta Carlos Paz<br>",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "<br><font style='color:black'>Jennifer y Alberto continúan con su viaje</font><br>",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "<br>Completa los espacios en blanco con el verbo conjugado en pretérito perfecto compuesto.",
+                "className": "title-white"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--J_w9Qtux--/v1703669995/images/mgmhmqugzgiya9omyuvi.png",
+                "alt": "pan1",
+                "className": "",
+                "classExtra":"absolute right-2 top-2 w-40   md:relative md:ml-auto md:w-[100px]"
+            },
+            {
+                "type": "text",
+                "value": "<strong>30 de julio.</strong>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "text",
+                "value": "<span style='color:var(--warning)'><strong>Carlos Paz</strong></span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "Este  último fin de semana (ir,ellos)",
+                    {
+                        "block": 8,
+                        "color": "orange",
+                        "option": "han ido"
+                    },
+                    "a Carlos Paz. Ya (visitar,ellos)",
+                    {
+                        "block": 13,
+                        "color": "orange",
+                        "option": "han visitado"
+                    },
+                    "Cabalango, y por cierto, se fueron en colectivo porque a Jennifer no le gusta viajar en bicicleta. (Hacer, ellos)",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "Han hecho"
+                    },
+                    "muchas cosas en poco tiempo, esta tarde (estar, ellos)",
+                    {
+                        "block": 13,
+                        "color": "orange",
+                        "option": "han estado"
+                    },
+                    "en el río, Alberto(nadar, él)",
+                    {
+                        "block": 13,
+                        "color": "orange",
+                        "option": "ha nadado"
+                    },
+                    "un poco mientras Jennifer tomaba sol y luego (almorzar, ellos)",
+                    {
+                        "block": 15,
+                        "color": "orange",
+                        "option": "han almorzado"
+                    },
+                    "al costado del río. Ahora están en la ciudad, porque Alberto tenía ganas de ir a uno de los famosos shows de teatro de revista,   pero no (ser, eso)",
+                    {
+                        "block": 9,
+                        "color": "orange",
+                        "option": "ha sido"
+                    },
+                    "una buena experiencia, aún están cansados porque asistió mucha gente y tuvieron que pasar mucho tiempo de pie haciendo la fila para entrar. "
+                ],
+                "className": "paragraph-default",
+                "classExtra":"mb-5 border-2 border-warning p-5 bg-warning_border_hover asymmetric-rounded"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--KGKp5btq--/v1703670312/images/fcvwqzpxeafa7rvepior.png",
+                "alt": "asado",
+                "className": "",
+                "classExtra":"ml-auto w-40 mt-3   md:w-[100px]"
+            }
+        ]
+    },
+    "page18": {
+        "type": "text",
+        "section": {
+            "number": 5,
+            "value": "Evaluemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Desde Córdoba Capital hasta Carlos Paz<br>",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "<br><font style='color:black'>Jennifer y Alberto continúan con su viaje</font><br>",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "<br>Completa los espacios en blanco con el verbo conjugado en pretérito perfecto compuesto.",
+                "className": "title-white"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--J_w9Qtux--/v1703669995/images/mgmhmqugzgiya9omyuvi.png",
+                "alt": "pan1",
+                "className": "",
+                "classExtra":"absolute right-2 top-2 w-40   md:relative md:ml-auto md:w-[100px]"
+            },
+            {
+                "type": "text",
+                "value": "<strong>30 de julio.</strong>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "text",
+                "value": "<span style='color:var(--orange)'><strong>Carlos Paz</strong></span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "Además, el show le dejó de gustar a Jennifer cuando el actor empezó a hablar de política y también a Alberto cuando empezó a hacer chistes racistas. Cuando salieron, Alberto notó que no tenía su billetera con toda su documentación, así que se devolvieron al teatro para buscarla, pero no la encontraron. Ahora están en el hostal, (tener, ellos)",
+                    {
+                        "block": 12,
+                        "color": "orange",
+                        "option": "han tenido"
+                    },
+                    "un día muy movido y Alberto está preocupado porque perdió sus documentos y algo de dinero, (hacer, él) ",
+                    {
+                        "block": 10,
+                        "color": "orange",
+                        "option": "ha hecho"
+                    },
+                    "varias llamadas para denunciar la pérdida y bloquear sus tarjetas bancarias, sin embargo debe solucionar algunas cosas presencialmente, por lo que (decidir, él) ",
+                    {
+                        "block": 12,
+                        "color": "orange",
+                        "option": "ha decidido"
+                    },
+                    "acostarse temprano y madrugar al día siguiente. "
+                ],
+                "className": "paragraph-default",
+                "classExtra":"mb-5 border-2 border-warning p-5 bg-warning_border_hover asymmetric-rounded"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--KGKp5btq--/v1703670312/images/fcvwqzpxeafa7rvepior.png",
+                "alt": "asado",
+                "className": "",
+                "classExtra":"ml-auto w-[165px] mt-3"
+            }
+        ]
+    },
+    "page19":{
+        "type": "selectsimple",
+        "section": {
+            "number": 5,
+            "value": "Evaluemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Recordemos las personalidades de Jennifer y Alberto ¿Cuáles cosas asocias con cada uno?<br><br>",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "Selecciona la opción correcta en sus correspondientes cajas: Jennifer y Alberto",
+                "className": "title-white"
+            },
+            {
+                "type": "div",
+                "value": "<img style='width:40%' class='rounded-[7px] shadow-[0px_4px_24px_#18292F1A]' src='https://res.cloudinary.com/dfddh08q8/image/upload/v1702327705/images/rmvhpumbcvhoz1viwlcr.png'/> <img style='width:40%' class='rounded-[7px] shadow-[0px_4px_24px_#18292F1A]' src='https://res.cloudinary.com/dfddh08q8/image/upload/v1702327713/images/schlxzmfiffcktjczrtc.jpg'/>",
+                "classExtra": "w-full flex justify-evenly"
+            },
+            {
+                "type": "text",
+                "value": "<div class='flex justify-around w-full'> <p>Jennifer</p> <p>Alberto</p> </div>",
+                "className": "paragraph-default",
+                "classExtra":"w-full mt-4 "
+            },
+            {
+                "type": "selectsimple",
+                "value": "<span style='color:var(--warning)'>sabe tocar el bajo</span>",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<span style='color:var(--warning)'>ha vivido en Europa</span>",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<span style='color:var(--warning)'>es extrovertido y creativo</span>",
+                "option": " ",
+                "options": [
+                    "  ",
+                    " "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<span style='color:var(--warning)'>es optimista y responsable </span>",
+                "option": " ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<span style='color:var(--warning)'>no le gusta el reggaetón </span>",
+                "option": " ",
+                "options": [
+                    "  ",
+                    " "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<span style='color:var(--warning)'>sabe tocar la guitarra  </span>",
+                "option": " ",
+                "options": [
+                    "  ",
+                    " "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<span style='color:var(--warning)'>odia las mentiras</span>",
+                "option": "  ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<span style='color:var(--warning)'>le gustan los idiomas </span>",
+                "option": "  ",
+                "options": [
+                    "  ",
+                    " "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<span style='color:var(--warning)'>no le gusta hablar de política  </span>",
+                "option": "  ",
+                "options": [
+                    "  ",
+                    " "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<span style='color:var(--warning)'>le gusta el teatro </span>",
+                "option": "  ",
+                "options": [
+                    " ",
+                    "  "
+                ],
+                "className": "selector-simple-grid",
+                "direction": "row"
+            }
+        ]
+    },
+    "page20": {
+        "type": "text",
+        "section": {
+            "number": 5,
+            "value": "Evaluemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "NOS VEMOS EN LA PRÓXIMA CLASE",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "¡Gracias por tu atención!",
+                "className": "title-dark"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--J_w9Qtux--/v1703669995/images/mgmhmqugzgiya9omyuvi.png",
+                "alt": "pan1",
+                "className": ""
+            }
+        ]
+    }
+}

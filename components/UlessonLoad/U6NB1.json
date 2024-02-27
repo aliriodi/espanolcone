@@ -1,0 +1,873 @@
+{
+    "page1": {
+        "type": "text",
+        "section": {
+            "number": 0,
+            "value": "Mis Metas"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697579417/images/template4_s2xy5m.png",
+        "data": [
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--Qs6SkeOt--/v1702990260/images/ybh6rg0krlpc73ncb0e2.jpg",
+                "alt": "Mate",
+                "className": "Portadaimg2"
+            },
+            {
+                "type": "title",
+                "value": "QUIERO CONOCER OBJETOS TÍPICOS DE CÓRDOBA",
+                "className": "titleBlack2-p0"
+            },
+            {
+                "type": "title",
+                "value": "NIVEL B1",
+                "className": "TITLE-P0-BLACK"
+            }
+        ]
+    },
+    "page2": {
+        "type": "paragraph",
+        "section": {
+            "number": 0,
+            "value": "Mis Metas"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "¿Qué voy a aprender en esta unidad?",
+                "className": "centerRightWhite-2"
+            },
+            {
+                "type": "table",
+                "value": [
+                    {
+                        "title":"Comunicación",
+                        "content":"<li>- Describir y valorar objetos: materiales, partes, utilidad, propiedades, características, ventajas y desventajas</li><li>- Referirse a objetos presentes en la comunicación, usando pronombres.</li><li>- Hablar acerca de objetos típicos de Córdoba.</li><li>- Hablar de inventos innovadores que han mejorado la vida cotidiana.</li><li>- Hablar y expresar opiniones acerca de materiales, refiriéndose a las propiedades y características que pueden o deberían tener los objetos de hoy.</li>"
+                    },
+                    {
+                        "title":"Vocabulario",
+                        "content":"<li>- Objetos típicos de Córdoba.</li><li>- Objetos de uso cotidiano.</li><li>- Vocabulario asociado a características de objetos (materiales y propiedades).</li><li>- Objetos de innovación en la actualidad.</li>"
+                    },
+                    {
+                        "title":"Gramática",
+                        "content":"<li>- Presente del subjuntivo: verbos regulares e irregulares más frecuentes.</li><li>- Relativas con indicativo y con subjuntivo.</li><li>- El contraste de indicativo y subjuntivo en relativas.</li><li>- Las frases relativas con preposición.</li><li>- Los numerales: centenas, miles, millones.</li><li>- Usos impersonal de se.</li><li>- Se (reflexivo y OI) en combinación con lo/la/los/las.</li><li>- sirve para … / se usa para … / lo usan … / se enchufa … / se abre … / va con … / funciona con … / se puede … / no se puede + infinitivo. </li>"
+                    }
+                ],
+                "className": "table"
+            }
+        ],
+        "tablaAntigua":
+        {
+            "type": "datoviejo",
+            "value": " <table style= 'background:white; border: 2px solid black;' ><tr  style=' background-color: var(--primary); border: 2px solid black;' ><th style= 'border: 2px solid black;width:30%;' ><h2><strong style='color:black;'>Comunicación</strong></h2></th><th style= ' border: 2px solid black;width:20%' ><h2><strong style='color:black;'>Vocabulario</strong></h2></th><th style= 'border: 2px solid black; width:30%' ><h2><strong style='color:black;'>Gramática</strong></h2></th></tr><tr><td style= 'border: 2px solid black;' > <ul> <li>* Describir y valorar objetos: materiales, partes, utilidad, propiedades, características, ventajas y desventajas.</li>  <li>* Referirse a objetos presentes en la comunicación, usando pronombres.</li> <li>* Hablar acerca de objetos típicos de Córdoba.</li> <li>* Hablar de inventos innovadores que han mejorado la vida cotidiana.</li> <li>* Hablar y expresar opiniones acerca de materiales, refiriéndose a las propiedades y características que pueden o deberían tener los objetos de hoy.</li> </ul> </td><td style= 'border: 2px solid black;' ><ul> <li>* Objetos típicos de Córdoba.</li> <li>* Objetos de uso cotidiano.</li> <li>* Vocabulario asociado a características de objetos (materiales y propiedades).</li> <li>* Objetos de innovación en la actualidad.</li></ul></td><td style= 'border: 2px solid black; ' ><ul> <li>* Presente del subjuntivo: verbos regulares e irregulares más frecuentes.</li>  <li>* Relativas con indicativo y con subjuntivo.</li> <li>* El contraste de indicativo y subjuntivo en relativas.</li> <li>* Las frases relativas con preposición.</li>  <li>* Los numerales: centenas, miles, millones.</li> <li>* Usos impersonal de se.</li> <li>* Se (reflexivo y OI) en combinación con lo/la/los/las</li> <li>* sirve para … / se usa para … / lo usan … / se enchufa … / se abre … / va con … / funciona con … / se puede … / no se puede +  infinitivo </li> </ul></td></tr></table>",
+            "className": "table"
+        }
+    },
+    "page3": {
+        "type": "text",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": " ¿Cómo elegir el mate correcto?",
+                "className": "title-white-4"
+            },
+            {
+                "type": "image-grid",
+                "value": [
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--iF60mbe5--/v1702990987/images/patqwyd7q6t3edun8i7z.png"
+                    },
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--lPKtlcHZ--/v1702991273/images/lbahwytdlh00llz1ttfq.png"
+                    },
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--vvOlXXwZ--/v1702991293/images/fky6uytpap2bdja3ve8q.png"
+                    },
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--BFFceRDb--/v1702991318/images/ywwudq1jfntdg9mtionn.png"
+                    },
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--FDz61qlo--/v1702991345/images/nqyxejjhkqhoy7gu0ygn.png"
+                    },
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--rH-SF85e--/v1702991368/images/y6tropkjietovmvyndcx.png"
+                    }
+                ]
+            }
+        ]
+    },
+    "page4": {
+        "type": "text",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Un mate...",
+                "className": "leftWhite"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--mZIL0qBI--/v1702998850/images/n3eo3akkdnxbtoaqtojy.png",
+                "alt": "ticket",
+                "className": "className"
+            },
+            {
+                "type": "image-grid",
+                "value": [
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--twt79SVT--/v1702993334/images/nvtmyfmuedxumeizurgy.png",
+                        "alt": "Mate Ceramica",
+                        "text": "<strong><span style='color:var(--orange); '>de</span> ceramica</strong>"
+                    },
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--5Ruws0HG--/v1702993295/images/q2vthmgtrfoyab87uw0r.png",
+                        "alt": "Mate Metal",
+                        "text": "<strong><span style='color:var(--orange); '>de</span> metal</strong>"
+                    },
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--aDJKvT5c--/v1702992815/images/ai7kvkfnat8es4fcevs0.png",
+                        "text": "<strong><span style='color:var(--orange); '>de</span> madera</strong>",
+                        "alt": "Mate de madera"
+                    }
+                ]
+            }
+        ]
+    },
+    "page5": {
+        "type": "text",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Un mate...",
+                "className": "leftWhite"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--mZIL0qBI--/v1702998850/images/n3eo3akkdnxbtoaqtojy.png",
+                "alt": "ticket",
+                "className": "className"
+            },
+            {
+                "type": "image-grid",
+                "value": [
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--KudR3fFb--/v1702993434/images/nifvm9ivau7dckrml1ku.png",
+                        "text": "<strong><span style='color:var(--orange); '>colorido</span></strong>"
+                    },
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--w3y2i1xO--/v1702993485/images/a1mr5koll69z5rtm0x8y.png",
+                        "text": "<strong><span style='color:var(--orange); '>que sea </span> de plástico</strong>"
+                    },
+                    {
+                        "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--qArWp8ey--/v1702993562/images/yhirg2fhdgtrpzo6jlom.png",
+                        "text": "<strong><span style='color:var(--orange); '>que tenga</span> la bandera de Argentina</strong>"
+                    }
+                ]
+            }
+        ]
+    },
+    "page6": {
+        "type": "text",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-top-1",
+        "title": "Actividad",
+        "data": [
+            {
+                "type": "title",
+                "value": "¿Cómo elegir el mate correcto?",
+                "className": "title-white-4"
+            },
+            {
+                "type": "title",
+                "value": "Fuente: https://www.taragui.com/aprender/como/como-elegir-el-mate-perfecto",
+                "className": "className"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style='width:75%;'>Tipos de mate hay un montón, pero, <strong>¿cómo escoger el ideal para el uso que le darás?</strong> Aquí te contamos algunos consejos y características para que hoy te animes a elegir el tuyo.</span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style='font-size: 1.5em;color:var(--primary);display: inline-block; margin-right: 10px;'>&rarr;</span><span style='color:var(--primary);'>El clásico: el mate de madera</span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "Lo importante es que el vaso de mate esté confeccionado <span style='color:var(--orange);'>con maderas duras o semiduras</span> y no muy aromáticas (los mates de madera adquieren un ligero sabor propio del árbol), que invaden de manera agresiva el sabor en las cebadas.",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style='font-size: 1.5em;color:var(--primary);display: inline-block; margin-right: 10px;'>&rarr;</span><span style='color:var(--primary);'>El criollo: el mate de calabaza</span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "Es el vaso de mate más típico y elegido por la mayoría. Viene en muchas  formas y tamaño porque <span style='color:var(--orange);'>provienen de una planta trepadora llamada Legendaria Vulgaris.</span> ",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "Al igual que el de madera, curarlo y secarlo muy bien tras su uso es fundamental.",
+                "className": "paragraph-default"
+            }
+        ]
+    },
+    "page7": {
+        "type": "text",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-top-1",
+        "title": "Actividad",
+        "data": [
+            {
+                "type": "title",
+                "value": "¿Cómo elegir el mate correcto?",
+                "className": "title-white-4"
+            },
+            {
+                "type": "title",
+                "value": "Fuente: https://www.taragui.com/aprender/como/como-elegir-el-mate-perfecto",
+                "className": "className"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style='font-size: 1.5em;color:var(--primary);display: inline-block; margin-right: 10px;'>&rarr;</span><span style='color:var(--primary);'>El práctico: el mate de vidrio o cerámica</span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "Estos vasos de mates son especiales para ahorrar tiempo, por su superficie muy práctica para limpiar y que no precisa curado. <span style='color:var(--orange);'>Pueden estar forrados con cuero</span> y su ventaja principal es que tanto el vidrio como la cerámica no absorben el sabor de la yerba.",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style='font-size: 1.5em;color:var(--primary);display: inline-block; margin-right: 10px;'>&rarr;</span><span style='color:var(--primary);'>El exótico: el mate de asta o pezuña</span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "Estos recipientes de mate son más comunes de encontrar en el campo y <span style='color:var(--orange);'>se confeccionan con cuernos o pezuñas de animales vacunos</span>, aprovechando todo lo que provee el animal.",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "El mate de asta vacuna era utilizado antiguamente por los <strong>gauchos y arrieros</strong>, y actualmente es muy utilizado en Paraguay para tomar tereré.",
+                "className": "paragraph-default"
+            }
+        ]
+    },
+    "page8": {
+        "type": "text",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-top-1",
+        "title": "Actividad",
+        "data": [
+            {
+                "type": "title",
+                "value": "¿Cómo elegir el mate correcto?",
+                "className": "title-white-4"
+            },
+            {
+                "type": "title",
+                "value": "Fuente: https://www.taragui.com/aprender/como/como-elegir-el-mate-perfecto",
+                "className": "className"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style='font-size: 1.5em;color:var(--primary);display: inline-block; margin-right: 10px;'>&rarr;</span><span style='color:var(--primary);'>El compañero: el mate de metal</span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "Compañero de la pava y amigo de la tarde matera. Algunos de estos recipientes de mate transmiten el calor del agua al tacto, mientras que otros <span style='color:var(--orange);'>se fabrican utilizando acero inoxidable en capas</span>. Esto asegura que el mate no se caliente luego de varias cebadas y no dificulte la tarea del cebador cuando lo tenga en sus manos.",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style='font-size: 1.5em;color:var(--primary);display: inline-block; margin-right: 10px;'>&rarr;</span><span style='color:var(--primary);'>El elegante: el mate de alpaca</span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "Si eres de los que les gusta lucirse  mate a mate, los de alpaca y/o plata son los más indicados. <span style='color:var(--orange);'>Se confeccionan a partir de calabazas seleccionadas, que luego se tiñen para que un artesano, finalmente, realice el trabajo de ornamentación del metal.</span>",
+                "className": "paragraph-default"
+            }
+        ]
+    },
+    "page9": {
+        "type": "movebox-image",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Ahora que ya conoces algunos de los tipos de mates que podemos encontrar, arrastrá el nombre del mate a la imagen correspondiente",
+                "className": "title-white"
+            },
+            {
+                "type": "dragable-box",
+                "value": {
+                    "DropUps": [
+                        {
+                            "type": "image",
+                            "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--nyllG_8L--/v1703006885/images/sislbblpwttwxvcrkqhy.png",
+                            "value": "Mate de asta o pezuña",
+                            "id": "DropUp1"
+                        },
+                        {
+                            "type": "image",
+                            "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--RLWAPzAI--/v1703006932/images/idicd2uaagcdubf54cdm.png",
+                            "value": "Mate de metal",
+                            "id": "DropUp2"
+                        },
+                        {
+                            "type": "image",
+                            "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--jOABoHdc--/v1703006907/images/nhwktpvoqc1kgwuqkraq.png",
+                            "value": "Mate de cerámica",
+                            "id": "DropUp3"
+                        }
+                    ],
+                    "DragBoxs": [
+                        {
+                            "value": "Mate de cerámica",
+                            "id": "DragBox1"
+                        },
+                        {
+                            "value": "Mate de asta o pezuña",
+                            "id": "DragBox2"
+                        },
+                        {
+                            "value": "Mate de metal",
+                            "id": "DragBox3"
+                        }
+                    ]
+                },
+                "className": "dragable-box"
+            }
+        ]
+    },
+    "page10": {
+        "type": "movebox-image",
+        "section": {
+            "number": 1,
+            "value": "Comencemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Ahora que ya conoces algunos de los tipos de mates que podemos encontrar, arrastrá el nombre del mate a la imagen correspondiente",
+                "className": "title-white"
+            },
+            {
+                "type": "dragable-box",
+                "value": {
+                    "DropUps": [
+                        {
+                            "type": "image",
+                            "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--wvfy_Tss--/v1703007207/images/ygkcmxekbweps9mwa7fm.png",
+                            "value": "Mate de calabaza",
+                            "id": "DropUp1"
+                        },
+                        {
+                            "type": "image",
+                            "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--XxLuXqFd--/v1703007259/images/nzi4j63m3b8njqmhsb1x.png",
+                            "value": "Mate de alpaca",
+                            "id": "DropUp2"
+                        },
+                        {
+                            "type": "image",
+                            "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--X3BM3Ac7--/v1703007306/images/mj9zcdtb4qgtqpapmya6.png",
+                            "value": "Mate de madera",
+                            "id": "DropUp3"
+                        }
+                    ],
+                    "DragBoxs": [
+                        {
+                            "value": "Mate de alpaca",
+                            "id": "DragBox1"
+                        },
+                        {
+                            "value": "Mate de madera",
+                            "id": "DragBox2"
+                        },
+                        {
+                            "value": "Mate de calabaza",
+                            "id": "DragBox3"
+                        }
+                    ]
+                },
+                "className": "dragable-box"
+            }
+        ]
+    },
+    "page11": {
+        "type": "video-youtube",
+        "section": {
+            "number": 2,
+            "value": "Aprendemos"
+        },
+        "template": "template-video-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Video explicativo",
+                "className": "title-white"
+            },
+            {
+                "type": "video-youtube",
+                "value": "llq0SJKu9Qk",
+                "youtube": "https://youtu.be/llq0SJKu9Qk",
+                "className": "youtube"
+            }
+        ]
+    },
+    "page12": {
+        "type": "complete",
+        "section": {
+            "number": 3,
+            "value": "Practiquemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Observa esta información para resolver la siguiente actividad",
+                "className": "title-white-4"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--3aMJdhh---/v1703017390/images/v4fwy71ugkrnune2wspd.png",
+                "alt": "poncho",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--tEH8zJk1--/v1703017418/images/yjwk3bqqbsovpcosqu5k.png",
+                "alt": "Mate",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--dNORoywu--/v1703017439/images/sneiy8bqofciae3wkcqt.png",
+                "alt": "charango",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--At20GQgR--/v1703017456/images/cq9gouita7jba37r9kok.png",
+                "alt": "bombilla",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--AJWJDZGO--/v1703017477/images/f6bgks9pxptqknnoq7w7.png",
+                "alt": "sifon",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "<ul><li> Un poncho</li><li> Un mate</li><li> Un charango</li><li>Una bombilla</li><li>Un sifón</li></ul>",
+                "className": "box-curve1"
+            }
+        ]
+    },
+    "page13": {
+        "type": "complete",
+        "section": {
+            "number": 3,
+            "value": "Practiquemos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Observa esta información para resolver la siguiente actividad",
+                "className": "title-white-4"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--3aMJdhh---/v1703017390/images/v4fwy71ugkrnune2wspd.png",
+                "alt": "poncho",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--tEH8zJk1--/v1703017418/images/yjwk3bqqbsovpcosqu5k.png",
+                "alt": "Mate",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--dNORoywu--/v1703017439/images/sneiy8bqofciae3wkcqt.png",
+                "alt": "charango",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--At20GQgR--/v1703017456/images/cq9gouita7jba37r9kok.png",
+                "alt": "bombilla",
+                "className": ""
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--AJWJDZGO--/v1703017477/images/f6bgks9pxptqknnoq7w7.png",
+                "alt": "sifon",
+                "className": ""
+            },
+            {}
+        ]
+    },
+    "page14": {
+        "type": "complete",
+        "section": {
+            "number": 3,
+            "value": "Practiquemos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Adivina el objeto",
+                "className": "title-dark"
+            },
+            {
+                "type": "title",
+                "value": "Relaciona las siguientes descripciones con el objeto correspondiente.",
+                "className": "title-white"
+            }
+        ]
+    },
+    "page15": {
+        "type": "complete",
+        "section": {
+            "number": 4,
+            "value": "Mis retos"
+        },
+        "template": "template-video-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Veamos el siguiente video y luego coméntalo con tu profesor (a)",
+                "className": "title-white"
+            },
+            {
+                "type": "video-youtube",
+                "value": "5qKICOKg4l8",
+                "youtube": "https://www.youtube.com/watch?v=5qKICOKg4l8",
+                "className": "youtube"
+            }
+        ]
+    },
+    "page16": {
+        "type": "complete",
+        "section": {
+            "number": 4,
+            "value": "Mis retos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "En la siguiente conversación, Verónica y Belén están ultimando detalles sobre su viaje a Córdoba. Arrastrá los verbos en el lugar que corresponda para leer la conversación completa.",
+                "className": "title-white"
+            },
+            {
+                "type": "dragable-box",
+                "value": {
+                    "DropUps": [
+                        {
+                            "type": "dropup-center",
+                            "content_start": "<strong>Verónica:</strong> ¿Te viene bien que ",
+                            "content_end": "a Córdoba en enero?",
+                            "value": "vayamos",
+                            "id": "DropUp1"
+                        },
+                        {
+                            "type": "dropup-center",
+                            "content_start": "<strong>Belén:</strong> Sí, puedo solicitar las vacaciones para esa fecha. ¡Ojalá me las",
+                            "content_end": "!",
+                            "value": "den",
+                            "id": "DropUp2"
+                        },
+                        {
+                            "type": "dropup-center",
+                            "content_start": "<strong>Verónica:</strong> ¡Ojala! Dicen que los ríos de Córdoba son muy bonitos y, además hay muchos festivales. ¿Creés que",
+                            "content_end": "ir a alguno?",
+                            "value": "podamos",
+                            "id": "DropUp3"
+                        },
+                        {
+                            "type": "dropup-center",
+                            "content_start": "<strong>Belén:</strong> Seguro que sí. Esperemos que no ",
+                            "content_end": ", porque en verano llueve mucho en Córdoba. Me gustaría ir al festival de Cosquín.<p><strong>Verónica:</strong> Después mostrame videos sobre ese festival, no lo conozco.</p><p><strong>Belén:</strong>¡Dale!</p>",
+                            "value": "llueva",
+                            "id": "DropUp4"
+                        },
+                        {
+                            "type": "dropup-center",
+                            "content_start": "<strong>Verónica:</strong> Cuando",
+                            "content_end": "ahí, ¿debemos traer recuerdos para nuestras familias y amigos?",
+                            "value": "estemos",
+                            "id": "DropUp5"
+                        },
+                        {
+                            "type": "dropup-center",
+                            "content_start": "<strong>Belén:</strong> Sería lindo, para que",
+                            "content_end": "también la cultura. Melina viajó allá hace unos meses y me recomendó",
+                            "value": "conozcan",
+                            "id": "DropUp6"
+                        },
+                        {
+                            "type": "dropup-center",
+                            "content_start": "varios lugares en los que venden recuerdos, ¿te parece que",
+                            "content_end": "ahí?<p><strong>Verónica:</strong> Sí, así nos damos tantas vueltas y conseguimos seguro.</p><p><strong>Belén:</strong> ¡Genial!</p>",
+                            "value": "compremos",
+                            "id": "DropUp7"
+                        }
+                    ],
+                    "DragBoxs": [
+                        {
+                            "value": "conozcan",
+                            "id": "DragBox1"
+                        },
+                        {
+                            "value": "estemos",
+                            "id": "DragBox2"
+                        },
+                        {
+                            "value": "den",
+                            "id": "DragBox3"
+                        },
+                        {
+                            "value": "compremos",
+                            "id": "DragBox4"
+                        },
+                        {
+                            "value": "llueva",
+                            "id": "DragBox5"
+                        },
+                        {
+                            "value": "vayamos",
+                            "id": "DragBox6"
+                        },
+                        {
+                            "value": "podamos",
+                            "id": "DragBox7"
+                        }
+                    ]
+                },
+                "className": "dragable-box"
+            }
+        ]
+    },
+    "page17": {
+        "type": "complete",
+        "section": {
+            "number": 4,
+            "value": "Mis retos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Tus objetos de valor",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "Si tienes algunos objetos favoritos, habla acerca de ellos con tu profesora, descríbelos usando frases relativas.",
+                "className": "className"
+            },
+            {
+                "type": "paragraph",
+                "value": " <strong><ul style='list-style-type: disc;color:var(--success);padding-left: 20px; '><li ><span style='color: black;'>El anillo <span style='color:var(--orange)'> que </span>me regaló mi papá cuando cumplí 15 años.</span></li><li><span style='color: black'>Una planta  <span style='color:var(--orange)'> a la que </span>le tengo mucho cariño.</span></li><li><span style='color:black'> Un peluche<span style='color:var(--orange)'> con el que </span>siempre duermo.</span></li></ul></strong>",
+                "className": "className"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--HYDNCXJh--/v1703119820/images/ibzlwi4qaeghv6kslfjj.png",
+                "alt": "planta",
+                "className": "className"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--YmOgCchR--/v1703119847/images/mv1uov4zhxxpwrribk2t.png",
+                "alt": "anillo",
+                "className": "className"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--pAYlDLR6--/v1703119767/images/zyxrwzg6ajk05jmmjqgo.png",
+                "alt": "oso",
+                "className": "className"
+            }
+        ]
+    },
+    "page18": {
+        "type": "complete",
+        "section": {
+            "number": 4,
+            "value": "Mis retos"
+        },
+        "template": "template-title-right-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Tus objetos de valor",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "Crea 3 inventos combinando las siguientes características al azar, descríbelos y explica cuál sería su utilidad.",
+                "className": "className"
+            },
+            {
+                "type": "paragraph",
+                "value": " <ul  ><strong ><li ><span style='color: black;'>Un horno</span></li><li><span style='color: black'>Un celular</span></li><li><span style='color:black'> Una mochila</span></li><li><span style='color:black'> Una laptop</span></li><li><span style='color:black'> Una mesa</span></li></strong></ul>",
+                "className": "box-curve1"
+            },
+            {
+                "type": "paragraph",
+                "value": "<ul style='color: var(--orange);'><strong ><li >que</li> <li >tenga</li></strong></ul>",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": " <ul  style='color: black;'><strong ><li >alas</li>Impresora 3D<li></li>rayos lasér<li></li><li>propulsores</li><li>inteligenci artificial</li></strong></ul>",
+                "className": "box-curve2"
+            },
+            {
+                "type": "paragraph",
+                "value": "<ul style='color: var(--orange);'><strong ><li >y sirva</li> <li >para</li></strong></ul>",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": " <ul  style='color: black;'><strong ><li >teletrasnportarse</li>fundir metales<li></li><li>crear alimentos</li><li>viajar en el tiempo</li><li>leer mentes</li></strong></ul>",
+                "className": "box-curve3"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style='text-decoration: underline;'><strong>Ejemplo:</strong></span> Una mesa con impresora 3D que sirva para crear alimentos.",
+                "className": "className"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--k7nz5JHJ--/v1703168758/images/qr8mvav796cs7ouffhno.png",
+                "alt": "mesa",
+                "className": "className"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--5snyabOD--/v1703168790/images/atnkbnvaqkqbs9s1y5zo.png",
+                "alt": "bolso",
+                "className": "className"
+            },
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--S1xZwM1W--/v1703168829/images/cdgumkjsqifdfoidyxff.png",
+                "alt": "laptop",
+                "className": "className"
+            }
+        ]
+    },
+    "page19": {
+        "type": "complete",
+        "section": {
+            "number": 5,
+            "value": "Mis retos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Evaluación unidad 6 - Nivel B1",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "<strong>La siguiente evaluación contiene 20 ítems los cuales debes resolver. </strong>",
+                "className": "className"
+            },
+            {
+                "type": "paragraph",
+                "value": "<strong>Cada elemento o ítem que resuelvas correctamente vale 01 punto. </strong>",
+                "className": "className"
+            },
+            {
+                "type": "paragraph",
+                "value": "<strong>Para aprobar la evaluación y pasar a la siguiente unidad debes obtener un mínimo de 18 puntos.</strong>",
+                "className": "className"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style='color:var(--orange);'><strong>¡Adelante y buena suerte!</strong></span>",
+                "className": "className"
+            }
+        ]
+    },
+    "page20": {
+        "type": "complete",
+        "section": {
+            "number": 5,
+            "value": "Mis retos"
+        },
+        "template": "template-title-top-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Martina trabaja en una tienda de regalos en Córdoba Capital, allá va gente a pedirle muchas cosas diferentes.",
+                "className": "title-white"
+            },
+            {
+                "type": "title",
+                "value": "Clasifica estos 10 pedidos dependiendo de si los clientes saben exactamente lo que buscan o si lo desconocen y solo tienen una idea de lo que quieren comprar. Escribe el número del pedido en la caja que corresponde.",
+                "className": "title-white"
+            },
+            {
+
+            }
+        ]
+    },
+
+    "page21": {
+        "type": "complete",
+        "section": {
+            "number": 5,
+            "value": "Evaluemos"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1697572892/images/u1p14nib1_oobxox.png",
+        "data": [
+            {}
+        ]
+    }
+}
