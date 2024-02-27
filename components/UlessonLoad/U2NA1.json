@@ -1,0 +1,991 @@
+{
+       "page1":
+            {
+                "type": "text",
+                "section": {
+                    "number": 0,
+                    "value": "Mis Metas"
+                },
+                "template": "",
+                "data": [
+                    {
+                        "type": "image",
+                        "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--QOB-Em8S--/v1703769751/images/z6fbifgujopqgwbsam8h.jpg",
+                        "alt": "EspañolconE",
+                        "className": "Portadaimg"
+                    },
+                    {
+                        "type": "title",
+                        "value": "EN EL AEROPUERTO",
+                        "className": "Portadatil"
+                    },
+                    {
+                        "type": "paragraph",
+                        "value": "NIVEL A1",
+                        "className": "paragraph"
+                    }
+                ]
+            },
+            "page2":
+            {
+                "type": "text",
+                "section": {
+                    "number": 0,
+                    "value": "Mis Metas"
+                },
+                "template": "template-title-top-1",
+                "data": [
+                    {
+                        "type": "title",
+                        "value": "¿Qué voy a aprender en esta unidad?",
+                        "className": "title-white"
+                    },
+                    {
+                        "type": "table",
+                        "value": [
+                            {
+                                "title":"Comunicación",
+                                "content":"<li>- Dar y pedir información sobre otras personas, acerca de nombre, profesiones y gentilicios.</li> <li>- Presentar a otros.</li> <li>- Presentaciones y saludos formales e informales.</li>"
+                            },
+                            {
+                                "title":"Vocabulario",
+                                "content":"<li>- Datos personales: nombre, apellido, edad, nacionalidad y profesiones.</li> <li>- Nombres propios masculinos y femeninos.</li> <li>- Números usados para indicar la edad.</li> <li>- Miembros de la familia.</li> <li>- Vocabulario de aeropuerto.</li>"
+                            },
+                            {
+                                "title":"Gramática",
+                                "content":"<li>- El verbo llamarse.</li> <li>- Pronombres personales como sujetos.</li> <li>- Verbo tener: edad; familia; hijos y mascota</li> <li>- Verbo ser para identificar; nacionalidad y profesión.</li> <li>- Pronombres interrogativos: ¿cómo?; ¿quién?; ¿qué?; cuántos?; ¿cuál? y ¿dónde?</li> <li>- Verbos tener trabajar y vivir para dar información.</li>"
+                            }
+                        ],
+                        "className": "table"
+                    }
+                ]
+            },
+            "page3":
+            {
+                "type": "text",
+                "section": {
+                    "number": 1,
+                    "value": "Comencemos"
+                },
+                "template": "template-title-top-1",
+                "data": [
+                    {
+                        "type": "title",
+                        "value": "Este es el aeropuerto internacional de Córdoba - Argentina<br><br>“Ingeniero Aeronáutico Ambrosio Taravella”",
+                        "className": "title-white"
+                    },
+                    {
+                        "type": "image",
+                        "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--dlRN45CN--/v1701363238/images/k0ukpuk4jwiwlxgywddj.png",
+                        "alt": "Ingeniero Aeronáutico Ambrosio Taravella",
+                        "className": "",
+                        "classExtra":"w-full"
+                    }
+                ]
+            },
+            "page4":
+            {
+                "type": "text",
+                "section": {
+                    "number": 1,
+                    "value": "Comencemos"
+                },
+                "template": "template-title-top-1",
+                "data": [
+                    {
+                        "type": "title",
+                        "value": "En el aeropuerto de Córdoba Argentina,<br> una familia brasileña pierde su maleta",
+                        "className": "title-white"
+                    },
+                    {
+                        "type": "image",
+                        "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--UG-jV33h--/v1701481453/images/sbkz5ykwghz6cpeywynx.png",
+                        "alt": "Familia brasileña pierde su maleta",
+                        "className": "",
+                        "classExtra":"w-full"
+                    }
+                ]
+            },
+            "page5":
+            {
+                "type": "text",
+                "section": {
+                    "number": 1,
+                    "value": "Comencemos"
+                },
+                "template": "template-title-top-3",
+                "data": [
+                    {
+                        "type": "title",
+                        "value": "En el aeropuerto de Córdoba, Argentina, una familia<br> brasileña pierde su maleta y tiene una entrevista en<br> migraciones para tomar sus datos. ",
+                        "className": "title-white"
+                    },
+                    {
+                        "type": "image",
+                        "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--Gxl8CQfv--/v1701481670/images/on8dmpadmlftrt3kq8id.png",
+                        "alt": "Familia brasileña pierde su maleta",
+                        "className": "",
+                        "classExtra":"h-auto w-[30%] rounded-[5px] object-cover   md:w-[100%] md:mb-3"
+                    },
+                    {
+                        "type": "paragraph",
+                        "value": "<p><b style='color: #8438FF'>Empleada de Migraciones:</b> <b>Buenas tardes, mi nombre es</b> María González, bienvenidos a Argentina. <b>¿Cómo se llaman?</b><br><b style=' color: #EB792A'>Papá: </b><b>Mi nombre es</b> <u>Pedro Soares,</u> <b>mi esposa se llama</b> <u>Thainá Rezende.</u><br><b style='color: #8438FF'>Empleada de Migraciones:</b> <b>¿Cómo se deletrea el apellido de su esposa?</b><br><b style='color: #EB792A'>Papá:</b> <b>R-E-Z-E-N-D-E</b><br><b style='color: #8438FF'>Empleada de Migraciones:</b> <b>¿Y sus hijos, cómo se llaman?</b><br><b style='color: #EB792A'>Papá:</b> <u>Thiago Rezende Soares</u><b> y</b> <u>Thainara Rezende Soares</u><br><b style=' color: #8438FF'>Empleada de Migraciones:</b> ¿Cuántos años tienen?<br> <b style='color: #00B8E9'>Mamá:</b> <b>Mi esposo tiene 43 años, yo tengo 42 años, Thiago tiene 13 años y Thainara tiene 9 años.<br><b style=' color: #8438FF'>Empleada de Migraciones:</b> ¿De dónde vienen?<br><b style='color: #EB792A'>Papá:</b> Venimos de Santos, Brasil.</b></p>",
+                        "className": "paragraph-default",
+                        "classExtra":"h-auto w-1/2 md:w-full"
+                    }
+                ]
+            },
+            "page6":
+            {
+                "type": "text",
+                "section": {
+                    "number": 1,
+                    "value": "Comencemos"
+                },
+                "template": "template-title-top-1",
+                "data": [
+                    {
+                        "type": "title",
+                        "value": "En el aeropuerto de Córdoba, Argentina, una familia<br> brasileña pierde su maleta y tiene una entrevista en<br> migraciones para tomar sus datos. ",
+                        "className": "title-white"
+                    },
+                    {
+                        "type": "image",
+                        "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--A8PkgE5z--/v1701483062/images/cflhp2kmbtadpejvrqy4.png",
+                        "alt": "Familia brasileña pierde su maleta",
+                        "className": "",
+                        "classExtra":" w-1/2 rounded-[5px] mb-4   md:w-full"
+                    },
+                    {
+                        "type": "paragraph",
+                        "value": "<p><b style='color: #8438FF'>Empleada de Migraciones:</b><b> ¿Cuál es el motivo de su viaje?</b><br><b style='color: #00B8E9'><b>Mamá: </b></b>Visita familiar, mi hermano está casado con una argentina y <b>viven</b> acá desde hace 10 años.<br><b style='color: #33BB99'>Irenise:</b> También venimos a visitar a nuestros abuelos, <b>ellos viven</b> con mis tíos en Córdoba.<br><b style='color: #8438FF'>Empleada de Migraciones:</b> Ah, ¡muy bien! Un viaje familiar entonces, <b>¿por cuánto tiempo se quedan?</b><br><b style='color: #EB792A'>Papá: </b>Cuatro semanas<br><b><p style=' color: #8438FF'>Empleada de Migraciones: </p>¿A qué se dedican en Brasil?<br><b style='color: #00B8E9'>Mamá: </b></b> Mi marido <b>es contador </b> y yo <b>soy psicóloga</b><br><b style=' color: #8438FF'>Empleada de Migraciones: </b>Perfecto, ¿pueden dejarme algún dato de contacto?<br><b style='color: #00B8E9'>Mamá: </b> Sí, mi número de teléfono es 5 5 8 3 2 6 5 4 4 1 0 y mi correo electrónico es thairezende@mail.com<br><b style=' color: #8438FF'>Empleada de Migraciones: </b> Muchas gracias, estamos en contacto, disfruten de su estadía en Córdoba.<br> <b style='color: #EB792A'>Papá: </b>Muchas gracias por su atención.</p>",
+                        "className": "paragraph-default"
+                    }
+                ]
+            },
+            "page7":
+            {
+                "type": "selectsimple",
+                "section": {
+                    "number": 1,
+                    "value": "Comencemos"
+                },
+                "template": "template-title-right-1",
+                "data": [
+                    {
+                        "type": "title",
+                        "value": "Después de leer la conversación:",
+                        "className": "title-dark"
+                    },
+                    {
+                        "type": "title",
+                        "value": "Selecciona la opción que corresponda en cada pregunta según lo que leíste en el diálogo anterior",
+                        "className": "title-white"
+                    },
+                    {
+                        "type": "selectsimple",
+                        "value": "<span style='color: var(--primary)'><strong>1.</strong></span> La familia está compuesta por:",
+                        "option": "papá, mamá y dos hijos",
+                        "options": [
+                            "papá, mamá y dos hijos",
+                            "papá, mamá y dos hijas",
+                            "papá, mamá y tres hijas"
+                        ],
+                        "className": "selector-simple"
+                    },
+                    {
+                        "type": "selectsimple",
+                        "value": "<span style='color:  var(--primary)'><strong>2.</strong></span> La familia es:",
+                        "option": "brasileña",
+                        "options": [
+                            "colombiana",
+                            "peruana",
+                            "brasileña"
+                        ],
+                        "className": "selector-simple",
+                        "direction":"row"
+                    },
+                    {
+                        "type": "selectsimple",
+                        "value": "<span style='color: var(--primary)'><strong>3.</strong></span> El motivo de su viaje es:",
+                        "option": "familiar",
+                        "options": [
+                            "familiar",
+                            "por trabajo",
+                            "por estudios"
+                        ],
+                        "className": "selector-simple",
+                        "direction":"row"
+                    },
+                    {
+                        "type": "selectsimple",
+                        "value": "<span style='color:var(--primary)'><strong>4.</strong></span> Tiempo que se quedan en Córdoba:",
+                        "option": "cuatro semanas",
+                        "options": [
+                            "cuatro meses",
+                            "dos meses",
+                            "cuatro semanas"
+                        ],
+                        "className": "selector-simple",
+                        "direction":"row"
+                    }
+                ]
+            },
+            "page8":
+            {
+                "type": "selectsimple",
+                "section": {
+                    "number": 1,
+                    "value": "Comencemos"
+                },
+                "template": "template-title-right-1",
+                "data": [
+                    {
+                        "type": "title",
+                        "value": "Después de leer la conversación:",
+                        "className": "title-dark"
+                    },
+                    {
+                        "type": "title",
+                        "value": "Selecciona la opción que corresponda en cada pregunta según lo que leíste en el diálogo anterior",
+                        "className": "title-white"
+                    },
+                    {
+                        "type": "selectsimple",
+                        "value": "<span style='color:var(--primary)'><strong>5.</strong></span> En Córdoba viven",
+                        "option": "sus familiares",
+                        "options": [
+                            "sus familiares",
+                            "sus amigos",
+                            "sus vecinos"
+                        ],
+                        "className": "selector-simple"
+                    },
+                    {
+                        "type": "selectsimple",
+                        "value": "<span style='color:var(--primary)'><strong>6.</strong></span> Las profesiones de los padres son:",
+                        "option": "él es contador y ella es psicóloga",
+                        "options": [
+                            "él es administrador de empresas y ella es contadora",
+                            "él es psicólogo y ella es contadora",
+                            "él es contador y ella es psicóloga"
+                        ],
+                        "className": "selector-simple"
+                    },
+                    {
+                        "type": "selectsimple",
+                        "value": "<span style='color:var(--primary)'><strong>7.</strong></span> Los datos para contacto son:",
+                        "option": "número de teléfono y correo electrónico",
+                        "options": [
+                            "número de teléfono y correo electrónico",
+                            "correo electrónico y dirección",
+                            "dirección y número de teléfono"
+                        ],
+                        "className": "selector-simple"
+                    },
+                    {
+                        "type": "selectsimple",
+                        "value": "<span style='color:var(--primary)'><strong>8.</strong></span> ¿Cómo se llaman los hijos?:",
+                        "option": "Thainara y Thiago",
+                        "options": [
+                            "Mateo y Thainá",
+                            "Thiago y Larissa",
+                            "Thainara y Thiago"
+                        ],
+                        "className": "selector-simple"
+                    }
+                ]
+            },
+            "page9":
+            {
+                "type": "video-youtube",
+                "section": {
+                    "number": 2,
+                    "value": "Aprendemos"
+                },
+                "template": "template-video-1",
+                "data": [
+                    {
+                        "type": "video-youtube",
+                        "value": "0OdzVcricDI",
+                        "youtube": "https://www.youtube.com/watch?v=0OdzVcricDI",
+                        "className": "youtube"
+                    }
+                ]
+            },
+            "page10":
+            {
+                "type": "dragable-box",
+                "section": {
+                    "number": 3,
+                    "value": "Practiquemos"
+                },
+                "template": "template-title-top-4",
+                "data": [
+                    {
+                        "type": "title",
+                        "value": "Thainá habla con su hermano por teléfono mientras están en el aeropuerto.<br>Completa el diálogo arrastrando la opción adecuada en cada caso.<br><span style='color: #3c285c'>Recordá que es una conversación informal entre dos hermanos</span>",
+                        "className": "title-white"
+                    },
+                    {
+                        "type": "dragable-box",
+                        "containerPosition":"bottom",
+                        "value": {
+                            "DropUps": [
+                                {
+                                    "type": "dropup-center",
+                                    "content_start": "<strong style='color: #EB792A'>Thainá:</strong> Hola, Diógenes,",
+                                    "content_end": ".",
+                                    "value": "¿cómo estás?",
+                                    "id": "DropUp1"
+                                },
+                                {
+                                    "type": "text",
+                                    "content": "<strong style='color: #33BB99'>Diógenes:</strong> Bien, Thainá. ¿Y vos?, ¿ya están en Córdoba?"
+                                },
+                                {
+                                    "type": "dropup-center",
+                                    "content_start": "<strong style='color: #EB792A'>Thainá:</strong> Sí, ",
+                                    "content_end": ", estamos acá, pero perdimos una maleta.",
+                                    "value": "yo bien",
+                                    "id": "DropUp2"
+                                },
+                                {
+                                    "type": "text",
+                                    "content": "<strong style='color: #33BB99'>Diógenes:</strong> Uh, ¡Qué mala suerte!."
+                                },
+                                {
+                                    "type": "text",
+                                    "content": "<strong style='color: #EB792A'>Thainá:</strong> Sí, pero la van a buscar, nos pidieron nuestros datos para avisarnos cuando la encuentren."
+                                },
+                                {
+                                    "type": "dropup-center",
+                                    "content_start": "<strong style='color: #33BB99'>Diógenes:</strong> ¡Buenísimo! Seguro que la encuentran, quédate tranquila. ¿",
+                                    "content_end": "vienen para acá?",
+                                    "value": "A qué hora",
+                                    "id": "DropUp3"
+                                },
+                                {
+                                    "type": "text",
+                                    "content": "<strong style='color: #EB792A'>Thainá:</strong> Pedro va a  firmar unos papeles y después tomamos un taxi."
+                                },
+                                {
+                                    "type": "text",
+                                    "content": "<strong style='color: #33BB99'>Diógenes:</strong> Bueno, te paso por mensaje la dirección otra vez."
+                                }
+                            ],
+                            "DragBoxs": [
+                                {
+                                    "value": "¿cómo estás?",
+                                    "id": "DragBox1"
+                                },
+                               
+                                {
+                                    "value": "A qué hora",
+                                    "id": "DragBox2"
+                                },
+                                 {
+                                    "value": "yo bien",
+                                    "id": "DragBox3"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "page11":
+            {
+                "type": "dragable-box",
+                "section": {
+                    "number": 3,
+                    "value": "Practiquemos"
+                },
+                "template": "template-title-top-4",
+                "data": [
+                    {
+                        "type": "title",
+                        "value": "Thainá habla con su hermano por teléfono mientras están en el aeropuerto.<br>Completa el diálogo arrastrando la opción adecuada en cada caso.<br><span style='color: #3c285c'>Recordá que es una conversación informal entre dos hermanos</span>",
+                        "className": "title-white"
+                    },
+                    {
+                        "type": "dragable-box",
+                        "containerPosition":"bottom",
+                        "value": {
+                            "DropUps": [
+                                {
+                                    "type": "dropup-end",
+                                    "content": "<strong style='color: #EB792A'>Thainá:</strong> Sí, pásame la dirección porque no me acuerdo bien. Los chicos preguntan por la tía Sofi, ",
+                                    "value": "¿ella está en tu casa?",
+                                    "id": "DropUp1"
+                                },
+                                {
+                                    "type": "text",
+                                    "content": "<strong style='color: #33BB99'>Diógenes:</strong> Sí, recién llega del trabajo, los está esperando con medialunas, criollitos y mate."
+                                },
+                                {
+                                    "type": "text",
+                                    "content": "<strong style='color: #EB792A'>Thainá:</strong> ¡Los chicos se van a poner muy contentos! Bueno, me voy porque Pedro ya terminó. Ahora vamos para allá.<br> ¡No te olvides de enviarme la dirección!"
+                                },
+                                {
+                                    "type": "dropup-end",
+                                    "content": "<strong style='color: #33BB99'>Diógenes:</strong> No, ahora te la paso. Un abrazo, hermanita. ",
+                                    "value": "Nos vemos pronto",
+                                    "id": "DropUp2"
+                                },
+                                {
+                                    "type": "dropup-center",
+                                    "content_start": "<strong style='color: #EB792A'>Thainá:</strong>",
+                                    "content_end": "Diógenes, un abrazo.",
+                                    "value": "Chau",
+                                    "id": "DropUp3"
+                                }
+                            ],
+                            "DragBoxs": [
+                               
+                                {
+                                    "value": "¿ella está en tu casa?",
+                                    "id": "DragBox2"
+                                },
+                                
+                                {
+                                    "value": "Nos vemos pronto",
+                                    "id": "DragBox4"
+                                },
+                                {
+                                    "value": "Chau",
+                                    "id": "DragBox5"
+                                }
+                               
+                            ]
+                        }
+                    }
+                ]
+            },
+            "page12":
+            {
+                "type": "text",
+                "section": {
+                    "number": 3,
+                    "value": "Practiquemos"
+                },
+                "template": "template-title-top-5",
+                "data": [
+                    {
+                        "type": "title",
+                        "value": "<span style='color: #3c285c;'>¡Vamos a jugar <span style='background: linear-gradient(to right, var(--warning), var(--success));-webkit-background-clip: text;color: transparent;'>Kahoot</span>!</span>",
+                        "className": "title-dark"
+                    },
+                    {
+                        "type": "paragraph",
+                        "value": "<span style='color: #3c285c;'>Sigue este enlace y únete al juego</span>",
+                        "className": "subtitle-default",
+                        "classExtra": "w-full text-center"
+                    },
+                    {
+                        "type": "text",
+                        "value": "<a target='_blank' href='https://create.kahoot.it/share/pronombres-de-sujeto/cf982793-df8d-472d-ad2d-38015fc5dd5a' class='text-center' style='color:#1A0DAB'><u class='w-full flex justify-center'>PRONOMBRES DE SUJETO</u><img class='w-full' src='https://res.cloudinary.com/dfddh08q8/image/upload/s--1F6TR8kv--/v1701813105/images/tm5ll3yo7kyhvbtstesp.png'/></a>",
+                        "className": "paragraph-default",
+                        "classExtra": "w-1/2 flex flex-col p-4 relative   md:w-full"
+                    },
+                    {
+                        "type": "image",
+                        "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--1F6TR8kv--/v1701813105/images/tm5ll3yo7kyhvbtstesp.png",
+                        "alt": "",
+                        "className": "",
+                        "classExtra":"hidden"
+                    },
+                    {
+                        "type": "image",
+                        "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--C9urC3cz--/v1702056299/images/use8zshprey3zc6kiq57.png",
+                        "alt": "",
+                        "className": "",
+                        "classExtra": "hidden"
+                    }
+                ]
+            },
+            "page13":
+            {
+                "type": "text",
+                "section": {
+                    "number": 4,
+                    "value": "Mis retos"
+                },
+                "template": "template-title-top-1",
+                "data": [
+                    {
+                        "type": "title",
+                        "value": "“Un viaje de mil millas comienza con un primer paso”<br> <span style='color: #3c285c'>(Lao Tzu)</span>",
+                        "className": "title-white"
+                    },
+                    {
+                        "type": "image",
+                        "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--b_OgswJj--/v1702649210/images/losevtx2slhysjajuti6.png",
+                        "alt": "",
+                        "className": "",
+                        "classExtra": "w-full"
+                    }
+                ]
+            },
+            "page14":
+            {
+                "type": "text",
+                "section": {
+                    "number": 4,
+                    "value": "Mis retos"
+                },
+                "template": "template-title-top-1",
+                "data": [
+                    {
+                        "type": "title",
+                        "value": "¡Vamos a imaginar que su viaje a Córdoba empieza ahora!",
+                        "className": "title-white"
+                    },
+                    {
+                        "type": "paragraph",
+                        "value": "Vamos a crear diálogos, pasando por las diferentes áreas del aeropuerto:",
+                        "className": "subtitle-default",
+                        "classExtra": "text-center"
+                    },
+                    {
+                        "type": "paragraph",
+                        "value": "1. LLEGADA AL AEROPUERTO<br>2. REGISTRO<br>3. ADUANA Y POLICÍA AEROPORTUARIA MIGRACIÓN<br>4. PUERTA DE EMBARQUE<br>5. LLEGAR A DESTINO, RECOGER EL EQUIPAJE",
+                        "className": "paragraph-default"
+                    }
+                ]
+            },
+            "page15":
+            {
+                "type": "text",
+                "section": {
+                    "number": 5,
+                    "value": "Evaluemos"
+                },
+                "template": "template-title-top-4",
+                "data": [
+                    {
+                        "type": "title",
+                        "value": "Evaluación unidad 2 - Nivel A1",
+                        "className": "title-white"
+                    },
+                    {
+                        "type": "paragraph",
+                        "value": "La siguiente evaluación contiene <b>20 ejercicios propuestos.</b>",
+                        "className": "paragraph-default-center"
+                    },
+                    {
+                        "type": "paragraph",
+                        "value": "Cada uno que respondas correctamente vale <b>01 punto.</b>",
+                        "className": "paragraph-default-center"
+                    },
+                    {
+                        "type": "paragraph",
+                        "value": "Para aprobar la evaluación y pasar a la siguiente unidad debes obtener un mínimo de <b>18 puntos.</b>",
+                        "className": "paragraph-default-center"
+                    },
+                    {
+                        "type": "paragraph",
+                        "value": "<b style='color:var(--warning);'>¡Adelante y buena suerte!</b>",
+                        "className": "paragraph-default-center"
+                    }
+                ]
+            },
+            "page16":
+            {
+                "type": "DragableBox",
+                "section": {
+                    "number": 5,
+                    "value": "Evaluemos"
+                },
+                "template": "template-title-right-1",
+                "data": [
+                    {
+                        "type": "title",
+                        "value": "Selecciona la opción que corresponda en cada espacio vacío, según lo que lees en el diálogo",
+                        "className": "title-white"
+                    },
+                    {
+                        "type": "paragraph",
+                        "value": "<span style='#EB792A'>Completa los diálogos con las siguientes palabras:</span>",
+                        "className": "subtitle-default"
+                    },
+                    {
+                        "type": "dragable-box",
+                        "value": {
+                            "DropUps": [
+                                {
+                                    "type": "text",
+                                    "content": "<strong style='color:#00B8E9'><u>Encuentro con la profesora</u></strong>"
+                                },
+                                {
+                                    "type": "dropup-end",
+                                    "content": "-Buenas tardes, profesora.",
+                                    "value": "¿Cómo le va?",
+                                    "id": "DropUp1"
+                                },
+                                {
+                                    "type": "text",
+                                    "content": "Necesito la nota de Geografía, por favor."
+                                },
+                                {
+                                    "type": "dropup-center",
+                                    "content_start": "-Buenas tardes.",
+                                    "content_end": "obtuvo un ocho.",
+                                    "value": "Usted",
+                                    "id": "DropUp2"
+                                },
+                                {
+                                    "type": "text",
+                                    "content": "-¡Muchas gracias!.<br><br>"
+                                },
+                                {
+                                    "type": "text",
+                                    "content": "<strong style='color:#00B8E9'><u>En la biblioteca de la universidad</u></strong>"
+                                },
+                                {
+                                    "type": "dropup-center",
+                                    "content_start": "-Hola,Paula,",
+                                    "content_end": "<br><br><br>",
+                                    "value": "¿todo bien?",
+                                    "id": "DropUp3"
+                                },
+                                {
+                                    "type": "dropup-end",
+                                    "content": "-¡Hola! Bien,",
+                                    "value": "¿y vos?",
+                                    "id": "DropUp4"
+                                },
+                                {
+                                    "type": "text",
+                                    "content": "-No muy bien."
+                                }
+                            ],
+                            "DragBoxs": [
+                                {
+                                    "value": "¿y vos?",
+                                    "id": "DragBox1"
+                                },
+                                {
+                                    "value": "Usted",
+                                    "id": "DragBox2"
+                                },
+                                {
+                                    "value": "¿Cómo le va?",
+                                    "id": "DragBox5"
+                                },
+                                
+                                {
+                                    "value": "¿todo bien?",
+                                    "id": "DragBox3"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "page17":
+            {
+                "type": "selectsimple",
+                "section": {
+                    "number": 5,
+                    "value": "Evaluemos"
+                },
+                "template": "template-title-right-1",
+                "data": [
+                    {
+                        "type": "title",
+                        "value": "Selecciona la opción que corresponda en cada pregunta",
+                        "className": "title-white"
+                    },
+                    {
+                        "type": "selectsimple",
+                        "value": "<strong><span style='color: #00CCE3'>1.</span> ¿Quienes viajan con usted?:</strong>",
+                        "option": "Mi esposo y mis dos hijos",
+                        "options": [
+                            "Vamos a Córdoba",
+                            "Mi esposo y mis dos hijos"
+                        ],
+                        "className": "selector-simple"
+                    },
+                    {
+                        "type": "selectsimple",
+                        "value": "<strong><span style='color: #00CCE3'>2.</span> ¿Cómo se deletrea su apellido?</strong>",
+                        "option": "W - I - L -L - I - A - M - S",
+                        "options": [
+                            "Mi nombre es Mike",
+                            "W - I - L -L - I - A - M - S"
+                        ],
+                        "className": "selector-simple"
+                    },
+                    {
+                        "type": "selectsimple",
+                        "value": "<strong><span style='color: #00CCE3'>3.</span> ¿Cuál es el motivo de su viaje?</strong>",
+                        "option": "familiar",
+                        "options": [
+                            "familiar",
+                            "Me llamo Thainá"
+                        ],
+                        "className": "selector-simple"
+                    },
+                    {
+                        "type": "selectsimple",
+                        "value": "<strong><span style='color: #00CCE3'>4.</span> ¿Hacia dónde se dirigen? ¿A dónde van a llegar?</strong>",
+                        "option": "A Córdoba",
+                        "options": [
+                            "A Córdoba",
+                            "dos meses"
+                        ],
+                        "className": "selector-simple"
+                    },
+                    {
+                        "type": "selectsimple",
+                        "value": "<strong><span style='color: #00CCE3'>5.</span> ¿De dónde vienen?</strong>",
+                        "option": "Venimos de Colorado, Estados Unidos",
+                        "options": [
+                            "Vamos a Córdoba",
+                            "Venimos de Colorado, Estados Unidos"
+                        ],
+                        "className": "selector-simple"
+                    }
+                ]
+            },
+            "page18":
+            {
+                "type": "dragablebox",
+                "section": {
+                    "number": 5,
+                    "value": "Evaluemos"
+                },
+                "template": "template-title-right-1",
+                "data": [
+                    {
+                        "type": "title",
+                        "value": "Observa las imágenes y arrastra hacia cada una la identificación correcta",
+                        "className": "title-white"
+                    },
+                    {
+                        "type": "dragable-box",
+                        "value": {
+                            "DropUps": [
+                                {
+                                    "type": "image",
+                                    "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--lv-fzl4O--/v1701810708/images/flt2towz3mmb6suqtdyp.png",
+                                    "value": "el aeropuerto",
+                                    "id": "DropUp1"
+                                },
+                                {
+                                    "type": "image",
+                                    "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--ebc4wioS--/v1701810802/images/t5cqgbub96lyebxfceb1.png",
+                                    "value": "el pasaporte",
+                                    "id": "DropUp2"
+                                },
+                                {
+                                    "type": "image",
+                                    "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--x793yES_--/v1701810915/images/j9m6ujftkvanvuy44wot.png",
+                                    "value": "el avión",
+                                    "id": "DropUp3"
+                                }
+                            ],
+                            "DragBoxs": [
+                                {
+                                    "value": "el avión",
+                                    "id": "DragBox1"
+                                },
+                                {
+                                    "value": "el pasaporte",
+                                    "id": "DragBox2"
+                                },
+                                {
+                                    "value": "el aeropuerto",
+                                    "id": "DragBox4"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "page19":
+            {
+                "type": "dragablebox",
+                "section": {
+                    "number": 5,
+                    "value": "Evaluemos"
+                },
+                "template": "template-title-right-1",
+                "data": [
+                    {
+                        "type": "title",
+                        "value": "Observa las imágenes y arrastra hacia cada una la identificación correcta",
+                        "className": "title-white"
+                    },
+                    {
+                        "type": "dragable-box",
+                        "value": {
+                            "DropUps": [
+                                {
+                                    "type": "image",
+                                    "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--bSzihsJI--/v1701811189/images/phdj8z2hwm2mqhta6etf.png",
+                                    "value": "la aeromoza",
+                                    "id": "DropUp1"
+                                },
+                                {
+                                    "type": "image",
+                                    "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--fToOn1fE--/v1701811296/images/yldunhivvim8zqb7qps4.png",
+                                    "value": "la sala de espera",
+                                    "id": "DropUp2"
+                                },
+                                {
+                                    "type": "image",
+                                    "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--lhYsno43--/v1701811397/images/u1ck7mwh0fknl0tg6xtb.png",
+                                    "value": "el cinturón de seguridad",
+                                    "id": "DropUp3"
+                                }
+                            ],
+                            "DragBoxs": [
+                                {
+                                    "value": "el cinturón de seguridad",
+                                    "id": "DragBox2"
+                                },
+                                {
+                                    "value": "la aeromoza",
+                                    "id": "DragBox3"
+                                },
+                                {
+                                    "value": "la sala de espera",
+                                    "id": "DragBox4"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "page20":
+            {
+                "type": "dragablebox",
+                "section": {
+                    "number": 5,
+                    "value": "Evaluemos"
+                },
+                "template": "template-title-right-1",
+                "data": [
+                    {
+                        "type": "title",
+                        "value": "Observa las imágenes y arrastra hacia cada una la identificación correcta",
+                        "className": "title-white"
+                    },
+                    {
+                        "type": "dragable-box",
+                        "value": {
+                            "DropUps": [
+                                {
+                                    "type": "image",
+                                    "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--U_OjYoLk--/v1701811722/images/vmfrmvuk6p4cn67yr6yj.png",
+                                    "value": "el equipaje",
+                                    "id": "DropUp1"
+                                },
+                                {
+                                    "type": "image",
+                                    "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--sa_OCjHF--/v1701811817/images/eqghw5zzi7flw2vlrmxa.png",
+                                    "value": "el boleto de avión",
+                                    "id": "DropUp2"
+                                },
+                                {
+                                    "type": "image",
+                                    "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s---7cxzQA3--/v1703856032/images/zwjcu1bxekrnfueao6i9.png",
+                                    "value": "la pista de aterrizaje",
+                                    "id": "DropUp3"
+                                }
+                            ],
+                            "DragBoxs": [
+                                {
+                                    "value": "el boleto de avión",
+                                    "id": "DragBox1"
+                                },
+                                {
+                                    "value": "el equipaje",
+                                    "id": "DragBox2"
+                                },
+                                {
+                                    "value": "la pista de aterrizaje",
+                                    "id": "DragBox3"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "page21":
+            {
+                "type": "dragablebox",
+                "section": {
+                    "number": 5,
+                    "value": "Evaluemos"
+                },
+                "template": "template-title-right-1",
+                "data": [
+                    {
+                        "type": "title",
+                        "value": "Observa las imágenes y arrastra hacia cada una la identificación correcta",
+                        "className": "title-white"
+                    },
+                    {
+                        "type": "dragable-box",
+                        "value": {
+                            "DropUps": [
+                                
+                                {
+                                    "type": "image",
+                                    "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--qRyu24bt--/v1701811516/images/ie6ymbb20vtmtrnvpmdd.png",
+                                    "value": "el piloto",
+                                    "id": "DropUp1"
+                                },
+                                {
+                                    "type": "image",
+                                    "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--MIYNTSuN--/v1701811030/images/s1ogo0ebjntoedjjkq42.png",
+                                    "value": "la mascara de oxigeno",
+                                    "id": "DropUp2"
+                                }
+                            ],
+                            "DragBoxs": [
+                                {
+                                    "value": "la mascara de oxigeno",
+                                    "id": "DragBox2"
+                                },
+                                {
+                                    "value": "el piloto",
+                                    "id": "DragBox1"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "page22":
+            {
+                "type": "text",
+                "section": {
+                    "number": 5,
+                    "value": "Evaluemos"
+                },
+                "template": "",
+                "data": [
+                    {
+                        "type": "title",
+                        "value": "NOS VEMOS EN LA PRÓXIMA CLASE",
+                        "className": "title-white"
+                    },
+                    {
+                        "type": "title",
+                        "value": "<span style='black'>¡Gracias por tu atención!</span>",
+                        "className": "title-white"
+                    },
+                    {
+                        "type": "image",
+                        "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366258/images/logo_etoaae.png",
+                        "alt": "Español con E",
+                        "className": ""
+                    }
+                ]
+            }
+        
+    
+}
