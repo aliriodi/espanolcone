@@ -8,7 +8,7 @@ import Ulessons from '../../../models/Ulessons'
  */
 
 
-export default async function addClass(req, res) {
+export default async function updateUlesson(req, res) {
 
   try {
     // const { first_name, last_name, email } = req.body;
@@ -20,10 +20,10 @@ export default async function addClass(req, res) {
     console.log('CONNECTED TO MONGO DB');
 
     console.log('UPDATING DOCUMENT');
-   // console.log(req.body)
+    console.log(req.body)
    const ulesson = await Ulessons.findOneAndUpdate({ _id: _id }, req.body, { new: false })
    // const class1 = Class.findByIdAndUpdate(_id, req.body, { new: true });
-    console.log('UPDTATED DOCUMENT', class1);
+    console.log('UPDTATED DOCUMENT', ulesson);
 
     res.json({ Ulessons })
 

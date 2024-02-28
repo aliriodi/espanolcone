@@ -8,7 +8,7 @@ import Ulessons from '../../../models/Ulessons'
  */
 
 
-export default async function addClass(req, res) {
+export default async function addUlesson(req, res) {
 
   try {
     // const { first_name, last_name, email } = req.body;
