@@ -432,9 +432,28 @@ export default function ModalPagoZELLE(props) {
   function PAYNOK() {
     alert('Su pago no ha sido procesado intente nuevamente')
     //setPaypalDates(null)
+    gtag_report_conversion('espanolcone.com')
   }
 
-
+  
+  
+  function gtag_report_conversion(url) {
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.location = url;
+      }
+    };
+    gtag('event', 'conversion', {
+        'send_to': 'AW-11324663584/TbkiCOj3iZYZEKDOgpgq',
+        'value': 25.0,
+        'currency': 'USD',
+        'transaction_id': '',
+        'event_callback': callback
+    });
+    return false;
+  }
+  
+  
 
 
   return (

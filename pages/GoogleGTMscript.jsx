@@ -29,7 +29,10 @@ export default function Analytics() {
     }
   }, [pathname, searchParams])
 
- 
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag('js', new Date());
+  gtag('config', 'AW-11324663584');
 
   return (
     <>
@@ -41,6 +44,9 @@ export default function Analytics() {
           style={{ display: "none", visibility: "hidden" }}
         />
       </noscript>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11324663584"></script>
+   
+
       <Script
         id="gtm-script"
         strategy="afterInteractive"
