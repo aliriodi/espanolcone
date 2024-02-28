@@ -7,7 +7,7 @@ import { appWithTranslation } from 'next-i18next'
 import nextI18NextConfig from '../next-i18next.config';
 import Head from 'next/head';
 import GoogleAnalytics from './GoogleAnalytics'
-import GTMscript from './GoogleGTMscript';
+//import GTMscript from './GoogleGTMscript';
 import LoadScreen from '../components/LoadScreen';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
