@@ -529,7 +529,7 @@ export default function ModalPagoZELLE(props) {
                     {/* Enviar Pago */}
                     {
                     ImageUrl &&
-                    <button className='btn-success px-5 py-2.5 mt-3 w-full  text-[16px]' onClick={() => { PAYOK(); }}>
+                    <button className='btn-success px-5 py-2.5 mt-3 w-full  text-[16px]' id={'PruebaGTM'} onClick={() => { PAYOK(); }}>
                       {
                         loading ?
                         <div
