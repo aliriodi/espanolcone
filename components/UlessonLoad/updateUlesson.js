@@ -14,10 +14,12 @@ const rl = readline.createInterface({
     callback(respuesta);
   });
 }
-
+console.log('Este algoritmo es solo para modificar las hojas cargadas por un archivo')
+console.log('los otros aspectos como topicos, tags, tipo, unidad no es por este codigo')
 // Introducir la primera variable
 introducirVariable('Por favor introduce el nombre del json, example: U1NA1.json: ',  (namefile) => {
   // Introducir la segunda variable
+  
   console.log('Introduce el _id de la clase a modificar')
   introducirVariable(' example: 65561111c0af4de4ff78f6cc :  ', async (id) => {
 

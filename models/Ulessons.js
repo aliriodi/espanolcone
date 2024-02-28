@@ -6,25 +6,31 @@ const UlessonSchema = new Schema(
     // id: {
     //   type: mongoose.Types.ObjectId,
     // },
-    
+
     level: {
       type: String,
-      },
+    },
     unit: {
-        type: String,
-       },
-   description: {
       type: String,
-      unique:true
-     },
+    },
+    topics: {
+      type: String,
+    },
+    formats: {
+      type: String,
+    },
+    description: {
+      type: String,
+      unique: true
+    },
     sheets: {
       type: [Object],
     },
-    tags:{
+    tags: {
       type: [String],
     },
-    pay:{
-      type:Boolean
+    pay: {
+      type: Boolean
     }
   },
   {
