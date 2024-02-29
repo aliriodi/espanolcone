@@ -47,11 +47,6 @@ export default function MiniLessons() {
               <div
               className="w-full bg-gradient-to-t from-[#000] to-transparent z-20 text-white p-4">
 
-                
-                {/* Nivel */}
-                {/* <p className="text-[21px] font-semibold w-11 h-11 rounded-full flex justify-center items-center bg-primary">{lesson?.level}</p> */}
-                {/* <p className="text-[26px] text-light font-bold">{lesson?.level}</p> */}
-
                 {/* Descripcion */}
                 <p className=" text-[31px] relative font-bold">{lesson?.description}</p>
 
@@ -60,14 +55,10 @@ export default function MiniLessons() {
 
               </div>
 
-              {/* Imagen */}
+              {/* Imagen */}              
               <img 
               className="absolute w-full h-full object-cover bg-light z-10 top-0 left-0"
-              src="https://res.cloudinary.com/dfddh08q8/image/upload/v1702577131/images/q62um76zmll8buy7r8ik.png"/>
-              
-              {/* <img 
-              className="absolute w-full h-full object-cover bg-light z-10 top-0 left-0"
-              src={lesson?.image}/> */}
+              src={lesson?.image}/>
             </Link>            
           )
         }

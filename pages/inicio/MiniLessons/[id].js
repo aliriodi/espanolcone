@@ -47,7 +47,7 @@ export default function MiniLesson() {
                     {/* Imagen de fondo */}
                     <img 
                     className="fixed w-screen h-screen object-cover grayscale-[100] opacity-50 z-10"
-                    src="https://res.cloudinary.com/dfddh08q8/image/upload/v1702577131/images/q62um76zmll8buy7r8ik.png"/>
+                    src={lesson?.image}/>
                 </>
                 
                 :

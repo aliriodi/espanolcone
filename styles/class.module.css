@@ -777,6 +777,7 @@
 .mini-1{
     margin: auto;
     margin-top: 300px;
+    margin-bottom: 160px;
     width: 700px;
     background-color: var(--white);
     border-radius: 7px;
@@ -1037,6 +1038,7 @@
 
     /* Mini 1 */
     .mini-1{
+        margin-top: 160px;
         width: 100%;
     }
 
