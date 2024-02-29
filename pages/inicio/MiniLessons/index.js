@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import BodyGeneric from "../../../components/GenericsElements/BodyGeneric";
 import Link from 'next/link';
 
-export default function index() {
+export default function MiniLessons() {
   const [miniLessons, setMiniLessons] = useState(null)
   
   useEffect(()=>{
@@ -26,13 +26,13 @@ export default function index() {
 
   return (
     <BodyGeneric>
-      <div className="grid grid-cols-3 gap-7 mt-[50px]
+      <div
+      className="grid grid-cols-3 gap-7 mt-[50px]
       lg:grid-cols-2
       md:grid-cols-1">
         {
           miniLessons &&
           miniLessons?.map((lesson, index)=>
-          <>
             <Link
             key={index}
             href={`/inicio/MiniLessons/${lesson?._id}`}
@@ -68,10 +68,7 @@ export default function index() {
               {/* <img 
               className="absolute w-full h-full object-cover bg-light z-10 top-0 left-0"
               src={lesson?.image}/> */}
-            </Link>
-            
-          </>
-            
+            </Link>            
           )
         }
       </div>
