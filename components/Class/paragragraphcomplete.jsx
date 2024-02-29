@@ -143,7 +143,7 @@ export default function Paragragraphcomplete(props) {
                   }
                   value={inputValues[index]?.answer}
                   size={value.block}
-                  onClick={()=>console.log(!props.inEvaluation ||(props.inEvaluation && props?.isAdmin))}
+                  // onClick={()=>console.log(!props.inEvaluation ||(props.inEvaluation && props?.isAdmin))}
                   onChange={(e) => handleInputChange(index, e.target.value)}
                 />
 

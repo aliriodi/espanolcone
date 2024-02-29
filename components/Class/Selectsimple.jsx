@@ -45,7 +45,7 @@ export default function Selectsimple(props) {
             {/* {intro} */}
             <p dangerouslySetInnerHTML={{ __html: props.data.value }} className={style["selector-simple-title"]}></p>
             
-            <div onClick={()=>console.log(props?.data)} className={`${props?.data?.direction == "row" && "flex w-full md:flex-col"}  ${style["options-container"]} `}>
+            <div className={`${props?.data?.direction == "row" && "flex w-full md:flex-col"}  ${style["options-container"]} `}>
 
             {options ? options?.map(option =>
 
