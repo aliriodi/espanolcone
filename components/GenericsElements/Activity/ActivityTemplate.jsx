@@ -14,7 +14,7 @@ export default function ActivityTemplate({ sheetsOfSection }){
                 {
                     sheetsOfSection?.data?.map((data, index) =>
                         // Elementos de Encabezado
-                        {(data.type === 'title' || data.type === 'popup')&& <ActivityElement key={index}  date={data} index={index}/>}
+                        (data.type === 'title' || data.type === 'popup')&& (<ActivityElement key={index}  date={data} index={index}/>)
                     )
                 }
               </div>
@@ -23,7 +23,7 @@ export default function ActivityTemplate({ sheetsOfSection }){
               <div className={style['content']}>
                 {
                     sheetsOfSection?.data?.map((data, index) =>
-                        {(data.type != 'title' && data.type != 'popup') && <ActivityElement key={index} date={data} index={index}/>}
+                        (data.type != 'title' && data.type != 'popup') && (<ActivityElement key={index} date={data} index={index}/>)
                     )
                 }
               </div>
