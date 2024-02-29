@@ -3,21 +3,14 @@ import { Schema, model, models } from 'mongoose'
 
 const UlessonSchema = new Schema(
   {
-    // id: {
-    //   type: mongoose.Types.ObjectId,
-    // },
-
     level: {
-      type: String,
-    },
-    unit: {
       type: String,
     },
     topics: {
       type: String,
     },
     formats: {
-      type: String,
+      type: [String],
     },
     description: {
       type: String,
@@ -31,7 +24,10 @@ const UlessonSchema = new Schema(
     },
     pay: {
       type: Boolean
-    }
+    },
+    image:{
+      type: String,
+    },
   },
   {
     timestamps: true,
@@ -40,6 +36,6 @@ const UlessonSchema = new Schema(
 )
 
 // error poco frectuente de versionado de modelos por eso etsa esto, pero revisar si puedo armarlo como lo anterior
-const ulesson = models.ulesson || model('Ulesson', UlessonSchema)
+const Ulesson = models.Ulesson || model('Ulesson', UlessonSchema)
 
-export default ulesson
+export default Ulesson

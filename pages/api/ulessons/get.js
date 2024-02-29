@@ -1,5 +1,5 @@
 import dbConnect from '../../../config/mongo'
-import Ulessons from '../../../models/Ulessons'
+import Ulesson from '../../../models/Ulessons'
 
 // /**
 //  * 
@@ -9,10 +9,11 @@ import Ulessons from '../../../models/Ulessons'
 
 
 export default async function getAllUlesson(req, res) {
+  // const {
+  //   query: { formats, level, page, maxResults },
+  // } = req;
 
   try {
-    // const { first_name, last_name, email } = req.body;
-
     console.log('CONNECTING TO MONGO DB');
 
     await dbConnect()
@@ -23,7 +24,7 @@ export default async function getAllUlesson(req, res) {
 
     console.log('TAKING CLASS');
 
-    const ulessons = await Ulessons.find().exec();
+    const ulessons = await Ulesson.find().exec();
 
     console.log('CLASS TAKEN');
     
@@ -36,6 +37,7 @@ export default async function getAllUlesson(req, res) {
       // Solicitud desde el navegador
       res.status(200).json({ message: "Acceso Denegado" });
     }
+    // res.status(200).json({ message: "Acceso Denegado" });
 
   } catch (error) {
     console.log(error);

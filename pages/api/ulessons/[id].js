@@ -1,6 +1,6 @@
 
 import dbConnect from '../../../config/mongo'
-import Ulessons from '../../../models/Ulessons'
+import Ulesson from '../../../models/Ulessons'
 
 
 export default async function IdUlesson(req, res) {
@@ -19,8 +19,7 @@ export default async function IdUlesson(req, res) {
     
         console.log('CONNECTED TO MONGO DB');
 
-        const ulesson = await Ulessons.findById({_id:id});
-
+        const ulesson = await Ulesson.findById({_id:id});
         if (!ulesson) {
           return res.status(404).json({ message: 'Class not found' });
         }
