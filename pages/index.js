@@ -60,6 +60,7 @@ export default function Home() {
               {/* Iniciar secion */}
               <button
                 type="button"
+                id={"RegistrateAhora"}
                 className="text-primary bg-white rounded-full w-[308px] h-[80px] mt-[20px] text-[20px] font-semibold active:bg-primary active:text-white focus:outline-none"
                 style={{  boxShadow: '0px 2px 8px 0px #00000040' }}         
                 onClick={()=>push('/login')} >

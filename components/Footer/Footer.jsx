@@ -26,7 +26,7 @@ export default function Footer() {
                         <p>
                             {t("footer:title")}
                         </p>
-                        <Link className={styles['btn-signUp']} href={"/login"}>
+                        <Link id={'ComienzaTuAventura'} className={styles['btn-signUp']} href={"/login"}>
                             {t("footer:button")}
                         </Link>
                     </div>

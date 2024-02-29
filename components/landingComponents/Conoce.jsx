@@ -53,6 +53,7 @@ export default function Conoce() {
 
           {/* Iniciar secion */}
           <Link
+            id={'PruebaloGratis'}
             type="button"
             className="text-primary bg-white rounded-full w-[305px] h-[57px] text-center text-[20px] font-semibold flex items-center justify-center  active:bg-primary active:text-white focus:outline-none"
             style={{ boxShadow: '0px 2px 8px 0px #00000040'}}   
