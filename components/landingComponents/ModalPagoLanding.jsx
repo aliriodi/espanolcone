@@ -77,7 +77,7 @@ export default function ModalPagoLanding({ setOpen, email2 }) {
                     {
                         emailok && !email2 &&
                         <div className='flex justify-center  text-center '>
-                            <button
+                            <button id={''}
                                 className={`bg-primary rounded-md text-white w-full p-2 ${!validateEmail && 'hidden'} transition-all
                         hover:bg-[#4ED5F2] hover:shadow-[0px_4px_14px_0px_#3CBBD661]`}
                                 onClick={() => send()}>{t("modalEmailLanding.1")}</button>
