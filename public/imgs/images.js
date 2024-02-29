@@ -84,7 +84,13 @@ export const experts = [
     name: "picture10",
     image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1696623565/images/Marie_lzckbq.png",
     namePerson: "Mariela Romero",
-    job: "UX/UI designer"
+    job: "UX/UI Designer"
+  },
+  {
+    name: "picture10",
+    image: "https://res.cloudinary.com/dfddh08q8/image/upload/s--aft9D2kf--/v1709057974/images/dndzggkfwwqv1eluh0rd.png",
+    namePerson: "Ariana Hernández ",
+    job: "UX/UI Writer"
   }
 ]
 
