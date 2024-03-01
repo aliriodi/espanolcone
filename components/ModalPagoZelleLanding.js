@@ -128,10 +128,10 @@ export default function ModalPagoZELLE(props) {
 
           <p><b>¡Bienvenido a Español con E!</b> Estamos encantados de tenerte como parte de nuestra comunidad de aprendizaje de español. Queremos que sepas que estamos aquí para apoyarte en cada paso de tu viaje lingüístico.</p>
 
-          <p>Nos alegra mucho tenerte con nosotros y queremos expresarte nuestro agradecimiento por haber elegido nuestro paquete <b>"Aprende y Disfruta".</b></p>
+          <p>Nos alegra mucho tenerte con nosotros y queremos expresarte nuestro agradecimiento por haber elegido nuestro paquete <b>"Echa un vistazo".</b></p>
           <p>Aquí te detallamos lo que has adquirido con tu compra:</p>
 
-          <p><b>Paquete Especial "Aprende y Disfruta" valorado en $100 ¡por solo $25 dólares!</b>,  valido hasta el 23 de abril del 2024.</p>
+          <p><b>Paquete Especial "Echa un vistazo" valorado en $100 ¡por solo $25 dólares!</b>,  valido hasta el 29 de marzo del 2024.</p>
 
           <p><b>1. Clase individual personalizada:</b> Una sesión de 60 minutos, adaptable a tus necesidades. </p>
           
@@ -145,11 +145,11 @@ export default function ModalPagoZELLE(props) {
           `
           <p><b>Hello ${props.nombre}!</b></p>
 
-          <p>We are thrilled to have you with us and want to express our gratitude for choosing our <b>"Aprende y Disfruta"</b> package.</p>
+          <p>We are thrilled to have you with us and want to express our gratitude for choosing our <b>"Echa un vistazo"</b> package.</p>
 
           <p>Here are the details of what you've acquired with your purchase:</p>
 
-          <p><b>Special "Aprende y Disfruta" Package valued at $100 for only $25</b>, valid until April 23, 2024.</p>
+          <p><b>Special "Echa un vistazo" Package valued at $100 for only $25</b>, valid until March 29, 2024.</p>
 
           <p><b>Personalized Individual Class:</b> A 60-minute session, tailored to your needs.</p>
 
@@ -172,7 +172,7 @@ export default function ModalPagoZELLE(props) {
 
           <p>Aquí te detallamos todo lo que has adquirido con tu compra:</p>
 
-          <p><b>Paquete Especial "Echa un vistazo" valorado en $45 ¡por solo $10 dólares!</b> valido hasta el 23 de abril del 2024.</p>
+          <p><b>Paquete Especial "Echa un vistazo" valorado en $45 ¡por solo $10 dólares!</b> valido hasta el 29 de marzo del 2024.</p>
 
           <p><b>1. Clase Magistral:</b> Únete a nuestra clase especial por Zoom el viernes 22 de marzo a las 17 horas (hora de Argentina). Te sumergirás en temas fascinantes para estudiantes de español de todos los niveles. Desde los sonidos del español hasta consejos de motivación, ¡tenemos mucho por explorar!</p>
 
@@ -188,7 +188,7 @@ export default function ModalPagoZELLE(props) {
 
             <p>Here are all the details of what you've acquired with your purchase:</p>
 
-            <p>Special <b>"Echa un vistazo" Package valued at $45 for only $10</b>, valid until April 23, 2024.</p>
+            <p>Special <b>"Echa un vistazo" Package valued at $45 for only $10</b>, valid until March 29, 2024.</p>
 
             <p><b>Master Class:</b> Join our special Zoom class on Friday, March 22, at 5:00 PM (Argentina time). You'll delve into fascinating topics for Spanish learners of all levels. From Spanish sounds to motivational tips, we have a lot to explore!</p>
 
