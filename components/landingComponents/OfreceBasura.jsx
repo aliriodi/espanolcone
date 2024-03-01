@@ -6,7 +6,7 @@ import ModalListTourist from './ModalListTourist';
 import ModalPagoLanding from './ModalPagoLanding';
 import ModalPagoABLE from '../ModalPagoAbleLanding';
 import ModalPago from '../ModalPagoPAYPALLanding';
-import ModalPago2 from '../ModalPagoZelleLanding';
+import ModalPago2 from '../ModalPagoZelleLandingBVASURA';
 import axios from 'axios';
 import AlertContainer from '../GenericsElements/Alerts/AlertContainer';
 import Alert from '../GenericsElements/Alerts/Alert';
@@ -83,60 +83,104 @@ export default function Ofrece() {
     let emailMessage = {
       to: email,
 
-      subject: t("labelLanguage") == "Es" ?
-      "¡Bienvenido/a! Detalles de tu compra y más" : // Asunto en Español
-      "Welcome! Details of your purchase and more", // Asunto en Ingles
+      subject: `${t("labelLanguage") == "Es" ?"¡Bienvenido/a! Detalles de tu compra y más" : ""// Asunto en Español
+      } 
+      ${t("labelLanguage") == "En" ?"Welcome! Details of your purchase and more" : "" // Asunto en Ingles
+      } 
+      ${t("labelLanguage") == "Pt" ? "Bem-vindo! Detalhes da sua compra e mais" : "" // Asunto en Portugues
+      }`,
 
       content:
       `${paypalDates?.descripion == "1claseIndividual 1masterclass 1claseengrupo 3unidadesporNivel" ? 
 
-        // Mensage de Plan "Experiencia completa"
-        t("labelLanguage") == "Es" ?
+        ///// Mensage de Plan "Experiencia completa" /////
+        `
+          ${t("labelLanguage") == "Es" ?
+    
+              // En Español
+              `
+              <p><b>¡Hola ${nombre}!</b></p>
+    
+              <p><b>¡Bienvenido a Español con E!</b> Estamos encantados de tenerte como parte de nuestra comunidad de aprendizaje de español. Queremos que sepas que estamos aquí para apoyarte en cada paso de tu viaje lingüístico.</p>
+    
+              <p>Nos alegra mucho tenerte con nosotros y queremos expresarte nuestro agradecimiento por haber elegido nuestro paquete <b>"Experiencia completa".</b></p>
+              <p>Aquí te detallamos lo que has adquirido con tu compra:</p>
+    
+              <p><b>Paquete Especial "Experiencia completa" valorado en $100 ¡por solo $25 dólares!</b>,  valido hasta el 23 de abril del 2024.</p>
+    
+              <p><b>1. Clase individual personalizada:</b> Una sesión de 60 minutos, adaptable a tus necesidades. </p>
+              
+              <p><b>2. Clase magistral:</b> Únete a nuestra clase especial por Zoom el viernes 22 de marzo a las 17 horas (hora de Argentina). Te sumergirás en temas fascinantes para estudiantes de español de todos los niveles. Desde los sonidos del español hasta consejos de motivación, ¡tenemos mucho por explorar!</p>
+    
+              <p><b>3. Clase en grupo:</b> Será una clase de 90 minutos. Se ofrecerán varias sesiones de diferentes temas y niveles. Podrás elegir la que mejor se adapte a tus intereses y disponibilidad. La lista completa de clases y horarios te la enviaremos por correo electrónico pronto.</p>
+    
+              <p>Además, queremos que sepas que en nuestra plataforma encontrarás dos unidades didácticas interactivas y explicativas para los niveles A1, A2 y B1 y que continuaremos añadiendo contenido el cual podrás disfrutar durante el tiempo promocional.  Estamos comprometidos a brindarte contenido de calidad que te ayude a avanzar en tu aprendizaje del español.</p>
+              `:``
+          }
 
-          // En Español
-          `<p><b>¡Hola ${nombre}!</b></p>
+        
+        
+        
+          ${t("labelLanguage") == "En" ?
 
-          <p><b>¡Bienvenido a Español con E!</b> Estamos encantados de tenerte como parte de nuestra comunidad de aprendizaje de español. Queremos que sepas que estamos aquí para apoyarte en cada paso de tu viaje lingüístico.</p>
+            // En Ingles
+            `
+            <p><b>Hello ${nombre}!</b></p>
 
-          <p>Nos alegra mucho tenerte con nosotros y queremos expresarte nuestro agradecimiento por haber elegido nuestro paquete <b>"Echa un vistazo".</b></p>
-          <p>Aquí te detallamos lo que has adquirido con tu compra:</p>
+            <p>We are thrilled to have you with us and want to express our gratitude for choosing our <b>"Experiencia completa"</b> package.</p>
 
-          <p><b>Paquete Especial "Echa un vistazo" valorado en $100 ¡por solo $25 dólares!</b>,  valido hasta el 29 de marzo del 2024.</p>
+            <p>Here are the details of what you've acquired with your purchase:</p>
 
-          <p><b>1. Clase individual personalizada:</b> Una sesión de 60 minutos, adaptable a tus necesidades. </p>
-          
-          <p><b>2. Clase magistral:</b> Únete a nuestra clase especial por Zoom el viernes 22 de marzo a las 17 horas (hora de Argentina). Te sumergirás en temas fascinantes para estudiantes de español de todos los niveles. Desde los sonidos del español hasta consejos de motivación, ¡tenemos mucho por explorar!</p>
+            <p><b>Special "Experiencia completa" Package valued at $100 for only $25</b>, valid until April 23, 2024.</p>
 
-          <p><b>3. Clase en grupo:</b> Será una clase de 90 minutos. Se ofrecerán varias sesiones de diferentes temas y niveles. Podrás elegir la que mejor se adapte a tus intereses y disponibilidad. La lista completa de clases y horarios te la enviaremos por correo electrónico pronto.</p>
+            <p><b>Personalized Individual Class:</b> A 60-minute session, tailored to your needs.</p>
 
-          <p>Además, queremos que sepas que en nuestra plataforma encontrarás dos unidades didácticas interactivas y explicativas para los niveles A1, A2 y B1 y que continuaremos añadiendo contenido el cual podrás disfrutar durante el tiempo promocional.  Estamos comprometidos a brindarte contenido de calidad que te ayude a avanzar en tu aprendizaje del español.</p>`
-          :
-          // En Ingles
-          `
-          <p><b>Hello ${nombre}!</b></p>
+            <p><b>Master Class:</b> Join our special Zoom class on Friday, March 22, at 5:00 PM (Argentina time). You'll delve into fascinating topics for Spanish learners of all levels. From Spanish sounds to motivational tips, we have a lot to explore!</p>
 
-          <p>We are thrilled to have you with us and want to express our gratitude for choosing our <b>"Echa un vistazo"</b> package.</p>
+            <p><b>Group Class:</b> It will be a 90-minute class. Several sessions on different topics and levels will be offered. You'll be able to choose the one that best suits your interests and availability. The complete list of classes and schedules will be sent to you via email soon.</p>
 
-          <p>Here are the details of what you've acquired with your purchase:</p>
+            <p>Additionally, we want you to know that on our platform, you'll find two interactive and explanatory didactic units for levels A1, A2, and B1, and we will continue adding content that you can enjoy during the promotional period. We are committed to providing you with quality content that helps you advance in your Spanish learning journey.</p>
 
-          <p><b>Special "Echa un vistazo" Package valued at $100 for only $25</b>, valid until March 29, 2024.</p>
+            `:``
+          }
+        
 
-          <p><b>Personalized Individual Class:</b> A 60-minute session, tailored to your needs.</p>
+        
+        
+          ${t("labelLanguage") == "Pt" ?
 
-          <p><b>Master Class:</b> Join our special Zoom class on Friday, March 22, at 5:00 PM (Argentina time). You'll delve into fascinating topics for Spanish learners of all levels. From Spanish sounds to motivational tips, we have a lot to explore!</p>
+            // En Portugues
+            `
+            <p><b>Olá ${nombre}!</b></p>
 
-          <p><b>Group Class:</b> It will be a 90-minute class. Several sessions on different topics and levels will be offered. You'll be able to choose the one that best suits your interests and availability. The complete list of classes and schedules will be sent to you via email soon.</p>
+            <p>Queremos informar que recebemos seu pagamento com sucesso. Obrigado por confiar em nós e por seu compromisso com o aprendizado do espanhol!</p>
 
-          <p>Additionally, we want you to know that on our platform, you'll find two interactive and explanatory didactic units for levels A1, A2, and B1, and we will continue adding content that you can enjoy during the promotional period. We are committed to providing you with quality content that helps you advance in your Spanish learning journey.</p>
+            <p>Estamos muito felizes por tê-lo conosco e queremos expressar nosso agradecimento por ter escolhido nosso pacote <b>"Experiencia completa"</b>.</p>
 
-          `
+            <p>Aqui estão os detalhes do que você adquiriu com sua compra:</p>
+
+            <p><b>Pacote Especial "Experiencia completa" no valor de $100 por apenas $25 dólares</b>, válido até 29 de março de 2024.</p>
+
+            <p><b>Aula individual personalizada:</b> Uma sessão de 60 minutos, adaptável às suas necessidades.</p>
+
+            <p><b>Aula magistral:</b> Junte-se à nossa aula especial no Zoom na sexta-feira, 22 de março, às 17 horas (horário da Argentina). Você mergulhará em tópicos fascinantes para estudantes de espanhol de todos os níveis. Desde os sons do espanhol até dicas de motivação, temos muito para explorar!</p>
+
+            <p><b>Aula em grupo:</b> Será uma aula de 90 minutos. Serão oferecidas várias sessões de diferentes temas e níveis. Você poderá escolher aquela que melhor se adapta aos seus interesses e disponibilidade. A lista completa de aulas e horários será enviada por e-mail em breve.</p>
+
+            <p>Além disso, queremos que saiba que em nossa plataforma você encontrará duas unidades didáticas interativas e explicativas para os níveis A1, A2 e B1, e continuaremos adicionando conteúdo que você poderá desfrutar durante o período promocional. Estamos comprometidos em fornecer conteúdo de qualidade que o ajude a progredir em seu aprendizado do espanhol.</p>
+
+            `:``
+          }
+        `
       :
 
-      // Mensage de Plan "Echa un vistazo"
-      t("labelLanguage") == "Es" ?
+      ///// Mensage de Plan "Echa un vistazo" /////
+      `
+        ${t("labelLanguage") == "Es" ?
 
           // En Español
-          `<p><b>¡Hola ${nombre}!</b></p>
+          `
+          <p><b>¡Hola ${nombre}!</b></p>
 
           <p>Nos alegra mucho tenerte con nosotros y queremos expresarte nuestro agradecimiento por haber elegido nuestro paquete <b>"Echa un vistazo".</b></p>
 
@@ -147,23 +191,49 @@ export default function Ofrece() {
           <p><b>1. Clase Magistral:</b> Únete a nuestra clase especial por Zoom el viernes 22 de marzo a las 17 horas (hora de Argentina). Te sumergirás en temas fascinantes para estudiantes de español de todos los niveles. Desde los sonidos del español hasta consejos de motivación, ¡tenemos mucho por explorar!</p>
 
           <p><b>2. Clases interactivas en la app:</b> En nuestra plataforma encontrarás dos unidades didácticas interactivas y explicativas para los niveles A1, A2 y B1 y que continuaremos añadiendo contenido el cual podrás disfrutar durante el tiempo promocional. Estamos comprometidos a brindarte contenido de calidad que te ayude a avanzar en tu aprendizaje del español.</p>
-          `
-          :
+          `:``
+        }
+
+        ${t("labelLanguage") == "En" ?
 
           // En Ingles
           `
-            <p><b>Hello ${nombre}!</b></p>
+          <p><b>Hello ${nombre}!</b></p>
 
-            <p>We are delighted to have you with us and want to express our gratitude for choosing our <b>"Echa un vistazo"</b> package.</p>
+          <p>We are delighted to have you with us and want to express our gratitude for choosing our <b>"Echa un vistazo"</b> package.</p>
 
-            <p>Here are all the details of what you've acquired with your purchase:</p>
+          <p>Here are all the details of what you've acquired with your purchase:</p>
 
-            <p>Special <b>"Echa un vistazo" Package valued at $45 for only $10</b>, valid until March 29, 2024.</p>
+          <p>Special <b>"Echa un vistazo" Package valued at $45 for only $10</b>, valid until April 23, 2024.</p>
 
-            <p><b>Master Class:</b> Join our special Zoom class on Friday, March 22, at 5:00 PM (Argentina time). You'll delve into fascinating topics for Spanish learners of all levels. From Spanish sounds to motivational tips, we have a lot to explore!</p>
+          <p><b>Master Class:</b> Join our special Zoom class on Friday, March 22, at 5:00 PM (Argentina time). You'll delve into fascinating topics for Spanish learners of all levels. From Spanish sounds to motivational tips, we have a lot to explore!</p>
 
-            <p><b>Interactive Classes in the app<b>: On our platform, you'll find two interactive and explanatory didactic units for levels A1, A2, and B1, and we will continue adding content that you can enjoy during the promotional period. We are committed to providing you with quality content that helps you advance in your Spanish learning journey.</p>
-            `
+          <p><b>Interactive Classes in the app</b>: On our platform, you'll find two interactive and explanatory didactic units for levels A1, A2, and B1, and we will continue adding content that you can enjoy during the promotional period. We are committed to providing you with quality content that helps you advance in your Spanish learning journey.</p>
+          `:``
+        }
+
+        ${t("labelLanguage") == "Pt" ?
+
+          // En Portugues
+          `
+          <p><b>Olá ${nombre}!</b></p>
+
+          <p>Queremos informar que recebemos seu pagamento com sucesso. Obrigado por confiar em nós e por seu compromisso com o aprendizado do espanhol!</p>
+
+          <p>Estamos muito felizes por tê-lo conosco e queremos expressar nosso agradecimento por ter escolhido nosso pacote <b>"Dê uma olhada"</b>.</p>
+
+          <p>Aqui estão todos os detalhes do que você adquiriu com sua compra:</p>
+
+          <p><b>Pacote Especial "Dê uma olhada" no valor de $45 por apenas $10 dólares!</b> válido até 29 de março de 2024.</p>
+
+          <p><b>Aula Magistral:</b> Junte-se à nossa aula especial no Zoom na sexta-feira, 22 de março, às 17 horas (horário da Argentina). Você mergulhará em tópicos fascinantes para estudantes de espanhol de todos os níveis. Desde os sons do espanhol até dicas de motivação, temos muito para explorar!</p>
+
+          <p><b>Aulas interativas no aplicativo:</b> Em nossa plataforma, você encontrará duas unidades didáticas interativas e explicativas para os níveis A1, A2 e B1, e continuaremos adicionando conteúdo que você poderá desfrutar durante o período promocional. Estamos comprometidos em fornecer conteúdo de qualidade que o ajude a avançar em seu aprendizado do espanhol.</p>
+
+          `:``
+        }
+      `
+
       }
       `
     }
@@ -219,33 +289,54 @@ export default function Ofrece() {
           }
         ).then(response => {
           // Se asigna la parte final para el mensaje por email
-          emailMessage.content = emailMessage.content +  (t("labelLanguage") == "Es" ?
+          emailMessage.content = emailMessage.content +  (
+            `
+              ${t("labelLanguage") == "Es" ?
 
-          // En Español
-          `
-          <p>
-          Como eres un nuevo usuario, se ha creado una cuenta para ti dentro de nuestra plataforma con la siguiente clave temporal: <b>${temporalPassword}</b>
-          Te sugerimos cambiar tu clave y por favor, no dudes en ponerte en contacto con nosotros si tienes alguna pregunta o necesitas ayuda con algo. Estamos aquí para ayudarte en cada paso del camino.
-          </p>
+                // En Español
+                `
+                <p>
+                Como eres un nuevo usuario, se ha creado una cuenta para ti dentro de nuestra plataforma con la siguiente clave temporal: <b>${temporalPassword}</b>
+                Te sugerimos cambiar tu clave y por favor, no dudes en ponerte en contacto con nosotros si tienes alguna pregunta o necesitas ayuda con algo. Estamos aquí para ayudarte en cada paso del camino.
+                </p>
 
-          <p>¡Gracias nuevamente por elegirnos como tu compañero de aprendizaje!<p>
+                <p>¡Gracias nuevamente por elegirnos como tu compañero de aprendizaje!<p>
 
-          <p>¡Saludos!</p>
+                <p>¡Saludos!</p>
 
-          <p><b>Equipo de Español con E</b></p>
-          `
-          :
+                <p><b>Equipo de Español con E</b></p>
+                `
+                :``
+              }
 
-          // En Ingles
-          `
-          <p>As you are a new user, an account has been created for you within our platform with the following temporary password: <b>${temporalPassword}</b>. We suggest changing your password, and please don't hesitate to contact us if you have any questions or need assistance with anything. We are here to help you every step of the way.</p>
+              ${t("labelLanguage") == "En" ?
 
-          <p>Thank you again for choosing us as your learning partner!</p>
+                // En Ingles
+                `
+                <p>As you are a new user, an account has been created for you within our platform with the following temporary password: <b>${temporalPassword}</b>. We suggest changing your password, and please don't hesitate to contact us if you have any questions or need assistance with anything. We are here to help you every step of the way.</p>
 
-          <p>Greetings!</p>
+                <p>Thank you again for choosing us as your learning partner!</p>
 
-          <p><b>Equipo de Español con E</b></p>
+                <p>Greetings!</p>
 
+                <p><b>Equipo de Español con E</b></p>
+                `:``
+              }
+
+              ${t("labelLanguage") == "Pt" ?
+
+                // En Portugues
+                `
+                <p>Como você é um novo usuário, uma conta foi criada para você em nossa plataforma com a seguinte senha temporária: <b>${temporalPassword}</b>. Sugerimos que você altere sua senha e, por favor, não hesite em nos contatar se tiver alguma dúvida ou precisar de ajuda com algo. Estamos aqui para ajudá-lo em cada passo do caminho.</p>
+
+                <p>Obrigado novamente por nos escolher como seu parceiro de aprendizado!</p>
+
+                <p>Saudações!</p>
+
+                <p><b>Equipe de Español con E</b></p>
+
+                `:``
+              }
           `);
           setAlertNewUser(true)
           setPaypalDates(null)
@@ -258,34 +349,6 @@ export default function Ofrece() {
         console.error(error);
       }
 
-      //envio recibo a BD
-      // try {
-      //   await fetch('/api/receipt/add',
-      //     {
-      //       method: "POST",
-      //       headers: {
-      //         "Content-Type": "application/json",
-      //       },
-      //       body: JSON.stringify(
-      //         {
-      //           idUser: email,
-      //           idPlan: 'plansync',
-      //           qty: paypalDates.qty,
-      //           ammount: paypalDates.cost,
-      //           dates: { paypalDates, type: "PAYPAL" }
-      //         }
-      //       ),
-      //     }).then(response => {
-      //       setPaypalDates(null)
-      //       //  console.log("Clase asignado ",response.json())
-
-      //     })
-      // }
-      // catch (error) {
-      //   setPaypalDates(null)
-
-      //   console.error(error);
-      // }
     }
 
     // // En caso de NO ser un nuevo usuario
@@ -321,27 +384,50 @@ export default function Ofrece() {
           })
 
           .then(response => {            
-            emailMessage.content = emailMessage.content + (t("labelLanguage") == "Es" ?
-            // En Español
-            `
-            <p>¡Gracias nuevamente por elegirnos como tu compañero de aprendizaje!<p>
+            emailMessage.content = emailMessage.content + (
+              `
+              ${t("labelLanguage") == "Es" ?
 
-            <p>¡Saludos!</p>
+                // En Español
+                `
+                <p>¡Gracias nuevamente por elegirnos como tu compañero de aprendizaje!<p>
 
-            <p><b>Equipo de Español con E</b></p>
-            `
-            :
-            // En Ingles
-            `
-            <p>Please don't hesitate to contact us if you have any questions or need assistance with anything. We are here to help you every step of the way.</p>
+                <p>¡Saludos!</p>
 
-            <p>Thank you again for joining us and being part of this journey!</p>
+                <p><b>Equipo de Español con E</b></p>
+                `
+                :``
+              }
 
-            <p>Greetings!</p>
+              ${t("labelLanguage") == "En" ?
 
-            <p>Equipo de Español con E</p>
+                // En Ingles
+                `
+                <p>Please don't hesitate to contact us if you have any questions or need assistance with anything. We are here to help you every step of the way.</p>
+
+                <p>Thank you again for joining us and being part of this journey!</p>
+
+                <p>Greetings!</p>
+
+                <p><b>Equipo de Español con E</b></p>
+                `:``
+              }
+
+              ${t("labelLanguage") == "Pt" ?
+              `
+              <p>Não hesite em nos contatar se tiver alguma dúvida ou precisar de ajuda com algo. Estamos aqui para ajudá-lo em cada passo do caminho.</p>
+
+              <p>Obrigado novamente por se juntar a nós e fazer parte desta jornada!</p>
+
+              <p>Saudações!</p>
+
+              <p><b>Equipe de Español con E</b></p>
+
+              `:``
+              }
 
             `);
+
           })
 
       }

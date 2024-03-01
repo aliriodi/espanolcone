@@ -9,7 +9,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import NAVBAR from "../components/Navbar/Navbar"
 import Four from '../components/landingComponents/Four';
 import Conoce from '../components/landingComponents/Conoce';
-import Ofrece from './../components/landingComponents/Ofrece';
+import Ofrece from '../components/landingComponents/OfreceBasura';
 import Experts from '../components/landingComponents/Experts';
 import Image from 'next/image';
 import Testimonials from '../components/landingComponents/Testimonials';
