@@ -273,7 +273,7 @@ function Navbar(props) {
         </ul>
 
         {/* Iniciar Secion */}
-        <Link className={styles['btn-signUp']} href='/login'>{t('SIGNIN')}</Link>
+        <Link id={'LogInButton'} className={styles['btn-signUp']} href='/login'>{t('SIGNIN')}</Link>
 
 
       </div>
