@@ -136,7 +136,7 @@ export default function ModalPagoZELLE(props) {
               <p>Nos alegra mucho tenerte con nosotros y queremos expresarte nuestro agradecimiento por haber elegido nuestro paquete <b>"Experiencia completa".</b></p>
               <p>Aquí te detallamos lo que has adquirido con tu compra:</p>
     
-              <p><b>Paquete Especial "Experiencia completa" valorado en $100 ¡por solo $25 dólares!</b>,  valido hasta el 23 de abril del 2024.</p>
+              <p><b>Paquete Especial "Experiencia completa" valorado en $100 ¡por solo $25 dólares!</b>,  valido hasta el 29 de marzo del 2024.</p>
     
               <p><b>1. Clase individual personalizada:</b> Una sesión de 60 minutos, adaptable a tus necesidades. </p>
               
@@ -161,7 +161,7 @@ export default function ModalPagoZELLE(props) {
 
             <p>Here are the details of what you've acquired with your purchase:</p>
 
-            <p><b>Special "Experiencia completa" Package valued at $100 for only $25</b>, valid until April 23, 2024.</p>
+            <p><b>Special "Experiencia completa" Package valued at $100 for only $25</b>, valid until March 29, 2024.</p>
 
             <p><b>Personalized Individual Class:</b> A 60-minute session, tailored to your needs.</p>
 
@@ -234,7 +234,7 @@ export default function ModalPagoZELLE(props) {
 
           <p>Here are all the details of what you've acquired with your purchase:</p>
 
-          <p>Special <b>"Echa un vistazo" Package valued at $45 for only $10</b>, valid until April 23, 2024.</p>
+          <p>Special <b>"Echa un vistazo" Package valued at $45 for only $10</b>, valid until Macrh 29, 2024.</p>
 
           <p><b>Master Class:</b> Join our special Zoom class on Friday, March 22, at 5:00 PM (Argentina time). You'll delve into fascinating topics for Spanish learners of all levels. From Spanish sounds to motivational tips, we have a lot to explore!</p>
 
@@ -250,7 +250,7 @@ export default function ModalPagoZELLE(props) {
 
           <p>Queremos informar que recebemos seu pagamento com sucesso. Obrigado por confiar em nós e por seu compromisso com o aprendizado do espanhol!</p>
 
-          <p>Estamos muito felizes por tê-lo conosco e queremos expressar nosso agradecimento por ter escolhido nosso pacote <b>"Dê uma olhada"</b>.</p>
+          <p>Estamos muito felizes por tê-lo conosco e queremos expressar nosso agradecimento por ter escolhido nosso pacote <b>"Echa un vistazo"</b>.</p>
 
           <p>Aqui estão todos os detalhes do que você adquiriu com sua compra:</p>
 
