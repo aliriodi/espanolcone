@@ -211,7 +211,7 @@ export default function Ofrece() {
           <p><b>Interactive Classes in the app</b>: On our platform, you'll find two interactive and explanatory didactic units for levels A1, A2, and B1, and we will continue adding content that you can enjoy during the promotional period. We are committed to providing you with quality content that helps you advance in your Spanish learning journey.</p>
           `:``
         }
-
+ 
         ${t("labelLanguage") == "Pt" ?
 
           // En Portugues
