@@ -49,6 +49,9 @@
   --warning: #FF7438;
   --warning-border_hover_bg:#FF743833;
 
+  /* Info */
+  --info: #FCC235;
+
   /* Orange*/
   --orange: #FF7438;
   
@@ -111,6 +114,31 @@ h3{
 .btn-disable{
   opacity: .5;
   pointer-events: none;
+}
+
+/* Fondos de niveles */
+.bg-A1{
+  background-color: var(--primary);
+}
+
+.bg-A2{
+  background: linear-gradient(var(--primary), var(--success));
+}
+
+.bg-B1{
+  background-color: var(--success);
+}
+
+.bg-B2{
+  background: linear-gradient(var(--success), var(--warning));
+}
+
+.bg-C1{
+  background-color: var(--warning);
+}
+
+.bg-C2{
+  background: linear-gradient(var(--warning), var(--info));
 }
 
 /* Titulo Subrayado */
