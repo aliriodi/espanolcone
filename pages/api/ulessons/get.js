@@ -9,9 +9,15 @@ import Ulesson from '../../../models/Ulessons'
 
 
 export default async function getAllUlesson(req, res) {
-  // const {
-  //   query: { formats, level, page, maxResults },
-  // } = req;
+  const {
+    query: { 
+      topics,
+      formats,
+      level,
+      page = 1,
+      maxResults = 10
+    },
+  } = req;
 
   try {
     console.log('CONNECTING TO MONGO DB');
@@ -24,7 +30,19 @@ export default async function getAllUlesson(req, res) {
 
     console.log('TAKING CLASS');
 
-    const ulessons = await Ulesson.find().exec();
+    // Crea un objeto para almacenar los criterios de búsqueda
+    const filter = {};
+
+    // Agrega los criterios de búsqueda si están presentes en los parámetros de consulta
+    if (topics) filter.topics = topics;
+    if (formats) filter.formats = { $in: formats.split(',') }; // Si formats es una lista separada por comas
+
+    if (level) filter.level = level;
+
+    // Realiza la búsqueda en la base de datos utilizando el esquema definido
+    const ulessons = await Ulesson.find(filter)
+      .limit(Number(maxResults)) // Limita el número de resultados devueltos
+      .skip((page - 1) * maxResults); // Paginación
 
     console.log('CLASS TAKEN');
     

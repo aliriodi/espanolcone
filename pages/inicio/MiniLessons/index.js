@@ -2,66 +2,213 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import BodyGeneric from "../../../components/GenericsElements/BodyGeneric";
 import Link from 'next/link';
+import Spinner from "../../../components/Spinner";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
 export default function MiniLessons() {
+  const [currentLevel, setCurrentLevel] = useState(null)
+  const [openLevel, setOpenLevel] = useState(false)
+
   const [miniLessons, setMiniLessons] = useState(null)
+  const [loadMiniLessons, setLoadMiniLessons] = useState(false)
   
   useEffect(()=>{
     getMiniLesson()
   },[])
 
   async function getMiniLesson(){
+    setLoadMiniLessons(true)
+
     let lessons;
     
     try{
-      lessons = await axios.get('/api/ulessons/get')
+      lessons = await axios.get(`/api/ulessons/get?level=${currentLevel ? currentLevel : ""}`)
+      setLoadMiniLessons(false)
     }
     catch(e){
       console.log(e)
+      setLoadMiniLessons(false)
     }
     console.log(lessons?.data?.ulessons)
 
     setMiniLessons(lessons?.data?.ulessons)
   }
 
+  useEffect(()=>{
+    getMiniLesson()
+  },[currentLevel])
+
   return (
     <BodyGeneric>
-      <div
-      className="grid grid-cols-3 gap-7 mt-[50px]
-      lg:grid-cols-2
-      md:grid-cols-1">
-        {
-          miniLessons &&
-          miniLessons?.map((lesson, index)=>
-            <Link
-            key={index}
-            href={`/inicio/MiniLessons/${lesson?._id}`}
-            className="min-w-[300px] h-[270px] bg-dark rounded-[14px] relative overflow-hidden shadow-[0px_4px_24px_#18292F1A] flex items-end
-            md:w-full">
-              
-              {/* Nivel */}
-              <p
-              className="text-[21px] font-semibold w-14 h-14 text-white flex justify-center items-center bg-primary absolute top-0 left-0 z-20 rounded-[0_0_100%_0] ">
-                {lesson?.level}</p>
+      
+      <div className="mt-[50px]">
 
-              <div
-              className="w-full bg-gradient-to-t from-[#000] to-transparent z-20 text-white p-4">
+        {/*////////////////// Filtros //////////////////*/}
+        <div className=" mb-3">
 
-                {/* Descripcion */}
-                <p className=" text-[31px] relative font-bold">{lesson?.description}</p>
+          {/* Filtrado por nivel */}
+          <div className="relative w-fit
+          md:w-full">
 
-                {/* Formatos */}
-                <p className="relative">{lesson?.formats}</p>
+            {/* Nivel actual */}
+            <label
+            onClick={()=> setOpenLevel(!openLevel)}
+            className={`
+            ${currentLevel ? `bg-${currentLevel} text-white` : "bg-white text-violet_dark"}
+            flex items-center text-[18px] px-6 py-4 w-fit rounded-[7px] cursor-pointer font-medium
+            md:w-full md:justify-between
+            `}>
 
-              </div>
+              <p className=" pr-3">
+                {
+                  currentLevel ?
+                  `Nivel ${currentLevel}`
+                  :
+                  "Todos los niveles"
+                }
+              </p>
 
-              {/* Imagen */}              
-              <img 
-              className="absolute w-full h-full object-cover bg-light z-10 top-0 left-0"
-              src={lesson?.image}/>
-            </Link>            
-          )
-        }
+              { 
+              openLevel ? 
+              <FontAwesomeIcon className="ml-3" icon={faAngleUp}/>
+              :
+              <FontAwesomeIcon className="ml-3" icon={faAngleDown}/>
+              }
+            </label>
+
+            {/* Niveles */}
+            {
+              openLevel &&
+              <ul
+              onClick={()=>setOpenLevel(false)}
+              className=" absolute flex flex-col w-full rounded-[7px] overflow-hidden bg-white shadow-[0px_4px_35px_#00000040] left-[50%] top-[90%] z-[60]
+              md:left-0">
+
+                {/* Todos */}
+                <li
+                onClick={()=>setCurrentLevel(null)}
+                className="bg- text-violet_dark text-[18px] px-10 py-3 font-medium cursor-pointer">
+                  Todos
+                </li>
+
+                {/* A1 */}
+                <li
+                onClick={()=>setCurrentLevel("A1")}
+                className="bg- text-violet_dark text-[18px] px-10 py-3 font-medium cursor-pointer">
+                  Nivel <b className=" text-primary">A1</b>
+                </li>
+
+                {/* A2 */}
+                <li
+                onClick={()=>setCurrentLevel("A2")}
+                className=" text-violet_dark text-[18px] px-10 py-3 font-medium cursor-pointer">
+                  Nivel <b className="bg-gradient-to-b from-primary to-success text-transparent bg-clip-text">A2</b>
+                </li>
+
+                {/* B1 */}
+                <li
+                onClick={()=>setCurrentLevel("B1")}
+                className=" text-violet_dark text-[18px] px-10 py-3 font-medium cursor-pointer">
+                  Nivel <b className="text-success">B1</b>
+                </li>
+
+                {/* B2 */}
+                <li
+                onClick={()=>setCurrentLevel("B2")}
+                className=" text-violet_dark text-[18px] px-10 py-3 font-medium cursor-pointer">
+                  Nivel <b className="bg-gradient-to-b from-success to-warning text-transparent bg-clip-text">B2</b>
+                </li>
+                
+                {/* C1 */}
+                <li
+                onClick={()=>setCurrentLevel("C1")}
+                className=" text-violet_dark text-[18px] px-10 py-3 font-medium cursor-pointer">
+                  Nivel <b className="text-warning">C1</b>
+                </li>
+                
+                {/* C2 */}
+                <li
+                onClick={()=>setCurrentLevel("C2")}
+                className=" text-violet_dark text-[18px] px-10 py-3 font-medium cursor-pointer">
+                  Nivel <b className="bg-gradient-to-b from-warning to-info text-transparent bg-clip-text">C2</b>
+                </li>
+                
+              </ul>
+            }
+
+          </div>
+
+        </div>
+
+        {/*////////////////// Mini Lesiones //////////////////*/}
+        <div
+        className="grid grid-cols-3 gap-7 relative
+        lg:grid-cols-2
+        md:grid-cols-1">
+
+          
+          {
+            miniLessons ?
+            <>
+              {
+                miniLessons?.length > 0 ?
+
+                // Encontro las Mini leciones
+                miniLessons?.map((lesson, index)=>
+                  <Link
+                  key={index}
+                  href={`/inicio/MiniLessons/${lesson?._id}`}
+                  className="min-w-[300px] h-[270px] bg-dark rounded-[14px] relative overflow-hidden shadow-[0px_4px_24px_#18292F1A] flex items-end
+                  md:w-full">
+                    
+                    {/* Nivel */}
+                    <p
+                    className={`text-[21px] font-semibold w-14 h-14 text-white flex justify-center items-center bg-${ lesson?.level } absolute top-0 left-0 z-20 rounded-[0_0_100%_0]`}>
+                      {lesson?.level}
+                    </p>
+
+                    <div
+                    className="w-full bg-gradient-to-t from-[#000] to-transparent z-20 text-white p-4">
+
+                      {/* Descripcion */}
+                      <p className=" text-[31px] relative font-bold">{lesson?.description}</p>
+
+                      {/* Formatos */}
+                      <p className="relative">{lesson?.formats}</p>
+
+                    </div>
+
+                    {/* Imagen */}              
+                    <img 
+                    className="absolute w-full h-full object-cover bg-light z-10 top-0 left-0"
+                    src={lesson?.image}/>
+                  </Link>            
+                )
+
+                :
+                // No encontro las Mini leciones
+                <div className=" absolute top-0 left-0 w-full my-[100px] font-semibold text-[18px] text-light flex justify-center items-center z-50">
+                  No se encontraron Minilesiones
+                </div>
+              }
+
+              {/* Cargador en caso de estar buscando leciones */}
+              {
+                loadMiniLessons &&
+                <div className={`w-full h-full bg-[#fff8] top-0 left-0 absolute flex justify-center items-center ${ miniLessons?.length <= 0  && "my-[100px]"} z-50`}>
+                  <Spinner/>
+                </div>
+              }
+            </>
+            :
+
+            // Cargador
+            <div className=" absolute top-0 left-0 flex justify-center items-center h-screen w-screen">
+              <Spinner/>
+            </div>
+          }
+        </div>
       </div>
     </BodyGeneric>
   )
