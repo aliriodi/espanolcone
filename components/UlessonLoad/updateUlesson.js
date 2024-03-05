@@ -24,7 +24,7 @@ introducirVariable('Por favor introduce el nombre del json, example: U1NA1.json:
   introducirVariable(' example: 65561111c0af4de4ff78f6cc :  ', async (id) => {
 
       console.log('Procedo a modificar');
-      await imprimir(  namefile='U1NA1.json',id='65ddd575cbb578d235a9cd8b')
+      await imprimir(  namefile='ULesson3NA1.json',id='65e6704401426b4933c2f537',image='https://res.cloudinary.com/dfddh08q8/image/upload/s--wkTOfdlh--/v1709601223/images/t31cz8luqlfctrcyu0su.png')
       // Cerrar la interfaz de lectura
       rl.close();
     });
@@ -57,6 +57,7 @@ console.log(nuevaclase.length)
                             'Content-Type': 'application/json'  // 'Content-Type': 'application/x-www-form-urlencoded',
                           },
                  body: JSON.stringify({_id:id,
+                                       image:image,
                                       // level:"Nivel A1",
                                       //  unit:"Unidad 6",
                                       //  description:'nivela2 del MVP con ejemplos de ppopppus2 1 2 3 4 5 6 alirio',

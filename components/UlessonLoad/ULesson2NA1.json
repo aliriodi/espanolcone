@@ -1,0 +1,162 @@
+{
+    "page1": {
+        "type": "text",
+        "section": {
+            "number":0,
+            "value":"Mis Metas"
+        },
+        "template": "https://res.cloudinary.com/dfddh08q8/image/upload/v1696113984/images/1_qywc8c.png",
+        "data": [
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366262/images/logo-primary_qoagkg.png",
+                "alt": "EspañolconE",
+                "className": "Portadaimg"
+            },
+            {
+                "type": "title",
+                "value": "EXTRANJEROS EN CÓRDOBA",
+                "className": "Portadatil"
+            },
+            {
+                "type": "paragraph",
+                "value": "NIVEL A2",
+                "className": "Portadalev"
+            }
+        ]
+    },
+    "page2": {
+        "type": "videoInteractivo",
+        "section": {
+            "number": 3,
+            "value": "Practiquemos"
+        },
+        "template": "mini-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Video interactivo",
+                "className": "subtitle-default"
+            },
+            {
+                "type": "text",
+                "value": "En Córdoba existen alrededor de 2700 estudiantes extranjeros provenientes de Brasil, E.E.U.U., Francia, Rusia, Colombia, Paraguay y otros países. A continuación se presenta un video con algunos de estos estudiantes contando algunas experiencias...",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "videoi-youtube",
+                "id": "CguXO_5okCY",
+                "value": "CguXO_5okCY",
+                "youtube": "https://youtu.be/CguXO_5okCY",
+                "popups": [
+                    {
+                        "time": 11,
+                        "title": "Mi nombre _______ Daniela Masías.",
+                        "reply": "es",
+                        "message": " (soy/es/está) ",
+                        "type": "checkbox",
+                        "options": [
+                            "soy",
+                            "es",
+                            "está"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value": 0
+                    },
+                    {
+                        "time": 56,
+                        "title": "Ella es Julia Coronatta y _______ 22 años.",
+                        "message": "Pienselo bien",
+                        "reply": "tiene",
+                        "type": "checkbox",
+                        "options": [
+                            "tiene",
+                            "lleva",
+                            "es"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value": 0
+                    },
+                    {
+                        "time": 83,
+                        "title": "Ella ______ de Alemania.",
+                        "message": "EL deporte es",
+                        "reply": "es",
+                        "type": "checkbox",
+                        "options": [
+                            "tiene",
+                            "es",
+                            "esta"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value": 0
+                    },
+                    {
+                        "time": 116,
+                        "title": "Yo _______ de Minneapolis Minesota.",
+                        "message": "Actividad 1",
+                        "reply": "vengo",
+                        "type": "checkbox",
+                        "options": [
+                            "vengo",
+                            "viene",
+                            "venir"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value": 0
+                    },
+                    {
+                        "time": 152,
+                        "title": "Susana López viene de México, de una ciudad pequeña que _________ Zamora.",
+                        "message": "Actividad 1",
+                        "reply": "se llama",
+                        "type": "checkbox",
+                        "options": [
+                            "es",
+                            "se llama",
+                            "esta"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value": 0
+                    },
+                    {
+                        "time": 193,
+                        "title": "Me _______ las ciudades pequeñas.",
+                        "message": "Actividad 1",
+                        "reply": "gustan",
+                        "type": "checkbox",
+                        "options": [
+                            "gusta",
+                            "gustar",
+                            "gustan"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value": 0
+                    },
+                    {
+                        "time": 218,
+                        "title": "Córdoba _____ una provincia preciosa.",
+                        "message": "Actividad 1",
+                        "reply": "es",
+                        "type": "checkbox",
+                        "options": [
+                            "está",
+                            "son",
+                            "es"
+                        ],
+                        "paddingLeft": "10%",
+                        "popUpShown": false,
+                        "value": 0
+                    }
+                ],
+                "className": "youtube"
+            }
+        ]
+    }
+}

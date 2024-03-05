@@ -97,7 +97,8 @@ async function imprimir(namefile, level, unit, description, tags,topics,formats)
         tags: tags,
         topics:topics,
         formats:formats,
-        sheets: nuevaclase
+        sheets: nuevaclase,
+        image:""
       })
 
       //mando por el body la nueva clase

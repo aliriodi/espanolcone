@@ -169,28 +169,8 @@
         ]
     },
     "page6": {
-        "type": "paragraph",
-        "section": {
-            "number": 2,
-            "value": "Aprendemos"
-        },
-        "template": "template-video-1",
-        "data": [
-            {
-                "type": "title",
-                "value": "Video explicativo",
-                "className": "title-white"
-            },
-            {
-                "type": "video-youtube",
-                "value": "y1zzz_9Znv0",
-                "youtuve": "https://youtu.be/y1zzz_9Znv0",
-                "className": "youtube"
-            }
-        ]
-    },
-    "page7": {
-        "type": "paragraph",
+
+        "type": "selectsimple",
         "section": {
             "number": 3,
             "value": "Practiquemos"
@@ -199,50 +179,58 @@
         "data": [
             {
                 "type": "title",
-                "value": "Observa las imágenes y arrastra hacia cada una la expresión",
+                "value": "Curiosidades de Córdoba.",
                 "className": "title-white"
             },
             {
-                "type": "dragable-box",
-                "value": {
-                    "DropUps": [
-                        {
-                            "type": "image",
-                            "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--v2laAfJK--/v1700437360/images/w7eb6ipq6dmfhaynkyke.png",
-                            "value": "Buenos días",
-                            "id": "DropUp1"
-                        },
-                        {
-                            "type": "image",
-                            "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--UEOoxZRg--/v1700438659/images/jywqvondmpyaxfuyjyb1.png",
-                            "value": "Buenas tardes",
-                            "id": "DropUp2"
-                        },
-                        {
-                            "type": "image",
-                            "src": "https://res.cloudinary.com/dfddh08q8/image/upload/s--mpwFxyia--/v1700438825/images/jfszrfkf3jr9fedch8hc.png",
-                            "value": "Buenas noches",
-                            "id": "DropUp3"
-                        }
-                    ],
-                    "DragBoxs": [
-                        {
-                            "value": "Buenas tardes",
-                            "id": "DragBox1"
-                        },
-                        {
-                            "value": "Buenas noches",
-                            "id": "DragBox2"
-                        },
-                        {
-                            "value": "Buenos días",
-                            "id": "DragBox3"
-                        }
-                    ]
-                },
-                "className": "dragable-box"
+                "type": "title",
+                "value": "<font color='black'>Selecciona la opción que consideras correcta para completar los espacios en blanco.</font>",
+                "className": "title-white"
+            },
+            {
+                "type": "paragraph",
+                "value": "Lee las siguientes afirmaciones y escoge la respuesta correcta",
+                "className": "paragraph-default-center"
+            },
+            
+            {
+                "type": "selectsimple",
+                "value": "<font color='sky blue'>1. </font><font color='black'>La provincia cordobesa fue fundada por Jerónimo Luis de Cabrera un _______________ de 1573</font>",
+                "option": "b. 6 de julio",
+                "options": [
+                    "a. 4 de marzo",
+                    "b. 6 de julio",
+                    "c. 14 de febrero"
+                ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<font color='sky blue'>2. </font><font color='black'>Córdoba capital es atravesada por un río llamado ______________</font>",
+                "option": "b. Suquía.",
+                "options": [
+                    "a. Orinoco.",
+                    "b. Suquía.",
+                    "c. Nilo."
+                ],
+                "className": "selector-simple"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<font color='sky blue'>3. </font><font color='black'>El río Suquía fue encauzado en la hermosa obra arquitectónica llamada ________________</font>",
+                "option": "a. La Cañada.",
+                "options": [
+                    "a. La Cañada.",
+                    "b. Puente Real.",
+                    "c. Río Suquía."
+                ],
+                "className": "selector-simple"
             }
         ]
+        
+    },
+    "page7": {
+        
     },
     "page8": {
         "type": "paragraph-complete",
