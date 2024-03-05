@@ -1,0 +1,104 @@
+{
+    "page1": {
+    },
+    "page2": {
+        "type": "videoInteractivo",
+        "section": {
+            "number": 3,
+            "value": "Practiquemos"
+        },
+        "template": "mini-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "Funcionamiento de una balanza electrónica",
+                "className": "subtitle-default"
+            },
+            {
+                "type": "text",
+                "value": "Observa el video y puedes anotar en una hoja los puntos que consideres importantes o intentar retenerlos para completar luego el párrafo mostrado después del video.",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value":"<iframe width=\"40\" height=\"100\" src=\"https://www.youtube.com/embed/BvfmVI3zg48\" title=\"Balanza, bascula de SIPEL\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>",
+                "youtuve": "https://www.youtube.com/watch?v=BvfmVI3zg48",
+                "className": "youtube"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "<br>Una galga extensiometrica o extensómetro es un sensor, para medir la ",
+                    {
+                        "block": 12,
+                        "color": "orange",
+                        "option": "deformación"
+                    },
+                    "(deforme) ",
+                    {
+                        "block": 7,
+                        "color": "orange",
+                        "option": "somos"
+                    },
+                    "(ser) cordobeses, y amamos los perros. Vivimos en las sierras de Córdoba porque",
+                    {
+                        "block": 12,
+                        "color": "orange",
+                        "option": "preferimos"
+                    },
+                    "(preferir) el interior de la provincia."
+                ],
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph-complete",
+                "value": [
+                    "<br>Todos los fines de semana, después de bañarme,",
+                    {
+                        "block": 9,
+                        "color": "orange",
+                        "option": "salimos"
+                    },
+                    "(salir) a dar un paseo con mis perros. Mi esposa les",
+                    {
+                        "block": 6,
+                        "color": "orange",
+                        "option": "pone"
+                    },
+                    "(poner) la correa mientras yo",
+                    {
+                        "block": 8,
+                        "color": "orange",
+                        "option": "traigo"
+                    },
+                    "(traer) sus galletitas y termos con agua. Cuando regresamos de pasear, yo me",
+                    {
+                        "block": 6,
+                        "color": "orange",
+                        "option": "pongo"
+                    },
+                    "(poner) ropa limpia y",
+                    {
+                        "block": 6,
+                        "color": "orange",
+                        "option": "hago"
+                    },
+                    " (hacer) el desayuno. Antes de tomar una siesta, yo",
+                    {
+                        "block": 8,
+                        "color": "orange",
+                        "option": "dispongo"
+                    },
+                    " (disponer) un espacio para los perros en nuestro cuarto. Porque sino ellos",
+                    {
+                        "block": 11,
+                        "color": "orange",
+                        "option": "destruyen"
+                    },
+                    " (destruir) toda la casa mientras Romi y yo dormimos."
+                ],"className":"paragraph-default"
+            }
+                
+        ]
+    }
+}
