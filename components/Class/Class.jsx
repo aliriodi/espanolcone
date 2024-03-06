@@ -65,12 +65,13 @@ export default function Class(props) {
   const opts = {
     playerVars: {
       rel: 0, // Evitar videos relacionados al final
-      autoplay: 1, // Desactivar la reproducción automática
+      autoplay: 0, // Desactivar la reproducción automática
       modestbranding: 1, // Ocultar el logotipo de YouTube
       fs: 1, // Oculto el boton de maximizar video fs FullScreen
       color: "#000"
     }
   }
+  useEffect(()=> console.log("///////////////////////////",opts,"///////////////////////////"),[opts])
 
   // Tests
   const [isTest, setIsTest] = useState(false)
@@ -960,7 +961,7 @@ export default function Class(props) {
                     
                     {/* Video Youtube */}
                     {c.type === 'video-youtube' &&
-                    <div className={`${style[c.className]} ${style[c.classNamePlus]} youtube ${c.classExtra}`}> <YouTube key={index} style={c.style}  ref={iframeRef} opts={opts} videoId={c.value} className='youtube' /> </div>}
+                    <div className={`${style[c.className]} ${style[c.classNamePlus]} youtube ${c.classExtra}`}> <YouTube key={index} style={c.style}  ref={iframeRef} videoId={c.value} className='youtube' /> </div>}
                     
                     {/* Video Youtube con PopUps */}
                     {c.type === 'videoi-youtube' &&
