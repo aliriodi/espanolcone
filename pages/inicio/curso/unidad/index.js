@@ -88,17 +88,15 @@ export default function Unidad(){
     async function setSection(section){
         // Esta Funcion Busca la clase actual y asigna 
         // la section correspondiente en el redux 
-
         await fetch(`/api/class/${classId}`)
         .then((response) => response.json())
         .then((json) =>{
-
+            
             let sheets = json.class1.sheets; 
-
+            
             for(let i = 0;i < sheets.length; i++){
-
-                if(sheets[i]?.section.number == section){
-
+                
+                if(sheets[i]?.section?.number == section){
                     session &&
                     classId &&
                     section == 5 &&

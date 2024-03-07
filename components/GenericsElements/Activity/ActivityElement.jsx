@@ -6,7 +6,7 @@ import YoutubePopup from '../../youtubePopup/youtubePopup';
 import DragablesBox from '../../Class/DragableBox/DragablesBox';
 import Selectsimple from '../../Class/Selectsimple';
 import Paragragraphcomplete from '../../Class/paragragraphcomplete';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useSession } from 'next-auth/react';
 
 export default function ActivityElement({ date, index }) {
@@ -15,6 +15,19 @@ export default function ActivityElement({ date, index }) {
     
     // listado de actividades que estan en la hoja
     const [typeActivitys, setTypeActivitys] = useState([]) 
+
+    // Opciones de Youtube
+    const iframeRef = useRef(null);
+
+    const opts = {
+        playerVars: {
+          rel: 0, // Evitar videos relacionados al final
+          autoplay: 0, // Desactivar la reproducción automática
+          modestbranding: 1, // Ocultar el logotipo de YouTube
+          fs: 1, // Oculto el boton de maximizar video fs FullScreen
+          color: "#000"
+        }
+    }
 
     function handleChangeActivityDone(id, value, amountDone){
         // Esta funcion se encarga de cambiar el valor "done" de la actividad espesificada por "id",
@@ -109,7 +122,7 @@ export default function ActivityElement({ date, index }) {
                 <Table
                 key={index}
                 style={date.style}
-                color={ c?.color }
+                color={date?.color}
                 value={date.value}/>
             }
 
@@ -171,8 +184,8 @@ export default function ActivityElement({ date, index }) {
                 // done={sheetsState[i]?.done}
                 key={index}
                 style={date.style}
-                allowFollow={allowFollow}
-                containerPosition={c?.containerPosition}
+                allowFollow={()=>{}}
+                containerPosition={date?.containerPosition}
                 options={date.value}
                 id={index}
                 onChangeActivityDone={handleChangeActivityDone}
