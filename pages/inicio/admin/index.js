@@ -8,6 +8,8 @@ import { useSession } from "next-auth/react";
 import { useRouter } from 'next/router';
 import NavBarAdmin from "../../../components/admin/NavBarAdmin"
 import axios from "axios"
+import BodyGeneric from "../../../components/GenericsElements/BodyGeneric"
+import AdminPage from "../../../components/GenericsElements/Admin/AdminPage"
 
 export default function Admin() {
     const [currentUsers, setCurrentUsers] = useState(null)
@@ -22,17 +24,11 @@ export default function Admin() {
 
     const [searchInput, setSearchInput] = useState("")
 
-    const { data: session, status } = useSession();
-
     const router = useRouter();
 
     useEffect(() => {
         if (!currentUsers) getAllUsers()
     }, [])
-
-    useEffect(() => {
-        if (status && status != "loading" && !session?.user?.role?.includes('admin')) window.location.href = "/inicio/home";
-    }, [status])
 
     useEffect(() => {
         window.scrollTo({ top: 0 });
@@ -258,134 +254,139 @@ export default function Admin() {
 
     return (
         <>
-            <Menu />
+            <BodyGeneric>
 
-            <div className="px-[60px] py-[119px]    md:px-[25px]">
+                <AdminPage>
 
-                {/* Opciones */}
-                <NavBarAdmin/>
-                    
-                {/* Contador de Usuarios */}
-                {
-                    currentUsers?.length > 0 &&
-                    <p className=" text-light my-2">
-                        {
-                            totalUsersResult > 1 ?
-                                `Se encontraron ${totalUsersResult} usuarios`
-                                :
-                                `Se encontro ${totalUsersResult} usuario`
-                        }
-                    </p>
-                }
+                    {/* Opciones */}
+                    <NavBarAdmin/>
+                        
+                    {/* Contador de Usuarios */}
+                    {
+                        currentUsers?.length > 0 &&
+                        <p className=" text-light my-2">
+                            {
+                                totalUsersResult > 1 ?
+                                    `Se encontraron ${totalUsersResult} usuarios`
+                                    :
+                                    `Se encontro ${totalUsersResult} usuario`
+                            }
+                        </p>
+                    }
 
-                {/* Usuarios */}
-                <div className="bg-white rounded-[7px] shadow-[0px_4px_24px_#0000000F] text-violet_dark">
+                    {/* Usuarios */}
+                    <div className="bg-white rounded-[7px] shadow-[0px_4px_24px_#0000000F] text-violet_dark">
 
-                    {/* Titulo */}
-                    <p className="text-[18px] text-title_color font-medium border-b-2 pb-[25px] pt-[26px] px-[35px]">Administracion de usuarios</p>
-                    
-                    {/* Barra de busqueda */}
-                    <div className="w-[400px] flex justify-center bg-white rounded-[7px] p-1 border-2 my-[20px] mx-[25px] relative">
+                        {/* Titulo */}
+                        <p className="text-[18px] text-title_color font-medium border-b-2 pb-[25px] pt-[26px] px-[35px]">Administracion de usuarios</p>
+                        
+                        {/* Barra de busqueda */}
+                        <div className="w-[400px] flex justify-center bg-white rounded-[7px] p-1 border-2 my-[20px] mx-[25px] relative">
 
-                        {/* Input */}
-                        <input
-                            className=" flex-grow-[1] outline-none"
-                            placeholder='Busca por "Nombre", "Apellido" o "Email"'
-                            onChange={(e) => setSearchInput(e.target.value)}
-                            type="text" />
+                            {/* Input */}
+                            <input
+                                className=" flex-grow-[1] outline-none"
+                                placeholder='Busca por "Nombre", "Apellido" o "Email"'
+                                onChange={(e) => setSearchInput(e.target.value)}
+                                type="text" />
 
-                        {/* Icono */}
-                        <div className=" w-6">
-                            <FontAwesomeIcon className=" text-violet_dark" icon={faMagnifyingGlass} />
+                            {/* Icono */}
+                            <div className=" w-6">
+                                <FontAwesomeIcon className=" text-violet_dark" icon={faMagnifyingGlass} />
+                            </div>
                         </div>
+
+                        {/* Encabezado */}
+                        <ul className="bg-[#F3F2F7] w-full flex py-[19px] px-[35px] font-semibold justify-between">
+
+                            {/* Nombre y apellido */}
+                            <li className="w-[220px]">
+                                NOMBRE Y APELLIDO
+                            </li>
+
+                            {/* Email */}
+                            <li className="w-[220px]">
+                                EMAIL
+                            </li>
+
+                            {/* rol */}
+                            <li className="w-[120px]">
+                                ROL
+                            </li>
+
+                            {/* Filter */}
+                            <li>
+                                <FontAwesomeIcon icon={faFilter} />
+                            </li>
+                        </ul>
+
+                        {/* Listado de Usuarios */}
+                        <ul className="relative min-h-[500px]">
+                            {
+                                currentUsers?.length > 0 ?
+
+                                    // Usuarios
+                                    currentUsers?.map((user, index) =>
+                                        <MenuUsers loading={isLoading} key={index} user={user} validZeller={validZeller} InvalidZeller={InvalidZeller} updateUser={updateUser} />
+                                    )
+                                    :
+
+                                    // No se Encontraron usuarios
+                                    !isLoading &&
+                                    <div className="h-full w-full justify-center items-center flex absolute top-0 left-0 text-light text-[18px]">
+                                        No se encontraron usuarios
+                                    </div>
+                            }
+
+                            {/* Loader */}
+                            {
+                                isLoading &&
+                                <div className="bg-[#fff7] top-0 left-0 w-full h-full absolute flex justify-center items-center">
+                                    <Spinner />
+                                </div>
+                            }
+                        </ul>
+
                     </div>
 
-                    {/* Encabezado */}
-                    <ul className="bg-[#F3F2F7] w-full flex py-[19px] px-[35px] font-semibold justify-between">
-
-                        {/* Nombre y apellido */}
-                        <li className="w-[220px]">
-                            NOMBRE Y APELLIDO
-                        </li>
-
-                        {/* Email */}
-                        <li className="w-[220px]">
-                            EMAIL
-                        </li>
-
-                        {/* rol */}
-                        <li className="w-[120px]">
-                            ROL
-                        </li>
-
-                        {/* Filter */}
-                        <li>
-                            <FontAwesomeIcon icon={faFilter} />
-                        </li>
-                    </ul>
-
-                    {/* Listado de Usuarios */}
-                    <ul className="relative min-h-[500px]">
+                    {/* Botones Paginado */}
+                    <div className="flex justify-between mt-3">
+                        {/* previo */}
                         {
-                            currentUsers?.length > 0 ?
-
-                                // Usuarios
-                                currentUsers?.map((user, index) =>
-                                    <MenuUsers loading={isLoading} key={index} user={user} validZeller={validZeller} InvalidZeller={InvalidZeller} updateUser={updateUser} />
-                                )
+                            currentPage > 1 ?
+                                <button
+                                    onClick={prevPage}
+                                    className=" w-[42px] h-[42px] flex justify-center items-center bg-white rounded-full text-violet_dark shadow-[0px_4px_24px_#0000002F] font-semibold transition-all
+                            hover:bg-[#F3F2F7]">
+                                    <FontAwesomeIcon icon={faAngleLeft} />
+                                </button>
                                 :
-
-                                // No se Encontraron usuarios
-                                !isLoading &&
-                                <div className="h-full w-full justify-center items-center flex absolute top-0 left-0 text-light text-[18px]">
-                                    No se encontraron usuarios
-                                </div>
+                                <span className="flex w-[42px] h-[42px]"></span>
                         }
 
-                        {/* Loader */}
+                        {/* Pagina Actual */}
+                        <p className=" w-[42px] h-[42px] bg-primary text-white flex justify-center items-center rounded-full font-semibold">{currentPage}</p>
+
+                        {/* Siguiente */}
                         {
-                            isLoading &&
-                            <div className="bg-[#fff7] top-0 left-0 w-full h-full absolute flex justify-center items-center">
-                                <Spinner />
-                            </div>
+                            (maxResults * currentPage + 1) < totalUsersResult ?
+                                <button
+                                    onClick={nextPage}
+                                    className=" w-[42px] h-[42px] flex justify-center items-center bg-white rounded-full text-violet_dark shadow-[0px_4px_24px_#0000002F] font-semibold transition-all
+                            hover:bg-[#F3F2F7]">
+                                    <FontAwesomeIcon icon={faAngleRight} />
+                                </button>
+                                :
+                                <span className="flex w-[42px] h-[42px]"></span>
                         }
-                    </ul>
 
-                </div>
+                    </div>
 
-                {/* Botones Paginado */}
-                <div className="flex justify-between mt-3">
-                    {/* previo */}
-                    {
-                        currentPage > 1 ?
-                            <button
-                                onClick={prevPage}
-                                className=" w-[42px] h-[42px] flex justify-center items-center bg-white rounded-full text-violet_dark shadow-[0px_4px_24px_#0000002F] font-semibold transition-all
-                        hover:bg-[#F3F2F7]">
-                                <FontAwesomeIcon icon={faAngleLeft} />
-                            </button>
-                            :
-                            <span className="flex w-[42px] h-[42px]"></span>
-                    }
+                </AdminPage>
 
-                    {/* Pagina Actual */}
-                    <p className=" w-[42px] h-[42px] bg-primary text-white flex justify-center items-center rounded-full font-semibold">{currentPage}</p>
 
-                    {/* Siguiente */}
-                    {
-                        (maxResults * currentPage + 1) < totalUsersResult ?
-                            <button
-                                onClick={nextPage}
-                                className=" w-[42px] h-[42px] flex justify-center items-center bg-white rounded-full text-violet_dark shadow-[0px_4px_24px_#0000002F] font-semibold transition-all
-                        hover:bg-[#F3F2F7]">
-                                <FontAwesomeIcon icon={faAngleRight} />
-                            </button>
-                            :
-                            <span className="flex w-[42px] h-[42px]"></span>
-                    }
+            </BodyGeneric>
 
-                </div>
-            </div>
         </>
     )
 }

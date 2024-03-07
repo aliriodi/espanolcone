@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import Menu from "../../../components/Menu";
-import NavBarAdmin from "../../../components/admin/NavBarAdmin";
+import Menu from "../../../../components/Menu";
+import NavBarAdmin from "../../../../components/admin/NavBarAdmin";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
