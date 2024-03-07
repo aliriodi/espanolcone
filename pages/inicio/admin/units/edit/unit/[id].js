@@ -61,10 +61,10 @@ export default function LoadUnit() {
         setLoadUpdate(true)
 
         try{
+            await axios.post(`/api/class/update`, newClass)
+            
             setLoadUpdate(false)
-            axios.post(`/api/class/update`, newClass)
-
-            alert("clase actualizada correctamente")
+            // alert("clase actualizada correctamente")
         }
         catch(e){
             setLoadUpdate(false)
