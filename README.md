@@ -1,6 +1,6 @@
 Este es un proyecto de una academia de nombre Español con E 
 Usamos como BD mongo db
-
+facebook pixel = 1143667253742120
 https://espanolcone.com
 
 Usamos cloudynari para cargar archivos tipo imagenes en: 
