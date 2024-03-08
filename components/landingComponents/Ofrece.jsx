@@ -703,8 +703,14 @@ export default function Ofrece() {
                 id={'boton25usd'}
                 className="w-[255px] bg-primary rounded-full text-white py-[13px] absolute bottom-[29px] left-[50%] translate-x-[-50%] transition-all text-[20px]
                 hover:shadow-[0px_4px_14px_0px_#4ED5F2]"
-                onClick={() => { setPayModal(true); setPaypalDates({ qty: 1, cost: 25, descripion: "1claseIndividual 1masterclass 1claseengrupo 3unidadesporNivel" }); }}>
+                onClick={() => {fbq('track', 'InitiateCheckout', {
+                  value: 25,
+                  currency: 'usd',
+                }); setPayModal(true); setPaypalDates({ qty: 1, cost: 25, descripion: "1claseIndividual 1masterclass 1claseengrupo 3unidadesporNivel" }); }}>
                 {t("card42.1.button")}
+                <script>
+  
+</script>
                 {/* para habilitar el pago de 1era CARD 25usd */}
               </button>
             {/* Boton Modal de pagos ofertas */}
