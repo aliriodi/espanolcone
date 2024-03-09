@@ -839,7 +839,7 @@ export default function Class(props) {
               </div>
 
               
-              {/* Boton de Empezemos */}
+              {/* Boton de Empecemos */}
               {
                 sheetsOfSection &&  data?.sheets[0] == sheetsOfSection[i]  &&
                 <animated.button
@@ -848,7 +848,7 @@ export default function Class(props) {
                 hover:shadow-[0px_4px_26px] hover:shadow-success
                 md:w-[90%] md:text-[21px]'
                 onClick={() => Forward(i)}>
-                  ¡Empezemos! 
+                  ¡Empecemos! 
                   <ChevronRightIcon className="ml-5 w-[28px] h-[28px]" aria-hidden="true" />
                 </animated.button>
               }
