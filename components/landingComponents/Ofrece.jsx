@@ -31,6 +31,15 @@ export default function Ofrece() {
   const [alertSuccess, setAlertSuccess] = useState(false)
   const [alertNewUser, setAlertNewUser] = useState(false)
 
+  useEffect(() => {
+    const boton = document.getElementById('boton25usd');
+    if (boton) {
+      boton.addEventListener('click', function() {
+        console.log('Facebook pixel activado');
+      });
+    }
+  }, []);
+
   useEffect(()=>{
     setAlertNewUser(false)
     setAlertSuccess(false)
@@ -711,10 +720,7 @@ export default function Ofrece() {
 
                 setPayModal(true); setPaypalDates({ qty: 1, cost: 25, descripion: "1claseIndividual 1masterclass 1claseengrupo 3unidadesporNivel" }); }}>
                 {t("card42.1.button")}
-                <script type="text/javascript">
-{document.getElementById('boton25usd').addEventListener('click', function() {
-console.log('Facebook pixel activado');}, false)}
-</script>
+              
                 {/* para habilitar el pago de 1era CARD 25usd */}
               </button>
             {/* Boton Modal de pagos ofertas */}
