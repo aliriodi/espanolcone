@@ -207,9 +207,10 @@ export default function MiniLessons() {
                 </li>
 
                 {
-                  optionsFormats?.map((format)=>
+                  optionsFormats?.map((format, index)=>
                     
                     <li
+                    key={index}
                     onClick={()=>setCurrentFormat(format)}
                     className="text-violet_dark text-[18px] py-3 font-medium text-center cursor-pointer transition-all
                     hover:bg-primary_flat_hover">
@@ -269,9 +270,10 @@ export default function MiniLessons() {
                 </li>
 
                 {
-                  optionsTopics?.map((format)=>
+                  optionsTopics?.map((format, index)=>
                     
                     <li
+                    key={index}
                     onClick={()=>setCurrentTopic(format)}
                     className="text-violet_dark text-[18px] py-3 font-medium text-center cursor-pointer transition-all
                     hover:bg-primary_flat_hover">
