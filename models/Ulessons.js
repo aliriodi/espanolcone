@@ -10,7 +10,8 @@ const UlessonSchema = new Schema(
       type: String,
     },
     formats: {
-      type: [String],
+      type: ["articulo", "libro", "leccion", "video", "letra", "podcast"],
+      default: "articulo",
     },
     description: {
       type: String,

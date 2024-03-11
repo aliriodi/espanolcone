@@ -7,11 +7,25 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
 export default function MiniLessons() {
+  const [miniLessons, setMiniLessons] = useState(null)
+  const [loadMiniLessons, setLoadMiniLessons] = useState(false)
+  
+  ///// Filtrado
+
+  // Nivel
   const [currentLevel, setCurrentLevel] = useState(null)
   const [openLevel, setOpenLevel] = useState(false)
 
-  const [miniLessons, setMiniLessons] = useState(null)
-  const [loadMiniLessons, setLoadMiniLessons] = useState(false)
+  // Formato
+  const [currentFormat, setCurrentFormat] = useState(null)
+  const [optionsFormats, setOptionsFormats] = useState(["articulo", "libro", "leccion", "video", "letra", "podcast"])
+  const [openFormat, setOpenFormat] = useState(null) 
+
+  // Topico
+  const [currentTopic, setCurrentTopic] = useState(null)
+  const [optionsTopics, setOptionsTopics] = useState(["teoria", "ciencia", "tecnología", "entretenimiento", "negocio", "español básico"])
+  const [openTopic, setOpenTopic] = useState(null) 
+  
   
   useEffect(()=>{
     getMiniLesson()
@@ -23,21 +37,22 @@ export default function MiniLessons() {
     let lessons;
     
     try{
-      lessons = await axios.get(`/api/ulessons/get?level=${currentLevel ? currentLevel : ""}`)
+      
+      lessons = await axios.get(`/api/ulessons/get?level=${currentLevel ? currentLevel : ""}&formats=${currentFormat ? currentFormat : ""}`)
+      // console.log( lessons?.data?.formats )
       setLoadMiniLessons(false)
     }
     catch(e){
       console.log(e)
       setLoadMiniLessons(false)
     }
-    console.log(lessons?.data?.ulessons)
 
     setMiniLessons(lessons?.data?.ulessons)
   }
 
   useEffect(()=>{
     getMiniLesson()
-  },[currentLevel])
+  },[currentLevel, currentFormat])
 
   return (
     <BodyGeneric>
@@ -45,18 +60,19 @@ export default function MiniLessons() {
       <div className="mt-[50px]">
 
         {/*////////////////// Filtros //////////////////*/}
-        <div className=" mb-3">
+        <div className=" mb-3 flex
+        md:flex-col">
 
-          {/* Filtrado por nivel */}
-          <div className="relative w-fit
-          md:w-full">
+          {/* Filtrado por Nivel */}
+          <div className="relative mr-1 w-fit
+          md:w-full md:my-1">
 
             {/* Nivel actual */}
             <label
             onClick={()=> setOpenLevel(!openLevel)}
             className={`
             ${currentLevel ? `bg-${currentLevel} text-white` : "bg-white text-violet_dark"}
-            flex items-center text-[18px] px-6 py-4 w-fit rounded-[7px] cursor-pointer font-medium
+            flex items-center text-[18px] px-6 py-4 w-fit rounded-[7px] cursor-pointer font-medium shadow-[0px_4px_24px_#18292F1A]
             md:w-full md:justify-between
             `}>
 
@@ -65,7 +81,7 @@ export default function MiniLessons() {
                   currentLevel ?
                   `Nivel ${currentLevel}`
                   :
-                  "Todos los niveles"
+                  <>Todos los <b>niveles</b></>
                 }
               </p>
 
@@ -88,51 +104,182 @@ export default function MiniLessons() {
                 {/* Todos */}
                 <li
                 onClick={()=>setCurrentLevel(null)}
-                className="bg- text-violet_dark text-[18px] px-10 py-3 font-medium cursor-pointer">
+                className="bg- text-violet_dark text-[18px] px-10 py-3 font-medium cursor-pointer transition-all
+                hover:bg-primary_flat_hover">
                   Todos
                 </li>
 
                 {/* A1 */}
                 <li
                 onClick={()=>setCurrentLevel("A1")}
-                className="bg- text-violet_dark text-[18px] px-10 py-3 font-medium cursor-pointer">
+                className="bg- text-violet_dark text-[18px] px-10 py-3 font-medium cursor-pointer transition-all
+                hover:bg-primary_flat_hover">
                   Nivel <b className=" text-primary">A1</b>
                 </li>
 
                 {/* A2 */}
                 <li
                 onClick={()=>setCurrentLevel("A2")}
-                className=" text-violet_dark text-[18px] px-10 py-3 font-medium cursor-pointer">
+                className=" text-violet_dark text-[18px] px-10 py-3 font-medium cursor-pointer transition-all
+                hover:bg-primary_flat_hover">
                   Nivel <b className="bg-gradient-to-b from-primary to-success text-transparent bg-clip-text">A2</b>
                 </li>
 
                 {/* B1 */}
                 <li
                 onClick={()=>setCurrentLevel("B1")}
-                className=" text-violet_dark text-[18px] px-10 py-3 font-medium cursor-pointer">
+                className=" text-violet_dark text-[18px] px-10 py-3 font-medium cursor-pointer transition-all
+                hover:bg-primary_flat_hover">
                   Nivel <b className="text-success">B1</b>
                 </li>
 
                 {/* B2 */}
                 <li
                 onClick={()=>setCurrentLevel("B2")}
-                className=" text-violet_dark text-[18px] px-10 py-3 font-medium cursor-pointer">
+                className=" text-violet_dark text-[18px] px-10 py-3 font-medium cursor-pointer transition-all
+                hover:bg-primary_flat_hover">
                   Nivel <b className="bg-gradient-to-b from-success to-warning text-transparent bg-clip-text">B2</b>
                 </li>
                 
                 {/* C1 */}
                 <li
                 onClick={()=>setCurrentLevel("C1")}
-                className=" text-violet_dark text-[18px] px-10 py-3 font-medium cursor-pointer">
+                className=" text-violet_dark text-[18px] px-10 py-3 font-medium cursor-pointer transition-all
+                hover:bg-primary_flat_hover">
                   Nivel <b className="text-warning">C1</b>
                 </li>
                 
                 {/* C2 */}
                 <li
                 onClick={()=>setCurrentLevel("C2")}
-                className=" text-violet_dark text-[18px] px-10 py-3 font-medium cursor-pointer">
+                className=" text-violet_dark text-[18px] px-10 py-3 font-medium cursor-pointer transition-all
+                hover:bg-primary_flat_hover">
                   Nivel <b className="bg-gradient-to-b from-warning to-info text-transparent bg-clip-text">C2</b>
                 </li>
+                
+              </ul>
+            }
+
+          </div>
+          
+          {/* Filtrado por Formato */}
+          <div className="relative mx-1 w-fit
+          md:w-full md:m-0 md:my-1">
+
+            {/* Formato actual */}
+            <label
+            onClick={()=> setOpenFormat(!openFormat)}
+            className={`bg-white text-violet_dark flex items-center text-[18px] px-6 py-4 w-fit rounded-[7px] cursor-pointer font-medium shadow-[0px_4px_24px_#18292F1A]
+            md:w-full md:justify-between
+            `}>
+
+              <p className=" pr-3">
+                {
+                  currentFormat ?
+                  <>Formato: <b>{currentFormat}</b></>
+                  :
+                  <>Todos los <b>formatos</b></>
+                }
+              </p>
+
+              { 
+              openFormat ? 
+              <FontAwesomeIcon className="ml-3" icon={faAngleUp}/>
+              :
+              <FontAwesomeIcon className="ml-3" icon={faAngleDown}/>
+              }
+            </label>
+
+            {/* Formatos */}
+            {
+              openFormat &&
+              <ul
+              onClick={()=>setOpenFormat(false)}
+              className=" absolute flex flex-col w-full min-w-[150px] rounded-[7px] overflow-hidden bg-white shadow-[0px_4px_35px_#00000040] left-[50%] top-[90%] z-[60]
+              md:left-0">
+
+                {/* Todos */}
+                <li
+                onClick={()=>setCurrentFormat(null)}
+                className="text-violet_dark text-[18px] py-3 font-medium text-center cursor-pointer transition-all
+                hover:bg-primary_flat_hover">
+                  Todos
+                </li>
+
+                {
+                  optionsFormats?.map((format)=>
+                    
+                    <li
+                    onClick={()=>setCurrentFormat(format)}
+                    className="text-violet_dark text-[18px] py-3 font-medium text-center cursor-pointer transition-all
+                    hover:bg-primary_flat_hover">
+                      {format}
+                    </li>
+
+                  )
+                }
+                
+              </ul>
+            }
+
+          </div>
+          
+          {/* Filtrado por Topico */}
+          <div className="relative mx-1 w-fit
+          md:w-full md:m-0 md:my-1">
+
+            {/* Topico actual */}
+            <label
+            onClick={()=> setOpenTopic(!openTopic)}
+            className={`bg-white text-violet_dark flex items-center text-[18px] px-6 py-4 w-fit rounded-[7px] cursor-pointer font-medium shadow-[0px_4px_24px_#18292F1A]
+            md:w-full md:justify-between
+            `}>
+
+              <p className=" pr-3">
+                {
+                  currentTopic ?
+                  <>Topico: <b>{currentTopic}</b></>
+                  :
+                  <>Todos los <b>topicos</b></>
+                }
+              </p>
+
+              { 
+              openTopic ? 
+              <FontAwesomeIcon className="ml-3" icon={faAngleUp}/>
+              :
+              <FontAwesomeIcon className="ml-3" icon={faAngleDown}/>
+              }
+            </label>
+
+            {/* Topicos */}
+            {
+              openTopic &&
+              <ul
+              onClick={()=>setOpenTopic(false)}
+              className=" absolute flex flex-col w-full min-w-[150px] rounded-[7px] overflow-hidden bg-white shadow-[0px_4px_35px_#00000040] left-[50%] top-[90%] z-[60]
+              md:left-0">
+
+                {/* Todos */}
+                <li
+                onClick={()=>setCurrentTopic(null)}
+                className="text-violet_dark text-[18px] py-3 font-medium text-center cursor-pointer transition-all
+                hover:bg-primary_flat_hover">
+                  Todos
+                </li>
+
+                {
+                  optionsTopics?.map((format)=>
+                    
+                    <li
+                    onClick={()=>setCurrentTopic(format)}
+                    className="text-violet_dark text-[18px] py-3 font-medium text-center cursor-pointer transition-all
+                    hover:bg-primary_flat_hover">
+                      {format}
+                    </li>
+
+                  )
+                }
                 
               </ul>
             }
@@ -175,7 +322,7 @@ export default function MiniLessons() {
                       <p className=" text-[31px] relative font-bold">{lesson?.description}</p>
 
                       {/* Formatos */}
-                      <p className="relative">{lesson?.formats}</p>
+                      <p className="relative">{lesson?.formats} | {lesson?.topics}</p>
 
                     </div>
 
