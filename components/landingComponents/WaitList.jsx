@@ -58,6 +58,7 @@ export default function WaitList(){
 
                     {/* Boton */}
                     <button
+                    id={'UneteListaEspera'}
                     className="min-w-[255px] px-[20px] bg-primary rounded-full text-white py-[13px] transition-all text-[20px] mt-[35px]
                     hover:shadow-[0px_4px_14px_0px_#4ED5F2]" onClick={() => setList(!List)}>
                         {t("card43Button")}

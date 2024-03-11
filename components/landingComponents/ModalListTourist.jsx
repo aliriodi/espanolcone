@@ -157,7 +157,7 @@ export default function ModalListTourist(props) {
                     
 
                     {/* Anotate en la lista */}
-                    <div id={'UneteListaEspera'} className=' font-semibold text-[24px] text-[#4F4F4F] text-center mb-[25px]
+                    <div  className=' font-semibold text-[24px] text-[#4F4F4F] text-center mb-[25px]
                     md:text-[21px]'>
 
                       {t("card4.2.trip")}  
