@@ -14,24 +14,7 @@ import { useEffect } from 'react';
 
 function App({ Component, pageProps }) {
   const router = useRouter()
-
-  //Google Tag Manager GTM
-
-  useEffect(() => {
-
-    const handleRouteChange = (url) => {
-      // Registra un evento de visualización de página en cada cambio de ruta
-      (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-K4B69KPW');
-    };
-    handleRouteChange;
-    router.events.on('routeChangeComplete', handleRouteChange);
-
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange);
-    };
-  }, []);
-  //fin GTM
-
+  
   useEffect(() => {
     import('react-facebook-pixel')
       .then((x) => x.default)
@@ -57,7 +40,6 @@ function App({ Component, pageProps }) {
 
           {/* Section Google Tag manager */}
           <GTMscript />
-          {/* <noscript dangerouslySetInnerHTML={{ __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K4B69KPW" height="0" width="0" style="display:none;visibility:hidden"></iframe>` }} /> */}
           {/* Fin Section */}
           <GoogleAnalytics />
         </Provider>
