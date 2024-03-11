@@ -38,7 +38,7 @@ export default function MiniLessons() {
     
     try{
       
-      lessons = await axios.get(`/api/ulessons/get?level=${currentLevel ? currentLevel : ""}&formats=${currentFormat ? currentFormat : ""}`)
+      lessons = await axios.get(`/api/ulessons/get?level=${currentLevel ? currentLevel : ""}&formats=${currentFormat ? currentFormat : ""}&topics=${currentTopic ? currentTopic : ""}`)
       // console.log( lessons?.data?.formats )
       setLoadMiniLessons(false)
     }
@@ -52,7 +52,7 @@ export default function MiniLessons() {
 
   useEffect(()=>{
     getMiniLesson()
-  },[currentLevel, currentFormat])
+  },[currentLevel, currentFormat, currentTopic])
 
   return (
     <BodyGeneric>
