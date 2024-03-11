@@ -1,5 +1,5 @@
 import axios from "axios"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import BodyGeneric from "../../../components/GenericsElements/BodyGeneric";
 import Link from 'next/link';
 import Spinner from "../../../components/Spinner";
@@ -15,20 +15,44 @@ export default function MiniLessons() {
   // Nivel
   const [currentLevel, setCurrentLevel] = useState(null)
   const [openLevel, setOpenLevel] = useState(false)
+  const selectLevel = useRef(null); 
 
   // Formato
   const [currentFormat, setCurrentFormat] = useState(null)
   const [optionsFormats, setOptionsFormats] = useState(["articulo", "libro", "leccion", "video", "letra", "podcast"])
   const [openFormat, setOpenFormat] = useState(null) 
+  const selectFormat = useRef(null); 
 
   // Topico
   const [currentTopic, setCurrentTopic] = useState(null)
   const [optionsTopics, setOptionsTopics] = useState(["teoria", "ciencia", "tecnología", "entretenimiento", "negocio", "español básico"])
   const [openTopic, setOpenTopic] = useState(null) 
-  
+  const selectTopic = useRef(null); 
   
   useEffect(()=>{
+    // Obtiene las mini lecciones 
     getMiniLesson()
+
+    // Agrega los eventos listener a los filtros
+    function handleClickOutside(event) {
+
+      // Select de Topicos
+      if (selectLevel.current && !selectLevel.current.contains(event.target)) setOpenLevel(false)
+
+      // Select de Topicos
+      if (selectFormat.current && !selectFormat.current.contains(event.target)) setOpenFormat(false)
+
+      // Select de Topicos
+      if (selectTopic.current && !selectTopic.current.contains(event.target)) setOpenTopic(false)
+    }
+
+    // Agregar un event listener al documento para detectar clics
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      // Remover el event listener al desmontar el componente
+      document.removeEventListener('click', handleClickOutside);
+    };
   },[])
 
   async function getMiniLesson(){
@@ -69,6 +93,7 @@ export default function MiniLessons() {
 
             {/* Nivel actual */}
             <label
+            ref={selectLevel}
             onClick={()=> setOpenLevel(!openLevel)}
             className={`
             ${currentLevel ? `bg-${currentLevel} text-white` : "bg-white text-violet_dark"}
@@ -98,7 +123,7 @@ export default function MiniLessons() {
               openLevel &&
               <ul
               onClick={()=>setOpenLevel(false)}
-              className=" absolute flex flex-col w-full rounded-[7px] overflow-hidden bg-white shadow-[0px_4px_35px_#00000040] left-[50%] top-[90%] z-[60]
+              className=" absolute flex flex-col w-full rounded-[7px] overflow-hidden bg-white shadow-[0px_4px_35px_#00000040] left-[30%] top-[90%] z-[60]
               md:left-0">
 
                 {/* Todos */}
@@ -168,6 +193,7 @@ export default function MiniLessons() {
 
             {/* Formato actual */}
             <label
+            ref={selectFormat}
             onClick={()=> setOpenFormat(!openFormat)}
             className={`bg-white text-violet_dark flex items-center text-[18px] px-6 py-4 w-fit rounded-[7px] cursor-pointer font-medium shadow-[0px_4px_24px_#18292F1A]
             md:w-full md:justify-between
@@ -195,7 +221,7 @@ export default function MiniLessons() {
               openFormat &&
               <ul
               onClick={()=>setOpenFormat(false)}
-              className=" absolute flex flex-col w-full min-w-[150px] rounded-[7px] overflow-hidden bg-white shadow-[0px_4px_35px_#00000040] left-[50%] top-[90%] z-[60]
+              className=" absolute flex flex-col w-full min-w-[150px] rounded-[7px] overflow-hidden bg-white shadow-[0px_4px_35px_#00000040] left-[30%] top-[90%] z-[60]
               md:left-0">
 
                 {/* Todos */}
@@ -231,6 +257,7 @@ export default function MiniLessons() {
 
             {/* Topico actual */}
             <label
+            ref={selectTopic}
             onClick={()=> setOpenTopic(!openTopic)}
             className={`bg-white text-violet_dark flex items-center text-[18px] px-6 py-4 w-fit rounded-[7px] cursor-pointer font-medium shadow-[0px_4px_24px_#18292F1A]
             md:w-full md:justify-between
@@ -258,7 +285,7 @@ export default function MiniLessons() {
               openTopic &&
               <ul
               onClick={()=>setOpenTopic(false)}
-              className=" absolute flex flex-col w-full min-w-[150px] rounded-[7px] overflow-hidden bg-white shadow-[0px_4px_35px_#00000040] left-[50%] top-[90%] z-[60]
+              className=" absolute flex flex-col w-full min-w-[150px] rounded-[7px] overflow-hidden bg-white shadow-[0px_4px_35px_#00000040] left-[30%] top-[90%] z-[60]
               md:left-0">
 
                 {/* Todos */}
