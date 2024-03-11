@@ -28,7 +28,7 @@ function App({ Component, pageProps }) {
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
-  }, [router.events]);
+  }, []);
 //fin GTM
 
   useEffect(() => {
