@@ -706,10 +706,16 @@ export default function Ofrece() {
                 onClick={() => {fbq('track', 'InitiateCheckout', {
                   value: 25,
                   currency: 'usd',
-                }); setPayModal(true); setPaypalDates({ qty: 1, cost: 25, descripion: "1claseIndividual 1masterclass 1claseengrupo 3unidadesporNivel" }); }}>
+                });
+                fbq('track', 'AddPaymentInfo');
+
+                setPayModal(true); setPaypalDates({ qty: 1, cost: 25, descripion: "1claseIndividual 1masterclass 1claseengrupo 3unidadesporNivel" }); }}>
                 {t("card42.1.button")}
                 <script>
   
+                <script>
+  
+</script>
 </script>
                 {/* para habilitar el pago de 1era CARD 25usd */}
               </button>
