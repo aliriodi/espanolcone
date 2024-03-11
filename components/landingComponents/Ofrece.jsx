@@ -711,11 +711,9 @@ export default function Ofrece() {
 
                 setPayModal(true); setPaypalDates({ qty: 1, cost: 25, descripion: "1claseIndividual 1masterclass 1claseengrupo 3unidadesporNivel" }); }}>
                 {t("card42.1.button")}
-                <script>
-  
-                <script>
-  
-</script>
+                <script type="text/javascript">
+{document.getElementById('boton25usd').addEventListener('click', function() {
+console.log('Facebook pixel activado');}, false);}
 </script>
                 {/* para habilitar el pago de 1era CARD 25usd */}
               </button>
