@@ -713,7 +713,7 @@ export default function Ofrece() {
                 {t("card42.1.button")}
                 <script type="text/javascript">
 {document.getElementById('boton25usd').addEventListener('click', function() {
-console.log('Facebook pixel activado');}, false);}
+console.log('Facebook pixel activado');}, false)}
 </script>
                 {/* para habilitar el pago de 1era CARD 25usd */}
               </button>
