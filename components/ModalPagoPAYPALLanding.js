@@ -14,7 +14,14 @@ export default function ModalPagoPAYPALL(props) {
   }
 
   useEffect(()=>{
-    setIsOpen(props.open)
+    setIsOpen(props.open);
+
+  fbq('track', 'Purchase', {
+    value: props.dates.cost,
+    currency: 'usd',
+    payment:'Paypal'
+  });
+
   },[props.open])
 
   return (
