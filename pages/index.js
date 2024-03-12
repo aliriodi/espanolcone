@@ -117,7 +117,8 @@ export default function Home() {
         <Four />
         
         {/* Descubre nuestros planes */}
-        <Ofrece />
+       
+        <Ofrece  />
 
         {/* Explora nuestra App */}
         <Conoce />

@@ -585,7 +585,7 @@ export default function Ofrece() {
               style={{ paddingBottom: '1.2em' }}>
 
               {/* Imagen */}
-              <div className=" flex justify-center items-center p-1
+              <div id='payment' className=" flex justify-center items-center p-1
               md:max-w-[400px] md:mx-[60px]">
                 <Image
                   className='h-[98px] w-auto'
@@ -600,7 +600,7 @@ export default function Ofrece() {
               <div
 
                 style={{ minWidth: '260px', marginLeft: '10px' }}>
-
+ 
                 <h2
                   className="font-semibold text-center"
                   style={{ fontSize: '20px' }}
