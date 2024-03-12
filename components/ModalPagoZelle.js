@@ -46,7 +46,12 @@ console.log(props.dates)
 
   useEffect(()=>{
     //console.log("/////// props ///////",props.open)
-    setIsOpen(props.open)
+    setIsOpen(props.open);
+    fbq('track', 'Purchase', {
+      value: props.dates.cost,
+      currency: 'usd',
+      payment:'Zelle'
+    });
   },[props])
   
   useEffect(()=>{
