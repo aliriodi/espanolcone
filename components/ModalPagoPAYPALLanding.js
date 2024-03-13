@@ -69,14 +69,7 @@ export default function ModalPagoPAYPALL(props) {
 
                         }}
                         createOrder={async () => {
-                          fbq('track', 'Comprar', {
-                            value: props.dates.cost,
-                            currency: 'usd',
-                            payment: 'Paypal'
-                          });
-
-
-
+                       
                           try {
                             const res = await axios({
                               url: "/api/payment",
