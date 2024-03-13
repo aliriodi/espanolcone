@@ -69,7 +69,7 @@ export default function ModalPagoPAYPALL(props) {
 
                         }}
                         createOrder={async () => {
-                          fbq('track', 'Purchase', {
+                          fbq('track', 'Comprar', {
                             value: props.dates.cost,
                             currency: 'usd',
                             payment: 'Paypal'
