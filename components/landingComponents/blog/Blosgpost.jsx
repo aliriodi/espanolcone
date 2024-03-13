@@ -22,34 +22,29 @@ export default function BlogPost({
   
     const { locale, locales, push } = useRouter()
    
-   const { t } = useTranslation('navbar')
-  const date = new Date(createdAt);
-  const formatedDate = `${date.getDate()}/${
-    parseInt(date.getMonth(), 10) + 1
-  }/${date.getFullYear()}`;
+    const { t } = useTranslation('navbar')
+    const date = new Date(createdAt);
+    const formatedDate = `${date.getDate()}/${
+      parseInt(date.getMonth(), 10) + 1
+    }/${date.getFullYear()}`;
 
-function moveSlug(){
-  push(`/blog/posts/${slug}`,undefined, {params:{slug:slug, locale:locale ,locales:locales }});
- 
-
-
-}
+    function moveSlug(){
+      push(`/blog/posts/post?slug=${slug}`,undefined, {params:{slug:slug, locale:locale ,locales:locales }});
+    }
 
   return (
-   <button onClick={()=>moveSlug()}>
-    {/* <Link  href={{ pathname: '/blog/[posts]/[slug]',
-        query: {  posts: 'posts', slug: slug },
-      }}
-               as={`/blog/posts/${slug}`}  > */}
-
-      <article className=" hover:shadow-[0px_4px_14px_0px_#4CCFEB] transition duration-300 ease-in-out     border-2  bg-white rounded-lg overflow-hidden flex flex-col cursor-pointer">
+      <article
+      onClick={()=>moveSlug()}
+      className=" h-full transition duration-300 ease-in-out border-2  bg-white rounded-lg overflow-hidden flex flex-col cursor-pointer
+      hover:shadow-[0px_4px_14px_0px_#3CBBD6aF] hover:border-primary_hover">
         <Image
-          className="md:w-full sm:w-full  w-full object-cover object-center"
+          className="w-full object-cover object-center"
           src={img}
           alt="blog"
-          width='100'
-          height='100'
+          width={1280}
+          height={720}
           unsized='true'
+          quality={100}
         />
     
         <div className="p-6 flex-1">
@@ -62,6 +57,7 @@ function moveSlug(){
           </h1>
           <p className="leading-relaxed mb-3">{desc}</p>
         </div>
+
         <div className="px-6 pt-4 pb-2">
           {tagList.map((tag,index) => (
             <span key={index+id} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
@@ -69,6 +65,7 @@ function moveSlug(){
             </span>
           ))}
         </div>
+
         <div className="flex items-center flex-wrap px-6 py-4">
           <div className="text-blue-500 inline-flex items-center md:mb-2 lg:mb-0">
             {locale==='es'?'Continua leyendo':null}
@@ -121,10 +118,9 @@ function moveSlug(){
             {comments}
           </span>
         </div>
+
       </article>
       
-    {/* </Link> */}
-    </button>
      );
 }
 

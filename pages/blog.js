@@ -32,47 +32,49 @@ import { useRouter } from 'next/router';
                 <title>Español con E | Bienvenidos</title>
                 <meta name="landing" content="welcome" />
             </Head>
-            <Layout className='bg-white relative overflow-x-hidden'>
+            <Layout className=' relative overflow-x-hidden'>
                 <NAVBAR className="bg-[transparent]" />
                 <TopButton />
-                <section className='flex items-center justify-center flex-col bg-white px-[170px] min-h-screen py-[107px] relative
-        md:px-[20px]'>
-          
-                <h1 className='underlined-title mb-[111px] z-10'> Posts</h1>
-                
-                <div className="flex flex-wrap sm:flex-col">
-                <div className='grid grid-cols-4    w-full sm:grid-cols-1 md:grid-cols-1  gap-4'> 
-                
-                 {/* className="grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3" */}
-                    {blogs.map(
-                        (post) => {
-                            return (
-                            
-                                post.type_of === 'article' && post.publish &&(
-                                    <div key={post._id} className="bg-white hover:shadow-[0px_4px_14px_0px_#9156F0] p-4 rounded-lg shadow-md"> 
-                                       {/* hover:shadow-[0px_4px_14px_0px_#9156F0] */}
-                                       {/* hover:shadow-[0px_4px_14px_0px_#4ED5F2] */}
-                                    <BlogPost
-                                        key={post._id}
-                                        id={post._id}
-                                        img={post.social_image}
-                                        createdAt={post.published_at}
-                                        title={post[locale].title}
-                                        desc={post[locale].description}
-                                        slug={post.slug}
-                                        likes={post.positive_reactions_count}
-                                        comments={post.comments_count}
-                                        tagList={post[locale].tag_list}
-                                        locale={locale}
-                                        
-                                    />  </div>
-                                )
-                              
-                            );
-                        }
-                    )}
+                <section className='flex items-center justify-center flex-col px-[130px] min-h-screen py-[107px] relative
+                md:px-[20px]'>
+            
+                    <h1 className='underlined-title mb-[111px] z-10'> Posts</h1>
+                    
+                    <div className="flex flex-wrap sm:flex-col">
+                        <div className='grid grid-cols-3 w-full gap-4
+                        lg:grid-cols-2 md:grid-cols-1'> 
+                        
+                        {blogs.map(
+                            (post) => {
+                                return (
+                                
+                                    post.type_of === 'article' && post.publish &&(
+                                        <div key={post._id} className="p-1 relative"> 
 
-                </div></div></section>
+                                            <BlogPost
+                                            key={post._id}
+                                            id={post._id}
+                                            img={post.social_image}
+                                            createdAt={post.published_at}
+                                            title={post[locale].title}
+                                            desc={post[locale].description}
+                                            slug={post.slug}
+                                            likes={post.positive_reactions_count}
+                                            comments={post.comments_count}
+                                            tagList={post[locale].tag_list}
+                                            locale={locale}/>
+
+                                        </div>
+                                    )
+                                    
+                                );
+                            }
+                        )}
+
+                        </div>
+                    </div>
+                </section>
+
                 </Layout>
             <Footer className='bg-[#F5F6FCCC]' />
         </div >

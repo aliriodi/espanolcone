@@ -31,16 +31,16 @@ function Navbar(props) {
   }
   function handleOnChange(lang) {
     if(props.slug){
-   //alert(34+props.slug)
-   //alert(locale)
-  // alert(lang.value)
+      //alert(34+props.slug)
+      //alert(locale)
+      //alert(lang.value)
       push(`/blog/posts/${props.slug}`,`/${lang.value}/blog/posts/${props.slug}`, { locale: lang.value});
       setLanguage(languages2.find(objeto => objeto.value === lang.value))  
     }
     else {
-  //   alert(40+props)
+      // alert(40+props)
       push('', undefined, { locale: lang.value });
-    setLanguage(languages2.find(objeto => objeto.value === lang.value))}
+      setLanguage(languages2.find(objeto => objeto.value === lang.value))}
     }
   
 
