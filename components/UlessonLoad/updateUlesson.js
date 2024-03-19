@@ -24,7 +24,7 @@ introducirVariable('Por favor introduce el nombre del json, example: U1NA1.json:
   introducirVariable(' example: 65561111c0af4de4ff78f6cc :  ', async (id) => {
 
       console.log('Procedo a modificar');
-      await imprimir(  namefile='ULesson3NA1.json',id='65e6704401426b4933c2f537',image='https://res.cloudinary.com/dfddh08q8/image/upload/s--wkTOfdlh--/v1709601223/images/t31cz8luqlfctrcyu0su.png')
+      await imprimir(  namefile='ULesson1NB1.json',id='65f89eb5039d00a8b7f0bcb2',image='https://res.cloudinary.com/dfddh08q8/image/upload/s--RyxOkGvX--/v1710791753/images/szvxfau5n8bkuwld3wm1.jpg')
       // Cerrar la interfaz de lectura
       rl.close();
     });
