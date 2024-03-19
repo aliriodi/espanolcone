@@ -379,7 +379,7 @@
             },
             {
                 "type": "selectsimple",
-                "value": "<br><span style= 'color: var(--secondary);' >5. A Lucas le delen ........... </span>",
+                "value": "<br><span style= 'color: var(--secondary);' >5. A Lucas le duelen ........... </span>",
                 "option": "b. la nuca, el cuello, los hombros y los brazos.",
                 "options": [
                     "a. los hombros, los brazos y las piernas.",
