@@ -87,7 +87,7 @@ export default function Post() {
 
                                     {/* Parrafo */}
                                     <div
-                                    className="mt-4 text-lg text-violet_dark font-medium flex-grow-[1]
+                                    className="mt-4 text-lg text-violet_dark font-medium w-[55%] md:w-full
                                     md:px-[25px] md:text-[14px]" 
                                     dangerouslySetInnerHTML={{ __html: currentPost?.body_html }} />
                                     
