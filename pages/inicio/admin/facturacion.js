@@ -196,7 +196,7 @@ export default function Blog({ devDotToPosts }) {
                             <div className="bg-white rounded-[7px] shadow-[0px_4px_24px_#0000000F] text-violet_dark">
 
                                 {/* Titulo */}
-                                <p className="text-[18px] text-title_color font-medium border-b-2 pb-[25px] pt-[26px] px-[35px]">Administracion de resivos</p>
+                                <p className="text-[18px] text-title_color font-medium border-b-2 pb-[25px] pt-[26px] px-[35px]">Administración de recibos</p>
 
                                 {/* Encabezado */}
                                 <button className='w-[140px] text-white   bg-primary rounded-[7px] mx-[35px] p-2 my-3 shadow-[0px_4px_24px_#0000002F] relative cursor-pointer' onClick={() => Invert()}>Invertir orden</button>
