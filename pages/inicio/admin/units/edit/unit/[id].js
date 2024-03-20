@@ -213,7 +213,7 @@ export default function LoadUnit() {
                                         className={` transition-all  bottom-0  z-[90]  bg-white rounded-full py-2 px-3 ml-2 mb-6 shadow-[0px_4px_26px_#00000040] text-title_color text-right text-[18px]
                                         hover:bg-primary_hover hover:text-white
                                         md:text-[16px] md:px-7     
-                                        ${currentPage === index ? 'bg-primary_hover text-white' : ''}`}  
+                                        ${currentPage === index ? 'bg-primary text-white' : ''}`}  
 
                                         onClick={() => setCurrentPage(index)}>
                                         {`${(index+1).toString().padStart(2, '0')}`}
