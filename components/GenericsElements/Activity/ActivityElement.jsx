@@ -9,7 +9,7 @@ import Paragragraphcomplete from '../../Class/paragragraphcomplete';
 import { useEffect, useRef, useState } from 'react';
 import { useSession } from 'next-auth/react';
 
-export default function ActivityElement({ date, index }) {
+export default function ActivityElement({ date, index, returnDate }) {
 
     const {data: session,status, update} = useSession();
     
@@ -50,6 +50,11 @@ export default function ActivityElement({ date, index }) {
         })
     }
 
+    function handleReturnDate(){
+        // este metodo se encarga de pasar el "date" por parametro para permitir la edicion de la "sheet"
+        if(returnDate) returnDate(date, index)
+    }
+
     useEffect(()=>{
         console.log(typeActivitys)
     },[typeActivitys])
@@ -59,6 +64,7 @@ export default function ActivityElement({ date, index }) {
             {/* Titulo */}
             {date.type === 'title' && 
                 <div
+                onClick={handleReturnDate}
                 className={`${style[date.className]} ${style[date.classNamePlus]} ${date.classExtra}`}
                 key={index}
                 style={date.style} >
@@ -70,6 +76,7 @@ export default function ActivityElement({ date, index }) {
             {/* PopUp de Dialogos */}
             {date.type === 'popup' &&
                 <div
+                onClick={handleReturnDate}
                 className={`${style[date.className]} ${style[date.classNamePlus]} ${date.classExtra}`}
                 key={index}
                 style={date.style}>
@@ -81,6 +88,7 @@ export default function ActivityElement({ date, index }) {
             {/* Div */}
             {date.type === 'div' &&
                 <div
+                onClick={handleReturnDate}
                 key={index}
                 style={date.style}
                 className={`${date.classExtra} ${style[date.className]} ${style[date.classNamePlus]}`}
@@ -90,6 +98,7 @@ export default function ActivityElement({ date, index }) {
             {/* Level */}
             {date.type === 'level' &&
                 <p
+                onClick={handleReturnDate}
                 key={index}
                 style={date.style}
                 className={`${date.classExtra} ${style[date.className]} ${style[date.classNamePlus]}`}
@@ -99,6 +108,7 @@ export default function ActivityElement({ date, index }) {
             {/* Imagen */}
             {date.type === 'image' &&
                 <img
+                onClick={handleReturnDate}
                 key={index}
                 style={date.style}
                 width='100'
@@ -129,6 +139,7 @@ export default function ActivityElement({ date, index }) {
             {/* Bloque de textos */}
             {date.type === 'text-block' &&
                 <div
+                onClick={handleReturnDate}
                 className={`${date.classExtra} ${style[date.className]} ${style[date.classNamePlus]}`}
                 key={index}
                 style={date.style}
@@ -138,6 +149,7 @@ export default function ActivityElement({ date, index }) {
             {/* Video Youtube */}
             {date.type === 'video-youtube' &&
                 <div
+                onClick={handleReturnDate}
                 className={`${style[date.className]}
                 ${style[date.classNamePlus]} youtube ${date.classExtra}`}>
                     <YouTube
@@ -153,6 +165,7 @@ export default function ActivityElement({ date, index }) {
             {/* Video Youtube con PopUps */}
             {date.type === 'videoi-youtube' &&
                 <div
+                onClick={handleReturnDate}
                 className={`${date.classExtra} ${style[date.className]} ${style[date.classNamePlus]}`}>
                     <YoutubePopup
                     // done={sheetsState[i]?.done}
@@ -170,6 +183,7 @@ export default function ActivityElement({ date, index }) {
             {/* Caja de Oraciones */}
             {date.type === 'sentence-box' &&
                 <div
+                onClick={handleReturnDate}
                 className={`${date.classExtra} ${style[date.className]} ${style[date.classNamePlus]}`}>
                     <p
                     key={index}
@@ -196,6 +210,7 @@ export default function ActivityElement({ date, index }) {
             {/* Parrafo */}
             {date.type === 'paragraph' &&
                 <p
+                onClick={handleReturnDate}
                 key={index}
                 style={date.style}
                 className={`${date.classExtra} ${style[date.className]} ${style[date.classNamePlus]}`}
@@ -206,6 +221,7 @@ export default function ActivityElement({ date, index }) {
             {/* SelectSimple */}
             {date.type === 'selectsimple' &&
                 <div
+                onClick={handleReturnDate}
                 className={`${date.classExtra} ${style[date.className]} ${style[date.classNamePlus]}`}
                 style={date.style}>
                     <Selectsimple
@@ -221,7 +237,9 @@ export default function ActivityElement({ date, index }) {
             
             {/* Texto */}
             {date.type === 'text' &&
-                <div className={`${date.classExtra} ${style[date.className]} ${style[date.classNamePlus]}`}
+                <div
+                onClick={handleReturnDate}
+                className={`${date.classExtra} ${style[date.className]} ${style[date.classNamePlus]}`}
                 style={date.style}>
                     <p dangerouslySetInnerHTML={{ __html: date.value }}/>
                 </div>
@@ -230,6 +248,7 @@ export default function ActivityElement({ date, index }) {
             {/* Parrafo a Completar */}
             {date.type === 'paragraph-complete' &&
                 <div
+                onClick={handleReturnDate}
                 key={index}
                 style={date.style}
                 className={`${date.classExtra} ${style[date.className]} ${style[date.classNamePlus]}`}>
@@ -246,6 +265,7 @@ export default function ActivityElement({ date, index }) {
             {/* Parrafo a Completar con Imagenes */}
             {date.type === 'paragraph-complete-content' &&
                 <div
+                onClick={handleReturnDate}
                 key={index}
                 style={date.style}
                 className={`${date.classExtra} ${style[date.className]} ${style[date.classNamePlus]}`}>
@@ -263,6 +283,7 @@ export default function ActivityElement({ date, index }) {
             {/* PopUp de Dialogos */}
             {date.type === 'popUp-dialogues' &&
                 <div
+                onClick={handleReturnDate}
                 key={index}
                 style={date.style}
                 className={`${date.classExtra} ${style[date.className]} ${style[date.classNamePlus]}`}
@@ -272,6 +293,7 @@ export default function ActivityElement({ date, index }) {
             {/* Parrafo a Completar de lista */}
             {date.type === 'complete-li' &&
                 <div
+                onClick={handleReturnDate}
                 key={index}
                 style={date.style}
                 className={`${date.classExtra} ${style[date.className]} ${style[date.classNamePlus]}`}>
@@ -288,6 +310,7 @@ export default function ActivityElement({ date, index }) {
             {/* Parrafo a Completar de lista con persona*/}
             {date.type === 'complete-li-personal' &&
                 <div
+                onClick={handleReturnDate}
                 key={index}
                 style={date.style}
                 className={`${date.classExtra} ${style[date.className]} ${style[date.classNamePlus]}`}>
@@ -304,6 +327,7 @@ export default function ActivityElement({ date, index }) {
             {/* Separador */}
             {date.type === 'separator' &&
                 <span
+                onClick={handleReturnDate}
                 key={index}
                 style={date.style}
                 className={`${date.classExtra} ${style[date.className]} ${style[date.classNamePlus]}`}/>

@@ -401,6 +401,23 @@ h3{
   border-radius: 70px 0 70px 0;
 }
 
+/* focus active container */
+.focus-active-container{
+
+}
+
+.focus-active-container .focus-active{
+  opacity: 0;
+}
+
+.focus-active-input{
+
+}
+
+.focus-active-input:focus ~ .focus-active{
+  opacity: 1;
+}
+
 @keyframes ensanchamiento {
   0% {
     width: 10px;
