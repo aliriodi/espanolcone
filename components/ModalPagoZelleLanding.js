@@ -29,6 +29,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 export default function ModalPagoZELLE(props) {
+  const validuntil={
+    en:'May 31, 2024',
+    es:'31 de mayo del 2024',
+    pt:'31 de maio de 2024'
+  };
+const masterclass={
+      en:'Friday, May 10, at 5:00 PM',
+      es:'viernes 10 de mayo a las 17',
+      pt:'sexta-feira, 10 de março, às 17 horas'
+    };
   const { t } = useTranslation(['index','register'])
   const [isOpen, setIsOpen] = useState(false)
   const { data: session, status, update } = useSession();
@@ -136,11 +146,11 @@ export default function ModalPagoZELLE(props) {
               <p>Nos alegra mucho tenerte con nosotros y queremos expresarte nuestro agradecimiento por haber elegido nuestro paquete <b>"Experiencia completa".</b></p>
               <p>Aquí te detallamos lo que has adquirido con tu compra:</p>
     
-              <p><b>Paquete Especial "Experiencia completa" valorado en $100 ¡por solo $25 dólares!</b>,  valido hasta el 29 de marzo del 2024.</p>
+              <p><b>Paquete Especial "Experiencia completa" valorado en $100 ¡por solo $25 dólares!</b>,  valido hasta el ${validuntil.es}.</p>
     
               <p><b>1. Clase individual personalizada:</b> Una sesión de 60 minutos, adaptable a tus necesidades. </p>
               
-              <p><b>2. Clase magistral:</b> Únete a nuestra clase especial por Zoom el viernes 22 de marzo a las 17 horas (hora de Argentina). Te sumergirás en temas fascinantes para estudiantes de español de todos los niveles. Desde los sonidos del español hasta consejos de motivación, ¡tenemos mucho por explorar!</p>
+              <p><b>2. Clase magistral:</b> Únete a nuestra clase especial por Zoom el ${masterclass.es}  horas (hora de Argentina). Te sumergirás en temas fascinantes para estudiantes de español de todos los niveles. Desde los sonidos del español hasta consejos de motivación, ¡tenemos mucho por explorar!</p>
     
               <p><b>3. Clase en grupo:</b> Será una clase de 90 minutos. Se ofrecerán varias sesiones de diferentes temas y niveles. Podrás elegir la que mejor se adapte a tus intereses y disponibilidad. La lista completa de clases y horarios te la enviaremos por correo electrónico pronto.</p>
     
@@ -161,11 +171,11 @@ export default function ModalPagoZELLE(props) {
 
             <p>Here are the details of what you've acquired with your purchase:</p>
 
-            <p><b>Special "Experiencia completa" Package valued at $100 for only $25</b>, valid until March 29, 2024.</p>
+            <p><b>Special "Experiencia completa" Package valued at $100 for only $25</b>, valid until ${validuntil.en}.</p>
 
             <p><b>Personalized Individual Class:</b> A 60-minute session, tailored to your needs.</p>
 
-            <p><b>Master Class:</b> Join our special Zoom class on Friday, March 22, at 5:00 PM (Argentina time). You'll delve into fascinating topics for Spanish learners of all levels. From Spanish sounds to motivational tips, we have a lot to explore!</p>
+            <p><b>Master Class:</b> Join our special Zoom class on ${masterclass.en} (Argentina time). You'll delve into fascinating topics for Spanish learners of all levels. From Spanish sounds to motivational tips, we have a lot to explore!</p>
 
             <p><b>Group Class:</b> It will be a 90-minute class. Several sessions on different topics and levels will be offered. You'll be able to choose the one that best suits your interests and availability. The complete list of classes and schedules will be sent to you via email soon.</p>
 
@@ -189,11 +199,11 @@ export default function ModalPagoZELLE(props) {
 
             <p>Aqui estão os detalhes do que você adquiriu com sua compra:</p>
 
-            <p><b>Pacote Especial "Experiencia completa" no valor de $100 por apenas $25 dólares</b>, válido até 29 de março de 2024.</p>
+            <p><b>Pacote Especial "Experiencia completa" no valor de $100 por apenas $25 dólares</b>, válido até ${validuntil.pt}.</p>
 
             <p><b>Aula individual personalizada:</b> Uma sessão de 60 minutos, adaptável às suas necessidades.</p>
 
-            <p><b>Aula magistral:</b> Junte-se à nossa aula especial no Zoom na sexta-feira, 22 de março, às 17 horas (horário da Argentina). Você mergulhará em tópicos fascinantes para estudantes de espanhol de todos os níveis. Desde os sons do espanhol até dicas de motivação, temos muito para explorar!</p>
+            <p><b>Aula magistral:</b> Junte-se à nossa aula especial no Zoom na ${masterclass.pt} (horário da Argentina). Você mergulhará em tópicos fascinantes para estudantes de espanhol de todos os níveis. Desde os sons do espanhol até dicas de motivação, temos muito para explorar!</p>
 
             <p><b>Aula em grupo:</b> Será uma aula de 90 minutos. Serão oferecidas várias sessões de diferentes temas e níveis. Você poderá escolher aquela que melhor se adapta aos seus interesses e disponibilidade. A lista completa de aulas e horários será enviada por e-mail em breve.</p>
 
@@ -216,9 +226,9 @@ export default function ModalPagoZELLE(props) {
 
           <p>Aquí te detallamos todo lo que has adquirido con tu compra:</p>
 
-          <p><b>Paquete Especial "Echa un vistazo" valorado en $45 ¡por solo $10 dólares!</b> valido hasta el 29 de marzo del 2024.</p>
+          <p><b>Paquete Especial "Echa un vistazo" valorado en $45 ¡por solo $10 dólares!</b> valido hasta el ${validuntil.es}.</p>
 
-          <p><b>1. Clase Magistral:</b> Únete a nuestra clase especial por Zoom el viernes 22 de marzo a las 17 horas (hora de Argentina). Te sumergirás en temas fascinantes para estudiantes de español de todos los niveles. Desde los sonidos del español hasta consejos de motivación, ¡tenemos mucho por explorar!</p>
+          <p><b>1. Clase Magistral:</b> Únete a nuestra clase especial por Zoom el ${masterclass.es} horas (hora de Argentina). Te sumergirás en temas fascinantes para estudiantes de español de todos los niveles. Desde los sonidos del español hasta consejos de motivación, ¡tenemos mucho por explorar!</p>
 
           <p><b>2. Clases interactivas en la app:</b> En nuestra plataforma encontrarás dos unidades didácticas interactivas y explicativas para los niveles A1, A2 y B1 y que continuaremos añadiendo contenido el cual podrás disfrutar durante el tiempo promocional. Estamos comprometidos a brindarte contenido de calidad que te ayude a avanzar en tu aprendizaje del español.</p>
           `:``
@@ -234,9 +244,9 @@ export default function ModalPagoZELLE(props) {
 
           <p>Here are all the details of what you've acquired with your purchase:</p>
 
-          <p>Special <b>"Echa un vistazo" Package valued at $45 for only $10</b>, valid until Macrh 29, 2024.</p>
+          <p>Special <b>"Echa un vistazo" Package valued at $45 for only $10</b>, valid until ${validuntil.en}.</p>
 
-          <p><b>Master Class:</b> Join our special Zoom class on Friday, March 22, at 5:00 PM (Argentina time). You'll delve into fascinating topics for Spanish learners of all levels. From Spanish sounds to motivational tips, we have a lot to explore!</p>
+          <p><b>Master Class:</b> Join our special Zoom class on ${masterclass.en}  (Argentina time). You'll delve into fascinating topics for Spanish learners of all levels. From Spanish sounds to motivational tips, we have a lot to explore!</p>
 
           <p><b>Interactive Classes in the app</b>: On our platform, you'll find two interactive and explanatory didactic units for levels A1, A2, and B1, and we will continue adding content that you can enjoy during the promotional period. We are committed to providing you with quality content that helps you advance in your Spanish learning journey.</p>
           `:``
@@ -254,9 +264,9 @@ export default function ModalPagoZELLE(props) {
 
           <p>Aqui estão todos os detalhes do que você adquiriu com sua compra:</p>
 
-          <p><b>Pacote Especial "Dê uma olhada" no valor de $45 por apenas $10 dólares!</b> válido até 29 de março de 2024.</p>
+          <p><b>Pacote Especial "Dê uma olhada" no valor de $45 por apenas $10 dólares!</b> válido até ${validuntil.pt}.</p>
 
-          <p><b>Aula Magistral:</b> Junte-se à nossa aula especial no Zoom na sexta-feira, 22 de março, às 17 horas (horário da Argentina). Você mergulhará em tópicos fascinantes para estudantes de espanhol de todos os níveis. Desde os sons do espanhol até dicas de motivação, temos muito para explorar!</p>
+          <p><b>Aula Magistral:</b> Junte-se à nossa aula especial no Zoom na ${masterclass.pt} (horário da Argentina). Você mergulhará em tópicos fascinantes para estudantes de espanhol de todos os níveis. Desde os sons do espanhol até dicas de motivação, temos muito para explorar!</p>
 
           <p><b>Aulas interativas no aplicativo:</b> Em nossa plataforma, você encontrará duas unidades didáticas interativas e explicativas para os níveis A1, A2 e B1, e continuaremos adicionando conteúdo que você poderá desfrutar durante o período promocional. Estamos comprometidos em fornecer conteúdo de qualidade que o ajude a avançar em seu aprendizado do espanhol.</p>
 
