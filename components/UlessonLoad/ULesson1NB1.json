@@ -1,0 +1,404 @@
+{
+    "page1": {
+        "type": "text",
+        "section": {
+            "number": 0,
+            "value": "Mis Metas"
+        },
+        "template": "",
+        "data": [
+            {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--wsuzMkyV--/v1709035989/images/bwd2esrxz6g39ofk3dl9.png",
+                "alt": "EspañolconE",
+                "className": "Portadaimg"
+            },
+            {
+                "type": "title",
+                "value": "Cecilia y Lucas - Parte 1 ¡Qué dolor!",
+                "className": "Portadatil"
+            },
+            {
+                "type": "paragraph",
+                "value": "NIVEL B1",
+                "className": "paragraph"
+            }
+        ]
+    },
+    "page2": {
+        "type": "table",
+        "section": {
+            "number": 0,
+            "value": "Mis Metas"
+        },
+        "template": "mini-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "SALUD Y MEDICINA<br><br>Cecilia y Lucas - Parte 1 <br>¡Qué dolor!<br><br>Lectura - Diálogo e historia <br> Nivel B1 Intermedio",
+                "className": "title-dark"
+            },
+           
+           
+            {
+                "type": "separator",
+                "className": "separator"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style= 'color: var(--warning);' ><strong>Historia</strong></span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<br><strong>Cecilia Molina y Lucas Montoya</strong>  son un matrimonio de sesenta y ocho años. Ambos han trabajado desde que eran jóvenes como camareros en un hotel en Buenos Aires. Desde hace seis años <span style= 'color: var(--warning);' >están jubilados</span> y <span style= 'color: var(--warning);' >reciben una pensión</span>. Ahora que ya no trabajan, a Lucas le gusta pasar su tiempo leyendo y haciendo trabajos en su casa, mientras que Cecilia aprovecha para escuchar música, arreglar el jardín y ver las telenovelas.",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<br><div style='text-align: center;'><img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--pTb68IrY--/v1710791481/images/difsein8ze4oxmfd7hne.jpg' alt='que dolor 1' style='display: block; margin: 0 auto;'/></div><br>",
+                "alt": "que dolor 1",
+                "className": ""
+            },
+            {
+                "typaragraph-defaultpe": "paragraph",
+                "value": "<br><span style= 'color: var(--warning);' >¡Cecilia, qué dolor!</span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "Hoy Lucas ha estado todo el día arreglando el tejado de su casa. Con muy mal aspecto, va a la cocina donde está Cecilia, que está preparando la cena.",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<br><strong><u>LUCAS</u></strong> .— Ay, Cecilia, <span style= 'color: var(--warning);' >me duele mucho el cuello, siento pinchazos y en las caderas siento</span> una <span style= 'color: var(--warning);' >presión</span> horrible.",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<br><strong><u>CECILIA</u></strong> .— Pero Lucas, ¿qué has hecho en el tejado para estar así? ¿Dónde te duele exactamente?",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<br><div style='text-align: center;'><img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--RyxOkGvX--/v1710791753/images/szvxfau5n8bkuwld3wm1.jpg' alt='que dolor 2'  style='display: block; margin: 0 auto;'/></div>",
+                "alt": "que dolor 2",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "<br><strong><u>LUCAS</u></strong> .— Me duele aquí, <span style= 'color: var(--warning);' >en la nuca</span>. Y el dolor se me está extendiendo por <span style= 'color: var(--warning);' >el cuello</span> a <span style= 'color: var(--warning);' >los hombros</span> y <span style= 'color: var(--warning);' >los brazos</span>... No puedo más. ¡Ay, qué <span style= 'color: var(--warning);' >mareo</span>! ¡Se me corta <span style= 'color: var(--warning);' >la respiración</span>! ¡Y <span style= 'color: var(--warning);' >las caderas me duelen</span> tanto que no puedo caminar!",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<br><strong><u>CECILIA</u></strong> .— ¡Dios mío, pero si estás sudando! Voy a buscar <span style= 'color: var(--warning);' >la tarjeta de la obra social</span> y nos vamos corriendo a <span style= 'color: var(--warning);' >urgencias</span>. ¡Vámonos!",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<br><div style='text-align: center;'><img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--2R0U9I_d--/v1710793333/images/txdnft2cqzfn7bly7dz6.jpg' alt='que dolor 3'  style='display: block; margin: 0 auto;'/></div>",
+                "alt": "que dolor 3",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "<div style='text-align: center;'><br><span style= 'color: var(--secondary);' ><strong>ACTIVIDAD DE VOCABULARIO</strong></span></div>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<br><strong>Relacione los siguientes conceptos con su significado.</strong>",
+                "className": "paragraph-default"
+            },
+            
+            {
+                "type": "selectsimple",
+                "value": "<br><span style= 'color: var(--secondary);' ><u>El dolor</u></span><br><br>",
+                "option": "Sensación molesta, más o menos intensa, en una parte del cuerpo.",
+                "options": [
+                    "Lesión sangrante producida en el tejido exterior del cuerpo como consecuencia de un corte.",
+                    "Sensación molesta, más o menos intensa, en una parte del cuerpo."                    
+                ],
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value1": "<br><ul style='padding-left: 2em;'><li  style='list-style-type: square;'>Lesión sangrante producida en el tejido exterior del cuerpo como consecuencia de un corte.</li><li  style='list-style-type: square;'> <span style= 'color: var(--secondary);' >Sensación molesta, más o menos intensa, en una parte del cuerpo.</span></li></ul>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<br><div style='text-align: center;'><img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--HDD_EzZX--/v1710793634/images/awk40srtyfworvfjt2g6.jpg' alt='que dolor 4'  style='display: block; margin: 0 auto;'/></div>",
+                "alt": "que dolor 4",
+                "className": ""
+            },
+
+         
+
+            {
+                "type": "paragraph",
+                "value0": "<br><span style= 'color: var(--secondary);' ><u>El pinchazo</u></span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<br><span style= 'color: var(--secondary);' ><u>El pinchazo</u></span><br><br>",
+                "option": "Dolor repentino, punzante y de duración breve.",
+                "options": [
+                    "Intervención quirúrgica que consiste en abrir un tejido u órgano dañado.",
+                    "Dolor repentino, punzante y de duración breve."                    
+                ],
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value1": "<br><ul style='padding-left: 2em;'><li  style='list-style-type: square;'>Intervención quirúrgica que consiste en abrir un tejido u órgano dañado.</li><li  style='list-style-type: square;'> <span style= 'color: var(--secondary);' >Dolor repentino, punzante y de duración breve.</span></li></ul>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<br><div style='text-align: center;'><img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--tjm5D8-S--/v1710798160/images/oz9lquwlvvvujhzkonqx.jpg' alt='que dolor 5'  style='display: block; margin: 0 auto;'/></div>",
+                "alt": "que dolor 6",
+                "className": ""
+            },
+
+            {
+                "type": "paragraph",
+                "value0": "<br><span style= 'color: var(--secondary);' ><u>El mareo</u></span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value1": "<br><ul style='padding-left: 2em;'><li  style='list-style-type: square;'>Sensación de vértigo y malestar que puede llegar a provocar ganas de vomitar y pérdida del equilibrio.</li><li  style='list-style-type: square;'> <span style= 'color: var(--secondary);' >Sensación molesta o dolorosa de picor y quemazón.</span></li></ul>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<br><span style= 'color: var(--secondary);' ><u>El mareo</u></span><br><br>",
+                "option": "Sensación de vértigo y malestar que puede llegar a provocar ganas de vomitar y pérdida del equilibrio.",
+                "options": [
+                    "Sensación de vértigo y malestar que puede llegar a provocar ganas de vomitar y pérdida del equilibrio.",
+                    "Sensación molesta o dolorosa de picor y quemazón."                    
+                ],
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<br><div style='text-align: center;'><img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--tmUSHj-4--/v1710799341/images/mia1twbktn6gyxkg7y41.jpg' alt='que dolor 7'  style='display: block; margin: 0 auto;'/></div>",
+                "alt": "que dolor 7",
+                "className": ""
+            },
+
+            {
+                "type": "paragraph",
+                "value0": "<br><span style= 'color: var(--secondary);' ><u>La espalda</u></span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value1": "<br><ul style='padding-left: 2em;'><li  style='list-style-type: square;'>Parte posterior del cuerpo humano que va desde los hombros hasta la cintura. </li><li  style='list-style-type: square;'> <span style= 'color: var(--secondary);' >Órgano que se encarga de filtrar la sangre.</span></li></ul>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<br><span style= 'color: var(--secondary);' ><u>La espalda</u></span><br><br>",
+                "option": "Parte posterior del cuerpo humano que va desde los hombros hasta la cintura.",
+                "options": [
+                    "Parte posterior del cuerpo humano que va desde los hombros hasta la cintura.",
+                    "Órgano que se encarga de filtrar la sangre."                    
+                ],
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<br><div style='text-align: center;'><img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--jJbhxrBm--/v1710799518/images/eprax7m6w8t7py2teqz6.jpg' alt='que dolor 8'  style='display: block; margin: 0 auto;'/></div>",
+                "alt": "que dolor 8",
+                "className": ""
+            },
+
+            {
+                "type": "paragraph",
+                "value0": "<br><span style= 'color: var(--secondary);' ><u>El tórax</u></span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value1": "<br><ul style='padding-left: 2em;'><li  style='list-style-type: square;'>Parte posterior del cuerpo humano que va desde los hombros hasta la cintura.</li><li  style='list-style-type: square;'> <span style= 'color: var(--secondary);' >Parte superior del tronco del ser humano situada entre el cuello y el abdomen, en la que se encuentran el corazón y los pulmones.</span></li></ul>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<br><span style= 'color: var(--secondary);' ><u>El tórax</u></span><br><br>",
+                "option": "Parte superior del tronco del ser humano situada entre el cuello y el abdomen, en la que se encuentran el corazón y los pulmones.",
+                "options": [
+                    "Parte posterior del cuerpo humano que va desde los hombros hasta la cintura.",
+                    "Parte superior del tronco del ser humano situada entre el cuello y el abdomen, en la que se encuentran el corazón y los pulmones."                    
+                ],
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<br><div style='text-align: center;'><img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--Xqek-Iiv--/v1710799715/images/klnd4afhnpbe8u4pykqk.jpg' alt='que dolor 9'  style='display: block; margin: 0 auto;'/></div>",
+                "alt": "que dolor 9",
+                "className": ""
+            },
+
+            
+            {
+                "type": "paragraph",
+                "value0": "<br><span style= 'color: var(--secondary);' ><u>La nuca</u></span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value1": "<br><ul style='padding-left: 2em;'><li  style='list-style-type: square;'> </li><li  style='list-style-type: square;'> <span style= 'color: var(--secondary);' ></span></li></ul>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<br><span style= 'color: var(--secondary);' ><u>La nuca</u></span><br><br>",
+                "option": "Parte posterior de la cabeza en que esta se une al cuello.",
+                "options": [
+                    "Parte posterior de la cabeza en que esta se une al cuello.",
+                    "Rigidez en la parte posterior de la cabeza que provoca fuertes dolores de cabeza."
+                ],
+                "className": "paragraph-default"
+            },
+           
+            
+            {
+                "type": "paragraph",
+                "value": "<br><div style='text-align: center;'><img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--MllYY1V8--/v1710803556/images/m463ed2xblrvc3in1z4o.jpg' alt='que dolor 11'  style='display: block; margin: 0 auto;'/></div>",
+                "alt": "que dolor 10",
+                "className": ""
+            },
+         
+
+            {
+                "type": "paragraph",
+                "value0": "<br><span style= 'color: var(--secondary);' ><u>Tarjeta de la obra social</u></span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value1": "<br><ul style='padding-left: 2em;'><li  style='list-style-type: square;'> </li><li  style='list-style-type: square;'> <span style= 'color: var(--secondary);' ></span></li></ul>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<br><span style= 'color: var(--secondary);' ><u>Tarjeta de la obra social</u></span><br><br>",
+                "option": "Documento que le permite al beneficiario certificar que se encuentra dentro de un sistema de seguro que lo apoyan en sus servicios o trámites médicos.",
+                "options": [
+                    "Documento que se usa para hacer obras sociales y ayudar a otros.",
+                    "Documento que le permite al beneficiario certificar que se encuentra dentro de un sistema de seguro que lo apoyan en sus servicios o trámites médicos."
+                ],
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<br><div style='text-align: center;'><img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--IuPL6H7I--/v1710802617/images/rlacojxwzjxabquxddbe.jpg' alt='Tarjeta obra social'  style='display: block; margin: 0 auto;'/></div>",
+                "alt": "que dolor 11",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value0": "<br><span style= 'color: var(--secondary);' ><u>Centro de urgencias</u></span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value1": "<br><ul style='padding-left: 2em;'><li  style='list-style-type: square;'> </li><li  style='list-style-type: square;'> <span style= 'color: var(--secondary);' ></span></li></ul>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<br><span style= 'color: var(--secondary);' ><u>Centro de urgencias</u></span><br><br>",
+                "option": "Lugar del hospital donde el paciente es atendido por presentar una emergencia médica o sobre cualquier enfermedad en su momento agudo.",
+                "options": [
+                    "Lugar del hospital donde el paciente es atendido por presentar una emergencia médica o sobre cualquier enfermedad en su momento agudo.",
+                    "Asunto personal que se debe solucionar lo antes posible."
+                ],
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<br><div style='text-align: center;'><img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--lsTnw3xm--/v1710807481/images/sabdkqexr8ezqxclozee.jpg' alt='centro de urgencias b1 '  style='display: block; margin: 0 auto;'/></div><br>",
+                "alt": "que dolor 12",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "<div style='text-align: center;'><span style= 'color: var(--secondary);' ><strong>COMPRENSIÓN DE LECTURA</strong></span></div>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<br><span style= 'color: var(--secondary);' >1. El matrimonio está formado por dos:</span>",
+                "option": "c. jubilados.",
+                "options": [
+                    "a. pensionado.",
+                    "b. personas en paro.",
+                    "c. jubilados."
+                ],
+                "className": "paragraph-default"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<br><span style= 'color: var(--secondary);' >2. El dolor se ........... por los hombros y los brazos.</span>",
+                "option": "b. está extendiendo",
+                "options": [
+                    "a. está curando",
+                    "b. está extendiendo",
+                    "c. está cubriendo"
+                ],
+                "className": "paragraph-default"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<br><span style= 'color: var(--secondary);' >3. Lucas, además de los dolores, se siente:</span>",
+                "option": "a. mareado.",
+                "options": [
+                    "a. mareado.",
+                    "b. adolorido.",
+                    "c. mareos."
+                ],
+                "className": "paragraph-default"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<br><span style= 'color: var(--secondary);' >4. Maruja busca la ........... de la obra social para ir a urgencias.</span>",
+                "option": "c. tarjeta.",
+                "options": [
+                    "a. papeles.",
+                    "b. carnet.",
+                    "c. tarjeta."
+                ],
+                "className": "paragraph-default"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<br><span style= 'color: var(--secondary);' >5. A Lucas le duelen ........... </span>",
+                "option": "b. la nuca, el cuello, los hombros y los brazos.",
+                "options": [
+                    "a. los hombros, los brazos y las piernas.",
+                    "b. la nuca, el cuello, los hombros y los brazos.",
+                    "c. el pecho, las caderas y la panza."
+                ],
+                "className": "paragraph-default"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<br><span style= 'color: var(--secondary);' >6. A lucas se le corta la ...........</span>",
+                "option": "a. respiración.",
+                "options": [
+                    "a. respiración.",
+                    "b. vista.",
+                    "c. presión."
+                ],
+                "className": "paragraph-default"
+            }
+        ]
+    }
+}

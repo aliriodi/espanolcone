@@ -15,7 +15,7 @@ export default async function getAllUlesson(req, res) {
       formats,
       level,
       page = 1,
-      maxResults = 10
+      maxResults = 15
     },
   } = req;
 
@@ -30,6 +30,9 @@ export default async function getAllUlesson(req, res) {
 
     console.log('TAKING CLASS');
 
+    // let formats = Ulesson?.schema?.path('formats').options.type
+    // console.log("/////////////////////////////",Ulesson?.schema?.path('formats'))
+    
     // Crea un objeto para almacenar los criterios de búsqueda
     const filter = {};
 
@@ -49,7 +52,10 @@ export default async function getAllUlesson(req, res) {
     // Verifica procedencia de solicitud 
     if(req.headers.accept == "*/*"||true){
       // Solicitud desde el codigo
-      res.status(200).json({ ulessons });
+      res.status(200).json({
+        ulessons,
+        // formats
+      });
     }
     else{
       // Solicitud desde el navegador
