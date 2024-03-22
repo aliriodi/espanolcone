@@ -41,7 +41,7 @@ export default function MiniLesson() {
                 <>
                     <div className="z-20
                     md:px-[25px]">
-                        <ActivityTemplate sheetsOfSection={lesson?.sheets[1]}/>
+                        <ActivityTemplate sheetsOfSection={lesson?.sheets[0]}/>
                     </div>
 
                     {/* Imagen de fondo */}
