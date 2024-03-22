@@ -792,6 +792,15 @@
     padding: 24px;
 }
 
+.mini-1 .youtube{
+    margin: 20px 0;
+}
+
+.mini-1 .youtube iframe{
+    min-width: 100%;
+    min-height: 380px;
+}
+
 .imagepaisaje{
     width: 50%;
     margin-left: auto;

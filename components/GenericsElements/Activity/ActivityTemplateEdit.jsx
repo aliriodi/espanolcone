@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import style from '../../../styles/class.module.css'
 import ActivityElement from './ActivityElement'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowsToDot, faCaretLeft, faCaretRight, faCaretSquareDown, faCirclePlus, faPersonChalkboard, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faAngleLeft, faAngleRight, faArrowsToDot, faCaretLeft, faCaretRight, faCaretSquareDown, faCirclePlus, faPersonChalkboard, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons'
 import EditableTextElement from './EditableTextElement'
 import EditableParagraphComplete from './EditableParagraphComplete'
 
@@ -11,6 +11,8 @@ export default function ActivityTemplateEdit({ sheetsOfSection, handleChangeShee
     const [currentElementSelect, setCurrentElementSelect] = useState(null)
     const [currentElementIndex, setCurrentElementIndex] = useState(null)
     const [currentElementIsActivity, setCurrentElementIsActivity] = useState(false)
+    
+    const [isOpenMenu, setIsOpenMenu] = useState(false)
     
     const cursorPosition = useRef(0);
     const divRef = useRef(null);
@@ -26,8 +28,14 @@ export default function ActivityTemplateEdit({ sheetsOfSection, handleChangeShee
             currentElementSelect?.type == "dragable-box" ||
             currentElementSelect?.type == 'videoi-youtube'
         )
-        
+
     },[currentElementSelect, sheetsOfSection])
+    
+    useEffect(()=>{
+        
+        setIsOpenMenu(true)
+
+    },[currentElementSelect])
 
     useEffect(() => {
 
@@ -45,6 +53,8 @@ export default function ActivityTemplateEdit({ sheetsOfSection, handleChangeShee
             selection?.removeAllRanges();
             selection?.addRange(range);
         }
+
+
 
     }, [currentElementSelect?.value]);
     
@@ -64,7 +74,16 @@ export default function ActivityTemplateEdit({ sheetsOfSection, handleChangeShee
     function handleChangeValue(e){
         // Actualiza el valor del "Elemento actual" 
         let newSheet = {...sheetsOfSection};
-        newSheet.data[currentElementIndex].value = e;
+        newSheet.sheets[currentElementIndex].value = e;
+
+
+        handleChangeSheet(newSheet)
+    }
+
+    function handleChangeClassName(e){
+        // Actualiza el valor del "Elemento actual" 
+        let newSheet = {...sheetsOfSection};
+        newSheet.sheets[currentElementIndex].className = e;
 
 
         handleChangeSheet(newSheet)
@@ -73,20 +92,19 @@ export default function ActivityTemplateEdit({ sheetsOfSection, handleChangeShee
     function handleChangeType(e){
         let newSheet = {...sheetsOfSection};
         let typeFind = {...ActivityOptionsElements().find((element)=> element?.type == e.target.value)}
-        console.log(typeFind)
         let newType = {...typeFind} 
-        newSheet.data[currentElementIndex] = newType;
+        newSheet.sheets[currentElementIndex] = newType;
         
-        setCurrentElementSelect(newSheet.data[currentElementIndex])
+        setCurrentElementSelect(newSheet.sheets[currentElementIndex])
         handleChangeSheet(newSheet)
     }
 
     function handleChangeStyles(newStyle){
         let newSheet = {...sheetsOfSection};
-        newSheet.data[currentElementIndex] = {
-            ...newSheet.data[currentElementIndex],
+        newSheet.sheets[currentElementIndex] = {
+            ...newSheet.sheets[currentElementIndex],
             style: {
-                ...newSheet.data[currentElementIndex].style,
+                ...newSheet.sheets[currentElementIndex].style,
                 ...newStyle
             }
         };
@@ -101,23 +119,23 @@ export default function ActivityTemplateEdit({ sheetsOfSection, handleChangeShee
         let finalIndex = 0;
 
         if(currentElementIndex != null){
-            newSheet.data?.splice(currentElementIndex + 1, 0, newElement)
+            newSheet.sheets?.splice(currentElementIndex + 1, 0, newElement)
             finalIndex = currentElementIndex + 1;
         }
         else {
-            newSheet.data?.push(newElement)
-            finalIndex = newSheet.data.length - 1
+            newSheet.sheets?.push(newElement)
+            finalIndex = newSheet.sheets.length - 1
         }
 
         handleChangeSheet(newSheet)
         setCurrentElementIndex(finalIndex)
-        setCurrentElementSelect(newSheet.data[finalIndex])
+        setCurrentElementSelect(newSheet.sheets[finalIndex])
     }
 
     function deleteElement(){
         let newSheet = {...sheetsOfSection};
 
-        newSheet.data?.splice(currentElementIndex, 1)
+        newSheet.sheets?.splice(currentElementIndex, 1)
 
         handleChangeSheet(newSheet)
         setCurrentElementIndex(null)
@@ -160,28 +178,28 @@ export default function ActivityTemplateEdit({ sheetsOfSection, handleChangeShee
     //#region Select Simple
     function handleChangeOption(option){
         let newSheet = {...sheetsOfSection};
-        newSheet.data[currentElementIndex].option = option;
+        newSheet.sheets[currentElementIndex].option = option;
         
         handleChangeSheet(newSheet)
     }
 
     function handleChangeOptions(e, index){
         let newSheet = {...sheetsOfSection};
-        newSheet.data[currentElementIndex].options[index] = e.target.value;
+        newSheet.sheets[currentElementIndex].options[index] = e.target.value;
         
         handleChangeSheet(newSheet)
     }
 
     function addOption(){
         let newSheet = {...sheetsOfSection};
-        newSheet.data[currentElementIndex].options?.push("")
+        newSheet.sheets[currentElementIndex].options?.push("")
 
         handleChangeSheet(newSheet)
     }
 
     function deleteOption(){
         let newSheet = {...sheetsOfSection};
-        newSheet.data[currentElementIndex].options.pop()
+        newSheet.sheets[currentElementIndex].options.pop()
 
         handleChangeSheet(newSheet)
     }
@@ -192,21 +210,21 @@ export default function ActivityTemplateEdit({ sheetsOfSection, handleChangeShee
         
         // Cambia el valor del parrafo/campo del "ParagraphComplete" 
         let newSheet = {...sheetsOfSection};
-        newSheet.data[currentElementIndex].value[index] = value;
+        newSheet.sheets[currentElementIndex].value[index] = value;
         
         handleChangeSheet(newSheet)
     }
 
     function deleteItemParagraphComplete(index){
         let newSheet = {...sheetsOfSection};
-        newSheet.data[currentElementIndex].value?.splice(index, 1)
+        newSheet.sheets[currentElementIndex].value?.splice(index, 1)
 
         handleChangeSheet(newSheet)
     }
 
     function addItemParagraphComplete(type){
         let newSheet = {...sheetsOfSection};
-        newSheet.data[currentElementIndex].value?.push(
+        newSheet.sheets[currentElementIndex].value?.push(
             type == "text" ?
             "texto"
             :
@@ -221,20 +239,28 @@ export default function ActivityTemplateEdit({ sheetsOfSection, handleChangeShee
     //#endregion
 
     return (
-        <>
+        <div>
+            
+            {/* Boton para cerrar/abrir */}
+            <div
+            onClick={()=>setIsOpenMenu(!isOpenMenu)}
+            className={`w-[60px] h-[60px] bg-white rounded-[100%_0_0_100%] shadow-[0px_4px_24px_#18292F3A] fixed top-1/2 translate-y-[50%] transition-all right-[${isOpenMenu ? "350px" : "0"}] cursor-pointer flex justify-center items-center`}>
+                <FontAwesomeIcon icon={isOpenMenu ? faAngleRight :faAngleLeft}/>
+            </div>
+            
             {/*////////// Teample //////////*/}
-            <div className={`${style[sheetsOfSection?.template]} ${style[sheetsOfSection?.classNamePlus]}`} onClick={(e)=>e.stopPropagation()}>
+            <div className={`${style[sheetsOfSection?.template]} ${style[sheetsOfSection?.classNamePlus]} z-30`} onClick={(e)=>e.stopPropagation()}>
 
                 
               {/* Titulo */}
               <div className={style['title']}>
                 {
-                    sheetsOfSection?.data?.map((data, index) =>
+                    sheetsOfSection?.sheets?.map((sheets, index) =>
                         // Elementos de Encabezado
-                        <div>
-                            {(data.type === 'title' || data.type === 'popup')&& (
+                        <div key={index}>
+                            {(sheets.type === 'title' || sheets.type === 'popup')&& (
                                 <div className={`${currentElementIndex == index && "border-2 rounded-[5px] border-primary"}`}>
-                                    <ActivityElement returnDate={handleElementSelect} key={index}  date={data} index={index}/>
+                                    <ActivityElement returnDate={handleElementSelect} key={index}  date={sheets} index={index}/>
                                 </div>
                             )}
                         </div>
@@ -245,10 +271,10 @@ export default function ActivityTemplateEdit({ sheetsOfSection, handleChangeShee
               {/* Contenido */}
               <div className={style['content']}>
                 {
-                    sheetsOfSection?.data?.map((data, index) =>
-                        (data.type != 'title' && data.type != 'popup') && (
-                            <div className={`${currentElementIndex == index && "border-2 rounded-[5px] border-primary"}`}>
-                                <ActivityElement returnDate={handleElementSelect} key={index}  date={data} index={index}/>
+                    sheetsOfSection?.sheets?.map((sheets, index) =>
+                        (sheets.type != 'title' && sheets.type != 'popup') && (
+                            <div key={index} className={`${currentElementIndex == index && "border-2 rounded-[5px] border-primary"}`}>
+                                <ActivityElement returnDate={handleElementSelect} key={index}  date={sheets} index={index}/>
                             </div>
                         )
                     )
@@ -259,10 +285,37 @@ export default function ActivityTemplateEdit({ sheetsOfSection, handleChangeShee
 
             {/*////////// Menu de edicion //////////*/}
             <div
-            className=' w-[350px] h-screen right-0 top-0 fixed shadow-[0px_4px_24px_#18292F3A] bg-white pt-[119px] text-[14px] font-medium text-violet_dark overflow-auto'>
-
+            className={`w-[350px] h-screen transition-all right-[${isOpenMenu ? '0px' : '-350px'}] top-0 fixed shadow-[0px_4px_24px_#18292F3A] bg-white pt-[119px] text-[14px] font-medium text-violet_dark overflow-auto`}>
+                
                 {/* Index */} 
-                <p  className='pl-[16px] w-full justify-center text-center pb-4 border-b-2 '><b>Index</b>  {currentElementIndex}</p>
+                <div
+                className=' pb-4 border-b-2 flex justify-around w-full '>
+                    
+                    <button
+                    className='px-3 
+                    hover:bg-gray_clear'
+                    onClick={()=>{
+                        if(currentElementIndex - 1 < 0) return;
+                        setCurrentElementSelect(sheetsOfSection.sheets[currentElementIndex - 1])
+                        setCurrentElementIndex(currentElementIndex - 1)
+                    }}>
+                        <FontAwesomeIcon icon={faAngleLeft}/>
+                    </button>
+
+                    <p className='pl-[16px] justify-center text-center'><b>Index</b>  {currentElementIndex}</p>
+
+                    <button
+                    className='px-3 
+                    hover:bg-gray_clear'
+                    onClick={()=>{
+                        if(sheetsOfSection.sheets.length - 1 <= currentElementIndex ) return
+                        setCurrentElementSelect(sheetsOfSection.sheets[currentElementIndex + 1])
+                        setCurrentElementIndex(currentElementIndex + 1)
+                    }}>
+                        <FontAwesomeIcon icon={faAngleRight}/>
+                    </button>
+                    
+                </div>
             
                 {/* Elemento */}
                 <div className='py-[8px] px-[16px]'>
@@ -275,7 +328,7 @@ export default function ActivityTemplateEdit({ sheetsOfSection, handleChangeShee
 
                         {
                         ActivityOptionsElements()?.map((element)=>
-                            <option value={element?.type}>{element?.type}</option>
+                            <option key={index} value={element?.type}>{element?.type}</option>
                         )
                         }
                     </select>
@@ -289,6 +342,7 @@ export default function ActivityTemplateEdit({ sheetsOfSection, handleChangeShee
                         id={currentElementIndex}
                         colorsOptions={currentElementSelect?.type != "image"}
                         value={currentElementSelect?.value}
+                        change={currentElementSelect?.type}
                         handleChangeParagraph={handleChangeValue}
                         />
                         
@@ -299,13 +353,14 @@ export default function ActivityTemplateEdit({ sheetsOfSection, handleChangeShee
                         currentElementSelect?.type == "image" &&
 
                         <>
+                            {/* Cambiar tamaño */}
                             <div className='grid grid-cols-3 gap-1 mt-4'>
 
                                 {/* Ancho */}
                                 <div className='flex items-center'>
                                     <label>W</label>
                                     <input
-                                    onChange={(e)=>handleChangeStyles({"width": e.target.value})}
+                                    onChange={(e)=>handleChangeStyles({"width":`${e.target.value}px`})}
                                     className='border-2 ml-1 w-full p-1 px-3 rounded-[5px]' type='text'/>
                                 </div>
 
@@ -313,7 +368,7 @@ export default function ActivityTemplateEdit({ sheetsOfSection, handleChangeShee
                                 <div className='flex items-center'>
                                     <label>H</label>
                                     <input
-                                    onChange={(e)=>handleChangeStyles({"height":e.target.value})}
+                                    onChange={(e)=>handleChangeStyles({"height":`${e.target.value}px`})}
                                     className='border-2 ml-1 w-full p-1 px-3 rounded-[5px]' type='text'/>
                                 </div>
                             </div>
@@ -344,6 +399,22 @@ export default function ActivityTemplateEdit({ sheetsOfSection, handleChangeShee
                             </div>
                         </>
 
+                    }
+
+                    {
+                        currentElementSelect?.type == "separator" &&
+
+                        <>
+                            <div className=' flex items-center mt-3'>
+                                <input 
+                                checked={currentElementSelect?.className?.includes("separator-transparent")}
+                                onClick={()=> handleChangeClassName(currentElementSelect?.className?.includes("separator-transparent") ? "separator" : "separator-transparent")}
+                                className='mr-3 checkbox'
+                                type='checkbox'/>
+
+                                <label>Transparente</label>
+                            </div>
+                        </>
                     }
 
                     {/* Eliminar/Agregar elemento */}
@@ -525,7 +596,7 @@ export default function ActivityTemplateEdit({ sheetsOfSection, handleChangeShee
                 }
 
             </div>
-        </>
+        </div>
     )
 
     
@@ -575,24 +646,24 @@ export function ActivityOptionsElements(){
         //     ]
         // },
 
-        // Tabla
-        {
-            type: 'table',
-            value: [
-                {
-                    title: "Comunicación",
-                    content: "<li> - Punto 1</li> <li> - Punto 2</li> <li> - Punto 3</li> <li> - Punto 4</li>"
-                },
-                {
-                    title: "Vocabulario",
-                    content: "<li> - Punto 1</li> <li> - Punto 2</li> <li> - Punto 3</li> <li> - Punto 4</li>"
-                },
-                {
-                    title: "Gramática",
-                    content: "<li> - Punto 1</li> <li> - Punto 2</li> <li> - Punto 3</li> <li> - Punto 4</li>"
-                }
-            ]
-        },
+        // // Tabla
+        // {
+        //     type: 'table',
+        //     value: [
+        //         {
+        //             title: "Comunicación",
+        //             content: "<li> - Punto 1</li> <li> - Punto 2</li> <li> - Punto 3</li> <li> - Punto 4</li>"
+        //         },
+        //         {
+        //             title: "Vocabulario",
+        //             content: "<li> - Punto 1</li> <li> - Punto 2</li> <li> - Punto 3</li> <li> - Punto 4</li>"
+        //         },
+        //         {
+        //             title: "Gramática",
+        //             content: "<li> - Punto 1</li> <li> - Punto 2</li> <li> - Punto 3</li> <li> - Punto 4</li>"
+        //         }
+        //     ]
+        // },
 
         // // Bloque de textos 
         // {
@@ -646,10 +717,10 @@ export function ActivityOptionsElements(){
             className:'paragraph-complete'
         },
         
-        // Parrafo a Completar con Imagenes 
-        {
-            type: 'paragraph-complete-content',
-        },
+        // // Parrafo a Completar con Imagenes 
+        // {
+        //     type: 'paragraph-complete-content',
+        // },
         
         // // Parrafo a Completar de lista 
         // {
@@ -696,56 +767,58 @@ export function ActivityOptionsElements(){
         // Video Youtube 
         {
             type:'video-youtube',
+            value:'dQw4w9WgXcQ',
+            className:'youtube'
         },
         
         // Video Youtube con PopUps 
-        {
-            type:'videoi-youtube',
-            popups: [
-                {
-                  time: 33,
-                  title: "Con la _______ bien recta",
-                  reply: "espalda",
-                  message: "(espalda/rodilla)",
-                  type: "checkbox",
-                  options: [
-                    "espalda",
-                    "rodilla"
-                  ],
-                  paddingLeft: "10%",
-                  popUpShown: false,
-                  value: 0
-                },
-                {
-                  time: 35,
-                  title: "Para abrir la ____ ________",
-                  reply: "caja torácica",
-                  message: "(caja toráxica/caja torácica)",
-                  type: "checkbox",
-                  options: [
-                    "caja toráxica",
-                    "caja torácica"
-                  ],
-                  paddingLeft: "10%",
-                  popUpShown: false,
-                  value: 0
-                },
-                {
-                  time: 48,
-                  title: "Entre los dos ______ a mitad de la zancada",
-                  reply: "pies",
-                  message: "(pies/pie)",
-                  type: "checkbox",
-                  options: [
-                    "pies",
-                    "pie"
-                  ],
-                  paddingLeft: "10%",
-                  popUpShown: false,
-                  value: 0
-                },
-            ],
-        },
+        // {
+        //     type:'videoi-youtube',
+        //     popups: [
+        //         {
+        //           time: 33,
+        //           title: "Con la _______ bien recta",
+        //           reply: "espalda",
+        //           message: "(espalda/rodilla)",
+        //           type: "checkbox",
+        //           options: [
+        //             "espalda",
+        //             "rodilla"
+        //           ],
+        //           paddingLeft: "10%",
+        //           popUpShown: false,
+        //           value: 0
+        //         },
+        //         {
+        //           time: 35,
+        //           title: "Para abrir la ____ ________",
+        //           reply: "caja torácica",
+        //           message: "(caja toráxica/caja torácica)",
+        //           type: "checkbox",
+        //           options: [
+        //             "caja toráxica",
+        //             "caja torácica"
+        //           ],
+        //           paddingLeft: "10%",
+        //           popUpShown: false,
+        //           value: 0
+        //         },
+        //         {
+        //           time: 48,
+        //           title: "Entre los dos ______ a mitad de la zancada",
+        //           reply: "pies",
+        //           message: "(pies/pie)",
+        //           type: "checkbox",
+        //           options: [
+        //             "pies",
+        //             "pie"
+        //           ],
+        //           paddingLeft: "10%",
+        //           popUpShown: false,
+        //           value: 0
+        //         },
+        //     ],
+        // },
 
         // // Caja de Oraciones 
         // {

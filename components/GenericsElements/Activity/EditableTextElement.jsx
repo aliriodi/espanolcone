@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 
-export default function EditableTextElement({ value, handleChangeParagraph, className, colorsOptions, editOpcionsIsActivate, id}) {
+export default function EditableTextElement({ value, handleChangeParagraph, className, colorsOptions, editOpcionsIsActivate, id, change}) {
 
     const [currentValue, setCurrentValue] = useState(value)
     const [color, setColor] = useState("#3cbbd6"); // Color inicial
@@ -33,7 +33,7 @@ export default function EditableTextElement({ value, handleChangeParagraph, clas
 
     useEffect(()=>{
         setCurrentValue(value)
-    },[id])
+    },[id, change])
 
     function updateParagraph(e){
         handleChangeParagraph(e.target.innerHTML)
