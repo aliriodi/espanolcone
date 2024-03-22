@@ -243,8 +243,9 @@ export default function ActivityTemplateEdit({ sheetsOfSection, handleChangeShee
             
             {/* Boton para cerrar/abrir */}
             <div
+            style={{right: isOpenMenu ? "350px" : "0"}}
             onClick={()=>setIsOpenMenu(!isOpenMenu)}
-            className={`w-[60px] h-[60px] bg-white rounded-[100%_0_0_100%] shadow-[0px_4px_24px_#18292F3A] fixed top-1/2 translate-y-[50%] transition-all right-[${isOpenMenu ? "350px" : "0"}] cursor-pointer flex justify-center items-center`}>
+            className={`w-[60px] h-[60px] bg-white rounded-[100%_0_0_100%] shadow-[0px_4px_24px_#18292F3A] fixed top-1/2 translate-y-[50%] transition-all cursor-pointer flex justify-center items-center`}>
                 <FontAwesomeIcon icon={isOpenMenu ? faAngleRight :faAngleLeft}/>
             </div>
             
@@ -285,7 +286,8 @@ export default function ActivityTemplateEdit({ sheetsOfSection, handleChangeShee
 
             {/*////////// Menu de edicion //////////*/}
             <div
-            className={`w-[350px] h-screen transition-all right-[${isOpenMenu ? '0px' : '-350px'}] top-0 fixed shadow-[0px_4px_24px_#18292F3A] bg-white pt-[119px] text-[14px] font-medium text-violet_dark overflow-auto`}>
+            style={{right: isOpenMenu ? '0px' : '-350px'}}
+            className={`w-[350px] h-screen transition-all top-0 fixed shadow-[0px_4px_24px_#18292F3A] bg-white pt-[119px] text-[14px] font-medium text-violet_dark overflow-auto`}>
                 
                 {/* Index */} 
                 <div
@@ -327,7 +329,7 @@ export default function ActivityTemplateEdit({ sheetsOfSection, handleChangeShee
                     value={currentElementSelect?.type}>
 
                         {
-                        ActivityOptionsElements()?.map((element)=>
+                        ActivityOptionsElements()?.map((element, index)=>
                             <option key={index} value={element?.type}>{element?.type}</option>
                         )
                         }

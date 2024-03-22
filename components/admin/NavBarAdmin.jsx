@@ -1,4 +1,4 @@
-import { faBook, faMoneyBillTrendUp, faNewspaper, faUsers } from "@fortawesome/free-solid-svg-icons"
+import { faBook, faMoneyBillTrendUp, faMugHot, faNewspaper, faUsers } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Link from 'next/link';
 import { useEffect, useState } from "react";
@@ -24,6 +24,14 @@ export default function NavBarAdmin(){
             className={`text-title_color px-[22px] py-[10px] cursor-pointer ${currentPathName == "/inicio/admin/units" && "btn-success-active"}`}>
                 <FontAwesomeIcon className="mr-[5px]" icon={faBook}/>
                 Unidades
+            </Link>
+
+            {/* Express */}
+            <Link
+            href={'/inicio/admin/express'}
+            className={`text-title_color px-[22px] py-[10px] cursor-pointer ${currentPathName == "/inicio/admin/express" && "btn-success-active"}`}>
+                <FontAwesomeIcon className="mr-[5px]" icon={faMugHot}/>
+                Express
             </Link>
 
             

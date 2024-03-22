@@ -92,7 +92,8 @@ export default function CreateExpress() {
         ...finalMini,
         sheets:[
           {
-            data:{...finalMini.sheets}  
+            template: "mini-1",
+            data:[...finalMini.sheets]  
           }
         ]
       } 
@@ -410,7 +411,7 @@ export default function CreateExpress() {
                 className={`btn-primary px-[50px] py-2 font-medium text-[18px] flex justify-center items-center ${load && "opacity-1/2 pointer-events-none"}`}>
                   {
                     load ?
-                    <>Subiendo</>
+                    <>Subiendo. . .</>
                     :
                     <>Subir <FontAwesomeIcon className="ml-3" icon={faCloudArrowUp}/></>
                   }
