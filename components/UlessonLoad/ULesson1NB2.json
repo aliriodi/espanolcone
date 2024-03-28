@@ -1,0 +1,146 @@
+{
+    
+    "page1": {
+        "type": "table",
+        "section": {
+            "number": 0,
+            "value": "Mis Metas"
+        },
+        "template": "mini-1",
+        "data": [
+            {
+                "type": "title",
+                "value": "SALUD Y MEDICINA<br><br>Cecilia y Lucas - Parte 2 <br>En urgencias<br><br>Lectura - Diálogo e historia <br> Nivel B2 Intermedio",
+                "className": "title-dark"
+            },
+           
+           
+            {
+                "type": "separator",
+                "className": "separator"
+            },
+            {
+                "type": "paragraph",
+                "value": "<span style= 'color: var(--warning);' ><strong>Atención en el centro de urgencias</strong></span>",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<br><strong><u>CECILIA</u>.—</strong>Buenas noches. No sé qué le pasa a mi esposo, <span style= 'color: var(--warning);' >pero está muy mal</span>. Dice que <span style= 'color: var(--warning);' >tiene dolores muy fuertes</span> y no <span style= 'color: var(--warning);' >puede caminar</span>.",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<br><strong><u>ENFERMERA DE GUARDIA</u>.—</strong>Tranquila, señora. <span style= 'color: var(--warning);' >No se preocupe</span>. Por favor, enfermero, <span style= 'color: var(--warning);' >traslade</span> al paciente con una <span style= 'color: var(--warning);' >silla de ruedas</span> a la consulta. Por favor, señora, déjeme usted <span style= 'color: var(--warning);' >la tarjeta de la obra social</span>  y el <span style= 'color: var(--warning);' >documento de identidad</span> de su marido.",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<br><strong><u>CECILIA</u>.—</strong>Sí, aquí tiene.",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<br><strong><u>ENFERMERA DE GUARDIA</u>.—</strong>A ver, hoy es 15 de noviembre, son las 21:17 horas. ¿Me firma aquí, por favor, para confirmar que su marido <span style= 'color: var(--warning);' >ha sido atendido</span> el día de hoy en el centro de urgencias?",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<br><div style='text-align: center;'><img src='https://res.cloudinary.com/dfddh08q8/image/upload/s--MLMSS9qO--/v1711580172/images/l0q4fxbgdugmzakbujqq.png' alt='Centro de urgencias' style='display: block; margin: 0 auto;'/></div><br>",
+                "alt": "que dolor 1",
+                "className": ""
+            },
+            {
+                "type": "paragraph",
+                "value": "<br><strong><u>CECILIA</u>.—</strong>Bueno, gracias. (...)",
+                "className": "paragraph-default"
+            },
+            {
+                "type": "paragraph",
+                "value": "<br><strong>LA HISTORIA CONTINUA … (PARTE 3)</strong>",
+                "className": "paragraph-default"
+            },
+         
+            {
+                "type": "paragraph",
+                "value": "<div style='text-align: center;'><br><span style= 'color: var(--secondary);' ><strong>COMPRENSIÓN DE LECTURA</strong></span></div>",
+                "className": "paragraph-default"
+            },
+
+            {
+                "type": "paragraph",
+                "value": "<br><strong>Relacione los siguientes conceptos con su significado.</strong>",
+                "className": "paragraph-default"
+            },
+             {
+                "type": "selectsimple",
+                "value": "<br><strong><span style= 'color: var(--secondary);' >1.</span> Lucía y Lucas van al hospital de __________ para recibir atención médica.</strong>",
+                "option": "c. urgencias.",
+                "options": [
+                    "a. quemados.",
+                    "b. jubilados.",
+                    "c. urgencias."                    
+                ],
+                "className": "paragraph-default"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<br><strong><span style= 'color: var(--secondary);' >2.</span> Lucía cuenta a la entrada de urgencias que su marido presenta problemas al:</strong>",
+                "option": "b. caminar.",
+                "options": [
+                    "a. ver.",
+                    "b. caminar.",
+                    "c. respirar."                    
+                ],
+                "className": "paragraph-default"
+            },
+             {
+                "type": "selectsimple",
+                "value": "<br><strong><span style= 'color: var(--secondary);' >3.</span> Lucía dice en urgencias que su marido presenta dolores:</strong>",
+                "option": "a. muy fuertes.",
+                "options": [
+                    "a. muy fuertes.",
+                    "b. leves.",
+                    "c. moderados."                    
+                ],
+                "className": "paragraph-default"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<br><strong><span style= 'color: var(--secondary);' >4.</span> El enfermero traslada a Lucas en una ________________ a la consulta:</strong>",
+                "option": "b. silla de ruedas",
+                "options": [
+                    "a. camilla",
+                    "b. silla de ruedas",
+                    "c. andadera."                    
+                ],
+                "className": "paragraph-default"
+            },
+            {
+                "type": "selectsimple",
+                "value": "<br><strong><span style= 'color: var(--secondary);' >5.</span> La enfermera de urgencias le pide a Lucía:</strong>",
+                "option": "c.  Ambos.",
+                "options": [
+                    "a. La tarjeta de la obra social.",
+                    "b. El documento de identificación.",
+                    "c.  Ambos."
+                ],
+                "className": "paragraph-default"
+            },
+                       {
+                "type": "selectsimple",
+                "value": "<br><strong><span style= 'color: var(--secondary);' >6.</span> Maruja entra a la __________ con su marido después de entregar la documentación.</strong>",
+                "option": "a. consulta.",
+                "options": [
+                    "a. consulta.",
+                    "b. consultoria.",
+                    "c. medicación."
+                ],
+                "className": "paragraph-default"
+            },
+            {
+                "type": "separator",
+                "className": "separator-transparent"
+            }       ]
+    }
+}

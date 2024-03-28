@@ -1,31 +1,6 @@
 {
+    
     "page1": {
-        "type": "text",
-        "section": {
-            "number": 0,
-            "value": "Mis Metas"
-        },
-        "template": "",
-        "data": [
-            {
-                "type": "image",
-                "value": "https://res.cloudinary.com/dfddh08q8/image/upload/s--wsuzMkyV--/v1709035989/images/bwd2esrxz6g39ofk3dl9.png",
-                "alt": "EspañolconE",
-                "className": "Portadaimg"
-            },
-            {
-                "type": "title",
-                "value": "Cecilia y Lucas - Parte 1 ¡Qué dolor!",
-                "className": "Portadatil"
-            },
-            {
-                "type": "paragraph",
-                "value": "NIVEL B1",
-                "className": "paragraph"
-            }
-        ]
-    },
-    "page2": {
         "type": "table",
         "section": {
             "number": 0,
