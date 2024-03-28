@@ -236,7 +236,7 @@ const Menu = (props) => {
                                         ${currentPathName == '/inicio/curso' && "bg-primary text-white"}
                                     hover:bg-primary hover:text-white`}>
                                         <FontAwesomeIcon className="mr-[5px]" icon={faMugHot} />
-                                        Express
+                                       Español Express
                                     </Link>
 
                                 </li>
