@@ -283,7 +283,8 @@ export default function Home() {
                  
               </div>
             </form>
-            <div>El navegador  es: {userAgent} </div>
+            {/* <div>El navegador  es: {userAgent} </div> */}
+            {console.log(userAgent)}
             {/* Vector 3 */}
             <Image src={Vector3} alt='Vector3' className='z-20 absolute right-0 bottom-0 w-40
             md:w-[8em]' />

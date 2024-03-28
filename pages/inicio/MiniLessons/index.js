@@ -331,7 +331,8 @@ export default function MiniLessons() {
                 miniLessons?.length > 0 ?
 
                 // Encontro las Mini leciones
-                miniLessons?.map((lesson, index)=>
+                miniLessons?.filter((element, index) => {return index >= 5;})
+                            .map((lesson, index)=>
                   <Link
                   key={index}
                   href={`/inicio/MiniLessons/${lesson?._id}`}
