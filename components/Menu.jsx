@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Logo from '../public/imgs/logo-gradient.png';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlane, faAngleRight,faCalendarDays,faEnvelope, faHouse, faPersonHiking, faChalkboardUser, faLaptop, faAddressCard, faPen, faBell, faBars, faUser, faMoneyBill, faArrowLeft, faUserTie } from '@fortawesome/free-solid-svg-icons';
+import { faPlane, faAngleRight,faMugHot, faCalendarDays, faEnvelope, faHouse, faPersonHiking, faChalkboardUser, faLaptop, faAddressCard, faPen, faBell, faBars, faUser, faMoneyBill, faArrowLeft, faUserTie } from '@fortawesome/free-solid-svg-icons';
 import SignOutBtn from './signOut/SignOutBtn';
 import { setshowClass } from '../redux/ECEActions';
 import { useSession } from "next-auth/react";
@@ -54,11 +54,11 @@ const Menu = (props) => {
     //#region  Modal de Paypal
     const [paypalModal, setPaypalModal] = useState(false)
 
-    const openPaypalModal = () =>{
+    const openPaypalModal = () => {
         setPaypalModal(true)
     }
 
-    const handleChangePaypalModal = (data) =>{
+    const handleChangePaypalModal = (data) => {
         setPaypalModal(data)
     }
     //#endregion
@@ -100,85 +100,85 @@ const Menu = (props) => {
             {/* Nav Bar */}
             {
                 !props.onlyMenu ?
-                (
-                <div className={`w-full absolute px-[60px] py-[20px] z-50
+                    (
+                        <div className={`w-full absolute px-[60px] py-[20px] z-50
                 md:px-[25px]`}>
-                    <div className='bg-white shadow-[0px_4px_24px_#18292F1A] flex justify-between px-[18px] py-[12px] rounded-[8px] items-center'>
+                            <div className='bg-white shadow-[0px_4px_24px_#18292F1A] flex justify-between px-[18px] py-[12px] rounded-[8px] items-center'>
 
-                        {/* Boton de Menu */}
-                        <button 
-                        ref={menuRef}
-                        onClick={() => setIsOpen(!isOpen)}>
-                            <FontAwesomeIcon
-                            icon={faBars}
-                            className='text-[20px] text-violet_dark cursor-pointer'/>
-                        </button>
+                                {/* Boton de Menu */}
+                                <button
+                                    ref={menuRef}
+                                    onClick={() => setIsOpen(!isOpen)}>
+                                    <FontAwesomeIcon
+                                        icon={faBars}
+                                        className='text-[20px] text-violet_dark cursor-pointer' />
+                                </button>
 
-                        {/* Datos de Usuario */}
-                        <div className='flex items-center'>
-                            {/* Notificaciones */}
-                            <FontAwesomeIcon
-                            className='mr-[22px] text-[20px] text-violet_dark'
-                            icon={faBell}/>
+                                {/* Datos de Usuario */}
+                                <div className='flex items-center'>
+                                    {/* Notificaciones */}
+                                    <FontAwesomeIcon
+                                        className='mr-[22px] text-[20px] text-violet_dark'
+                                        icon={faBell} />
 
-                            {/* Nombre y Rol de Usuario */}
-                            <div className='mr-[14px]'>
-                                {/* Nombre */}
-                                <p className='text-end text-violet_dark text-[14px]'>{session?.user?.first_name}</p>
+                                    {/* Nombre y Rol de Usuario */}
+                                    <div className='mr-[14px]'>
+                                        {/* Nombre */}
+                                        <p className='text-end text-violet_dark text-[14px]'>{session?.user?.first_name}</p>
 
-                                {/* Rol */}
-                                <p className='text-end text-[#B9B9C3] text-[12px]'>{session?.user?.role[0]}</p>
+                                        {/* Rol */}
+                                        <p className='text-end text-[#B9B9C3] text-[12px]'>{session?.user?.role[0]}</p>
+                                    </div>
+
+                                    {/* Imagen de Usuario */}
+                                    <Link
+                                        href={"/inicio/profile"}
+                                        className='w-[38px] h-[38px] rounded-full bg-[#B9B9C3] flex justify-center items-center '>
+                                        {
+                                            session?.user?.image ?
+                                                <Image
+                                                    alt="session.user.image"
+                                                    className='w-[38px] h-[38px] bg-primary rounded-full object-cover'
+                                                    src={session.user.image.url ?
+                                                        session.user.image.url :
+                                                        session.user.image}
+                                                    width={38}
+                                                    height={38} />
+                                                :
+                                                <FontAwesomeIcon className="text-violet_dark" icon={faUser} />
+
+                                        }
+                                    </Link>
+                                </div>
+
                             </div>
-
-                            {/* Imagen de Usuario */}
-                            <Link
-                            href={"/inicio/profile"}
-                            className='w-[38px] h-[38px] rounded-full bg-[#B9B9C3] flex justify-center items-center '>
-                                {
-                                    session?.user?.image?
-                                    <Image
-                                    alt="session.user.image"
-                                    className='w-[38px] h-[38px] bg-primary rounded-full object-cover'
-                                    src={session.user.image.url?
-                                                            session.user.image.url:
-                                                            session.user.image }
-                                    width={38}
-                                    height={38}/> 
-                                    :
-                                    <FontAwesomeIcon className="text-violet_dark" icon={faUser}/>
-
-                                }
-                            </Link>
                         </div>
-
-                    </div>
-                </div>
-                )
-                :
-                (
-                    <button 
-                        className='bg-white shadow-[0px_4px_24px_#18292F1A] absolute top-[20px] left-[50px] h-[50px] w-[50px] rounded-full flex items-center justify-center
+                    )
+                    :
+                    (
+                        <button
+                            className='bg-white shadow-[0px_4px_24px_#18292F1A] absolute top-[20px] left-[50px] h-[50px] w-[50px] rounded-full flex items-center justify-center
                         hover:bg-gray_light transition-all
                         md:top-[10px] md:left-[10px]'
-                        ref={menuRef}
-                        onClick={() => setIsOpen(!isOpen)}>
+                            ref={menuRef}
+                            onClick={() => setIsOpen(!isOpen)}>
                             <FontAwesomeIcon
-                            icon={faBars}
-                            className='text-[20px] text-violet_dark cursor-pointer'/>
-                    </button>
-                )
+                                icon={faBars}
+                                className='text-[20px] text-violet_dark cursor-pointer' />
+                        </button>
+                    )
 
             }
 
             {/* Volver a Atras */}
-            <div 
-            onClick={()=>history.back()}
-            className={`bg-white shadow-[0px_4px_24px_#18292F1A] absolute ${currentPathName == '/inicio/home' || currentPathName == '/inicio/calendar' ? "top-[20px]" : "top-[100px]"} left-[60px] h-[50px] w-[50px] rounded-full flex items-center justify-center z-[49] cursor-pointer opacity-[0.7]
+            <div
+                onClick={() => history.back()}
+                className={`bg-white shadow-[0px_4px_24px_#18292F1A] absolute ${currentPathName == '/inicio/home' || currentPathName == '/inicio/calendar' ? "top-[20px]" : "top-[100px]"} left-[60px] h-[50px] w-[50px] rounded-full flex items-center justify-center z-[49] cursor-pointer opacity-[0.7]
             hover:opacity-[1] transition-all
             md:left-[25px]`}>
                 <FontAwesomeIcon
-                className='text-violet_dark text-[20px]'
-                icon={faArrowLeft}/>
+                    className='text-violet_dark text-[20px]'
+                    icon={faArrowLeft} />
             </div>
 
             {/* Menu */}
@@ -197,7 +197,7 @@ const Menu = (props) => {
                             {/* Logo */}
                             <div >
                                 <Link href="/inicio/home" >
-                                    <Image  src={Logo} className='mb-[10px]' style={{ width: '80px' }} alt="Logo" />
+                                    <Image src={Logo} className='mb-[10px]' style={{ width: '80px' }} alt="Logo" />
                                 </Link>
 
                             </div>
@@ -227,6 +227,18 @@ const Menu = (props) => {
                                         <FontAwesomeIcon icon={faLaptop} className="  mr-[10px]" />
                                         <p>Curso</p>
                                     </Link>
+                                </li>
+                                {/*Express */}
+                                <li>
+                                    <Link
+                                        href={'/inicio/MiniLessons'}
+                                        className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
+                                        ${currentPathName == '/inicio/curso' && "bg-primary text-white"}
+                                    hover:bg-primary hover:text-white`}>
+                                        <FontAwesomeIcon className="mr-[5px]" icon={faMugHot} />
+                                        Express
+                                    </Link>
+
                                 </li>
 
                                 {/* Calendario */}
@@ -265,7 +277,7 @@ const Menu = (props) => {
                                         <p>Guías turisticos</p>
                                     </Link>
                                 </li> */}
-                                
+
 
                                 {/* Para enviar Emails */}
                                 <li>
@@ -273,7 +285,7 @@ const Menu = (props) => {
                                         className={`flex items-center w-full justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
                                             && "bg-primary text-white"}
                                         hover:bg-primary hover:text-white`}
-                                    onClick={()=>setIsOpenMail(true)}>
+                                        onClick={() => setIsOpenMail(true)}>
                                         <FontAwesomeIcon icon={faEnvelope} className="  mr-[10px]" />
                                         <p>Contáctanos</p>
                                     </button>
@@ -282,7 +294,7 @@ const Menu = (props) => {
 
                                 {/* Panel Admin */}
                                 {
-                                session && session.user && session.user.role.includes('admin') &&
+                                    session && session.user && session.user.role.includes('admin') &&
                                     <li>
                                         <Link
                                             className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
@@ -317,15 +329,15 @@ const Menu = (props) => {
                                             <p>Cargar Clase</p>
                                         </Link>
                                     </li>
-                                    : 
+                                    :
                                     null
                                 }
 
                                 {/* ////////// Pronto ////////// */}
 
                                 {/* Guia Turistico */}
-                              <li className='relative'>
-                                    
+                                <li className='relative'>
+
                                     <span className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all opacity-[50%]`}>
 
                                         {/* icon */}

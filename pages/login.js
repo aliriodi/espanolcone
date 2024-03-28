@@ -42,6 +42,14 @@ export default function Home() {
   // import {useSession} from 'next-auth/react'
   
   // useSseion()
+  /*Para ver que navegador es*/
+  const [userAgent, setUserAgent] = useState('');
+
+  useEffect(() => {
+    const sUsrAg = navigator.userAgent;
+    setUserAgent(sUsrAg);
+  }, []);
+  /*Fin de NAVEGADOR */
   const {data: session,status} = useSession();
  // console.log(session)
   const dispatch = useDispatch();
@@ -271,9 +279,12 @@ export default function Home() {
                   href="#">
                     <AiOutlineGoogle className='text-white cursor-pointer icon-white ' style={{fontSize:'1.6em'}}/>
                   </span>
+                  
+                 
               </div>
             </form>
-
+            {/* <div>El navegador  es: {userAgent} </div> */}
+            {console.log(userAgent)}
             {/* Vector 3 */}
             <Image src={Vector3} alt='Vector3' className='z-20 absolute right-0 bottom-0 w-40
             md:w-[8em]' />
