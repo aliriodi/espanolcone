@@ -15,7 +15,8 @@ export default async function getAllUlesson(req, res) {
       formats,
       level,
       page = 1,
-      maxResults = 15
+      maxResults = 15,
+      inReview
     },
   } = req;
 
@@ -37,6 +38,7 @@ export default async function getAllUlesson(req, res) {
     const filter = {};
 
     // Agrega los criterios de búsqueda si están presentes en los parámetros de consulta
+    if (inReview) filter.inReview = inReview == 1;
     if (topics) filter.topics = topics;
     if (formats) filter.formats = { $in: formats.split(',') }; // Si formats es una lista separada por comas
 
@@ -47,7 +49,7 @@ export default async function getAllUlesson(req, res) {
       .limit(Number(maxResults)) // Limita el número de resultados devueltos
       .skip((page - 1) * maxResults); // Paginación
 
-    console.log('CLASS TAKEN');
+    console.log('CLASS TAKEN ',filter?.inReview);
     
     // Verifica procedencia de solicitud 
     if(req.headers.accept == "*/*"||true){

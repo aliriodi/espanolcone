@@ -19,13 +19,14 @@ export default function MiniLessons() {
 
   // Formato
   const [currentFormat, setCurrentFormat] = useState(null)
-  const [optionsFormats, setOptionsFormats] = useState(["articulo", "libro", "leccion", "video", "letra", "podcast"])
+  const [optionsFormats, setOptionsFormats] = useState(["articulo", "libro", "leccion", "video", "lectura", "podcast"])
   const [openFormat, setOpenFormat] = useState(null) 
   const selectFormat = useRef(null); 
 
   // Topico
   const [currentTopic, setCurrentTopic] = useState(null)
-  const [optionsTopics, setOptionsTopics] = useState(["teoria", "ciencia", "tecnología", "entretenimiento", "negocio", "español básico"])
+  const [optionsTopics, setOptionsTopics] = useState(["viajes y turismo", "noticias actuales", "países y cultura", "salud y medicina", "negocios y economía", "tecnología", "estilos de vida","entretenimiento", "literatura"])
+
   const [openTopic, setOpenTopic] = useState(null) 
   const selectTopic = useRef(null); 
   
@@ -55,6 +56,8 @@ export default function MiniLessons() {
     };
   },[])
 
+  useEffect(()=> console.log(miniLessons),[miniLessons])
+
   async function getMiniLesson(){
     setLoadMiniLessons(true)
 
@@ -62,8 +65,8 @@ export default function MiniLessons() {
     
     try{
       
-      lessons = await axios.get(`/api/ulessons/get?level=${currentLevel ? currentLevel : ""}&formats=${currentFormat ? currentFormat : ""}&topics=${currentTopic ? currentTopic : ""}`)
-      // console.log( lessons?.data?.formats )
+      lessons = await axios.get(`/api/ulessons/get?level=${currentLevel ? currentLevel : ""}&formats=${currentFormat ? currentFormat : ""}&topics=${currentTopic ? currentTopic : ""}&inReview=${0}`)
+      console.log( lessons )
       setLoadMiniLessons(false)
     }
     catch(e){
@@ -327,12 +330,12 @@ export default function MiniLessons() {
           {
             miniLessons ?
             <>
+
               {
                 miniLessons?.length > 0 ?
 
                 // Encontro las Mini leciones
-                miniLessons?.filter((element, index) => {return index >= 5;})
-                            .map((lesson, index)=>
+                miniLessons?.map((lesson, index)=>
                   <Link
                   key={index}
                   href={`/inicio/MiniLessons/${lesson?._id}`}
@@ -386,6 +389,7 @@ export default function MiniLessons() {
             </div>
           }
         </div>
+        
       </div>
     </BodyGeneric>
   )

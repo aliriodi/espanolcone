@@ -29,6 +29,9 @@ const UlessonSchema = new Schema(
     image:{
       type: String,
     },
+    inReview:{
+      type: Boolean
+    }
   },
   {
     timestamps: true,

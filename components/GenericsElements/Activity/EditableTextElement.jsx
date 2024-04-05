@@ -44,7 +44,7 @@ export default function EditableTextElement({ value, handleChangeParagraph, clas
         const selection = window.getSelection();
 
         if (selection && selection.toString().trim() !== '') {
-            const modifiedText = currentValue.replace(selection.toString(), `<span style="color: ${color}">${selection.toString()}</span>`);
+            const modifiedText = fieldRef?.current?.textContent.replace(selection.toString(), `<span style="color: ${color}">${selection.toString()}</span>`);
 
             console.log("modifiedText ",modifiedText)
             
@@ -57,7 +57,7 @@ export default function EditableTextElement({ value, handleChangeParagraph, clas
         const selection = window.getSelection();
 
         if (selection && selection.toString().trim() !== '') {
-            const modifiedText = currentValue.replace(`<span style="color: ${color}">${selection.toString()}</span>`, selection.toString());
+            const modifiedText = fieldRef?.current?.textContent.replace(`<span style="color: ${color}">${selection.toString()}</span>`, selection.toString());
 
             setCurrentValue(modifiedText)
             updateParagraph({target:{ innerHTML: modifiedText }})

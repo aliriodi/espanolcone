@@ -4,10 +4,11 @@ import BodyGeneric from "../../../../../components/GenericsElements/BodyGeneric"
 import ActivityTemplate from "../../../../../components/GenericsElements/Activity/ActivityTemplate";
 import ActivityTemplateEdit from "../../../../../components/GenericsElements/Activity/ActivityTemplateEdit";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown, faAngleUp, faCloudArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { faAngleDown, faAngleUp, faCloudArrowUp, faRotate } from "@fortawesome/free-solid-svg-icons";
 import axios  from "axios";
+import { useRouter } from "next/router";
 
-export default function CreateExpress() {
+export default function EditExpress() {
 
     // Mini leccion 
     const [currentSheets, setCurrentSheets] = useState([
@@ -65,13 +66,15 @@ export default function CreateExpress() {
     ])
 
     const [load, setLoad] = useState(false)
+    const router = useRouter();
+    const { id } = router.query;
 
     // Nivel
     const [openLevel, setOpenLevel] = useState(false)
     const selectLevel = useRef(null); 
 
     // Formato
-    const [optionsFormats, setOptionsFormats] = useState(["articulo", "libro", "leccion", "video", "letra", "podcast"])
+    const [optionsFormats, setOptionsFormats] = useState(["articulo", "libro", "leccion", "video", "lectura", "podcast"])
     const [openFormat, setOpenFormat] = useState(null) 
     const selectFormat = useRef(null); 
 
@@ -80,12 +83,39 @@ export default function CreateExpress() {
     const [openTopic, setOpenTopic] = useState(null) 
     const selectTopic = useRef(null);
 
+    useEffect(()=>{
+      
+      getMinilesson()
+      
+    },[id])
+
     function handleChangeSheet(sheet){
       try{
         setCurrentSheets([sheet])
       }
       catch(e){
         alert("se produjo un error")
+      }
+    }
+
+    async function getMinilesson(){
+
+      if(id){
+
+        let response = await axios.get(`/api/ulessons/${id}`)
+
+        setCurrentSheets([
+          {
+            level:response?.data?.ulesson.level,
+            description: response?.data?.ulesson?.description,
+            topics: response?.data?.ulesson?.topics,
+            formats: response?.data?.ulesson?.formats,
+            template: "mini-1",
+            sheets: response?.data?.ulesson?.sheets[0]?.data,
+            image: response?.data?.ulesson?.image
+          }
+        ])
+
       }
     }
     
@@ -101,11 +131,11 @@ export default function CreateExpress() {
             data:[...finalMini.sheets]  
           }
         ],
-        inReview: true
+        _id:id
       } 
       
       setLoad(true)
-      await axios.post('/api/ulessons/add',finalMini)
+      await axios.post('/api/ulessons/update',finalMini)
 
 
       setLoad(false)
@@ -410,19 +440,30 @@ export default function CreateExpress() {
               </div>
 
               {/* Subir Microlession */}
-              <div className="mt-5">
+              <div className="mt-5 flex">
 
                 <button
                 onClick={uploadMinilesson}
-                className={`btn-primary px-[50px] py-2 font-medium text-[18px] flex justify-center items-center ${load && "opacity-1/2 pointer-events-none"}`}>
+                className={`btn-primary px-[50px] py-2 font-medium text-[18px] flex justify-center items-center mr-2 ${load && "opacity-1/2 pointer-events-none"}`}>
                   {
                     load ?
-                    <>Subiendo. . .</>
+                    <>Actualizando. . .</>
                     :
-                    <>Subir <FontAwesomeIcon className="ml-3" icon={faCloudArrowUp}/></>
+                    <>Actualizar <FontAwesomeIcon className="ml-3" icon={faRotate}/></>
                   }
                 </button>
-                
+
+                {/* <button
+                onClick={uploadMinilesson}
+                className={`btn-success px-[50px] py-2 font-medium text-[18px] flex justify-center items-center ${load && "opacity-1/2 pointer-events-none"}`}>
+                  {
+                    load ?
+                    <>Actualizando. . .</>
+                    :
+                    <>Actualizar <FontAwesomeIcon className="ml-3" icon={faRotate}/></>
+                  }
+                </button>
+                 */}
               </div>
                 
             </AdminPage>

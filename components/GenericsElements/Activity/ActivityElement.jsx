@@ -55,10 +55,6 @@ export default function ActivityElement({ date, index, returnDate }) {
         if(returnDate) returnDate(date, index)
     }
 
-    useEffect(()=>{
-        console.log(typeActivitys)
-    },[typeActivitys])
-
     return (
         <>
             {/* Titulo */}
