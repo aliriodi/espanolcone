@@ -46,7 +46,7 @@ export default function MiniLesson() {
 
                     {/* Imagen de fondo */}
                     <img 
-                    className="fixed w-screen h-screen object-cover grayscale-[100] opacity-50 z-10"
+                    className="fixed w-screen h-screen object-cover grayscale-[100] opacity-50 z-10 blur-md"
                     src={lesson?.image}/>
                 </>
                 

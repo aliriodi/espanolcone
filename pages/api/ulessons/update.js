@@ -21,14 +21,14 @@ export default async function updateUlesson(req, res) {
 
     console.log('UPDATING DOCUMENT');
     console.log(req.body)
-   const ulesson = await Ulessons.findOneAndUpdate({ _id: _id }, req.body, { new: false })
+   const ulesson = await Ulessons.updateOne({ _id: _id }, req.body)
    // const class1 = Class.findByIdAndUpdate(_id, req.body, { new: true });
     console.log('UPDTATED DOCUMENT', ulesson);
 
     res.json({ Ulessons })
 
   } catch (error) {
-    console.log(error);
+    console.log("ERROR ",error);
     res.json({ error })
   }
 }

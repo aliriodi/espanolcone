@@ -792,6 +792,16 @@
     padding: 24px;
 }
 
+.mini-1 .paragraph-default,
+.mini-1 .paragraph-complete,
+.mini-1 .selector-simple{
+    font-size: 1.1em;
+}
+
+.mini-1 .selector-simple span{
+    font-size: 1em;
+}
+
 .mini-1 .youtube{
     margin: 20px 0;
 }
