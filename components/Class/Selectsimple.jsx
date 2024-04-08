@@ -60,6 +60,7 @@ export default function Selectsimple(props) {
 
                         {/* Input */}
                         <input type="radio"
+                            className='mb-auto mt-[8px]'
                             key={option}
                             value={option}
                             checked={selectedOption === option}
@@ -78,12 +79,14 @@ export default function Selectsimple(props) {
                                 {/* Para renderizar culito */}
                                     {selectedOption === option ? (
                                         isCorrect ?
-                                            <div className={`w-full h-full bg-secondary  flex justify-center items-center rounded-full`}>
+                                            <div className={`w-[24px] h-[24px] bg-secondary  flex justify-center items-center rounded-full
+                                            mdw-[20px] md:h-[20px]`}>
                                                 <FontAwesomeIcon className='text-[14px] text-white font-bold
                                                 md:text-[12px]' icon={faCheck}/>
                                             </div>
                                             :
-                                            <div className={`w-full h-full bg-danger  flex justify-center items-center rounded-full`}>
+                                            <div className={`w-[24px] h-[24px] bg-danger  flex justify-center items-center rounded-full
+                                            mdw-[20px] md:h-[20px]`}>
                                                 <FontAwesomeIcon className='text-[14px] text-white font-medium
                                                 md:text-[12px]' icon={faX}/>
                                             </div>

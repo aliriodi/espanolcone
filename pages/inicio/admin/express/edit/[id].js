@@ -4,7 +4,7 @@ import BodyGeneric from "../../../../../components/GenericsElements/BodyGeneric"
 import ActivityTemplate from "../../../../../components/GenericsElements/Activity/ActivityTemplate";
 import ActivityTemplateEdit from "../../../../../components/GenericsElements/Activity/ActivityTemplateEdit";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown, faAngleUp, faCloudArrowUp, faRotate } from "@fortawesome/free-solid-svg-icons";
+import { faAngleDown, faAngleUp, faCloudArrowUp, faFloppyDisk, faRotate } from "@fortawesome/free-solid-svg-icons";
 import axios  from "axios";
 import { useRouter } from "next/router";
 
@@ -439,7 +439,7 @@ export default function EditExpress() {
 
               </div>
 
-              {/* Subir Microlession */}
+              {/* Guardar */}
               <div className="mt-5 flex">
 
                 <button
@@ -447,9 +447,9 @@ export default function EditExpress() {
                 className={`btn-primary px-[50px] py-2 font-medium text-[18px] flex justify-center items-center mr-2 ${load && "opacity-1/2 pointer-events-none"}`}>
                   {
                     load ?
-                    <>Actualizando. . .</>
+                    <>Guardando. . .</>
                     :
-                    <>Actualizar <FontAwesomeIcon className="ml-3" icon={faRotate}/></>
+                    <>Guardar cambios <FontAwesomeIcon className="ml-3" icon={faFloppyDisk}/></>
                   }
                 </button>
 
