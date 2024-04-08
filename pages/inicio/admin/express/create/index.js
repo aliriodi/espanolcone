@@ -107,7 +107,7 @@ export default function CreateExpress() {
       setLoad(true)
       await axios.post('/api/ulessons/add',finalMini)
 
-
+      window.location.href = '/inicio/admin/express';
       setLoad(false)
     }
 

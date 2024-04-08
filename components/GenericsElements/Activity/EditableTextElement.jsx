@@ -35,6 +35,17 @@ export default function EditableTextElement({ value, handleChangeParagraph, clas
         setCurrentValue(value)
     },[id, change])
 
+    function handlePaste(e) {
+        // Evitar que se realice el pegado predeterminado
+        e.preventDefault();
+        
+        // Obtener el texto plano pegado
+        const text = e.clipboardData.getData('text/plain');
+        
+        // Insertar el texto plano en el elemento editable
+        document.execCommand('insertText', false, text);
+    };
+
     function updateParagraph(e){
         handleChangeParagraph(e.target.innerHTML)
     }
@@ -44,9 +55,9 @@ export default function EditableTextElement({ value, handleChangeParagraph, clas
         const selection = window.getSelection();
 
         if (selection && selection.toString().trim() !== '') {
-            const modifiedText = fieldRef?.current?.textContent.replace(selection.toString(), `<span style="color: ${color}">${selection.toString()}</span>`);
+            const modifiedText = fieldRef?.current?.innerHTML.replace(selection.toString(), `<span style="color: ${color}">${selection.toString()}</span>`);
 
-            console.log("modifiedText ",modifiedText)
+            console.log("modifiedText ",fieldRef?.current?.innerHTML)
             
             setCurrentValue(modifiedText)
             updateParagraph({target:{ innerHTML: modifiedText }})
@@ -73,6 +84,7 @@ export default function EditableTextElement({ value, handleChangeParagraph, clas
             <div
             contentEditable
             ref={fieldRef}
+            onPaste={handlePaste}
             onClick={()=>setEditOptions(true)}
             onInput={updateParagraph}
             dangerouslySetInnerHTML={{ __html: currentValue }}

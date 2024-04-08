@@ -233,7 +233,7 @@ const Menu = (props) => {
                                     <Link
                                         href={'/inicio/MiniLessons'}
                                         className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                        ${currentPathName == '/inicio/curso' && "bg-primary text-white"}
+                                        ${currentPathName == '/inicio/MiniLessons' && "bg-primary text-white"}
                                     hover:bg-primary hover:text-white`}>
                                         <FontAwesomeIcon className="mr-[5px]" icon={faMugHot} />
                                        Español Express
