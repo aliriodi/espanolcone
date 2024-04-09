@@ -10,7 +10,12 @@ export default function Test() {
   const socketRef = useRef();
 
   useEffect(() => {
-    fetch("/api/chat");
+    try{
+      fetch("/api/chat");
+    }
+    catch(e){
+      console.log(e)
+    }
 
     socketRef.current = io();
 

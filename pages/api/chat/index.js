@@ -2,8 +2,11 @@ import { Server } from "socket.io";
 
 export default function SocketHandler(req, res) {
   if (res.socket.server.io) {
+
     console.log("Already set up");
+    
     res.end();
+
     return;
   }
 
@@ -11,17 +14,20 @@ export default function SocketHandler(req, res) {
   res.socket.server.io = io;
 
   io.on("connection", (socket) => {
+
     socket.on("send-message", (obj) => {
+
         console.log('Mensaje recibido: ' + obj.message);
         io.emit("receive-message", 
         {
 
-            ...obj,
+          ...obj,
 
-            from: socket.id
+          from: socket.id
             
         });
     });
+
   });
 
   console.log("Setting up socket");
