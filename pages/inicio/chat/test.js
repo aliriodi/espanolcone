@@ -3,7 +3,7 @@ import io from "socket.io-client";
 
 // let socket;
 
-export default function Chat() {
+export default function Test() {
   const [message, setMessage] = useState("");
   const [username, setUsername] = useState("");
   const [allMessages, setAllMessages] = useState([]);
