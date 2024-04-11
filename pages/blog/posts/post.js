@@ -57,13 +57,8 @@ export default function Post() {
     return (
         <div id='nav'>
             <Head>
-                {post?<meta property="og:type" content={type_of ? type_of : post.type_of} />:null}
-                {locale === 'en' ? <meta property="og:title" content={en?.title} /> : null}
-                {locale === 'es' ? <meta property="og:title" content={es?.title} /> : null}
-                {locale === 'pt' ? <meta property="og:title" content={pt?.title} /> : null}
-                {locale === 'en' ? <meta property="og:title" content={en?.description} /> : null}
-                {locale === 'es' ? <meta property="og:title" content={es?.description} /> : null}
-                {locale === 'pt' ? <meta property="og:title" content={pt?.description} /> : null}
+                {post?<meta property="og:type" content={post.type_of} />:null}
+                {currentPost ? <meta property="og:title" content={currentPost.title} /> : null}
                 <meta property="og:image" content={social_image} />
 
             </Head>
