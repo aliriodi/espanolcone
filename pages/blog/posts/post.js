@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
 import Navbar from '../../../components/Navbar/Navbar';
@@ -55,7 +56,17 @@ export default function Post() {
     
     return (
         <div id='nav'>
+ <Head>
+        <meta property="og:type" content={type_of ? type_of : post.type_of} />
+        {locale === 'en' ? <meta property="og:title" content={en?.title} /> : null}
+        {locale === 'es' ? <meta property="og:title" content={es?.title} /> : null}
+        {locale === 'pt' ? <meta property="og:title" content={pt?.title} /> : null}
+        {locale === 'en' ? <meta property="og:title" content={en?.description} /> : null}
+        {locale === 'es' ? <meta property="og:title" content={es?.description} /> : null}
+        {locale === 'pt' ? <meta property="og:title" content={pt?.description} /> : null}
+        <meta property="og:image" content={social_image} />
 
+      </Head>
             <Layout className=' overflow-x-hidden relative min-h-screen'>
                 
                 <Navbar
