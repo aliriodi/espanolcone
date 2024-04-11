@@ -1,30 +1,64 @@
 import React, { useEffect, useRef, useState } from "react";
 import io from "socket.io-client";
+import Pusher from "pusher-js";
+import axios from "axios";
 
 // let socket;
 
 export default function Test() {
   const [message, setMessage] = useState("");
-  const [username, setUsername] = useState("");
+  const [currentUsername, setCurrentUsername] = useState("");
   const [allMessages, setAllMessages] = useState([]);
   const socketRef = useRef();
 
+  const pusher = new Pusher(process.env.NEXT_PUBLIC_KEY, {
+    cluster: "sa1",
+
+    // // use jwts in prod
+    authEndpoint: `/api/pusher/auth`,
+    auth: { params: {username:currentUsername}}
+  });
+  
   useEffect(() => {
-    try{
-      fetch("/api/chat");
-    }
-    catch(e){
-      console.log(e)
-    }
+    
+    setCurrentUsername(JSON.parse(localStorage.getItem("userName")))
 
-    socketRef.current = io();
+    const channel = pusher.subscribe("presence-channel"); 
+    // // when a new member successfully subscribes to the channel
+    // channel.bind("pusher:subscription_succeeded", (members) => {
+    //   // total subscribed
+    //   setOnlineUsersCount(members.count);
+    // });
 
-    // Suscribirse al evento "receive-message"
-    socketRef.current.on("receive-message", receivedMessage);
+    // // when a new member joins the chat
+    // channel.bind("pusher:member_added", (member) => {
+    //   // console.log("count",channel.members.count)
+    //   setOnlineUsersCount(channel.members.count);
+    //   setOnlineUsers((prevState) => [
+    //     ...prevState,
+    //     { username: member.info.username, userLocation: member.info.userLocation },
+    //   ]);
+    // });
 
-    // Retornar una función para desuscribirse del evento cuando el componente se desmonte
+    // // when a member leaves the chat
+    // channel.bind("pusher:member_removed", (member) => {
+    //   setOnlineUsersCount(channel.members.count);
+    //   setUsersRemoved((prevState) => [...prevState, member.info.username]);
+    // });
+
+    // updates chats
+    channel.bind("chat-update", function (data) {
+      const {username, message} = data
+
+      console.log("data ",data)
+      setAllMessages((prevState) => [
+        ...prevState,
+        { username, message },
+      ]);
+    });
+
     return () => {
-      socketRef.current.off("receive-message", receivedMessage);
+      pusher.unsubscribe("presence-channel");
     };
   }, []);
 
@@ -32,23 +66,12 @@ export default function Test() {
     console.log("//// allMessages ////", allMessages);
   }, [allMessages]);
 
-  function receivedMessage(data) {
-    console.log("socketRef.current.id",socketRef.current.id)
-    setAllMessages((prevMessages) => [...prevMessages, data]);
-  }
-
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
-    let newMessage = {
-      username,
-      message,
-      from: "me",
-    };
-
-    socketRef.current.emit("send-message", {
-      username,
-      message,
+    await axios.post("/api/pusher/chat-update", {
+      message: message,
+      username: currentUsername
     });
 
     setMessage("");
@@ -59,9 +82,7 @@ export default function Test() {
 
         <div className=" bg-white shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000040] top-0 left-0 w-full px-3 py-8">
 
-            <h1>Chat app</h1>
-
-            {/* <input value={username} onChange={(e) => setUsername(e.target.value)} /> */}
+            {/* <h1>Bienvenido al chat {username}</h1> */}
 
         </div>
 
@@ -72,14 +93,14 @@ export default function Test() {
             {allMessages.map(({ username, message, from }, index) => (
                 <div
                 className={` shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000040] w-fit flex flex-col rounded-[7px] p-2 my-1 
-                ${socketRef.current.id == from ? "ml-auto bg-primary text-white ":"bg-white text-violet_dark"}`}
+                ${username == currentUsername ? "ml-auto bg-primary text-white ":"bg-white text-violet_dark"}`}
                 key={index}>
 
                   {/* Usuario */}
                   {
-                    socketRef.current.id != from &&
+                    username != currentUsername &&
                     <p className=" text-[.8em] mb-2 font-semibold">
-                      {from}
+                      {username}
                     </p>
                   }
 
