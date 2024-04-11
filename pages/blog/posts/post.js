@@ -59,6 +59,7 @@ export default function Post() {
             <Head>
                 {post?<meta property="og:type" content={post.type_of} />:null}
                 {currentPost ? <meta property="og:title" content={currentPost.title} /> : null}
+                {currentPost? <meta property="og:title" content={currentPost.description} /> : null}
                 <meta property="og:image" content={social_image} />
 
             </Head>
