@@ -18,63 +18,63 @@ export default function Post() {
     const [post, setPost] = useState(null)
     const [currentPost, setCurrentPost] = useState(null)
 
-    useEffect(()=>{
+    useEffect(() => {
 
-        if(slug) getPost()
+        if (slug) getPost()
 
-    },[slug])
+    }, [slug])
 
-    useEffect(()=>{
+    useEffect(() => {
 
         // Español
-        if(post && locale == "es") setCurrentPost(post?.es);
+        if (post && locale == "es") setCurrentPost(post?.es);
 
         // Ingles
-        if(post && locale == "en") setCurrentPost(post?.en);
+        if (post && locale == "en") setCurrentPost(post?.en);
 
         // Portugues
-        if(post && locale == "pt") setCurrentPost(post?.pt);
+        if (post && locale == "pt") setCurrentPost(post?.pt);
 
-    },[locale, post])
+    }, [locale, post])
 
-    async function getPost(){
+    async function getPost() {
         // Metodo encargado de obtener el post actual
-        const devDotToPosts = await fetch(`/api/blog/posts/${slug}` );
+        const devDotToPosts = await fetch(`/api/blog/posts/${slug}`);
         const res = await devDotToPosts.json();
 
         console.log(res?.postid)
         setPost(res?.postid)
     }
 
-    function getDate(){
+    function getDate() {
         const date = new Date(post?.published_at);
         const formatedDate = `${date.getDate()}/${parseInt(date.getMonth(), 10) + 1
-        }/${date.getFullYear()}`;
+            }/${date.getFullYear()}`;
 
         return formatedDate;
     }
-    
+
     return (
         <div id='nav'>
- <Head>
-        <meta property="og:type" content={type_of ? type_of : post.type_of} />
-        {locale === 'en' ? <meta property="og:title" content={en?.title} /> : null}
-        {locale === 'es' ? <meta property="og:title" content={es?.title} /> : null}
-        {locale === 'pt' ? <meta property="og:title" content={pt?.title} /> : null}
-        {locale === 'en' ? <meta property="og:title" content={en?.description} /> : null}
-        {locale === 'es' ? <meta property="og:title" content={es?.description} /> : null}
-        {locale === 'pt' ? <meta property="og:title" content={pt?.description} /> : null}
-        <meta property="og:image" content={social_image} />
+            <Head>
+                {post?<meta property="og:type" content={type_of ? type_of : post.type_of} />:null}
+                {locale === 'en' ? <meta property="og:title" content={en?.title} /> : null}
+                {locale === 'es' ? <meta property="og:title" content={es?.title} /> : null}
+                {locale === 'pt' ? <meta property="og:title" content={pt?.title} /> : null}
+                {locale === 'en' ? <meta property="og:title" content={en?.description} /> : null}
+                {locale === 'es' ? <meta property="og:title" content={es?.description} /> : null}
+                {locale === 'pt' ? <meta property="og:title" content={pt?.description} /> : null}
+                <meta property="og:image" content={social_image} />
 
-      </Head>
+            </Head>
             <Layout className=' overflow-x-hidden relative min-h-screen'>
-                
-                <Navbar
-                light={true}
-                className="bg-[transparent]"
-                slug={`post?slug=${slug}`}/>
 
-                
+                <Navbar
+                    light={true}
+                    className="bg-[transparent]"
+                    slug={`post?slug=${slug}`} />
+
+
                 {
                     currentPost != null &&
 
@@ -98,15 +98,15 @@ export default function Post() {
 
                                     {/* Parrafo */}
                                     <div
-                                    className="mt-4 text-lg text-violet_dark font-medium w-[55%] md:w-full
-                                    md:px-[25px] md:text-[14px]" 
-                                    dangerouslySetInnerHTML={{ __html: currentPost?.body_html }} />
-                                    
+                                        className="mt-4 text-lg text-violet_dark font-medium w-[55%] md:w-full
+                                    md:px-[25px] md:text-[14px]"
+                                        dangerouslySetInnerHTML={{ __html: currentPost?.body_html }} />
+
                                     {/* Imagen */}
                                     <img className="rounded-[15px] h-fit shadow-[0px_4px_24px_#18292F1A] w-[45%] object-cover
                                     md:w-full md:rounded-none md:h-[400px] md:shadow-none"
-                                    src={post?.social_image}
-                                    alt={currentPost?.title} />
+                                        src={post?.social_image}
+                                        alt={currentPost?.title} />
 
                                     {/* Gradiente en imagen del responsive */}
                                     <span className='hidden h-[400px] w-full top-0 left-0 absolute bg-gradient-to-t from-gray_light to-transparent
@@ -118,32 +118,32 @@ export default function Post() {
 
                             {/* Datos finales */}
                             <div className="flex  justify-end  ">
-                                
+
                                 <div className="flex items-center  text-gray-600">
 
                                     <div className="flex flex-col gap-x-2">
                                         <span className="font-semibold">{post?.user.name}</span>
                                         <span className="text-lg">{getDate()}</span>
                                     </div>
-                                    
+
                                     <img
                                         className="rounded-full w-18 h-18 mr-2"
                                         src={post?.user.profile_image_90}
                                         alt={post?.user.name}
                                     />
                                 </div>
-                            
+
                             </div>
-                            
+
                         </article>
 
                     </div>
                 }
 
-                <Footer/>
+                <Footer />
 
             </Layout>
-            
+
         </div>
     )
 }
@@ -151,8 +151,8 @@ export default function Post() {
 export async function getStaticProps({ locale }) {
 
     return {
-      props: {
-        ...(await serverSideTranslations(locale, ['navbar', 'footer'], nextI18NextConfig)),
-      },
+        props: {
+            ...(await serverSideTranslations(locale, ['navbar', 'footer'], nextI18NextConfig)),
+        },
     }
 }
