@@ -61,6 +61,7 @@ export default function Post() {
                 <meta property="og:title" content={currentPost?.title} /> 
                 <meta property="og:title" content={currentPost?.description} /> 
                 <meta property="og:image" content={post?.social_image} />
+                <meta name="description" content={currentPost?.description}/> 
             </Head>
             <Layout className=' overflow-x-hidden relative min-h-screen'>
 
