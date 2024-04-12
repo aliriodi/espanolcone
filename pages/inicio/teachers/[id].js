@@ -7,8 +7,8 @@ import blanc_profile from '../../../public/imgs/blank-profile-picture.png'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Menu from "../../../components/Menu";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon , FontUserAlt} from '@fortawesome/react-fontawesome';
+import { faStar, faUserAlt} from '@fortawesome/free-solid-svg-icons';
 import Spinner from '../../../components/Spinner';
 import { parseISO, isAfter, isEqual ,addDays, startOfDay} from 'date-fns';
 import Head from 'next/head'
@@ -111,7 +111,7 @@ export default function TeacherDetailPage() {
                   md:p-0 md:rounded-[5px]"
                 />
               ) : (
-                <Image
+              null&&  <Image
                   alt='blanc photo'
                   width={160}
                   height={160}

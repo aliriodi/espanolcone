@@ -33,7 +33,7 @@ export default function TourCard() {
 
   const handleButtonClick = (card) => {
     dispatch(CardsTouristDetail(card))
-    router.push(`/inicio/tourGuides/${card.id}`);
+    router.push(`/inicio/tourGuides/${card._id}`);
   };
 
   const renderStars = () => {
