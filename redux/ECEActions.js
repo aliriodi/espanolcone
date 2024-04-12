@@ -68,12 +68,16 @@ export const cardDetail = (card) => (dispatch) => {
 export const fetchTouristGuides = () => async (dispatch) => {
   try {
     // Importa los datos de profesores desde tu archivo local
-    await import('../public/imgs/images').then((module) => {
+      await fetch('/api/guides/get')
+      .then(response=> response.json())
+      .then(res => {dispatch(setCardsTourist(res.guides) )})
+        
+ //await import('../public/imgs/images').then((module) => {
       // Accede a la variable exportada del módulo
-      const tourist = module.guiaDeTurismo;
+  //    const tourist = module.guiaDeTurismo;
       // Envía la acción setCards al reducer con los datos de guias
-      dispatch(setCardsTourist(tourist));
-    });
+    //  dispatch(setCardsTourist(tourist));
+    //});
   } catch (error) {
     console.error('Error al cargar los datos de guias de turistas:', error);
   }

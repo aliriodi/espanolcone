@@ -336,23 +336,28 @@ const Menu = (props) => {
                                 {/* ////////// Pronto ////////// */}
 
                                 {/* Guia Turistico */}
-                                <li className='relative'>
+                                 <li className='relative'>
 
-                                    <span className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all opacity-[50%]`}>
-
+                                    {/* <span className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all opacity-[50%]`}> */}
+                                    <Link
+                                            className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
+                                        ${currentPathName == '/inicio/tourGuides' && "bg-primary text-white"}
+                                    hover:bg-primary hover:text-white`}
+                                            href="/inicio/tourGuides">
                                         {/* icon */}
                                         <FontAwesomeIcon icon={faPersonHiking} className=" mr-[10px]" />
 
                                         {/* Texto */}
                                         <p>Guías turisticos</p>
-                                    </span>
+                                        </Link>
+                                    {/* </span> */}
 
                                     {/* Muy pronto */}
-                                    <p className='absolute font-semibold bg-gradient-to-r from-success to-warning top-0 right-0 text-white h-full flex items-center rounded-[0_7px_7px_0] p-2'>Muy pronto . . .</p>
+                                    {/* <p className='absolute font-semibold bg-gradient-to-r from-success to-warning top-0 right-0 text-white h-full flex items-center rounded-[0_7px_7px_0] p-2'>Muy pronto . . .</p> */}
 
                                     {/* borde */}
-                                    <span className='border-2 border-success rounded-[7px] w-full h-full absolute top-0'></span>
-                                </li>
+                                    {/* <span className='border-2 border-success rounded-[7px] w-full h-full absolute top-0'></span> */}
+                                </li> 
 
                             </ul>
                         </div>
