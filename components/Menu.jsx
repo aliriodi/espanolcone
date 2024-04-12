@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Logo from '../public/imgs/logo-gradient.png';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlane, faAngleRight,faMugHot, faCalendarDays, faEnvelope, faHouse, faPersonHiking, faChalkboardUser, faLaptop, faAddressCard, faPen, faBell, faBars, faUser, faMoneyBill, faArrowLeft, faUserTie } from '@fortawesome/free-solid-svg-icons';
+import { faPlane, faAngleRight, faMugHot, faCalendarDays, faEnvelope, faHouse, faPersonHiking, faChalkboardUser, faLaptop, faAddressCard, faPen, faBell, faBars, faUser, faMoneyBill, faArrowLeft, faUserTie } from '@fortawesome/free-solid-svg-icons';
 import SignOutBtn from './signOut/SignOutBtn';
 import { setshowClass } from '../redux/ECEActions';
 import { useSession } from "next-auth/react";
@@ -236,7 +236,7 @@ const Menu = (props) => {
                                         ${currentPathName == '/inicio/MiniLessons' && "bg-primary text-white"}
                                     hover:bg-primary hover:text-white`}>
                                         <FontAwesomeIcon className="mr-[5px]" icon={faMugHot} />
-                                       Español Express
+                                        Español Express
                                     </Link>
 
                                 </li>
@@ -278,6 +278,29 @@ const Menu = (props) => {
                                     </Link>
                                 </li> */}
 
+                                {/* Guia Turistico */}
+                                <li className='relative'>
+
+                                    {/* <span className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all opacity-[50%]`}> */}
+                                    <Link
+                                        className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
+                                                     ${currentPathName == '/inicio/tourGuides' && "bg-primary text-white"}
+                                                    hover:bg-primary hover:text-white`}
+                                        href="/inicio/tourGuides">
+                                        {/* icon */}
+                                        <FontAwesomeIcon icon={faPersonHiking} className=" mr-[10px]" />
+
+                                        {/* Texto */}
+                                        <p>Guías turisticos</p>
+                                    </Link>
+                                    {/* </span> */}
+
+                                    {/* Muy pronto */}
+                                    {/* <p className='absolute font-semibold bg-gradient-to-r from-success to-warning top-0 right-0 text-white h-full flex items-center rounded-[0_7px_7px_0] p-2'>Muy pronto . . .</p> */}
+
+                                    {/* borde */}
+                                    {/* <span className='border-2 border-success rounded-[7px] w-full h-full absolute top-0'></span> */}
+                                </li>
 
                                 {/* Para enviar Emails */}
                                 <li>
@@ -335,29 +358,6 @@ const Menu = (props) => {
 
                                 {/* ////////// Pronto ////////// */}
 
-                                {/* Guia Turistico */}
-                                 <li className='relative'>
-
-                                    {/* <span className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all opacity-[50%]`}> */}
-                                    <Link
-                                            className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                        ${currentPathName == '/inicio/tourGuides' && "bg-primary text-white"}
-                                    hover:bg-primary hover:text-white`}
-                                            href="/inicio/tourGuides">
-                                        {/* icon */}
-                                        <FontAwesomeIcon icon={faPersonHiking} className=" mr-[10px]" />
-
-                                        {/* Texto */}
-                                        <p>Guías turisticos</p>
-                                        </Link>
-                                    {/* </span> */}
-
-                                    {/* Muy pronto */}
-                                    {/* <p className='absolute font-semibold bg-gradient-to-r from-success to-warning top-0 right-0 text-white h-full flex items-center rounded-[0_7px_7px_0] p-2'>Muy pronto . . .</p> */}
-
-                                    {/* borde */}
-                                    {/* <span className='border-2 border-success rounded-[7px] w-full h-full absolute top-0'></span> */}
-                                </li> 
 
                             </ul>
                         </div>

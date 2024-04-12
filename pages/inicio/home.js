@@ -168,7 +168,8 @@ export default function Home() {
               <Image
               src={Logo}
               height={35}
-              width={35}/>
+              width={35}
+              alt='logo'/>
             </div>
 
             {/* Titulo */}
@@ -694,17 +695,18 @@ export default function Home() {
                 {/* Ver más */}
                 <div className='w-full flex justify-end mt-[69px]
               md:mt-[15px]'>
-                  {/* <Link
+                  <Link
                     className='btn-success px-[70px] py-[9px] text-[14px] mt-[21px] shadow-[0px_5.410437107086182px_5.410437107086182px_#00000040]'
                     href={'/inicio/tourGuides'}
                     style={{ display: 'inline-block' }}>
                     Ver más
-                  </Link> */}
-                  <span
+                  </Link>
+                  {/* PROXIMAMENTE */}
+                  {/* <span
                     className='bg-gradient-to-r from-success to-warning text-white rounded-[7px] px-[70px] py-[9px] text-[14px] mt-[21px] shadow-[0px_5.410437107086182px_5.410437107086182px_#00000040] pointer-events-none'
                     style={{ display: 'inline-block' }}>
                     Próximamente . . .
-                  </span>
+                  </span> */}
                 </div>
               </div>
 
