@@ -18,12 +18,12 @@ export default function ImagesGrid({ images, center }){
                 md:w-full`}>
 
                     {/* Imagen */}
-                    <div className='w-[370px] h-[250px] bg-violet_dark rounded-[5px] relative shadow-[0px_14px_28px_#77869966] overflow-hidden
-                    md:w-full'>
+                    <div className={`w-[370px] h-[310px] bg-opacity-20 rounded-[5px] relative shadow-[0px_14px_28px_#77869966] overflow-hidden
+                    md:w-full flex justify-center items-center ${index % 2 === 0?'bg-success': 'bg-primary'} `}>
                         
                         {
                             image?.src &&
-                            <img className="w-full h-full object-cover" src={image?.src} width='100' height='100' alt={`Image ${index}`}/>
+                            <img className={`  object-cover ${image?.className?image.className:'h-full w-full'}`} src={image?.src} width='100' height='100' alt={`Image ${index}`}/>
                         }
                         
                     </div>
