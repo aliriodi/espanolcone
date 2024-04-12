@@ -19,7 +19,7 @@ export default function Login() {
   return (
     <div className="flex m-auto items-center justify-center flex-col h-screen w-full bg-primary">
       <div className="mb-5">
-      <h1 className="text-5xl text-white m-auto">Esoañol con E Chat</h1>
+      <h1 className="text-5xl text-white m-auto">Español con E Chat</h1>
       {/* <p className="text-gray-200">your chats, your way</p> */}
       </div>
       
