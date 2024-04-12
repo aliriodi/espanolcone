@@ -2,14 +2,18 @@ import React, { useEffect, useRef, useState } from "react";
 import io from "socket.io-client";
 import Pusher from "pusher-js";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 // let socket;
 
 export default function Test() {
   const [message, setMessage] = useState("");
-  const [currentUsername, setCurrentUsername] = useState("");
+  // const [currentUsername, setCurrentUsername] = useState("");
   const [allMessages, setAllMessages] = useState([]);
   const socketRef = useRef();
+  
+  const router = useRouter(); 
+  const {  currentUsername } = router.query;
 
   const pusher = new Pusher(process.env.NEXT_PUBLIC_KEY, {
     cluster: "sa1",
@@ -18,10 +22,12 @@ export default function Test() {
     authEndpoint: `/api/pusher/auth`,
     auth: { params: {username:currentUsername}}
   });
+
+  
   
   useEffect(() => {
     
-    setCurrentUsername(JSON.parse(localStorage.getItem("userName")))
+    // setCurrentUsername(JSON.parse(localStorage.getItem("userName")))
 
     const channel = pusher.subscribe("presence-channel"); 
     // // when a new member successfully subscribes to the channel
