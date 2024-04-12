@@ -595,7 +595,7 @@ export default function Profile(){
 
                                 </div>
 
-                                <div className={`${session && !session?.user?.role?.includes("teacher") && "hidden"}`}>
+                                <div className={`${session && (!session?.user?.role?.includes("teacher") && !session?.user?.role?.includes("guide")) && "hidden"}`}>
 
                                     {/* Campo Descripción */}
                                     <div className="flex flex-col mt-[18px]

@@ -32,6 +32,7 @@ export default async function getAllUsers(req, res) {
 
     if(req.headers.accept == "*/*"){
       // Solicitud desde el codigo
+      
       return res.status(200).json({ users });
     }
     else{
