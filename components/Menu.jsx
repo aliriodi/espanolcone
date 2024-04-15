@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Logo from '../public/imgs/logo-gradient.png';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlane, faAngleRight, faMugHot, faCalendarDays, faEnvelope, faHouse, faPersonHiking, faChalkboardUser, faLaptop, faAddressCard, faPen, faBell, faBars, faUser, faMoneyBill, faArrowLeft, faUserTie } from '@fortawesome/free-solid-svg-icons';
+import { faPlane, faAngleRight, faMugHot, faCalendarDays, faEnvelope, faHouse, faPersonHiking, faChalkboardUser, faLaptop, faAddressCard, faPen, faBell, faBars, faUser, faMoneyBill, faArrowLeft, faUserTie, faMessage, faCommentDots } from '@fortawesome/free-solid-svg-icons';
 import SignOutBtn from './signOut/SignOutBtn';
 import { setshowClass } from '../redux/ECEActions';
 import { useSession } from "next-auth/react";
@@ -116,10 +116,14 @@ const Menu = (props) => {
 
                                 {/* Datos de Usuario */}
                                 <div className='flex items-center'>
+
                                     {/* Notificaciones */}
-                                    <FontAwesomeIcon
-                                        className='mr-[22px] text-[20px] text-violet_dark'
-                                        icon={faBell} />
+                                    {/* <FontAwesomeIcon
+                                    className='mr-[22px] text-[20px] text-violet_dark'
+                                    icon={faBell} /> */}
+                                    
+                                    {/* Mensajes */}
+                                    <FontAwesomeIcon className='mr-[22px] text-[25px] text-violet_dark' icon={faCommentDots}/>
 
                                     {/* Nombre y Rol de Usuario */}
                                     <div className='mr-[14px]'>
@@ -340,21 +344,6 @@ const Menu = (props) => {
                                         <p>Rutas Lingüísticas</p>
                                     </Link>
                                 </li> */}
-                                {/* Cargar Clase */}
-                                {session && session.user && session.user.role.includes('admin') ?
-                                    <li>
-                                        <Link
-                                            className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                        ${currentPathName == '/inicio/cargarclase' && "bg-primary text-white"}
-                                    hover:bg-primary hover:text-white`}
-                                            href="/inicio/cargarclase">
-                                            <FontAwesomeIcon icon={faPen} className=" mr-[10px]" />
-                                            <p>Cargar Clase</p>
-                                        </Link>
-                                    </li>
-                                    :
-                                    null
-                                }
 
                                 {/* ////////// Pronto ////////// */}
 
