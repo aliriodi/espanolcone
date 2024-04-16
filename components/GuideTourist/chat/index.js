@@ -1,9 +1,12 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState ,useEffect} from "react";
 
-export default function Login() {
- const [userName, setUserName] = useState("");
+export default function Login({userName}) {
+  const [userName2, setUserName] = useState(userName);
   const router = useRouter();
+useEffect(()=>
+handleLogin(userName)
+,[])
 
   const handleLogin = (e) => {
     e.preventDefault();
