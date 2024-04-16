@@ -95,7 +95,19 @@ const UserSchema = new Schema(
     language: {
       type: String,
     },
-
+    chats:{
+      type: [
+        {
+          chatName: String,
+          chatID: String,
+          userID: String,
+        }
+      ],
+      
+      notificateNewChat:{
+        type: Boolean,
+      }
+    },
     plan: {
       name: {
         type: String
