@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import BodyGeneric from '../../../components/GenericsElements/BodyGeneric'
 import Link from "next/link";
 
-export default function Chat() {
+export default function ChatPrivate({id,currentUsername}) {
   const [message, setMessage] = useState("");
   const [allMessages, setAllMessages] = useState([]);
 
@@ -13,10 +13,8 @@ export default function Chat() {
 
   const [currentID, setCurrentID] = useState(null)
 
- const [userName, setUserName] = useState("");
-
   const router = useRouter();
-  const { id, currentUsername } = router.query;
+  //const { id, currentUsername } = router.query;
 
   const [pusher, setPusher] = useState(null)
   
@@ -103,34 +101,11 @@ export default function Chat() {
   }
   
     return (
-      <BodyGeneric>
+      <>
         
         <div className=" flex w-full">
 
-          {/* ///////////// Salas ///////////// */}
-          <div className=" w-[400px] mr-3 bg-white rounded-[15px] shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000030]">
-            
-            <ul className="mt-[80px]">
-              
-              {
-              allRooms.map( (room, index) =>
-                  <li key={index}>
-
-                    <Link
-                    // onClick={()=>id=index}
-                    className={`${index == currentID ? "bg-primary text-white" : "text-violet_dark "} font-medium w-[80%] flex mx-auto my-2 py-2 px-6 rounded-full`}
-                    href={`/inicio/chat/${index}?currentUsername=${currentUsername}`}>
-                      <p>{room}</p>
-                    </Link>
-
-                  </li>
-                )
-              }
-
-            </ul>
-            
-          </div>
-
+        
           {/* ///////////// Mensajes ///////////// */}
           <div className=" bg-primary_flat_hover relative h-[78vh] flex-grow rounded-[15px] shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000030]">
               
@@ -180,6 +155,6 @@ export default function Chat() {
 
         </div>
 
-      </BodyGeneric>
+      </>
     );
 }
