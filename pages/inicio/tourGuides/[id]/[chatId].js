@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+//import { useSelector, useDispatch } from 'react-redux';
 //import { cardDetail } from '../../../redux/ECEActions';
+import { useSession } from "next-auth/react"
 import Image from 'next/image';
 import blanc_profile from '../../../../public/imgs/blank-profile-picture.png'
 import Link from 'next/link';
@@ -12,6 +13,7 @@ import Copyright from '../../../../components/Class/Copyright';
 import Presupuesto from "../../../../components/GuideTourist/presupuestoTourism/Presupuesto.jsx";
 import Chat from "../../../../components/GuideTourist/chat/[id]"
 export default function GuidePresupuestoChat() {
+    const { data: session, status } = useSession();
     // const cardDetail2 = useSelector((state) => state.datos.cardDetail);
     const [isCardAvailable, setIsCardAvailable] = useState(false);
     const [cardDetail, setcardDetail] = useState(null);
@@ -134,7 +136,7 @@ export default function GuidePresupuestoChat() {
                                 </div>
                                 
                             </div>
-                            <Presupuesto user={''} />
+                            <Presupuesto user={session?.user?.first_name} />
                         </div>
                     </div>
                 </div>
@@ -145,7 +147,8 @@ export default function GuidePresupuestoChat() {
 
                     <div className='bg-white  px-[8px] py-[14px] flex flex-col items-center shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-md'>
                     <span>{chatId}</span>
-                    <Chat id={chatId} currentUsername={'Alirio'} />
+                    
+                    <Chat id={chatId} currentUsername={session?.user?.first_name} />
                        
                     </div>
 
