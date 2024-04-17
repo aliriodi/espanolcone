@@ -123,7 +123,9 @@ const Menu = (props) => {
                                     icon={faBell} /> */}
                                     
                                     {/* Mensajes */}
-                                    <FontAwesomeIcon className='mr-[22px] text-[25px] text-violet_dark' icon={faCommentDots}/>
+                                    <Link href={"/inicio/chat"}>
+                                        <FontAwesomeIcon className='mr-[22px] text-[25px] text-violet_dark' icon={faCommentDots}/>
+                                    </Link>
 
                                     {/* Nombre y Rol de Usuario */}
                                     <div className='mr-[14px]'>
