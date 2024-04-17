@@ -65,7 +65,7 @@ export default function TeacherDetailPage() {
 //NAHUEL ACA VA TU RUTA Y DE ALLI CREO 
 //Que debes ver como creas y halas de la BD los chats
   function  handleButton  () {
-    router.push('/inicio/chat');
+    router.push(`/inicio/tourGuides/${id}/${id}`);
   }
   const opts = {
     playerVars: {

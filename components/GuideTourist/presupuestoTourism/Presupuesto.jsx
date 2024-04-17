@@ -55,7 +55,7 @@ function Presupuesto({user}) {
   };
 
   return (
-    <div className='h-3/4 w-3/4 mx-auto'>
+    <div className='h-full w-full mx-auto'>
       <h1>Presupuesto para: <u>{user}</u></h1><br />
       <form onSubmit={handleSubmit}>
         <label>
@@ -72,6 +72,7 @@ function Presupuesto({user}) {
             type="number"
             value={cantidad}
             onChange={(e) => setCantidad(e.target.value)}
+            className={'w-10 '}
           />
         </label>
         <label>
@@ -80,6 +81,7 @@ function Presupuesto({user}) {
             type="text"
             value={unidad}
             onChange={(e) => setUnidad(e.target.value)}
+            className={'w-20 '}
           />
         </label>
         <label>
@@ -88,11 +90,12 @@ function Presupuesto({user}) {
             type="number"
             value={montoUnitario}
             onChange={(e) => setMontoUnitario(e.target.value)}
+            className={'w-20 '}
           />
         </label>
         <button type="submit">{editIndex === -1 ? 'Agregar' : 'Editar'}</button>
       </form>
-      <table className="w-3/4 border-collapse border border-gray-400">
+      <table className="w-full border-collapse border border-gray-400">
         <thead>
           <tr>
             <th className="border border-gray-400">Id</th>
@@ -130,7 +133,7 @@ function Presupuesto({user}) {
         value={observacion}
         onChange={(e) => setObservacion(e.target.value)}
         placeholder="Observaciones..."
-        className="w-1/2 mx-auto"
+        className="w-full mx-auto"
       />
     </div>
   );

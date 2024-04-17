@@ -17,8 +17,11 @@ export default function Chat() {
 
   const [loaderSendMessager, setLoaderSendMessager] = useState(false)
 
+
   const [pusher, setPusher] = useState(null);
   
+
+
   const router = useRouter();
   const { id } = router.query;
   const { data: session, status } = useSession();

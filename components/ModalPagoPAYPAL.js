@@ -90,7 +90,7 @@ export default function ModalPagoPAYPALL(props) {
                       />
                   </PayPalScriptProvider>
                   ||
-                  <p>Loadin...</p>
+                  <p>Loading...</p>
                 }
               </div>
             </div>
