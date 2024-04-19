@@ -12,8 +12,10 @@ import { useSession } from "next-auth/react";
 import Class from '../components/Class/Class'
 import ModalPago from './ModalPagoPAYPAL';
 import ModalSendEmail from './ModalSendEmail';
+import { useRouter } from 'next/navigation';
 
 const Menu = (props) => {
+    const router = useRouter();
     const dispatch = useDispatch();
     const { data: session, status } = useSession();
     const [isOpen, setIsOpen] = useState(false);
@@ -123,7 +125,7 @@ const Menu = (props) => {
                                     icon={faBell} /> */}
                                     
                                     {/* Mensajes */}
-                                    <Link href={"/inicio/chat"}>
+                                    <Link href={"/inicio/chat/null"}>
                                         <FontAwesomeIcon className='mr-[22px] text-[25px] text-violet_dark' icon={faCommentDots}/>
                                     </Link>
 
@@ -178,7 +180,12 @@ const Menu = (props) => {
 
             {/* Volver a Atras */}
             <div
-                onClick={() => history.back()}
+                onClick={
+                    () =>{
+                        if(props.redirectPath) router.push(props.redirectPath)
+                        else history.back()
+                    }
+                }
                 className={`bg-white shadow-[0px_4px_24px_#18292F1A] absolute ${currentPathName == '/inicio/home' || currentPathName == '/inicio/calendar' ? "top-[20px]" : "top-[100px]"} left-[60px] h-[50px] w-[50px] rounded-full flex items-center justify-center z-[49] cursor-pointer opacity-[0.7]
             hover:opacity-[1] transition-all
             md:left-[25px]`}>
