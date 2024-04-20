@@ -13,10 +13,18 @@ const ChatSchema = new Schema(
       type: [
         {
           userID: String,
-          messages: String
+          messages: String,
+          budget:{
+            amount: Number,
+            wasPayed: Boolean
+          }      
         }
       ]
-    }
+    },
+    
+    requests:{
+      type: String
+    },
   },
   {
     timestamps: true,
