@@ -6,7 +6,7 @@ import BodyGeneric from '../../../components/GenericsElements/BodyGeneric'
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFaceLaughBeam, faHandPointLeft, faPaperPlane, faPersonHiking } from "@fortawesome/free-solid-svg-icons";
+import { faCommentDots, faFaceLaughBeam, faHandPointLeft, faHourglass, faHourglassHalf, faPaperPlane, faPersonHiking, faUserXmark } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 
 export default function Chat() {
@@ -14,6 +14,8 @@ export default function Chat() {
   const [allMessages, setAllMessages] = useState([]);
   const [currentID, setCurrentID] = useState(null);
   const [chatsDatas, setChatsDatas] = useState(null);
+  const [requestID, setRequestID] = useState(null);
+  const [currentChat, setCurrentChat] = useState(null)
 
   const [loaderSendMessager, setLoaderSendMessager] = useState(false)
   const [loaderChat, setLoaderChat] = useState(false)
@@ -80,6 +82,7 @@ export default function Chat() {
   useEffect(()=>{
     setAllMessages([])
     setLoaderChat(true)
+    setRequestID(null)
     // messageScreen.current.scrollTop = messageScreen.current.scrollHeight - messageScreen.current.clientHeight;
     // messageScreen?.current.scrollTop = messageScreen.current.scrollHeight - messageScreen.current.clientHeight;
   },[id])
@@ -89,6 +92,8 @@ export default function Chat() {
   },[allMessages])
 
   async function handleSubmit(e) {
+
+    // Metodo encargado de actualizar el chat, y disparar el evento de mensajes
     e.preventDefault();
     setLoaderSendMessager(true)
 
@@ -97,7 +102,8 @@ export default function Chat() {
       userID: session?.user?._id,
       chatId: session?.user?.chats[id]?.chatID
     });
-      messageScreen.current.scrollTop = messageScreen.current.scrollHeight - messageScreen.current.clientHeight;
+
+    messageScreen.current.scrollTop = messageScreen.current.scrollHeight - messageScreen.current.clientHeight;
 
     setLoaderSendMessager(false)
     setMessage("");
@@ -108,6 +114,24 @@ export default function Chat() {
         userID: session?.user?._id
       }
     )
+  }
+
+  async function handleRequest(value){
+
+    let newChat = {...currentChat};
+
+    newChat.requests = value;//"64ee534d698266e6fce966af"
+
+    try{
+      console.log("newChat ",newChat)
+      await axios.post(`/api/chat/update`, { chat: newChat})
+      setLoaderChat(false)
+      getChat()
+    }
+    catch(e){
+      console.log(e)
+    }
+    
   }
 
   async function getChat(){
@@ -122,11 +146,12 @@ export default function Chat() {
       let newAllMessages = axios.get(`/api/chat/get/${session?.user?.chats[id]?.chatID}`)
 
       newAllMessages = await newAllMessages
-      
+
+      setCurrentChat(newAllMessages?.data?.findChat)
       setAllMessages( newAllMessages?.data?.findChat?.messages || [])
+      setRequestID(newAllMessages?.data?.findChat?.requests)
       
     }
-    console.log("false")
     
     // Obtiene los datos de los distintos usuarios del chat ( Nombre, Apellido, Imagen y rol )
     if(!chatsDatas && session?.user){
@@ -143,6 +168,7 @@ export default function Chat() {
       }, {});
       
       setChatsDatas(newChatsDatas)
+      console.log(newChatsDatas)
       
     }
     
@@ -151,20 +177,20 @@ export default function Chat() {
   }
   
   async function handleCreateChat(){
-    let result = axios.post(
+    let result = await axios.post(
       '/api/chat/add',
       {
-        usersIDs: [ "65272226594ccf3fcf0e2043", "651dacff8ac427a834bcaf89" ],
+        usersIDs: [ 
+          "651dacff8ac427a834bcaf89", // okina
+          "64ee534d698266e6fce966af" // nahuel
+        ],
 
-        messages:[]
+        messages:[],
+
+        requests: "64ee534d698266e6fce966af"
       }
     )
-
-    // let result = await axios.post('/api/users/getRenderizate',
-    //   {
-    //     usersIDs: [ "651413df44b213353885dcf5", "64ee534d698266e6fce966af" ],
-    //   }
-    // )
+    alert("a")
 
     console.log("result ", result?.data?.users)
   }
@@ -234,14 +260,18 @@ export default function Chat() {
                 )
                 :
                 <div className=" text-center text-violet_dark font-medium">
-                  Aun no tienes contactos
+                  Aun no tienes contactos 
                 </div>
               }
 
               {/* Encuentra a tu Guia Turistico */}
               {
-                !session?.user?.role.includes("guide")  ||
-                !session?.user?.role.includes("teacher") &&
+                (
+                  !session?.user?.role?.includes("admin")  &&
+                  !session?.user?.role?.includes("guide")  &&
+                  !session?.user?.role?.includes("teacher")
+                ) &&
+
                 <li className="mt-[25px]">
                   <Link
                   href="/inicio/tourGuides"
@@ -267,11 +297,15 @@ export default function Chat() {
           {/* ///////////// Mensajes ///////////// */}
           <div className=" bg-primary_flat_hover relative h-[78vh] flex-grow rounded-[15px] shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000030]">
               
-              <div
-              ref={messageScreen}
-              className="overflow-auto relative h-full p-3 pb-[150px]">
+              
+              {
+                !requestID ?
+                
+                // Mensaje
+                <div
+                ref={messageScreen}
+                className="overflow-auto relative h-full p-3 pb-[150px]">
 
-                {/* Mensaje */}
                 {
                   !loaderChat ?
                   
@@ -328,16 +362,121 @@ export default function Chat() {
                   
 
                   :
+
+                  // Loader
                   <div className="w-full h-full flex justify-center items-center">
                     <span className="inline-block  h-[100px] w-[100px] animate-spin rounded-full border-white border-[10px] border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"/>
                   </div>
                 }
 
-              </div>
+                </div>
+
+                :
+
+                // Solicitud
+                session?.user && requestID == session?.user?._id ? 
+
+                  // Pantalla del que envio la "Solicitud"
+                  <div
+                  ref={messageScreen}
+                  className="overflow-auto relative h-full p-3 pb-[150px]">
+
+                    <div className="w-full h-full flex justify-center items-center text-[#83C7D6] flex-col">
+
+                      <FontAwesomeIcon
+                      className="text-[100px] "
+                      icon={faHourglassHalf} />
+
+                      <p className="text-[21px] mt-3"><b>Espera</b> unos momentos a que <b>{chatsDatas != null  && chatsDatas[session?.user?.chats[id]?.userID]?.first_name}</b> acepte <b>tu solicitud</b></p>
+
+                    </div>
+
+                  </div>
+
+                  : 
+                  
+                  // Pantalla del que resivio la "Solicitud"
+                  <>
+                    <div
+                    ref={messageScreen}
+                    className="overflow-auto relative h-full p-3 pb-[150px]">
+                      
+                      <div className="w-full h-full flex justify-center items-center text-[#83C7D6] flex-col">
+
+                        {
+                          requestID == "false" || requestID == false ?
+                          
+                          // Solicitud "rechazada"
+                          <>
+                            <FontAwesomeIcon
+                            className="text-[100px] "
+                            icon={faUserXmark} />
+                            
+                            <p className="text-[21px] mt-3">La solicitud fue <b>rechazada</b></p>
+                          </>
+
+                          :
+
+                          // Solicitud "enviada"
+                          <>
+                            <FontAwesomeIcon
+                            className="text-[100px] "
+                            icon={faCommentDots} />
+                            <p className="text-[21px] mt-3"><b>{chatsDatas != null && chatsDatas[session?.user?.chats[id]?.userID]?.first_name}</b> te envio una <b>solicitud</b></p>
+                          </>
+
+                        }
+
+                      </div>
+
+                    </div>
+
+                    {/* Botones */}
+                    {
+                      requestID == "false" || requestID == false ?
+                      <div
+                      className=" w-full absolute left-0 bottom-5 flex justify-center  pt-2 px-7 ">
+
+                        {/* <button
+                        // onClick={()=> handleRequest(null)}
+                        className="bg-primary text-white text-[18px] font-medium py-4 px-8 rounded-full mx-5 flex-grow-[1]">
+                          Aceptar
+                        </button> */}
+                        
+                        
+                      </div>
+
+                      :
+                      <div
+                      className=" w-full absolute left-0 bottom-5 flex justify-center  pt-2 px-7 ">
+
+                        <button
+                        onClick={()=> { handleRequest(null); setLoaderChat(true) }}
+                        className="bg-primary text-white text-[18px] font-medium py-4 px-8 rounded-full mx-5 flex-grow-[1]">
+
+                          {
+                          loaderChat ?
+                            <span className="inline-block  h-5 w-5 animate-spin rounded-full border-white border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"/>
+                            :
+                            "Aceptar"
+                          }
+                        </button>
+                        
+                        <button
+                        onClick={()=> handleRequest(false)}
+                        className=" text-primary border-4 border-primary text-[18px] font-semibold py-3 px-8 rounded-full mx-5 flex-grow-[1]">
+                          Cancelar
+                        </button>
+                        
+                      </div>
+                    }
+                  </>
+              }
               
               {/* Envio de mensajes */}
               {
-                id != "null" && 
+                id != "null" &&
+                requestID == null && 
                 <form
                 className=" w-full absolute left-0 bottom-0 flex justify-center  pt-2 "
                 onSubmit={handleSubmit}>
