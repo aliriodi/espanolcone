@@ -6,7 +6,7 @@ import Users from '../../../../models/Users'
 export default async function addChat(req, res) {
 
   try {
-    const { usersIDs } = req.body;
+    const { usersIDs, requests } = req.body;
 
     console.log('CONNECTING TO MONGO DB');
 
@@ -18,7 +18,8 @@ export default async function addChat(req, res) {
 
     let allUser = await Users.find({ _id: { $in: usersIDs } });
     
-    const newChat = await Chat.create({ usersIDs })
+    if(!allUser) return
+    const newChat = await Chat.create({ usersIDs, requests })
 
     // En caso de un chat individual
     allUser = allUser.map(async (user, index)=>{
@@ -42,7 +43,9 @@ export default async function addChat(req, res) {
     return res.status(200).json({allUser});
 
   } catch (error) {
+
     console.log(error);
     res.json({ error })
+
   }
 }
