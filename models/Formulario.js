@@ -3,18 +3,25 @@ import { Schema, model, models } from 'mongoose'
 
 const FormularioSchema = new Schema(
   {
-       
+
     pregunta1: {
-      type: String,
-      
-      },
+      type: [],
+
+    },
     pregunta2: {
-        type: String,
-       },
-   texto: {
-    type: String,
-      
-     }
+      type: [],
+    },
+    texto: {
+      type: String,
+    },
+    Name: {
+      type: String,
+
+    },
+    Email: {
+      type: String,
+
+    }
   },
   {
     timestamps: true,
