@@ -97,10 +97,10 @@ function Formulario() {
     <div className="flex flex-col  ">
 
       {/* Navbar superior */}
-      <div className=" bg-primary text-white p-10 text-[41px] font-bold  text-center
-      md:px-[20px] md:text-[31px]">
-        <div className='flex items-center justify-center gap-10 pr-40'>
-          <img src="/imgs/logo.png" alt="Logo" className="w-auto h-20 md:w-8 md:h-8" />
+      <div className=" bg-primary text-white p-10 md:p-2 text-[41px] font-bold  text-center
+      md:px-[14px] md:text-[18px]">
+        <div className='flex items-center justify-center gap-10 pr-40 md:pr-14'>
+          <img src="/imgs/logo.png" alt="Logo" className="w-auto h-20 md:w-16 md:h-16" />
           <span>{t('title')} </span></div>
       </div>
 
