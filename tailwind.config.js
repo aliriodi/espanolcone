@@ -61,6 +61,7 @@ module.exports = {
       'lm': {'min':'1024px'},
       'lg': {'max':'1024px'},
       'md': {'max': '768px'},
+      'sm': {'max': '425px'},
     },
   },
   plugins: [],
