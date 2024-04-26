@@ -21,7 +21,7 @@ function Formulario() {
 
   const validarFormulario = () => {
     // Verificar si se ha seleccionado una opción en ambos radio buttons y si se ha ingresado texto
-    if (opcionSeleccionada && opcionSeleccionada2 && texto.trim() !== '') {
+    if (opcionSeleccionada.length && opcionSeleccionada2.length && texto.trim() !== '') {
       setFormularioValido(true);
     } else {
       setFormularioValido(false);
