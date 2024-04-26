@@ -21,6 +21,10 @@ const FormularioSchema = new Schema(
     Email: {
       type: String,
 
+    },
+    language: {
+      type: String,
+
     }
   },
   {

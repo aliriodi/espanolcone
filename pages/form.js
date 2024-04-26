@@ -83,7 +83,7 @@ function Formulario() {
           pregunta1: opcionSeleccionada,
           pregunta2: opcionSeleccionada2,
           texto: texto,
-          language: language,
+          language: locale,
           Name: Name,
           Email: Email
         })
