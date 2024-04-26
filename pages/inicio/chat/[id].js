@@ -6,8 +6,9 @@ import BodyGeneric from '../../../components/GenericsElements/BodyGeneric'
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCommentDots, faFaceLaughBeam, faHandPointLeft, faHourglass, faHourglassHalf, faPaperPlane, faPersonHiking, faUserXmark } from "@fortawesome/free-solid-svg-icons";
+import { faCommentDots, faFaceLaughBeam, faFileInvoiceDollar, faHandPointLeft, faHourglass, faHourglassHalf, faPaperPlane, faPersonHiking, faUserXmark, faX } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
+import Presupuesto from "../../../components/GuideTourist/presupuestoTourism/Presupuesto";
 
 export default function Chat() {
   const [message, setMessage] = useState("");
@@ -16,6 +17,7 @@ export default function Chat() {
   const [chatsDatas, setChatsDatas] = useState(null);
   const [requestID, setRequestID] = useState(null);
   const [currentChat, setCurrentChat] = useState(null)
+  const [openForm, setOpenForm] = useState(false)
 
   const [loaderSendMessager, setLoaderSendMessager] = useState(false)
   const [loaderChat, setLoaderChat] = useState(false)
@@ -83,6 +85,7 @@ export default function Chat() {
     setAllMessages([])
     setLoaderChat(true)
     setRequestID(null)
+    setOpenForm(false)
     // messageScreen.current.scrollTop = messageScreen.current.scrollHeight - messageScreen.current.clientHeight;
     // messageScreen?.current.scrollTop = messageScreen.current.scrollHeight - messageScreen.current.clientHeight;
   },[id])
@@ -114,6 +117,10 @@ export default function Chat() {
         userID: session?.user?._id
       }
     )
+  }
+
+  async function handlerSendExpenses(data, observacion){
+    console.log("data ",data, " | ", observacion)
   }
 
   async function handleRequest(value){
@@ -202,7 +209,8 @@ export default function Chat() {
         <div className=" flex w-full mt-[35px]">
 
           {/* ///////////// Lista de Chats ///////////// */}
-          <div className=" w-[400px] mr-3 bg-white rounded-[15px] shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000030]">
+          <div className=" w-[400px] mr-3 bg-white rounded-[15px] shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000030] z-50
+          md:absolute md:h-full">
             
             <ul className="mt-[80px]">
               
@@ -295,7 +303,8 @@ export default function Chat() {
           </div>
 
           {/* ///////////// Mensajes ///////////// */}
-          <div className=" bg-primary_flat_hover relative h-[78vh] flex-grow rounded-[15px] shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000030]">
+          <div className=" bg-primary_flat_hover relative h-[78vh] flex-grow rounded-[15px] shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000030] overflow-hidden
+          md:h-screen">
               
               
               {
@@ -472,6 +481,27 @@ export default function Chat() {
                     }
                   </>
               }
+
+              
+              {/* Formulario de Presupuesto */}
+              <div
+              className={`w-full max-h-full absolute left-0 z-50 border-t-2 border-secondary overflow-auto transition-all duration-300 ${openForm ? "bottom-[0%]" : "bottom-[-100%]"}`}>
+
+                <div className="w-full max-h-full relative">
+
+                  <button
+                  onClick={()=>setOpenForm(false)}
+                  className="absolute top-2 right-2 text-violet_dark p-3">
+                    <FontAwesomeIcon icon={faX}/>
+                  </button>
+
+                  <Presupuesto
+                  handlerSend={handlerSendExpenses}
+                  user={session?.user?.chats[id]?.chatName}/>     
+
+                </div>
+
+              </div>
               
               {/* Envio de mensajes */}
               {
@@ -511,6 +541,21 @@ export default function Chat() {
                     </button>
 
                   </div>
+
+                  {/* Mostrar Presupuesto */}
+                  {
+                    (
+                      session?.user?.role.includes("admin") ||
+                      session?.user?.role.includes("guide")
+                    ) &&
+                    <div
+                    onClick={()=>setOpenForm(true)}
+                    className="h-[60px] w-[60px] cursor-pointer bg-white rounded-full shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000040] ml-3 flex justify-center items-center border-2 border-secondary">
+                      <FontAwesomeIcon
+                      className=" w-6 h-6 text-secondary"
+                      icon={faFileInvoiceDollar}/>
+                    </div>
+                  }
 
                 </form>
               }

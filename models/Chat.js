@@ -15,7 +15,20 @@ const ChatSchema = new Schema(
           userID: String,
           messages: String,
           budget:{
-            amount: Number,
+            data:{
+              type:[
+                {  
+                  descripcion:Number,
+                  cantidad:Number,
+                  servicio:String,
+                  montoUnitario:Number,
+                  observacion:String,
+                  total:Number,
+                }
+              ]
+              
+            },
+            observacion:String,
             wasPayed: Boolean
           }      
         }
