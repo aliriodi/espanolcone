@@ -91,130 +91,213 @@ function Formulario() {
 
   return (
     <div className="flex flex-col  ">
+      
       {/* Navbar superior */}
-      <div className="bg-primary text-white p-10 w-full">¿Cómo te gustaría aprender español?</div>
+      <div className="bg-primary text-white p-10 text-[41px] font-bold text-center
+      md:px-[20px] md:text-[31px]">
+        ¿Cómo te gustaría aprender español?
+      </div>
+
+
       {/* Formulario */}
+      <form className="p-12 w-[768px] mx-auto
+      md:w-full md:m-0" onSubmit={handleSubmit}>
 
-      <form className="p-12" onSubmit={handleSubmit}>
-        ¿Qué tipo de clases te interesan?
+        {/* Interes */}
+        <div className='my-5'>
+          {/* ¿Qué tipo de clases te interesan? */}
+          <h3 className=' font-bold'>¿Qué tipo de clases te interesan?</h3>
 
-        {/* Opcion 1 */}
-        <div>
-          <input
-            type="checkbox"
-            id="opcion1"
-            name="pregunta1"
-            value="Individuales online"
-            checked={opcionSeleccionada.includes('Individuales online')}
-            onChange={handleRadioChange}
-          />
-          <label className='pl-2' htmlFor="opcion1">Individuales online</label>
-        </div>
-        {/* Opcion 2 */}
-        <div>
-          <input
-            type="checkbox"
-            id="opcion2"
-            name="pregunta1"
-            value="Grupales Online"
-            checked={opcionSeleccionada.includes('Grupales Online')}
-            onChange={handleRadioChange}
-          />
-          <label className='pl-2' htmlFor="opcion2">Grupales Online</label>
+          {/* Opciones */}
+          <div className=' my-5 '>
+
+            {/* Opcion 1 */}
+            <div className="flex items-center">
+
+              <input
+                className="checkbox mr-2 my-2"
+                type="checkbox"
+                id="opcion1"
+                name="pregunta1"
+                value="Individuales online"
+                checked={opcionSeleccionada.includes('Individuales online')}
+                onChange={handleRadioChange}
+              />
+
+              <label
+              className=' text-violet_dark font-medium
+              md:text-[14px]'
+              htmlFor="opcion1">Individuales online</label>
+
+            </div>
+
+            {/* Opcion 2 */}
+            <div className="flex items-center">
+              
+              <input
+                className="checkbox mr-2 my-2"
+                type="checkbox"
+                id="opcion2"
+                name="pregunta1"
+                value="Grupales Online"
+                checked={opcionSeleccionada.includes('Grupales Online')}
+                onChange={handleRadioChange}
+              />
+
+              <label
+              className=' text-violet_dark font-medium
+              md:text-[14px]'
+              htmlFor="opcion2">Grupales Online</label>
+            </div>
+
+            {/* Opcion 3 */}
+            <div className="flex items-center">
+              <input
+                className="checkbox mr-2 my-2"
+                type="checkbox"
+                id="opcion3"
+                name="pregunta1"
+                value="Grupales OnlineGrupales presenciales en salón de clases (si estás en CBA)"
+                checked={opcionSeleccionada.includes('Grupales OnlineGrupales presenciales en salón de clases (si estás en CBA)')}
+                onChange={handleRadioChange}
+              />
+              <label
+              className=' text-violet_dark font-medium
+              md:text-[14px]'
+              htmlFor="opcion3">Grupales presenciales en salón de clases (si estás en CBA)</label>
+            </div>
+
+            {/* Opcion 4 */}
+            <div className="flex items-center">
+              <input
+                className="checkbox mr-2 my-2"
+                type="checkbox"
+                id="opcion4"
+                name="pregunta1"
+                value="Grupales presenciales en diferentes lugares  (si estás en CBA)"
+                checked={opcionSeleccionada.includes('Grupales presenciales en diferentes lugares  (si estás en CBA)')}
+                onChange={handleRadioChange}
+              />
+              <label
+              className=' text-violet_dark font-medium
+              md:text-[14px]'
+              htmlFor="opcion4">Grupales presenciales en diferentes lugares  (si estás en CBA)</label>
+            </div>
+
+          </div>
+          
         </div>
 
-        {/* Opcion 3 */}
-        <div>
-          <input
-            type="checkbox"
-            id="opcion3"
-            name="pregunta1"
-            value="Grupales OnlineGrupales presenciales en salón de clases (si estás en CBA)"
-            checked={opcionSeleccionada.includes('Grupales OnlineGrupales presenciales en salón de clases (si estás en CBA)')}
-            onChange={handleRadioChange}
-          />
-          <label className='pl-2' htmlFor="opcion3">Grupales presenciales en salón de clases (si estás en CBA)</label>
+        {/* Horarios */}
+        <div className='my-5'>
+
+          {/* ¿Tienes alguna preferencia de horario o ubicación para las clases? */}
+          <h3 className='font-bold'>¿Tienes alguna preferencia de horario o ubicación para las clases?</h3>
+
+          {/* Opciones */}
+          <div>
+
+            {/* En la mañana despues de las 9:00am */}
+            <div className="flex items-center mt-4">
+              <input
+                className="checkbox mr-2 my-2"
+                type="checkbox"
+                id="opcion4"
+                name="pregunta2"
+                checked={opcionSeleccionada2.includes('En la mañana despues de las 9:00am')}
+                value={'En la mañana despues de las 9:00am'}
+                onChange={handleRadioChange2}
+              />
+              <label
+              className="text-violet_dark
+              md:text-[14px]"
+              htmlFor="En la mañana despues de las 9:00am">En la mañana despues de las <b>9:00 AM</b></label>
+            </div>
+
+            {/* la mañana despues de las 11:00 am */}
+            <div className="flex items-center">
+              <input
+                className="checkbox mr-2 my-2"
+                type="checkbox"
+                id="opcion3"
+                name="pregunta2"
+                checked={opcionSeleccionada2.includes('En la mañana despues de las 11:00 am')}
+                value={'En la mañana despues de las 11:00 am'}
+                onChange={handleRadioChange2}
+              />
+              <label
+              className="text-violet_dark
+              md:text-[14px]"
+              htmlFor="En la mañana despues de las 11:00 am">En la mañana despues de las <b>11:00 AM</b></label>
+            </div>
+
+            {/* En la tarde despues de las 3:00pm */}
+            <div className="flex items-center">
+              <input
+                className="checkbox mr-2 my-2"
+                type="checkbox"
+                id="opcion4"
+                name="pregunta2"
+                checked={opcionSeleccionada2.includes('En la tarde despues de las 3:00pm')}
+                value={'En la tarde despues de las 3:00pm'}
+                onChange={handleRadioChange2}
+              />
+              <label
+              className="text-violet_dark
+              md:text-[14px]"
+              htmlFor="opcion4">En la tarde despues de las <b>3:00 PM</b></label>
+            </div>
+
+            {/* Otro horario */}
+            <div className="flex items-center">
+              <input
+                className="checkbox mr-2 my-2"
+                type="checkbox"
+                id="opcion3"
+                name="pregunta2"
+                checked={opcionSeleccionada2.includes('Otro horario')}
+                value={'Otro horario'}
+                onChange={handleRadioChange2}
+              />
+              <label
+              className="text-violet_dark
+              md:text-[14px]"
+              htmlFor="Otro horario">Otro horario</label>
+            </div>
+
+          </div>
+
         </div>
 
-        {/* Opcion 4 */}
-        <div>
-          <input
-            type="checkbox"
-            id="opcion4"
-            name="pregunta1"
-            value="Grupales presenciales en diferentes lugares  (si estás en CBA)"
-            checked={opcionSeleccionada.includes('Grupales presenciales en diferentes lugares  (si estás en CBA)')}
-            onChange={handleRadioChange}
-          />
-          <label className='pl-2' htmlFor="opcion4">Grupales presenciales en diferentes lugares  (si estás en CBA)</label>
-        </div>
-        <br />
-        <p>¿Tienes alguna preferencia de horario o ubicación para las clases?</p>
-        <div>
-          <input
-            type="checkbox"
-            id="opcion4"
-            name="pregunta2"
-            checked={opcionSeleccionada2.includes('En la mañana despues de las 9:00am')}
-            value={'En la mañana despues de las 9:00am'}
-            onChange={handleRadioChange2}
-          />
-          <label className='pl-2' htmlFor="En la mañana despues de las 9:00am">En la mañana despues de las 9:00am</label>
-        </div>
-        <div>
-          <input
-            type="checkbox"
-            id="opcion3"
-            name="pregunta2"
-            checked={opcionSeleccionada2.includes('En la mañana despues de las 11:00 am')}
-            value={'En la mañana despues de las 11:00 am'}
-            onChange={handleRadioChange2}
-          />
-          <label className='pl-2' htmlFor="En la mañana despues de las 11:00 am">En la mañana despues de las 11:00 am</label>
-        </div>
-        <div>
-          <input
-            type="checkbox"
-            id="opcion4"
-            name="pregunta2"
-            checked={opcionSeleccionada2.includes('En la tarde despues de las 3:00pm')}
-            value={'En la tarde despues de las 3:00pm'}
-            onChange={handleRadioChange2}
-          />
-          <label className='pl-2' htmlFor="opcion4">En la tarde despues de las 3:00pm</label>
-        </div>
-        <div>
-          <input
-            type="radio"
-            id="opcion3"
-            name="pregunta2"
-            checked={opcionSeleccionada2.includes('Otro horario')}
-            value={'Otro horario'}
-            onChange={handleRadioChange2}
-            
-          />
-          <label className='pl-2' htmlFor="Otro horario">Otro horario</label>
-        </div><br />
-        <div>
-          ¿Qué temas específicos te gustaría aprender? <br />
-          <label htmlFor="¿Qué temas específicos te gustaría aprender?"></label>
+        {/* Temas */}
+        <div className='my-5'>
 
+          {/* ¿Qué temas específicos te gustaría aprender? */}
+          <h3 className='font-bold' htmlFor="¿Qué temas específicos te gustaría aprender?">¿Qué temas específicos te gustaría aprender?</h3>
+          
           <textarea
+            className='mt-3 rounded-[15px] p-3 border-2 outline-primary w-full'
             type="text"
             placeholder="Escriba los temas que desea aprender..."
             id="¿Qué temas específicos te gustaría aprender?"
             value={texto}
             onChange={handleTextChange}
             rows="4"
-            cols="50"
+            cols="50" 
           />
-        </div><br />
+        </div>
+
         {/* Nombre */}
-        <div>
-          Nombre (Opcional):
-          <label className='pl-4' htmlFor="name"></label>
+        <div className='flex flex-col my-5'>
+
+          <label
+          className='mb-2 font-bold text-[21px] text-violet_dark'
+          htmlFor="name">
+            Nombre (Opcional):
+          </label>
 
           <input
+            className='p-2 rounded-[15px] border-2 outline-primary'
             type="text"
             placeholder="Yohn Doe"
             id="name"
@@ -223,14 +306,20 @@ function Formulario() {
             rows="1"
             cols="50"
           />
-        </div><br />
-        {/* Email */}
-        <div>
-          Email (Opcional):
-          <label className='pl-2' htmlFor="email"></label>
 
-          <input
-            
+        </div>
+
+        {/* Email */}
+        <div className='flex flex-col my-5'>
+
+          <label
+          className='mb-2 font-bold text-[21px] text-violet_dark'
+          htmlFor="email">
+            Email (Opcional):
+          </label>
+
+          <input  
+            className='p-2 rounded-[15px] border-2 outline-primary'
             type="text"
             placeholder="yohn@gmail.com"
             id="email"
@@ -239,9 +328,10 @@ function Formulario() {
             rows="1"
             cols="30"
           />
-        </div><br />
 
-        <button className='bg-primary ' type="submit" disabled={!formularioValido}>Enviar</button>
+        </div>
+
+        <button className='btn-primary px-10 py-2 font-medium' type="submit" disabled={!formularioValido}>Enviar</button>
       </form>
     </div>
   );
