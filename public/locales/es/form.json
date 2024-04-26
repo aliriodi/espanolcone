@@ -1,5 +1,20 @@
-{
-    "pregunta1":"We welcome you to Español con E, where learning becomes an exciting adventure.",
-    "pregunta2":"Start your journey",
-    "texto":"texto"
+{    
+    "title":"¿Cómo te gustaría aprender español?",
+    "pregunta1":"¿Qué tipo de clases te interesan?",
+    "p1op1":"Individuales online",
+    "p1op2":"Grupales Online",
+    "p1op3":"Grupales presenciales en salón de clases (si estás en CBA)",
+    "p1op4":"Grupales presenciales en diferentes lugares (si estás en CBA)",
+    "pregunta2":"¿Tienes alguna preferencia de horario o ubicación para las clases?",
+    "p2op1":"En la mañana despues de las ",
+    "p2op2":"En la mañana despues de las ",
+    "p3op3":"En la tarde despues de las ",
+    "p4op4":"Otro horario",
+    "temasespecific":"¿Qué temas específicos te gustaría aprender?",
+    "temasespecificPH":"Escriba los temas que desea aprender....",
+    "texto":"",
+    "name":"Nombre (Opcional)",
+    "email":"Email (Opcional)",
+    "submit":"Enviar",
+    "alert":"¡Gracias por su interés!"
 }
