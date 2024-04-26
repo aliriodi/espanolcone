@@ -1,6 +1,8 @@
+import { faPen, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 
-function Presupuesto({user}) {
+function Presupuesto({ user, handlerSend }) {
   const [items, setItems] = useState([]);
   const [descripcion, setDescripcion] = useState('');
   const [cantidad, setCantidad] = useState(1);
@@ -55,86 +57,164 @@ function Presupuesto({user}) {
   };
 
   return (
-    <div className='h-full w-full mx-auto'>
-      <h1>Presupuesto para: <u>{user}</u></h1><br />
-      <form onSubmit={handleSubmit}>
-        <label>
-          Descripción:
+    <div className='h-full w-full mx-auto p-2 bg-white pt-8'>
+
+      <h1 className='py-3'>Presupuesto para <u>{user}</u> </h1><br />
+
+      {/* Tabla */}
+      <div
+      className='border-2 border-secondary rounded-[15px] bg-secondary'>
+
+        {/* Encabezado */}
+        <ul className=' grid grid-cols-7 text-white py-2 font-semibold'>
+          <li className="px-3 text-center">Id</li>
+          <li className="px-3">Descripción</li>
+          <li className="px-3 text-center">Cantidad</li>
+          <li className="px-3 text-center">Unidad</li>
+          <li className="px-3 text-center">Monto Unitario</li>
+          <li className="px-3 text-center">Monto Total</li>
+          <li className="px-3 text-center">Acciones</li>
+        </ul>
+
+        {/* Listado */}
+        {
+          items?.length > 0 ?
+          items.map((item, index) => (
+
+            <ul
+            key={index}
+            className=' grid grid-cols-7 font-medium text-violet_dark bg-white roundde last-of-type:rounded-[0_0_15px_15px] border-t-2 border-secondary'>
+
+              <li className={`px-5 py-4 border-r-2 border-secondary text-center`}>{index+1}</li>
+              <li className={`px-5 py-4 border-r-2 border-secondary`}>{item.descripcion}</li>
+              <li className={`px-5 py-4 border-r-2 border-secondary text-center`}>{item.cantidad}</li>
+              <li className={`px-5 py-4 border-r-2 border-secondary text-center`}>{item.unidad}</li>
+              <li className={`px-5 py-4 border-r-2 border-secondary text-center`}>{item.montoUnitario}</li>
+              <li className={`px-5 py-4 border-r-2 border-secondary text-center`}>{item.montoTotal}</li>
+
+              <li className="px-5 py-4 flex justify-around">
+
+                {/* Editar */}
+                <button
+                className='text-primary'
+                onClick={() => handleEdit(index)}>
+                  <FontAwesomeIcon
+                        icon={faPen}
+                        />
+                </button>
+
+                {/* Eliminar */}
+                {
+                  editIndex!==index && (
+                    <button className=' text-danger' onClick={() => handleDelete(index)}>
+                      <FontAwesomeIcon
+                      icon={faTrashCan}
+                      />
+                    </button>
+                  )
+                }
+
+              </li>
+
+            </ul>
+
+          ))
+          :
+          <div className='bg-white rounded-[0_0_15px_15px] text-center py-4 text-light font-medium'>
+            Todavia no hay presupuestos agregados
+          </div>
+
+        }
+
+      </div>
+
+      {/* Creacion de presupuesto */}
+      <form
+      className=' py-5 grid grid-cols-2 gap-2'
+      onSubmit={handleSubmit}>
+
+        {/* Descripción */}
+        <div className=' text-violet_dark font-medium flex flex-col'>
+          <label>
+            Descripción
+          </label>
+
           <input
             type="text"
             value={descripcion}
             onChange={(e) => setDescripcion(e.target.value)}
+            className={`border-2 rounded-[7px] my-2 py-1 px-3 ${editIndex === -1 ? "outline-secondary" : "border-[#83C7D6] outline-primary"}`}
           />
-        </label>
-        <label>
-          Cantidad:
+        </div>
+
+        {/* Cantidad */}
+        <div className=' text-violet_dark font-medium flex flex-col'>
+          <label>
+            Cantidad
+          </label>
+
           <input
             type="number"
             value={cantidad}
             onChange={(e) => setCantidad(e.target.value)}
-            className={'w-10 '}
+            className={`border-2 rounded-[7px] my-2 py-1 px-3 ${editIndex === -1 ? "outline-secondary" : "border-[#83C7D6] outline-primary"}`}
           />
-        </label>
-        <label>
-          Unidad:
+        </div>
+
+        {/* Unidad */}
+        <div className=' text-violet_dark font-medium flex flex-col'>
+          <label>
+            Unidad
+          </label>
+
           <input
             type="text"
             value={unidad}
             onChange={(e) => setUnidad(e.target.value)}
-            className={'w-20 '}
+            className={`border-2 rounded-[7px] my-2 py-1 px-3 ${editIndex === -1 ? "outline-secondary" : "border-[#83C7D6] outline-primary"}`}
           />
-        </label>
-        <label>
-          Monto Unitario:
+        </div>
+
+        {/* Monto Unitario */}
+        <div className=' text-violet_dark font-medium flex flex-col'>
+          <label>
+            Monto Unitario
+          </label>
+
           <input
             type="number"
             value={montoUnitario}
             onChange={(e) => setMontoUnitario(e.target.value)}
-            className={'w-20 '}
+            className={`border-2 rounded-[7px] my-2 py-1 px-3 ${editIndex === -1 ? "outline-secondary" : "border-[#83C7D6] outline-primary"}`}
           />
-        </label>
-        <button type="submit">{editIndex === -1 ? 'Agregar' : 'Editar'}</button>
+        </div>
+
+        {/* Agregar / Editar */}
+        <button
+        className={`rounded-[7px] mt-4 p-2 text-white font-medium transition-all ${editIndex === -1 ? "bg-secondary" : "bg-primary"}`}
+        type="submit">
+          {editIndex === -1 ? 'Agregar' : 'Editar'}
+        </button>
+        
       </form>
-      <table className="w-full border-collapse border border-gray-400">
-        <thead>
-          <tr>
-            <th className="border border-gray-400">Id</th>
-            <th className="border border-gray-400">Descripción</th>
-            <th className="border border-gray-400">Cantidad</th>
-            <th className="border border-gray-400">Unidad</th>
-            <th className="border border-gray-400">Monto Unitario</th>
-            <th className="border border-gray-400">Monto Total</th>
-            <th className="border border-gray-400  ">Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {items.map((item, index) => (
-            <tr key={index}>
-              <td className="border border-gray-400">{index+1}</td>
-              <td className="border border-gray-400">{item.descripcion}</td>
-              <td className="border border-gray-400">{item.cantidad}</td>
-              <td className="border border-gray-400">{item.unidad}</td>
-              <td className="border border-gray-400">{item.montoUnitario}</td>
-              <td className="border border-gray-400">{item.montoTotal}</td>
-              <td className="border border-gray-400">
-              
-        <button onClick={() => handleEdit(index)}>Editar</button>
-      <br></br>
-      {editIndex!==index && (
-        <button className='' onClick={() => handleDelete(index)}>Eliminar</button>
-      )}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <p>Total: {total}</p>
+
       <textarea
         value={observacion}
         onChange={(e) => setObservacion(e.target.value)}
         placeholder="Observaciones..."
-        className="w-full mx-auto"
+        className="w-full mx-auto border-2 rounded-[7px] my-2 py-1 px-3 outline-primary"
       />
+
+      {/* Total */}
+      <p className=' text-violet_dark font-medium text-[19px] mt-5'>Total: <b>{total}</b></p>
+
+      {/* Enviar */}
+      <button
+      onClick={()=>handlerSend(items, observacion)}
+        className='rounded-[7px] mt-4 p-2 text-white font-medium text-[21px] bg-secondary w-full'
+        type="submit">
+          Enviar
+      </button>
     </div>
   );
 }
