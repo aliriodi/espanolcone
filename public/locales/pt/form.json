@@ -1,5 +1,21 @@
 {
-    "pregunta1":"We welcome you to Español con E, where learning becomes an exciting adventure.",
-    "pregunta2":"Start your journey",
-    "texto":""
+    "title":"Como você gostaria de aprender espanhol?",
+    "pregunta1":"Em quais tipos de aulas você está interessado?",
+    "p1op1":"Solteiros on-line",
+    "p1op2":"Grupos on-line",
+    "p1op3":"Grupos presenciais em sala de aula (se você estiver no CBA)",
+    "p1op4":"Grupos presenciais em locais diferentes (se você estiver no CBA)",
+    "pregunta2":"Você tem alguma preferência de horário ou local para as aulas?",
+    "p2op1":"De manhã, depois das ",
+    "p2op2":"De manhã, depois das ",
+    "p2op3":"À tarde, depois das ",
+    "p2op4":"Outra hora",
+    "temasespecific":"Que tópicos específicos você gostaria de aprender?",
+    "temasespecificPH":"Escreva os tópicos que deseja aprender....",
+    "texto":"",
+    "name":"Nome (Opcional)",
+    "e-mail":"E-mail (Opcional)",
+    "enviar":"Enviar",
+    "alert":"Obrigado pelo seu interesse!"
+
 }
