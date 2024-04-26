@@ -93,9 +93,11 @@ function Formulario() {
     <div className="flex flex-col  ">
       
       {/* Navbar superior */}
-      <div className="bg-primary text-white p-10 text-[41px] font-bold text-center
+      <div className=" bg-primary text-white p-10 text-[41px] font-bold  text-center
       md:px-[20px] md:text-[31px]">
-        ¿Cómo te gustaría aprender español?
+        <div className='flex items-center justify-center gap-10 pr-40'>
+         <img src="/imgs/logo.png"  alt="Logo" className="w-auto h-20 md:w-8 md:h-8"/ >
+         <span>¿Cómo te gustaría aprender español?</span></div>
       </div>
 
 
@@ -331,7 +333,7 @@ function Formulario() {
 
         </div>
 
-        <button className='btn-primary px-10 py-2 font-medium' type="submit" disabled={!formularioValido}>Enviar</button>
+        <button className={`bg-primary text-white rounded-md px-10 py-2 font-medium ${!formularioValido?'btn-disabled':'btn-primary'}`} type="submit" disabled={!formularioValido}>Enviar</button>
       </form>
     </div>
   );
