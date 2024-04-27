@@ -1,21 +1,126 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import nextI18NextConfig from "../next-i18next.config";
 import { useTranslation, withTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
+import styles from '../styles/navbar.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
 
 function Formulario() {
   const [opcionSeleccionada, setOpcionSeleccionada] = useState([]);
   const [opcionSeleccionada2, setOpcionSeleccionada2] = useState([]);
-  const [language, setLanguage] = useState('')
+
   const [Name, setName] = useState('')
   const [Email, setEmail] = useState('')
   const [texto, setTexto] = useState('');
   const [formularioValido, setFormularioValido] = useState(false);
 
   //Traduccion
+  //decalro la funcion idiomas que uso de los /public/locales/*json
+  //en este caso uso form.json y aboutus.json
   const { t } = useTranslation(['form', 'aboutus'])
+  const [showMenuLanguage, setShowMenuLanguage] = useState(false)
   const { locale, locales, push, pathname } = useRouter()
+  //Objeto de arrays de banderas
+  const languages2 = [{ value: 'es', label: 'ESPAÑOL', label2:'Es',image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694363931/images/sp_tmnhok.jpg" },
+  { value: 'en', label: 'INGLÉS',label2:'En', image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694363928/images/en_pybv0j.jpg" },
+  { value: 'pt', label: 'PORTUGUÉS',label2:'Pt', image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694363923/images/br_qj0a0o.jpg" }];
+  //declaro mi lenguaje actual
+  const [language, setLanguage] = useState(languages2.find(objeto => objeto.value === locale));
+  // Estilos React-select
+  const customStyles = {
+    control: (provided) => ({
+      ...provided,
+      backgroundColor: '#f00',  // Cambiar el color de fondo a "inherit"
+      width: '210px', // Ancho específico
+      height: '40px', // Alto específico
+      borderRadius: '8px', // Curvatura de bordes
+      borderColor: 'white',
+      outline: 'none', // Remove the blue outline when focused
+
+      //  borderWidth: '2px', // Cambiar el grosor del borde a 2px
+      boxShadow: '0 0 0 0px white', // Utilizar box-shadow en lugar de outline al enfocar
+      '&:hover': {
+        backgroundColor: 'rgba(60, 187, 214, 0.4)',
+
+      },
+
+      //border-radius: 6px,
+      padding: '0px 0px',
+
+    }),
+    singleValue: (provided, state) => ({
+      ...provided,
+      color: 'white', // Change the color of the default value text to white
+
+      backgroundColor: 'rgba(60, 187, 214, 0.0)',
+      '&:hover': {
+        color: '#3CBBD6',  // Cambiar el color del borde al pasar el cursor sobre el componente
+      },
+
+    }),
+    option: (provided) => ({
+      ...provided,
+      color: 'black', // Cambiar el color del texto de las opciones a blanco
+      backgroundColor: 'white', // Cambiar el color de fondo de las opciones a "inherit"
+      //backgroundColor: '#3CBBD6' 
+      //backgroundColor: 'inherit'
+
+      border: 'white',
+      width: '207px', // Ancho específico
+      height: '40px', // Alto específico
+      '&:hover': {
+        backgroundColor: 'rgba(60, 187, 214, 0.4)',
+        color: 'black',
+        borderRadius: '0px'
+      },
+    }),
+    menu: (provided) => ({
+      ...provided,
+      backgroundColor: 'rgba(60, 187, 214, 0.0)', // Change the background color of the menu to translucent
+      //  border: '2px solid white', // Eliminar el borde del menú desplegable
+      boxShadow: 'none', // Eliminar la sombra del menú desplegable
+      borderRadius: '8px',
+    }),
+
+
+  };
+
+  //#region Menu De Idiomas
+  const menuLanguage = useRef(null);
+  function handleOnChange(lang) {
+      push('', undefined, { locale: lang.value });
+      setLanguage(languages2.find(objeto => objeto.value === lang.value))
+  }
+
+
+  function handleOnChangeLanguage() {
+    showMenuLanguage ? setShowMenuLanguage(false) : setShowMenuLanguage(true)
+    console.log(showMenuLanguage)
+  }
+
+  // Detecta si se cliquea fuera del Menu 
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuLanguage.current && !menuLanguage.current.contains(event.target)) {
+        setShowMenuLanguage(false)
+      }
+    }
+
+    // Agregar un event listener al documento para detectar clics
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      // Remover el event listener al desmontar el componente
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+  //#endregion
+
+
+  //Validacion Form
   useEffect(() => {
     // Código que se ejecutará después del renderizado
     validarFormulario();
@@ -97,11 +202,75 @@ function Formulario() {
     <div className="flex flex-col  ">
 
       {/* Navbar superior */}
-      <div className=" bg-primary text-white p-10 md:p-2 text-[41px] font-bold  text-center
-      md:px-[14px] md:text-[18px]">
-        <div className='flex items-center justify-center gap-10 pr-40 md:pr-14'>
-          <img src="/imgs/logo.png" alt="Logo" className="w-auto h-20 md:w-16 md:h-16" />
-          <span>{t('title')} </span></div>
+      <div className="relative bg-primary text-white p-10 md:pt-1 md:pb-1 md:pr-0 font-bold  text-center
+      md:px-[14px] z-10">
+        <div className='flex items-center justify-center gap-10  md:pr-0'>
+          
+          <img src="/imgs/logo.png" alt="Logo" className="w-auto  h-20 md:w-16 md:h-16" />
+          <span className='  text-[41px] md:text-[18px]'>{t('title')}  </span>
+          <ul
+            className={`${styles["navbar-btns"]} ${'w-[50px]'}`}
+            >
+
+            <li className={styles["select-languages"]} onClick={handleOnChangeLanguage} ref={showMenuLanguage ? menuLanguage : null}>
+
+              <div className={styles["select-languages_button"]}>
+                {/* Icono */}
+                <Image
+                  width={25}
+                  height={17}
+                  src={language?.image}
+                  alt={language?.label}
+                 />
+
+                {/* Label */}
+                <label
+                  className={styles["select-languages_label"]}>
+                  {t("labelLanguage")}
+                </label>
+
+                {/* Flecha del Responsive */}
+                <FontAwesomeIcon icon={showMenuLanguage ? faCaretUp : faCaretDown} className={styles["select-languages_icon"]} />
+              </div>
+               {/* Menu Desplegable */}
+            <ul className={`${styles['select-languages_menu']} ${'w-[140px]'} ${showMenuLanguage && styles['active']}`}>
+              {
+                languages2.length > 0 &&
+                languages2.map((language2) => (
+                  <li
+                    onClick={() => handleOnChange(language2)}
+                    value={language2}
+                    className={styles["select-languages_languages"]}
+                    key={language2.value}>
+                    {/* Icono */}
+                    <Image
+                      width={25}
+                      height={17}
+                      src={language2.image}
+                      alt={language2.label}
+                      className={styles["select-languages_img"]}/>
+
+                    {/* Label */}
+                    <label style={{ marginLeft: "8px" }} className='pr-4 block md:hidden'>
+                      {language2.label}
+                    </label>
+                    <label style={{ marginLeft: "0px" }} className='pr-8  hidden md:block'>
+                      {language2.label2}
+                    </label>
+                  </li>
+                )
+                )
+              }
+            </ul>
+
+            </li>
+          </ul>
+         
+
+        </div>
+
+
+
       </div>
 
 
@@ -280,7 +449,7 @@ function Formulario() {
 
           {/* ¿Qué temas específicos te gustaría aprender? */}
           <h3 className='font-bold' htmlFor="¿Qué temas específicos te gustaría aprender?">
-          {t('temasespecific')}</h3>
+            {t('temasespecific')}</h3>
 
           <textarea
             className='mt-3 rounded-[15px] p-3 border-2 outline-primary w-full'
