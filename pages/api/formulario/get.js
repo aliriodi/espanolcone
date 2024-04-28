@@ -16,16 +16,16 @@ export default async function getAllForms(req, res) {
 
 
 
-    console.log('LOOKING GUIDES');
+    console.log('LOOKING FORMS');
 
     const forms = await Formulario.find().exec();
 
-    console.log('GUIDES FOUND');
+    console.log('FORMS FOUND');
 
     // Verifica procedencia de solicitud 
     if(req.headers.accept == "*/*"){
-      // Solicitud desde el codigo
-      res.status(200).json({ forms });
+      // Solicitud desde el 
+       res.status(200).json({ forms });
     }
     else{
       // Solicitud desde el navegador

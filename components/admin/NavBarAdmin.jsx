@@ -1,4 +1,4 @@
-import { faBook, faMoneyBillTrendUp, faMugHot, faNewspaper, faUsers } from "@fortawesome/free-solid-svg-icons"
+import { faBook, faMoneyBillTrendUp, faMugHot, faNewspaper, faUsers,faTasks } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Link from 'next/link';
 import { useEffect, useState } from "react";
@@ -49,6 +49,15 @@ export default function NavBarAdmin(){
             className={`text-title_color px-[22px] py-[10px] cursor-pointer ${currentPathName == "/inicio/admin/facturacion" && "btn-success-active"}`}>
                 <FontAwesomeIcon className="mr-[5px]" icon={faMoneyBillTrendUp}/>
                 Facturacion
+            </Link>
+
+            {/* Boton Para ver formularios */}
+                        {/* Boton para ir a seccion de recibos */}
+                        <Link
+            href={'/inicio/admin/formulario/'}
+            className={`text-title_color px-[22px] py-[10px] cursor-pointer ${currentPathName == "/inicio/admin/formulario" && "btn-success-active"}`}>
+                <FontAwesomeIcon className="mr-[5px]" icon={faTasks}/>
+                Formulario
             </Link>
         </div>
     )
