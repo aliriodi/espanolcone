@@ -75,8 +75,8 @@ export default function FormResult() {
                             </tr>
                         </thead>
                         <tbody>
-                            {resp ? resp.map(e =>
-                                <tr>
+                            {resp ? resp.map((e,index) =>
+                                <tr key={index}>
                                     <td className="border px-2 py-2">{e.name ? e.name : 'Sin nombre'}</td>
                                     <td className="border px-2 py-2">{e.email ? e.email : 'Sin email'}</td>
                                     <td className="border px-2 py-2">{e.texto}</td>
