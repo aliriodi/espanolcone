@@ -413,7 +413,7 @@ function Formulario() {
                   <label
                     className="text-violet_dark
                   md:text-[14px]"
-                    htmlFor="En la mañana despues de las 9:00am">{t('p2op1')} <b>9:00 AM</b></label>
+                    htmlFor="En la mañana despues de las 9:00am">{t('p2op1')} <b>9:00 AM (UTC-3)</b></label>
                 </div>
 
                 {/* la mañana despues de las 11:00 am */}
@@ -430,7 +430,7 @@ function Formulario() {
                   <label
                     className="text-violet_dark
                   md:text-[14px]"
-                    htmlFor="En la mañana despues de las 11:00 am">{t('p2op2')} <b>11:00 AM</b></label>
+                    htmlFor="En la mañana despues de las 11:00 am">{t('p2op2')} <b>11:00 AM (UTC-3)</b></label>
                 </div>
 
                 {/* En la tarde despues de las 3:00pm */}
@@ -447,7 +447,7 @@ function Formulario() {
                   <label
                     className="text-violet_dark
                   md:text-[14px]"
-                    htmlFor="opcion4">{t('p2op3')} <b>3:00 PM</b></label>
+                    htmlFor="opcion4">{t('p2op3')} <b>3:00 PM (UTC-3)</b></label>
                 </div>
 
                 {/* Otro horario */}
