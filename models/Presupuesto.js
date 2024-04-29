@@ -13,6 +13,9 @@ const PresupuestoSchema = new Schema(
     item: {
         type: [],
        },
+       observacion:{
+        type: String,
+      },
        paid:   {
         type: Boolean,
         default:false
