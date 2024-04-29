@@ -32,7 +32,7 @@ export default async function getAllRecepipt(req, res) {
 
     if(req.headers.accept == "*/*"){
       // Solicitud desde el codigo
-    //  console.log(receipt)
+    
       return res.status(200).json({ presupuesto });
     }
     else{

@@ -1,6 +1,6 @@
 import { faPen, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Presupuesto({ user, handlerSend }) {
   const [items, setItems] = useState([]);
@@ -11,6 +11,12 @@ function Presupuesto({ user, handlerSend }) {
   const [observacion, setObservacion] = useState('');
   const [total, setTotal] = useState(0);
   const [editIndex, setEditIndex] = useState(-1);
+
+  useEffect(() => {
+    alert('hola')
+fetch('/api/presupuesto/check').then(response=>console.log('response',response))
+  },
+    [])
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -56,6 +62,10 @@ function Presupuesto({ user, handlerSend }) {
     setTotal(total - deletedItem.montoTotal);
   };
 
+
+  //Funcion para enviar a BD
+  async function handleSend2() { }
+
   return (
     <div className='h-full w-full mx-auto p-2 bg-white pt-8'>
 
@@ -63,7 +73,7 @@ function Presupuesto({ user, handlerSend }) {
 
       {/* Tabla */}
       <div
-      className='border-2 border-secondary rounded-[15px] bg-secondary'>
+        className='border-2 border-secondary rounded-[15px] bg-secondary'>
 
         {/* Encabezado */}
         <ul className=' grid grid-cols-7 text-white py-2 font-semibold'>
@@ -79,50 +89,50 @@ function Presupuesto({ user, handlerSend }) {
         {/* Listado */}
         {
           items?.length > 0 ?
-          items.map((item, index) => (
+            items.map((item, index) => (
 
-            <ul
-            key={index}
-            className=' grid grid-cols-7 font-medium text-violet_dark bg-white roundde last-of-type:rounded-[0_0_15px_15px] border-t-2 border-secondary'>
+              <ul
+                key={index}
+                className=' grid grid-cols-7 font-medium text-violet_dark bg-white roundde last-of-type:rounded-[0_0_15px_15px] border-t-2 border-secondary'>
 
-              <li className={`px-5 py-4 border-r-2 border-secondary text-center`}>{index+1}</li>
-              <li className={`px-5 py-4 border-r-2 border-secondary`}>{item.descripcion}</li>
-              <li className={`px-5 py-4 border-r-2 border-secondary text-center`}>{item.cantidad}</li>
-              <li className={`px-5 py-4 border-r-2 border-secondary text-center`}>{item.unidad}</li>
-              <li className={`px-5 py-4 border-r-2 border-secondary text-center`}>{item.montoUnitario}</li>
-              <li className={`px-5 py-4 border-r-2 border-secondary text-center`}>{item.montoTotal}</li>
+                <li className={`px-5 py-4 border-r-2 border-secondary text-center`}>{index + 1}</li>
+                <li className={`px-5 py-4 border-r-2 border-secondary`}>{item.descripcion}</li>
+                <li className={`px-5 py-4 border-r-2 border-secondary text-center`}>{item.cantidad}</li>
+                <li className={`px-5 py-4 border-r-2 border-secondary text-center`}>{item.unidad}</li>
+                <li className={`px-5 py-4 border-r-2 border-secondary text-center`}>{item.montoUnitario}</li>
+                <li className={`px-5 py-4 border-r-2 border-secondary text-center`}>{item.montoTotal}</li>
 
-              <li className="px-5 py-4 flex justify-around">
+                <li className="px-5 py-4 flex justify-around">
 
-                {/* Editar */}
-                <button
-                className='text-primary'
-                onClick={() => handleEdit(index)}>
-                  <FontAwesomeIcon
-                        icon={faPen}
+                  {/* Editar */}
+                  <button
+                    className='text-primary'
+                    onClick={() => handleEdit(index)}>
+                    <FontAwesomeIcon
+                      icon={faPen}
+                    />
+                  </button>
+
+                  {/* Eliminar */}
+                  {
+                    editIndex !== index && (
+                      <button className=' text-danger' onClick={() => handleDelete(index)}>
+                        <FontAwesomeIcon
+                          icon={faTrashCan}
                         />
-                </button>
+                      </button>
+                    )
+                  }
 
-                {/* Eliminar */}
-                {
-                  editIndex!==index && (
-                    <button className=' text-danger' onClick={() => handleDelete(index)}>
-                      <FontAwesomeIcon
-                      icon={faTrashCan}
-                      />
-                    </button>
-                  )
-                }
+                </li>
 
-              </li>
+              </ul>
 
-            </ul>
-
-          ))
-          :
-          <div className='bg-white rounded-[0_0_15px_15px] text-center py-4 text-light font-medium'>
-            Todavia no hay presupuestos agregados
-          </div>
+            ))
+            :
+            <div className='bg-white rounded-[0_0_15px_15px] text-center py-4 text-light font-medium'>
+              Todavia no hay presupuestos agregados
+            </div>
 
         }
 
@@ -130,8 +140,8 @@ function Presupuesto({ user, handlerSend }) {
 
       {/* Creacion de presupuesto */}
       <form
-      className=' py-5 grid grid-cols-2 gap-2'
-      onSubmit={handleSubmit}>
+        className=' py-5 grid grid-cols-2 gap-2'
+        onSubmit={handleSubmit}>
 
         {/* Descripción */}
         <div className=' text-violet_dark font-medium flex flex-col'>
@@ -191,11 +201,11 @@ function Presupuesto({ user, handlerSend }) {
 
         {/* Agregar / Editar */}
         <button
-        className={`rounded-[7px] mt-4 p-2 text-white font-medium transition-all ${editIndex === -1 ? "bg-secondary" : "bg-primary"}`}
-        type="submit">
+          className={`rounded-[7px] mt-4 p-2 text-white font-medium transition-all ${editIndex === -1 ? "bg-secondary" : "bg-primary"}`}
+          type="submit">
           {editIndex === -1 ? 'Agregar' : 'Editar'}
         </button>
-        
+
       </form>
 
       <textarea
@@ -210,10 +220,10 @@ function Presupuesto({ user, handlerSend }) {
 
       {/* Enviar */}
       <button
-      onClick={()=>handlerSend(items, observacion)}
+        onClick={() => { handlerSend(items, observacion), handleSend2(items, observacion) }}
         className='rounded-[7px] mt-4 p-2 text-white font-medium text-[21px] bg-secondary w-full'
         type="submit">
-          Enviar
+        Enviar
       </button>
     </div>
   );
