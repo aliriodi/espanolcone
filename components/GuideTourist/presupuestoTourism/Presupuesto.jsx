@@ -1,6 +1,11 @@
 import { faPen, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState, useEffect } from 'react';
+//Para Pago
+import ModalPago from '../../ModalPagoPAYPAL';
+import ModalPago2 from '../../ModalPagoZelle';
+import ModalPagoABLE from '../../ModalPagoAble';
+//
 
 function Presupuesto({ user, handlerSend }) {
   const [items, setItems] = useState([]);
@@ -11,10 +16,235 @@ function Presupuesto({ user, handlerSend }) {
   const [observacion, setObservacion] = useState('');
   const [total, setTotal] = useState(0);
   const [editIndex, setEditIndex] = useState(-1);
+  const [personSchedule, setPersonSchedule] = useState({
+    first_name: 'Guia nombre',
+    last_name: 'Guia apellido',
+    email: 'nahuelescujurideveloper@gmail.com',
+    _id: '_idDeDruebaDePersonSchedule'
+  })
 
+  //Para pago se declaran todas las variables y funciones
+  const [openModalDescription, setopenModalDescription] = useState(false)
+  const [Description, setDescription] = useState('')
+  const [paypalModal, setPaypalModal] = useState(false)
+  const [paypalDates, setPaypalDates] = useState(null)
+  const [ZelleModal, setZelleModal] = useState(false)
+  const [PayModal, setPayModal] = useState(false)
+  const [isPaymentConfirmed, setIsPaymentConfirmed] = useState(false);
+  const [OpenP, setOpenP] = useState(false);
+  const [paymentCancelled, setPaymentCancelled] = useState(false);
+  const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
+
+  //upaypalDatesser
+  //PAGO DE PAYPAL OK
+  const handlePaymentSuccess = async (data, response) => {
+    // alert('ahi vengo')
+    console.log('data', data)
+    console.log('response', response)
+    setAssgined(true)
+    setIsPaymentConfirmed(true);
+    setTimeout(function () { PAYOK(paypalDates, response); }, 500)
+    Confirm();
+    setPaymentCancelled(false); // Asegúrate de restablecer el otro estado
+  };
+
+
+  const handlePaymentCancel = () => {
+    setIsPaymentConfirmed(false);
+    //     PAYNOK();
+    setPaymentCancelled(true); // Asegúrate de restablecer el otro estado
+  };
+
+
+  const openPaypalModal = (VALUE) => {
+    setPaypalModal(true)
+    //setPaypalDates(VALUE)
+  }
+
+  const openZelleModal = (VALUE) => {
+    setZelleModal(true)
+    //  setPaypalDates(VALUE)
+  }
+
+  const closeZelleModal = () => {
+    setZelleModal(false)
+  }
+
+  function openModalPay(VALUE) {
+    setPayModal(true)
+    setPaypalDates(VALUE)
+  }
+
+  function closePayModal() { setPayModal(false) }
+
+  const handleChangePaypalModal = (data) => {
+    setPayModal(data)
+    setZelleModal(data)
+    setPaypalModal(data)
+  }
+
+
+  function openPlan() {
+    //Chequeo si tengo clases disponiblopenPaypalModales para ver si renderizo compras de clases de acuerdo  
+    //a la ultima compra
+    const last = session.user.planSync.length;
+
+    if (!last || (session.user.planSync[last - 1].qty - session.user.planSync[last - 1].classview < 1)) setOpenP(true)
+    else Confirm()
+
+  }
+
+  function closePlan() {
+    setOpenP(false)
+  }
+
+  async function Confirm(VALUE) {
+    //sb-dgdvf28637629@personal.example.com
+    //123456789
+    //https://sandbox.paypal.com
+    //El  <Plan Confirm={Confirm} newMeeting={newMeeting} closePlan={closePlan} />
+    //es el que le asigna el Value para llamar a los modales de pago 
+
+    if (VALUE) {
+      //api pago 
+      //El valor de value creo que hay que ponerlo en un estado 
+      //para irlo pasando entre las funciones
+      //inicialmenye asi openPaypalModal(VALUE) ahora
+      // {OpenP && <Plan Confirm={Confirm} newMeeting={newMeeting} closePlan={closePlan} />}
+      // LINEA 1029 para verl el VALUE 
+      openModalPay(VALUE)
+    }
+
+
+    else {
+
+      alert('No hay Valor para pagar')
+    }
+  }
+
+  //si el pago es ok envio a la BD el pago
+  async function PAYOK(VALUE, DATESPAYPAL) {
+    //alert('265 entre en payok()')
+    try {
+      await fetch('/api/users/update',
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(
+            {
+              email: user.email,
+              updates: {
+                planSync: [...user.turismo,
+                {
+                  type: 'Compra de turismo',
+                  payment: 'PAYPAL',
+                  valid: true,
+                  qty: VALUE.qty,
+                  cost: VALUE.cost,
+                  planing: 1,
+                  classview: 0
+                }
+                ]
+              }
+            }
+          ),
+        })
+
+        .then(response => {
+          setPaypalDates(null)
+          //   console.log("Clase asignado ",response.json())    
+        })
+
+    } catch (error) {
+      setPaypalDates(null)
+
+      console.error(error);
+    }
+    try {
+      await fetch('/api/receipt/add',
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(
+            {
+              idUser: user._id,
+              idPlan: 'plansync',
+              qty: VALUE.qty,
+              ammount: VALUE.cost,
+              dates: { VALUE, DATESPAYPAL, type: "PAYPAL" }
+            }
+          ),
+        }).then(response => {
+          setPaypalDates(null)
+          //  console.log("Clase asignado ",response.json())
+
+        })
+
+    } catch (error) {
+      setPaypalDates(null)
+
+      console.error(error);
+    }
+
+
+  }
+
+  //si el pago es no OK
+  function PAYNOK() {
+    alert('Su pago no ha sido procesado intente nuevamente')
+    setPaypalDates(null)
+  }
+  //cierre de pagos
+  //Apertura de asignar viaje
+  async function AssingingTravel() {
+    //Apertura de emails
+    let massageGuide = `Hola Guia turistico`;
+    let massageUser = `Hola User`;
+    try {
+      //envio email a teacher
+      await
+        fetch('/api/mail/',
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              to: user.email, //aca va el email del guia turistico
+              subject: 'Tu viaje sera con: ' + 'aca va el nombre del usuario' + ' ' + 'aca va el apellido del usuario',
+              html: massageTeacher + 'linea 208'
+            })
+          })
+      //Envio email a alumno
+      await
+        fetch('/api/mail/',
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              to: user.email,
+              subject: 'Tu viaje sera con: ' + 'variable nombre guia' + ' ' + 'variable guia apellido linea 221',
+              html: massageStudent + 'linea 222'
+            })
+          })
+    } catch (error) {
+      console.error(error);
+    }
+
+
+
+    // Cierre de emails   
+  }
+  //Cierre de enviar viaje
   useEffect(() => {
-    
-fetch('/api/presupuesto/check').then(response=>console.log('response',response))
+
+    fetch('/api/presupuesto/check').then(response => console.log('response', response))
   },
     [])
 
@@ -217,6 +447,89 @@ fetch('/api/presupuesto/check').then(response=>console.log('response',response))
 
       {/* Total */}
       <p className=' text-violet_dark font-medium text-[19px] mt-5'>Total: <b>{total}</b></p>
+
+      {/* Botn de pago */}
+      <div>
+        <input
+          type="checkbox"
+          checked={isCheckboxChecked}
+          onChange={() => setIsCheckboxChecked(!isCheckboxChecked)}
+        />
+        <label>Activar botón de pago</label>
+
+        {/* {openModalDescription && <ModalDescAssig renders={user} meeting={null} personSchedule={personSchedule} openPay={openPlan} openButton={setopenModalDescription} setDescription={setDescription} />} */}
+        {/* {OpenP && <Plan Confirm={Confirm} newMeeting={newMeeting} closePlan={closePlan} />} */}
+
+        {
+          !isPaymentConfirmed && true &&
+          <div>
+
+            {/* Modal de Pago habilitacion*/}
+            <ModalPagoABLE
+              close={closePayModal}
+              modalPay={handleChangePaypalModal}
+              open={PayModal}
+              open1={openPaypalModal}
+              open2={openZelleModal}
+            />
+          </div>
+        }
+
+        {
+          !isPaymentConfirmed && true &&
+          <div>
+
+            {/* Modal de Pago PAYPAL*/}
+            <ModalPago
+              onPaymentSuccess={handlePaymentSuccess}
+              onPaymentCancel={handlePaymentCancel}
+              modalPaypal={handleChangePaypalModal}
+              open={paypalModal}
+              dates={paypalDates}
+            />
+          </div>
+        }
+
+        {
+          !isPaymentConfirmed && true &&
+          <div>
+
+            {/* Modal de Pago ZELLE*/}
+            <ModalPago2
+              // onPaymentSuccess={handlePaymentSuccess1}
+              onPaymentCancel={handlePaymentCancel}
+              modalClose={closeZelleModal}
+              renders={user}
+              personSchedule={personSchedule}
+              open={ZelleModal}
+              dates={paypalDates}
+              newMeeting={'newMeeting'}
+            />
+          </div>
+        }
+
+
+        {/* Enviar */}
+        {isCheckboxChecked &&
+          total ?
+          <button
+            onClick={() => { Confirm({ qty: 1, cost: total, description: descripcion }); setPayModal(!PayModal) }}
+            className='rounded-[7px] mt-4 p-2 text-white font-medium text-[21px] bg-secondary w-full'
+            disabled={total === 0}
+            type="submit">
+            PAGAR
+          </button> :
+          isCheckboxChecked &&
+          <button
+            onClick={() => { Confirm({ qty: 1, cost: total, description: descripcion }); setPayModal(!PayModal) }}
+            className='rounded-[7px] mt-4 p-2 text-white font-medium text-[21px] bg-secondary w-full'
+            disabled={total === 0}
+            type="submit">
+            El monto Total debe ser mayor a CERO
+          </button>}
+
+
+      </div>
 
       {/* Enviar */}
       <button

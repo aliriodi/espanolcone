@@ -79,10 +79,10 @@ console.log(props.dates)
         },
         body: JSON.stringify(
           { idUser: props.renders.user._id,
-            idPlan:'plansync',
+            idPlan:props.dates?.idplan?props.dates.idplan:'plansync',
             qty: props.dates.qty,
             ammount: props.dates.cost,
-            dates:{ImageUrl,type:'ZELLE',valid:false}}
+            dates:{ImageUrl,type:'ZELLE',valid:false,items:props.dates.item,description:props.dates.description}}
         ),
         }).then(response => {
           alert('Su pago esta siendo procesado y analizado en un tiempo máximo de 4 horas su clase debe ser asiganda')
