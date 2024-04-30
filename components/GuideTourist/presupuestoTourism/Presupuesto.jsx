@@ -13,7 +13,7 @@ function Presupuesto({ user, handlerSend }) {
   const [editIndex, setEditIndex] = useState(-1);
 
   useEffect(() => {
-    alert('hola')
+    
 fetch('/api/presupuesto/check').then(response=>console.log('response',response))
   },
     [])
