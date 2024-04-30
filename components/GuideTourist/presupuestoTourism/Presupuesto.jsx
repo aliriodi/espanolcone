@@ -457,7 +457,7 @@ function Presupuesto({ user, handlerSend }) {
         />
         <label>Activar botón de pago</label>
 
-        {openModalDescription && <ModalDescAssig renders={user} meeting={null} personSchedule={personSchedule} openPay={openPlan} openButton={setopenModalDescription} setDescription={setDescription} />}
+        {/* {openModalDescription && <ModalDescAssig renders={user} meeting={null} personSchedule={personSchedule} openPay={openPlan} openButton={setopenModalDescription} setDescription={setDescription} />} */}
         {/* {OpenP && <Plan Confirm={Confirm} newMeeting={newMeeting} closePlan={closePlan} />} */}
 
         {
