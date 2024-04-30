@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState, useEffect } from 'react';
 //Para Pago
 import ModalPago from '../../ModalPagoPAYPAL';
-import ModalPago2 from '../../ModalPagoZelle';
+import ModalPago2 from '../../ModalPagoZelleGuide';
 import ModalPagoABLE from '../../ModalPagoAble';
 //
 
