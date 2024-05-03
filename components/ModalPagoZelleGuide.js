@@ -111,7 +111,7 @@ console.log(props.dates)
               updates: {
                 planSync:[...session.user.planSync,
                   {
-                    type:'plansync',
+                    type:'viaje turistico',
                     payment:'ZELLE',
                     valid:false,
                     qty:props.dates.qty,

@@ -69,6 +69,7 @@ export default function FormResult() {
                     <table className="table-auto border-collapse border">
                         <thead>
                             <tr>
+                                <th className="border px-2 py-2">ID</th>
                                 <th className="border px-2 py-2">Nombre</th>
                                 <th className="border px-2 py-2">Email</th>
                                 <th className="border px-2 py-2">Descripción</th>
@@ -77,6 +78,7 @@ export default function FormResult() {
                         <tbody>
                             {resp ? resp.map((e,index) =>
                                 <tr key={index}>
+                                    <td className="border px-2 py-2">{ index +1 }</td>
                                     <td className="border px-2 py-2">{e.Name ? e.Name : 'Sin nombre'}</td>
                                     <td className="border px-2 py-2">{e.Email ? e.Email : 'Sin email'}</td>
                                     <td className="border px-2 py-2">{e.texto}</td>
