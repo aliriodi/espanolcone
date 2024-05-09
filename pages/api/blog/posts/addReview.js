@@ -7,18 +7,18 @@ import { getSession } from "next-auth/react";
  * @param {import('next').NextApiResponse} res
  */
 export default async function addReview(req, res) {
-  /* const session = await getSession({ req });                     TODO: solucionar esto!
-  if (!session) {                                                   por alguna razon cuando pongo esta validacion no funciona mas
-    return res.status(401).json({ message: "Not authenticated" }); // verificacion para el back para que solo reseñen los logueados
-  } */
-
-  const { postId, userId, text, rating, userName } = req.body; // recupero la info del body
-
-  if (!text & !rating) {
-    return res.status(401).json({ message: "faltan texto o puntaje" }); // verificacion para que ponga el texto o el puntaje de la review
-  }
-
   try {
+    /*const session = await getSession({ req });
+    if (!session) {
+      return res.status(401).json({ message: "Not authenticated" });
+    } */
+
+    const { postId, userId, text, rating, userName } = req.body; // recupero la info del body
+
+    if (!text || !rating) {
+      return res.status(400).json({ message: "Text or rating is missing" }); // verificacion para que ponga el texto o el puntaje de la review
+    }
+
     await dbConnect();
 
     const post = await Post.findById(postId);
@@ -26,19 +26,33 @@ export default async function addReview(req, res) {
       return res.status(404).json({ message: "Post no encontrado" }); // verificacion para que la review se haga en el post correcto
     }
 
-    const review = {
-      user: userId,
-      username: userName,
-      text: text,
-      rating: rating,
-      createdAt: new Date(),
-    };
+    //
+    const existingReview = post.reviews.find(
+      (review) => review.user.toString() === userId // compara la id de la review con la del userId
+    );
+    if (existingReview) {
+      existingReview.text = text;
+      existingReview.rating = rating;
+      existingReview.createdAt = new Date();
 
-    post.reviews.push(review); // pusheo la review en el array del model post
-    await post.save();
+      await post.save();
 
-    // devuelvo la review añadida
-    res.status(201).json({ review });
+      res.status(200).json({ review: existingReview });
+    } else {
+      const review = {
+        user: userId,
+        username: userName,
+        text: text,
+        rating: rating,
+        createdAt: new Date(),
+      };
+
+      post.reviews.push(review); // pusheo la review en el array del model post
+      await post.save();
+
+      // devuelvo la review añadida
+      res.status(201).json({ review });
+    }
   } catch (error) {
     console.error("Error adding review:", error);
     res.status(500).json({ error: error.message });

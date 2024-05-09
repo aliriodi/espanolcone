@@ -1,3 +1,7 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
+
 import axios from "axios";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -12,6 +16,8 @@ import Footer from "../../../components/Footer/Footer";
 import { useSession } from "next-auth/react";
 
 export default function Post() {
+  const [reviewPoint, setReviewPoint] = useState(0);
+  console.log("esto es un review point", reviewPoint);
   const { data: session, status } = useSession(); // necesito la sesion para saber el id y nombre del usuario
   const router = useRouter();
   const { locale } = router;
@@ -31,6 +37,18 @@ export default function Post() {
       setReviews(post.reviews || []);
     }
   }, [post]);
+
+  useEffect(() => {
+    if (reviews.length > 0 && session) {
+      const userReview = reviews.find(
+        (review) => review.user === session.user._id
+      );
+      if (userReview) {
+        setReviewText(userReview.text);
+        setReviewPoint(userReview.rating);
+      }
+    }
+  }, [reviews, session]);
 
   useEffect(() => {
     if (slug) getPost();
@@ -85,19 +103,41 @@ export default function Post() {
     const userName = session.user.first_name + " " + session.user.last_name;
 
     try {
-      const response = await axios.post(`/api/blog/posts/addReview`, {
-        // hago la llamada a la api addReview.js
-        postId: post._id,
-        userId: userId,
-        userName: userName,
-        text: reviewText,
-        rating: 3.5,
-      });
+      const response = await axios.post(
+        `/api/blog/posts/addReview`,
+        {
+          postId: post._id,
+          userId: userId,
+          userName: userName,
+          text: reviewText,
+          rating: reviewPoint,
+        },
+        {
+          withCredentials: true, // cors
+        }
+      );
 
-      if (response.status === 201) {
-        setReviews((prevReviews) => [...prevReviews, response.data.review]); // seteo el estado con las reviews que estaban y agrego la nueva
-        setReviewText(""); // limpio el estado y el imput
+      if (response.status === 200 || response.status === 201) {
+        //201 cuando se crea y 200 cuando es una operacion exitosa
+        const newReview = response.data.review;
+        setReviews((prevReviews) => {
+          //estado actual de reviews
+          const index = prevReviews.findIndex(
+            // comparo el valor actual de id de la review con el del usuario escribiendo
+            (review) => review.user === userId
+          );
+          if (index !== -1) {
+            // si hay coincidencia el findIndex va a dar el numero en la que se posiciona en el arreglo de reviews y sino da -1
+
+            return prevReviews.map((review, idx) =>
+              idx === index ? newReview : review
+            );
+          } else {
+            return [...prevReviews, newReview];
+          }
+        });
       }
+      setReviewText(""); // Limpiar el estado test
     } catch (error) {
       console.error("Error al añadir la reseña:", error);
     }
@@ -212,15 +252,69 @@ export default function Post() {
               {status === "authenticated" ? ( // si esta logeado muestra esto
                 <div>
                   <h3>Añadir una reseña</h3>
+                  <div className=" text-light text-[15px] flex w-[200px] justify-between mt-[37px] pb-[15px]">
+                    {/* Estrella 1 */}
+                    <FontAwesomeIcon
+                      icon={faStar}
+                      onClick={() => setReviewPoint(1)}
+                      className={`transition-all duration-75 cursor-pointer ${
+                        1 <= reviewPoint && "text-info"
+                      }`}
+                    />
+
+                    {/* Estrella 2 */}
+                    <FontAwesomeIcon
+                      icon={faStar}
+                      onClick={() => setReviewPoint(2)}
+                      className={`transition-all duration-75 cursor-pointer ${
+                        2 <= reviewPoint && "text-info"
+                      }`}
+                    />
+
+                    {/* Estrella 3 */}
+                    <FontAwesomeIcon
+                      icon={faStar}
+                      onClick={() => setReviewPoint(3)}
+                      className={`transition-all duration-75 cursor-pointer ${
+                        3 <= reviewPoint && "text-info"
+                      }`}
+                    />
+
+                    {/* Estrella 4 */}
+                    <FontAwesomeIcon
+                      icon={faStar}
+                      onClick={() => setReviewPoint(4)}
+                      className={`transition-all duration-75 cursor-pointer ${
+                        4 <= reviewPoint && "text-info"
+                      }`}
+                    />
+
+                    {/* Estrella 5 */}
+                    <FontAwesomeIcon
+                      icon={faStar}
+                      onClick={() => setReviewPoint(5)}
+                      className={`transition-all duration-75 cursor-pointer ${
+                        5 <= reviewPoint && "text-info"
+                      }`}
+                    />
+                  </div>
                   <textarea
                     value={reviewText}
                     onChange={(e) => setReviewText(e.target.value)}
                     placeholder="Escribe tu reseña aquí..."
                   />
-                  <button onClick={handleAddReview}>Enviar reseña</button>
+                  <button onClick={handleAddReview}>
+                    {reviews.some(
+                      (review) => review.user === session?.user?._id
+                    )
+                      ? "Editar reseña"
+                      : "Enviar reseña"}
+                  </button>
                 </div>
               ) : (
-                <div>loguea para hacer una reseña</div> // sino esto
+                <Link href="/es/login">
+                  <div>loguea para hacer una reseña</div> {/* sino esto */}
+                </Link>
               )}
             </article>
           </div>
