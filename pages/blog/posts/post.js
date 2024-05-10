@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
+import ModalGeneric from "../../../components/GenericsElements/ModalGeneric";
 
 import axios from "axios";
 import Head from "next/head";
@@ -16,6 +17,7 @@ import Footer from "../../../components/Footer/Footer";
 import { useSession } from "next-auth/react";
 
 export default function Post() {
+  const [isOpen, setIsOpen] = useState(false);
   const [reviewPoint, setReviewPoint] = useState(0);
   console.log("esto es un review point", reviewPoint);
   const { data: session, status } = useSession(); // necesito la sesion para saber el id y nombre del usuario
@@ -28,6 +30,7 @@ export default function Post() {
   const [reviews, setReviews] = useState([]);
   const [reviewText, setReviewText] = useState(""); // estado para saber lo que escribe en el input
   const [averageRating, setAverageRating] = useState(0);
+  console.log("esto es isOpen", isOpen);
 
   useEffect(() => console.log(session));
   console.log("esto son las reviews", reviews);
@@ -38,7 +41,7 @@ export default function Post() {
     }
   }, [post]);
 
-  useEffect(() => {
+  /* useEffect(() => {
     if (reviews.length > 0 && session) {
       const userReview = reviews.find(
         (review) => review.user === session.user._id
@@ -48,7 +51,7 @@ export default function Post() {
         setReviewPoint(userReview.rating);
       }
     }
-  }, [reviews, session]);
+  }, [reviews, session]); */
 
   useEffect(() => {
     if (slug) getPost();
@@ -138,6 +141,8 @@ export default function Post() {
         });
       }
       setReviewText(""); // Limpiar el estado test
+      setReviewPoint(0); // Limpia el estado AverageRating
+      setIsOpen(false);
     } catch (error) {
       console.error("Error al añadir la reseña:", error);
     }
@@ -249,68 +254,77 @@ export default function Post() {
                   ))}
                 </div>
               )}
-              {status === "authenticated" ? ( // si esta logeado muestra esto
-                <div>
-                  <h3>Añadir una reseña</h3>
-                  <div className=" text-light text-[15px] flex w-[200px] justify-between mt-[37px] pb-[15px]">
-                    {/* Estrella 1 */}
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      onClick={() => setReviewPoint(1)}
-                      className={`transition-all duration-75 cursor-pointer ${
-                        1 <= reviewPoint && "text-info"
-                      }`}
-                    />
+              {status === "authenticated" ? (
+                <>
+                  <ModalGeneric
+                    open={isOpen}
+                    changeModal={() => setIsOpen(false)}>
+                    {" "}
+                    {/* si esta logeado muestra esto*/}
+                    <div>
+                      <h3>Añadir una reseña</h3>
+                      <div className=" text-light text-[15px] flex w-[200px] justify-between mt-[37px] pb-[15px]">
+                        {/* Estrella 1 */}
+                        <FontAwesomeIcon
+                          icon={faStar}
+                          onClick={() => setReviewPoint(1)}
+                          className={`transition-all duration-75 cursor-pointer ${
+                            1 <= reviewPoint && "text-info"
+                          }`}
+                        />
 
-                    {/* Estrella 2 */}
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      onClick={() => setReviewPoint(2)}
-                      className={`transition-all duration-75 cursor-pointer ${
-                        2 <= reviewPoint && "text-info"
-                      }`}
-                    />
+                        {/* Estrella 2 */}
+                        <FontAwesomeIcon
+                          icon={faStar}
+                          onClick={() => setReviewPoint(2)}
+                          className={`transition-all duration-75 cursor-pointer ${
+                            2 <= reviewPoint && "text-info"
+                          }`}
+                        />
 
-                    {/* Estrella 3 */}
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      onClick={() => setReviewPoint(3)}
-                      className={`transition-all duration-75 cursor-pointer ${
-                        3 <= reviewPoint && "text-info"
-                      }`}
-                    />
+                        {/* Estrella 3 */}
+                        <FontAwesomeIcon
+                          icon={faStar}
+                          onClick={() => setReviewPoint(3)}
+                          className={`transition-all duration-75 cursor-pointer ${
+                            3 <= reviewPoint && "text-info"
+                          }`}
+                        />
 
-                    {/* Estrella 4 */}
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      onClick={() => setReviewPoint(4)}
-                      className={`transition-all duration-75 cursor-pointer ${
-                        4 <= reviewPoint && "text-info"
-                      }`}
-                    />
+                        {/* Estrella 4 */}
+                        <FontAwesomeIcon
+                          icon={faStar}
+                          onClick={() => setReviewPoint(4)}
+                          className={`transition-all duration-75 cursor-pointer ${
+                            4 <= reviewPoint && "text-info"
+                          }`}
+                        />
 
-                    {/* Estrella 5 */}
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      onClick={() => setReviewPoint(5)}
-                      className={`transition-all duration-75 cursor-pointer ${
-                        5 <= reviewPoint && "text-info"
-                      }`}
-                    />
-                  </div>
-                  <textarea
-                    value={reviewText}
-                    onChange={(e) => setReviewText(e.target.value)}
-                    placeholder="Escribe tu reseña aquí..."
-                  />
-                  <button onClick={handleAddReview}>
-                    {reviews.some(
-                      (review) => review.user === session?.user?._id
-                    )
-                      ? "Editar reseña"
-                      : "Enviar reseña"}
-                  </button>
-                </div>
+                        {/* Estrella 5 */}
+                        <FontAwesomeIcon
+                          icon={faStar}
+                          onClick={() => setReviewPoint(5)}
+                          className={`transition-all duration-75 cursor-pointer ${
+                            5 <= reviewPoint && "text-info"
+                          }`}
+                        />
+                      </div>
+                      <textarea
+                        value={reviewText}
+                        onChange={(e) => setReviewText(e.target.value)}
+                        placeholder="Escribe tu reseña aquí..."
+                      />
+                      <button onClick={handleAddReview}>
+                        {reviews.some(
+                          (review) => review.user === session?.user?._id
+                        )
+                          ? "Editar reseña"
+                          : "Enviar reseña"}
+                      </button>
+                    </div>
+                  </ModalGeneric>
+                  <button onClick={() => setIsOpen(true)}>añadir reseña</button>
+                </>
               ) : (
                 <Link href="/es/login">
                   <div>loguea para hacer una reseña</div> {/* sino esto */}

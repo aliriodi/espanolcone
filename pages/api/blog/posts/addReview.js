@@ -16,7 +16,9 @@ export default async function addReview(req, res) {
     const { postId, userId, text, rating, userName } = req.body; // recupero la info del body
 
     if (!text || !rating) {
-      return res.status(400).json({ message: "Text or rating is missing" }); // verificacion para que ponga el texto o el puntaje de la review
+      return res
+        .status(400)
+        .json({ message: "falta el texto o el rating de la reseña" }); // verificacion para que ponga el texto o el puntaje de la review
     }
 
     await dbConnect();
