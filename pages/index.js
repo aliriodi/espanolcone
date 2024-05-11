@@ -75,8 +75,8 @@ export default function Home() {
             <div className=' justify-center items-end relative'>
 
               <Image
-                src="https://res.cloudinary.com/dfddh08q8/image/upload/v1694366393/images/banner-principal_pqirib.png"
-                alt="Teléfono"
+                src= {t("index:ImageRueda")}
+                alt="Rueda"
                 width={600}
                 height={300}
                 style={{filter:'drop-shadow(0px 4px 43px #00000026)'}}
