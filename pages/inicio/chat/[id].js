@@ -6,7 +6,7 @@ import BodyGeneric from '../../../components/GenericsElements/BodyGeneric'
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCommentDots, faFaceLaughBeam, faFileInvoiceDollar, faHandPointLeft, faHourglass, faHourglassHalf, faPaperPlane, faPersonHiking, faUserXmark, faX } from "@fortawesome/free-solid-svg-icons";
+import { faCircleCheck, faClock, faCommentDots, faFaceLaughBeam, faFileInvoiceDollar, faHandPointLeft, faHourglass, faHourglassHalf, faPaperPlane, faPersonHiking, faUserXmark, faX } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import Presupuesto from "../../../components/GuideTourist/presupuestoTourism/Presupuesto";
 
@@ -54,7 +54,7 @@ export default function Chat() {
       console.log(pusher) 
       // Actualiza el chat
       channel.bind(`chat-update`, function (data){
-        const {username, messages, chatId, userID} = data
+        const {username, messages, chatId, userID, budget} = data
         console.log("currentID ", session?.user?.chats[id]?.chatID) 
         console.log("data ", data) 
   
@@ -62,7 +62,7 @@ export default function Chat() {
         if(chatId == session?.user?.chats[id]?.chatID && chatId){
           setAllMessages((prevState) => [
             ...prevState,
-            { messages, userID },
+            { messages, userID, budget },
           ]);
         }
       });
@@ -121,6 +121,29 @@ export default function Chat() {
 
   async function handlerSendExpenses(data, observacion){
     console.log("data ",data, " | ", observacion)
+
+    await axios.post("/api/pusher/chat-update", {
+      messages: message,
+      userID: session?.user?._id,
+      chatId: session?.user?.chats[id]?.chatID,
+      budget:{
+        data: data,
+        observacion:observacion,
+        wasPayed: false
+      }
+    });
+
+    await axios.post(`/api/chat/add/message/${session?.user?.chats[id]?.chatID}`,
+      {
+        message: message,
+        userID: session?.user?._id,
+        budget:{
+          data: data,
+          observacion:observacion,
+          wasPayed: false
+        }
+      }
+    )
   }
 
   async function handleRequest(value){
@@ -319,25 +342,76 @@ export default function Chat() {
                   !loaderChat ?
                   
                   allMessages?.length > 0 ?
-                  allMessages?.map(({ userID, messages, from }, index) => (
+                  allMessages?.map(({ userID, messages, from, budget }, index) => (
                     <div
-                    onClick={()=>console.log(userID)}
+                    onClick={()=>console.log(budget)}
                     className={` shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000040] w-fit flex flex-col rounded-[7px] p-2 my-1 max-w-[80%] 
                     ${userID == session?.user?._id ? "ml-auto bg-primary text-white ":"bg-white text-violet_dark"}`}
                     key={index}>
-
-                      {/* Usuario */}
-                      {
-                        // userID != session?.user?._id &&
-                        // <p className=" text-[.8em] mb-2 font-semibold">
-                        //   {userID}
-                        // </p>
-                      }
 
                       {/* Mensaje */}
                       <p>
                         {messages}
                       </p>
+
+                      {/* Presupuesto */}
+                      {
+                        budget?.data?.length ?
+                        <div>
+
+                          <ul className=' grid grid-cols-3 text-white py-2 font-medium'>
+                            <li className="px-3">Descripción</li>
+                            <li className="px-3 text-center">Cantidad</li>
+                            {/* <li className="px-3 text-center">Unidad</li> */}
+                            <li className="px-3 text-center">Monto Unitario</li>
+                            {/* <li className="px-3 text-center">Monto Total</li> */}
+                          </ul>
+
+                          {
+
+                            budget?.data?.map((e, index)=>
+                            <ul
+                              key={index}
+                              className=' grid grid-cols-3 font-medium  roundde last-of-type:rounded-[0_0_15px_15px] border-t-2 border-white text-white'>
+
+                              <li className={`px-3 py-1`}>{e?.descripcion}</li>
+                              <li className={`px-3 py-1 text-center`}>{e?.cantidad}</li>
+                              {/* <li className={`px-3 py-1 text-center`}>{e?.unidad}</li> */}
+                              <li className={`px-3 py-1 text-center`}>{e?.montoUnitario}</li>
+                              {/* <li className={`px-3 py-1 text-center`}>{e?.montoTotal}</li> */}
+
+                            </ul>
+                            )
+                          }
+                          
+                          <div
+                          className="mt-4 mb-2">
+
+                            {/* Mensaje del lado del que mando el presupuesto */}
+                            <p className="text-[18px] text-center flex items-center justify-center">
+                              
+                              {
+                                budget?.wasPayed ?
+                                <>
+                                Se a completado el pago <FontAwesomeIcon className="ml-2" icon={faCircleCheck}/>
+                                </>
+                                :
+                                <>
+                                Pago en espera <FontAwesomeIcon className="ml-2" icon={faClock}/>
+                                </>
+                              }
+
+                            </p>
+
+                            {/* Mensaje del lado del cliente */}
+
+
+                          </div>
+                          
+                        </div>
+                        :
+                        ""
+                      }
 
                     </div>
                   ))

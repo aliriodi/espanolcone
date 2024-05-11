@@ -18,7 +18,7 @@ const ChatSchema = new Schema(
             data:{
               type:[
                 {  
-                  descripcion:Number,
+                  descripcion:String,
                   cantidad:Number,
                   servicio:String,
                   montoUnitario:Number,

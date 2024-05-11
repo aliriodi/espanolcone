@@ -26,8 +26,9 @@ export default async function AddMessage(req, res) {
         ...findChat.messages,
 
         {
-            userID: req.body.userID,
-            messages: req.body.message
+          userID: req.body.userID,
+          messages: req.body.message,
+          budget: req.body.budget
         }
     ]
     console.log("///// findChat.messages ////", findChat.messages)

@@ -292,10 +292,6 @@ function Presupuesto({ user, handlerSend }) {
     setTotal(total - deletedItem.montoTotal);
   };
 
-
-  //Funcion para enviar a BD
-  async function handleSend2() { }
-
   return (
     <div className='h-full w-full mx-auto p-2 bg-white pt-8'>
 
@@ -533,7 +529,7 @@ function Presupuesto({ user, handlerSend }) {
 
       {/* Enviar */}
       <button
-        onClick={() => { handlerSend(items, observacion), handleSend2(items, observacion) }}
+        onClick={() => { handlerSend(items, observacion) }}
         className='rounded-[7px] mt-4 p-2 text-white font-medium text-[21px] bg-secondary w-full'
         type="submit">
         Enviar
