@@ -30,7 +30,7 @@ export default function Post() {
   const [reviews, setReviews] = useState([]);
   const [reviewText, setReviewText] = useState(""); // estado para saber lo que escribe en el input
   const [averageRating, setAverageRating] = useState(0);
-  console.log("esto es isOpen", isOpen);
+  console.log("esto es user", session);
 
   useEffect(() => console.log(session));
   console.log("esto son las reviews", reviews);
@@ -240,16 +240,37 @@ export default function Post() {
                   />
                 </div>
               </div>
-              {reviews.length > 0 && ( // si  no hay ninguna review este div no se muestra
-                <div>
-                  <h3>Reseñas</h3>
-                  <h4>Promedio de Calificaciones: {averageRating}</h4>
+              {reviews.length > 0 && (
+                <div className="bg-white p-4 rounded-lg shadow-lg">
+                  <h3 className="text-xl font-bold text-gray-800 mb-2">
+                    Reseñas
+                  </h3>
+                  <h4 className="text-lg text-gray-700 mb-4">
+                    Promedio de Calificaciones: {averageRating}
+                  </h4>
                   {reviews.map((review, index) => (
-                    <div key={index}>
-                      <p>
-                        {review.username}: {review.text} - Calificación:{" "}
-                        {review.rating}
-                      </p>
+                    <div
+                      key={index}
+                      className="border-b last:border-b-0 py-2">
+                      <div className="text-gray-800 font-semibold mb-1">
+                        {review.username}
+                      </div>
+                      <div className="text-yellow-500 flex p-1">
+                        {[...Array(5)].map((star, i) => (
+                          <span
+                            key={i}
+                            className={`fa fa-star ${
+                              i < review.rating
+                                ? "text-yellow-500"
+                                : "text-gray-300"
+                            }`}>
+                            {/* Render star icons here */}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="text-sm text-gray-600 mb-1">
+                        {review.text}
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -259,10 +280,11 @@ export default function Post() {
                   <ModalGeneric
                     open={isOpen}
                     changeModal={() => setIsOpen(false)}>
-                    {" "}
                     {/* si esta logeado muestra esto*/}
-                    <div>
-                      <h3>Añadir una reseña</h3>
+                    <div className="bg-white p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
+                      <h3 className="text-lg font-semibold">
+                        Añadir una reseña
+                      </h3>
                       <div className=" text-light text-[15px] flex w-[200px] justify-between mt-[37px] pb-[15px]">
                         {/* Estrella 1 */}
                         <FontAwesomeIcon
@@ -313,8 +335,11 @@ export default function Post() {
                         value={reviewText}
                         onChange={(e) => setReviewText(e.target.value)}
                         placeholder="Escribe tu reseña aquí..."
+                        className="mt-4 w-full p-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 resize-none"
                       />
-                      <button onClick={handleAddReview}>
+                      <button
+                        onClick={handleAddReview}
+                        className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
                         {reviews.some(
                           (review) => review.user === session?.user?._id
                         )
@@ -323,11 +348,21 @@ export default function Post() {
                       </button>
                     </div>
                   </ModalGeneric>
-                  <button onClick={() => setIsOpen(true)}>añadir reseña</button>
+                  <button
+                    onClick={() => setIsOpen(true)}
+                    className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">
+                    {reviews.some(
+                      (review) => review.user === session?.user?._id
+                    )
+                      ? "Editar reseña"
+                      : "Enviar reseña"}
+                  </button>
                 </>
               ) : (
                 <Link href="/es/login">
-                  <div>loguea para hacer una reseña</div> {/* sino esto */}
+                  <div className="text-blue-500 hover:text-blue-600 underline pl-4 py-2 inline-block">
+                    Loguea para hacer una reseña
+                  </div>
                 </Link>
               )}
             </article>
