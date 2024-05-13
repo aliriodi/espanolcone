@@ -7,13 +7,13 @@ import axios from "axios";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import Navbar from "../../../components/Navbar/Navbar";
+import Navbar from "../../../components/Navbar/Navbar"; // esto se saca tmb
 import Layout from "../../../components/Layout";
-import { useTranslation, withTranslation } from "next-i18next";
-import nextI18NextConfig from "../../../next-i18next.config";
+import { useTranslation, withTranslation } from "next-i18next"; // esto lo puedo sacar
+import nextI18NextConfig from "../../../next-i18next.config"; // esto lo puedo sacar
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import styles from "../../../styles/blog.module.css";
-import Footer from "../../../components/Footer/Footer";
+import Footer from "../../../components/Footer/Footer"; // esto se saca
 import { useSession } from "next-auth/react";
 
 export default function Post() {
@@ -21,8 +21,8 @@ export default function Post() {
   const [reviewPoint, setReviewPoint] = useState(0);
   console.log("esto es un review point", reviewPoint);
   const { data: session, status } = useSession(); // necesito la sesion para saber el id y nombre del usuario
-  const router = useRouter();
-  const { locale } = router;
+  const router = useRouter(); // testear para sacarlo
+  const { locale } = router; // testear para sacarlo
   const { slug } = router.query;
 
   const [post, setPost] = useState(null);
@@ -40,18 +40,6 @@ export default function Post() {
       setReviews(post.reviews || []);
     }
   }, [post]);
-
-  /* useEffect(() => {
-    if (reviews.length > 0 && session) {
-      const userReview = reviews.find(
-        (review) => review.user === session.user._id
-      );
-      if (userReview) {
-        setReviewText(userReview.text);
-        setReviewPoint(userReview.rating);
-      }
-    }
-  }, [reviews, session]); */
 
   useEffect(() => {
     if (slug) getPost();
@@ -255,17 +243,13 @@ export default function Post() {
                       <div className="text-gray-800 font-semibold mb-1">
                         {review.username}
                       </div>
-                      <div className="text-yellow-500 flex p-1">
+                      <div className="text-info flex p-1">
                         {[...Array(5)].map((star, i) => (
                           <span
                             key={i}
                             className={`fa fa-star ${
-                              i < review.rating
-                                ? "text-yellow-500"
-                                : "text-gray-300"
-                            }`}>
-                            {/* Render star icons here */}
-                          </span>
+                              i < review.rating ? "text-info" : "text-gray-300"
+                            }`}></span>
                         ))}
                       </div>
                       <div className="text-sm text-gray-600 mb-1">
@@ -339,7 +323,7 @@ export default function Post() {
                       />
                       <button
                         onClick={handleAddReview}
-                        className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                        className="btn-primary w-full p-2 font-semibold">
                         {reviews.some(
                           (review) => review.user === session?.user?._id
                         )
@@ -376,6 +360,7 @@ export default function Post() {
 }
 
 export async function getStaticProps({ locale }) {
+  // esta funcion se puede sacar
   return {
     props: {
       ...(await serverSideTranslations(
