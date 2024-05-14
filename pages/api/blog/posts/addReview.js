@@ -50,6 +50,7 @@ export default async function addReview(req, res) {
       };
 
       post.reviews.push(review); // pusheo la review en el array del model post
+
       await post.save();
 
       // devuelvo la review añadida
