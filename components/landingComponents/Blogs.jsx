@@ -32,7 +32,7 @@ export default function Experts() {
     { name: t("card5.0.p5.name"), image: experts[4].image, job: t("card5.0.p5.function"), namePerson: t("card5.0.p5.name") },
     { name: t("card5.0.p5.name"), image: experts[5].image, job: experts[5].job, namePerson: experts[5].namePerson }
   ];
-  console.log(blogs)
+  //console.log(blogs)
   const settings = {
     dots: true,
     infinite: true,
