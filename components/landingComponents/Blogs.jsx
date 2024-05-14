@@ -65,7 +65,7 @@ export default function Experts() {
 
           {blogs.map((blog, index) => (
             blog.publish &&
-            <div className=' hover:border-primary_hover'>
+           
               <SwiperSlide key={index} >
               <a href={'/'+t('language')+'/blog/posts/post?slug='+blog.slug} className='hover:border-primary_hover'>
                 <div key={index} className='relative flex flex-col items-center pl-2  hover:border-primary_hover'>
@@ -82,7 +82,7 @@ export default function Experts() {
                   {/* <p className='text-center'>{blog.job}</p> */}
                 </div></a>
               </SwiperSlide>
-            </div>
+           
           ))}
         </Swiper>
       </div>
