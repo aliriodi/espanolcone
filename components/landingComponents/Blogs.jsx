@@ -73,7 +73,8 @@ export default function Experts() {
                   <Image alt={blog.social_image} src={blog.social_image} width={162} height={162} />
 
                   {/* Titulo */}
-                  <p className='text-center font-semibold mt-[15px] mb-[5px]'>{t('language') == 'pt' ? blog.pt.title : null}
+                  <p className='text-center font-semibold mt-[15px] mb-[5px]'>
+                    {t('language') == 'pt' ? blog.pt.title : null}
                     {t('language') == 'es' ? blog.es.title : null}
                     {t('language') == 'en' ? blog.en.title : null}
                   </p>
@@ -101,18 +102,23 @@ export default function Experts() {
           modules={[Autoplay, Pagination, Navigation]}
         >
 
-          {experts2.map((image, index) => (
+          {blogs.map((blog, index) => (
             <SwiperSlide key={index}>
+                 <a href={'/'+t('language')+'/blog/posts/post?slug='+blog.slug} className='hover:border-primary_hover'>
               <div key={index} className='relative flex flex-col items-center'>
                 {/* Imagen */}
-                <Image alt={image.name} src={image.image} width={162} height={162} />
-
+               
+                <Image alt={blog.social_image} src={blog.social_image} width={162} height={162} />
                 {/* Nombre */}
-                <p className='text-center font-semibold mt-[15px] mb-[5px]'>{image.namePerson}</p>
+                <p className='text-center font-semibold mt-[15px] mb-[5px]'>
+                   {t('language') == 'pt' ? blog.pt.title : null}
+                    {t('language') == 'es' ? blog.es.title : null}
+                    {t('language') == 'en' ? blog.en.title : null}
+                  </p>
 
                 {/* Trabajo */}
-                <p className='text-center'>{image.job}</p>
-              </div>
+                {/* <p className='text-center'>{blog.job}</p> */}
+              </div></a>
             </SwiperSlide>
 
           ))}
