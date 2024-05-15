@@ -15,8 +15,11 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import styles from "../../../styles/blog.module.css";
 import Footer from "../../../components/Footer/Footer"; // esto se saca
 import { useSession } from "next-auth/react";
+import Menu from "../../../components/Menu";
+import Image from "next/image";
 
 export default function Post() {
+  const [loading, setLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [reviewPoint, setReviewPoint] = useState(0);
   console.log("esto es un review point", reviewPoint);
@@ -32,8 +35,9 @@ export default function Post() {
   const [averageRating, setAverageRating] = useState(0);
   console.log("esto es user", session);
 
-  useEffect(() => console.log(session));
-  console.log("esto son las reviews", reviews);
+  // useEffect(() => console.log(session));
+  console.log("esto son las reviews.user", reviews);
+  console.log("///////////////", post);
 
   useEffect(() => {
     if (post) {
@@ -85,56 +89,72 @@ export default function Post() {
   }
 
   const handleAddReview = async () => {
+    setLoading(true);
     if (!session) {
-      alert("Debes estar logueado para enviar una reseña."); // proteccion para el front para que no puedan usar otro usuario
+      alert("Debes estar logueado para enviar una reseña.");
       return;
     }
 
     const userId = session.user._id;
-    const userName = session.user.first_name + " " + session.user.last_name;
+    const postId = post._id;
 
     try {
       const response = await axios.post(
         `/api/blog/posts/addReview`,
         {
-          postId: post._id,
+          postId: postId,
           userId: userId,
-          userName: userName,
           text: reviewText,
           rating: reviewPoint,
         },
         {
-          withCredentials: true, // cors
+          withCredentials: true,
         }
       );
 
+      console.log("////////////// la respuesta", response);
+
       if (response.status === 200 || response.status === 201) {
-        //201 cuando se crea y 200 cuando es una operacion exitosa
         const newReview = response.data.review;
+        console.log("esto es un newReview", newReview);
+
+        // Asegúrate de que los datos del usuario se obtengan correctamente
+        const updatedReview = {
+          ...newReview,
+          user: {
+            _id: userId,
+            first_name: session.user?.first_name,
+            last_name: session.user?.last_name,
+            image: { url: session.user.image?.url },
+          },
+        };
+
         setReviews((prevReviews) => {
-          //estado actual de reviews
           const index = prevReviews.findIndex(
-            // comparo el valor actual de id de la review con el del usuario escribiendo
-            (review) => review.user === userId
+            (review) => review.user._id === userId
           );
           if (index !== -1) {
-            // si hay coincidencia el findIndex va a dar el numero en la que se posiciona en el arreglo de reviews y sino da -1
-
             return prevReviews.map((review, idx) =>
-              idx === index ? newReview : review
+              idx === index ? updatedReview : review
             );
           } else {
-            return [...prevReviews, newReview];
+            return [...prevReviews, updatedReview];
           }
         });
+
+        setReviewText(""); // Limpia el texto de la reseña
+        setReviewPoint(0); // Limpia la puntuación de la reseña
+        setIsOpen(false); // Cierra el modal
+        setLoading(false);
       }
-      setReviewText(""); // Limpiar el estado test
-      setReviewPoint(0); // Limpia el estado AverageRating
-      setIsOpen(false);
     } catch (error) {
       console.error("Error al añadir la reseña:", error);
     }
   };
+
+  useEffect(() => {
+    // Trigger to update the component when reviews are updated
+  }, [reviews]);
 
   return (
     <div id="nav">
@@ -167,6 +187,7 @@ export default function Post() {
           className="bg-[transparent]"
           slug={`post?slug=${slug}`}
         />
+        {/* <Menu /> */}
 
         {currentPost != null && (
           <div
@@ -188,7 +209,7 @@ export default function Post() {
 
                 {/* Contenido */}
                 <div
-                  className="flex justify-center gap-4 relative
+                  className="flex justify-center gap-4 relative min-h-screen
                                 md:flex-col-reverse">
                   {/* Parrafo */}
                   <div
@@ -233,27 +254,51 @@ export default function Post() {
                   <h3 className="text-xl font-bold text-gray-800 mb-2">
                     Reseñas
                   </h3>
+                  <div className="text-info flex">
+                    {[...Array(5)].map((star, i) => (
+                      <span
+                        key={i}
+                        className={`fa fa-star ${
+                          i < averageRating ? "text-info" : "text-gray-300"
+                        }`}></span>
+                    ))}
+                  </div>
                   <h4 className="text-lg text-gray-700 mb-4">
                     Promedio de Calificaciones: {averageRating}
                   </h4>
                   {reviews.map((review, index) => (
                     <div
                       key={index}
-                      className="border-b last:border-b-0 py-2">
-                      <div className="text-gray-800 font-semibold mb-1">
-                        {review.username}
-                      </div>
-                      <div className="text-info flex p-1">
-                        {[...Array(5)].map((star, i) => (
-                          <span
-                            key={i}
-                            className={`fa fa-star ${
-                              i < review.rating ? "text-info" : "text-gray-300"
-                            }`}></span>
-                        ))}
-                      </div>
-                      <div className="text-sm text-gray-600 mb-1">
-                        {review.text}
+                      className="border-b last:border-b-0 py-4 flex items-start space-x-4">
+                      <Image
+                        width={100}
+                        height={100}
+                        src={review.user?.image?.url}
+                        alt={review.user?.first_name}
+                        className="w-10 h-10 rounded-full object-cover"
+                      />
+
+                      <div className="flex flex-col justify-center">
+                        <div className="text-gray-800 font-semibold">
+                          {review.user
+                            ? `${review.user.first_name} ${review.user.last_name}`
+                            : "Usuario Desconocido"}
+                        </div>
+
+                        <div className="text-info flex">
+                          {[...Array(5)].map((star, i) => (
+                            <span
+                              key={i}
+                              className={`fa fa-star ${
+                                i < review.rating
+                                  ? "text-info"
+                                  : "text-gray-300"
+                              }`}></span>
+                          ))}
+                        </div>
+                        <div className="text-sm text-gray-600">
+                          {review.text}
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -323,12 +368,25 @@ export default function Post() {
                       />
                       <button
                         onClick={handleAddReview}
-                        className="btn-primary w-full p-2 font-semibold">
-                        {reviews.some(
-                          (review) => review.user === session?.user?._id
-                        )
-                          ? "Editar reseña"
-                          : "Enviar reseña"}
+                        className={`btn-primary w-full p-2 font-semibold ${
+                          reviewText?.length === 0 && reviewPoint?.length === 0
+                            ? "opacity-[70%] pointer-events-none"
+                            : ""
+                        }`}
+                        disabled={
+                          (reviewText?.length === 0 &&
+                            reviewPoint?.length === 0) ||
+                          loading
+                        }>
+                        {loading ? (
+                          <span className="inline-block h-5 w-5 animate-spin rounded-full border-white border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"></span>
+                        ) : reviews.some(
+                            (review) => review.user === session?.user?._id
+                          ) ? (
+                          "Editar reseña"
+                        ) : (
+                          "Enviar reseña"
+                        )}
                       </button>
                     </div>
                   </ModalGeneric>

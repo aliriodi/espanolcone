@@ -8,29 +8,23 @@ import { getSession } from "next-auth/react";
  */
 export default async function addReview(req, res) {
   try {
-    /*const session = await getSession({ req });
-    if (!session) {
-      return res.status(401).json({ message: "Not authenticated" });
-    } */
-
-    const { postId, userId, text, rating, userName } = req.body; // recupero la info del body
+    const { postId, userId, text, rating } = req.body; // Recupero la info del body
 
     if (!text || !rating) {
       return res
         .status(400)
-        .json({ message: "falta el texto o el rating de la reseña" }); // verificacion para que ponga el texto o el puntaje de la review
+        .json({ message: "Falta el texto o el rating de la reseña" }); // Verificación para que ponga el texto o el puntaje de la review
     }
 
     await dbConnect();
 
     const post = await Post.findById(postId);
     if (!post) {
-      return res.status(404).json({ message: "Post no encontrado" }); // verificacion para que la review se haga en el post correcto
+      return res.status(404).json({ message: "Post no encontrado" }); // Verificación para que la review se haga en el post correcto
     }
 
-    //
     const existingReview = post.reviews.find(
-      (review) => review.user.toString() === userId // compara la id de la review con la del userId
+      (review) => review.user.toString() === userId // Compara la ID de la review con la del userId
     );
     if (existingReview) {
       existingReview.text = text;
@@ -43,18 +37,20 @@ export default async function addReview(req, res) {
     } else {
       const review = {
         user: userId,
-        username: userName,
         text: text,
         rating: rating,
         createdAt: new Date(),
       };
 
-      post.reviews.push(review); // pusheo la review en el array del model post
+      post.reviews.push(review); // Pusheo la review en el array del model post
 
       await post.save();
 
-      // devuelvo la review añadida
-      res.status(201).json({ review });
+      const newReview = post.reviews[post.reviews.length - 1];
+      await newReview.populate("user").execPopulate();
+
+      // Devuelvo la review añadida
+      res.status(201).json({ review: newReview });
     }
   } catch (error) {
     console.error("Error adding review:", error);

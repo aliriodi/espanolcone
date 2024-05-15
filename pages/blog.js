@@ -22,10 +22,27 @@ function Blog({ devDotToPosts }) {
     async function blog() {
       const devDotToPosts = await fetch(`/api/blog/posts/get`);
       const res = await devDotToPosts.json();
-      setBlogs(res.posts.reverse());
+
+      const postsWithRatings = res.posts.map((post) => {
+        if (post.reviews?.length > 0) {
+          const total = post.reviews.reduce(
+            (acc, review) => acc + review.rating,
+            0
+          );
+          const average = total / post.reviews.length;
+          post.averageRating = average.toFixed(1); // Redondea a un decimal
+        } else {
+          post.averageRating = 0; // Si no hay reseñas, el promedio es 0
+        }
+        return post;
+      });
+
+      // setBlogs(res.posts.reverse());
+      setBlogs(postsWithRatings.reverse());
     }
     blog();
   }, []);
+  console.log("////////////////////", blogs);
 
   return (
     <div id="nav">
@@ -63,8 +80,8 @@ function Blog({ devDotToPosts }) {
                         title={post[locale].title}
                         desc={post[locale].description}
                         slug={post.slug}
-                        likes={post.positive_reactions_count}
-                        comments={post.comments_count}
+                        likes={post.averageRating}
+                        comments={post.reviews.length}
                         tagList={post[locale].tag_list}
                         locale={locale}
                       />

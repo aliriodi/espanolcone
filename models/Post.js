@@ -5,10 +5,6 @@ const ReviewSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Users",
   },
-  username: {
-    type: String,
-    ref: "Users",
-  },
   text: {
     type: String,
     required: true,
