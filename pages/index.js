@@ -85,23 +85,23 @@ export default function Home() {
               />
 
               {/* Nube */}
-              <Image
+              {/* <Image
                 src="https://res.cloudinary.com/dfddh08q8/image/upload/v1695133390/images/imagen_2023-09-19_112311344_m8ivae.png"
                 width={121.85}
                 height={44.67}
                 className='absolute top-[23px] z-20'
                 alt='montanas'
-              />
+              /> */}
 
               {/* Nube Tracera */}
-              <Image
+              {/* <Image
                 src="https://res.cloudinary.com/dfddh08q8/image/upload/v1695133390/images/imagen_2023-09-19_112311344_m8ivae.png"
                 width={169}
                 height={62}
                 className='absolute top-0 z-10 left-[196px]'
                 style={{ transform: 'scaleX(-1)' }}
                 alt='montanitas'
-              />
+              /> */}
 
               {/* Sol */}
               {/* <span className='absolute h-[38px] w-[38px] rounded-full bg-[#F3BE34] top-[79px] left-[85%] z-20'/> */}
