@@ -16,6 +16,7 @@ export default function BlogPost({
   comments,
   tagList,
   id,
+  source,
 }) {
   const { locale, locales, push } = useRouter();
 
@@ -26,7 +27,7 @@ export default function BlogPost({
   }/${date.getFullYear()}`;
 
   function moveSlug() {
-    push(`/blog/posts/post?slug=${slug}`, undefined, {
+    push(`/blog/posts/post?slug=${slug}&source=${source}`, undefined, {
       params: { slug: slug, locale: locale, locales: locales },
     });
   }
@@ -86,7 +87,7 @@ export default function BlogPost({
         <span className="text-gray-600 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-300">
           <FontAwesomeIcon
             icon={faStar}
-            className={`transition-all duration-75 cursor-pointer "text-info"
+            className={`transition-all duration-75 cursor-pointer "text-info" w-[16px]
                           }`}
           />
           {/* <svg

@@ -26,7 +26,7 @@ export default function Post() {
   const { data: session, status } = useSession(); // necesito la sesion para saber el id y nombre del usuario
   const router = useRouter(); // testear para sacarlo
   const { locale } = router; // testear para sacarlo
-  const { slug } = router.query;
+  const { slug, source } = router.query;
 
   const [post, setPost] = useState(null);
   const [currentPost, setCurrentPost] = useState(null);
@@ -181,14 +181,17 @@ export default function Post() {
         />
         <title>{currentPost?.title}</title>
       </Head>
-      <Layout className=" overflow-x-hidden relative min-h-screen">
+      {source === "blog" ? (
         <Navbar
           light={true}
           className="bg-[transparent]"
           slug={`post?slug=${slug}`}
         />
-        {/* <Menu /> */}
+      ) : (
+        <Menu />
+      )}
 
+      <Layout className=" overflow-x-hidden relative min-h-screen">
         {currentPost != null && (
           <div
             className="flex justify-center my-[187px]
@@ -249,164 +252,173 @@ export default function Post() {
                   />
                 </div>
               </div>
-              {reviews.length > 0 && (
-                <div className="bg-white p-4 rounded-lg shadow-lg">
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">
-                    Reseñas
-                  </h3>
-                  <div className="text-info flex">
-                    {[...Array(5)].map((star, i) => (
-                      <span
-                        key={i}
-                        className={`fa fa-star ${
-                          i < averageRating ? "text-info" : "text-gray-300"
-                        }`}></span>
+
+              {/* Blanco */}
+              <div className="bg-white p-4 rounded-lg shadow-lg">
+                {reviews.length > 0 && (
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">
+                      Reseñas
+                    </h3>
+
+                    <div className="text-info flex">
+                      {[...Array(5)].map((star, i) => (
+                        <span
+                          key={i}
+                          className={`fa fa-star ${
+                            i < averageRating ? "text-info" : "text-gray-300"
+                          }`}></span>
+                      ))}
+                    </div>
+                    <h4 className="text-lg text-gray-700 mb-4">
+                      Promedio de Calificaciones: {averageRating}
+                    </h4>
+                    {reviews.map((review, index) => (
+                      <div
+                        key={index}
+                        className="border-b last:border-b-0 py-4 flex items-start space-x-4">
+                        <Image
+                          width={100}
+                          height={100}
+                          src={review.user?.image?.url}
+                          alt={review.user?.first_name}
+                          className="w-10 h-10 rounded-full object-cover"
+                        />
+
+                        <div className="flex flex-col justify-center">
+                          <div className="text-gray-800 font-semibold">
+                            {review.user
+                              ? `${review.user.first_name} ${review.user.last_name}`
+                              : "Usuario Desconocido"}
+                          </div>
+
+                          <div className="text-info flex">
+                            {[...Array(5)].map((star, i) => (
+                              <span
+                                key={i}
+                                className={`fa fa-star ${
+                                  i < review.rating
+                                    ? "text-info"
+                                    : "text-gray-300"
+                                }`}></span>
+                            ))}
+                          </div>
+                          <div className="text-sm text-gray-600">
+                            {review.text}
+                          </div>
+                        </div>
+                      </div>
                     ))}
                   </div>
-                  <h4 className="text-lg text-gray-700 mb-4">
-                    Promedio de Calificaciones: {averageRating}
-                  </h4>
-                  {reviews.map((review, index) => (
-                    <div
-                      key={index}
-                      className="border-b last:border-b-0 py-4 flex items-start space-x-4">
-                      <Image
-                        width={100}
-                        height={100}
-                        src={review.user?.image?.url}
-                        alt={review.user?.first_name}
-                        className="w-10 h-10 rounded-full object-cover"
-                      />
+                )}
+                {status === "authenticated" ? (
+                  <>
+                    <ModalGeneric
+                      open={isOpen}
+                      changeModal={() => setIsOpen(false)}>
+                      {/* si esta logeado muestra esto*/}
+                      <div className="bg-white p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
+                        <h3 className="text-lg font-semibold">
+                          Añadir una reseña
+                        </h3>
+                        <div className=" text-light text-[15px] flex w-[200px] justify-between mt-[37px] pb-[15px]">
+                          {/* Estrella 1 */}
+                          <FontAwesomeIcon
+                            icon={faStar}
+                            onClick={() => setReviewPoint(1)}
+                            className={`transition-all duration-75 cursor-pointer ${
+                              1 <= reviewPoint && "text-info"
+                            }`}
+                          />
 
-                      <div className="flex flex-col justify-center">
-                        <div className="text-gray-800 font-semibold">
-                          {review.user
-                            ? `${review.user.first_name} ${review.user.last_name}`
-                            : "Usuario Desconocido"}
-                        </div>
+                          {/* Estrella 2 */}
+                          <FontAwesomeIcon
+                            icon={faStar}
+                            onClick={() => setReviewPoint(2)}
+                            className={`transition-all duration-75 cursor-pointer ${
+                              2 <= reviewPoint && "text-info"
+                            }`}
+                          />
 
-                        <div className="text-info flex">
-                          {[...Array(5)].map((star, i) => (
-                            <span
-                              key={i}
-                              className={`fa fa-star ${
-                                i < review.rating
-                                  ? "text-info"
-                                  : "text-gray-300"
-                              }`}></span>
-                          ))}
+                          {/* Estrella 3 */}
+                          <FontAwesomeIcon
+                            icon={faStar}
+                            onClick={() => setReviewPoint(3)}
+                            className={`transition-all duration-75 cursor-pointer ${
+                              3 <= reviewPoint && "text-info"
+                            }`}
+                          />
+
+                          {/* Estrella 4 */}
+                          <FontAwesomeIcon
+                            icon={faStar}
+                            onClick={() => setReviewPoint(4)}
+                            className={`transition-all duration-75 cursor-pointer ${
+                              4 <= reviewPoint && "text-info"
+                            }`}
+                          />
+
+                          {/* Estrella 5 */}
+                          <FontAwesomeIcon
+                            icon={faStar}
+                            onClick={() => setReviewPoint(5)}
+                            className={`transition-all duration-75 cursor-pointer ${
+                              5 <= reviewPoint && "text-info"
+                            }`}
+                          />
                         </div>
-                        <div className="text-sm text-gray-600">
-                          {review.text}
-                        </div>
+                        <textarea
+                          value={reviewText}
+                          onChange={(e) => setReviewText(e.target.value)}
+                          placeholder="Escribe tu reseña aquí..."
+                          className="mt-4 w-full p-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 resize-none"
+                        />
+                        <button
+                          onClick={handleAddReview}
+                          className={`btn-primary w-full p-2 font-semibold ${
+                            reviewText?.length === 0 &&
+                            reviewPoint?.length === 0
+                              ? "opacity-[70%] pointer-events-none"
+                              : ""
+                          }`}
+                          disabled={
+                            (reviewText?.length === 0 &&
+                              reviewPoint?.length === 0) ||
+                            loading
+                          }>
+                          {loading ? (
+                            <span className="inline-block h-5 w-5 animate-spin rounded-full border-white border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"></span>
+                          ) : reviews.some(
+                              (review) => review.user === session?.user?._id
+                            ) ? (
+                            "Editar reseña"
+                          ) : (
+                            "Enviar reseña"
+                          )}
+                        </button>
                       </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-              {status === "authenticated" ? (
-                <>
-                  <ModalGeneric
-                    open={isOpen}
-                    changeModal={() => setIsOpen(false)}>
-                    {/* si esta logeado muestra esto*/}
-                    <div className="bg-white p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
-                      <h3 className="text-lg font-semibold">
-                        Añadir una reseña
-                      </h3>
-                      <div className=" text-light text-[15px] flex w-[200px] justify-between mt-[37px] pb-[15px]">
-                        {/* Estrella 1 */}
-                        <FontAwesomeIcon
-                          icon={faStar}
-                          onClick={() => setReviewPoint(1)}
-                          className={`transition-all duration-75 cursor-pointer ${
-                            1 <= reviewPoint && "text-info"
-                          }`}
-                        />
+                    </ModalGeneric>
 
-                        {/* Estrella 2 */}
-                        <FontAwesomeIcon
-                          icon={faStar}
-                          onClick={() => setReviewPoint(2)}
-                          className={`transition-all duration-75 cursor-pointer ${
-                            2 <= reviewPoint && "text-info"
-                          }`}
-                        />
-
-                        {/* Estrella 3 */}
-                        <FontAwesomeIcon
-                          icon={faStar}
-                          onClick={() => setReviewPoint(3)}
-                          className={`transition-all duration-75 cursor-pointer ${
-                            3 <= reviewPoint && "text-info"
-                          }`}
-                        />
-
-                        {/* Estrella 4 */}
-                        <FontAwesomeIcon
-                          icon={faStar}
-                          onClick={() => setReviewPoint(4)}
-                          className={`transition-all duration-75 cursor-pointer ${
-                            4 <= reviewPoint && "text-info"
-                          }`}
-                        />
-
-                        {/* Estrella 5 */}
-                        <FontAwesomeIcon
-                          icon={faStar}
-                          onClick={() => setReviewPoint(5)}
-                          className={`transition-all duration-75 cursor-pointer ${
-                            5 <= reviewPoint && "text-info"
-                          }`}
-                        />
-                      </div>
-                      <textarea
-                        value={reviewText}
-                        onChange={(e) => setReviewText(e.target.value)}
-                        placeholder="Escribe tu reseña aquí..."
-                        className="mt-4 w-full p-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 resize-none"
-                      />
+                    {source === "inicio" && (
                       <button
-                        onClick={handleAddReview}
-                        className={`btn-primary w-full p-2 font-semibold ${
-                          reviewText?.length === 0 && reviewPoint?.length === 0
-                            ? "opacity-[70%] pointer-events-none"
-                            : ""
-                        }`}
-                        disabled={
-                          (reviewText?.length === 0 &&
-                            reviewPoint?.length === 0) ||
-                          loading
-                        }>
-                        {loading ? (
-                          <span className="inline-block h-5 w-5 animate-spin rounded-full border-white border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"></span>
-                        ) : reviews.some(
-                            (review) => review.user === session?.user?._id
-                          ) ? (
-                          "Editar reseña"
-                        ) : (
-                          "Enviar reseña"
-                        )}
+                        onClick={() => setIsOpen(true)}
+                        className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">
+                        {reviews.some(
+                          (review) => review.user === session?.user?._id
+                        )
+                          ? "Editar reseña"
+                          : "Enviar reseña"}
                       </button>
+                    )}
+                  </>
+                ) : (
+                  <Link href="/es/login">
+                    <div className="text-blue-500 hover:text-blue-600 underline pl-4 py-2 inline-block">
+                      Loguea para hacer una reseña
                     </div>
-                  </ModalGeneric>
-                  <button
-                    onClick={() => setIsOpen(true)}
-                    className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">
-                    {reviews.some(
-                      (review) => review.user === session?.user?._id
-                    )
-                      ? "Editar reseña"
-                      : "Enviar reseña"}
-                  </button>
-                </>
-              ) : (
-                <Link href="/es/login">
-                  <div className="text-blue-500 hover:text-blue-600 underline pl-4 py-2 inline-block">
-                    Loguea para hacer una reseña
-                  </div>
-                </Link>
-              )}
+                  </Link>
+                )}
+              </div>
             </article>
           </div>
         )}

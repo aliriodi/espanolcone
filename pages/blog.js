@@ -84,6 +84,7 @@ function Blog({ devDotToPosts }) {
                         comments={post.reviews.length}
                         tagList={post[locale].tag_list}
                         locale={locale}
+                        source="blog"
                       />
                     </div>
                   )
