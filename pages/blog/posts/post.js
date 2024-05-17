@@ -22,7 +22,7 @@ export default function Post() {
   const [loading, setLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [reviewPoint, setReviewPoint] = useState(0);
-  console.log("esto es un review point", reviewPoint);
+
   const { data: session, status } = useSession(); // necesito la sesion para saber el id y nombre del usuario
   const router = useRouter(); // testear para sacarlo
   const { locale } = router; // testear para sacarlo
@@ -33,11 +33,8 @@ export default function Post() {
   const [reviews, setReviews] = useState([]);
   const [reviewText, setReviewText] = useState(""); // estado para saber lo que escribe en el input
   const [averageRating, setAverageRating] = useState(0);
-  console.log("esto es user", session);
 
   // useEffect(() => console.log(session));
-  console.log("esto son las reviews.user", reviews);
-  console.log("///////////////", post);
 
   useEffect(() => {
     if (post) {
@@ -75,7 +72,6 @@ export default function Post() {
     const devDotToPosts = await fetch(`/api/blog/posts/${slug}`);
     const res = await devDotToPosts.json();
 
-    console.log(res?.postid);
     setPost(res?.postid);
   }
 
@@ -99,24 +95,24 @@ export default function Post() {
     const postId = post._id;
 
     try {
-      const response = await axios.post(
-        `/api/blog/posts/addReview`,
-        {
-          postId: postId,
-          userId: userId,
-          text: reviewText,
-          rating: reviewPoint,
-        },
-        {
-          withCredentials: true,
-        }
-      );
-
-      console.log("////////////// la respuesta", response);
+      const response = await axios
+        .post(
+          `/api/blog/posts/addReview`,
+          {
+            postId: postId,
+            userId: userId,
+            text: reviewText,
+            rating: reviewPoint,
+          },
+          {
+            withCredentials: true,
+          }
+        )
+        .catch((e) => console.log("Error al crear review ", e));
 
       if (response.status === 200 || response.status === 201) {
+        console.log("Entro al if");
         const newReview = response.data.review;
-        console.log("esto es un newReview", newReview);
 
         // Asegúrate de que los datos del usuario se obtengan correctamente
         const updatedReview = {
@@ -133,11 +129,15 @@ export default function Post() {
           const index = prevReviews.findIndex(
             (review) => review.user._id === userId
           );
+          console.log("Busco al el index ", index);
+
           if (index !== -1) {
+            console.log("Edita el comentario ");
             return prevReviews.map((review, idx) =>
               idx === index ? updatedReview : review
             );
-          } else {
+          } else if (index == -1) {
+            console.log("Crea un nuevo usuario");
             return [...prevReviews, updatedReview];
           }
         });
@@ -145,7 +145,7 @@ export default function Post() {
         setReviewText(""); // Limpia el texto de la reseña
         setReviewPoint(0); // Limpia la puntuación de la reseña
         setIsOpen(false); // Cierra el modal
-        setLoading(false);
+        setLoading(false); // Cierro el spinner
       }
     } catch (error) {
       console.error("Error al añadir la reseña:", error);
