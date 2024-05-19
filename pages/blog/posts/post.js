@@ -101,7 +101,7 @@ export default function Post() {
           {
             postId: postId,
             userId: userId,
-            text: reviewText,
+            text: reviewText || "",
             rating: reviewPoint,
           },
           {
@@ -381,11 +381,7 @@ export default function Post() {
                               ? "opacity-[70%] pointer-events-none"
                               : ""
                           }`}
-                          disabled={
-                            (reviewText?.length === 0 &&
-                              reviewPoint?.length === 0) ||
-                            loading
-                          }>
+                          disabled={reviewPoint?.length === 0 || loading}>
                           {loading ? (
                             <span className="inline-block h-5 w-5 animate-spin rounded-full border-white border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"></span>
                           ) : reviews.some(
@@ -412,6 +408,13 @@ export default function Post() {
                     )}
                   </>
                 ) : (
+                  <Link href="/es/login">
+                    <div className="text-blue-500 hover:text-blue-600 underline pl-4 py-2 inline-block">
+                      Loguea para hacer una reseña
+                    </div>
+                  </Link>
+                )}
+                {source === "blog" && (
                   <Link href="/es/login">
                     <div className="text-blue-500 hover:text-blue-600 underline pl-4 py-2 inline-block">
                       Loguea para hacer una reseña

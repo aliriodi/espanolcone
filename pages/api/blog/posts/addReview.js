@@ -42,7 +42,7 @@ export default async function addReview(req, res) {
     } else {
       const review = {
         user: userId,
-        text: text,
+        text: text || "",
         rating: rating,
         createdAt: new Date(),
       };
