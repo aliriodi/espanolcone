@@ -1,7 +1,5 @@
-
-import dbConnect from '../../../../config/mongo'
-import Post from '../../../../models/Post'
-
+import dbConnect from "../../../../config/mongo";
+import Post from "../../../../models/Post";
 
 export default async function IdUser(req, res) {
   const {
@@ -10,39 +8,49 @@ export default async function IdUser(req, res) {
   } = req;
 
   switch (method) {
-    case 'GET':
+    case "GET":
       try {
+        console.log("CONNECTING TO MONGO DB");
 
-        console.log('CONNECTING TO MONGO DB');
+        await dbConnect();
 
-        await dbConnect()
-    
-        console.log('CONNECTED TO MONGO DB');
-        console.log('/api/blog/posts/[id] post with id:',  id)
+        console.log("CONNECTED TO MONGO DB");
+        console.log("/api/blog/posts/[id] post with id:", id);
 
-        const postid = await Post.findOne({slug:id});
+        const postid = await Post.findOne({ slug: id }).populate({
+          // para llenar las reseñas con el nombre del usuario
+          path: "reviews",
+          populate: {
+            path: "user",
+            model: "Users",
+          },
+        });
 
         if (!postid) {
-          return res.status(404).json({ message: 'id o slug no cargado' });
+          return res.status(404).json({ message: "id o slug no cargado" });
         }
 
-        
-        // Verifica procedencia de solicitud 
-        console.log("/////////////////////////////// ",req.headers.accept == "*/*" ? "Solicitud desde Codigo": "Solicitud desde Navegador"," ///////////////////////////////")
+        // Verifica procedencia de solicitud
+        console.log(
+          "/////////////////////////////// ",
+          req.headers.accept == "*/*"
+            ? "Solicitud desde Codigo"
+            : "Solicitud desde Navegador",
+          " ///////////////////////////////"
+        );
 
-        if(req.headers.accept == "*/*"){
+        if (req.headers.accept == "*/*") {
           // Solicitud desde el codigo
-          
-          return res.status(200).json({postid});
-        }
-        else{
+
+          return res.status(200).json({ postid });
+        } else {
           // Solicitud desde el navegador
           res.status(200).json({ message: "Acceso Denegado" });
         }
       } catch (error) {
-        return res.status(500).json({ message: 'Internal Server Error' });
+        return res.status(500).json({ message: "Internal Server Error" });
       }
     default:
       return res.status(405).json({ message: `Method ${method} not allowed` });
   }
-};
+}
