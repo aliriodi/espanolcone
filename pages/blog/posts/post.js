@@ -33,8 +33,7 @@ export default function Post() {
   const [reviews, setReviews] = useState([]);
   const [reviewText, setReviewText] = useState(""); // estado para saber lo que escribe en el input
   const [averageRating, setAverageRating] = useState(0);
-
-  // useEffect(() => console.log(session));
+  const [login, setLogin] = useState("");
 
   useEffect(() => {
     if (post) {
@@ -48,13 +47,22 @@ export default function Post() {
 
   useEffect(() => {
     // Español
-    if (post && locale == "es") setCurrentPost(post?.es);
+    if (post && locale == "es") {
+      setCurrentPost(post?.es);
+      setLogin("Loguea para hacer una reseña");
+    }
 
     // Ingles
-    if (post && locale == "en") setCurrentPost(post?.en);
+    if (post && locale == "en") {
+      setCurrentPost(post?.en);
+      setLogin("Log in to make a review");
+    }
 
     // Portugues
-    if (post && locale == "pt") setCurrentPost(post?.pt);
+    if (post && locale == "pt") {
+      setCurrentPost(post?.pt);
+      setLogin("Faça login para fazer uma avaliação");
+    }
   }, [locale, post]);
 
   useEffect(() => {
@@ -111,7 +119,6 @@ export default function Post() {
         .catch((e) => console.log("Error al crear review ", e));
 
       if (response.status === 200 || response.status === 201) {
-        console.log("Entro al if");
         const newReview = response.data.review;
 
         // Asegúrate de que los datos del usuario se obtengan correctamente
@@ -181,7 +188,7 @@ export default function Post() {
         />
         <title>{currentPost?.title}</title>
       </Head>
-      {source === "blog" ? (
+      {source != "inicio" ? (
         <Navbar
           light={true}
           className="bg-[transparent]"
@@ -408,16 +415,16 @@ export default function Post() {
                     )}
                   </>
                 ) : (
-                  <Link href="/es/login">
+                  <Link href={`/${locale}/login`}>
                     <div className="text-blue-500 hover:text-blue-600 underline pl-4 py-2 inline-block">
-                      Loguea para hacer una reseña
+                      {login}
                     </div>
                   </Link>
                 )}
-                {source === "blog" && (
-                  <Link href="/es/login">
+                {source != "inicio" && status === "authenticated" && (
+                  <Link href={`/${locale}/login`}>
                     <div className="text-blue-500 hover:text-blue-600 underline pl-4 py-2 inline-block">
-                      Loguea para hacer una reseña
+                      {login}
                     </div>
                   </Link>
                 )}
