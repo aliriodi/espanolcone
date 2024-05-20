@@ -4,9 +4,8 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
 import { useSession } from "next-auth/react"
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
-import Spinner from '../Spinner';
-import styles from '../../styles/navbar.module.css';
-import Plan from '../Plan/Plansync';
+import Spinner from '../../Spinner';
+import Plan from '../../Plan/Plansync';
 
 
 
@@ -29,14 +28,11 @@ import {
 } from 'date-fns'
 import Image from 'next/image'
 import { Fragment, useState, useEffect } from 'react'
-import ModalPago from '../ModalPagoPAYPAL';
-import ModalPago2 from '../ModalPagoZelle';
-import ModalPagoABLE from '../ModalPagoAble';
-import ModalDescAssig from './ModalDescAssig';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMoneyBill } from '@fortawesome/free-solid-svg-icons';
-import { apiBaseUrl } from 'next-auth/client/_utils';
-import Link from 'next/link';
+import ModalPago from '../../ModalPagoPAYPAL';
+import ModalPago2 from '../../ModalPagoZelle';
+import ModalPagoABLE from '../../ModalPagoAble';
+import ModalDescAssig from '../../Calendar/ModalDescAssig';
+import useStudents from './hooks/useStudents';
 
 
 
@@ -46,7 +42,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Schedule() {
+export const MeetGroupAssigment = () => {
   const router = useRouter();
   /*
   Aca el usuario se trae por _id el calendario del guia o teacher
@@ -72,6 +68,7 @@ export default function Schedule() {
   const [preassgined, setPreassgined] = useState(false);
   const [assigned, setAssgined] = useState(false);
 
+  const { useAddStudentsCalendar } = useStudents()
 
   const lastplansyc = session?.user?.planSync?.length;
   //upaypalDatesser
@@ -384,7 +381,8 @@ export default function Schedule() {
     const newcalendarS = [];
     //Teacher o guia turistico apeando las citas del calendario para asignarlo
     // a un nuevo calendario asignado la fecha
-    personSchedule.calendar.map(async meeting => {
+
+    personSchedule.calendarGroup.map(async meeting => {
       if (meeting.startDatetime === newMeeting.startDatetime) {
 
         // Desplazamiento horario en minutos (ejemplo para GMT-03)
@@ -731,7 +729,7 @@ export default function Schedule() {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ email: personSchedule.email, updates: { calendar: newcalendar } })
+          body: JSON.stringify({ email: personSchedule.email, updates: { calendarGroup: newcalendar } })
         }).then(response => console.log(response.json()))
 
       //aca actualizo el calendario del alumno en BD
@@ -743,23 +741,24 @@ export default function Schedule() {
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ email: renders.user.email, updates: { calendar: newcalendarS } }),
+            body: JSON.stringify({ email: renders.user.email, updates: { calendarGroup: newcalendarS } }),
           }).then(response => console.log(response.json()))
       // console.log(newcalendarS)
 
     } catch (error) {
       console.error(error);
     }
-    update({ ...session, user: { ...session.user, calendar: newcalendarS } });
+    update({ ...session, user: { ...session.user, calendarGroup: newcalendarS } });
 
 
     alert('Su clase ha sido asignada')
 
     setOpenP(false)
 
-    router.push('/inicio/calendar');
+    router.push('/inicio/calendarGroup');
 
   }
+  // console.log('Profesor', personSchedule.calendarGroup, 'Estudiante', renders.user)
 
   //Inicia el calendario
   let today = startOfToday()
@@ -785,7 +784,7 @@ export default function Schedule() {
   //ubico y asigno el primer dia del meeting en caso de existir
   function firstMeetingDay(day) {
     const firstMeeting = []
-    isAfter(day, today) && personSchedule?.calendar?.map((meeting) => {
+    isAfter(day, today) && personSchedule?.calendarGroup?.map((meeting) => {
 
       if (!meeting.assigned && isSameDay(parseISO(meeting.userstartDatetime), day)) {
         firstMeeting.push(meeting)
@@ -821,13 +820,7 @@ export default function Schedule() {
                                         :0} {' '}
                                         clases para agendar</h3> */}
 
-        <h3 className='border-b-2 pb-[25px]'>¿Qué día queres realizar tu reserva?</h3>
-
-        <button>
-          <Link href={`/inicio/calendarGroup/${id}`}>
-            Reservar Meet grupal
-          </Link>
-        </button>
+        <h3 className='border-b-2 pb-[25px]'>¿Qué día queres realizar tu reserva grupal?</h3>
 
 
         {/* Contenido */}
@@ -939,9 +932,9 @@ export default function Schedule() {
                       isEqual(day, selectedDay) && !isToday(day) && 'bg-success',
                       !isEqual(day, selectedDay) && 'hover:bg-gray-200',
                       (isEqual(day, selectedDay) || isToday(day)) && 'font-semibold',
-                      personSchedule?.calendar?.some((meeting) =>
+                      personSchedule?.calendarGroup?.some((meeting) =>
                         //Los dias de meetings deben ser despues de la fecha de hoy y deben tener disponibilidad
-                        (isAfter(parseISO(meeting.userstartDatetime), today)) && isSameDay(parseISO(meeting.userstartDatetime), day) && !meeting.assigned) && !isEqual(day, today) && "rounded-full bg-gray-200 text-primary text-lg",
+                        (isAfter(parseISO(meeting.startDatetime), today)) && isSameDay(parseISO(meeting.startDatetime), day) && meeting.assigned) && !isEqual(day, today) && "rounded-full bg-gray-200 text-primary text-lg",
                       'mx-auto flex h-8 w-8 items-center justify-center rounded-full'
                     )}
                   >
@@ -964,14 +957,28 @@ export default function Schedule() {
           md:w-full'>
 
             {
-              personSchedule?.calendar?.length &&
-                session.user.planSync[session.user.planSync.length - 1].qty - session.user.planSync[session.user.planSync.length - 1].classview > 0 ?
-                <p className='font-medium mt-[17px] mb-[15px] text-center text-[14px] text-violet_dark'>
-                  Puedes agendar <b>{session?.user?.planSync && session.user.planSync[session.user.planSync.length - 1].qty - session.user.planSync[session.user.planSync.length - 1].classview}</b> {session?.user?.planSync?.length > 1 ? "clases" : "clase"}
-                </p> :
-                <p className='font-medium mt-[17px] mb-[15px] text-center text-[14px] text-violet_dark'>
-                  No posees clases para agendar
-                </p>
+              // TODO: PREGUNTAR ALIRIO... 
+              // personSchedule?.calendarGroup?.length &&
+              //   session.user.planSync[session.user.planSync.length - 1].qty - session.user.planSync[session.user.planSync.length - 1].classview > 0 ?
+              //   <p className='font-medium mt-[17px] mb-[15px] text-center text-[14px] text-violet_dark'>
+              //     Puedes agendar <b>{session?.user?.planSync && session.user.planSync[session.user.planSync.length - 1].qty - session.user.planSync[session.user.planSync.length - 1].classview}</b> {session?.user?.planSync?.length > 1 ? "clases" : "clase"}
+              //   </p> : <p>No posees clases para agendar</p>
+
+              personSchedule?.calendarGroup?.length && personSchedule?.calendarGroup?.map((hoursMeet) => (
+
+                isSameDay(parseISO(hoursMeet.startDatetime), selectedDay) &&
+
+                <button
+                  type="button"
+                  className='bg-success text-center text-white rounded-[5px] py-2 mt-4 mx-1'
+                  key={hoursMeet.startDatetime}
+                  onClick={() => useAddStudentsCalendar(renders?.user, hoursMeet)} // Pasa la información de la clase seleccionada
+                >
+                  {hoursMeet.startDatetime.split('T')[1]} - {hoursMeet.endDatetime.split('T')[1]}
+                </button>
+
+              ))
+
             }
 
             <time dateTime={format(selectedDay, "yyyy-MM-dd'T'HH:00:00")} />
@@ -984,7 +991,7 @@ export default function Schedule() {
                   {/* de aca viene el id del usuario donde va a renderizar el estado del teacher o guias
                   con los datos del teacher o guia turistico, viene por redux  y por BD en caso de dar f5*/}
 
-                  {isAfter(selectedDay, today) && personSchedule?.calendar?.map((meeting, index) => {
+                  {isAfter(selectedDay, today) && personSchedule?.calendarGroup?.map((meeting, index) => {
 
                     if (!meeting.preassgined && !meeting.assigned && isSameDay(parseISO(meeting.userstartDatetime), selectedDay)) {
                       return (
@@ -1022,7 +1029,7 @@ export default function Schedule() {
 
                   {/* Si existe un meeting para asignar y el pago ha sido confirmado, renderiza el botón de confirmar citas */}
 
-                  {isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.userstartDatetime), selectedDay) && !meeting.assigned) &&// isPaymentConfirmed &&!isPaymentConfirmed&&
+                  {isAfter(selectedDay, today) && personSchedule?.calendarGroup?.some(meeting => isSameDay(parseISO(meeting.userstartDatetime), selectedDay) && !meeting.assigned) &&// isPaymentConfirmed &&!isPaymentConfirmed&&
                     session.user.planSync[lastplansyc - 1].valid &&
                     <button
                       type="button"
@@ -1030,7 +1037,7 @@ export default function Schedule() {
                       className='btn-primary px-5 py-2.5 mb-2 w-full text-[16px]'>
                       Confirmar
                     </button>}
-                  {isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.userstartDatetime), selectedDay) && !meeting.assigned) &&// isPaymentConfirmed &&!isPaymentConfirmed&&
+                  {isAfter(selectedDay, today) && personSchedule?.calendarGroup?.some(meeting => isSameDay(parseISO(meeting.userstartDatetime), selectedDay) && !meeting.assigned) &&// isPaymentConfirmed &&!isPaymentConfirmed&&
                     !session.user.planSync[lastplansyc - 1].valid &&
                     <button
                       type="button"
@@ -1042,7 +1049,7 @@ export default function Schedule() {
                   {OpenP && <Plan Confirm={Confirm} newMeeting={newMeeting} closePlan={closePlan} />}
 
                   {
-                    !isPaymentConfirmed && isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) &&
+                    !isPaymentConfirmed && isAfter(selectedDay, today) && personSchedule?.calendarGroup?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) &&
                     <div>
 
                       {/* Modal de Pago habilitacion*/}
@@ -1057,7 +1064,7 @@ export default function Schedule() {
                   }
 
                   {
-                    !isPaymentConfirmed && isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) &&
+                    !isPaymentConfirmed && isAfter(selectedDay, today) && personSchedule?.calendarGroup?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) &&
                     <div>
 
                       {/* Modal de Pago PAYPAL*/}
@@ -1072,7 +1079,7 @@ export default function Schedule() {
                   }
 
                   {
-                    !isPaymentConfirmed && isAfter(selectedDay, today) && personSchedule?.calendar?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) &&
+                    !isPaymentConfirmed && isAfter(selectedDay, today) && personSchedule?.calendarGroup?.some(meeting => isSameDay(parseISO(meeting.startDatetime), selectedDay) && !meeting.assigned) &&
                     <div>
 
                       {/* Modal de Pago ZELLE*/}
@@ -1113,7 +1120,7 @@ export default function Schedule() {
           adaptándolas a tu agenda y preferencias.
         </p>
       </div>
-    </div>
+    </div >
   )
 }
 

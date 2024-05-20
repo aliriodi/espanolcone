@@ -123,10 +123,10 @@ const Menu = (props) => {
                                     {/* <FontAwesomeIcon
                                     className='mr-[22px] text-[20px] text-violet_dark'
                                     icon={faBell} /> */}
-                                    
+
                                     {/* Mensajes */}
                                     <Link href={"/inicio/chat/null"}>
-                                        <FontAwesomeIcon className='mr-[22px] text-[25px] text-violet_dark' icon={faCommentDots}/>
+                                        <FontAwesomeIcon className='mr-[22px] text-[25px] text-violet_dark' icon={faCommentDots} />
                                     </Link>
 
                                     {/* Nombre y Rol de Usuario */}
@@ -181,8 +181,8 @@ const Menu = (props) => {
             {/* Volver a Atras */}
             <div
                 onClick={
-                    () =>{
-                        if(props.redirectPath) router.push(props.redirectPath)
+                    () => {
+                        if (props.redirectPath) router.push(props.redirectPath)
                         else history.back()
                     }
                 }
@@ -265,6 +265,28 @@ const Menu = (props) => {
                                         <p>Agenda</p>
                                     </Link>
                                 </li>
+                                {/* Calendario Grupal */}
+                                <li>
+                                    <Link
+                                        className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
+                                        ${currentPathName == '/inicio/calendar' && "bg-primary text-white"}
+                                    hover:bg-primary hover:text-white`}
+                                        href="/inicio/calendarGroup">
+                                        <FontAwesomeIcon icon={faCalendarDays} className=" mr-[10px]" />
+                                        <p>Agenda grupal</p>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
+                                        ${currentPathName == '/inicio/calendar' && "bg-primary text-white"}
+                                    hover:bg-primary hover:text-white`}
+                                        href="/inicio/formGroup">
+                                        <FontAwesomeIcon icon={faCalendarDays} className=" mr-[10px]" />
+                                        <p>Formulario grupal</p>
+                                    </Link>
+                                </li>
+
 
                                 {/* Profesores */}
                                 <li>

@@ -25,7 +25,7 @@ export default async function updateUsers(req, res) {
 
     const result = await Users.updateOne({email:email},{$set:updates })
     
-   // console.log('UPDATED DOCUMENT', result);
+   console.log('UPDATED DOCUMENT', result);
     
    res.json({ message: 'Usuario actualizado con éxito',email });
 
