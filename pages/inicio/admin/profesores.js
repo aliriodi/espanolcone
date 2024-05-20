@@ -4,7 +4,8 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { DatePicker } from '@mui/x-date-pickers';
 import { format } from 'date-fns';
-import esLocale from 'date-fns/locale/es'; 
+import esLocale from 'date-fns/locale/es';
+ 
 import Head from 'next/head';
 import Menu from "../../../components/Menu";
 import NavBarAdmin from '../../../components/admin/NavBarAdmin';
