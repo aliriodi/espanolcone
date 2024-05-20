@@ -22,7 +22,7 @@ export default function Post() {
   const [loading, setLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [reviewPoint, setReviewPoint] = useState(0);
-  console.log("esto es un review point", reviewPoint);
+
   const { data: session, status } = useSession(); // necesito la sesion para saber el id y nombre del usuario
   const router = useRouter(); // testear para sacarlo
   const { locale } = router; // testear para sacarlo
@@ -33,11 +33,7 @@ export default function Post() {
   const [reviews, setReviews] = useState([]);
   const [reviewText, setReviewText] = useState(""); // estado para saber lo que escribe en el input
   const [averageRating, setAverageRating] = useState(0);
-  console.log("esto es user", session);
-
-  // useEffect(() => console.log(session));
-  console.log("esto son las reviews.user", reviews);
-  console.log("///////////////", post);
+  const [login, setLogin] = useState("");
 
   useEffect(() => {
     if (post) {
@@ -51,13 +47,22 @@ export default function Post() {
 
   useEffect(() => {
     // Español
-    if (post && locale == "es") setCurrentPost(post?.es);
+    if (post && locale == "es") {
+      setCurrentPost(post?.es);
+      setLogin("Loguea para hacer una reseña");
+    }
 
     // Ingles
-    if (post && locale == "en") setCurrentPost(post?.en);
+    if (post && locale == "en") {
+      setCurrentPost(post?.en);
+      setLogin("Log in to make a review");
+    }
 
     // Portugues
-    if (post && locale == "pt") setCurrentPost(post?.pt);
+    if (post && locale == "pt") {
+      setCurrentPost(post?.pt);
+      setLogin("Faça login para fazer uma avaliação");
+    }
   }, [locale, post]);
 
   useEffect(() => {
@@ -75,7 +80,6 @@ export default function Post() {
     const devDotToPosts = await fetch(`/api/blog/posts/${slug}`);
     const res = await devDotToPosts.json();
 
-    console.log(res?.postid);
     setPost(res?.postid);
   }
 
@@ -99,24 +103,23 @@ export default function Post() {
     const postId = post._id;
 
     try {
-      const response = await axios.post(
-        `/api/blog/posts/addReview`,
-        {
-          postId: postId,
-          userId: userId,
-          text: reviewText,
-          rating: reviewPoint,
-        },
-        {
-          withCredentials: true,
-        }
-      );
-
-      console.log("////////////// la respuesta", response);
+      const response = await axios
+        .post(
+          `/api/blog/posts/addReview`,
+          {
+            postId: postId,
+            userId: userId,
+            text: reviewText || "",
+            rating: reviewPoint,
+          },
+          {
+            withCredentials: true,
+          }
+        )
+        .catch((e) => console.log("Error al crear review ", e));
 
       if (response.status === 200 || response.status === 201) {
         const newReview = response.data.review;
-        console.log("esto es un newReview", newReview);
 
         // Asegúrate de que los datos del usuario se obtengan correctamente
         const updatedReview = {
@@ -133,11 +136,15 @@ export default function Post() {
           const index = prevReviews.findIndex(
             (review) => review.user._id === userId
           );
+          console.log("Busco al el index ", index);
+
           if (index !== -1) {
+            console.log("Edita el comentario ");
             return prevReviews.map((review, idx) =>
               idx === index ? updatedReview : review
             );
-          } else {
+          } else if (index == -1) {
+            console.log("Crea un nuevo usuario");
             return [...prevReviews, updatedReview];
           }
         });
@@ -145,7 +152,7 @@ export default function Post() {
         setReviewText(""); // Limpia el texto de la reseña
         setReviewPoint(0); // Limpia la puntuación de la reseña
         setIsOpen(false); // Cierra el modal
-        setLoading(false);
+        setLoading(false); // Cierro el spinner
       }
     } catch (error) {
       console.error("Error al añadir la reseña:", error);
@@ -181,7 +188,7 @@ export default function Post() {
         />
         <title>{currentPost?.title}</title>
       </Head>
-      {source === "blog" ? (
+      {source != "inicio" ? (
         <Navbar
           light={true}
           className="bg-[transparent]"
@@ -381,11 +388,7 @@ export default function Post() {
                               ? "opacity-[70%] pointer-events-none"
                               : ""
                           }`}
-                          disabled={
-                            (reviewText?.length === 0 &&
-                              reviewPoint?.length === 0) ||
-                            loading
-                          }>
+                          disabled={reviewPoint?.length === 0 || loading}>
                           {loading ? (
                             <span className="inline-block h-5 w-5 animate-spin rounded-full border-white border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"></span>
                           ) : reviews.some(
@@ -412,9 +415,16 @@ export default function Post() {
                     )}
                   </>
                 ) : (
-                  <Link href="/es/login">
+                  <Link href={`/${locale}/login`}>
                     <div className="text-blue-500 hover:text-blue-600 underline pl-4 py-2 inline-block">
-                      Loguea para hacer una reseña
+                      {login}
+                    </div>
+                  </Link>
+                )}
+                {source != "inicio" && status === "authenticated" && (
+                  <Link href={`/${locale}/login`}>
+                    <div className="text-blue-500 hover:text-blue-600 underline pl-4 py-2 inline-block">
+                      {login}
                     </div>
                   </Link>
                 )}

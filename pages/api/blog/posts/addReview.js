@@ -10,22 +10,27 @@ export default async function addReview(req, res) {
   try {
     const { postId, userId, text, rating } = req.body; // Recupero la info del body
 
-    if (!text || !rating) {
-      return res
-        .status(400)
-        .json({ message: "Falta el texto o el rating de la reseña" }); // Verificación para que ponga el texto o el puntaje de la review
+    if (!rating) {
+      return res.status(400).json({ message: "Falta el rating de la reseña" }); // Verificación para que ponga el puntaje de la review
     }
 
+    console.log("CONNECTING TO MONGO DB");
     await dbConnect();
+
+    console.log("CONNECTED TO MONGO DB");
 
     const post = await Post.findById(postId);
     if (!post) {
       return res.status(404).json({ message: "Post no encontrado" }); // Verificación para que la review se haga en el post correcto
     }
+    console.log("FOUND POST");
 
     const existingReview = post.reviews.find(
       (review) => review.user.toString() === userId // Compara la ID de la review con la del userId
     );
+
+    console.log('FOUND "existingReview"');
+
     if (existingReview) {
       existingReview.text = text;
       existingReview.rating = rating;
@@ -37,7 +42,7 @@ export default async function addReview(req, res) {
     } else {
       const review = {
         user: userId,
-        text: text,
+        text: text || "",
         rating: rating,
         createdAt: new Date(),
       };
@@ -47,7 +52,7 @@ export default async function addReview(req, res) {
       await post.save();
 
       const newReview = post.reviews[post.reviews.length - 1];
-      await newReview.populate("user").execPopulate();
+      await newReview;
 
       // Devuelvo la review añadida
       res.status(201).json({ review: newReview });
