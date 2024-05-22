@@ -33,7 +33,7 @@ import ModalPago from '../../ModalPagoPAYPAL';
 import ModalPago2 from '../../ModalPagoZelle';
 import ModalPagoABLE from '../../ModalPagoAble';
 import ModalDescAssig from '../../Calendar/ModalDescAssig';
-import { ButtonAddStudentCalendarGroup } from './ButtonAddStudentCalendarGroup';
+import ButtonAddStudentCalendarGroup from './ButtonAddStudentCalendarGroup';
 
 
 

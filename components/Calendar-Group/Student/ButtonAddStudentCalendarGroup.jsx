@@ -7,7 +7,11 @@ export default function ButtonAddStudentCalendarGroup({ personSchedule, renders,
     async function addStudentsCalendar() {
 
         const { first_name, last_name, image, email, country } = renders;
-        const { students, studentLimit, id, startDatetime, endDatetime, teacherEmail } = personSchedule;
+        const { students, studentLimit, id, startDatetime, endDatetime, teacherEmail } = personSchedule.calendarGroup[0];
+
+        console.log()
+        console.log(renders)
+        console.log(selectedDay)
 
         // Verifica si el límite de estudiantes se ha superado
         if (students.length >= studentLimit) {
@@ -19,7 +23,7 @@ export default function ButtonAddStudentCalendarGroup({ personSchedule, renders,
 
         // Crea la estructura de datos actualizada para la clase
         const updatedClassDetails = {
-            ...classDetails,
+            ...personSchedule.calendarGroup[0],
             students: updatedStudents
         };
 
