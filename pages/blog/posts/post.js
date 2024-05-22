@@ -46,11 +46,7 @@ export default function Post() {
   }, [slug]);
 
   useEffect(() => {
-    // Español
-    if (post && locale == "es") {
-      setCurrentPost(post?.es);
-      setLogin("Loguea para hacer una reseña");
-    }
+    
 
     // Ingles
     if (post && locale == "en") {
@@ -63,7 +59,12 @@ export default function Post() {
       setCurrentPost(post?.pt);
       setLogin("Faça login para fazer uma avaliação");
     }
-  }, [locale, post]);
+    // Español
+    if (post && locale == "es" ||source==='inicio') {
+        setCurrentPost(post?.es);
+        setLogin("Loguea para hacer una reseña");
+      }
+  }, [locale, post,source]);
 
   useEffect(() => {
     if (reviews.length > 0) {
@@ -433,7 +434,7 @@ export default function Post() {
           </div>
         )}
 
-        <Footer />
+     { source!=='inicio'?  <Footer />:null}
       </Layout>
     </div>
   );

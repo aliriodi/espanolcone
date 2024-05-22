@@ -69,9 +69,9 @@ export default function BlogPost({
 
       <div className="flex items-center flex-wrap px-6 py-4">
         <div className="text-blue-500 inline-flex items-center md:mb-2 lg:mb-0">
-          {locale === "es" ? "Continua leyendo" : null}
-          {locale === "en" ? "Continue reading" : null}
-          {locale === "pt" ? "Continue lendo" : null}
+          {locale === "en" && source!=='inicio'? "Continue reading" : null}
+          {locale === "pt" && source!=='inicio'? "Continue lendo" : null}
+          {locale === "es" ||source==='inicio'? "Continua leyendo" : null}
           <svg
             className="w-4 h-4 ml-2"
             viewBox="0 0 24 24"
