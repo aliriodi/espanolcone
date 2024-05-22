@@ -15,7 +15,7 @@ export default function NavBarAdmin(){
             href={'/inicio/admin/'}
             className={`text-title_color px-[22px] py-[10px] cursor-pointer ${currentPathName == "/inicio/admin" && "btn-success-active"}`}>
                 <FontAwesomeIcon className="mr-[5px]" icon={faUsers}/>
-                Usuarios
+                Usuarios  
             </Link>
 
             {/* Unidades */}
@@ -30,7 +30,8 @@ export default function NavBarAdmin(){
             <Link
             href={'/inicio/admin/express'}
             className={`text-title_color px-[22px] py-[10px] cursor-pointer ${currentPathName == "/inicio/admin/express" && "btn-success-active"}`}>
-                <FontAwesomeIcon className="mr-[5px]" icon={faMugHot}/>
+                <FontAwesomeIcon className="mr-[5px]" icon={faMugHot} />
+                
                 Express
             </Link>
 
@@ -58,6 +59,13 @@ export default function NavBarAdmin(){
             className={`text-title_color px-[22px] py-[10px] cursor-pointer ${currentPathName == "/inicio/admin/formulario" && "btn-success-active"}`}>
                 <FontAwesomeIcon className="mr-[5px]" icon={faTasks}/>
                 Formulario
+            </Link>
+            {/* Boton para ir a seccion de recibos */}
+            <Link
+            href={'/inicio/admin/profesores/'}
+            className={`text-title_color px-[22px] py-[10px] cursor-pointer ${currentPathName == "/inicio/admin/facturacion" && "btn-success-active"}`}>
+                <FontAwesomeIcon className="mr-[5px]" icon={faNewspaper}/>
+                Profesores
             </Link>
         </div>
     )

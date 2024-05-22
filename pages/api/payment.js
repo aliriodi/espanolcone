@@ -29,6 +29,7 @@ export default async function handler(req,res){
 
         const response = await  client.execute(request)
 console.log(response)
+console.log(response.result.links.map(link=>console.log(link)))
         return res.json({id: response.result.id})
 
     }

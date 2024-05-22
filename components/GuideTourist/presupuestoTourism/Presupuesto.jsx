@@ -170,7 +170,7 @@ function Presupuesto({ user, handlerSend }) {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(
-            {
+            { 
               idUser: user._id,
               idPlan: 'plansync',
               qty: VALUE.qty,

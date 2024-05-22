@@ -5,6 +5,7 @@ import { useTranslation } from 'next-i18next';
 import { experts } from '../../public/imgs/images.js';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import styles from '../../styles/footer.module.css';
 import { SwiperSlide, Swiper} from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
@@ -50,6 +51,7 @@ export default function Experts() {
         >
           {experts.map((image, index) => (
           <SwiperSlide key={index}>
+              <a href={image.linkedin} target="_blank" rel="noopener noreferrer" className='hover:border-primary_hover'>
             <div key={index} className='relative flex flex-col items-center'>
                 {/* Imagen */}
                 <Image alt={image.name} src={image.image} width={162} height={162} />
@@ -59,7 +61,8 @@ export default function Experts() {
 
                 {/* Trabajo */}
                 <p className='text-center'>{image.job}</p>
-            </div>
+               <p > <i className="fab fa-linkedin-in " style={{ backgroundColor: 'black', color: 'white',padding: '8px', borderRadius: '50%'}}></i></p>
+            </div></a>
           </SwiperSlide>
 
           ))}
@@ -80,6 +83,7 @@ export default function Experts() {
         >
           {experts.map((image, index) => (
           <SwiperSlide key={index}>
+             <a href={image.linkedin} target="_blank" rel="noopener noreferrer" className='hover:border-primary_hover'>
             <div key={index} className='relative flex flex-col items-center'>
                 {/* Imagen */}
                 <Image alt={image.name} src={image.image} width={162} height={162} />
@@ -89,7 +93,8 @@ export default function Experts() {
 
                 {/* Trabajo */}
                 <p className='text-center'>{image.job}</p>
-            </div>
+                <p > <i className="fab fa-linkedin-in " style={{ backgroundColor: 'black', color: 'white',padding: '8px', borderRadius: '50%'}}></i></p>
+            </div></a>
           </SwiperSlide>
 
           ))}
