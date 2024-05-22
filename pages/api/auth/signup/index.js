@@ -44,6 +44,10 @@ export default async function POST(req, res){
                   description: "Clase Angel Jossue",
                   done: false,
                   enable: true,
+                  points: 0,
+                  maxPoints: 20,
+                  maxPages: 18,
+                  currentPage: 0
                 },
                 {
                   number: 2,
@@ -52,7 +56,11 @@ export default async function POST(req, res){
                   description: "Creacion de la unidad,con detalles en className",
                   done: false,
                   enable: false,
-                  toPay: true
+                  toPay: true,
+                  points: 0,
+                  maxPoints: 20,
+                  currentPage: 0,
+                  maxPages: 22,
                 }
               ]
             },
@@ -66,6 +74,10 @@ export default async function POST(req, res){
                   description: "Borrada por error",
                   done: false,
                   enable: true,
+                  points: 0,
+                  maxPoints: 20,
+                  maxPages: 18,
+                  currentPage: 0,
                 },
                 {
                   number: 2,
@@ -74,7 +86,11 @@ export default async function POST(req, res){
                   description: "estas es la unidad dosss cargada por manuel",
                   done: false,
                   enable: false,
-                  toPay: true
+                  toPay: true,
+                  points: 0,
+                  maxPoints: 20,
+                  maxPages: 20,
+                  currentPage: 0,
                 }
               ]
             },
@@ -87,7 +103,11 @@ export default async function POST(req, res){
                   unitID: "6594e96a5dc873ac0cddc2ec",
                   description: "Quiero conocer gente en Cordoba, 3/01/24",
                   done: false,
-                  enable: true
+                  enable: true,
+                  points: 0,
+                  maxPoints: 20,
+                  maxPages: 20,
+                  currentPage: 0,
                 },
                 {
                   number: 2,
@@ -96,7 +116,11 @@ export default async function POST(req, res){
                   description: "clase cargada por Virginia a ver que pasa",
                   done: false,
                   enable: false,
-                  toPay: true
+                  toPay: true,
+                  points: 0,
+                  maxPoints: 20,
+                  maxPages: 20,
+                  currentPage: 0,
                 },
                 {
                   number: 3,
@@ -105,7 +129,11 @@ export default async function POST(req, res){
                   description: "Virginia creacion de la unidad 3 nivel b1",
                   done: false,
                   enable: false,
-                  toPay: true
+                  toPay: true,
+                  points: 0,
+                  maxPoints: 20,
+                  maxPages: 24,
+                  currentPage: 0,
                 },
                 {
                   number: 4,
@@ -114,7 +142,11 @@ export default async function POST(req, res){
                   description: "esta es la unidad 4 creada por manuel",
                   done: false,
                   enable: false,
-                  toPay: true
+                  toPay: true,
+                  points: 0,
+                  maxPoints: 20,
+                  maxPages: 19,
+                  currentPage: 0,
                 },
                 {
                   number: 5,
@@ -123,7 +155,11 @@ export default async function POST(req, res){
                   description: "clase cargada unidad 5 manu",
                   done: false,
                   enable: false,
-                  toPay: true
+                  toPay: true,
+                  points: 0,
+                  maxPoints: 20,
+                  maxPages: 15,
+                  currentPage: 0,
                 }
               ]
             }
