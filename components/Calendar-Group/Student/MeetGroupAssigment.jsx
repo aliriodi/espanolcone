@@ -68,7 +68,12 @@ export const MeetGroupAssigment = () => {
   const [preassgined, setPreassgined] = useState(false);
   const [assigned, setAssgined] = useState(false);
 
-  const { useAddStudentsCalendar } = useStudents()
+  const { useAddStudentsCalendar, isSubmitting } = useStudents()
+
+  function addStudientCallback(usuario, teachervar) {
+    useAddStudentsCalendar(usuario, teachervar)
+  }
+
 
   const lastplansyc = session?.user?.planSync?.length;
   //upaypalDatesser
@@ -972,7 +977,8 @@ export const MeetGroupAssigment = () => {
                   type="button"
                   className='bg-success text-center text-white rounded-[5px] py-2 mt-4 mx-1'
                   key={hoursMeet.startDatetime}
-                  onClick={() => useAddStudentsCalendar(renders?.user, hoursMeet)} // Pasa la información de la clase seleccionada
+                  onClick={() => addStudientCallback(renders?.user, { ...hoursMeet, teacherEmail: personSchedule.email })} // Asegúrate de pasar el correo electrónico del profesor
+                  disabled={isSubmitting}
                 >
                   {hoursMeet.startDatetime.split('T')[1]} - {hoursMeet.endDatetime.split('T')[1]}
                 </button>
