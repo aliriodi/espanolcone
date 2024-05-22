@@ -985,7 +985,8 @@ export const MeetGroupAssigment = () => {
               // ))
 
             }
-            <ButtonAddStudentCalendarGroup personSchedule={personSchedule}
+            <ButtonAddStudentCalendarGroup
+              personSchedule={personSchedule}
               renders={renders}
               selectedDay={selectedDay} />
 
