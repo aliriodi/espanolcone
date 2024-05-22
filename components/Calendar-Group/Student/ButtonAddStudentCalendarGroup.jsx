@@ -4,14 +4,14 @@ import { parseISO, isSameDay } from 'date-fns';
 export default function ButtonAddStudentCalendarGroup({ personSchedule, renders, selectedDay }) {
 
 
-    async function addStudentsCalendar() {
+    async function addStudentsCalendar(student, classDetails) {
 
-        const { first_name, last_name, image, email, country } = renders;
-        const { students, studentLimit, id, startDatetime, endDatetime, teacherEmail } = personSchedule.calendarGroup[0];
+        const { first_name, last_name, image, email, country } = student;
+        const { students, studentLimit, id, startDatetime, endDatetime, teacherEmail } = classDetails;
 
-        console.log()
-        console.log(renders)
-        console.log(selectedDay)
+
+
+
 
         // Verifica si el límite de estudiantes se ha superado
         if (students.length >= studentLimit) {
@@ -23,7 +23,7 @@ export default function ButtonAddStudentCalendarGroup({ personSchedule, renders,
 
         // Crea la estructura de datos actualizada para la clase
         const updatedClassDetails = {
-            ...personSchedule.calendarGroup[0],
+            ...classDetails,
             students: updatedStudents
         };
 
@@ -65,7 +65,7 @@ export default function ButtonAddStudentCalendarGroup({ personSchedule, renders,
                         type="button"
                         className='bg-success text-center text-white rounded-[5px] py-2 mt-4 mx-1'
                         key={hoursMeet.startDatetime}
-                        onClick={addStudentsCalendar}
+                        onClick={() => addStudentsCalendar(renders.user, { ...hoursMeet, teacherEmail: 'teacher@example.com' })}
 
                     >
                         {hoursMeet.startDatetime.split('T')[1]} - {hoursMeet.endDatetime.split('T')[1]}
