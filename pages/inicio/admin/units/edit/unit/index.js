@@ -20,19 +20,24 @@ export default function Index() {
         },
         [])
 
-        console.log(classResume)
+    console.log(classResume)
     return (
         <BodyGeneric>
             <AdminPage>
 
-            <div >
+            <div className="grid grid-cols-5 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
                     {classResume ? classResume.map(
-                        element => 
-                            <div key={element._id} onClick={()=>router.push('/inicio/admin/units/edit/unit/'+element._id)} className="border-2 px-[60px] py-[19px]    md:px-[25px]">
-                            <p>{element.level}</p>
-                            <p>{element.unit}</p>
-                        </div>
-                        
+                        element =>
+                            <div key={element._id}>
+                                <div className='p-4 w-[180px]'>
+                                    <div key={element._id} onClick={() => router.push('/inicio/admin/units/edit/unit/' + element._id)}
+                                        className=" cursor-pointer border-2  py-[19px]   ">
+                                        <p>{element.level}</p>
+                                        <p>{element.unit}</p>
+                                    </div>
+                                </div>
+                            </div>
+
                     ) : null}
                 </div>
             </AdminPage>
