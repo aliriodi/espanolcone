@@ -129,7 +129,7 @@ const Menu = (props) => {
               onClick={() => setIsOpen(!isOpen)}>
               <FontAwesomeIcon
                 icon={faBars}
-                className="text-[20px] text-violet_dark cursor-pointer"
+                className="text-[20px] text-violet_dark cursor-pointer w-[20px]"
               />
             </button>
 
@@ -216,7 +216,7 @@ const Menu = (props) => {
             hover:opacity-[1] transition-all
             md:left-[25px]`}>
         <FontAwesomeIcon
-          className="text-violet_dark text-[20px]"
+          className="text-violet_dark text-[20px] w-[20px]"
           icon={faArrowLeft}
         />
       </div>
@@ -261,7 +261,7 @@ const Menu = (props) => {
                     href="/inicio/home">
                     <FontAwesomeIcon
                       icon={faHouse}
-                      className="  mr-[10px]"
+                      className="  mr-[10px] w-[16px]"
                     />
                     <p>Inicio</p>
                   </Link>
@@ -279,7 +279,7 @@ const Menu = (props) => {
                     href="/inicio/curso">
                     <FontAwesomeIcon
                       icon={faLaptop}
-                      className="  mr-[10px]"
+                      className="  mr-[10px] w-[16px]"
                     />
                     <p>Curso</p>
                   </Link>
@@ -296,7 +296,7 @@ const Menu = (props) => {
                                         }
                                     hover:bg-primary hover:text-white`}>
                     <FontAwesomeIcon
-                      className="mr-[5px]"
+                      className="mr-[5px] w-[16px]"
                       icon={faMugHot}
                     />
                     Español Express
@@ -312,7 +312,7 @@ const Menu = (props) => {
                                         }
                                     hover:bg-primary hover:text-white`}>
                     <FontAwesomeIcon
-                      className="mr-[5px]"
+                      className="mr-[5px] w-[16px]"
                       icon={faMugHot}
                     />
                     Blogs
@@ -332,7 +332,7 @@ const Menu = (props) => {
                     href="/inicio/calendar">
                     <FontAwesomeIcon
                       icon={faCalendarDays}
-                      className=" mr-[10px]"
+                      className=" mr-[10px] w-[16px]"
                     />
                     <p>Agenda</p>
                   </Link>
@@ -350,7 +350,7 @@ const Menu = (props) => {
                     href="/inicio/teachers">
                     <FontAwesomeIcon
                       icon={faChalkboardUser}
-                      className="mr-[10px]"
+                      className="mr-[10px] w-[16px]"
                     />
                     <p>Profesores</p>
                   </Link>
@@ -383,7 +383,7 @@ const Menu = (props) => {
                     {/* icon */}
                     <FontAwesomeIcon
                       icon={faPersonHiking}
-                      className=" mr-[10px]"
+                      className=" mr-[10px] w-[16px]"
                     />
 
                     {/* Texto */}
@@ -407,7 +407,7 @@ const Menu = (props) => {
                     onClick={() => setIsOpenMail(true)}>
                     <FontAwesomeIcon
                       icon={faEnvelope}
-                      className="  mr-[10px]"
+                      className="  mr-[10px] w-[16px]"
                     />
                     <p>Contáctanos</p>
                   </button>
@@ -429,7 +429,7 @@ const Menu = (props) => {
                         href={"/inicio/admin/"}>
                         <FontAwesomeIcon
                           icon={faUserTie}
-                          className=" mr-[10px]"
+                          className=" mr-[10px] w-[16px]"
                         />
                         <p>Administracion</p>
                       </Link>
@@ -465,7 +465,7 @@ const Menu = (props) => {
                   href="/inicio/profile">
                   <FontAwesomeIcon
                     icon={faAddressCard}
-                    className=" mr-[10px]"
+                    className=" mr-[10px] w-[16px]"
                   />
                   <p>Mi Perfil</p>
                 </Link>
