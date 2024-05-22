@@ -1,5 +1,5 @@
 "use client"
-import useStudents from '../../hooks/useStudents';
+import useStudents from '../../../hooks/useStudents';
 import { parseISO, isSameDay } from 'date-fns';
 
 export const ButtonAddStudentCalendarGroup = ({ personSchedule, renders, selectedDay }) => {
