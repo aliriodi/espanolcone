@@ -28,7 +28,7 @@ export default function Index() {
             <div >
                     {classResume ? classResume.map(
                         element => 
-                            <div onClick={()=>router.push('/inicio/admin/units/edit/unit/'+element._id)} className="border-2 px-[60px] py-[19px]    md:px-[25px]">
+                            <div key={element._id} onClick={()=>router.push('/inicio/admin/units/edit/unit/'+element._id)} className="border-2 px-[60px] py-[19px]    md:px-[25px]">
                             <p>{element.level}</p>
                             <p>{element.unit}</p>
                         </div>
