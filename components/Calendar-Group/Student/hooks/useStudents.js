@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
-const useStudents = () => {
-    const [isSubmitting, setIsSubmitting] = useState(false);
 
+    
     const useAddStudentsCalendar = async (student, classDetails) => {
+        const [isSubmitting, setIsSubmitting] = useState(false);
         const { first_name, last_name, image, email, country } = student;
         const { students, studentLimit, id, startDatetime, endDatetime, teacherEmail } = classDetails;
 
@@ -48,9 +48,8 @@ const useStudents = () => {
     };
 
     return {
-        useAddStudentsCalendar,
-        isSubmitting
+        
     };
-};
 
-export default useStudents;
+
+export default useAddStudentsCalendar;

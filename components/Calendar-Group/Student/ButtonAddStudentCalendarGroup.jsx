@@ -21,7 +21,7 @@ export const ButtonAddStudentCalendarGroup = ({ personSchedule, renders, selecte
                         className='bg-success text-center text-white rounded-[5px] py-2 mt-4 mx-1'
                         key={hoursMeet.startDatetime}
                         onClick={() => useAddStudentsCalendar(renders?.user, { ...hoursMeet, teacherEmail: 'teacher@example.com' })} // Asegúrate de pasar el correo electrónico del profesor
-                        disabled={isSubmitting}
+
                     >
                         {hoursMeet.startDatetime.split('T')[1]} - {hoursMeet.endDatetime.split('T')[1]}
                     </button>
