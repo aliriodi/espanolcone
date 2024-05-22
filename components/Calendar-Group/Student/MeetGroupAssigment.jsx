@@ -32,7 +32,8 @@ import ModalPago from '../../ModalPagoPAYPAL';
 import ModalPago2 from '../../ModalPagoZelle';
 import ModalPagoABLE from '../../ModalPagoAble';
 import ModalDescAssig from '../../Calendar/ModalDescAssig';
-import useStudents from './hooks/useStudents';
+import { ButtonAddStudentCalendarGroup } from './ButtonAddStudentCalendarGroup';
+
 
 
 
@@ -68,11 +69,9 @@ export const MeetGroupAssigment = () => {
   const [preassgined, setPreassgined] = useState(false);
   const [assigned, setAssgined] = useState(false);
 
-  const { useAddStudentsCalendar, isSubmitting } = useStudents()
 
-  function addStudientCallback(usuario, teachervar) {
-    useAddStudentsCalendar(usuario, teachervar)
-  }
+
+
 
 
   const lastplansyc = session?.user?.planSync?.length;
@@ -969,23 +968,26 @@ export const MeetGroupAssigment = () => {
               //     Puedes agendar <b>{session?.user?.planSync && session.user.planSync[session.user.planSync.length - 1].qty - session.user.planSync[session.user.planSync.length - 1].classview}</b> {session?.user?.planSync?.length > 1 ? "clases" : "clase"}
               //   </p> : <p>No posees clases para agendar</p>
 
-              personSchedule?.calendarGroup?.length && personSchedule?.calendarGroup?.map((hoursMeet) => (
+              // personSchedule?.calendarGroup?.length && personSchedule?.calendarGroup?.map((hoursMeet) => (
 
-                isSameDay(parseISO(hoursMeet.startDatetime), selectedDay) &&
+              //   isSameDay(parseISO(hoursMeet.startDatetime), selectedDay) &&
 
-                <button
-                  type="button"
-                  className='bg-success text-center text-white rounded-[5px] py-2 mt-4 mx-1'
-                  key={hoursMeet.startDatetime}
-                  onClick={() => addStudientCallback(renders?.user, { ...hoursMeet, teacherEmail: personSchedule.email })} // Asegúrate de pasar el correo electrónico del profesor
-                  disabled={isSubmitting}
-                >
-                  {hoursMeet.startDatetime.split('T')[1]} - {hoursMeet.endDatetime.split('T')[1]}
-                </button>
+              //   <button
+              //     type="button"
+              //     className='bg-success text-center text-white rounded-[5px] py-2 mt-4 mx-1'
+              //     key={hoursMeet.startDatetime}
+              //     onClick={() => useAddStudentsCalendar(renders?.user, { ...hoursMeet, teacherEmail: personSchedule.email })} // Asegúrate de pasar el correo electrónico del profesor
+              //     disabled={isSubmitting}
+              //   >
+              //     {hoursMeet.startDatetime.split('T')[1]} - {hoursMeet.endDatetime.split('T')[1]}
+              //   </button>
 
-              ))
+              // ))
 
             }
+            <ButtonAddStudentCalendarGroup personSchedule={personSchedule}
+              renders={renders}
+              selectedDay={selectedDay} />
 
             <time dateTime={format(selectedDay, "yyyy-MM-dd'T'HH:00:00")} />
 
