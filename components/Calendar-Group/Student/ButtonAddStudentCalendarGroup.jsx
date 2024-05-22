@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { parseISO, isSameDay } from 'date-fns';
 
-export const ButtonAddStudentCalendarGroup = ({ personSchedule, renders, selectedDay }) => {
+export default function ButtonAddStudentCalendarGroup({ personSchedule, renders, selectedDay }) {
 
 
-    const useAddStudentsCalendar = async (student, classDetails) => {
+    async function useAddStudentsCalendar(student, classDetails) {
 
         const { first_name, last_name, image, email, country } = student;
         const { students, studentLimit, id, startDatetime, endDatetime, teacherEmail } = classDetails;
