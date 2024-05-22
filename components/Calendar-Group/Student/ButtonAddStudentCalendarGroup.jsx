@@ -4,10 +4,10 @@ import { parseISO, isSameDay } from 'date-fns';
 export default function ButtonAddStudentCalendarGroup({ personSchedule, renders, selectedDay }) {
 
 
-    async function useAddStudentsCalendar(student, classDetails) {
+    async function addStudentsCalendar() {
 
-        const { first_name, last_name, image, email, country } = student;
-        const { students, studentLimit, id, startDatetime, endDatetime, teacherEmail } = classDetails;
+        const { first_name, last_name, image, email, country } = renders;
+        const { students, studentLimit, id, startDatetime, endDatetime, teacherEmail } = personSchedule;
 
         // Verifica si el límite de estudiantes se ha superado
         if (students.length >= studentLimit) {
@@ -61,7 +61,7 @@ export default function ButtonAddStudentCalendarGroup({ personSchedule, renders,
                         type="button"
                         className='bg-success text-center text-white rounded-[5px] py-2 mt-4 mx-1'
                         key={hoursMeet.startDatetime}
-                        onClick={() => useAddStudentsCalendar(renders?.user, { ...hoursMeet, teacherEmail: 'teacher@example.com' })} // Asegúrate de pasar el correo electrónico del profesor
+                        onClick={addStudentsCalendar}
 
                     >
                         {hoursMeet.startDatetime.split('T')[1]} - {hoursMeet.endDatetime.split('T')[1]}
