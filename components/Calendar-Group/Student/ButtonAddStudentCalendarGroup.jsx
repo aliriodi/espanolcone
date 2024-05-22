@@ -1,3 +1,4 @@
+"use client"
 import useStudents from './hooks/useStudents';
 import { parseISO, isSameDay } from 'date-fns';
 
