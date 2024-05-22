@@ -174,6 +174,9 @@ const UserSchema = new Schema(
 
     },
 
+    pendingPayments: {
+      type: [{}],      
+    }
 
   },
   {
