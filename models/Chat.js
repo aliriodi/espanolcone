@@ -28,6 +28,7 @@ const ChatSchema = new Schema(
               ]
               
             },
+            total:Number,
             observacion:String,
             wasPayed: Boolean
           }      

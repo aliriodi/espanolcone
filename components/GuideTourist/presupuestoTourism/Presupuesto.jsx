@@ -445,9 +445,10 @@ function Presupuesto({ user, handlerSend }) {
       <p className=' text-violet_dark font-medium text-[19px] mt-5'>Total: <b>{total}</b></p>
 
       {/* Botn de pago */}
-      <div>
+      <div className=' flex items-center text-violet_dark font-medium'>
         <input
           type="checkbox"
+          className='checkbox mr-2'
           checked={isCheckboxChecked}
           onChange={() => setIsCheckboxChecked(!isCheckboxChecked)}
         />
@@ -457,18 +458,18 @@ function Presupuesto({ user, handlerSend }) {
         {/* {OpenP && <Plan Confirm={Confirm} newMeeting={newMeeting} closePlan={closePlan} />} */}
 
         {
-          !isPaymentConfirmed && true &&
-          <div>
+          // !isPaymentConfirmed && true &&
+          // <div>
 
-            {/* Modal de Pago habilitacion*/}
-            <ModalPagoABLE
-              close={closePayModal}
-              modalPay={handleChangePaypalModal}
-              open={PayModal}
-              open1={openPaypalModal}
-              open2={openZelleModal}
-            />
-          </div>
+          //   {/* Modal de Pago habilitacion*/}
+          //   <ModalPagoABLE
+          //     close={closePayModal}
+          //     modalPay={handleChangePaypalModal}
+          //     open={PayModal}
+          //     open1={openPaypalModal}
+          //     open2={openZelleModal}
+          //   />
+          // </div>
         }
 
         {
@@ -506,31 +507,33 @@ function Presupuesto({ user, handlerSend }) {
 
 
         {/* Enviar */}
-        {isCheckboxChecked &&
-          total ?
-          <button
-            onClick={() => { Confirm({ qty: 1, cost: total, description: descripcion }); setPayModal(!PayModal) }}
-            className='rounded-[7px] mt-4 p-2 text-white font-medium text-[21px] bg-secondary w-full'
-            disabled={total === 0}
-            type="submit">
-            PAGAR
-          </button> :
+        {
           isCheckboxChecked &&
-          <button
-            onClick={() => { Confirm({ qty: 1, cost: total, description: descripcion }); setPayModal(!PayModal) }}
-            className='rounded-[7px] mt-4 p-2 text-white font-medium text-[21px] bg-secondary w-full'
-            disabled={total === 0}
-            type="submit">
-            El monto Total debe ser mayor a CERO
-          </button>}
+            total ?
+            <button
+              onClick={() => { Confirm({ qty: 1, cost: total, description: descripcion }); setPayModal(!PayModal) }}
+              className='rounded-[7px] mt-4 p-2 text-white font-medium text-[21px] bg-secondary w-full'
+              disabled={total === 0}
+              type="submit">
+              PAGAR
+            </button> :
+            isCheckboxChecked &&
+            <button
+              onClick={() => { Confirm({ qty: 1, cost: total, description: descripcion }); setPayModal(!PayModal) }}
+              className='rounded-[7px] mt-4 p-2 text-white font-medium text-[21px] bg-secondary w-full'
+              disabled={total === 0}
+              type="submit">
+              El monto Total debe ser mayor a CERO
+            </button>
+        }
 
 
       </div>
 
       {/* Enviar */}
       <button
-        onClick={() => { handlerSend(items, observacion) }}
-        className='rounded-[7px] mt-4 p-2 text-white font-medium text-[21px] bg-secondary w-full'
+        onClick={() => { handlerSend(items, observacion, total) }}
+        className={`rounded-[7px] mt-4 p-2 text-white font-medium text-[21px] bg-secondary w-full ${!isCheckboxChecked && total == 0 && "pointer-events-none opacity-[70%]"}`}
         type="submit">
         Enviar
       </button>

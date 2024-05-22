@@ -6,9 +6,10 @@ import BodyGeneric from '../../../components/GenericsElements/BodyGeneric'
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleCheck, faClock, faCommentDots, faFaceLaughBeam, faFileInvoiceDollar, faHandPointLeft, faHourglass, faHourglassHalf, faPaperPlane, faPersonHiking, faUserXmark, faX } from "@fortawesome/free-solid-svg-icons";
+import { faCheckCircle, faCircleCheck, faClock, faCommentDots, faFaceLaughBeam, faFileInvoiceDollar, faHandPointLeft, faHourglass, faHourglassHalf, faPaperPlane, faPersonHiking, faUserXmark, faX } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import Presupuesto from "../../../components/GuideTourist/presupuestoTourism/Presupuesto";
+import ModalPayment from "../../../components/GenericsElements/Payment/ModalPayment";
 
 export default function Chat() {
   const [message, setMessage] = useState("");
@@ -23,6 +24,14 @@ export default function Chat() {
   const [loaderChat, setLoaderChat] = useState(false)
 
   const [pusher, setPusher] = useState(null);
+
+  const [openPayment, setOpenPayment] = useState(false)
+  const [paymentDate, setPaymentDate] = useState({
+    menssageIndex:0,
+    amount: "13.00", // Monto de la transacción
+    currency: "USD", // Moneda
+    description: "Compra de producto", // Descripción de la compra
+  })
   
   const router = useRouter();
   const { id } = router.query;
@@ -78,6 +87,7 @@ export default function Chat() {
 
     getChat()
     setCurrentID(id)
+    console.log("Mensajes actuales ",currentChat)
 
   },[id, session])
 
@@ -119,7 +129,8 @@ export default function Chat() {
     )
   }
 
-  async function handlerSendExpenses(data, observacion){
+  async function handlerSendExpenses(data, observacion, total){
+    
     console.log("data ",data, " | ", observacion)
 
     await axios.post("/api/pusher/chat-update", {
@@ -128,6 +139,7 @@ export default function Chat() {
       chatId: session?.user?.chats[id]?.chatID,
       budget:{
         data: data,
+        total:total,
         observacion:observacion,
         wasPayed: false
       }
@@ -139,9 +151,10 @@ export default function Chat() {
         userID: session?.user?._id,
         budget:{
           data: data,
+          total:total,
           observacion:observacion,
           wasPayed: false
-        }
+        },
       }
     )
   }
@@ -162,6 +175,36 @@ export default function Chat() {
       console.log(e)
     }
     
+  }
+
+  async function handlePaymentSuccess(data){
+
+    
+    let recipe = {
+      idUser: session?.user?._id,
+      idPlan: "",
+      qty: paymentDate?.amount,
+      ammount: 1,
+      dates:{
+        type: data?.type,
+        menssageIndex:paymentDate?.menssageIndex
+      }
+    }
+
+    let newMessage = [...allMessages]
+
+    newMessage[paymentDate?.menssageIndex].budget = {
+      ...newMessage[paymentDate?.menssageIndex].budget,
+      wasPayed: true
+    }
+
+    let newCurrentChat = {
+      ...currentChat,
+      messages: newMessage
+    }
+
+    setAllMessages(newMessage)
+
   }
 
   async function getChat(){
@@ -223,6 +266,22 @@ export default function Chat() {
     alert("a")
 
     console.log("result ", result?.data?.users)
+  }
+
+  async function openPaymentModal(amount, description,index){
+
+    if(!amount){
+      alert("Este presupuesto no tiene un monto definido")
+      return
+    }
+
+    setPaymentDate({
+      amount: amount, 
+      currency: "USD", 
+      description: description,
+      menssageIndex: index
+    })
+    setOpenPayment(true)
   }
   
     return (
@@ -359,7 +418,8 @@ export default function Chat() {
                         budget?.data?.length ?
                         <div>
 
-                          <ul className=' grid grid-cols-3 text-white py-2 font-medium'>
+                          {/* Encabezado */}
+                          <ul className={`grid grid-cols-3 ${ userID == session?.user?._id ? "text-white" : " text-violet_dark" } py-2 font-medium`}>
                             <li className="px-3">Descripción</li>
                             <li className="px-3 text-center">Cantidad</li>
                             {/* <li className="px-3 text-center">Unidad</li> */}
@@ -367,12 +427,12 @@ export default function Chat() {
                             {/* <li className="px-3 text-center">Monto Total</li> */}
                           </ul>
 
+                          {/* Datos de compra */}
                           {
-
                             budget?.data?.map((e, index)=>
                             <ul
                               key={index}
-                              className=' grid grid-cols-3 font-medium  roundde last-of-type:rounded-[0_0_15px_15px] border-t-2 border-white text-white'>
+                              className={`grid grid-cols-3 font-medium  roundde last-of-type:rounded-[0_0_15px_15px] border-t-2 ${ userID == session?.user?._id ? "border-white text-white" : " border-violet_dark text-violet_dark"}`}>
 
                               <li className={`px-3 py-1`}>{e?.descripcion}</li>
                               <li className={`px-3 py-1 text-center`}>{e?.cantidad}</li>
@@ -383,27 +443,63 @@ export default function Chat() {
                             </ul>
                             )
                           }
-                          
+
+                          {/* Total */}
+                          <div className="flex mt-3 px-3  font-medium">
+                            <b className="mr-2">Total:</b>
+                            <p>
+                              {
+                                budget?.total ?
+                                `${budget?.total} USD`
+                                :
+                                0
+                              }
+                            </p>
+                          </div>
+
                           <div
                           className="mt-4 mb-2">
 
-                            {/* Mensaje del lado del que mando el presupuesto */}
-                            <p className="text-[18px] text-center flex items-center justify-center">
+                            {
+                              // Mensaje del lado del que mando el presupuesto
+                              userID == session?.user?._id ? 
+                              <p className="text-[18px] text-center flex items-center justify-center">
+                                
+                                {
+                                  budget?.wasPayed ?
+                                  <>
+                                  Se a completado el pago <FontAwesomeIcon className="ml-2" icon={faCircleCheck}/>
+                                  </>
+                                  :
+                                  <>
+                                  Pago en espera <FontAwesomeIcon className="ml-2" icon={faClock}/>
+                                  </>
+                                }
+
+                              </p>
+
+                              :
+
+                              // Mensaje / Boton del lado del cliente
+                              budget?.wasPayed ?
+                              <p className="w-full flex items-center justify-center font-semibold">
+
+                                Compra completada
+
+                                <FontAwesomeIcon
+                                className="ml-2 text-secondary"
+                                icon={faCheckCircle}/>
+
+                              </p>
+                              :
+                              <button
+                              onClick={()=>openPaymentModal(budget?.total, budget?.observacion, index)}
+                              className=" btn-primary w-full py-2 font-medium">
+                                Obtener
+                              </button>
                               
-                              {
-                                budget?.wasPayed ?
-                                <>
-                                Se a completado el pago <FontAwesomeIcon className="ml-2" icon={faCircleCheck}/>
-                                </>
-                                :
-                                <>
-                                Pago en espera <FontAwesomeIcon className="ml-2" icon={faClock}/>
-                                </>
-                              }
-
-                            </p>
-
-                            {/* Mensaje del lado del cliente */}
+                            }
+                            
 
 
                           </div>
@@ -637,6 +733,13 @@ export default function Chat() {
 
         </div>
 
+        {/* Modal de pago */}
+        <ModalPayment
+        date={paymentDate}
+        open={openPayment}
+        onPaymentSuccess={handlePaymentSuccess}
+        onCloseModal={()=>setOpenPayment(false)}/>
+        
       </BodyGeneric>
     );
 }
