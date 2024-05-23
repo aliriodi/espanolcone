@@ -31,9 +31,10 @@ export function TeachersCard() {
 
   }, [dispatch]);
 
-  
+
   // Obtén la información de cards desde Redux
   const cards = useSelector((state) => state.datos.cards);
+
 
   const handleButtonClick = (card) => {
     dispatch(cardDetail(card))
@@ -62,8 +63,8 @@ export function TeachersCard() {
   return (
     <>
       <Head>
-          <title>Profesores | Español con E</title>
-          <meta name="teachers" content="teachers list" />
+        <title>Profesores | Español con E</title>
+        <meta name="teachers" content="teachers list" />
       </Head>
 
       {/* Encabezado */}
@@ -86,20 +87,20 @@ export function TeachersCard() {
       </div>
 
       {/* Profesores */}
-      {cards.length > 0 && session? (
+      {cards.length > 0 && session ? (
         cards.map((card, index) => (
           card.email !== session.user.email ?
-              <div key={index} className='overflow-hidden relative w-full flex p-[18px] bg-white rounded-[5px] shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000040] mb-[24px]
+            <div key={index} className='overflow-hidden relative w-full flex p-[18px] bg-white rounded-[5px] shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000040] mb-[24px]
           md:p-0'>
 
-                {/* Imagen de perfil */}
-                <div className='flex flex-col items-center w-auto'>
+              {/* Imagen de perfil */}
+              <div className='flex flex-col items-center w-auto'>
 
-                  {/* Imagen */}
-                  <div className='relative mb-5
+                {/* Imagen */}
+                <div className='relative mb-5
                   md:m-0'>
-                    {
-                      card?.image?.url || card?.image ?
+                  {
+                    card?.image?.url || card?.image ?
                       <div className='w-[134px] h-[126px]
                       md:w-[126px]'>
                         <Image
@@ -115,69 +116,69 @@ export function TeachersCard() {
                          md:rounded-none"
                         />
                       </div>
-                        :
-                        <div className="w-[134px] h-[126px] rounded-lg object-cover bg-gray_clear
+                      :
+                      <div className="w-[134px] h-[126px] rounded-lg object-cover bg-gray_clear
                          md:rounded-none md:w-[126px]">
-                        </div>
-                    }
+                      </div>
+                  }
 
-                    {card?.active && 
-                      <span className='absolute flex w-3 h-3 bg-secondary bottom-[-10px] right-[-10px] rounded-full border-[7px] p-[7px] border-solid border-white
+                  {card?.active &&
+                    <span className='absolute flex w-3 h-3 bg-secondary bottom-[-10px] right-[-10px] rounded-full border-[7px] p-[7px] border-solid border-white
                       md:bottom-[-6px] '></span>
-                    }
-                  </div>
-
-
-                  {/* Estrellas */}
-                  <div className="flex items-center space-x-1 text-success
-              md:hidden">
-                    {renderStars()}
-                  </div>
+                  }
                 </div>
 
-                {/* Contenido */}
-                <div className='relative ml-[20px] w-[100%] flex flex-col  justify-between overflow-hidden
+
+                {/* Estrellas */}
+                <div className="flex items-center space-x-1 text-success
+              md:hidden">
+                  {renderStars()}
+                </div>
+              </div>
+
+              {/* Contenido */}
+              <div className='relative ml-[20px] w-[100%] flex flex-col  justify-between overflow-hidden
             md:m-0 md:h-[126px] md:p-3'>
 
-                  {/* Nombre */}
-                  <p className='text-title_color font-semibold text-[21px] '>{card.first_name + ' ' + card.last_name}</p>
+                {/* Nombre */}
+                <p className='text-title_color font-semibold text-[21px] '>{card.first_name + ' ' + card.last_name}</p>
 
-                  {/* Descripcion */}
-                  <p className='text-violet_dark
+                {/* Descripcion */}
+                <p className='text-violet_dark
               md:text-[14px] md:relative md:overflow-hidden'>
-                    {card.content}
+                  {card.content}
 
-                    {/* Degrade en responsive */}
-                    <span className='bg-gradient-to-t from-white  w-full h-full absolute top-0 left-0 hidden
+                  {/* Degrade en responsive */}
+                  <span className='bg-gradient-to-t from-white  w-full h-full absolute top-0 left-0 hidden
                 md:flex'></span>
-                  </p>
+                </p>
 
-                  {/* Boton */}
-                  <div className='w-full flex justify-end'>
-                    <button key={index}
-                      className=" py-[10px] px-[48px] btn-primary
+                {/* Boton */}
+                <div className='w-full flex justify-end'>
+                  <button key={index}
+                    className=" py-[10px] px-[48px] btn-primary
                     md:hidden"
-                      onClick={() => handleButtonClick(card)}>
-                      Ver más
-                    </button>
-                  </div>
-
-
-                  {/* Estrellas en el responsive*/}
-                  <div className="items-center space-x-1 text-success hidden
-              md:flex">
-                    {renderStars()}
-                  </div>
+                    onClick={() => handleButtonClick(card)}>
+                    Ver más
+                  </button>
                 </div>
 
-                {/* Boton en el responsive */}
-                <button
-                  className="hidden
-                    md:flex md:absolute md:w-full md:h-full"
-                  onClick={() => handleButtonClick(card)}>
-                </button>
 
+                {/* Estrellas en el responsive*/}
+                <div className="items-center space-x-1 text-success hidden
+              md:flex">
+                  {renderStars()}
+                </div>
               </div>
+
+              {/* Boton en el responsive */}
+              <button
+                className="hidden
+                    md:flex md:absolute md:w-full md:h-full"
+                onClick={() => handleButtonClick(card)}>
+              </button>
+
+            </div>
             : null))
       ) : (
         <div className='w-screen h-[400px] flex justify-center items-center

@@ -203,16 +203,13 @@ const Menu = (props) => {
 
       {/* Volver a Atras */}
       <div
-        onClick={() => {
-          if (props.redirectPath) router.push(props.redirectPath);
-          else history.back();
-        }}
-        className={`bg-white shadow-[0px_4px_24px_#18292F1A] absolute ${
-          currentPathName == "/inicio/home" ||
-          currentPathName == "/inicio/calendar"
-            ? "top-[20px]"
-            : "top-[100px]"
-        } left-[60px] h-[50px] w-[50px] rounded-full flex items-center justify-center z-[49] cursor-pointer opacity-[0.7]
+        onClick={
+          () => {
+            if (props.redirectPath) router.push(props.redirectPath)
+            else history.back()
+          }
+        }
+        className={`bg-white shadow-[0px_4px_24px_#18292F1A] absolute ${currentPathName == '/inicio/home' || currentPathName == '/inicio/calendar' ? "top-[20px]" : "top-[100px]"} left-[60px] h-[50px] w-[50px] rounded-full flex items-center justify-center z-[49] cursor-pointer opacity-[0.7]
             hover:opacity-[1] transition-all
             md:left-[25px]`}>
         <FontAwesomeIcon
@@ -253,10 +250,9 @@ const Menu = (props) => {
                 <li>
                   <Link
                     className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all    
-                                        ${
-                                          currentPathName == "/inicio/home" &&
-                                          "bg-primary text-white"
-                                        }
+                                        ${currentPathName == "/inicio/home" &&
+                      "bg-primary text-white"
+                      }
                                     hover:bg-primary hover:text-white`}
                     href="/inicio/home">
                     <FontAwesomeIcon
@@ -271,10 +267,9 @@ const Menu = (props) => {
                 <li>
                   <Link
                     className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                        ${
-                                          currentPathName == "/inicio/curso" &&
-                                          "bg-primary text-white"
-                                        }
+                                        ${currentPathName == "/inicio/curso" &&
+                      "bg-primary text-white"
+                      }
                                     hover:bg-primary hover:text-white`}
                     href="/inicio/curso">
                     <FontAwesomeIcon
@@ -289,11 +284,10 @@ const Menu = (props) => {
                   <Link
                     href={"/inicio/MiniLessons"}
                     className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                        ${
-                                          currentPathName ==
-                                            "/inicio/MiniLessons" &&
-                                          "bg-primary text-white"
-                                        }
+                                        ${currentPathName ==
+                      "/inicio/MiniLessons" &&
+                      "bg-primary text-white"
+                      }
                                     hover:bg-primary hover:text-white`}>
                     <FontAwesomeIcon
                       className="mr-[5px] w-[16px]"
@@ -306,10 +300,9 @@ const Menu = (props) => {
                   <Link
                     href={"/inicio/blogs"}
                     className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                        ${
-                                          currentPathName == "/inicio/blogs" &&
-                                          "bg-primary text-white"
-                                        }
+                                        ${currentPathName == "/inicio/blogs" &&
+                      "bg-primary text-white"
+                      }
                                     hover:bg-primary hover:text-white`}>
                     <FontAwesomeIcon
                       className="mr-[5px] w-[16px]"
@@ -323,17 +316,13 @@ const Menu = (props) => {
                 <li>
                   <Link
                     className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                        ${
-                                          currentPathName ==
-                                            "/inicio/calendar" &&
-                                          "bg-primary text-white"
-                                        }
+                                        ${currentPathName ==
+                      "/inicio/calendar" &&
+                      "bg-primary text-white"
+                      }
                                     hover:bg-primary hover:text-white`}
                     href="/inicio/calendar">
-                    <FontAwesomeIcon
-                      icon={faCalendarDays}
-                      className=" mr-[10px] w-[16px]"
-                    />
+                    <FontAwesomeIcon icon={faCalendarDays} className=" mr-[10px]" />
                     <p>Agenda</p>
                   </Link>
                 </li>
@@ -342,10 +331,9 @@ const Menu = (props) => {
                 <li>
                   <Link
                     className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                        ${
-                                          currentPathName == "/teachers" &&
-                                          "bg-primary text-white"
-                                        }
+                                        ${currentPathName == "/teachers" &&
+                      "bg-primary text-white"
+                      }
                                     hover:bg-primary hover:text-white`}
                     href="/inicio/teachers">
                     <FontAwesomeIcon
@@ -373,11 +361,10 @@ const Menu = (props) => {
                   {/* <span className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all opacity-[50%]`}> */}
                   <Link
                     className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                                     ${
-                                                       currentPathName ==
-                                                         "/inicio/tourGuides" &&
-                                                       "bg-primary text-white"
-                                                     }
+                                                     ${currentPathName ==
+                      "/inicio/tourGuides" &&
+                      "bg-primary text-white"
+                      }
                                                     hover:bg-primary hover:text-white`}
                     href="/inicio/tourGuides">
                     {/* icon */}
@@ -421,10 +408,9 @@ const Menu = (props) => {
                     <li>
                       <Link
                         className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                        ${
-                                          currentPathName == "/inicio/admin" &&
-                                          "bg-primary text-white"
-                                        }
+                                        ${currentPathName == "/inicio/admin" &&
+                          "bg-primary text-white"
+                          }
                                     hover:bg-primary hover:text-white`}
                         href={"/inicio/admin/"}>
                         <FontAwesomeIcon
@@ -457,10 +443,9 @@ const Menu = (props) => {
               <div className="text-title_color">
                 <Link
                   className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
-                                    ${
-                                      currentPathName == "/inicio/profile" &&
-                                      "bg-primary text-white"
-                                    }
+                                    ${currentPathName == "/inicio/profile" &&
+                    "bg-primary text-white"
+                    }
                                     hover:bg-primary hover:text-white`}
                   href="/inicio/profile">
                   <FontAwesomeIcon
