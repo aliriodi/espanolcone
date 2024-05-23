@@ -5,7 +5,7 @@ import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { DatePicker } from '@mui/x-date-pickers';
 import { format } from 'date-fns';
 import esLocale from 'date-fns/locale/es';
- 
+
 import Head from 'next/head';
 import Menu from "../../../components/Menu";
 import NavBarAdmin from '../../../components/admin/NavBarAdmin';
@@ -116,7 +116,7 @@ export default function HoraProfesores() {
         setFilteredProfesores(profesores);
          const totalHorasOcupadasOriginal = profesores.reduce((acc, profesor) => acc + profesor.horasOcupadas, 0);
     const totalHorasLibresOriginal = profesores.reduce((acc, profesor) => acc + profesor.horasLibres, 0);
-q
+
     setTotalHorasOcupadas(totalHorasOcupadasOriginal);
     setTotalHorasLibres(totalHorasLibresOriginal);
     };
