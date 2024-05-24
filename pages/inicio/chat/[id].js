@@ -6,10 +6,11 @@ import BodyGeneric from '../../../components/GenericsElements/BodyGeneric'
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckCircle, faCircleCheck, faClock, faCommentDots, faFaceLaughBeam, faFileInvoiceDollar, faHandPointLeft, faHourglass, faHourglassHalf, faPaperPlane, faPersonHiking, faUserXmark, faX } from "@fortawesome/free-solid-svg-icons";
+import { faCheckCircle, faCircleCheck, faClock, faCommentDots, faFaceLaughBeam, faFileInvoiceDollar, faHandPointLeft, faHourglass, faHourglassHalf, faPaperPlane, faPersonHiking, faUserPlus, faUserXmark, faX } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import Presupuesto from "../../../components/GuideTourist/presupuestoTourism/Presupuesto";
 import ModalPayment from "../../../components/GenericsElements/Payment/ModalPayment";
+import ListUsers from "../../../components/Chat/ListUsers";
 
 export default function Chat() {
   const [message, setMessage] = useState("");
@@ -17,8 +18,10 @@ export default function Chat() {
   const [currentID, setCurrentID] = useState(null);
   const [chatsDatas, setChatsDatas] = useState(null);
   const [requestID, setRequestID] = useState(null);
-  const [currentChat, setCurrentChat] = useState(null)
-  const [openForm, setOpenForm] = useState(false)
+  const [currentChat, setCurrentChat] = useState(null);
+  const [openForm, setOpenForm] = useState(false);
+
+  const [openListUsers, setOpenListUsers] = useState(false);  
 
   const [loaderSendMessager, setLoaderSendMessager] = useState(false)
   const [loaderChat, setLoaderChat] = useState(false)
@@ -35,7 +38,7 @@ export default function Chat() {
   
   const router = useRouter();
   const { id } = router.query;
-  const { data: session, status } = useSession();
+  const { data: session, status, update } = useSession();
 
   const messageScreen = useRef(null);
   
@@ -157,6 +160,8 @@ export default function Chat() {
         },
       }
     )
+
+    setOpenForm(false)
   }
 
   async function handleRequest(value){
@@ -249,23 +254,27 @@ export default function Chat() {
     
   }
   
-  async function handleCreateChat(){
+  async function handleCreateChat(currentUser, contactUser){
     let result = await axios.post(
       '/api/chat/add',
       {
         usersIDs: [ 
-          "651dacff8ac427a834bcaf89", // okina
-          "64ee534d698266e6fce966af" // nahuel
+          currentUser, // "651dacff8ac427a834bcaf89", // okina
+          contactUser // "64ee534d698266e6fce966af" // nahuel
         ],
 
         messages:[],
 
-        requests: "64ee534d698266e6fce966af"
+        requests: currentUser // "64ee534d698266e6fce966af" // nahuel
       }
     )
-    alert("a")
 
     console.log("result ", result?.data?.users)
+    update({
+        ...session?.user,
+        accessToken:"dddd"
+    })
+    return true
   }
 
   async function openPaymentModal(amount, description,index){
@@ -291,11 +300,12 @@ export default function Chat() {
         <div className=" flex w-full mt-[35px]">
 
           {/* ///////////// Lista de Chats ///////////// */}
-          <div className=" w-[400px] mr-3 bg-white rounded-[15px] shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000030] z-50
+          <div className=" w-[400px] mr-3 bg-white rounded-[15px] shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000030] z-50 relative
           md:absolute md:h-full">
             
             <ul className="mt-[80px]">
               
+              {/* Contactos */}
               {
                 session?.user?.chats &&
 
@@ -381,6 +391,22 @@ export default function Chat() {
               </li> */}
 
             </ul>
+
+            {/* Hacer nuevo contacto */}
+            <div className=" bg-white w-full absolute bottom-0 rounded-[0_0_15px_15px]">
+              
+              <button
+              onClick={()=>setOpenListUsers(true)}
+              className={` text-success font-medium w-[80%] flex mx-auto my-6 py-2 px-6 rounded-full transition-all items-center hover:bg-success_light`}>
+
+                <div className="w-[50px] h-[50px] flex justify-center items-center bg-success rounded-full ">
+                  <FontAwesomeIcon icon={faUserPlus} className="text-[20px] w-[25px] text-white"/>
+                </div>                
+
+                <b className="ml-3">Nuevo contacto</b>
+                
+              </button>
+            </div>
             
           </div>
 
@@ -732,6 +758,13 @@ export default function Chat() {
           </div>
 
         </div>
+
+        {/* Lista de usuario */}
+        <ListUsers
+        currentContacts={chatsDatas}
+        open={openListUsers}
+        createChat={handleCreateChat}
+        closeModal={()=> setOpenListUsers(false)}/>
 
         {/* Modal de pago */}
         <ModalPayment
