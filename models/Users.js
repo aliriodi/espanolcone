@@ -58,6 +58,10 @@ const UserSchema = new Schema(
       type: [{}]
 
     },
+    calendarGroup: {  //opcional para uso grupal
+      type: [{}]
+
+    },
     classes: {
       type: [
         {
@@ -170,6 +174,9 @@ const UserSchema = new Schema(
 
     },
 
+    pendingPayments: {
+      type: [{}],      
+    }
 
   },
   {

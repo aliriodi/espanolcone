@@ -70,13 +70,13 @@ function Blogs({ devDotToPosts }) {
                           id={post._id}
                           img={post.social_image}
                           createdAt={post.published_at}
-                          title={post[locale].title}
-                          desc={post[locale].description}
+                          title={post['es'].title}
+                          desc={post['es'].description}
                           slug={post.slug}
                           likes={post.averageRating}
                           comments={post.reviews.length}
-                          tagList={post[locale].tag_list}
-                          locale={locale}
+                          tagList={post['es'].tag_list}
+                          locale={'es'}
                           source="inicio"
                         />
                       </div>
