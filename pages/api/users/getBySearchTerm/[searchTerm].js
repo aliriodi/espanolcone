@@ -5,7 +5,7 @@ import Users from '../../../../models/Users'
 
 export default async function GetByEmail(req, res) {
   const {
-    query: { searchTerm, page, maxResults },
+    query: { searchTerm, page, maxResults, selects, role },
     method,
   } = req;
 
@@ -13,31 +13,47 @@ export default async function GetByEmail(req, res) {
     case 'GET':
       try {
         console.log("/////////////////////// ",page," ///////////////////////")
+
         console.log('CONNECTING TO MONGO DB');
         await dbConnect();
         console.log('CONNECTED TO MONGO DB',);
 
         console.log('/api/users/[searchTerm] user with searchTerm:', searchTerm);
 
-        const totalResults = await Users.countDocuments({
-          $or: [
-            { first_name: { $regex: new RegExp(searchTerm, 'i') } },
-            { last_name: { $regex: new RegExp(searchTerm, 'i') } },
-            { email: { $regex: new RegExp(searchTerm, 'i') } },
-          ],
-        });
+        // define el select final
+        let finalSelects = ""
+        if(selects) selects.split(',').map( select => finalSelects = finalSelects + `${select} `)
 
-        const results = await Users.find({
-          $or: [
-            { first_name: { $regex: new RegExp(searchTerm, 'i') } },
-            { last_name: { $regex: new RegExp(searchTerm, 'i') } },
-            { email: { $regex: new RegExp(searchTerm, 'i') } },
-          ],
-        }).select('-createdAt -updatedAt -password').skip((maxResults * page)- maxResults).limit(maxResults * page);
+        const query = {
+          $and: [
 
-        // if (!results || results.length === 0) {
-        //   return res.status(404).json({ message: 'No se encontraron usuarios' });
-        // }
+            // Termino de busqueda
+            searchTerm != "null" ? {
+              $or: [
+                { first_name: { $regex: new RegExp(searchTerm, 'i') } },
+                { last_name: { $regex: new RegExp(searchTerm, 'i') } },
+                { email: { $regex: new RegExp(searchTerm, 'i') } },
+              ],
+            } : {},
+
+            // Role
+            role ?
+            { 
+              role: role
+            } : {}
+          ]
+        };
+
+        const totalResults = await Users.countDocuments(query);
+
+        const results = await Users.find(query)
+
+        // las variable que no se van a traer
+        .select(`${finalSelects.length > 0 ? finalSelects : "-createdAt -updatedAt -password"}`)
+
+        // configuracion de paginado
+        .skip((page - 1) * maxResults)
+        .limit(maxResults);
 
         console.log(
           "/////////////////////////////// ",
@@ -46,11 +62,15 @@ export default async function GetByEmail(req, res) {
         );
 
         if (req.headers.accept === "*/*") {
+
           // Solicitud desde el código
           return res.status(200).json({ results, totalResults });
+
         } else {
+
           // Solicitud desde el navegador
           res.status(200).json({ message: "Acceso Denegado" });
+          
         }
       } catch (error) {
         console.error('Error al buscar en MongoDB:', error);

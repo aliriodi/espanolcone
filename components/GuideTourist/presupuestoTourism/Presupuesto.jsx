@@ -444,7 +444,7 @@ function Presupuesto({ user, handlerSend }) {
       {/* Total */}
       <p className=' text-violet_dark font-medium text-[19px] mt-5'>Total: <b>{total}</b></p>
 
-      {/* Botn de pago */}
+      {/* Check box para activar boton de envio */}
       <div className=' flex items-center text-violet_dark font-medium'>
         <input
           type="checkbox"
@@ -452,7 +452,7 @@ function Presupuesto({ user, handlerSend }) {
           checked={isCheckboxChecked}
           onChange={() => setIsCheckboxChecked(!isCheckboxChecked)}
         />
-        <label>Activar botón de pago</label>
+        <label>Recuerda que al monto final se la va a agregar un 20% de aumento</label>
 
         {/* {openModalDescription && <ModalDescAssig renders={user} meeting={null} personSchedule={personSchedule} openPay={openPlan} openButton={setopenModalDescription} setDescription={setDescription} />} */}
         {/* {OpenP && <Plan Confirm={Confirm} newMeeting={newMeeting} closePlan={closePlan} />} */}
@@ -508,23 +508,25 @@ function Presupuesto({ user, handlerSend }) {
 
         {/* Enviar */}
         {
-          isCheckboxChecked &&
-            total ?
-            <button
-              onClick={() => { Confirm({ qty: 1, cost: total, description: descripcion }); setPayModal(!PayModal) }}
-              className='rounded-[7px] mt-4 p-2 text-white font-medium text-[21px] bg-secondary w-full'
-              disabled={total === 0}
-              type="submit">
-              PAGAR
-            </button> :
-            isCheckboxChecked &&
-            <button
-              onClick={() => { Confirm({ qty: 1, cost: total, description: descripcion }); setPayModal(!PayModal) }}
-              className='rounded-[7px] mt-4 p-2 text-white font-medium text-[21px] bg-secondary w-full'
-              disabled={total === 0}
-              type="submit">
-              El monto Total debe ser mayor a CERO
-            </button>
+          // isCheckboxChecked &&
+          //   total ?
+
+          //   <button
+          //     onClick={() => { Confirm({ qty: 1, cost: total, description: descripcion }); setPayModal(!PayModal) }}
+          //     className='rounded-[7px] mt-4 p-2 text-white font-medium text-[21px] bg-secondary w-full'
+          //     disabled={total === 0}
+          //     type="submit">
+          //     PAGAR
+          //   </button> :
+
+          //   isCheckboxChecked &&
+          //   <button
+          //     onClick={() => { Confirm({ qty: 1, cost: total, description: descripcion }); setPayModal(!PayModal) }}
+          //     className='rounded-[7px] mt-4 p-2 text-white font-medium text-[21px] bg-secondary w-full'
+          //     disabled={total === 0}
+          //     type="submit">
+          //     El monto Total debe ser mayor a CERO
+          //   </button>
         }
 
 
@@ -533,7 +535,9 @@ function Presupuesto({ user, handlerSend }) {
       {/* Enviar */}
       <button
         onClick={() => { handlerSend(items, observacion, total) }}
-        className={`rounded-[7px] mt-4 p-2 text-white font-medium text-[21px] bg-secondary w-full ${!isCheckboxChecked && total == 0 && "pointer-events-none opacity-[70%]"}`}
+        className={`rounded-[7px] mt-4 p-2 text-white font-medium text-[21px] bg-secondary w-full
+        ${ total === 0 && " pointer-events-none opacity-[70%] "}
+        ${!isCheckboxChecked && " pointer-events-none opacity-[70%] "}`}
         type="submit">
         Enviar
       </button>

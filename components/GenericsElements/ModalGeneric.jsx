@@ -25,7 +25,7 @@ export default function ModalGeneric({ children, open, changeModal }) {
             <FontAwesomeIcon
               icon={faX}
               onClick={closeModal}
-              className="absolute top-2 right-2 w-4 h-4 cursor-pointer text-gray-800"
+              className="absolute top-2 right-2 w-4 h-4 cursor-pointer text-violet_dark"
             />
             {children}
           </div>
