@@ -23,7 +23,7 @@ export default function CloudinaryUploader({ imageurl, name }) {
       const formData = new FormData();
       formData.append('file', file);
       formData.append("upload_preset", process.env.NEXT_PUBLIC_UPLOAD_PRESET);
-      name ? null:formData.append('public_id', 'espanolcone_spanish_learning_' + nombre) ;
+      name ?formData.append('public_id', 'espanolcone_spanish_learning_' + nombre) :null;
 
       // Send the FormData to Cloudinary
       const response = await fetch("https://api.cloudinary.com/v1_1/" + process.env.NEXT_PUBLIC_CLOUDINARY_NAME + "/upload", {
@@ -55,7 +55,7 @@ export default function CloudinaryUploader({ imageurl, name }) {
         {loading ? <p>cargando....</p> : null}
         {error ? <p>{error}</p> : null}
         {imageUrl ? <Image src={imageUrl} width={300} crop={"scale"} height={100} alt='cloudinary' /> : null}
-        {!name && <div className="p-4">
+        {name && <div className="p-4">
           <input
             type="text"
             value={nombre}
@@ -64,7 +64,7 @@ export default function CloudinaryUploader({ imageurl, name }) {
             style={{ width: '40%', border: '1px solid #ccc', padding: '18px', borderRadius: '14px' }}
           /></div>}
         {nombre?.length < 4 && <p style={{ width: '30%', paddingLeft: '58px', }}> minimo cuatro 4 caracteres </p>}
-        {(nombre?.length > 3 || name) && <input
+        {(nombre?.length > 3 || !name) && <input
           type="file"
           accept="image/*"
           onChange={handleUpload}

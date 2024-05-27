@@ -15,9 +15,9 @@ export default function Cloudynary(){
             {/* le paso por props el ancho de la foto cuando llamo el componente */}
         
         {/* Si lo paso asi carga la imagen sin llenar nombre referncial de la imagen */}
-         {/* <CLOUDYNARY name={'c'} userL={userL} width={"100px"}/> */}
+         {/* <CLOUDYNARY  userL={userL} width={"100px"}/> */}
         
-         <CLOUDYNARY  userL={userL} width={"100px"}/>
+         <CLOUDYNARY  name={true} userL={userL} width={"100px"}/>
         
         </div>
     )}

@@ -250,7 +250,7 @@ export default function SLUG({ devDotToPost, slug }) {
                                             onChange={() => handleChange(document.getElementById('type_of').value, setType_of)} />
                                     </div>
 
-                                    <div className='p-2'>  <Cloudinary imageurl={Imageurl} /></div>
+                                    <div className='p-2'>  <Cloudinary name={true} imageurl={Imageurl} /></div>
                                     <div className=''>
 
                                         {/* <!-- Título en Español --> */}
