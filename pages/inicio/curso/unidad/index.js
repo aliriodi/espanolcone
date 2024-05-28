@@ -1056,8 +1056,8 @@ export default function Unidad(){
                         // Condicion para bloquear solo "Evaluemos" al terminar la unidad
                         // ${maxSessionReached < 5 || maxSessionReached > 5 && session && !session?.user?.role?.includes("admin") && "pointer-events-none"}
                         className={`
-                        ${(maxSessionReached) <= 5 && "opacity-[50%]"}
-                        ${(maxSessionReached) <= 5 && session && !session?.user?.role?.includes("admin") && "pointer-events-none"}
+                        ${(maxSessionReached) < 5 && "opacity-[50%]"}
+                        ${(maxSessionReached) < 5 && session && !session?.user?.role?.includes("admin") && "pointer-events-none"}
                         mb-[24px] bg-white shadow-[0px_0px_4px_#00000040] rounded-[8px] min-w-[49%] py-[10px] px-[25px] flex items-center justify-between relative
                         hover:bg-[#3331] transition-colors
                         md:w-full`}>

@@ -492,7 +492,7 @@ function Presupuesto({ user, handlerSend }) {
           <div>
 
             {/* Modal de Pago ZELLE*/}
-            <ModalPago2
+            {/* <ModalPago2
               // onPaymentSuccess={handlePaymentSuccess1}
               onPaymentCancel={handlePaymentCancel}
               modalClose={closeZelleModal}
@@ -501,7 +501,7 @@ function Presupuesto({ user, handlerSend }) {
               open={ZelleModal}
               dates={paypalDates}
               newMeeting={'newMeeting'}
-            />
+            /> */}
           </div>
         }
 
