@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/api/auth/signup/index.js"  ],
+, "pages/api/auth/signup/index.js", "components/Calendar-Group/Teachers-Calendar/TeachersCalendarGroup.jsx"  ],
   "exclude": [
     "node_modules"
   ]

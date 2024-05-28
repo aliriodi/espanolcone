@@ -279,7 +279,7 @@ export const CalendarGroupStudent = () => {
                     de cit
                     as */}
                                         {/* {renders[i].schedule.some((meeting) => */}
-                                        {renders?.user?.calendar?.some((meeting) =>
+                                        {renders?.user?.calendarGroup?.some((meeting) =>
                                             (isSameDay(parseISO(meeting.userstartDatetime), day) && meeting.assigned) ||
                                             (newcalendar.some((meeting1) => isSameDay(parseISO(meeting1.userstartDatetime), day) && meeting1.assigned))
                                         ) && (
@@ -287,7 +287,7 @@ export const CalendarGroupStudent = () => {
                                             )}
 
                                         {/* {renders[i].schedule.some((meeting) => */}
-                                        {renders?.user?.calendar?.some((meeting) =>
+                                        {renders?.user?.calendarGroup?.some((meeting) =>
                                             (isSameDay(parseISO(meeting.userstartDatetime), day) && !meeting.assigned) ||
                                             (newcalendar.some((meeting1) => isSameDay(parseISO(meeting1.userstartDatetime), day) && !meeting1.assigned)
                                             )) && (

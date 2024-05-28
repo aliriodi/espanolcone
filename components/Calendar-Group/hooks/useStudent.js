@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
-const useAddStudentsCalendarGroup = () => {
+const useStudent = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [selectedTeacherId, setSelectedTeacherId] = useState(null);
 
     const handleAddStudentsCalendarGroup = async (student, classDetails) => {
         const { first_name, last_name, image, email, country } = student;
@@ -47,10 +48,23 @@ const useAddStudentsCalendarGroup = () => {
         console.log('Cantidad de estudiantes anotados:', updatedStudents.length);
     };
 
+
+
+    const handleSelectTeacherId =(teacherId)=>{
+        setSelectedTeacherId(teacherId);
+    } 
+
+
+
+
+
+
     return {
         handleAddStudentsCalendarGroup,
-        isSubmitting
+        isSubmitting,
+        handleSelectTeacherId,
+        selectedTeacherId
     };
 };
 
-export default useAddStudentsCalendarGroup;
+export default useStudent;
