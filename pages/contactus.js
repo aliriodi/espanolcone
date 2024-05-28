@@ -224,7 +224,7 @@ function ContactUS() {
                                                             <div className="form-group">
                                                                 <textarea
                                                                     className="w-full border-2 rounded-[7px] p-2 my-2 outline-primary"
-                                                                    name="message "
+                                                                    name="message"
                                                                     placeholder={t("message")}
                                                                     onChange={handleInputChange}
                                                                     value={message}
