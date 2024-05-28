@@ -110,6 +110,7 @@ export default function ListUsers({ open, closeModal, currentContacts, createCha
         console.log("Mi ID ",session?.user?._id)
         console.log("Contacto ID ",contactID)
 
+        setSearchTerm("")
         createChat(session?.user?._id, contactID)
         
     }
