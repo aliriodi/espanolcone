@@ -65,20 +65,41 @@ export default function Chat() {
     if(pusher){
 
       const channel = pusher.subscribe(`presence-channel`); 
-      console.log(pusher) 
+
       // Actualiza el chat
       channel.bind(`chat-update`, function (data){
-        const {username, messages, chatId, userID, budget} = data
-        console.log("currentID ", session?.user?.chats[id]?.chatID) 
-        console.log("data ", data) 
-  
-        // En caso de tener el mismo ID de chat que el actual, se agrega a los mensajes
-        if(chatId == session?.user?.chats[id]?.chatID && chatId){
+        const {
+          username,
+          messages,
+          chatId,
+          userID,
+          budget,
+          intrusion
+        } = data 
+
+        // En caso de ser un "mensaje" con el mismo ID de chat que el actual
+        // Se va a agrega a "allMessages" 
+        if(chatId == session?.user?.chats[id]?.chatID && chatId && !intrusion){
           setAllMessages((prevState) => [
             ...prevState,
             { messages, userID, budget },
           ]);
         }
+
+        // De caso contrario lo que se recibio fue una "Intrucion"
+        // Desde acá se va a definir que instrucion es y cual se va a ejecutar 
+        else if(chatId == session?.user?.chats[id]?.chatID && chatId && intrusion){
+          
+          switch(intrusion?.type){
+            case "reload_chat":
+
+              getChat()       
+
+            break;
+          }
+
+        }
+
       });
   
       return () => {
@@ -204,7 +225,7 @@ export default function Chat() {
     }
 
     // Asigna el estado mensaje
-    let newMessage = [...allMessages]
+    let newMessages = [...allMessages]
 
     switch(data?.type){
 
@@ -213,48 +234,77 @@ export default function Chat() {
         console.log("PAYPAL")
 
         // El "wasPayed" pasa a "true" 
-        newMessage[paymentDate?.menssageIndex].budget = {
-          ...newMessage[paymentDate?.menssageIndex].budget,
+        newMessages[paymentDate?.menssageIndex].budget = {
+          ...newMessages[paymentDate?.menssageIndex].budget,
           wasPayed: true
         }
-        break
+      break
+
 
       case "ZELLER":
         // En los pagos por "Zeller" va a asignale como "pendiente" 
         console.log("ZELLER")
 
         // El "wasPayed" pasa a "undefined" 
-        newMessage[paymentDate?.menssageIndex].budget = {
-          ...newMessage[paymentDate?.menssageIndex].budget,
+        newMessages[paymentDate?.menssageIndex].budget = {
+          ...newMessages[paymentDate?.menssageIndex].budget,
           wasPayed: undefined
         }
 
-        // se actualiza la propiedad "pendingPayments" del usuario con el pago de Zeller
+        // Se actualiza la propiedad "pendingPayments" del usuario con el pago de Zeller
         updateDates({
           ...session?.user,
           pendingPayments:[
             ...session?.user?.pendingPayments,
             {
               typeMethod: "ZELLER",
+              type:"chat",
+              image: data?.image,
               userID: session?.user?._id,
               qty: paymentDate?.amount,
               valid:false,
               menssageIndex:paymentDate?.menssageIndex,
-              chatID: session?.user?.chats[id]?.chatID
+              chatID: session?.user?.chats[id]?.chatID,
             }
           ]
         })
+
+        
         
         break
+      }
+
+    // 
+    let finalChat = {...currentChat}
+
+    finalChat.messages = newMessages;
+    
+    try{
+      
+      await axios.post(`/api/chat/update`, { chat: finalChat})
+      console.log("finalChat ",finalChat)
+
     }
+    catch(e){
+      console.log(e)
+    }
+
+    // Se manda una instrucion al otro usuario para actualizar "allMessages"
+    await axios.post("/api/pusher/chat-update", {
+      userID: session?.user?._id,
+      chatId: session?.user?.chats[id]?.chatID,
+      intrusion:{
+        type:"reload_chat"
+      }
+    });
 
     let newCurrentChat = {
       ...currentChat,
-      messages: newMessage
+      messages: newMessages
     }
 
-    console.log("###### ", newMessage)
-    setAllMessages(newMessage)
+    console.log("###### ", newMessages)
+    setAllMessages(newMessages)
 
   }
   
@@ -539,8 +589,13 @@ export default function Chat() {
                   allMessages?.map(({ userID, messages, from, budget }, index) => (
                     <div
                     onClick={()=>console.log(budget)}
-                    className={` shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000040] w-fit flex flex-col rounded-[7px] p-2 my-1 max-w-[80%] 
-                    ${userID == session?.user?._id ? "ml-auto bg-primary text-white ":"bg-white text-violet_dark"}`}
+                    className={` shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000040] w-fit flex flex-col rounded-[7px] p-2 my-1 max-w-[80%]  transition-all
+                    ${userID == session?.user?._id ? 
+                      budget && budget?.wasPayed ?
+                      "ml-auto bg-secondary text-white " :
+                      budget?.wasPayed == -1 ? "ml-auto bg-[#83C7D6] text-white" : "ml-auto bg-primary text-white"
+                      :"bg-white text-violet_dark"}`
+                    }
                     key={index}>
 
                       {/* Mensaje */}
@@ -598,7 +653,7 @@ export default function Chat() {
                             {
                               // Mensaje del lado del que mando el presupuesto
                               userID == session?.user?._id ? 
-                              <p className="text-[18px] text-center flex items-center justify-center">
+                              <p className="text-[18px] text-center flex items-center justify-center font-semibold">
                                 
                                 {
                                   budget?.wasPayed ?
@@ -611,7 +666,7 @@ export default function Chat() {
 
                                   // Pendiente
                                   <>
-                                  Pago en espera <FontAwesomeIcon className="ml-2" icon={faClock}/>
+                                  Pago en espera <FontAwesomeIcon className="ml-2" icon={faHourglassHalf}/>
                                   </>
                                 }
 
@@ -643,9 +698,9 @@ export default function Chat() {
                               :
                               
                               // Pendiente
-                              <p className="text-[18px] text-center flex items-center justify-center">
+                              <p className="text-[18px] text-center flex items-center justify-center font-semibold">
 
-                                Pago en espera <FontAwesomeIcon className="ml-2" icon={faClock}/>
+                                Pago en espera <FontAwesomeIcon className="ml-2" icon={faHourglassHalf}/>
 
                               </p>
 

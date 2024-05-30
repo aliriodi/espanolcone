@@ -104,7 +104,7 @@ export default function ModalZeller({ open, onCloseModal, onCloseAllModal, onPay
 
                         {/* aca deberia ser que se esclarezca el estilo mientras no haya imagen cargada */}
                         {
-                            !ImageUrl &&
+                            ImageUrl &&
                             <button className='btn-success px-5 py-2.5 mt-3 w-full  text-[16px]' onClick={handlerPaymentSuccess}>
                                 Enviar pago
                             </button>
