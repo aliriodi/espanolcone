@@ -6,19 +6,24 @@ import BodyGeneric from '../../../components/GenericsElements/BodyGeneric'
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckCircle, faCircleCheck, faClock, faCommentDots, faFaceLaughBeam, faFileInvoiceDollar, faHandPointLeft, faHourglass, faHourglassHalf, faPaperPlane, faPersonHiking, faUserXmark, faX } from "@fortawesome/free-solid-svg-icons";
+import { faCheckCircle, faCircleCheck, faClock, faCommentDots, faComments, faFaceLaughBeam, faFileInvoiceDollar, faHandPointLeft, faHourglass, faHourglassHalf, faPaperPlane, faPersonHiking, faUserPlus, faUserXmark, faX } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import Presupuesto from "../../../components/GuideTourist/presupuestoTourism/Presupuesto";
 import ModalPayment from "../../../components/GenericsElements/Payment/ModalPayment";
+import ListUsers from "../../../components/Chat/ListUsers";
 
 export default function Chat() {
   const [message, setMessage] = useState("");
   const [allMessages, setAllMessages] = useState([]);
+  const [currentListContacts, setCurrentListContacts] = useState([]);
   const [currentID, setCurrentID] = useState(null);
   const [chatsDatas, setChatsDatas] = useState(null);
   const [requestID, setRequestID] = useState(null);
-  const [currentChat, setCurrentChat] = useState(null)
-  const [openForm, setOpenForm] = useState(false)
+  const [currentChat, setCurrentChat] = useState(null);
+
+  const [openForm, setOpenForm] = useState(false);
+  const [openListUsers, setOpenListUsers] = useState(false);
+  const [openListContancts, setOpenListContancts] = useState(false);  
 
   const [loaderSendMessager, setLoaderSendMessager] = useState(false)
   const [loaderChat, setLoaderChat] = useState(false)
@@ -35,7 +40,7 @@ export default function Chat() {
   
   const router = useRouter();
   const { id } = router.query;
-  const { data: session, status } = useSession();
+  const { data: session, status, update } = useSession();
 
   const messageScreen = useRef(null);
   
@@ -60,20 +65,41 @@ export default function Chat() {
     if(pusher){
 
       const channel = pusher.subscribe(`presence-channel`); 
-      console.log(pusher) 
+
       // Actualiza el chat
       channel.bind(`chat-update`, function (data){
-        const {username, messages, chatId, userID, budget} = data
-        console.log("currentID ", session?.user?.chats[id]?.chatID) 
-        console.log("data ", data) 
-  
-        // En caso de tener el mismo ID de chat que el actual, se agrega a los mensajes
-        if(chatId == session?.user?.chats[id]?.chatID && chatId){
+        const {
+          username,
+          messages,
+          chatId,
+          userID,
+          budget,
+          intrusion
+        } = data 
+
+        // En caso de ser un "mensaje" con el mismo ID de chat que el actual
+        // Se va a agrega a "allMessages" 
+        if(chatId == session?.user?.chats[id]?.chatID && chatId && !intrusion){
           setAllMessages((prevState) => [
             ...prevState,
             { messages, userID, budget },
           ]);
         }
+
+        // De caso contrario lo que se recibio fue una "Intrucion"
+        // Desde acá se va a definir que instrucion es y cual se va a ejecutar 
+        else if(chatId == session?.user?.chats[id]?.chatID && chatId && intrusion){
+          
+          switch(intrusion?.type){
+            case "reload_chat":
+
+              getChat()       
+
+            break;
+          }
+
+        }
+
       });
   
       return () => {
@@ -87,7 +113,8 @@ export default function Chat() {
 
     getChat()
     setCurrentID(id)
-    console.log("Mensajes actuales ",currentChat)
+    session?.user?.chat && setCurrentListContacts(session?.user?.chat)
+    console.log("Contactos actuales ",session?.user?.chat)
 
   },[id, session])
 
@@ -101,7 +128,10 @@ export default function Chat() {
   },[id])
 
   useEffect(()=>{
+
+    setOpenListContancts(false)
     if(allMessages)messageScreen.current.scrollTop = messageScreen.current.scrollHeight - messageScreen.current.clientHeight
+
   },[allMessages])
 
   async function handleSubmit(e) {
@@ -157,6 +187,8 @@ export default function Chat() {
         },
       }
     )
+
+    setOpenForm(false)
   }
 
   async function handleRequest(value){
@@ -178,8 +210,9 @@ export default function Chat() {
   }
 
   async function handlePaymentSuccess(data){
+    // Metodo encargado de ejecutar y asignar pagos del chat
 
-    
+    // Crea resivos 
     let recipe = {
       idUser: session?.user?._id,
       idPlan: "",
@@ -191,21 +224,133 @@ export default function Chat() {
       }
     }
 
-    let newMessage = [...allMessages]
+    // Asigna el estado mensaje
+    let newMessages = [...allMessages]
 
-    newMessage[paymentDate?.menssageIndex].budget = {
-      ...newMessage[paymentDate?.menssageIndex].budget,
-      wasPayed: true
+    switch(data?.type){
+
+      case "PAYPAL":
+        // En los pagos por Paypal va a asignale como "pagado" 
+        console.log("PAYPAL")
+
+        // El "wasPayed" pasa a "true" 
+        newMessages[paymentDate?.menssageIndex].budget = {
+          ...newMessages[paymentDate?.menssageIndex].budget,
+          wasPayed: true
+        }
+      break
+
+
+      case "ZELLER":
+        // En los pagos por "Zeller" va a asignale como "pendiente" 
+        console.log("ZELLER")
+
+        // El "wasPayed" pasa a "undefined" 
+        newMessages[paymentDate?.menssageIndex].budget = {
+          ...newMessages[paymentDate?.menssageIndex].budget,
+          wasPayed: undefined
+        }
+
+        // Se actualiza la propiedad "pendingPayments" del usuario con el pago de Zeller
+        updateDates({
+          ...session?.user,
+          pendingPayments:[
+            ...session?.user?.pendingPayments,
+            {
+              typeMethod: "ZELLER",
+              type:"chat",
+              image: data?.image,
+              userID: session?.user?._id,
+              qty: paymentDate?.amount,
+              valid:false,
+              menssageIndex:paymentDate?.menssageIndex,
+              chatID: session?.user?.chats[id]?.chatID,
+            }
+          ]
+        })
+
+        
+        
+        break
+      }
+
+    // 
+    let finalChat = {...currentChat}
+
+    finalChat.messages = newMessages;
+    
+    try{
+      
+      await axios.post(`/api/chat/update`, { chat: finalChat})
+      console.log("finalChat ",finalChat)
+
     }
+    catch(e){
+      console.log(e)
+    }
+
+    // Se manda una instrucion al otro usuario para actualizar "allMessages"
+    await axios.post("/api/pusher/chat-update", {
+      userID: session?.user?._id,
+      chatId: session?.user?.chats[id]?.chatID,
+      intrusion:{
+        type:"reload_chat"
+      }
+    });
 
     let newCurrentChat = {
       ...currentChat,
-      messages: newMessage
+      messages: newMessages
     }
 
-    setAllMessages(newMessage)
+    console.log("###### ", newMessages)
+    setAllMessages(newMessages)
 
   }
+  
+  async function updateDates(updates) {
+    // Esta funcion se encarga de actualizar los datos del usuario 
+    // en funcion de lo que se le pase por el parametro "updates"
+
+    // setLoading(true);
+
+    try {
+        
+        if(updates.image != session?.user?.image) updates = {...updates, image:{ url: await upLoadProfilePictutre()}}
+
+        const response = await fetch('/api/users/update', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email:session?.user?.email, updates: updates}),
+        });
+  
+        if (response.ok) {
+            const data = await response.json();
+
+            if (data.message) {
+                // Se Actualiza el usuario
+                await update({
+                    ...session?.user,
+                    accessToken:"dddd"
+                })
+
+                console.log('Usuario actualizado con éxito');
+            } else {
+                console.error('Error al actualizar el usuario:', data.error);
+            }
+        } else {
+            console.error('Error al realizar la solicitud:', response.status);
+        }
+
+        // setLoading(false)
+    } catch (error) {
+        // setLoading(false)
+        console.error('Error al realizar la solicitud:', error);
+    }
+  }
+
 
   async function getChat(){
     
@@ -249,23 +394,31 @@ export default function Chat() {
     
   }
   
-  async function handleCreateChat(){
+  async function handleCreateChat(currentUser, contactUser){
     let result = await axios.post(
       '/api/chat/add',
       {
         usersIDs: [ 
-          "651dacff8ac427a834bcaf89", // okina
-          "64ee534d698266e6fce966af" // nahuel
+          currentUser, // "651dacff8ac427a834bcaf89", // okina
+          contactUser // "64ee534d698266e6fce966af" // nahuel
         ],
 
         messages:[],
 
-        requests: "64ee534d698266e6fce966af"
+        requests: currentUser // "64ee534d698266e6fce966af" // nahuel
       }
     )
-    alert("a")
 
     console.log("result ", result?.data?.users)
+    update({
+        ...session?.user,
+        accessToken:"dddd"
+    })
+    
+    session?.user?.chat && setCurrentListContacts(session?.user?.chat)
+
+    getChat()
+    return true
   }
 
   async function openPaymentModal(amount, description,index){
@@ -289,13 +442,22 @@ export default function Chat() {
       redirectPath={"/inicio/home"}>
         
         <div className=" flex w-full mt-[35px]">
-
+          
           {/* ///////////// Lista de Chats ///////////// */}
-          <div className=" w-[400px] mr-3 bg-white rounded-[15px] shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000030] z-50
-          md:absolute md:h-full">
+          <div className={`w-[400px] mr-3 bg-white rounded-[15px] shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000030] z-50 relative transition-all flex flex-col h-[78vh] overflow-auto
+          md:absolute md:h-screen ${openListContancts ? "md:left-[0px]" : "md:left-[-800px]"}`}>
+
             
-            <ul className="mt-[80px]">
+            <div
+            onClick={()=>setOpenListContancts(false)}
+            className="text-[21px] text-dark_hover absolute right-3 top-3 hidden
+            md:flex">
+              <FontAwesomeIcon icon={faX}/>
+            </div>
+            
+            <ul className="mt-[80px] h-full flex-grow-[1] pb-36">
               
+              {/* Contactos */}
               {
                 session?.user?.chats &&
 
@@ -381,12 +543,35 @@ export default function Chat() {
               </li> */}
 
             </ul>
+
+            {/* Hacer nuevo contacto */}
+            <div className=" absolute bg-white w-full bottom-0 rounded-[0_0_15px_15px]">
+              
+              <button
+              onClick={()=>setOpenListUsers(true)}
+              className={` text-success font-medium w-[80%] flex mx-auto my-6 py-2 px-6 rounded-full transition-all items-center hover:bg-success_light`}>
+
+                <div className="w-[50px] h-[50px] flex justify-center items-center bg-success rounded-full ">
+                  <FontAwesomeIcon icon={faUserPlus} className="text-[20px] w-[25px] text-white"/>
+                </div>                
+
+                <b className="ml-3">Nuevo contacto</b>
+                
+              </button>
+            </div>
             
           </div>
 
           {/* ///////////// Mensajes ///////////// */}
           <div className=" bg-primary_flat_hover relative h-[78vh] flex-grow rounded-[15px] shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000030] overflow-hidden
-          md:h-screen">
+          md:h-screen md:pt-[50px]">
+            
+              <div
+              onClick={()=>setOpenListContancts(true)}
+              className=" shadow-[0px_4px_24px_#18292F1A] bg-white rounded-full justify-center items-center w-[50px] h-[50px] absolute left-2 top-2 text-violet_dark hidden
+              md:flex">
+                <FontAwesomeIcon icon={faComments}/>
+              </div>
               
               
               {
@@ -404,8 +589,13 @@ export default function Chat() {
                   allMessages?.map(({ userID, messages, from, budget }, index) => (
                     <div
                     onClick={()=>console.log(budget)}
-                    className={` shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000040] w-fit flex flex-col rounded-[7px] p-2 my-1 max-w-[80%] 
-                    ${userID == session?.user?._id ? "ml-auto bg-primary text-white ":"bg-white text-violet_dark"}`}
+                    className={` shadow-[0px_1.3526092767715454px_5.410437107086182px_#00000040] w-fit flex flex-col rounded-[7px] p-2 my-1 max-w-[80%]  transition-all
+                    ${userID == session?.user?._id ? 
+                      budget && budget?.wasPayed ?
+                      "ml-auto bg-secondary text-white " :
+                      budget?.wasPayed == -1 ? "ml-auto bg-[#83C7D6] text-white" : "ml-auto bg-primary text-white"
+                      :"bg-white text-violet_dark"}`
+                    }
                     key={index}>
 
                       {/* Mensaje */}
@@ -463,16 +653,20 @@ export default function Chat() {
                             {
                               // Mensaje del lado del que mando el presupuesto
                               userID == session?.user?._id ? 
-                              <p className="text-[18px] text-center flex items-center justify-center">
+                              <p className="text-[18px] text-center flex items-center justify-center font-semibold">
                                 
                                 {
                                   budget?.wasPayed ?
+
+                                  // Pagado
                                   <>
                                   Se a completado el pago <FontAwesomeIcon className="ml-2" icon={faCircleCheck}/>
                                   </>
                                   :
+
+                                  // Pendiente
                                   <>
-                                  Pago en espera <FontAwesomeIcon className="ml-2" icon={faClock}/>
+                                  Pago en espera <FontAwesomeIcon className="ml-2" icon={faHourglassHalf}/>
                                   </>
                                 }
 
@@ -492,11 +686,24 @@ export default function Chat() {
 
                               </p>
                               :
+                              budget?.wasPayed == false ?
+
+                              // Boton de pago
                               <button
                               onClick={()=>openPaymentModal(budget?.total, budget?.observacion, index)}
                               className=" btn-primary w-full py-2 font-medium">
                                 Obtener
                               </button>
+
+                              :
+                              
+                              // Pendiente
+                              <p className="text-[18px] text-center flex items-center justify-center font-semibold">
+
+                                Pago en espera <FontAwesomeIcon className="ml-2" icon={faHourglassHalf}/>
+
+                              </p>
+
                               
                             }
                             
@@ -732,6 +939,13 @@ export default function Chat() {
           </div>
 
         </div>
+
+        {/* Lista de usuario */}
+        <ListUsers
+        currentContacts={chatsDatas}
+        open={openListUsers}
+        createChat={handleCreateChat}
+        closeModal={()=> setOpenListUsers(false)}/>
 
         {/* Modal de pago */}
         <ModalPayment

@@ -20,7 +20,8 @@
 
   /* Secondary */
   --secondary: #33bb99;
-  --secondary_hover: #33BB99;
+  --secondary_hover: #31DDB2;
+  --secondary_blur: #33BB99;
 
   /* Success */
   --success: #8438FF;
@@ -302,6 +303,17 @@ h3{
   background-color: var(--primary-border_active_bg);
 }
 
+.btn-primary-active{
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  border-radius: 7px;
+  color: white; 
+  cursor: pointer;
+  background-color: var(--primary_hover);
+  box-shadow: 0px 4px 14px 0px var(--primary_blur);
+}
+
 /* Boton Success Fill */
 .btn-success {
   display: flex; 
@@ -330,6 +342,35 @@ h3{
   background-color: var(--success_hover);
   box-shadow: 0px 4px 14px 0px var(--success_blur);
 }
+
+/* Boton Secondary Fill */
+.btn-secondary {
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  background-color: var(--secondary);
+  border-radius: 7px;
+  color: white; 
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary_hover);
+  box-shadow: 0px 4px 14px 0px var(--secondary_blur);
+}
+
+.btn-secondary-active{
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  border-radius: 7px;
+  color: white; 
+  cursor: pointer;
+  background-color: var(--secondary_hover);
+  box-shadow: 0px 4px 14px 0px var(--secondary_blur);
+}
+
 /* Youtube */
 .youtube iframe{
   width: 100%;

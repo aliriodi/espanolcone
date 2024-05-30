@@ -1,70 +1,76 @@
-import { faBook, faMoneyBillTrendUp, faMugHot, faNewspaper, faUsers,faTasks } from "@fortawesome/free-solid-svg-icons"
+import { faBook, faMoneyBillTrendUp, faMugHot, faNewspaper, faUsers, faTasks } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Link from 'next/link';
 import { useEffect, useState } from "react";
 
-export default function NavBarAdmin(){
+export default function NavBarAdmin() {
     const [currentPathName, setCurrentPathName] = useState("")
 
-    useEffect(()=> setCurrentPathName(window.location.pathname) ,[])
-    return(
+    useEffect(() => setCurrentPathName(window.location.pathname), [])
+    return (
         <div className="flex mb-[24px] w-full">
 
             {/* Usuarios */}
             <Link
-            href={'/inicio/admin/'}
-            className={`text-title_color px-[22px] py-[10px] cursor-pointer ${currentPathName == "/inicio/admin" && "btn-success-active"}`}>
-                <FontAwesomeIcon className="mr-[5px]" icon={faUsers}/>
-                Usuarios  
+                href={'/inicio/admin/'}
+                className={`text-title_color px-[22px] py-[10px] cursor-pointer ${currentPathName == "/inicio/admin" && "btn-success-active"}`}>
+                <FontAwesomeIcon className="mr-[5px]" icon={faUsers} />
+                Usuarios
             </Link>
 
             {/* Unidades */}
             <Link
-            href={'/inicio/admin/units'}
-            className={`text-title_color px-[22px] py-[10px] cursor-pointer ${currentPathName == "/inicio/admin/units" && "btn-success-active"}`}>
-                <FontAwesomeIcon className="mr-[5px]" icon={faBook}/>
+                href={'/inicio/admin/units'}
+                className={`text-title_color px-[22px] py-[10px] cursor-pointer ${currentPathName == "/inicio/admin/units" && "btn-success-active"}`}>
+                <FontAwesomeIcon className="mr-[5px]" icon={faBook} />
                 Unidades
             </Link>
 
             {/* Express */}
             <Link
-            href={'/inicio/admin/express'}
-            className={`text-title_color px-[22px] py-[10px] cursor-pointer ${currentPathName == "/inicio/admin/express" && "btn-success-active"}`}>
+                href={'/inicio/admin/express'}
+                className={`text-title_color px-[22px] py-[10px] cursor-pointer ${currentPathName == "/inicio/admin/express" && "btn-success-active"}`}>
                 <FontAwesomeIcon className="mr-[5px]" icon={faMugHot} />
-                
+
                 Express
             </Link>
 
-            
+
             {/* Boton para ir a seccion de Blogs */}
             <Link
-            href={'/inicio/blog/'}
-            className={`text-title_color px-[22px] py-[10px] cursor-pointer ${currentPathName == "/inicio/blog" && "btn-success-active"}`}>
-                <FontAwesomeIcon className="mr-[5px]" icon={faNewspaper}/>
+                href={'/inicio/blog/'}
+                className={`text-title_color px-[22px] py-[10px] cursor-pointer ${currentPathName == "/inicio/blog" && "btn-success-active"}`}>
+                <FontAwesomeIcon className="mr-[5px]" icon={faNewspaper} />
                 Blogs
             </Link>
 
             {/* Boton para ir a seccion de recibos */}
             <Link
-            href={'/inicio/admin/facturacion/'}
-            className={`text-title_color px-[22px] py-[10px] cursor-pointer ${currentPathName == "/inicio/admin/facturacion" && "btn-success-active"}`}>
-                <FontAwesomeIcon className="mr-[5px]" icon={faMoneyBillTrendUp}/>
+                href={'/inicio/admin/facturacion/'}
+                className={`text-title_color px-[22px] py-[10px] cursor-pointer ${currentPathName == "/inicio/admin/facturacion" && "btn-success-active"}`}>
+                <FontAwesomeIcon className="mr-[5px]" icon={faMoneyBillTrendUp} />
                 Facturacion
             </Link>
 
             {/* Boton Para ver formularios */}
-                        {/* Boton para ir a seccion de recibos */}
-                        <Link
-            href={'/inicio/admin/formulario/'}
-            className={`text-title_color px-[22px] py-[10px] cursor-pointer ${currentPathName == "/inicio/admin/formulario" && "btn-success-active"}`}>
-                <FontAwesomeIcon className="mr-[5px]" icon={faTasks}/>
+            {/* Boton para ir a seccion de recibos */}
+            <Link
+                href={'/inicio/admin/formulario/'}
+                className={`text-title_color px-[22px] py-[10px] cursor-pointer ${currentPathName == "/inicio/admin/formulario" && "btn-success-active"}`}>
+                <FontAwesomeIcon className="mr-[5px]" icon={faTasks} />
                 Formulario
+            </Link>
+            <Link
+                href={'/inicio/formGroup'}
+                className={`text-title_color px-[22px] py-[10px] cursor-pointer ${currentPathName == "/inicio/formGroup" && "btn-success-active"}`}>
+                <FontAwesomeIcon className="mr-[5px]" icon={faTasks} />
+                Crear clase grupal
             </Link>
             {/* Boton para ir a seccion de recibos */}
             <Link
-            href={'/inicio/admin/profesores/'}
-            className={`text-title_color px-[22px] py-[10px] cursor-pointer ${currentPathName == "/inicio/admin/facturacion" && "btn-success-active"}`}>
-                <FontAwesomeIcon className="mr-[5px]" icon={faNewspaper}/>
+                href={'/inicio/admin/profesores/'}
+                className={`text-title_color px-[22px] py-[10px] cursor-pointer ${currentPathName == "/inicio/admin/facturacion" && "btn-success-active"}`}>
+                <FontAwesomeIcon className="mr-[5px]" icon={faNewspaper} />
                 Profesores
             </Link>
         </div>

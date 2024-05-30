@@ -3,122 +3,95 @@ import { useState, useEffect } from 'react';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { DatePicker } from '@mui/x-date-pickers';
-import { format } from 'date-fns';
+import { format, isSameDay, parseISO, isAfter, isBefore } from 'date-fns';
 import esLocale from 'date-fns/locale/es';
- 
+
 import Head from 'next/head';
 import Menu from "../../../components/Menu";
 import NavBarAdmin from '../../../components/admin/NavBarAdmin';
 
 export default function HoraProfesores() {
     const [profesores, setProfesores] = useState([]);
+    const [profesoresM, setProfesoresM] = useState([]);
     const [filteredProfesores, setFilteredProfesores] = useState([]);
     const [totalHorasOcupadas, setTotalHorasOcupadas] = useState(0);
     const [totalHorasLibres, setTotalHorasLibres] = useState(0);
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
-    
 
     useEffect(() => {
         async function fetchData() {
             try {
-                await fetch('/api/teachers/getasignacion/', { method: 'GET' })
-                    .then(res => res.json())
-                    .then(res2 => {
-                        setProfesores(res2.profesor);
-                        setFilteredProfesores(res2.profesor);
-                        setTotalHorasOcupadas(res2.totalHorasOcupadas);
-                        setTotalHorasLibres(res2.totalHorasLibres);
-                    });
+                const res = await fetch('/api/teachers/getasignacion/');
+                const res2 = await res.json();
+                setProfesoresM(res2.profesor);
+                setProfesores(res2.profesor);
+                setFilteredProfesores(res2.profesor);
+                setTotalHorasOcupadas(res2.totalHorasOcupadas);
+                setTotalHorasLibres(res2.totalHorasLibres);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
-            {console.log(profesores)}
         }
         fetchData();
     }, []);
 
     const handleFilter = () => {
-        if (startDate && endDate) {
-            const filtered = profesores.filter(profesor => {
-                //'estamos aca'
-                let filterCalendar = [];
-                
-                profesor.calendar.forEach( day =>
-                {
-                   // if(day.startDatetime){
-                const date =  new Date(day.startDatetime);
-                //console.log('Fecha del profesor:', day.userstartDatetime);
-             //   console.log(profesor)
-              //  console.log('starDate',startDate)
-              //  console.log('endDate',endDate)
-              //  console.log('startDate-endDate',startDate-endDate)
-                 if(date-startDate && endDate-date){
-                    //console.log('fecha valida')
-                 filterCalendar.push(day)
-                }
-                 else{
-                    //console.log('fecha invalida')    
-                    }
-                //console.log('startDate-date',startDate-date)
-                //console.log('endDate-date',endDate-date)
-            //    return date >= startDate && date <= endDate;
-            }
-                //}
-                ) 
-                console.log(profesor.email)
-                console.log('filteredCalendar',filterCalendar)
-            } );
-            const filteredate = filtered.filter(profesor => profesor.horasOcupadas > 0 || profesor.horasLibres > 0);
-            const totalHorasOcupadasFiltered = filteredate.reduce((acc, profesor) => acc + profesor.horasOcupadas, 0);
-            const totalHorasLibresFiltered = filteredate.reduce((acc, profesor) => acc + profesor.horasLibres, 0);
-
-        setFilteredProfesores(filtered);
-        setTotalHorasOcupadas(totalHorasOcupadasFiltered);
-        setTotalHorasLibres(totalHorasLibresFiltered);
-            
-            // const totalHorasOcupadas = filtered.reduce((acc, profesor) => acc + profesor.horasOcupadas, 0);
-            // const totalHorasLibres = filtered.reduce((acc, profesor) => acc + profesor.horasLibres, 0);
-
-            // setFilteredProfesores(filtered);
-            // setTotalHorasOcupadas(totalHorasOcupadas);
-            // setTotalHorasLibres(totalHorasLibres);
+        if (!startDate || !endDate) {
+            return;
         }
+
+        const profesoresNew = profesoresM.map(profesor => {
+            const filterCalendar = profesor.calendar.filter(day => {
+                const date = parseISO(day.startDatetime);
+                return isAfter(date, startDate) && isBefore(date, endDate);
+            });
+
+            return {
+                ...profesor,
+                calendar: filterCalendar,
+            };
+        });
+
+        horaProfesor(profesoresNew);
     };
-    const horaProfesor = () => {
-        // Calcular la cantidad de horas ocupadas y libres
-    let totalHorasOcupadas = 0;
-    let totalHorasLibres = 0;
 
-    // Recorrer cada profesor y su calendario
-    profesores.forEach(prof => {
-      let horasOcupadas = 0;
-      let horasLibres = 0;
-      prof.calendar.forEach(entry => {
-        // Si hay un evento en el calendario, consideramos la hora como ocupada
-        if (entry.assigned) {
-          totalHorasOcupadas++;
-          horasOcupadas++;
-          prof.horasOcupadas = horasOcupadas
-        } else {
-          totalHorasLibres++;
-          horasLibres++;
-          prof.horasLibres = horasLibres
-        }
-      });
-    
-    });
-    }
-     
+    const horaProfesor = (profesores) => {
+        let totalHorasOcupadas = 0;
+        let totalHorasLibres = 0;
+
+        const updatedProfesores = profesores.map(prof => {
+            let horasOcupadas = 0;
+            let horasLibres = 0;
+
+            prof.calendar.forEach(entry => {
+                if (entry.assigned) {
+                    horasOcupadas++;
+                    totalHorasOcupadas++;
+                } else {
+                    horasLibres++;
+                    totalHorasLibres++;
+                }
+            });
+
+            return {
+                ...prof,
+                horasOcupadas,
+                horasLibres,
+            };
+        });
+
+        setProfesores(updatedProfesores);
+        setFilteredProfesores(updatedProfesores);
+        setTotalHorasOcupadas(totalHorasOcupadas);
+        setTotalHorasLibres(totalHorasLibres);
+    };
+
     const clearFilter = () => {
         setStartDate(null);
         setEndDate(null);
-        setFilteredProfesores(profesores);
-         const totalHorasOcupadasOriginal = profesores.reduce((acc, profesor) => acc + profesor.horasOcupadas, 0);
-    const totalHorasLibresOriginal = profesores.reduce((acc, profesor) => acc + profesor.horasLibres, 0);
-q
-    setTotalHorasOcupadas(totalHorasOcupadasOriginal);
-    setTotalHorasLibres(totalHorasLibresOriginal);
+        setFilteredProfesores(profesoresM);
+       horaProfesor(profesoresM)
     };
 
     return (
@@ -141,7 +114,7 @@ q
                         <DatePicker
                             label="Fecha de fin"
                             value={endDate}
-                             onChange={(newDate) => setEndDate(newDate)}
+                            onChange={(newDate) => setEndDate(newDate)}
                             renderInput={(params) => <input {...params} value={endDate ? format(endDate, 'dd/MM/yyyy') : ''} />}
                         />
                         <button onClick={handleFilter} className='px-4 py-2 bg-blue-500 text-white rounded'>

@@ -81,6 +81,10 @@ const UserSchema = new Schema(
       //opcional para uso nuestro
       type: [{}],
     },
+    calendarGroup: {  //opcional para uso grupal
+      type: [{}]
+
+    },
     classes: {
       type: [
         {
