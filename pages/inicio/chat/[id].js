@@ -258,11 +258,13 @@ export default function Chat() {
             ...session?.user?.pendingPayments,
             {
               typeMethod: "ZELLER",
+              type:"chat",
+              image: data?.image,
               userID: session?.user?._id,
               qty: paymentDate?.amount,
               valid:false,
               menssageIndex:paymentDate?.menssageIndex,
-              chatID: session?.user?.chats[id]?.chatID
+              chatID: session?.user?.chats[id]?.chatID,
             }
           ]
         })
@@ -591,7 +593,7 @@ export default function Chat() {
                     ${userID == session?.user?._id ? 
                       budget && budget?.wasPayed ?
                       "ml-auto bg-secondary text-white " :
-                      "ml-auto bg-primary text-white "
+                      budget?.wasPayed == -1 ? "ml-auto bg-[#83C7D6] text-white" : "ml-auto bg-primary text-white"
                       :"bg-white text-violet_dark"}`
                     }
                     key={index}>

@@ -49,7 +49,11 @@ export default function ModalPagoABLE({ open, setOpen,InvalidZeller,validZeller,
                 className='w-[750px] max-h-[70vh] flex-col flex justify-center p-3 mt-7
                 overflow-y-scroll modal-paypal
                 md:w-full'>
-                <img src={user.planSync[user.planSync.length-1].image.ImageZelle} alt='pago zelle'/>
+                <img src={
+                  user.pendingPayments?.length && user.pendingPayments?.length > 0 ?
+                  user.pendingPayments[0]?.image:
+                  user.planSync[user.planSync.length-1].image.ImageZelle 
+                } alt='pago zelle'/>
 
                 <div className='flex mt-5'>
                   {/* Validar zeller */}

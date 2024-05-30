@@ -159,27 +159,77 @@ export default function Admin() {
 
     }
 
-    //funcion para valdiar zelle
+    // funcion para valdiar pagos pendientes de "Zelle"
     async function validZeller(user) {
         let newUser = { ...user }
 
-        newUser.planSync[newUser?.planSync?.length - 1] = {
-            ...newUser.planSync[newUser?.planSync?.length - 1],
-            valid: true,
-            classview: 1,
-            planing: 1
-        }
+        // Se comprueba en donde se encuetra el pago pendiente 
+        if(user.pendingPayments?.length && user.pendingPayments?.length > 0){
+            // En caso de estar en "pendingPayments" se hace una comprueba atraves de que medio se hizo el pago
+            // adaptando la validacion a cada tipo de pago
+            switch(user.pendingPayments[0]?.type){
+                case "chat":
 
-        newUser.calendar[0] = {
-            ...newUser.calendar[0],
-            assigned: true
+                    try{
+                        
+                        // Obtiene el chat desde donde se hizo el pago
+                        let userChat = await axios.get(`/api/chat/get/${user.pendingPayments[0]?.chatID}`)
+                        userChat = userChat.data?.findChat
+        
+                        // Obtiene el mensaje y asigna como pagado la compra 
+                        userChat.messages[user.pendingPayments[0]?.menssageIndex].budget = {
+                            ...userChat.messages[user.pendingPayments[0]?.menssageIndex].budget,
+                            wasPayed:true
+                        }
+                        console.log("userChat ",userChat)
+        
+                        // Actualiza el chat
+                        await axios.post(`/api/chat/update`, { chat: userChat})
+        
+                        // Se manda una instrucion al otro usuario para actualizar "allMessages"
+                        await axios.post("/api/pusher/chat-update", {
+                            userID: user.pendingPayments[0]?.userID,
+                            chatId: user.pendingPayments[0]?.chatID,
+                            intrusion:{
+                             type:"reload_chat"
+                            }
+                        });
+        
+                        // Se elimina el pago pendiente de usuario
+                        newUser.pendingPayments.shift()
+                        
+        
+                  
+                    }
+                    catch(e){
+                        console.log(e)
+                    }
+                break
+            }
+            
         }
+        else{
 
-        let newUser2 = { ...await getUser(newUser?._id) }
-        console.log(newUser2)
-        await newUser2.userid.calendar.map(meet => {
-            if (newUser.calendar[0].startDatetime === meet.startDatetime) { meet['assigned'] = true; }
-        })
+            // En el caso contrario ya se sabe que esta en "planSync" y se hace la validacion correspondiente
+            newUser.planSync[newUser?.planSync?.length - 1] = {
+                ...newUser.planSync[newUser?.planSync?.length - 1],
+                valid: true,
+                classview: 1,
+                planing: 1
+            }
+    
+            newUser.calendar[0] = {
+                ...newUser.calendar[0],
+                assigned: true
+            }
+    
+            let newUser2 = { ...await getUser(newUser?._id) }
+            console.log(newUser2)
+            await newUser2.userid.calendar.map(meet => {
+                if (newUser.calendar[0].startDatetime === meet.startDatetime) { meet['assigned'] = true; }
+            })
+
+        }
 
         // Envia emails
         let email = {
@@ -189,38 +239,91 @@ export default function Admin() {
             content:`<p>Es un placer confirmar que hemos recibido exitosamente su pago a través de Zelle. Queremos agradecerle por su pronta atención y colaboración en este proceso de pago.</p>
             <p>Saludos cordiales,</p>`
         }
-
         await axios.post('/api/mail/template/1', email)
 
         updateUser(newUser)
+
+
         // updateUser(newUser2.userid)
     }
 
     //funcion para INvalidar zelle
     async function InvalidZeller(user) {
-        let newUser = { ...user }
-        newUser.planSync[newUser?.planSync?.length - 1] = {
-            ...newUser.planSync[newUser?.planSync?.length - 1],
-            valid: true,
-            classview: 4,
-            planing: 4
-        }
-        newUser.calendar.shift();
 
-        console.log("newUser ",newUser)
-        let newUser2 = { ...await getUser(newUser?._id) }
-        console.log("newUser2 213 ",newUser2)
-        await newUser2.userid.calendar.map(meet => {
-            if (newUser.calendar[0].startDatetime === meet.startDatetime) {
-                meet['assigned'] = false;
-                meet['preassgined'] = false;
-                meet['preassigned'] = false;
-                meet.first_name = '';
-                meet.last_name = '';
-                meet.nameuser = '';
-                meet.image = '';
+        let newUser = { ...user }
+
+        if(user.pendingPayments?.length && user.pendingPayments?.length > 0){
+            // En caso de estar en "pendingPayments" se hace una comprueba atraves de que medio se hizo el pago
+            // adaptando la validacion a cada tipo de pago
+            switch(user.pendingPayments[0]?.type){
+                case "chat":
+
+                    try{
+                        
+                        // Obtiene el chat desde donde se hizo el pago
+                        let userChat = await axios.get(`/api/chat/get/${user.pendingPayments[0]?.chatID}`)
+                        userChat = userChat.data?.findChat
+        
+                        // Obtiene el mensaje y asigna como pagado la compra 
+                        userChat.messages[user.pendingPayments[0]?.menssageIndex].budget = {
+                            ...userChat.messages[user.pendingPayments[0]?.menssageIndex].budget,
+                            wasPayed:-1
+                        }
+                        console.log("userChat ",userChat)
+        
+                        // Actualiza el chat
+                        await axios.post(`/api/chat/update`, { chat: userChat})
+        
+                        // Se manda una instrucion al otro usuario para actualizar "allMessages"
+                        await axios.post("/api/pusher/chat-update", {
+                            userID: user.pendingPayments[0]?.userID,
+                            chatId: user.pendingPayments[0]?.chatID,
+                            intrusion:{
+                             type:"reload_chat"
+                            }
+                        });
+        
+                        // Se elimina el pago pendiente de usuario
+                        newUser.pendingPayments.shift()
+                        
+        
+                  
+                    }
+                    catch(e){
+                        console.log(e)
+                    }
+                break
             }
-        })
+            
+        }
+        else{
+
+            newUser.planSync[newUser?.planSync?.length - 1] = {
+                ...newUser.planSync[newUser?.planSync?.length - 1],
+                valid: true,
+                classview: 4,
+                planing: 4
+            }
+            
+            newUser.calendar.shift();
+
+            console.log("newUser ",newUser)
+            let newUser2 = { ...await getUser(newUser?._id) }
+            console.log("newUser2 213 ",newUser2)
+            await newUser2.userid.calendar.map(meet => {
+                if (newUser.calendar[0].startDatetime === meet.startDatetime) {
+                    meet['assigned'] = false;
+                    meet['preassgined'] = false;
+                    meet['preassigned'] = false;
+                    meet.first_name = '';
+                    meet.last_name = '';
+                    meet.nameuser = '';
+                    meet.image = '';
+                }
+            })
+
+            updateUser(newUser2.userid)
+        }
 
         // Envia emails
         let email = {
@@ -238,7 +341,6 @@ export default function Admin() {
 
 
         updateUser(newUser)
-        updateUser(newUser2.userid)
     }
 
 
