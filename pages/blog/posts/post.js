@@ -35,6 +35,8 @@ export default function Post() {
   const [averageRating, setAverageRating] = useState(0);
   const [login, setLogin] = useState("");
 
+  console.log("////////////", session);
+
   useEffect(() => {
     if (post) {
       setReviews(post.reviews || []);
@@ -46,8 +48,6 @@ export default function Post() {
   }, [slug]);
 
   useEffect(() => {
-    
-
     // Ingles
     if (post && locale == "en") {
       setCurrentPost(post?.en);
@@ -60,11 +60,11 @@ export default function Post() {
       setLogin("Faça login para fazer uma avaliação");
     }
     // Español
-    if (post && locale == "es" ||source==='inicio') {
-        setCurrentPost(post?.es);
-        setLogin("Loguea para hacer una reseña");
-      }
-  }, [locale, post,source]);
+    if ((post && locale == "es") || source === "inicio") {
+      setCurrentPost(post?.es);
+      setLogin("Loguea para hacer una reseña");
+    }
+  }, [locale, post, source]);
 
   useEffect(() => {
     if (reviews.length > 0) {
@@ -434,7 +434,7 @@ export default function Post() {
           </div>
         )}
 
-     { source!=='inicio'?  <Footer />:null}
+        {source !== "inicio" ? <Footer /> : null}
       </Layout>
     </div>
   );
