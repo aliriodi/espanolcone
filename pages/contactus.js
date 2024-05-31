@@ -7,23 +7,31 @@ import { useTranslation, withTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Layout from '../components/Layout';
 import Footer from '../components/Footer/Footer';
-
+import { useRouter } from "next/router";
 
 function ContactUS() {
-
+    const { push } = useRouter();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+    const [alertm, setAlert] = useState('Your message was sent successfully, we will contact you as soon as possible.');
+    const { t } = useTranslation('contactus')
+    useEffect(() => {
+        if(t('message')==='Message'){setAlert('Your message was sent successfully, we will contact you as soon as possible.')}
+        if(t('message')==='Mensaje'){setAlert('Su mensaje fue enviado exitosamente, nos comunicaremos con usted lo antes posible.')}
+        if(t('message')==='Mensagem'){setAlert('Sua mensagem foi enviada com sucesso, entraremos em contato o mais breve possível.')}
+    }, [t('message')]);
 
     useEffect(() => {
         ReactGA.pageview(window.location.pathname);
-    }, []);
+            }, []);
     const form = useRef();
-    const { t } = useTranslation('contactus')
+    
 
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
+        
         if (name === 'name') {
             setName(value);
         } else if (name === 'email') {
@@ -35,6 +43,8 @@ function ContactUS() {
 
     async function sendEmail(e) {
         e.preventDefault();
+        
+        
       //  console.log(e.target[0].value)
       //  console.log(e.target[1].value)
       //  console.log(e.target[2].value)
@@ -127,6 +137,7 @@ function ContactUS() {
         `
         try {
             //envio email a teacher
+            alert(alertm)
             await
               fetch('/api/mail/',
                 {
@@ -139,7 +150,7 @@ function ContactUS() {
                     subject: 'Email desde el Home de: ' + name,
                     html: massage
                   })
-                })}
+                }).then(reponse=> push('/'))}
                 catch (error) {
                     console.error(error);
                   }
