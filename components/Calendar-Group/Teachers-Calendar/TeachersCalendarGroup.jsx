@@ -1,13 +1,15 @@
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
 import { useSession } from "next-auth/react"
-import React, { useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import MeetingPlaning from "../../Calendar/MeetingPlaning";
 import { TeacherMeetingAgenda } from './TeacherMeetingAgenda'
 import { TeacherCardsButton } from './TeacherCardsButton'
 import { HoursMeetingTeacher } from './HoursMeetingTeacher'
+import { ComponenteHorasUniversales } from './ComponenteHorasUniversales'
 import { useSelector } from 'react-redux';
 import { es } from 'date-fns/locale';
+import { hola, utn } from '../hooks/functionsCalendarG';
 import {
     add,
     addHours,
@@ -45,6 +47,7 @@ export const TeachersCalendarGroup = () => {
     let [newMeeting, setNewMeeting] = useState()
     const [idTeacher, setidTeacher] = useState('')
     const [hoursMeet, setHoursMeet] = useState('')
+    const [deltaTime, setdeltaTime] = useState(0)
 
     let selectedDayMeetings = [];
 
@@ -63,99 +66,34 @@ export const TeachersCalendarGroup = () => {
 
         }
         setRenders(session)
-        if (cardDetail) {
-            if (Object.keys(cardDetail).length !== 0) {
-                //     console.log('CalendarStudent 82', cardDetail)
-
-                const fecha = today; Fragment
-                const offsetMinutes = fecha.getTimezoneOffset();
-                const offsetHours = offsetMinutes / 60;
-                const offsetSign = offsetHours > 0 ? '-' : '+';
-                const offsetHoursAbs = Math.abs(offsetHours);
-                const formattedOffset = `${offsetSign}${String(offsetHoursAbs).padStart(2, '')}`;
-                const utnUser = parseInt(formattedOffset, 10);
-                const last = cardDetail.calendar.length;
-                const utnToG = cardDetail.calendar[last - 1].utnCreated;
-                const deltaTime2 = (utnUser - utnToG) * 3600000;
-                //aca voy a modificar los calendarios para modificar los utn de las horas no asignadas
-                const details2 = { ...cardDetail };
-                details2.calendar = details2.calendar.map(calendar1 => {
-                    if (!calendar1.assigned) {
-                        // Si 'assigned' es false, actualizar el valor
-                        return {
-                            ...calendar1, userstartDatetime: format(new Date(parseISO(calendar1.startDatetime).getTime() + deltaTime2), "yyyy-MM-dd'T'HH:mm"),
-                            userendDatetime: format(new Date(parseISO(calendar1.endDatetime).getTime() + deltaTime2), "yyyy-MM-dd'T'HH:mm")
-                        };
-                    }
-                    // Si 'assigned' es true, dejar el objeto sin cambios
-                    return calendar1;
-                });
-                //    console.log(' CalendarStudent 105', details2)
-                setPersonSchedule(details2)
-                //   alert(1)
-            }
-            else {
-                //alert(2)
-                async function carDet() {
-                    if (selectedTeacherId) {
-                        try {
-                            // console.log('id2',id)
-                            const details = await fetch('/api/users/' + selectedTeacherId).then(response => response.json())
-                            //setPersonSchedule(details);
-                            //   console.log(' CalendarStudent 89',details)
-                            // console.log(' CalendarStudent 90',personSchedule)
-                        } catch (error) {
-                            console.error('Error fetching user details:', error);
-                        }
-                    }
-                }
-                carDet()
-            }
-        } else {
-            async function carDet() {
-                try {
-                    //  console.log('CalendarStudent id2', id)
-                    const details = await fetch('/api/users/' + selectedTeacherId).then(response => response.json())
-                    const details2 = { ...details.userid };
-                    const fecha = today; Fragment
-                    const offsetMinutes = fecha.getTimezoneOffset();
-                    const offsetHours = offsetMinutes / 60;
-                    const offsetSign = offsetHours > 0 ? '-' : '+';
-                    const offsetHoursAbs = Math.abs(offsetHours);
-                    const formattedOffset = `${offsetSign}${String(offsetHoursAbs).padStart(2, '')}`;
-                    const utnUser = parseInt(formattedOffset, 10);
-                    const last = details.userid.calendarGroup.length;
-                    const utnToG = details.userid.calendarGroup[last - 1].utnCreated;
-                    const deltaTime2 = (utnUser - utnToG) * 3600000;
-                    //aca voy a modificar los calendarios para modificar los utn de las horas no asignadas
-                    details2.calendarGroup = details2.calendarGroup.map(calendar1 => {
-                        if (!calendar1.assigned) {
-                            // Si 'assigned' es false, actualizar el valor
-                            return {
-                                ...calendar1, userstartDatetime: format(new Date(parseISO(calendar1.startDatetime).getTime() + deltaTime2), "yyyy-MM-dd'T'HH:mm"),
-                                userendDatetime: format(new Date(parseISO(calendar1.endDatetime).getTime() + deltaTime2), "yyyy-MM-dd'T'HH:mm")
-                            };
-                        }
-                        // Si 'assigned' es true, dejar el objeto sin cambios
-                        return calendar1;
-                    });
-                    //  console.log('CalendarStudent 156',deltaTime2)
-                    //  console.log('CalendarStudent 157',details2)
-                    setPersonSchedule(details2);
-                    //   console.log('CalendarStudent 102',personSchedule)
-                    // console.log('CalendarStudent 103',details)
-                } catch (error) {
-                    console.error('Error fetching user details:', error);
-                }
-            }
-            carDet()
-        }
 
 
-    }, [session, selectedTeacherId])
+        const alirio = teacherCards?.find((teacher) => {
+            // const tiempo = utn(today, teacher.calendarGroup[0]?.utnCreated);
+
+            return teacher._id === idTeacher
+
+        })
+        const fecha = today; Fragment
+        const offsetMinutes = fecha.getTimezoneOffset();
+        const offsetHours = offsetMinutes / 60;
+        const offsetSign = offsetHours > 0 ? '-' : '+';
+        const offsetHoursAbs = Math.abs(offsetHours);
+        const formattedOffset = `${offsetSign}${String(offsetHoursAbs).padStart(2, '')}`;
+        const utnUser = parseInt(formattedOffset, 10);
+        const last = alirio?.calendarGroup?.length;
+        const utnToG = alirio?.calendarGroup[last - 1]?.utnCreated;
+        console.log('deltaTIME2')
+        const deltaTime2 = (utnUser - utnToG) * 3600000;
+        const tiempo = deltaTime2;
+        console.log('TIEMPO', deltaTime2)
+        setdeltaTime(deltaTime2)
+
+    }, [session, selectedTeacherId, idTeacher])
 
 
 
+    
     //console.log('session 109',session)
     let today = startOfToday()
     const [selectedDay, setSelectedDay] = useState(today)
@@ -377,6 +315,10 @@ export const TeachersCalendarGroup = () => {
                     </div>
                 </div>
 
+                {/* <ComponenteHorasUniversales
+                    teacherCards={teacherCards}
+                    renders={renders}
+                    selectedDay={selectedDay} /> */}
 
                 <HoursMeetingTeacher
                     teacherCards={teacherCards}
@@ -384,10 +326,12 @@ export const TeachersCalendarGroup = () => {
                     selectedDay={selectedDay}
                     idTeacher={idTeacher}
                     takeHoursMeet={takeHoursMeet}
+                    deltaTime={deltaTime}
                 />
             </div>
             <div>
-                {idTeacher ? idTeacher : 'No hay'}
+                {idTeacher ? idTeacher : 'No hay'} <br />
+                {deltaTime ? deltaTime : 'No hay'}
                 <TeacherCardsButton teacherCards={teacherCards} takeCardId={takeCardId} />
             </div>
         </div >

@@ -11,7 +11,10 @@ export const TeacherMeetingAgenda = (props) => {
             {
                 teacherCards.map((teach) => (
                     (idTeacher === teach._id) && (teach.calendarGroup.map((day) => (
-                        (day.startDatetime === hoursMeet) && day.description
+                        (day.startDatetime === hoursMeet) && <p key={day.startDatetime}>
+                            {day.description}
+                        </p>
+
                     )))
                 ))
             }

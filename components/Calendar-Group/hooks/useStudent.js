@@ -8,10 +8,12 @@ const useStudent = () => {
         const { first_name, last_name, image, email, country } = student;
         const { students, studentLimit, id, startDatetime, endDatetime, teacherEmail } = classDetails;
 
+        console.log(classDetails)
         // Verifica si el límite de estudiantes se ha superado
-        if (students.length >= studentLimit) {
+        if (student.length >= studentLimit) {
             return alert('El límite de estudiantes anotado se ha superado');
         }
+
 
         // Agrega el estudiante a la clase localmente
         const updatedStudents = [...students, { first_name, last_name, image, email, country }];
