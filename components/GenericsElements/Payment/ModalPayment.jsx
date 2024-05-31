@@ -2,12 +2,17 @@ import { useEffect, useState } from "react"
 import Image from 'next/image';
 import Zelle from '../../../public/imgs/zelle-logo-0.png';
 import Logo from '../../../public/imgs/logo-gradient.png';
-import ModalPagoPAYPALL from "../../ModalPagoPAYPAL";
 import ModalPayPal from "./ModalPayPal";
+import ModalZeller from "./ModalZeller";
+import AlertContainer from "../Alerts/AlertContainer";
+import Alert from "../Alerts/Alert";
 
 export default function ModalPayment({ open, onCloseModal, date, onPaymentSuccess }) {
     const [isOpen, setIsOpen] = useState(false)
     const [isOpenPaypal, setIsOpenPaypal] = useState(false)    
+    const [isOpenZeller, setIsOpenZeller] = useState(false)    
+    const [isOpenAlertSuccess, setIsOpenAlertSuccess] = useState(false) 
+    const [isOpenAlertPendding, setIsOpenAlertPendding] = useState(false)    
 
     function closeModal(){
         setIsOpen(false)
@@ -17,6 +22,7 @@ export default function ModalPayment({ open, onCloseModal, date, onPaymentSucces
     function closeAllModal(){
         setIsOpen(false)
         setIsOpenPaypal(false)
+        setIsOpenZeller(false)
         onCloseModal()
     }
 
@@ -25,11 +31,27 @@ export default function ModalPayment({ open, onCloseModal, date, onPaymentSucces
     }
 
     function handlePaymentSuccess(data){
-        // Una ves echa la compra cierra el modal
+
+        // Una ves echa la compra manda la informacion del pago
+        onPaymentSuccess(data)
+
+        // Cierra los modales
         setIsOpen(false)
         setIsOpenPaypal(false)
+        setIsOpenZeller(false)
         onCloseModal()
-        onPaymentSuccess(data)        
+
+        // Muestra los alets correspondientes
+        switch(data?.type){
+            case "ZELLER":
+                setIsOpenAlertPendding(true)
+            break
+
+            case "PAYPAL":
+                setIsOpenAlertSuccess(true)
+            break
+        }
+
     }
     
     useEffect(() => {
@@ -71,7 +93,7 @@ export default function ModalPayment({ open, onCloseModal, date, onPaymentSucces
                             <button
                             type="button"
                             paymentSuccess={handlePaymentSuccess}
-                            onClick={() => {setIsOpenPaypal(true)}}
+                            onClick={() => setIsOpenPaypal(true)}
                             className='rounded-[5px] text-white px-5 py-2.5 mb-4 w-full text-[21px] italic font-semibold bg-gradient-to-r from-[#253b80] to-[#2997d8]  flex justify-center
                             hover:shadow-[0px_4px_14px_#253b80]'>
 
@@ -82,7 +104,7 @@ export default function ModalPayment({ open, onCloseModal, date, onPaymentSucces
                             {/* Zeller */}
                             <button
                             type="button"
-                            onClick={() => {props.open2(),props.close()}}
+                            onClick={() => setIsOpenZeller(true)}
                             className='rounded-[5px] text-white px-5 py-2.5 w-full mb-4 text-[16px] font-semibold bg-[#7422e0] flex justify-center
                             hover:shadow-[0px_4px_14px_#7422e0]'>
 
@@ -106,7 +128,36 @@ export default function ModalPayment({ open, onCloseModal, date, onPaymentSucces
             onCloseModal={()=>{ setIsOpenPaypal(false) }}
             onCloseAllModal={closeAllModal}
             />
-            {/* <ModalPagoPAYPALL  open={isOpenPaypal}/> */}
+            
+            {/* Modal de Zeller */}
+            <ModalZeller
+            date={date}
+            onPaymentCancel={handlePaymentCancel}
+            onPaymentSuccess={handlePaymentSuccess}
+            onCloseModal={() => setIsOpenZeller(true)}
+            open={isOpenZeller}
+            onCloseAllModal={closeAllModal}
+            />
+
+            {/* Alertas */}
+            <AlertContainer>
+
+                {/* Alerta de "Pago completado correctamente" */}
+                <Alert
+                color={"secondary"}
+                open={isOpenAlertSuccess}
+                closeAlert={()=>setIsOpenAlertSuccess(false)}>
+                    Pago completado correctamente
+                </Alert>
+
+                {/* Alerta de "Pago pendiente"  */}
+                <Alert
+                open={isOpenAlertPendding}
+                closeAlert={()=>setIsOpenAlertPendding(false)}>
+                    Pago pendiente, avisaremos a nuestros administradores para que su pago sea procesado
+                </Alert>
+
+            </AlertContainer>
         </>
     )
 }

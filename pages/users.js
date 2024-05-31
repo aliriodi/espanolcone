@@ -29,7 +29,7 @@ export default function Users() {
     const fetchUsers = async () => {
       try {
         const usersData = await getUsers();
-        setUsers(usersData);
+        setUsers(null);
         setIsLoading(false);
       } catch (error) {
         console.error("Error loading Users", error);
