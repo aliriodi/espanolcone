@@ -289,7 +289,8 @@ export default function MenuUsers({ user, validZeller, updateUser, loading ,Inva
 
                     {/* Indicador de Zeller */}
                     {
-                        user?.planSync?.length > 0 && !user?.planSync[user?.planSync?.length - 1]?.valid && 
+                        (user?.planSync?.length > 0 && !user?.planSync[user?.planSync?.length - 1]?.valid)||
+                        (user?.pendingPayments && user?.pendingPayments.length > 0) && 
                         <span className=" rounded-full bg-success w-[6px] h-[6px] absolute top-0 left-full"></span>
                     }
 
@@ -394,7 +395,12 @@ export default function MenuUsers({ user, validZeller, updateUser, loading ,Inva
                             {/* Validar Zeller */}
                             <li
                             onClick={()=>setOpenModalZelle(true)}
-                            className={`relative py-[8px] px-[20px] cursor-pointer transition-all ${user?.planSync?.length > 0 && !user?.planSync[user?.planSync?.length - 1]?.valid ? "opacity-1": "opacity-50 pointer-events-none rounded-[0_0_7px_7px]"}
+                            className={`relative py-[8px] px-[20px] cursor-pointer transition-all ${
+                                user?.planSync?.length > 0 && !user?.planSync[user?.planSync?.length - 1]?.valid ||
+                                user?.pendingPayments && user?.pendingPayments.length > 0 ?
+                                "opacity-1":
+                                "opacity-50 pointer-events-none rounded-[0_0_7px_7px]"
+                            }
                             hover:bg-primary_flat_hover`}>
 
                                 {/* Indicador de Zeller */}

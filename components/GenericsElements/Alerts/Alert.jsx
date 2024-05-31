@@ -7,7 +7,7 @@ export default function Alert({children, color = "primary", open, closeAlert}) {
     return(
         <div className={`
         ${!open ? "absolute right-[650px] opacity-0 z-[-1]" : "relative right-0"}
-        w-[650px] text-${color} rounded-[4px] flex items-center overflow-hidden my-2 transition-all
+        w-[650px] text-${color} rounded-[4px] flex items-center overflow-hidden my-2 transition-all shadow-[0px_1.3526092767715454px_5.410437107086182px_#0000002b]
         md:w-[95%] md:mx-auto`}>
 
             {/* Contenido */}
