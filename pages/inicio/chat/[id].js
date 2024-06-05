@@ -220,10 +220,12 @@ export default function Chat() {
       ammount: 1,
       dates:{
         type: data?.type,
-        menssageIndex:paymentDate?.menssageIndex
+        menssageIndex:paymentDate?.menssageIndex,
+        data: paymentDate?.data
       }
     }
 
+    axios.post("/api/receipt/add", recipe)
     // Asigna el estado mensaje
     let newMessages = [...allMessages]
 
@@ -421,7 +423,7 @@ export default function Chat() {
     return true
   }
 
-  async function openPaymentModal(amount, description,index){
+  async function openPaymentModal(amount, description, index, data){
 
     if(!amount){
       alert("Este presupuesto no tiene un monto definido")
@@ -429,10 +431,11 @@ export default function Chat() {
     }
 
     setPaymentDate({
-      amount: amount, 
+      amount: amount * 1.20, 
       currency: "USD", 
       description: description,
-      menssageIndex: index
+      menssageIndex: index,
+      data
     })
     setOpenPayment(true)
   }
@@ -640,7 +643,7 @@ export default function Chat() {
                             <p>
                               {
                                 budget?.total ?
-                                `${budget?.total} USD`
+                                `${budget?.total * 1.20} USD`
                                 :
                                 0
                               }
@@ -690,7 +693,7 @@ export default function Chat() {
 
                               // Boton de pago
                               <button
-                              onClick={()=>openPaymentModal(budget?.total, budget?.observacion, index)}
+                              onClick={()=>openPaymentModal(budget?.total, budget?.observacion, index, budget?.data)}
                               className=" btn-primary w-full py-2 font-medium">
                                 Obtener
                               </button>
