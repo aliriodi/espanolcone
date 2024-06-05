@@ -1,5 +1,4 @@
-import { Schema, model, models } from 'mongoose'
-
+import { Schema, model, models } from "mongoose";
 
 const UserSchema = new Schema(
   {
@@ -8,6 +7,21 @@ const UserSchema = new Schema(
     // },
     first_name: {
       type: String,
+    },
+    fechaNacimiento: {
+      type: Date,
+    },
+    paisorigen: {
+      type: String,
+    },
+    paisrecidencia: {
+      type: String,
+    },
+    idiomaMaterno: {
+      type: String,
+    },
+    interests: {
+      type: [String],
     },
     last_name: {
       type: String,
@@ -28,7 +42,7 @@ const UserSchema = new Schema(
     },
     password: {
       type: String,
-      select: false
+      select: false,
     },
     image: {
       url: {
@@ -50,13 +64,22 @@ const UserSchema = new Schema(
     biblioteca: {
       type: Object,
     },
-    role: {  //opcional para uso nuestro
-      type: ["user", "admin", "student", "invitado", "guide", "banned", "teacher"],
+    role: {
+      //opcional para uso nuestro
+      type: [
+        "user",
+        "admin",
+        "student",
+        "invitado",
+        "guide",
+        "banned",
+        "teacher",
+      ],
       default: "user",
     },
-    calendar: {  //opcional para uso nuestro
-      type: [{}]
-
+    calendar: {
+      //opcional para uso nuestro
+      type: [{}],
     },
     calendarGroup: {  //opcional para uso grupal
       type: [{}]
@@ -78,19 +101,18 @@ const UserSchema = new Schema(
               maxPoints: Number,
               maxPages: Number,
               currentPage: Number,
-              toPay:Boolean,
-              madeReview:Boolean
-            }
+              toPay: Boolean,
+              madeReview: Boolean,
+            },
           ],
-
-        }
+        },
       ],
     },
     position: {
       type: {
         id: String,
         index: Number,
-        maxpages: Number
+        maxpages: Number,
       },
     },
     guide: {
@@ -99,93 +121,90 @@ const UserSchema = new Schema(
     language: {
       type: String,
     },
-    chats:{
+    chats: {
       type: [
         {
           chatName: String,
           chatID: String,
           userID: String,
-        }
+        },
       ],
-      
-      notificateNewChat:{
+
+      notificateNewChat: {
         type: Boolean,
-      }
+      },
     },
     plan: {
       name: {
-        type: String
+        type: String,
       },
       cost: {
-        type: Number
-      },//costo del plan
+        type: Number,
+      }, //costo del plan
       features: {
-        type: [Object]
+        type: [Object],
       },
-      description:{
-        type: String
-      }
+      description: {
+        type: String,
+      },
     },
     test: {
       name: {
-        type: String
+        type: String,
       },
       test: {
-        type: [Object]
+        type: [Object],
       },
       type: {
         type: [String],
       },
     },
     password: {
-      type: String
+      type: String,
     },
-    country: { 
-      type: String 
+    country: {
+      type: String,
     },
 
     //Datos para Teacher
 
     hablante: {
-      type: String
+      type: String,
     },
     intro: {
-      type: String
+      type: String,
     },
     enfoquePedagogico: {
-      type: String
+      type: String,
     },
     puntos: {
-      type: Array
+      type: Array,
     },
 
     despedida: {
-      type: String
+      type: String,
     },
     youtube: {
-      type: String
+      type: String,
     },
     planAsync: {
       type: [{}],
-
     },
     planSync: {
       type: [{}],
-
     },
 
     pendingPayments: {
-      type: [{}],      
-    }
-
+      type: [{}],
+    },
   },
   {
     timestamps: true,
     versionKey: false,
-  },
-)
+  }
+);
 
 // error poco frectuente de versionado de modelos por eso etsa esto, pero revisar si puedo armarlo como lo anterior
-const Users = models.Users || model('Users', UserSchema)
+const Users = models.Users || model("Users", UserSchema);
 
-export default Users
+export default Users;
