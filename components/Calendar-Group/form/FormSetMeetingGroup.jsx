@@ -59,7 +59,7 @@ export const FormSetMeetingGroup = () => {
             description: rest.topic,
             startDatetime: `${date}T${startMeetTime}`,
             endDatetime: `${date}T${endMeetTime}`,
-            utnCreated: '',
+            utnCreated: -3,
             locationCreated: '',
             locationscheduled: '',
         };

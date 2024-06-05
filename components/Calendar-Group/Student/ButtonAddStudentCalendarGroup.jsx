@@ -1,10 +1,10 @@
 
 import { parseISO, isSameDay } from 'date-fns';
-import useAddStudentsCalendarGroup from '../hooks/useAddStudentCalendarGroup';
+import useStudent from '../hooks/useStudent';
 
 export default function ButtonAddStudentCalendarGroup({ personSchedule, renders, selectedDay }) {
 
-    const { handleAddStudentsCalendarGroup, isSubmitting } = useAddStudentsCalendarGroup()
+    const { handleAddStudentsCalendarGroup, isSubmitting } = useStudent()
 
 
     if (!personSchedule || !personSchedule.calendarGroup || !renders) {
