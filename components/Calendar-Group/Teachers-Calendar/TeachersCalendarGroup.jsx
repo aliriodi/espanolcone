@@ -204,7 +204,12 @@ export const TeachersCalendarGroup = () => {
       sm:px-7 md:max-w-6xl md:px-[25px]">
 
 
-                <TeacherMeetingAgenda teacherCards={teacherCards} idTeacher={idTeacher} selectedDay={selectedDay} hoursMeet={hoursMeet} />
+                <TeacherMeetingAgenda
+                    teacherCards={teacherCards}
+                    idTeacher={idTeacher}
+                    selectedDay={selectedDay}
+                    hoursMeet={hoursMeet}
+                    deltaTime={deltaTime} />
 
 
                 <div className="flex justify-center w-full

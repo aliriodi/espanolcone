@@ -1,8 +1,7 @@
-import { isSameDay, parseISO } from "date-fns"
 
 export const TeacherMeetingAgenda = (props) => {
 
-    const { teacherCards, idTeacher, selectedDay, hoursMeet } = props
+    const { teacherCards, idTeacher, selectedDay, hoursMeet, deltaTime } = props
 
 
     return (
@@ -10,12 +9,10 @@ export const TeacherMeetingAgenda = (props) => {
 
             {
                 teacherCards.map((teach) => (
-                    (idTeacher === teach._id) && (teach.calendarGroup.map((day) => (
-                        (day.startDatetime === hoursMeet) && <p key={day.startDatetime}>
-                            {day.description}
-                        </p>
-
-                    )))
+                    (idTeacher === teach._id) && (teach.calendarGroup.map((day) => {
+                        return (new Date(day.startDatetime) - new Date(hoursMeet) === -deltaTime) &&
+                            <p>{day.description}</p>
+                    }))
                 ))
             }
 
