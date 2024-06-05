@@ -1,42 +1,69 @@
+
 import { useState } from 'react';
 
 const useStudent = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [selectedTeacherId, setSelectedTeacherId] = useState(null);
 
-    const handleAddStudentsCalendarGroup = async (student, classDetails) => {
+    const handleAddMeetToCalendarGroup = async (student, teacher, selectedMeet, selectedMeetEnd) => {
         const { first_name, last_name, image, email, country } = student;
-        const { students, studentLimit, id, startDatetime, endDatetime, teacherEmail } = classDetails;
+        const { calendarGroup, first_name: teacherFirstName, last_name: teacherLastName, email: teacherEmail, image: teacherImage } = teacher;
 
-        console.log(classDetails)
-        // Verifica si el límite de estudiantes se ha superado
-        if (student.length >= studentLimit) {
-            return alert('El límite de estudiantes anotado se ha superado');
-        }
-
-
-        // Agrega el estudiante a la clase localmente
-        const updatedStudents = [...students, { first_name, last_name, image, email, country }];
         
-        // Crea la estructura de datos actualizada para la clase
-        const updatedClassDetails = {
-            ...classDetails,
-            students: updatedStudents
-        };
+       
+        // Actualizar el grupo de calendario del profesor
+        const updatedCalendarGroupTeacher = calendarGroup.map(group => {
+            if (group.startDatetime) {
+                if (group.students.length >= group.studentLimit) {
+                    alert('El límite de estudiantes anotado se ha superado');
+                    return group;
+                }
 
-        // Enviar datos al servidor
+                // Agrega el estudiante al grupo de calendario del profesor
+                const updatedStudents = [...group.students, { first_name, last_name, image, email, country, userstartDatetime: selectedMeet, userendDatetime: selectedMeetEnd,  }];
+                return { ...group, students: updatedStudents };
+            }
+            console.log(group)
+            return group;
+        });
+
+
+        // Actualizar el grupo de calendario del estudiante
+        const updatedCalendarGroupStudent = student.calendarGroup ? [...student.calendarGroup] : [];
+        updatedCalendarGroupStudent.push({
+            startDatetime: selectedMeet,
+            endDatetime: selectedMeetEnd,
+            teacherFirstName,
+            teacherLastName,
+            teacherEmail,
+            teacherImage,
+           
+        });
+
+        // Enviar datos al servidor para el profesor
         setIsSubmitting(true);
         try {
-            const response = await fetch('/api/users/update', {
+            const responseTeacher = await fetch('/api/users/update', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ email: teacherEmail, updates: { calendarGroup: updatedClassDetails } }),
+                body: JSON.stringify({ email: teacherEmail, updates: { calendarGroup: updatedCalendarGroupTeacher } }),
             });
 
-            const data = await response.json();
-            console.log(data);
+            const dataTeacher = await responseTeacher.json();
+            console.log('Profesor:', dataTeacher);
+
+            // Enviar datos al servidor para el estudiante
+            const responseStudent = await fetch('/api/users/update', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email: email, updates: { calendarGroup: updatedCalendarGroupStudent } }),
+            });
+
+            const dataStudent = await responseStudent.json();
+            console.log('Estudiante:', dataStudent);
             alert('El estudiante se ha anotado correctamente.');
         } catch (error) {
             console.error(error);
@@ -46,26 +73,12 @@ const useStudent = () => {
         }
 
         // Imprime el resultado para verificación
-        console.log(`Estudiantes anotados en la clase ${id} (${startDatetime} - ${endDatetime}):`, updatedStudents);
-        console.log('Cantidad de estudiantes anotados:', updatedStudents.length);
+        console.log(`Estudiantes anotados en la clase (${selectedMeet} - ${selectedMeetEnd}):`, updatedCalendarGroupTeacher);
     };
 
-
-
-    const handleSelectTeacherId =(teacherId)=>{
-        setSelectedTeacherId(teacherId);
-    } 
-
-
-
-
-
-
     return {
-        handleAddStudentsCalendarGroup,
+        handleAddMeetToCalendarGroup,
         isSubmitting,
-        handleSelectTeacherId,
-        selectedTeacherId
     };
 };
 

@@ -6,10 +6,8 @@ import MeetingPlaning from "../../Calendar/MeetingPlaning";
 import { TeacherMeetingAgenda } from './TeacherMeetingAgenda'
 import { TeacherCardsButton } from './TeacherCardsButton'
 import { HoursMeetingTeacher } from './HoursMeetingTeacher'
-import { ComponenteHorasUniversales } from './ComponenteHorasUniversales'
 import { useSelector } from 'react-redux';
 import { es } from 'date-fns/locale';
-import { hola, utn } from '../hooks/functionsCalendarG';
 import {
     add,
     addHours,
@@ -83,17 +81,17 @@ export const TeachersCalendarGroup = () => {
         const utnUser = parseInt(formattedOffset, 10);
         const last = alirio?.calendarGroup?.length;
         const utnToG = alirio?.calendarGroup[last - 1]?.utnCreated;
-        console.log('deltaTIME2')
+
         const deltaTime2 = (utnUser - utnToG) * 3600000;
         const tiempo = deltaTime2;
-        console.log('TIEMPO', deltaTime2)
+
         setdeltaTime(deltaTime2)
 
     }, [session, selectedTeacherId, idTeacher])
 
 
 
-    
+
     //console.log('session 109',session)
     let today = startOfToday()
     const [selectedDay, setSelectedDay] = useState(today)
@@ -315,10 +313,7 @@ export const TeachersCalendarGroup = () => {
                     </div>
                 </div>
 
-                {/* <ComponenteHorasUniversales
-                    teacherCards={teacherCards}
-                    renders={renders}
-                    selectedDay={selectedDay} /> */}
+
 
                 <HoursMeetingTeacher
                     teacherCards={teacherCards}

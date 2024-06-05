@@ -1,54 +1,44 @@
-//import { parseISO, isSameDay } from 'date-fns';
 import {
-    add,
-    eachDayOfInterval,
-    endOfMonth,
     format,
-    getDay,
-    isEqual,
     isSameDay,
-    isAfter,
-    isBefore,
-    isSameMonth,
-    isToday,
-    parse,
-    parseISO,
-    startOfToday,
-} from 'date-fns'
+    parseISO
+} from 'date-fns';
 import useStudent from '../hooks/useStudent';
 import { useState } from 'react';
 
+function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
+}
+
 export function HoursMeetingTeacher({ teacherCards, renders, selectedDay, idTeacher, takeHoursMeet, deltaTime }) {
-    const { handleAddStudentsCalendarGroup, isSubmitting } = useStudent();
+    const { handleAddMeetToCalendarGroup, isSubmitting } = useStudent();
     const [selectedMeet, setSelectedMeet] = useState(null);
+    const [selectedMeetEnd, setSelectedMeetEnd] = useState(null);
+    const [selectedTeacher, setSelectedTeacher] = useState(null);
 
-    // console.log('render', renders.user)
-
-    const handleSelectMeet = (datetime) => {
+    const handleSelectMeet = (datetime, datetimeEnd, teacher) => {
+        setSelectedTeacher(teacher);
         setSelectedMeet(datetime);
+        setSelectedMeetEnd(datetimeEnd);
         takeHoursMeet(datetime);
     };
 
     return (
         <div className="flex flex-col items-center">
             {teacherCards?.map((teacher) => (
-                teacher.calendarGroup.map((hoursMeet) => (
-
+                teacher.calendarGroup.map((hoursMeet, index) => (
                     isSameDay(parseISO(hoursMeet.startDatetime), selectedDay) && (idTeacher === teacher._id) && (
-                        <button
-                            key={hoursMeet.startDatetime}
-                            type="button"
-                            className='bg-purple-500 text-center text-white rounded-[5px] py-2 mt-2 w-40'
-                            onClick={() => handleSelectMeet(hoursMeet.startDatetime)}
-                        >
-                            {format(new Date(parseISO(hoursMeet.startDatetime).getTime() + deltaTime), "HH:mm")} -
-                            {format(new Date(parseISO(hoursMeet.endDatetime).getTime() + deltaTime), "HH:mm")}
-
-                            {/* 
-                            userstartDatetime: format(new Date(parseISO(calendar1.startDatetime).getTime() + deltaTime2), "yyyy-MM-dd'T'HH:mm"),
-                             userendDatetime: format(new Date(parseISO(calendar1.endDatetime).getTime() + deltaTime2), "yyyy-MM-dd'T'HH:mm")
-                            */}
-                        </button>
+                        <li key={index}>
+                            <button
+                                type="button"
+                                className='focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 mb-2 w-full border-solid border-[2px] border-primary hover:bg-primary transition-all'
+                                onClick={() => handleSelectMeet(format(new Date(parseISO(hoursMeet.startDatetime).getTime() + deltaTime), "yyyy-MM-dd'T'HH:mm"), format(new Date(parseISO(hoursMeet.endDatetime).getTime() + deltaTime), "yyyy-MM-dd'T'HH:mm"), teacher)}
+                            >
+                                <time datetime={hoursMeet.startDatetime}>{format(new Date(parseISO(hoursMeet.startDatetime).getTime() + deltaTime), "HH:mm")}</time>{' '}
+                                -{' '}
+                                <time datetime={hoursMeet.endDatetime}>{format(new Date(parseISO(hoursMeet.endDatetime).getTime() + deltaTime), "HH:mm")}</time>
+                            </button>
+                        </li>
                     )
                 ))
             ))}
@@ -56,7 +46,7 @@ export function HoursMeetingTeacher({ teacherCards, renders, selectedDay, idTeac
                 <button
                     disabled={isSubmitting}
                     className='bg-primary text-center text-white rounded-[5px] py-2 px-4 mt-4 w-40'
-                    onClick={() => handleAddStudentsCalendarGroup(renders.user, { startDatetime: selectedMeet, teacherEmail: teacherCards.email })}
+                    onClick={() => handleAddMeetToCalendarGroup(renders.user, selectedTeacher, selectedMeet, selectedMeetEnd)}
                 >
                     CONFIRMAR
                 </button>
