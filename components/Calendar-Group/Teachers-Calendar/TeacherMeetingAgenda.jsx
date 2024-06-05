@@ -11,7 +11,7 @@ export const TeacherMeetingAgenda = (props) => {
                 teacherCards.map((teach) => (
                     (idTeacher === teach._id) && (teach.calendarGroup.map((day) => {
                         return (new Date(day.startDatetime) - new Date(hoursMeet) === -deltaTime) &&
-                            <p>{day.description}</p>
+                            <p key={day.description}>{day.description}</p>
                     }))
                 ))
             }
