@@ -23,7 +23,7 @@ export function HoursMeetingTeacher({ teacherCards, renders, selectedDay, idTeac
     return (
         <div className="flex flex-col items-center">
             {teacherCards?.map((teacher) => (
-                teacher.calendarGroup.map((hoursMeet, index) => (
+                teacher?.calendarGroup?.map((hoursMeet, index) => (
                     isSameDay(parseISO(hoursMeet.startDatetime), selectedDay) && (idTeacher === teacher._id) && (
                         <li key={index}>
                             <button

@@ -2,18 +2,22 @@ import useStudent from "../hooks/useStudent"
 
 
 export const TeacherCardsButton = (props) => {
-    const { teacherCards, takeCardId } = props
+    const { teacherCards, takeCardId, renders } = props
 
 
     const { handleSelectTeacherId, selectedTeacherId } = useStudent()
 
-    
+
+
+
     return (
         <div className="flex flex-wrap justify-center mt-20">
             {
                 teacherCards.map((teacher) => {
                     const isSelected = selectedTeacherId === teacher._id;
-                    return (
+
+
+                    return (renders?.user._id !== teacher._id &&
                         <div
                             key={teacher._id}
                             className={`m-4 ${isSelected ? 'shadow-lg border-4 border-blue-500' : ''}`}

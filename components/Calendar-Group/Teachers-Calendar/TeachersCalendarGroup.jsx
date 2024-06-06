@@ -87,7 +87,7 @@ export const TeachersCalendarGroup = () => {
 
         setdeltaTime(deltaTime2)
 
-    }, [session, selectedTeacherId, idTeacher])
+    }, [session, idTeacher])
 
 
 
@@ -332,7 +332,7 @@ export const TeachersCalendarGroup = () => {
             <div>
                 {idTeacher ? idTeacher : 'No hay'} <br />
                 {deltaTime ? deltaTime : 'No hay'}
-                <TeacherCardsButton teacherCards={teacherCards} takeCardId={takeCardId} />
+                <TeacherCardsButton teacherCards={teacherCards} takeCardId={takeCardId} renders={renders} />
             </div>
         </div >
     )
