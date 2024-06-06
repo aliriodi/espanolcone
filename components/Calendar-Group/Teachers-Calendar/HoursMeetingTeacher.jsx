@@ -7,7 +7,7 @@ import useStudent from '../hooks/useStudent';
 import { useState } from 'react';
 
 
-export function HoursMeetingTeacher({ teacherCards, renders, selectedDay, idTeacher, takeHoursMeet, deltaTime }) {
+export function HoursMeetingTeacher({ teacherCards, renders, selectedDay, idTeacher, takeHoursMeet, deltaTime, description }) {
     const { handleAddMeetToCalendarGroup, isSubmitting } = useStudent();
     const [selectedMeet, setSelectedMeet] = useState(null);
     const [selectedMeetEnd, setSelectedMeetEnd] = useState(null);
@@ -44,7 +44,7 @@ export function HoursMeetingTeacher({ teacherCards, renders, selectedDay, idTeac
                 <button
                     disabled={isSubmitting}
                     className='bg-primary text-center text-white rounded-[5px] py-2 px-4 mt-4 w-40'
-                    onClick={() => handleAddMeetToCalendarGroup(renders.user, selectedTeacher, selectedMeet, selectedMeetEnd)}
+                    onClick={() => handleAddMeetToCalendarGroup(renders.user, selectedTeacher, selectedMeet, selectedMeetEnd, description)}
                 >
                     CONFIRMAR
                 </button>

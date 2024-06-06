@@ -45,6 +45,7 @@ export const TeachersCalendarGroup = () => {
     let [newMeeting, setNewMeeting] = useState()
     const [idTeacher, setidTeacher] = useState('')
     const [hoursMeet, setHoursMeet] = useState('')
+    const [description, setDescription] = useState('')
     const [deltaTime, setdeltaTime] = useState(0)
 
     let selectedDayMeetings = [];
@@ -54,6 +55,9 @@ export const TeachersCalendarGroup = () => {
     }
     function takeHoursMeet(hours) {
         setHoursMeet(hours)
+    }
+    function takeDescriptionMeet(descripción) {
+        setDescription(descripción)
     }
 
     useEffect(() => {
@@ -209,7 +213,8 @@ export const TeachersCalendarGroup = () => {
                     idTeacher={idTeacher}
                     selectedDay={selectedDay}
                     hoursMeet={hoursMeet}
-                    deltaTime={deltaTime} />
+                    deltaTime={deltaTime}
+                    takeDescriptionMeet={takeDescriptionMeet} />
 
 
                 <div className="flex justify-center w-full
@@ -327,6 +332,7 @@ export const TeachersCalendarGroup = () => {
                     idTeacher={idTeacher}
                     takeHoursMeet={takeHoursMeet}
                     deltaTime={deltaTime}
+                    description={description}
                 />
             </div>
             <div>

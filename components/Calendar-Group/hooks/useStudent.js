@@ -4,7 +4,7 @@ import { useState } from 'react';
 const useStudent = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const handleAddMeetToCalendarGroup = async (student, teacher, selectedMeet, selectedMeetEnd) => {
+    const handleAddMeetToCalendarGroup = async (student, teacher, selectedMeet, selectedMeetEnd, description) => {
         const { first_name, last_name, image, email, country } = student;
         const { calendarGroup, first_name: teacherFirstName, last_name: teacherLastName, email: teacherEmail, image: teacherImage } = teacher;
 
@@ -19,7 +19,7 @@ const useStudent = () => {
                 }
 
                 // Agrega el estudiante al grupo de calendario del profesor
-                const updatedStudents = [...group.students, { first_name, last_name, image, email, country, userstartDatetime: selectedMeet, userendDatetime: selectedMeetEnd,  }];
+                const updatedStudents = [...group.students, { first_name, last_name, image, email, country, userstartDatetime: selectedMeet, userendDatetime: selectedMeetEnd, description }];
                 return { ...group, students: updatedStudents };
             }
             console.log(group)
@@ -36,6 +36,7 @@ const useStudent = () => {
             teacherLastName,
             teacherEmail,
             teacherImage,
+            description
            
         });
 
