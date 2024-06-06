@@ -45,6 +45,7 @@ export const TeachersCalendarGroup = () => {
     let [newMeeting, setNewMeeting] = useState()
     const [idTeacher, setidTeacher] = useState('')
     const [hoursMeet, setHoursMeet] = useState('')
+    const [description, setDescription] = useState('')
     const [deltaTime, setdeltaTime] = useState(0)
 
     let selectedDayMeetings = [];
@@ -54,6 +55,9 @@ export const TeachersCalendarGroup = () => {
     }
     function takeHoursMeet(hours) {
         setHoursMeet(hours)
+    }
+    function takeDescriptionMeet(descripción) {
+        setDescription(descripción)
     }
 
     useEffect(() => {
@@ -87,7 +91,7 @@ export const TeachersCalendarGroup = () => {
 
         setdeltaTime(deltaTime2)
 
-    }, [session, selectedTeacherId, idTeacher])
+    }, [session, idTeacher])
 
 
 
@@ -204,7 +208,13 @@ export const TeachersCalendarGroup = () => {
       sm:px-7 md:max-w-6xl md:px-[25px]">
 
 
-                <TeacherMeetingAgenda teacherCards={teacherCards} idTeacher={idTeacher} selectedDay={selectedDay} hoursMeet={hoursMeet} />
+                <TeacherMeetingAgenda
+                    teacherCards={teacherCards}
+                    idTeacher={idTeacher}
+                    selectedDay={selectedDay}
+                    hoursMeet={hoursMeet}
+                    deltaTime={deltaTime}
+                    takeDescriptionMeet={takeDescriptionMeet} />
 
 
                 <div className="flex justify-center w-full
@@ -322,12 +332,13 @@ export const TeachersCalendarGroup = () => {
                     idTeacher={idTeacher}
                     takeHoursMeet={takeHoursMeet}
                     deltaTime={deltaTime}
+                    description={description}
                 />
             </div>
             <div>
                 {idTeacher ? idTeacher : 'No hay'} <br />
                 {deltaTime ? deltaTime : 'No hay'}
-                <TeacherCardsButton teacherCards={teacherCards} takeCardId={takeCardId} />
+                <TeacherCardsButton teacherCards={teacherCards} takeCardId={takeCardId} renders={renders} />
             </div>
         </div >
     )

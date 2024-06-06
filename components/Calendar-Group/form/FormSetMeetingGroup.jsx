@@ -50,11 +50,7 @@ export const FormSetMeetingGroup = () => {
             assigned: true,
             preassgined: false,
             studentLimit: rest.studentCount,
-            students: [{
-                utnscheduled: '',
-                userstartDatetime: '',
-                userendDatetime: '',
-            }],
+            students: [],
             first_name: rest.teacher,
             description: rest.topic,
             startDatetime: `${date}T${startMeetTime}`,
