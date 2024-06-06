@@ -32,9 +32,9 @@ export function HoursMeetingTeacher({ teacherCards, renders, selectedDay, idTeac
                                 onClick={() => handleSelectMeet(
                                     format(new Date(parseISO(hoursMeet.startDatetime).getTime() + deltaTime), "yyyy-MM-dd'T'HH:mm"), format(new Date(parseISO(hoursMeet.endDatetime).getTime() + deltaTime), "yyyy-MM-dd'T'HH:mm"), teacher)}
                             >
-                                <time datetime={hoursMeet.startDatetime}>{format(new Date(parseISO(hoursMeet.startDatetime).getTime() + deltaTime), "HH:mm")}</time>{' '}
+                                <time dateTime={hoursMeet.startDatetime}>{format(new Date(parseISO(hoursMeet.startDatetime).getTime() + deltaTime), "HH:mm")}</time>{' '}
                                 -{' '}
-                                <time datetime={hoursMeet.endDatetime}>{format(new Date(parseISO(hoursMeet.endDatetime).getTime() + deltaTime), "HH:mm")}</time>
+                                <time dateTime={hoursMeet.endDatetime}>{format(new Date(parseISO(hoursMeet.endDatetime).getTime() + deltaTime), "HH:mm")}</time>
                             </button>
                         </li>
                     )
