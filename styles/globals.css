@@ -472,6 +472,17 @@ h3{
   animation: ensanchamiento 0.5s ease-in-out forwards;
 }
 
+.hidden-in-responsive{
+
+}
+
+.hidden-in-responsive{
+  display: flex;
+}
+
+.hidden-in-deskop{
+  display: none;
+}
 
 @media (max-width: 768px) {
 
@@ -497,6 +508,19 @@ h3{
   .text-header{
     font-size: 16px;
     line-height: 19.5px;
+  }
+
+  
+  .hidden-in-responsive{
+    display: none;
+  }
+  
+  .hidden-in-deskop{
+    display: flex;
+  }
+
+  .w-full-responsive{
+    width: 100vw;
   }
 }
 
