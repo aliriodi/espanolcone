@@ -1121,8 +1121,25 @@
     overflow: hidden; /* Evita que el contenido se desborde */
   }
 
+  .box-curve4 {
+    padding-top: 8px;
+    padding-left: 16px;
+    /* width: 145px; */
+    height: 140px;
+    border-color:var(--primary);
+    border-style:solid;
+    border-width:2px;
+    border-radius: 0px 20px 0 20px; /* Aplica bordes redondeados solo en la esquina superior izquierda y la esquina inferior izquierda */
+    overflow: hidden; /* Evita que el contenido se desborde */
+  }
 
 
+  @media (max-width: 768px){
+
+    .w-full-responsive{
+        width: 100%;
+    }
+  }
 
 .className{
     border: solid red 4px;
