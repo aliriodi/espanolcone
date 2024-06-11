@@ -19,8 +19,8 @@ export const TeacherMeetingAgenda = (props) => {
     }, [teacherCards, idTeacher, hoursMeet, deltaTime]);
 
     return (
-        <div>
-            {selectedDescription && <p>Temario de la clase: <br /> {selectedDescription}</p>}
+        <div className=''>
+            {selectedDescription && <div><h3 className='pt-5'>Temario de la clase: </h3> <p className='pt-8'>{selectedDescription}</p></div>}
         </div>
     );
 }

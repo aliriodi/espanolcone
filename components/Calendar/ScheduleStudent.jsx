@@ -70,7 +70,7 @@ export default function Example() {
     setCalendar((prevCalendar) => [...prevCalendar, newElement]);
     try {
       //enviando disponibilidad de calendario a BD
-    //  console.log('cargando newcalendar', newcalendar)
+      //  console.log('cargando newcalendar', newcalendar)
 
       await fetch('/api/users/update',
         {
@@ -173,7 +173,10 @@ export default function Example() {
 
 
   return (
-    <div className="pt-24">
+    <div className="pt-[105px]">
+      <button className="ml-32 mb-12 bg-[#3cbbd6] text-white py-2 px-4 rounded hover:bg-[#35a5c2] focus:outline-none focus:ring-2 focus:ring-[#3cbbd6] focus:ring-opacity-50">
+        <a href="/inicio/calendarGroup">Ir a clases grupales</a>
+      </button>
       <div className="px-[60px] flex justify-between
       sm:px-7 md:max-w-6xl md:px-[25px]">
 
@@ -187,10 +190,10 @@ export default function Example() {
             <div className="flex flex-col">
 
               <h2 className='md:text-[18px]'>Selecciona una fecha</h2>
-              
-              <h3 className='md:text-[18px]'>{session?.user?.first_name} posee(s)  {session?.user?.planSync?.length? session.user.planSync[session.user.planSync.length-1].qty-session.user.planSync[session.user.planSync.length-1].classview:0} clases para agendar</h3>
-                                                                                                                                                                                            {/* -session.user.planSync[session.user.planSync.length-1].classview   */}
-              
+
+              <h3 className='md:text-[18px]'>{session?.user?.first_name} posee(s)  {session?.user?.planSync?.length ? session.user.planSync[session.user.planSync.length - 1].qty - session.user.planSync[session.user.planSync.length - 1].classview : 0} clases para agendar</h3>
+              {/* -session.user.planSync[session.user.planSync.length-1].classview   */}
+
               <div className='flex mt-[16px]'>
 
                 {/* Botones para cambiar de Mes */}
@@ -435,6 +438,7 @@ export default function Example() {
         </div>
 
       </div>
+
     </div>
   )
 }

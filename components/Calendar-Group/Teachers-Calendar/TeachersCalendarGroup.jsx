@@ -202,9 +202,7 @@ export const TeachersCalendarGroup = () => {
 
     return (
         <div className="pt-40">
-
-
-            <div className="px-[60px] flex justify-between
+            <div className="px-[60px] grid grid-cols-[0.5fr,3fr,0.5fr]
       sm:px-7 md:max-w-6xl md:px-[25px]">
 
 
@@ -336,8 +334,6 @@ export const TeachersCalendarGroup = () => {
                 />
             </div>
             <div>
-                {idTeacher ? idTeacher : 'No hay'} <br />
-                {deltaTime ? deltaTime : 'No hay'}
                 <TeacherCardsButton teacherCards={teacherCards} takeCardId={takeCardId} renders={renders} />
             </div>
         </div >

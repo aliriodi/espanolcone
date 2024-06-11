@@ -38,7 +38,7 @@ export const CalendarGroupStudent = () => {
     //En el perfil del profesor se trae su calendar de la BD y observa todo
     const [calendar, setCalendar2] = useState([]);
     const { data: session, status, update } = useSession();
-    const [renders, setRenders] = useState({ user: { role: "user", calendar: [{}], image: 'https://res.cloudinary.com/dfddh08q8/image/upload/v1695578432/images/4_svg8uq.png' } })
+    const [renders, setRenders] = useState({ user: { role: "user", calendarGroup: [{}], image: 'https://res.cloudinary.com/dfddh08q8/image/upload/v1695578432/images/4_svg8uq.png' } })
     const [newcalendar, setCalendar] = useState([]);
     // Termina section de BD ahora viebne el codigo que usa los datos
     let selectedDayMeetings = [];
@@ -54,6 +54,7 @@ export const CalendarGroupStudent = () => {
     }, [session]) // No esta funcionando este useEffect
 
 
+    console.log(renders.user.calendarGroup)
     //console.log('session 109',session)
     let today = startOfToday()
     const [selectedDay, setSelectedDay] = useState(today)
@@ -63,8 +64,9 @@ export const CalendarGroupStudent = () => {
 
     if (renders) {
         selectedDayMeetings = renders.user.calendarGroup?.filter((meeting) =>
-            isSameDay(parseISO(meeting.userstartDatetime), selectedDay))
+            isSameDay(parseISO(meeting.startDatetime), selectedDay))
     }
+
 
     //funcion para agregar nuevo calendario a disposicion de estudiantes
     async function addNewElement(newElement) {
@@ -157,7 +159,7 @@ export const CalendarGroupStudent = () => {
             image: "",
             startDatetime: startDatetime1,
             endDatetime: endDatetime1,
-            userstartDatetime: "",
+            startDatetime: "",
             userendDatetime: ""
 
         });
@@ -174,7 +176,10 @@ export const CalendarGroupStudent = () => {
 
 
     return (
-        <div className="pt-40">
+        <div className="pt-[105px]">
+            <button className="ml-32 mb-12 bg-[#3cbbd6] text-white py-2 px-4 rounded hover:bg-[#35a5c2] focus:outline-none focus:ring-2 focus:ring-[#3cbbd6] focus:ring-opacity-50">
+                <a href="/inicio/calendar">Ir a clases individuales</a>
+            </button>
             <div className="px-[60px] flex justify-between
       sm:px-7 md:max-w-6xl md:px-[25px]">
 
@@ -264,6 +269,7 @@ export const CalendarGroupStudent = () => {
                                             isEqual(day, selectedDay) && !isToday(day) && 'bg-success',
                                             !isEqual(day, selectedDay) && 'hover:bg-gray-200',
                                             (isEqual(day, selectedDay) || isToday(day)) && 'font-semibold',
+
                                             'mx-auto flex h-8 w-8 items-center justify-center rounded-full'
                                         )}
                                     >
@@ -280,16 +286,16 @@ export const CalendarGroupStudent = () => {
                     as */}
                                         {/* {renders[i].schedule.some((meeting) => */}
                                         {renders?.user?.calendarGroup?.some((meeting) =>
-                                            (isSameDay(parseISO(meeting.userstartDatetime), day) && meeting.assigned) ||
-                                            (newcalendar.some((meeting1) => isSameDay(parseISO(meeting1.userstartDatetime), day) && meeting1.assigned))
+                                            (isSameDay(parseISO(meeting.startDatetime), day) && meeting.assigned) ||
+                                            (newcalendar.some((meeting1) => isSameDay(parseISO(meeting1.startDatetime), day) && meeting1.assigned))
                                         ) && (
                                                 <div className="w-1 h-1 rounded-full bg-sky-500"></div>
                                             )}
 
                                         {/* {renders[i].schedule.some((meeting) => */}
                                         {renders?.user?.calendarGroup?.some((meeting) =>
-                                            (isSameDay(parseISO(meeting.userstartDatetime), day) && !meeting.assigned) ||
-                                            (newcalendar.some((meeting1) => isSameDay(parseISO(meeting1.userstartDatetime), day) && !meeting1.assigned)
+                                            (isSameDay(parseISO(meeting.startDatetime), day) && !meeting.assigned) ||
+                                            (newcalendar.some((meeting1) => isSameDay(parseISO(meeting1.startDatetime), day) && !meeting1.assigned)
                                             )) && (
                                                 <div className="w-1 h-1 rounded-full bg-success  "></div>
                                             )}
@@ -353,17 +359,17 @@ export const CalendarGroupStudent = () => {
                                                             <button key={index} onClick={() => addNewElement(meeting)}
                                                                 className={classNames(
                                                                     'focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 mb-2 text-secondary hover:bg-secondary_light border-solid border-[2px] border-secondary transition-all mx-1',
-                                                                    selectedDayMeetings.some((meeting1) => meeting1.userstartDatetime === meeting.userstartDatetime && meeting1.assigned)
+                                                                    selectedDayMeetings.some((meeting1) => meeting1.startDatetime === meeting.startDatetime && meeting1.assigned)
                                                                     && 'border-red-500 border-solid border-[2px] hover:border-primary',
-                                                                    newcalendar.some((meeting1) => meeting1.userstartDatetime === meeting.userstartDatetime) && 'bg-secondary text-white hover:bg-secondary'
+                                                                    newcalendar.some((meeting1) => meeting1.startDatetime === meeting.startDatetime) && 'bg-secondary text-white hover:bg-secondary'
                                                                 )}
 
                                                                 //Para deshabilitar el boton cuando haya meeting
                                                                 disabled={
-                                                                    selectedDayMeetings.some((meeting1) => meeting1.userstartDatetime === meeting.userstartDatetime && meeting1.assigned)
-                                                                    || newcalendar.some((meeting1) => meeting1.userstartDatetime === meeting.userstartDatetime)}
+                                                                    selectedDayMeetings.some((meeting1) => meeting1.startDatetime === meeting.startDatetime && meeting1.assigned)
+                                                                    || newcalendar.some((meeting1) => meeting1.startDatetime === meeting.startDatetime)}
                                                             >
-                                                                <MeetingPlaning key={index} meeting={meeting} assigned={selectedDayMeetings.some((meeting1) => meeting1.userstartDatetime === meeting.userstartDatetime && meeting1.assigned)} /></button>
+                                                                <MeetingPlaning key={index} meeting={meeting} assigned={selectedDayMeetings.some((meeting1) => meeting1.startDatetime === meeting.startDatetime && meeting1.assigned)} /></button>
                                                         ))
                                                     ) : (
                                                         <p>No hay actividad agendada aún.</p>
@@ -442,10 +448,10 @@ export const CalendarGroupStudent = () => {
 }
 
 function Meeting({ meeting }) {
-    let startDateTime = parseISO(meeting.userstartDatetime)
-    let endDateTime = parseISO(meeting.userendDatetime)
+    let startDateTime = parseISO(meeting.startDatetime)
+    let endDateTime = parseISO(meeting.endDatetime)
 
-    //useEffect(() => console.log(meeting), [])
+    // useEffect(() => console.log(meeting), [])
 
     return (
         <li className="flex items-center px-4 py-2 space-x-4 group focus-within:bg-gray-100 hover:bg-gray-100 border-b-2 last-of-type:border-none
@@ -455,9 +461,9 @@ function Meeting({ meeting }) {
 
             <div className='flex-none w-10 h-10 rounded-full bg-[#B9B9C3] relative overflow-hidden flex justify-center items-center'>
                 {
-                    meeting?.image?.url ?
+                    meeting?.teacherImage?.url ?
                         <Image
-                            src={meeting?.image?.url || meeting?.image}
+                            src={meeting?.teacherImage?.url || meeting?.image}
                             alt="img"
                             className="object-cover"
                             width={160}
@@ -477,7 +483,7 @@ function Meeting({ meeting }) {
                 {meeting.assigned ? true : <p className="text-gray-900">Meeting no asignado aún</p>}
 
                 {/* Nombre */}
-                <p className="text-gray-900">{meeting.first_name + ' ' + meeting.last_name}</p>
+                <p className="text-gray-900">{meeting.teacherFirstName + ' ' + meeting.teacherLastName}</p>
 
                 {/* Role */}
                 <p className="text-gray-900

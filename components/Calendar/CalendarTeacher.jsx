@@ -143,7 +143,7 @@ export default function Example() {
     // console.log(startDatetime1,typeof(endDatetime1))
     hoursOfDay.push({
       assigned: false,
-      description:'',
+      description: '',
       preassigned: false,
       role: "",
       locationCreated: country,
@@ -176,7 +176,10 @@ export default function Example() {
 
 
   return (
-    <div className="pt-24">
+    <div className="pt-[105px]">
+      <button className="ml-32 mb-12 bg-[#3cbbd6] text-white py-2 px-4 rounded hover:bg-[#35a5c2] focus:outline-none focus:ring-2 focus:ring-[#3cbbd6] focus:ring-opacity-50">
+        <a href="/inicio/calendarGroup">Ir a clases grupales</a>
+      </button>
       <div className="px-[60px] flex justify-between
       sm:px-7 md:max-w-6xl md:px-[25px]">
 
@@ -402,6 +405,7 @@ export default function Example() {
 
               </h2>
 
+
               <h3 className='md:text-[15px]'>
                 <time dateTime={format(selectedDay, 'yyyy-MM-dd')}>
                   {format(selectedDay, 'MMM dd, yyy', { locale: es }).charAt(0).toUpperCase() + format(selectedDay, 'MMM dd, yyy', { locale: es }).slice(1)}
@@ -434,12 +438,14 @@ export default function Example() {
 
         </div>
 
+
       </div>
+
     </div>
   )
 }
 
-function Meeting({ meeting , renders}) {
+function Meeting({ meeting, renders }) {
   let startDateTime = parseISO(meeting.startDatetime)
   let endDateTime = parseISO(meeting.endDatetime)
 
@@ -496,7 +502,7 @@ function Meeting({ meeting , renders}) {
 
         </p>
       </div>
-     
+
     </li>
   )
 }

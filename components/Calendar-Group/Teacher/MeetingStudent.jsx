@@ -9,10 +9,10 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 export const MeetingStudent = ({ meeting, renders }) => {
 
-    let startDateTime = parseISO(meeting.startDatetime)
-    let endDateTime = parseISO(meeting.endDatetime)
+    let startDateTime = parseISO(meeting.userstartDatetime)
+    let endDateTime = parseISO(meeting.userendDatetime)
 
-    useEffect(() => console.log(meeting), [])
+    // useEffect(() => console.log(meeting), [])
 
     return (
         <li className="flex items-center px-4 py-2 space-x-4 group focus-within:bg-gray-100 hover:bg-gray-100 border-b-2 last-of-type:border-none

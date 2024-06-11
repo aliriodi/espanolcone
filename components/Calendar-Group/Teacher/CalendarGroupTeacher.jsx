@@ -59,9 +59,16 @@ export const CalendarGroupTeacher = () => {
     let firstDayCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date())
 
     if (renders) {
-        selectedDayMeetings = renders.user.calendarGroup.filter((meeting) =>
-            isSameDay(parseISO(meeting.startDatetime), selectedDay))
+        const studentsArray = renders.user?.calendarGroup?.map((student) => student.students);
+
+        // Verificar que el arreglo no sea undefined
+        if (studentsArray && studentsArray[0]) {
+            const firstElement = studentsArray[0]; // Esto te dará el primer elemento
+            selectedDayMeetings = firstElement.filter(meeting => isSameDay(parseISO(meeting.userstartDatetime), selectedDay));
+        }
     }
+
+
 
     //funcion para agregar nuevo calendario a disposicion de estudiantes
     async function addNewElement(newElement) {
@@ -161,7 +168,10 @@ export const CalendarGroupTeacher = () => {
     }
 
     return (
-        <div className="pt-40">
+        <div className="pt-[105px]">
+            <button className="ml-32 mb-12 bg-[#3cbbd6] text-white py-2 px-4 rounded hover:bg-[#35a5c2] focus:outline-none focus:ring-2 focus:ring-[#3cbbd6] focus:ring-opacity-50">
+                <a href="/inicio/calendar">Ir a clases individuales</a>
+            </button>
             <div className="px-[60px] flex justify-between
       sm:px-7 md:max-w-6xl md:px-[25px]">
                 <div className="flex justify-between w-full
