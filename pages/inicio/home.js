@@ -631,7 +631,7 @@ export default function Home() {
 
                 <p className='text-violet_dark text-[18px] leading-[21.94px] my-[20px]
               md:text-[14px]'>
-                  Aprendé y perfecciona tu español acompañado con professores nativos certificados.
+                  Aprendé y perfecciona tu español acompañado con profesores nativos certificados.
                 </p>
 
                 <p className='text-violet_dark text-[18px] leading-[21.94px]
