@@ -71,14 +71,19 @@ export default function Class(props) {
       color: "#000"
     }
   }
-  useEffect(()=> console.log("///////////////////////////",opts,"///////////////////////////"),[opts])
+  // useEffect(()=> console.log("///////////////////////////",opts,"///////////////////////////"),[opts])
 
   // Tests
   const [isTest, setIsTest] = useState(false)
 
+  // Activity Data
+  const [activityData, setActivityData] = useState(null)
+  const [currentActivityData, setCurrentActivityData] = useState(null)
+
   useEffect(()=>{
     // En caso de que el usuario tenga todavia que pagar la unidad se lo redireciona
     if (status && status != "loading" && session?.user?.classes[props?.currentLevelIndex].units[props?.currentUnitIndex]?.toPay == true) window.location.href = "/inicio/curso";
+
   },[session])
 
   useEffect(() => {
@@ -275,7 +280,10 @@ export default function Class(props) {
 
       // Pasa a la siguiente pagina 
       if (data) { if (sheetsOfSection) { if (sheetsOfSection.length) setL(sheetsOfSection.length) } }
-      if (i < sheetsOfSection.length - 1) setI(++i)
+      if (i < sheetsOfSection.length - 1){
+        putDataActivitys()
+        setI(++i)
+      }
     }
         
     if(typeActivitys.length > 0 && allActivitysHaveResult() && data?.sheets[props.page].section?.number == 5) activitysHaveResult()
@@ -288,9 +296,17 @@ export default function Class(props) {
       updateSession();
 
       if (data) { if (sheetsOfSection) { if (sheetsOfSection.length) setL(sheetsOfSection.length) } }
-      if (i > 0) setI(--i)
+      if (i > 0){
+        putDataActivitys()
+        setI(--i)
+      }
     }
   }
+
+  useEffect(()=>{
+    // console.log("obtener")
+    getDataActivitys()
+  },[i])
 
   function updateSession(){
     // Copia el estado actual
@@ -418,6 +434,7 @@ export default function Class(props) {
     }
   },[seconds])
 
+
   const formatTime = (timeInSeconds) => {
     const minutes = Math.floor(timeInSeconds / 60);
     const remainingSeconds = timeInSeconds % 60;
@@ -484,6 +501,70 @@ export default function Class(props) {
       return typeActivitys
     })
   }
+
+
+  function getDataActivitys(){
+    // Se encarga de OBTENER los datos del usuario dejado en las actividades //
+
+    let currentIndexPage = data?.sheets?.indexOf(sheetsOfSection[i])
+    
+    if (!localStorage.getItem(props.id)){
+      console.log("NO ESTA MOSTER")
+      // Define el array que quieres guardar
+      let classData = [];
+
+      // Convierte el array a una cadena JSON
+      let classDataString = JSON.stringify(classData);
+
+      // Guarda la cadena JSON en localStorage
+      localStorage.setItem(props.id, classDataString);
+    }
+    // Obtén la cadena JSON de localStorage
+    // let classDataString = localStorage.getItem(props.id);
+
+    // // Convierte la cadena JSON de vuelta a un array
+    // let classData = classDataString ? JSON.parse(classDataString) : {};
+    let classData = JSON.parse(localStorage.getItem(props.id))
+    
+
+    console.log(`Obtenido `,classData)
+    setActivityData(classData)
+    setCurrentActivityData(classData[currentIndexPage] ? classData[currentIndexPage] : [])
+  }
+
+  useEffect(()=>console.log("///////////////// currentActivityData ",currentActivityData),[currentActivityData])
+
+  function putDataActivitys(){
+    // Se encarga de ACTUALIZAR los datos del usuario dejado en las actividades //
+    
+    if(!activityData) return;
+
+    let updatedClassDataString = JSON.stringify(activityData);
+    localStorage.setItem(props.id, updatedClassDataString);
+
+    console.log("Actualizado ",activityData)
+    console.log("Dato final ",JSON.parse(localStorage.getItem(props.id)))
+  }
+
+  function handleChangeActivity(index, value){
+    if(!activityData) return;
+    
+    let currentIndexPage = data?.sheets?.indexOf(sheetsOfSection[i])
+    let classData = JSON.parse(localStorage.getItem(props.id))
+    let pageData = classData[currentIndexPage] ? classData[currentIndexPage] : []
+
+    pageData[index] = {
+      ...pageData[index],
+      value: value
+    }
+
+    classData[data?.sheets?.indexOf(sheetsOfSection[i])] = pageData
+    setActivityData(classData)
+
+    
+    console.log("actividad actualizada en el index ",data?.sheets?.indexOf(sheetsOfSection[i])," ",classData);
+  }
+  
 
   function activitysDone(){
 
@@ -629,10 +710,6 @@ export default function Class(props) {
     },
     config: { duration: 100 }
   })
-  
-  useEffect(()=>{
-
-  },[isTest])
 
   // Contador de Puntos
   useEffect(()=>{
@@ -981,7 +1058,7 @@ export default function Class(props) {
                     
                     {/* Drag Box */}
                     {c.type === 'dragable-box' &&
-                    <DragablesBox done={sheetsState[i]?.done} key={index} style={c.style}  allowFollow={allowFollow} containerPosition={c?.containerPosition} options={c.value} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} isAdmin={session?.user?.role?.includes("admin")}/>}
+                    <DragablesBox done={sheetsState[i]?.done} key={index} style={c.style}  allowFollow={allowFollow} containerPosition={c?.containerPosition} options={c.value} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} isAdmin={session?.user?.role?.includes("admin")} onHandleChangeActivity={handleChangeActivity} pageData={{page:data?.sheets?.indexOf(sheetsOfSection[i]), classID:props?.id}}/>}
                     
                     {/* Parrafo */}
                     {c.type === 'paragraph' &&
@@ -990,7 +1067,7 @@ export default function Class(props) {
                     
                     {/* SelectSimple */}
                     {c.type === 'selectsimple' &&
-                    <div className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`} style={c.style}><SELECTSIMPLE done={sheetsState[i]?.done} key={c.option} data={c} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} isAdmin={session?.user?.role?.includes("admin")}/></div>}
+                    <div className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`} style={c.style}><SELECTSIMPLE done={sheetsState[i]?.done} key={c.option} data={c} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} isAdmin={session?.user?.role?.includes("admin")} onHandleChangeActivity={handleChangeActivity} pageData={{page:data?.sheets?.indexOf(sheetsOfSection[i]), classID:props?.id}}/></div>}
                     
                     {/* Texto */}
                     {c.type === 'text' &&
@@ -999,11 +1076,11 @@ export default function Class(props) {
                     
                     {/* Parrafo a Completar */}
                     {c.type === 'paragraph-complete' &&
-                    <div key={index} style={c.style}  className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} data={c} isAdmin={session?.user?.role?.includes("admin")}/></div> }
+                    <div key={index} style={c.style}  className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} data={c} isAdmin={session?.user?.role?.includes("admin")} onHandleChangeActivity={handleChangeActivity} pageData={{page:data?.sheets?.indexOf(sheetsOfSection[i]), classID:props?.id}}/></div> }
                     
                     {/* Parrafo a Completar con Imagenes */}
                     {c.type === 'paragraph-complete-content' &&
-                    <div key={index} style={c.style}  className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`}><PARAGGRAPHCOMPLETE type={"content"} done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} data={c} isAdmin={session?.user?.role?.includes("admin")}/></div> }
+                    <div key={index} style={c.style}  className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`}><PARAGGRAPHCOMPLETE type={"content"} done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} data={c} isAdmin={session?.user?.role?.includes("admin")} onHandleChangeActivity={handleChangeActivity} pageData={{page:data?.sheets?.indexOf(sheetsOfSection[i]), classID:props?.id}}/></div> }
                     
                     {/* PopUp de Dialogos */}
                     {c.type === 'popUp-dialogues' &&
@@ -1012,11 +1089,11 @@ export default function Class(props) {
                     
                     {/* Parrafo a Completar de lista */}
                     {c.type === 'complete-li' &&
-                    <div key={index} style={c.style}  className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} data={c} isAdmin={session?.user?.role?.includes("admin")}/> </div> }
+                    <div key={index} style={c.style}  className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} data={c} isAdmin={session?.user?.role?.includes("admin")} onHandleChangeActivity={handleChangeActivity} pageData={{page:data?.sheets?.indexOf(sheetsOfSection[i]), classID:props?.id}}/> </div> }
                     
                     {/* Parrafo a Completar de lista con persona*/}
                     {c.type === 'complete-li-personal' &&
-                    <div key={index} style={c.style}  className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} data={c} isAdmin={session?.user?.role?.includes("admin")}/> </div> }
+                    <div key={index} style={c.style}  className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`}><PARAGGRAPHCOMPLETE done={sheetsState[i]?.done} id={index} onChangeActivityDone={handleChangeActivityDone} inEvaluation={data?.sheets[props.page]?.section?.number == 5} data={c} isAdmin={session?.user?.role?.includes("admin")} onHandleChangeActivity={handleChangeActivity} pageData={{page:data?.sheets?.indexOf(sheetsOfSection[i]), classID:props?.id}}/> </div> }
                     
                     {/* <p dangerouslySetInnerHTML={{ __html: c.value }}></p> */}
 

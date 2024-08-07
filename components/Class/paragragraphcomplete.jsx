@@ -2,6 +2,8 @@ import React, {useState,useEffect} from 'react';
 import style from '../../styles/paragragraphcomplete.module.css'
 
 export default function Paragragraphcomplete(props) {
+  // Propiedades traida por props
+  // type, done, id, onChangeActivityDone, inEvaluation, data, isAdmin
   
   const [inputValues, setInputValues] = useState(() => (
       props.data.value.map( value => {
@@ -11,6 +13,41 @@ export default function Paragragraphcomplete(props) {
         )
         )
     );
+
+  const [finalResult, setFinalResult] = useState([]);
+  //////////////// Ejemplo ////////////////
+  // [
+  //   {
+  //       "option": "venezolana",
+  //       "answer": "a",
+  //       "done": false
+  //   },
+  //   {
+  //       "option": "argentina",
+  //       "answer": "",
+  //       "done": false
+  //   },
+  //   {
+  //       "option": "mexicana",
+  //       "answer": "",
+  //       "done": false
+  //   },
+  //   {
+  //       "option": "española",
+  //       "answer": "",
+  //       "done": false
+  //   },
+  //   {
+  //       "option": "chilena",
+  //       "answer": "",
+  //       "done": false
+  //   },
+  //   {
+  //       "option": "cubana",
+  //       "answer": "",
+  //       "done": false
+  //   }
+  // ]
     
   // Function to handle changes in the input
   const handleInputChange = (index, newValue) => {
@@ -19,7 +56,6 @@ export default function Paragragraphcomplete(props) {
     const newInputValues = [...inputValues];
 
     // Update the value at the specified index)
-
     if(!newInputValues[index]) return;
     newInputValues[index].answer = newValue;
     newInputValues[index].done = newValue == newInputValues[index]?.option || (newInputValues[index]?.option == "" && newValue?.length > 0)
@@ -52,13 +88,26 @@ export default function Paragragraphcomplete(props) {
     // console.log("activityWithValue ", activityWithValue)
     // console.log("totalActivitysDone ", totalActivitysDone)
     // console.log("IF ", activityDone || activityWithValue && props.inEvaluation)
-
+    
     // En caso de que se hayan coompletado correctamente todaslas actividades se le pasa un true a "onChangeActivityDone"
     if(activityDone || activityWithValue && props.inEvaluation ) props.onChangeActivityDone(props.id, activityDone, totalActivitysDone)
 
     // En caso de que todos los campos tengan una respuesta le pasa la cantidad de actividades correctas
     else if(activityWithValue) props.onChangeActivityDone(props.id, activityDone, totalActivitysDone)
   }
+
+  function assignmentPreviousValue(previousValue){
+    // Metodo de restablecer el valor previo que haya asignado el usuario
+    const newInputValues = [...inputValues];
+    if (!newInputValues || !previousValue) return;
+
+    newInputValues?.map((inputValue,index)=> {
+        inputValue.answer=previousValue[index]?.answer
+        // inputValue.done=previousValue[index]?.done      
+      }
+    )
+    setInputValues(newInputValues);
+  };
 
   useEffect(()=>{
     if(props?.done){
@@ -82,7 +131,26 @@ export default function Paragragraphcomplete(props) {
     )
   },[props?.data])
 
-  useEffect(()=> activityCheck(), [inputValues])
+  useEffect(()=>{
+
+    setFinalResult(inputValues);
+    if(props?.onHandleChangeActivity && props?.pageData)props.onHandleChangeActivity(props.id,inputValues,"paragraph-complete")
+    activityCheck()
+
+  }, [inputValues])
+
+  useEffect(()=>{
+    // En caso de tener de pasarcele "pageData" se le reasignara los valores previos a la actividad
+
+    if(props?.pageData && props?.id){
+      let classesPreviusValues = JSON.parse(localStorage.getItem(props?.pageData?.classID));
+      let currentPageValue = classesPreviusValues && classesPreviusValues[props?.pageData?.page]
+      let currentActivityValue = currentPageValue && currentPageValue[props?.id]
+      currentActivityValue?.value && assignmentPreviousValue(currentActivityValue?.value)
+      console.log("Ejecuta")
+    }
+
+  },[props?.pageData?.page])
 
   return (
     <div className={props?.type == "content" && `flex flex-wrap justify-between
@@ -154,6 +222,7 @@ export default function Paragragraphcomplete(props) {
           <span key={index} dangerouslySetInnerHTML={{ __html: value }}></span> 
         )))
       }
-    </div>  )
+    </div>
+    )
   }
   

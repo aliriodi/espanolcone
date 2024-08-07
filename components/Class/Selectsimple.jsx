@@ -13,6 +13,8 @@ export default function Selectsimple(props) {
     const [isCorrect, setIsCorrect] = useState(false);
     const [options, setOptions]= useState(props?.data?.options)
 
+    const [finalResult, setFinalResult] = useState(null) // solo va a contener la respuesta correcta
+
     useEffect(()=>{
         // Cuando se actualiza las props se actualizan las variables de estado
         setSelectedOption("")
@@ -25,10 +27,25 @@ export default function Selectsimple(props) {
 
     },[props.data])
     
+    useEffect(()=>{
+        // En caso de tener de pasarcele "pageData" se le reasignara los valores previos a la actividad
+        
+        if(props?.pageData && props?.id){
+          let classesPreviusValues = JSON.parse(localStorage.getItem(props?.pageData?.classID));
+          let currentPageValue = classesPreviusValues && classesPreviusValues[props?.pageData?.page]
+          let currentActivityValue = currentPageValue && currentPageValue[props?.id]
+          currentActivityValue?.value && assignmentPreviousValue(currentActivityValue?.value)
+            console.log("select",currentActivityValue)
+        }
+    
+    },[props?.pageData?.page])
+    
     const handleOptionChange = (event) => {
         const selectedValue = event.target.value;
 
         setSelectedOption(selectedValue);
+
+        if(props?.onHandleChangeActivity)props.onHandleChangeActivity(props.id,selectedValue)
         
         if (event.target.value == props.data.option) {
             props.onChangeActivityDone(props.id, true, 1)
@@ -40,8 +57,23 @@ export default function Selectsimple(props) {
         }
 
     }
+
+    function assignmentPreviousValue(value){
+        setSelectedOption(value);
+
+        if (value === props.data.option) {
+            setIsCorrect(true);
+        } else {
+            setIsCorrect(false);
+        }
+    }
+
     return (
         <>
+            {/* ///////////////// test asignacion ///////////////// */}
+                {/* <button onClick={()=>assignmentPreviousValue("a. Ana Gutierrez.")}>Asignar</button> */}
+            {/* ///////////////// test asignacion ///////////////// */}
+
             {/* {intro} */}
             <p dangerouslySetInnerHTML={{ __html: props.data.value }} className={style["selector-simple-title"]}></p>
             

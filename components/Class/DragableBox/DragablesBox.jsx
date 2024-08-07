@@ -32,6 +32,8 @@ export default function DragableBox( props ){
     const [canCheck, setCanCheck] = useState(false)
     
     const dropUpContainerId = useMemo(() => dropUpContainer.map((drag) => drag.id), [dropUpContainer]);
+
+    const [finalResult, setFinalResult] = useState([]);
     
     useEffect(()=> {
 
@@ -55,6 +57,9 @@ export default function DragableBox( props ){
     useEffect(()=>setDropUpContainer([...props?.options?.DropUps, {value:"container",id:"container", type:"container"}]),[props?.options?.DropUps])
     
     useEffect(()=>{
+
+        setFinalResult(options.filter(option => option.dropUpId !== "container")); // Obtener resultado actual
+        if(props?.onHandleChangeActivity)props.onHandleChangeActivity(props.id,options)
         
         if(options.filter((option)=>option.dropUpId != "container" ).length == options.filter((option)=>!option.id.includes("DragBoxNone")).length){
             activityCheck()
@@ -67,8 +72,19 @@ export default function DragableBox( props ){
 
     useEffect(()=>{
         if(!canCheck)props.onChangeActivityDone(props.id, false, null)
-    },[canCheck])
+    },[canCheck]) 
+
+    useEffect(()=>{
+        // En caso de tener de pasarcele "pageData" se le reasignara los valores previos a la actividad
+        
+        if(props?.pageData && props?.id){
+          let classesPreviusValues = JSON.parse(localStorage.getItem(props?.pageData?.classID));
+          let currentPageValue = classesPreviusValues && classesPreviusValues[props?.pageData?.page]
+          let currentActivityValue = currentPageValue && currentPageValue[props?.id]
+          currentActivityValue?.value && assignmentPreviousValue(currentActivityValue?.value)
+        }
     
+    },[props?.pageData?.page])
 
     function handleDragOver(event){
         const { active, over } = event;
@@ -190,11 +206,18 @@ export default function DragableBox( props ){
         if(activityDone || props?.inEvaluation) props.onChangeActivityDone(props.id, activityDone, totalActivitysDone)
     }
 
+    function assignmentPreviousValue(previusValue,id, containerId, value) {
+        // Esta función se encarga de asignar el valor y la ubicación de la dragBox correspondiente
+        setOptions(previusValue)
+    }
     
     if(dropUpContainer?.length < 0) return(null)
 
     return(
-
+        <>
+        {/* ///////////////// test asignacion ///////////////// */}
+            {/* <button onClick={()=>assignmentPreviousValue("DragBox2", "DropUp3","Buenas Tardes")}>Asignar</button> */}
+        {/* ///////////////// test asignacion ///////////////// */}
         <DndContext 
             sensor={sensors}
             collisionDetection={closestCenter}
@@ -264,5 +287,6 @@ export default function DragableBox( props ){
                     </div>
                 </div>
         </DndContext>
+        </>
     )
 }
