@@ -546,13 +546,13 @@ export default function Class(props) {
     // Se encarga de ACTUALIZAR los datos del usuario dejado en las actividades //
     
     if(!activityData) return;
-
+    else{
     let updatedClassDataString = JSON.stringify(activityData);
     localStorage.setItem(props.id, updatedClassDataString);
 
     console.log("Actualizado ",activityData)
     console.log("Dato final ",JSON.parse(localStorage.getItem(props.id)))
-  }
+  }}
 
   function handleChangeActivity(index, value){
     if(!activityData) return;
@@ -678,7 +678,7 @@ export default function Class(props) {
 
   async function sectionDone(){
     setLoading(true)
-    
+    putDataActivitys()
     await updateIndexPosition(1)
 
     setLoading(false)
