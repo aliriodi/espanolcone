@@ -237,6 +237,14 @@ export default function Class(props) {
   async function updateUser(updates) {
     // Esta funcion se encarga de actualizar las "classes" del usuario
     // en funcion de lo que se le pase por el parametro "updates"
+    console.log('239 *************INICIO UPDATES************')
+    console.log(updates)
+    console.log('LocalStorage')
+    for (let i = 0; i < localStorage.length; i++) {
+      let clave = localStorage.key(i);
+      console.log(clave, localStorage.getItem(clave));
+  }
+    console.log('*************FINALIZO UPDATES************')
     try {
         
         const response = await fetch('/api/users/update', {
@@ -538,13 +546,13 @@ export default function Class(props) {
     // Se encarga de ACTUALIZAR los datos del usuario dejado en las actividades //
     
     if(!activityData) return;
-
+    else{
     let updatedClassDataString = JSON.stringify(activityData);
     localStorage.setItem(props.id, updatedClassDataString);
 
     console.log("Actualizado ",activityData)
     console.log("Dato final ",JSON.parse(localStorage.getItem(props.id)))
-  }
+  }}
 
   function handleChangeActivity(index, value){
     if(!activityData) return;
@@ -670,7 +678,7 @@ export default function Class(props) {
 
   async function sectionDone(){
     setLoading(true)
-    
+    putDataActivitys()
     await updateIndexPosition(1)
 
     setLoading(false)
@@ -864,7 +872,7 @@ export default function Class(props) {
 
               {
               sheetsOfSection[i]?.data?.map((c, index) =>
-              <>
+              <React.Fragment  key={index}>
                   {/* Titulo */}
                   {c.type === 'title' && 
                     <h1
@@ -881,7 +889,7 @@ export default function Class(props) {
                   className='absolute bottom-5 right-8 text-[25px] text-violet_dark font-semibold '
                   dangerouslySetInnerHTML={{ __html: c.value }}></p>
                   }
-              </>)
+              </React.Fragment>)
               }
 
               {/* Ellipse */}
@@ -943,7 +951,7 @@ export default function Class(props) {
                 md:w-full md:h-[60%] md:rounded-[0_0_45%_45%]'>
                   {
                   sheetsOfSection[i]?.data?.map((c, index) =>
-                  <>
+                  <React.Fragment  key={index}>
                       {/* Titulo */}
                       {c.type === 'title' && 
                         <h1
@@ -960,7 +968,7 @@ export default function Class(props) {
                       className='absolute bottom-5 right-8 text-[25px] text-white font-semibold '
                       dangerouslySetInnerHTML={{ __html: c.value }}></p>
                       }
-                  </>)
+                  </React.Fragment>)
                   }
                 </div>
 
@@ -992,7 +1000,7 @@ export default function Class(props) {
               <div className={style['title']}>
                 {
                 sheetsOfSection[i]?.data?.map((c, index) =>
-                <>
+                <React.Fragment  key={index}>
                   {c.type === 'title' && 
                     <div className={`${style[c.className]} ${style[c.classNamePlus]} ${c?.classExtra}`} key={index} style={c.style} >
                       <p dangerouslySetInnerHTML={{ __html: c.value }}></p>
@@ -1005,7 +1013,7 @@ export default function Class(props) {
                   }
 
 
-                </>
+                </React.Fragment>
 
                 )}
               </div>
@@ -1014,7 +1022,7 @@ export default function Class(props) {
               <div className={style['content']}>
                 {
                 sheetsOfSection[i]?.data?.map((c, index) =>
-                  <>
+                  <React.Fragment key={index}>
                     {/* Div */}
                     {c.type === 'div' &&
                     <div key={index} style={c.style} className={`${c.classExtra} ${style[c.className]} ${style[c.classNamePlus]}`} dangerouslySetInnerHTML={{ __html: c.value }}></div>
@@ -1098,7 +1106,7 @@ export default function Class(props) {
                     {/* <p dangerouslySetInnerHTML={{ __html: c.value }}></p> */}
 
                     
-                  </>)
+                  </React.Fragment>)
                   }                  
               </div>
 

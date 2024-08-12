@@ -79,15 +79,16 @@ export default function Selectsimple(props) {
             
             <div className={`${props?.data?.direction == "row" && "flex w-full md:flex-col"}  ${style["options-container"]} `}>
 
-            {options ? options?.map(option =>
+            {options ? options?.map((option,index) =>
 
-                <p
+                <div
+                id={index}
                 className={`px-3
                 ${style["icon-container"]}
                 ${selectedOption && (!props?.inEvaluation || props?.isAdmin) && (selectedOption === option && (isCorrect ? style["done"] : style["danger"]))}
                 ${selectedOption && selectedOption === option && (props?.inEvaluation && !props?.isAdmin) && style["select"]}`}
-                key={option}>
-
+                key={index}>
+                    
                     <label className='flex items-center'>
 
                         {/* Input */}
@@ -130,7 +131,7 @@ export default function Selectsimple(props) {
                             )}
                         </div>
                     </label>
-                </p>
+                </div>
 
             ) : null}
             </div>
