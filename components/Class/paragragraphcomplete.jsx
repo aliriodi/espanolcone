@@ -168,7 +168,7 @@ export default function Paragragraphcomplete(props) {
               {
                 value?.src &&
                 <img
-                className={props?.type == "content" && `h-[160px] w-[260px] object-cover rounded-[5px]`}
+                className={props?.type == "content" && `${value?.style? value.style :'h-[160px] w-[260px]' }   object-cover rounded-[5px]`}
                 src={value?.src}/>
               }
               
