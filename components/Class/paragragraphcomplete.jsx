@@ -215,6 +215,14 @@ export default function Paragragraphcomplete(props) {
                   onChange={(e) => handleInputChange(index, e.target.value)}
                 />
 
+  {/* Texto */}
+  {
+                value?.text2 &&
+                <p
+                className={props?.type == "content" && `w-full text-center my-2 text-violet_dark font-medium text-[18px]
+                md:text-[16px]`}
+                dangerouslySetInnerHTML={{ __html: value?.text2 }}/>
+              }          
             </span>
 
           : 
