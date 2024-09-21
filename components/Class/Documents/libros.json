@@ -1,0 +1,390 @@
+{
+    "categorias": [
+        "Estrategia",
+        "Psicotrading",
+        "Economia",
+        "Operativas",
+        "Otros",
+        "Todos"
+    ],
+    "libros": [
+        {"url":"https://res.cloudinary.com/dvy9qircy/image/upload/v1725979703/forex/forex_winner_profesional_smartmoneyEBOOKnEGRO.pdf",
+        "title": "SMART MONEY Ebook Negro",
+        "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_winner_profesional_smartmoneyEBOOKnEGRO.pdf",
+        "ubicacion": -24,
+        "type": "Psicotrading"},
+        {"url":"https://res.cloudinary.com/dvy9qircy/image/upload/v1725979162/forex/forex_winner_profesional_adiestramientoMasterTrader.pdf",
+        "title": "Curso Binarias",
+        "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_winner_profesional_adiestramientoMasterTrader.pdf",
+        "ubicacion": -23,
+        "type": "Estrategia"},
+        {"url":"https://res.cloudinary.com/dvy9qircy/image/upload/v1725911880/forex/forex_winner_profesional_AyunoRacional.pdf",
+        "title": "Ayuno Racional",
+        "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_winner_profesional_AyunoRacional.pdf",
+        "ubicacion": -22,
+        "type": "Psicotrading"},
+        {  
+        "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1724367052/forex/forex_winner_profesional_LAMAGIA.pdf",
+  "title": "La Magia",
+  "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_winner_profesional_LAMAGIA.pdf",
+  "ubicacion": -21,
+  "type": "Psicotrading"
+},
+        {  
+        "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1724289580/forex/forex_winner_profesional_elcuadrantedelflujodeldinero.pdf",
+  "title": "El cuadrante de flujo del dinero",
+  "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_winner_profesional_elcuadrantedelflujodeldinero.pdf",
+  "ubicacion": -20,
+  "type": "Psicotrading"
+},
+
+    {  
+        "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1724287628/forex/forex_winner_profesional_PadreRicoPadrepobre.pdf",
+  "title": "Padre Rico Padre Pobre",
+  "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_winner_profesional_PadreRicoPadrepobre.pdf",
+  "ubicacion": -19,
+  "type": "Psicotrading"
+},
+        {  
+              "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1723642125/forex/forex_winner_profesional_come_into_my_trader_room.pdf",
+        "title": "Come into my trader room",
+        "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_winner_profesional_come_into_my_trader_room.pdf",
+        "ubicacion": -18,
+        "type": "Psicotrading"
+    },
+        {    "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1722949212/forex/forex_winner_profesional_GuiaAnalisisChartista.pdf",
+        "title": "Operativas 3",
+        "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_winner_profesional_GuiaAnalisisChartista.pdf",
+        "ubicacion": -17,
+        "type": "Estrategia"},
+        {    "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1721268221/forex/forex_winner_profesional_Operativas3.pdf",
+        "title": "Operativas 3",
+        "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_winner_profesional_Operativas3.pdf",
+        "ubicacion": -16,
+        "type": "Operativas"},
+        {    "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1721155421/forex/forex_winner_profesional_Operativas2.pdf",
+        "title": "Operativas 2",
+        "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_winner_profesional_Operativas2.pdf",
+        "ubicacion": -15,
+        "type": "Operativas"},
+
+        {    "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1719509207/forex/forex_winner_profesional_ResumenOperativas27062024.pdf",
+        "title": "Operativas 1",
+        "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_winner_profesional_ResumenOperativas27062024.pdf",
+        "ubicacion": -14,
+        "type": "Operativas"},
+
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1718071393/forex/forex_winner_profesional_LA_BIBLIA_DEL_TRADING_CON_VELAS.pdf",
+            "title": "LA BIBLIA DEL TRADING CON VELAS",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_winner_profesional_LA_BIBLIA_DEL_TRADING_CON_VELAS.pdf",
+            "ubicacion": -12,
+            "type": "Estrategia"
+        },
+        
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1721050955/forex/forex_winner_profesional_TradingAlDiaparteI.pdf",
+            "title": "Trading Al dia PARTE I",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_winner_profesional_TradingAlDiaparteI.pdf",
+            "ubicacion": -12.7,
+            "type": "Psicotrading"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1721051159/forex/forex_winner_profesional_TradingAlDiaparteII.pdf",
+            "title": "Trading Al dia PARTE II",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_winner_profesional_TradingAlDiaparteI.pdf",
+            "ubicacion": -12.6,
+            "type": "Psicotrading"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1720098832/forex/forex_winner_profesional_los4cuerdos.pdf",
+            "title": "Los 4 acuerdos",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_winner_profesional_los4cuerdos.pdf",
+            "ubicacion": -12.5,
+            "type": "Psicotrading"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1718749162/forex/forex_winner_profesional_Inteligencia_Emocional.pdf",
+            "title": "Inteligencia Emocional",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_winner_profesional_Inteligencia_Emocional.pdf",
+            "ubicacion": -13,
+            "type": "Psicotrading"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1718040575/forex/forex_winner_profesional_Las_leyes_para_todos_los_dias.pdf",
+            "title": "Las leyes para todos los dias",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_winner_profesional_Las_leyes_para_todos_los_dias.pdf",
+            "ubicacion": -11,
+            "type": "Psicotrading"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1718041725/forex/forex_winner_profesional_el_camino_para_conevrtirme_em_TRADER.pdf",
+            "title": "El camino para convertirse en TRADER",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_winner_profesional_el_camino_para_conevrtirme_em_TRADER.pdf",
+            "ubicacion": -11.2,
+            "type": "Psicotrading"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1719160353/forex/forex_winner_profesional_zonaR2.pdf",
+            "title": "Zona R",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_winner_profesional_zonaR2.pdf",
+            "ubicacion": -11.3,
+            "type": "Estrategia"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1717710986/forex/TRADER_WINNER_Estrategia_pcr_avanzado_2-0.pdf",
+            "title": "Estrategia PCR Avanzado 2.0",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/TRADER_WINNER_Estrategia_pcr_avanzado_2-0.pdf",
+            "ubicacion": -10,
+            "type": "Estrategia"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1718306830/forex/forex_winner_profesional_pcr-como-decidir.pdf",
+            "title": "Como operar PCR",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_2,w_300,h_200/v1717345795/forex/forex_winner_profesional_pcr-como-decidir.pdf",
+            "ubicacion": -9.5,
+            "type": "Estrategia"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1717629348/forex/forex_academy_professional_Pullback-Contiuidad-Reversion-I.pdf",
+            "title": "Pullback Continuidad Reversion I",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_academy_professional_Pullback-Contiuidad-Reversion-I.pdf",
+            "ubicacion": -9,
+            "type": "Estrategia"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1717594705/forex/forex_academy_professional_BOLSA_DIA_1.pdf",
+            "title": "Bolsa Dia 1",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_academy_professional_BOLSA_DIA_1.pdf",
+            "ubicacion": -7,
+            "type": "Economia"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1717594819/forex/forex_academy_professional_BOLSA_DIA_2.pdf",
+            "title": "Bolsa Dia 2",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_academy_professional_BOLSA_DIA_2.pdf",
+            "ubicacion": -8,
+            "type": "Economia"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1717594553/forex/forex_academy_professional_ORDER_BLOCK_I.pdf",
+            "title": "Order Block I",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_academy_professional_ORDER_BLOCK_I.pdf",
+            "ubicacion": -6,
+            "type": "Estrategia"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1717598304/forex/forex_academy_professional_Order_Blocks_II.pdf",
+            "title": "Order Block II",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_academy_professional_Order_Blocks_II.pdf",
+            "ubicacion": -5.8,
+            "type": "Estrategia"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1718748934/forex/forex_winner_profesional_trading_en_la_zona.pdf",
+            "title": "Trading en la zona",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_winner_profesional_trading_en_la_zona.pdf",
+            "ubicacion": -5,
+            "type": "Psicotrading"
+        },
+        {
+            "url": " https://res.cloudinary.com/dvy9qircy/image/upload/v1717361187/forex/forex_academy_professional_10_patrones_interactivo_final.pdf",
+            "title": "10 Patrones Tecnicos",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_academy_professional_10_patrones_interactivo_final.pdf",
+            "ubicacion": -4,
+            "type": "Estrategia"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1717360972/forex/forex_academy_professional_16_Patrones_de_Velas_Japonesas.pdf",
+            "title": "16 Patrones de velas japonesas",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_academy_professional_16_Patrones_de_Velas_Japonesas.pdf",
+            "ubicacion": -4.1,
+            "type": "Estrategia"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1717360743/forex/forex_academy_professional_48_patrones_interactivos.pdf",
+            "title": "48 Patrones de Velas",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_academy_professional_48_patrones_interactivos.pdf",
+            "ubicacion": -3,
+            "type": "Estrategia"
+        },
+        {
+            "url": " https://res.cloudinary.com/dvy9qircy/image/upload/v1717347855/forex/forex_academy_professional_El_lenguaje_del_precio.pdf",
+            "title": "El lenguaje del precio",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_academy_professional_El_lenguaje_del_precio.pdf",
+            "ubicacion": -2,
+            "type": "Economia"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1717347613/forex/forex_academy_professional_Sistema_de_trazados.pdf",
+            "title": "Sistema de trazados de Niveles",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_academy_professional_Sistema_de_trazados.pdf",
+            "ubicacion": -1,
+            "type": "Estrategia"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1717345795/forex/forex_academy_professional_La_Regla_de_Oro.pdf",
+            "title": "La regla de Oro",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_academy_professional_La_Regla_de_Oro.pdf",
+            "ubicacion": 0,
+            "type": "Psicotrading"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1717292849/forex/forex_academy_professional_Efectos_PNL_en_Trading.pdf",
+            "title": "Efectos PNL en el trading",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1/v1717292849/forex/forex_academy_professional_Efectos_PNL_en_Trading.pdf",
+            "ubicacion": 1,
+            "type": "Psicotrading"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1717360373/forex/forex_academy_professional_Club_5am.pdf",
+            "title": "El club de las 5 a.m.",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_academy_professional_Club_5am.pdf",
+            "ubicacion": 1.5,
+            "type": "Psicotrading"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1717292877/forex/forex_academy_professional_9-Manejo_de_la_ira.pdf",
+            "title": "Manejo de la Ira",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1/v1717292877/forex/forex_academy_professional_9-Manejo_de_la_ira.pdf",
+            "ubicacion": 2,
+            "type": "Psicotrading"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1717292905/forex/forex_academy_professional_6-Creencias_Limitantes.pdf",
+            "title": "Creencias y Limitaciones",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1/v1717292905/forex/forex_academy_professional_6-Creencias_Limitantes.pdf",
+            "ubicacion": 3,
+            "type": "Psicotrading"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1717292928/forex/forex_academy_professional_7-Instalando_Recursos.pdf",
+            "title": "Instalando Recursos",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1/v1717292928/forex/forex_academy_professional_7-Instalando_Recursos.pdf",
+            "ubicacion": 4,
+            "type": "Psicotrading"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1717292961/forex/forex_academy_professional_12-Fortalecimiento_de_la_confiaza_en_si_mismo.pdf",
+            "title": "Fortalecimiento, confianza en si mismo",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1/v1717292961/forex/forex_academy_professional_12-Fortalecimiento_de_la_confiaza_en_si_mismo.pdf",
+            "ubicacion": 5,
+            "type": "Psicotrading"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1717293000/forex/forex_academy_professional_11-Medidas_para_el_enfrentamiento_del_stress.pdf",
+            "title": "Medida para el enfretamiento del Stress",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1/v1717293000/forex/forex_academy_professional_11-Medidas_para_el_enfrentamiento_del_stress.pdf",
+            "ubicacion": 6,
+            "type": "Psicotrading"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1717293033/forex/forex_academy_professional_3-Ansiedad_en_el_Trading.pdf",
+            "title": "Ansiedad en el trading",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1/v1717293033/forex/forex_academy_professional_3-Ansiedad_en_el_Trading.pdf",
+            "ubicacion": 7,
+            "type": "Psicotrading"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1717293059/forex/forex_academy_professional_2-Arbol_de_la_vida.pdf",
+            "title": "Arbol de la vida",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1/v1717293059/forex/forex_academy_professional_2-Arbol_de_la_vida.pdf",
+            "ubicacion": 8,
+            "type": "Psicotrading"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1717293081/forex/forex_academy_professional_1-Rueda_de_la_vida.pdf",
+            "title": "Rueda de la Vida",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1/v1717293081/forex/forex_academy_professional_1-Rueda_de_la_vida.pdf",
+            "ubicacion": 9,
+            "type": "Psicotrading"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1717293117/forex/forex_academy_professional_10-Autocuidado_de_la_salud_mental.pdf",
+            "title": "Autocuidado de la salud mental",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1/v1717293117/forex/forex_academy_professional_10-Autocuidado_de_la_salud_mental.pdf",
+            "ubicacion": 10,
+            "type": "Psicotrading"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1717293225/forex/forex_academy_professional_8-Manejo_de_las_emociones_tristeza_y_depresion.pdf",
+            "title": "Manejo de las emociones (tristeza y depresion)",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1/v1717293225/forex/forex_academy_professional_8-Manejo_de_las_emociones_tristeza_y_depresion.pdf",
+            "ubicacion": 11,
+            "type": "Psicotrading"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1717293252/forex/forex_academy_professional_4-Indecision_en_el_trading.pdf",
+            "title": "Indecision en el trading",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1/v1717293252/forex/forex_academy_professional_4-Indecision_en_el_trading.pdf",
+            "ubicacion": 12,
+            "type": "Psicotrading"
+        },
+        {
+            "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1717293851/forex/forex_academy_professional_Tendencia_y_estructura.pdf",
+            "title": "Tendencia y Estructura",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1/v1717293851/forex/forex_academy_professional_Tendencia_y_estructura.pdf",
+            "ubicacion": 13,
+            "type": "Estrategia"
+        },
+        {
+            "url":"https://res.cloudinary.com/dvy9qircy/image/upload/v1722980745/forex/forex_winner_profesional_PatronesImportantesII.pdf",
+            "title": "Patrones Importantes",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1/v1717293851/forex/forex_winner_profesional_PatronesImportantesII.pdf",
+            "ubicacion": 14,
+            "type": "Estrategia"
+        },
+        {
+            "url":"https://res.cloudinary.com/dvy9qircy/image/upload/v1723591807/forex/forex_winner_profesional_Estructuras1.pdf",
+            "title": "Clase 1 Estructuras y ejemplos",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1/v1717293851/forex/forex_winner_profesional_Estructuras1.pdf",
+            "ubicacion": 15,
+            "type": "Estrategia"
+            
+        },
+        {
+            "url":"https://res.cloudinary.com/dvy9qircy/image/upload/v1725375996/forex/forex_winner_profesional_AutogestionSCHULTZ.pdf",
+        "title": "Autogestion SCHULTZ Teoria",
+        "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_winner_profesional_AutogestionSCHULTZ.pdf",
+        "ubicacion": 15.5,
+        "type": "Psicotrading"
+        },
+        {
+            "url":"https://res.cloudinary.com/dvy9qircy/image/upload/v1725376183/forex/forex_winner_profesional_AutogestionSCHULTZcapitulo09.pdf",
+        "title": "Autogestion SCHULTZ Practica",
+        "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_winner_profesional_AutogestionSCHULTZcapitulo09.pdf",
+        "ubicacion": 15.6,
+        "type": "Psicotrading"
+        },
+        {
+            "url":"https://res.cloudinary.com/dvy9qircy/image/upload/v1723919337/forex/forex_winner_profesional_CreciemientoMuscular.pdf",
+            "title": "Plan de crecimiento MUSCULAR",
+            "image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1/v1717293851/forex/forex_winner_profesional_CreciemientoMuscular.pdf",
+            "ubicacion": 16,
+            "type": "Otros"
+            
+        },
+        {  
+    "url": "https://res.cloudinary.com/dvy9qircy/image/upload/v1724352627/forex/forex_winner_profesional_THETHREEMUSKETTERS.pdf",
+"title": "THE THREE MUSKETTERS",
+"image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_winner_profesional_THETHREEMUSKETTERS.pdf",
+"ubicacion": 17,
+"type": "Otros"
+},
+{
+    "url":"https://res.cloudinary.com/dvy9qircy/image/upload/v1724670277/forex/forex_winner_profesional_ConstaciaCeseIspova062023_092023.pdf",
+"title": "Documento Cese Ispova 06/2023 - 09/2023",
+"image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_winner_profesional_ConstaciaCeseIspova062023_092023.pdf",
+"ubicacion": 18,
+"type": "Otros"
+},
+{
+    "url":"https://res.cloudinary.com/dvy9qircy/image/upload/v1725835468/forex/forex_winner_profesional_espiroemtriaAngel082024.pdf",
+"title": "Espirometria Angel",
+"image": "https://res.cloudinary.com/dvy9qircy/image/upload/f_auto,q_auto,pg_1,w_300,h_200/v1717345795/forex/forex_winner_profesional_espiroemtriaAngel082024.pdf",
+"ubicacion": 19,
+"type": "Otros"
+}
+
+    ]
+}

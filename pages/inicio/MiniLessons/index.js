@@ -56,7 +56,7 @@ export default function MiniLessons() {
     };
   },[])
 
-  useEffect(()=> console.log(miniLessons),[miniLessons])
+  //useEffect(()=> console.log(miniLessons),[miniLessons])
 
   async function getMiniLesson(){
     setLoadMiniLessons(true)
@@ -66,7 +66,7 @@ export default function MiniLessons() {
     try{
       
       lessons = await axios.get(`/api/ulessons/get?level=${currentLevel ? currentLevel : ""}&formats=${currentFormat ? currentFormat : ""}&topics=${currentTopic ? currentTopic : ""}&inReview=${0}`)
-      console.log( lessons )
+     // console.log( lessons )
       setLoadMiniLessons(false)
     }
     catch(e){
