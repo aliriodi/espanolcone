@@ -66,7 +66,7 @@ export default function PDFReader({ data }) {
             icon={faArrowRight} />
         </button>
         </div>  </div>
-      <div className="flex justify-center items-center mt-4">
+      <div className="flex justify-center items-center mt-1">
         <img className="max-w-full" src={PageNow} alt='Pagina Actual'></img>
         {/* {PageNow} */}
       </div>
