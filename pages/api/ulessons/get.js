@@ -15,7 +15,7 @@ export default async function getAllUlesson(req, res) {
       formats,
       level,
       page = 1,
-      maxResults = 15,
+      maxResults = 50,
       inReview
     },
   } = req;
