@@ -15,6 +15,34 @@ export default function PDFReader({ data }) {
     setPageNow(data.images);
     setUrlPDF(data.url);
     setTotalPages(data.pages)
+   // async function getPDFPageCount(pdfUrl) {
+    //   let pageCount = 0;
+    //   let pageExists = true;
+    
+    //   while (pageExists) {
+    //     try {
+    //       const response = await fetch(`${pdfUrl}.jpg`);
+    //       if (response.ok) {
+    //         pageCount++;
+    //       } else {
+    //         pageExists = false; // No hay más páginas
+    //       }
+    //     } catch (error) {
+    //       console.error('Error fetching page:', error);
+    //       pageExists = false;
+    //     }
+    //   }
+    
+    //   return pageCount;
+    // }
+    
+    // Usar la función
+
+    //getPDFPageCount(data.url).then(pageCount => console.log(`Número de páginas: ${pageCount}`));
+    
+
+
+
   },
     [])
 
@@ -40,7 +68,7 @@ export default function PDFReader({ data }) {
     if (NumPageNow < totalPages) { setNumPageNow(++NumPageNow) }
   }
 
-  console.log(data)
+  //console.log(data)
   return (
     data.type == 'pdf' &&
     <div style={data.style}>
