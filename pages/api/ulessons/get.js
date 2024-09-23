@@ -46,6 +46,7 @@ export default async function getAllUlesson(req, res) {
 
     // Realiza la búsqueda en la base de datos utilizando el esquema definido
     const ulessons = await Ulesson.find(filter)
+      .sort({ description: 1 }) //ordenamiento por descripcion
       .limit(Number(maxResults)) // Limita el número de resultados devueltos
       .skip((page - 1) * maxResults); // Paginación
 
