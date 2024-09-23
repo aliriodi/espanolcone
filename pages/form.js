@@ -585,7 +585,7 @@ function Formulario() {
 }
 
 //export default Formulario;
-export default withTranslation(['form', 'footer', 'landing'])(Formulario);
+export default withTranslation(['form2', 'footer', 'landing','form'])(Formulario);
 
 export async function getStaticProps({ locale }) {
   return {

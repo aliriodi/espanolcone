@@ -8,7 +8,7 @@ module.exports = {
    
    //  namespaces: ['landing', 'navbar', 'common', 'menu'],
   },
-      ns: ['landing', 'navbar', 'common', 'menu','aboutus','index','footer','register','contactus','form'],  
+      ns: ['landing', 'navbar', 'common', 'menu','aboutus','index','footer','register','contactus','form','form2'],  
       react: {
         useSuspense: false, // Intenta cambiar a true
       },
