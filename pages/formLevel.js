@@ -303,7 +303,7 @@ function Formulario() {
     console.log('Opción seleccionada2:', opcionSeleccionada2);
     console.log('Texto ingresado:', texto);
     console.log('language:', language)
-    await fetch('/api/formulario/add/',
+    await fetch('/api/formulario/add2/',
       {  //redirect: 'follow',
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
@@ -315,6 +315,14 @@ function Formulario() {
         body: JSON.stringify({
           pregunta1: opcionSeleccionada,
           pregunta2: opcionSeleccionada2,
+          pregunta3: opcionSeleccionada3,
+          pregunta4: opcionSeleccionada4,
+          pregunta5: opcionSeleccionada5,
+          pregunta6: opcionSeleccionada6,
+          pregunta7: opcionSeleccionada7,
+          pregunta8: opcionSeleccionada8,
+          pregunta9: opcionSeleccionada9,
+          pregunta10: opcionSeleccionada10,
           texto: texto,
           language: locale,
           Name: Name,
@@ -827,7 +835,7 @@ md:text-[19px]'>{t('pregunta4')}</h3>
 
 
               {/* Enviar */}
-              <button className={`bg-primary text-white rounded-md px-10 py-2 font-medium ${!formularioValido ? 'opacity-[50%]' : 'btn-primary'} w-full`} type="submit" disabled={!formularioValido}>
+              <button className={`bg-primary text-white rounded-md px-10 py-2 font-medium ${formularioValido ? 'opacity-[50%]' : 'btn-primary'} w-full`} type="submit" disabled={formularioValido}>
                 {
                   !loading ?
                     t('submit')
