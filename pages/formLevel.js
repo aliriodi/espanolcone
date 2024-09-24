@@ -1926,7 +1926,7 @@ md:text-[14px]"
 
             <h3
               className='text-[#4F4F4F] text-[24px] font-semibold text-center'>
-              Gracias por contribuir a al crecimiento de esta comunidad!!
+              Gracias por contribuir al crecimiento de esta comunidad!!
             </h3>
 
             <Link
