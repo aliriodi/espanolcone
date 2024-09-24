@@ -261,11 +261,11 @@ function Formulario() {
           pregunta5: opcionSeleccionada5, pregunta6: opcionSeleccionada6,
           pregunta7: opcionSeleccionada7, pregunta8: opcionSeleccionada8,
           pregunta9: opcionSeleccionada9, pregunta10: opcionSeleccionada10,
-          pregunta1: opcionSeleccionada11, pregunta2: opcionSeleccionada12,
-          pregunta3: opcionSeleccionada13, pregunta4: opcionSeleccionada14,
-          pregunta5: opcionSeleccionada15, pregunta6: opcionSeleccionada16,
-          pregunta7: opcionSeleccionada17, pregunta8: opcionSeleccionada18,
-          pregunta9: opcionSeleccionada19, pregunta10: opcionSeleccionada20,
+          pregunta11: opcionSeleccionada11, pregunta12: opcionSeleccionada12,
+          pregunta13: opcionSeleccionada13, pregunta14: opcionSeleccionada14,
+          pregunta15: opcionSeleccionada15, pregunta16: opcionSeleccionada16,
+          pregunta17: opcionSeleccionada17, pregunta18: opcionSeleccionada18,
+          pregunta19: opcionSeleccionada19, pregunta20: opcionSeleccionada20,
           texto: texto,
           language: locale,
           Name: Name,
@@ -933,8 +933,8 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada7.includes('tercero')}
-                      value={'tercero'}
+                      checked={opcionSeleccionada7.includes('tercero ')}
+                      value={'tercero '}
                       onChange={handleRadioChange7}
                     />
                     <label
@@ -967,8 +967,8 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada7.includes('tercer')}
-                      value={'tercer'}
+                      checked={opcionSeleccionada7.includes(' tercer')}
+                      value={' tercer'}
                       onChange={handleRadioChange7}
                     />
                     <label
@@ -1256,8 +1256,8 @@ htmlFor="Otro horario">{t('p4op4')}</label>
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada11.includes('dos años')}
-                      value={'dos años'}
+                      checked={opcionSeleccionada11.includes(' dos años ')}
+                      value={' dos años '}
                       onChange={handleRadioChange11}
                     />
                     <label
