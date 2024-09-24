@@ -12,6 +12,14 @@ import Link from 'next/link';
 function Formulario() {
   const [opcionSeleccionada, setOpcionSeleccionada] = useState([]);
   const [opcionSeleccionada2, setOpcionSeleccionada2] = useState([]);
+  const [opcionSeleccionada3, setOpcionSeleccionada3] = useState([]);
+  const [opcionSeleccionada4, setOpcionSeleccionada4] = useState([]);
+  const [opcionSeleccionada5, setOpcionSeleccionada5] = useState([]);
+  const [opcionSeleccionada6, setOpcionSeleccionada6] = useState([]);
+  const [opcionSeleccionada7, setOpcionSeleccionada7] = useState([]);
+  const [opcionSeleccionada8, setOpcionSeleccionada8] = useState([]);
+  const [opcionSeleccionada9, setOpcionSeleccionada9] = useState([]);
+  const [opcionSeleccionada10, setOpcionSeleccionada10] = useState([]);
 
   const [Name, setName] = useState('')
   const [Email, setEmail] = useState('')
@@ -129,11 +137,29 @@ function Formulario() {
     // Código que se ejecutará después del renderizado
     validarFormulario();
 
-  }, [opcionSeleccionada, opcionSeleccionada2, texto, language]);
+  }, [opcionSeleccionada, opcionSeleccionada2,
+     opcionSeleccionada3, opcionSeleccionada4,
+     opcionSeleccionada5, opcionSeleccionada6,
+     opcionSeleccionada7, opcionSeleccionada8,
+     opcionSeleccionada9, opcionSeleccionada10,
+     //Inhabilito el texto
+     //texto,
+      language]);
 
   const validarFormulario = () => {
     // Verificar si se ha seleccionado una opción en ambos radio buttons y si se ha ingresado texto
-    if (opcionSeleccionada.length && opcionSeleccionada2.length && texto.trim() !== '') {
+    if (opcionSeleccionada.length &&
+        opcionSeleccionada2.length &&
+        opcionSeleccionada3.length && 
+        opcionSeleccionada4.length && 
+        opcionSeleccionada5.length && 
+        opcionSeleccionada6.length && 
+        opcionSeleccionada7.length && 
+        opcionSeleccionada8.length && 
+        opcionSeleccionada9.length && 
+        opcionSeleccionada10.length  
+        //texto.trim() !== ''  //Inhabilito el texto
+        ) {
       setFormularioValido(true);
     } else {
       setFormularioValido(false);
@@ -154,9 +180,104 @@ function Formulario() {
     const opcion = e.target.value;
     // Si la opción ya está seleccionada, la removemos
     if (opcionSeleccionada2.includes(opcion)) {
-      setOpcionSeleccionada2(opcionSeleccionada2.filter(item => item !== opcion));
+      setOpcionSeleccionada2('');
     } else { // Si no está seleccionada, la agregamos
-      setOpcionSeleccionada2([...opcionSeleccionada2, opcion]);
+      setOpcionSeleccionada2(opcion);
+
+    };
+  }
+
+  const handleRadioChange3 = (e) => {
+    //setOpcionSeleccionada2(e.target.value);
+    const opcion = e.target.value;
+    // Si la opción ya está seleccionada, la removemos
+    if (opcionSeleccionada3.includes(opcion)) {
+      setOpcionSeleccionada3(opcionSeleccionada3.filter(item => item !== opcion));
+    } else { // Si no está seleccionada, la agregamos
+      setOpcionSeleccionada3([...opcionSeleccionada3, opcion]);
+
+    };
+  }
+  const handleRadioChange4 = (e) => {
+    //setOpcionSeleccionada2(e.target.value);
+    const opcion = e.target.value;
+    // Si la opción ya está seleccionada, la removemos
+    if (opcionSeleccionada4.includes(opcion)) {
+      setOpcionSeleccionada4(opcionSeleccionada4.filter(item => item !== opcion));
+    } else { // Si no está seleccionada, la agregamos
+      setOpcionSeleccionada4([...opcionSeleccionada4, opcion]);
+
+    };
+  }
+
+  const handleRadioChange5 = (e) => {
+    //setOpcionSeleccionada2(e.target.value);
+    const opcion = e.target.value;
+    // Si la opción ya está seleccionada, la removemos
+    if (opcionSeleccionada5.includes(opcion)) {
+      setOpcionSeleccionada5(opcionSeleccionada5.filter(item => item !== opcion));
+    } else { // Si no está seleccionada, la agregamos
+      setOpcionSeleccionada5([...opcionSeleccionada5, opcion]);
+
+    };
+  }
+
+  const handleRadioChange6 = (e) => {
+    //setOpcionSeleccionada2(e.target.value);
+    const opcion = e.target.value;
+    // Si la opción ya está seleccionada, la removemos
+    if (opcionSeleccionada6.includes(opcion)) {
+      setOpcionSeleccionada6(opcionSeleccionada6.filter(item => item !== opcion));
+    } else { // Si no está seleccionada, la agregamos
+      setOpcionSeleccionada6([...opcionSeleccionada6, opcion]);
+
+    };
+  }
+
+  const handleRadioChange7 = (e) => {
+    //setOpcionSeleccionada2(e.target.value);
+    const opcion = e.target.value;
+    // Si la opción ya está seleccionada, la removemos
+    if (opcionSeleccionada7.includes(opcion)) {
+      setOpcionSeleccionada7(opcionSeleccionada7.filter(item => item !== opcion));
+    } else { // Si no está seleccionada, la agregamos
+      setOpcionSeleccionada7([...opcionSeleccionada7, opcion]);
+
+    };
+  }
+
+  const handleRadioChange8 = (e) => {
+    //setOpcionSeleccionada2(e.target.value);
+    const opcion = e.target.value;
+    // Si la opción ya está seleccionada, la removemos
+    if (opcionSeleccionada8.includes(opcion)) {
+      setOpcionSeleccionada8(opcionSeleccionada8.filter(item => item !== opcion));
+    } else { // Si no está seleccionada, la agregamos
+      setOpcionSeleccionada8([...opcionSeleccionada8, opcion]);
+
+    };
+  }
+
+  const handleRadioChange9 = (e) => {
+    //setOpcionSeleccionada2(e.target.value);
+    const opcion = e.target.value;
+    // Si la opción ya está seleccionada, la removemos
+    if (opcionSeleccionada9.includes(opcion)) {
+      setOpcionSeleccionada9(opcionSeleccionada9.filter(item => item !== opcion));
+    } else { // Si no está seleccionada, la agregamos
+      setOpcionSeleccionada9([...opcionSeleccionada9, opcion]);
+
+    };
+  }
+
+  const handleRadioChange10 = (e) => {
+    //setOpcionSeleccionada2(e.target.value);
+    const opcion = e.target.value;
+    // Si la opción ya está seleccionada, la removemos
+    if (opcionSeleccionada10.includes(opcion)) {
+      setOpcionSeleccionada10(opcionSeleccionada10.filter(item => item !== opcion));
+    } else { // Si no está seleccionada, la agregamos
+      setOpcionSeleccionada10([...opcionSeleccionada10, opcion]);
 
     };
   }
@@ -182,7 +303,7 @@ function Formulario() {
     console.log('Opción seleccionada2:', opcionSeleccionada2);
     console.log('Texto ingresado:', texto);
     console.log('language:', language)
-    await fetch('/api/formulario/add/',
+    await fetch('/api/formulario/add2/',
       {  //redirect: 'follow',
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
@@ -194,6 +315,14 @@ function Formulario() {
         body: JSON.stringify({
           pregunta1: opcionSeleccionada,
           pregunta2: opcionSeleccionada2,
+          pregunta3: opcionSeleccionada3,
+          pregunta4: opcionSeleccionada4,
+          pregunta5: opcionSeleccionada5,
+          pregunta6: opcionSeleccionada6,
+          pregunta7: opcionSeleccionada7,
+          pregunta8: opcionSeleccionada8,
+          pregunta9: opcionSeleccionada9,
+          pregunta10: opcionSeleccionada10,
           texto: texto,
           language: locale,
           Name: Name,
@@ -302,21 +431,19 @@ function Formulario() {
             {/* Formulario */}
             <form className="p-12 w-[768px] mx-auto
           md:w-full md:m-0" onSubmit={handleSubmit}>
+              {/* Nombre */}
+              <div className='flex flex-col my-8'>
 
-              {/* Interes */}
-              <div className='my-8'>
-                {/* ¿Qué tipo de clases te interesan? */}
-                <h3 className=' font-bold
-              md:text-[19px]'>{t('pregunta1')}</h3>
+                <label
+                  className='mb-2 font-bold text-[21px] text-violet_dark
+  md:text-[19px]'
+                  htmlFor="name">
+                  {t('name')}
+                </label>
 
-                {/* Opciones */}
-                <div className=' my-5 '>
-
-                  {/* Opcion 1 */}
-               
-                  <input
+                <input
                   className='p-2 rounded-[15px] border-2 outline-primary
-                md:text-[14px]'
+  md:text-[14px]'
                   type="text"
                   placeholder="Yohn Doe"
                   id="name"
@@ -326,6 +453,60 @@ function Formulario() {
                   cols="50"
                 />
 
+              </div>
+
+              {/* Email */}
+              <div className='flex flex-col my-8'>
+
+                <label
+                  className='mb-2 font-bold text-[21px] text-violet_dark
+  md:text-[19px]'
+                  htmlFor="email">
+                  {t('email')}
+                </label>
+
+                <input
+                  className='p-2 rounded-[15px] border-2 outline-primary
+  md:text-[14px]'
+                  type="text"
+                  placeholder="yohn@gmail.com"
+                  id="email"
+                  value={Email}
+                  onChange={handleTextChangeEmail}
+                  rows="1"
+                  cols="30"
+                />
+
+              </div>
+
+              {/* PREGUNTA 1 */}
+              <div className='my-8'>
+                {/* ¿Qué tipo de clases te interesan? */}
+                <h3 className=' font-bold
+              md:text-[19px]'>{t('pregunta1')}</h3>
+
+                {/* Opciones */}
+                <div className=' my-5 '>
+
+                  {/* Opcion 1 */}
+                  <div className="flex items-center">
+
+                    <input
+                      className="checkbox mr-2 my-2"
+                      type="checkbox"
+                      id="opcion1"
+                      name="pregunta1"
+                      value="Individuales online"
+                      checked={opcionSeleccionada.includes('Individuales online')}
+                      onChange={handleRadioChange}
+                    />
+                    {/* Pregunta 1 opcion1 */}
+                    <label
+                      className=' text-violet_dark font-medium
+                  md:text-[14px]'
+                      htmlFor="opcion1">{t('p1op1')}</label>
+
+                  </div>
 
                   {/* Opcion 2 */}
                   <div className="flex items-center">
@@ -384,7 +565,7 @@ function Formulario() {
 
               </div>
 
-              {/* Horarios */}
+              {/* PREGUNTA 2 */}
               <div className='my-8'>
 
                 {/* ¿Tienes alguna preferencia de horario o ubicación para las clases? */}
@@ -394,33 +575,21 @@ function Formulario() {
                 {/* Opciones */}
                 <div>
 
-                 
-                 
-
-                    {/* Email */}
-                    <div className='flex flex-col my-8'>
-
-                      {/* <label
-  className='mb-2 font-bold text-[21px] text-violet_dark
-md:text-[19px]'
-  htmlFor="email">
-  {t('email')}:
-</label> */}
-
-                      <input
-                        className='p-2 rounded-[15px] border-2 outline-primary
-md:text-[14px]'
-                        type="text"
-                        placeholder="yohn@gmail.com"
-                        id="email"
-                        value={Email}
-                        onChange={handleTextChangeEmail}
-                        rows="1"
-                        cols="30"
-                      />
-
-                 
-
+                  {/* En la mañana despues de las 9:00am */}
+                  <div className="flex items-center mt-4">
+                    <input
+                      className="checkbox mr-2 my-2"
+                      type="checkbox"
+                      id="opcion4"
+                      name="pregunta2"
+                      checked={opcionSeleccionada2.includes('En la mañana despues de las 9:00am')}
+                      value={'En la mañana despues de las 9:00am'}
+                      onChange={handleRadioChange2}
+                    />
+                    <label
+                      className="text-violet_dark
+                  md:text-[14px]"
+                      htmlFor="En la mañana despues de las 9:00am">{t('p2op1')} </label>
                   </div>
 
                   {/* la mañana despues de las 11:00 am */}
@@ -437,7 +606,7 @@ md:text-[14px]'
                     <label
                       className="text-violet_dark
                   md:text-[14px]"
-                      htmlFor="En la mañana despues de las 11:00 am">{t('p2op2')} <b>11:00 AM (UTC-3)</b></label>
+                      htmlFor="En la mañana despues de las 11:00 am">{t('p2op2')} </label>
                   </div>
 
                   {/* En la tarde despues de las 3:00pm */}
@@ -454,7 +623,7 @@ md:text-[14px]'
                     <label
                       className="text-violet_dark
                   md:text-[14px]"
-                      htmlFor="opcion4">{t('p2op3')} <b>3:00 PM (UTC-3)</b></label>
+                      htmlFor="opcion4">{t('p2op3')} </label>
                   </div>
 
                   {/* Otro horario */}
@@ -478,16 +647,180 @@ md:text-[14px]'
 
               </div>
 
+                {/* PREGUNTA 3 */}
+                <div className='my-8'>
+
+{/* ¿Tienes alguna preferencia de horario o ubicación para las clases? */}
+<h3 className='font-bold
+md:text-[19px]'>{t('pregunta3')}</h3>
+
+{/* Opciones */}
+<div>
+
+  {/* En la mañana despues de las 9:00am */}
+  <div className="flex items-center mt-4">
+    <input
+      className="checkbox mr-2 my-2"
+      type="checkbox"
+      id="opcion4"
+      name="pregunta2"
+      checked={opcionSeleccionada3.includes('En la mañana despues de las 9:00am')}
+      value={'En la mañana despues de las 9:00am'}
+      onChange={handleRadioChange3}
+    />
+    <label
+      className="text-violet_dark
+  md:text-[14px]"
+      htmlFor="En la mañana despues de las 9:00am">{t('p3op1')} </label>
+  </div>
+
+  {/* la mañana despues de las 11:00 am */}
+  <div className="flex items-center">
+    <input
+      className="checkbox mr-2 my-2"
+      type="checkbox"
+      id="opcion3"
+      name="pregunta2"
+      checked={opcionSeleccionada3.includes('En la mañana despues de las 11:00 am')}
+      value={'En la mañana despues de las 11:00 am'}
+      onChange={handleRadioChange3}
+    />
+    <label
+      className="text-violet_dark
+  md:text-[14px]"
+      htmlFor="En la mañana despues de las 11:00 am">{t('p3op2')} </label>
+  </div>
+
+  {/* En la tarde despues de las 3:00pm */}
+  <div className="flex items-center">
+    <input
+      className="checkbox mr-2 my-2"
+      type="checkbox"
+      id="opcion4"
+      name="pregunta2"
+      checked={opcionSeleccionada3.includes('En la tarde despues de las 3:00pm')}
+      value={'En la tarde despues de las 3:00pm'}
+      onChange={handleRadioChange3}
+    />
+    <label
+      className="text-violet_dark
+  md:text-[14px]"
+      htmlFor="opcion4">{t('p3op3')} </label>
+  </div>
+
+  {/* Otro horario */}
+  <div className="flex items-center">
+    <input
+      className="checkbox mr-2 my-2"
+      type="checkbox"
+      id="opcion3"
+      name="pregunta2"
+      checked={opcionSeleccionada3.includes('Otro horario')}
+      value={'Otro horario'}
+      onChange={handleRadioChange3}
+    />
+    <label
+      className="text-violet_dark
+  md:text-[14px]"
+      htmlFor="Otro horario">{t('p3op4')}</label>
+  </div>
+
+</div>
+
+</div>
+            {/* PREGUNTA 4 */}
+            <div className='my-8'>
+
+{/* ¿Tienes alguna preferencia de horario o ubicación para las clases? */}
+<h3 className='font-bold
+md:text-[19px]'>{t('pregunta4')}</h3>
+
+{/* Opciones */}
+<div>
+
+  {/* En la mañana despues de las 9:00am */}
+  <div className="flex items-center mt-4">
+    <input
+      className="checkbox mr-2 my-2"
+      type="checkbox"
+      id="opcion4"
+      name="pregunta2"
+      checked={opcionSeleccionada4.includes('En la mañana despues de las 9:00am')}
+      value={'En la mañana despues de las 9:00am'}
+      onChange={handleRadioChange4}
+    />
+    <label
+      className="text-violet_dark
+  md:text-[14px]"
+      htmlFor="En la mañana despues de las 9:00am">{t('p4op1')} </label>
+  </div>
+
+  {/* la mañana despues de las 11:00 am */}
+  <div className="flex items-center">
+    <input
+      className="checkbox mr-2 my-2"
+      type="checkbox"
+      id="opcion3"
+      name="pregunta2"
+      checked={opcionSeleccionada4.includes('En la mañana despues de las 11:00 am')}
+      value={'En la mañana despues de las 11:00 am'}
+      onChange={handleRadioChange4}
+    />
+    <label
+      className="text-violet_dark
+  md:text-[14px]"
+      htmlFor="En la mañana despues de las 11:00 am">{t('p4op2')} </label>
+  </div>
+
+  {/* En la tarde despues de las 3:00pm */}
+  <div className="flex items-center">
+    <input
+      className="checkbox mr-2 my-2"
+      type="checkbox"
+      id="opcion4"
+      name="pregunta2"
+      checked={opcionSeleccionada4.includes('En la tarde despues de las 3:00pm')}
+      value={'En la tarde despues de las 3:00pm'}
+      onChange={handleRadioChange4}
+    />
+    <label
+      className="text-violet_dark
+  md:text-[14px]"
+      htmlFor="opcion4">{t('p4op3')} </label>
+  </div>
+
+  {/* Otro horario */}
+  <div className="flex items-center">
+    <input
+      className="checkbox mr-2 my-2"
+      type="checkbox"
+      id="opcion3"
+      name="pregunta2"
+      checked={opcionSeleccionada4.includes('Otro horario')}
+      value={'Otro horario'}
+      onChange={handleRadioChange4}
+    />
+    <label
+      className="text-violet_dark
+  md:text-[14px]"
+      htmlFor="Otro horario">{t('p4op4')}</label>
+  </div>
+
+</div>
+
+</div>
+
+
               {/* Temas */}
-              <div className='my-8'>
+              {/* <div className='my-8'> */}
 
                 {/* ¿Qué temas específicos te gustaría aprender? */}
-                <h3 className='font-bold
+                {/* <h3 className='font-bold
               md:text-[19px]'
                   htmlFor="¿Qué temas específicos te gustaría aprender?">
-                  {t('temasespecific')}</h3>
+                  {t('temasespecific')}</h3> */}
 
-                <textarea
+                {/* <textarea
                   className='mt-3 rounded-[15px] p-3 border-2 outline-primary w-full
                 md:text-[14px]'
                   type="text"
@@ -498,24 +831,11 @@ md:text-[14px]'
                   rows="4"
                   cols="50"
                 />
-              </div>
-
-              {/* Nombre */}
-              <div className='flex flex-col my-8'>
-
-                <label
-                  className='mb-2 font-bold text-[21px] text-violet_dark
-                md:text-[19px]'
-                  htmlFor="name">
-                  {t('name')}:
-                </label>
-
-              
-              </div>
+              </div> */}
 
 
               {/* Enviar */}
-              <button className={`bg-primary text-white rounded-md px-10 py-2 font-medium ${!formularioValido ? 'opacity-[50%]' : 'btn-primary'} w-full`} type="submit" disabled={!formularioValido}>
+              <button className={`bg-primary text-white rounded-md px-10 py-2 font-medium ${formularioValido ? 'opacity-[50%]' : 'btn-primary'} w-full`} type="submit" disabled={formularioValido}>
                 {
                   !loading ?
                     t('submit')
@@ -558,12 +878,12 @@ md:text-[14px]'
 }
 
 //export default Formulario;
-export default withTranslation(['form', 'footer', 'landing'])(Formulario);
+export default withTranslation(['form2', 'footer', 'landing', 'form'])(Formulario);
 
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['form2', 'form', 'footer', 'common', 'menu', 'aboutus', 'index', 'register'], nextI18NextConfig)),
+      ...(await serverSideTranslations(locale, ['form2', 'footer', 'common', 'menu', 'aboutus', 'index', 'register'], nextI18NextConfig)),
 
     },
   }
