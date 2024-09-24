@@ -933,8 +933,8 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada7.includes('tercero')}
-                      value={'tercero'}
+                      checked={opcionSeleccionada7.includes('tercero ')}
+                      value={'tercero '}
                       onChange={handleRadioChange7}
                     />
                     <label
@@ -967,8 +967,8 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada7.includes('tercer')}
-                      value={'tercer'}
+                      checked={opcionSeleccionada7.includes(' tercer')}
+                      value={' tercer'}
                       onChange={handleRadioChange7}
                     />
                     <label
