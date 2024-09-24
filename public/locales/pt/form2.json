@@ -28,10 +28,10 @@
     "p4op3":"tampoco",
     "p4op4":"Opcion4 - P4",
 
-    "pregunta5":"PREGUNTA 5",
-    "p5op1":"Individuales online",
-    "p5op2":"Grupales Online",
-    "p5op3":"Grupales presenciales en salón de clases (si estás en Córdoba - Argentina)",
+    "pregunta5":"5. No soy argentino, pero me ____ el asado y también me ___ las empanadas.",
+    "p5op1":"gustan/gusta",
+    "p5op2":"gusta/gustan",
+    "p5op3":"gusta/gusta",
     "p5op4":"Grupales presenciales en diferentes lugares (si estás Córdoba - Argentina)",
 
     "pregunta6":"PREGUNTA 6",
