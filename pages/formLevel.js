@@ -20,10 +20,21 @@ function Formulario() {
   const [opcionSeleccionada8, setOpcionSeleccionada8] = useState([]);
   const [opcionSeleccionada9, setOpcionSeleccionada9] = useState([]);
   const [opcionSeleccionada10, setOpcionSeleccionada10] = useState([]);
+  const [opcionSeleccionada11, setOpcionSeleccionada11] = useState([]);
+  const [opcionSeleccionada12, setOpcionSeleccionada12] = useState([]);
+  const [opcionSeleccionada13, setOpcionSeleccionada13] = useState([]);
+  const [opcionSeleccionada14, setOpcionSeleccionada14] = useState([]);
+  const [opcionSeleccionada15, setOpcionSeleccionada15] = useState([]);
+  const [opcionSeleccionada16, setOpcionSeleccionada16] = useState([]);
+  const [opcionSeleccionada17, setOpcionSeleccionada17] = useState([]);
+  const [opcionSeleccionada18, setOpcionSeleccionada18] = useState([]);
+  const [opcionSeleccionada19, setOpcionSeleccionada19] = useState([]); 
+  const [opcionSeleccionada20, setOpcionSeleccionada20] = useState([]);
+
 
   const [Name, setName] = useState('')
   const [Email, setEmail] = useState('')
-  const [texto, setTexto] = useState('');
+  const [texto, setTexto] = useState('23/9/2024');
   const [formularioValido, setFormularioValido] = useState(false);
 
   const [loading, setLoading] = useState(false)
@@ -142,22 +153,28 @@ function Formulario() {
     opcionSeleccionada5, opcionSeleccionada6,
     opcionSeleccionada7, opcionSeleccionada8,
     opcionSeleccionada9, opcionSeleccionada10,
+    opcionSeleccionada11, opcionSeleccionada12,
+    opcionSeleccionada13, opcionSeleccionada14,
+    opcionSeleccionada15, opcionSeleccionada16,
+    opcionSeleccionada17, opcionSeleccionada18,
+    opcionSeleccionada19, opcionSeleccionada20,
     //Inhabilito el texto
     //texto,
     language]);
 
   const validarFormulario = () => {
     // Verificar si se ha seleccionado una opción en ambos radio buttons y si se ha ingresado texto
-    if (opcionSeleccionada.length &&
-      opcionSeleccionada2.length &&
-      opcionSeleccionada3.length &&
-      opcionSeleccionada4.length &&
-      opcionSeleccionada5.length &&
-      opcionSeleccionada6.length &&
-      opcionSeleccionada7.length &&
-      opcionSeleccionada8.length &&
-      opcionSeleccionada9.length &&
-      opcionSeleccionada10.length
+    if (opcionSeleccionada.length && opcionSeleccionada2.length &&
+      opcionSeleccionada3.length &&  opcionSeleccionada4.length &&
+      opcionSeleccionada5.length &&  opcionSeleccionada6.length &&
+      opcionSeleccionada7.length &&  opcionSeleccionada8.length &&
+      opcionSeleccionada9.length &&  opcionSeleccionada10.length &&
+      opcionSeleccionada11.length && opcionSeleccionada12.length &&
+      opcionSeleccionada13.length && opcionSeleccionada14.length &&
+      opcionSeleccionada15.length && opcionSeleccionada16.length &&
+      opcionSeleccionada17.length && opcionSeleccionada18.length &&
+      opcionSeleccionada19.length && opcionSeleccionada20.length 
+
       //texto.trim() !== ''  //Inhabilito el texto
     ) {
       setFormularioValido(true);
@@ -166,122 +183,48 @@ function Formulario() {
     }
   };
 
-  const handleRadioChange = (e) => {
-    const opcion = e.target.value;
-    // Si la opción ya está seleccionada, la removemos
-    if (opcionSeleccionada.includes(opcion)) {
-      setOpcionSeleccionada('0');
-    } else { // Si no está seleccionada, la agregamos
-      setOpcionSeleccionada(opcion);
-    }
+  // const handleRadioChange = (e) => {
+  //   const opcion = e.target.value;
+  //   // Si la opción ya está seleccionada, la removemos
+  //   if (opcionSeleccionada.includes(opcion)) {
+  //     setOpcionSeleccionada('0');
+  //   } else { // Si no está seleccionada, la agregamos
+  //     setOpcionSeleccionada(opcion);
+  //   }
+  // };
+  const generarHandleRadioChange = (opcionSeleccionada, setOpcionSeleccionada) => {
+    return (e) => {
+      const opcion = e.target.value;
+      // Si la opción ya está seleccionada, la removemos
+      if (opcionSeleccionada.includes(opcion)) {
+        setOpcionSeleccionada([]);
+      } else { // Si no está seleccionada, la agregamos
+        setOpcionSeleccionada(opcion);
+      }
+    };
   };
-  const handleRadioChange2 = (e) => {
-    //setOpcionSeleccionada2(e.target.value);
-    const opcion = e.target.value;
-    // Si la opción ya está seleccionada, la removemos
-    if (opcionSeleccionada2.includes(opcion)) {
-      setOpcionSeleccionada2('');
-    } else { // Si no está seleccionada, la agregamos
-      setOpcionSeleccionada2(opcion);
+  const handleRadioChange = generarHandleRadioChange(opcionSeleccionada, setOpcionSeleccionada);
+  const handleRadioChange2 = generarHandleRadioChange(opcionSeleccionada2, setOpcionSeleccionada2);
+  const handleRadioChange3 = generarHandleRadioChange(opcionSeleccionada3, setOpcionSeleccionada3);
+  const handleRadioChange4 = generarHandleRadioChange(opcionSeleccionada4, setOpcionSeleccionada4);
+  const handleRadioChange5 = generarHandleRadioChange(opcionSeleccionada5, setOpcionSeleccionada5);
+  const handleRadioChange6 = generarHandleRadioChange(opcionSeleccionada6, setOpcionSeleccionada6);
+  const handleRadioChange7 = generarHandleRadioChange(opcionSeleccionada7, setOpcionSeleccionada7);
+  const handleRadioChange8 = generarHandleRadioChange(opcionSeleccionada8, setOpcionSeleccionada8);
+  const handleRadioChange9 = generarHandleRadioChange(opcionSeleccionada9, setOpcionSeleccionada9);
+  const handleRadioChange10 = generarHandleRadioChange(opcionSeleccionada10, setOpcionSeleccionada10);
+  const handleRadioChange11 = generarHandleRadioChange(opcionSeleccionada11, setOpcionSeleccionada11);
+  const handleRadioChange12 = generarHandleRadioChange(opcionSeleccionada12, setOpcionSeleccionada12);
+  const handleRadioChange13 = generarHandleRadioChange(opcionSeleccionada13, setOpcionSeleccionada13);
+  const handleRadioChange14 = generarHandleRadioChange(opcionSeleccionada14, setOpcionSeleccionada14);
+  const handleRadioChange15 = generarHandleRadioChange(opcionSeleccionada15, setOpcionSeleccionada15);
+  const handleRadioChange16 = generarHandleRadioChange(opcionSeleccionada16, setOpcionSeleccionada16);
+  const handleRadioChange17 = generarHandleRadioChange(opcionSeleccionada17, setOpcionSeleccionada17);
+  const handleRadioChange18 = generarHandleRadioChange(opcionSeleccionada18, setOpcionSeleccionada18);
+  const handleRadioChange19 = generarHandleRadioChange(opcionSeleccionada19, setOpcionSeleccionada19);
+  const handleRadioChange20 = generarHandleRadioChange(opcionSeleccionada20, setOpcionSeleccionada20);
 
-    };
-  }
-
-  const handleRadioChange3 = (e) => {
-    //setOpcionSeleccionada2(e.target.value);
-    const opcion = e.target.value;
-    // Si la opción ya está seleccionada, la removemos
-    if (opcionSeleccionada3.includes(opcion)) {
-      setOpcionSeleccionada3(opcionSeleccionada3.filter(item => item !== opcion));
-    } else { // Si no está seleccionada, la agregamos
-      setOpcionSeleccionada3([...opcionSeleccionada3, opcion]);
-
-    };
-  }
-  const handleRadioChange4 = (e) => {
-    //setOpcionSeleccionada2(e.target.value);
-    const opcion = e.target.value;
-    // Si la opción ya está seleccionada, la removemos
-    if (opcionSeleccionada4.includes(opcion)) {
-      setOpcionSeleccionada4(opcionSeleccionada4.filter(item => item !== opcion));
-    } else { // Si no está seleccionada, la agregamos
-      setOpcionSeleccionada4([...opcionSeleccionada4, opcion]);
-
-    };
-  }
-
-  const handleRadioChange5 = (e) => {
-    //setOpcionSeleccionada2(e.target.value);
-    const opcion = e.target.value;
-    // Si la opción ya está seleccionada, la removemos
-    if (opcionSeleccionada5.includes(opcion)) {
-      setOpcionSeleccionada5(opcionSeleccionada5.filter(item => item !== opcion));
-    } else { // Si no está seleccionada, la agregamos
-      setOpcionSeleccionada5([...opcionSeleccionada5, opcion]);
-
-    };
-  }
-
-  const handleRadioChange6 = (e) => {
-    //setOpcionSeleccionada2(e.target.value);
-    const opcion = e.target.value;
-    // Si la opción ya está seleccionada, la removemos
-    if (opcionSeleccionada6.includes(opcion)) {
-      setOpcionSeleccionada6(opcionSeleccionada6.filter(item => item !== opcion));
-    } else { // Si no está seleccionada, la agregamos
-      setOpcionSeleccionada6([...opcionSeleccionada6, opcion]);
-
-    };
-  }
-
-  const handleRadioChange7 = (e) => {
-    //setOpcionSeleccionada2(e.target.value);
-    const opcion = e.target.value;
-    // Si la opción ya está seleccionada, la removemos
-    if (opcionSeleccionada7.includes(opcion)) {
-      setOpcionSeleccionada7(opcionSeleccionada7.filter(item => item !== opcion));
-    } else { // Si no está seleccionada, la agregamos
-      setOpcionSeleccionada7([...opcionSeleccionada7, opcion]);
-
-    };
-  }
-
-  const handleRadioChange8 = (e) => {
-    //setOpcionSeleccionada2(e.target.value);
-    const opcion = e.target.value;
-    // Si la opción ya está seleccionada, la removemos
-    if (opcionSeleccionada8.includes(opcion)) {
-      setOpcionSeleccionada8(opcionSeleccionada8.filter(item => item !== opcion));
-    } else { // Si no está seleccionada, la agregamos
-      setOpcionSeleccionada8([...opcionSeleccionada8, opcion]);
-
-    };
-  }
-
-  const handleRadioChange9 = (e) => {
-    //setOpcionSeleccionada2(e.target.value);
-    const opcion = e.target.value;
-    // Si la opción ya está seleccionada, la removemos
-    if (opcionSeleccionada9.includes(opcion)) {
-      setOpcionSeleccionada9(opcionSeleccionada9.filter(item => item !== opcion));
-    } else { // Si no está seleccionada, la agregamos
-      setOpcionSeleccionada9([...opcionSeleccionada9, opcion]);
-
-    };
-  }
-
-  const handleRadioChange10 = (e) => {
-    //setOpcionSeleccionada2(e.target.value);
-    const opcion = e.target.value;
-    // Si la opción ya está seleccionada, la removemos
-    if (opcionSeleccionada10.includes(opcion)) {
-      setOpcionSeleccionada10(opcionSeleccionada10.filter(item => item !== opcion));
-    } else { // Si no está seleccionada, la agregamos
-      setOpcionSeleccionada10([...opcionSeleccionada10, opcion]);
-
-    };
-  }
-
+  
   const handleTextChange = (e) => {
     setTexto(e.target.value);
   };
@@ -580,7 +523,7 @@ function Formulario() {
                 {/* Opciones */}
                 <div>
 
-                  {/* En la mañana despues de las 9:00am */}
+                  {/* Opcion 1 */}
                   <div className="flex items-center mt-4">
                     <input
                       className="checkbox mr-2 my-2"
@@ -597,7 +540,7 @@ function Formulario() {
                       htmlFor="En la mañana despues de las 9:00am">{t('p2op1')} </label>
                   </div>
 
-                  {/* la mañana despues de las 11:00 am */}
+                  {/* Opcion 2 */}
                   <div className="flex items-center">
                     <input
                       className="checkbox mr-2 my-2"
@@ -614,7 +557,7 @@ function Formulario() {
                       htmlFor="En la mañana despues de las 11:00 am">{t('p2op2')} </label>
                   </div>
 
-                  {/* En la tarde despues de las 3:00pm */}
+                  {/* Opcion 3 - p-2*/}
                   <div className="flex items-center">
                     <input
                       className="checkbox mr-2 my-2"
@@ -631,8 +574,8 @@ function Formulario() {
                       htmlFor="opcion4">{t('p2op3')} </label>
                   </div>
 
-                  {/* Otro horario */}
-                  <div className="flex items-center">
+                  {/* Opcion 4 p-2 */}
+                  {/* <div className="flex items-center">
                     <input
                       className="checkbox mr-2 my-2"
                       type="checkbox"
@@ -646,7 +589,7 @@ function Formulario() {
                       className="text-violet_dark
                   md:text-[14px]"
                       htmlFor="Otro horario">{t('p2op4')}</label>
-                  </div>
+                  </div> */}
 
                 </div>
 
@@ -655,14 +598,13 @@ function Formulario() {
               {/* PREGUNTA 3 */}
               <div className='my-8'>
 
-                {/* ¿Tienes alguna preferencia de horario o ubicación para las clases? */}
-                <h3 className='font-bold
+                 <h3 className='font-bold
 md:text-[19px]'>{t('pregunta3')}</h3>
 
                 {/* Opciones */}
                 <div>
 
-                  {/* En la mañana despues de las 9:00am */}
+                  {/* Opcion 1 P-3 */}
                   <div className="flex items-center mt-4">
                     <input
                       className="checkbox mr-2 my-2"
@@ -679,7 +621,7 @@ md:text-[19px]'>{t('pregunta3')}</h3>
                       htmlFor="En la mañana despues de las 9:00am">{t('p3op1')} </label>
                   </div>
 
-                  {/* la mañana despues de las 11:00 am */}
+                  {/* Opcion 2 P3*/}
                   <div className="flex items-center">
                     <input
                       className="checkbox mr-2 my-2"
@@ -696,7 +638,7 @@ md:text-[19px]'>{t('pregunta3')}</h3>
                       htmlFor="En la mañana despues de las 11:00 am">{t('p3op2')} </label>
                   </div>
 
-                  {/* En la tarde despues de las 3:00pm */}
+                  {/* Opcion 3 P-3 */}
                   <div className="flex items-center">
                     <input
                       className="checkbox mr-2 my-2"
@@ -713,8 +655,8 @@ md:text-[19px]'>{t('pregunta3')}</h3>
                       htmlFor="opcion4">{t('p3op3')} </label>
                   </div>
 
-                  {/* Otro horario */}
-                  <div className="flex items-center">
+                  {/* Opcion 4 p-3 */}
+                  {/* <div className="flex items-center">
                     <input
                       className="checkbox mr-2 my-2"
                       type="checkbox"
@@ -728,7 +670,7 @@ md:text-[19px]'>{t('pregunta3')}</h3>
                       className="text-violet_dark
   md:text-[14px]"
                       htmlFor="Otro horario">{t('p3op4')}</label>
-                  </div>
+                  </div> */}
 
                 </div>
 
