@@ -43,6 +43,46 @@ const FormularioSchema = new Schema(
       type: [],
 
     },
+    pregunta11: {
+      type: [],
+
+    },
+    pregunta12: {
+      type: [],
+
+    },
+    pregunta13: {
+      type: [],
+
+    },
+    pregunta14: {
+      type: [],
+
+    },
+    pregunta15: {
+      type: [],
+
+    },
+    pregunta16: {
+      type: [],
+
+    },
+    pregunta17: {
+      type: [],
+
+    },
+    pregunta18: {
+      type: [],
+
+    },
+    pregunta19: {
+      type: [],
+
+    },
+    pregunta20: {
+      type: [],
+
+    },
     
     texto: {
       type: String,
