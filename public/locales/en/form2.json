@@ -3,13 +3,14 @@
     "title":"EXAMEN NIVELADOR - ESPAÑOL CON E",
     "title2":"VOCABULARIO Y ESTRUCTURAS",
     "title3":" SELECCIONA LA OPCIÓN CORRECTA",
-    "pregunta1":"1. Todos los que ________ aquí _______ estudiantes de español.",
-    "p1op1":"estamos/somos",
+    "pregunta1":"1. Yo ___ estudiante de español y no  ____ argentino.",
+    "p1op1":"estoy/estoy",
     "p1op2":"estoy/soy",
-    "p1op3":"están/somos",
+    "p1op3":"soy/soy",
     "p1op4":"Opcion4 - P1",
 
-    "pregunta2":"2. Córdoba es estupenda. Aquí  _____ muchos lugares interesantes  para visitar y ______ buen clima.",
+    "pregunta2":"2. 2. Córdoba es muy bonita. Aquí __ muchos lugares interesantes para visitar y ___ buen clima.",
+  
     "p2op1":"son/está",
     "p2op2":"hay/tiene",
     "p2op3":"están/tiene",
