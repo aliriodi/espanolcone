@@ -5,84 +5,87 @@ const FormularioSchema = new Schema(
   {
 
     pregunta1: {
-      type: [],
+      type: String,
 
     },
     pregunta2: {
-      type: [],
+      type: String,
     },
     pregunta3: {
-      type: [],
+      type: String,
 
     },
     pregunta4: {
-      type: [],
+      type: String,
 
     },
     pregunta5: {
-      type: [],
+      type: String,
 
     },
     pregunta6: {
-      type: [],
+      type: String,
 
     },
     pregunta7: {
-      type: [],
+      type: String,
 
     },
     pregunta8: {
-      type: [],
+      type: String,
 
     },
     pregunta9: {
-      type: [],
+      type: String,
 
     },
     pregunta10: {
-      type: [],
+      type: String,
 
     },
     pregunta11: {
-      type: [],
+      type: String,
 
     },
     pregunta12: {
-      type: [],
+      type: String,
 
     },
     pregunta13: {
-      type: [],
+      type: String,
 
     },
     pregunta14: {
-      type: [],
+      type: String,
 
     },
     pregunta15: {
-      type: [],
+      type: String,
 
     },
     pregunta16: {
-      type: [],
+      type: String,
 
     },
     pregunta17: {
-      type: [],
+      type: String,
 
     },
     pregunta18: {
-      type: [],
+      type: String,
 
     },
     pregunta19: {
-      type: [],
+      type: String,
 
     },
     pregunta20: {
-      type: [],
+      type: String,
 
     },
+    puntos:{
+    type: Number,
+  },
     
     texto: {
       type: String,
