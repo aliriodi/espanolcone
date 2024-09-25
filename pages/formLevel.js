@@ -35,6 +35,7 @@ function Formulario() {
   const [Name, setName] = useState('')
   const [Email, setEmail] = useState('')
   const [texto, setTexto] = useState('23/9/2024');
+  const [puntuacion, setPuntuacion] = useState(0);
   const [formularioValido, setFormularioValido] = useState(false);
 
   const [loading, setLoading] = useState(false)
@@ -176,7 +177,9 @@ function Formulario() {
       opcionSeleccionada19.length && opcionSeleccionada20.length
 
       //texto.trim() !== ''  //Inhabilito el texto
-    ) {
+    ) {  
+      //Evaluo para habilitar boton de evaluacion
+      evaluacion()
       setFormularioValido(true);
     } else {
       setFormularioValido(false);
@@ -235,17 +238,49 @@ function Formulario() {
   const handleTextChangeEmail = (e) => {
     setEmail(e.target.value);
   };
+//Seccion de evaluacion de Formulario
+function evaluacion(){
 
+  let puntosAcumulados = 0;
+
+  if(opcionSeleccionada === t('p1op3')){ puntosAcumulados += 1; }
+  if(opcionSeleccionada2 === t('p2op2')){ puntosAcumulados += 1; }
+  if(opcionSeleccionada3 === t('p3op1')){ puntosAcumulados += 1; }
+  if(opcionSeleccionada4 === t('p4op3')){ puntosAcumulados += 1; }
+  if(opcionSeleccionada5 === t('p5op2')){ puntosAcumulados += 1; }
+  if(opcionSeleccionada6 === t('p6op2')){ puntosAcumulados += 1; }
+  // esto es porque el algoritmo debi meter un espacio para
+  // que no coincida con otra respuesta
+  if(opcionSeleccionada7 === ' '+t('p7op3')){ puntosAcumulados += 1; } 
+  if(opcionSeleccionada8 === t('p8op3')){ puntosAcumulados += 1; }
+  if(opcionSeleccionada9 === t('p9op3')){ puntosAcumulados += 1; }
+  if(opcionSeleccionada10 === t('p10op2')){ puntosAcumulados += 1; }
+  if(opcionSeleccionada11 === t('p11op3')){ puntosAcumulados += 1; }
+  if(opcionSeleccionada12 === t('p12op3')){ puntosAcumulados += 1; }
+  if(opcionSeleccionada13 === t('p13op3')){ puntosAcumulados += 1; }
+  if(opcionSeleccionada14 === t('p14op2')){ puntosAcumulados += 1; }
+  if(opcionSeleccionada15 === t('p15op2')){ puntosAcumulados += 1; }
+  if(opcionSeleccionada16 === t('p16op2')+' '){ puntosAcumulados += 1; }
+  if(opcionSeleccionada17 === t('p17op3')){ puntosAcumulados += 1; }
+  if(opcionSeleccionada18 === t('p18op1')){ puntosAcumulados += 1; }
+  if(opcionSeleccionada19 === t('p19op2')){ puntosAcumulados += 1; }
+  if(opcionSeleccionada20 === t('p20op1')){ puntosAcumulados += 1; }
+  
+  setPuntuacion(puntuacion + puntosAcumulados);
+}
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     setLoading(true)
 
     // Aquí puedes enviar los datos del formulario a través de una API o realizar cualquier otra acción necesaria
-    console.log('Opción seleccionada:', opcionSeleccionada);
-    console.log('Opción seleccionada2:', opcionSeleccionada2);
-    console.log('Texto ingresado:', texto);
-    console.log('language:', language)
+   // console.log('Opción seleccionada:', opcionSeleccionada);
+   // console.log('Opción seleccionada2:', opcionSeleccionada2);
+   // console.log('Texto ingresado:', texto);
+   // console.log('language:', language)
+
+alert('tu puntaje es: '+ puntuacion)
+
     await fetch('/api/formulario/add2/',
       {  //redirect: 'follow',
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -267,6 +302,7 @@ function Formulario() {
           pregunta17: opcionSeleccionada17, pregunta18: opcionSeleccionada18,
           pregunta19: opcionSeleccionada19, pregunta20: opcionSeleccionada20,
           texto: texto,
+          puntos:puntuacion,
           language: locale,
           Name: Name,
           Email: Email
@@ -482,8 +518,8 @@ function Formulario() {
                       type="checkbox"
                       id="opcion3"
                       name="pregunta1"
-                      value="están/somos"
-                      checked={opcionSeleccionada.includes('están/somos')}
+                      value={t('p1op3')} //soy/soy
+                      checked={opcionSeleccionada.includes(t('p1op3'))}
                       onChange={handleRadioChange}
                     />
                     <label
@@ -790,8 +826,8 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion3"
                       name="pregunta2"
-                      checked={opcionSeleccionada5.includes('no')}
-                      value={'no'}
+                      checked={opcionSeleccionada5.includes('gusta/gustan')}
+                      value={'gusta/gustan'}
                       onChange={handleRadioChange5}
                     />
                     <label
@@ -1030,7 +1066,7 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion3"
                       name="pregunta2"
-                      checked={opcionSeleccionada8.includes('Tiene/Se los ')}
+                      checked={opcionSeleccionada8.includes('Tiene/Se los')}
                       value={'Tiene/Se los'}
                       onChange={handleRadioChange8}
                     />
@@ -1509,8 +1545,8 @@ md:text-[14px]"
       type="checkbox"
       id="opcion4"
       name="pregunta2"
-      checked={opcionSeleccionada15.includes('habla')}
-      value={'habla'}
+      checked={opcionSeleccionada15.includes(' habla')}
+      value={' habla'}
       onChange={handleRadioChange15}
     />
     <label
@@ -1811,7 +1847,7 @@ md:text-[14px]"
 </div>
 </div>
 
-{/* PREGUNTA 19 */}
+{/* PREGUNTA 20 */}
 <div className='my-8'>
 
 <h3 className='font-bold md:text-[19px]'>
@@ -1861,7 +1897,7 @@ md:text-[14px]"
       type="checkbox"
       id="opcion4"
       name="pregunta2"
-      checked={opcionSeleccionada19.includes('Era/pasamos')}
+      checked={opcionSeleccionada20.includes('Era/pasamos')}
       value={'Era/pasamos'}
       onChange={handleRadioChange20}
     />
