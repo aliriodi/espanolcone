@@ -36,6 +36,7 @@ function Formulario() {
   const [Email, setEmail] = useState('')
   const [texto, setTexto] = useState('23/9/2024');
   const [puntuacion, setPuntuacion] = useState(0);
+  const [Nivel, setNivel] = useState('A1');
   const [formularioValido, setFormularioValido] = useState(false);
 
   const [loading, setLoading] = useState(false)
@@ -266,6 +267,28 @@ function evaluacion(){
   if(opcionSeleccionada19 === t('p19op2')){ puntosAcumulados += 10; }
   if(opcionSeleccionada20 === t('p20op1')){ puntosAcumulados += 10; }
   
+  switch (puntuacion+puntosAcumulados>5) {
+    case (puntuacion + puntosAcumulados > 5 && puntuacion + puntosAcumulados < 11):
+      setNivel('A1.2');      break;
+    case (puntuacion + puntosAcumulados > 10 && puntuacion + puntosAcumulados < 16):
+      setNivel('A2');        break;
+    case (puntuacion + puntosAcumulados > 15 && puntuacion + puntosAcumulados < 27):
+      setNivel('A2.2');      break;
+    case (puntuacion + puntosAcumulados > 26 && puntuacion + puntosAcumulados < 35):
+      setNivel('B1');        break;
+    case (puntuacion + puntosAcumulados > 34 && puntuacion + puntosAcumulados < 51):
+      setNivel('B1.2');      break;
+    case (puntuacion + puntosAcumulados > 50 && puntuacion + puntosAcumulados < 61):
+      setNivel('B2');        break;
+    case (puntuacion + puntosAcumulados > 60 && puntuacion + puntosAcumulados < 71):
+      setNivel('B2.2');      break;
+    case (puntuacion + puntosAcumulados > 70 && puntuacion + puntosAcumulados < 81):
+      setNivel('C1');        break;
+    case (puntuacion + puntosAcumulados > 80):
+      setNivel('C2');        break;
+    default:
+      setNivel('A1');        break;
+  }
   setPuntuacion(puntuacion + puntosAcumulados);
 }
   const handleSubmit = async (e) => {
@@ -279,7 +302,7 @@ function evaluacion(){
    // console.log('Texto ingresado:', texto);
    // console.log('language:', language)
 
-alert('tu puntaje es: '+ puntuacion)
+//alert('tu puntaje es: '+ puntuacion)
 
     await fetch('/api/formulario/add2/',
       {  //redirect: 'follow',
@@ -412,6 +435,8 @@ alert('tu puntaje es: '+ puntuacion)
             <div className="pt-2 md:pt-0 font-bold  text-[41px] md:text-[18px] mx-auto text-center text-primary md:w-full md:m-0">
               {t('title3')}</div>
 
+
+              {/* <iframe  src="https://wordwall.net/es/embed/50915df6f6e34b5f87e83fca1b8ba292?themeId=1&templateId=8&fontStackId=0" width="500" height="380" frameborder="0" allowfullscreen></iframe> */}
             {/* Formulario */}
             <form className="p-10 w-[768px] mx-auto
           md:w-full md:m-0" onSubmit={handleSubmit}>
@@ -1963,7 +1988,7 @@ md:text-[14px]"
 
             <h3
               className='text-[#4F4F4F] text-[24px] font-semibold text-center'>
-              Gracias por contribuir al crecimiento de esta comunidad!!
+              Tu Nivel {Nivel} es con {puntuacion} puntos.
             </h3>
 
             <Link
