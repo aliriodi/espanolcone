@@ -330,7 +330,7 @@ const Menu = (props) => {
                   <Link
                     className={`flex items-center justify-start my-[20px] self-center px-[15px] py-[12px] border-[#A4ACB91A] border-solid border-[1px] rounded-[7px] transition-all
                                         ${currentPathName ==
-                      "/inicio/calendar" &&
+                      "/inicio/schudule-group-class" &&
                       "bg-primary text-white"
                       }
                                     hover:bg-primary hover:text-white`}
