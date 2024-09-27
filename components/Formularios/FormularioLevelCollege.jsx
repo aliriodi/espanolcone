@@ -244,24 +244,24 @@ function evaluacion(){
 
   let puntosAcumulados = 0;
 
-  if(opcionSeleccionada === t('p1op3')){ puntosAcumulados += 2; }
+  if(opcionSeleccionada === t('p1op2')){ puntosAcumulados += 2; }
   if(opcionSeleccionada2 === t('p2op2')){ puntosAcumulados += 2; }
   if(opcionSeleccionada3 === t('p3op1')){ puntosAcumulados += 2; }
   if(opcionSeleccionada4 === t('p4op3')){ puntosAcumulados += 2; }
   if(opcionSeleccionada5 === t('p5op2')){ puntosAcumulados += 2; }
-  if(opcionSeleccionada6 === t('p6op2')){ puntosAcumulados += 4; }
-  if(opcionSeleccionada7 === t('p7op3')){ puntosAcumulados += 2; } 
+  if(opcionSeleccionada6 === t('p6op2')){ puntosAcumulados += 3; }
+  if(opcionSeleccionada7 === t('p7op1')){ puntosAcumulados += 3; } 
   if(opcionSeleccionada8 === t('p8op3')){ puntosAcumulados += 4; }
   if(opcionSeleccionada9 === t('p9op3')){ puntosAcumulados += 4; }
-  if(opcionSeleccionada10 === t('p10op2')){ puntosAcumulados += 2; }
-  if(opcionSeleccionada11 === t('p11op3')){ puntosAcumulados += 4; }
+  if(opcionSeleccionada10 === t('p10op1')){ puntosAcumulados += 4; }
+  if(opcionSeleccionada11 === t('p11op2')){ puntosAcumulados += 4; }
   if(opcionSeleccionada12 === t('p12op3')){ puntosAcumulados += 4; }
-  if(opcionSeleccionada13 === t('p13op3')){ puntosAcumulados += 8; }
-  if(opcionSeleccionada14 === t('p14op2')){ puntosAcumulados += 4; }
-  if(opcionSeleccionada15 === t('p15op2')){ puntosAcumulados += 4; }
+  if(opcionSeleccionada13 === t('p13op1')){ puntosAcumulados += 4; }
+  if(opcionSeleccionada14 === t('p14op3')){ puntosAcumulados += 5; }
+  if(opcionSeleccionada15 === t('p15op1')){ puntosAcumulados += 5; }
   if(opcionSeleccionada16 === t('p16op2')){ puntosAcumulados += 5; }
-  if(opcionSeleccionada17 === t('p17op3')){ puntosAcumulados += 5; }
-  if(opcionSeleccionada18 === t('p18op1')){ puntosAcumulados += 10; }
+  if(opcionSeleccionada17 === t('p17op2')){ puntosAcumulados += 5; }
+  if(opcionSeleccionada18 === t('p18op3')){ puntosAcumulados += 10; }
   if(opcionSeleccionada19 === t('p19op2')){ puntosAcumulados += 10; }
   if(opcionSeleccionada20 === t('p20op1')){ puntosAcumulados += 10; }
   
