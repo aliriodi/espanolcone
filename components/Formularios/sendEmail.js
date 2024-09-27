@@ -65,7 +65,7 @@ export const sendEmail = async (Email, Name, puntos,level) => {
 
       <div class="container">
         <header>
-          <img src="https://espanolcone-five.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdfddh08q8%2Fimage%2Fupload%2Fs--4NefY4Ug--%2Fv1701173990%2Fimages%2Fl9hxqqm6urwlk6x8qdih.png&w=384&q=75" alt=ECE/>
+          <img src="https://espanolcone-five.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdfddh08q8%2Fimage%2Fupload%2Fs--4NefY4Ug--%2Fv1701173990%2Fimages%2Fl9hxqqm6urwlk6x8qdih.png&w=384&q=75" alt="ECE"/>
           <h1 style=" z-index: 90;">Estimado/a  ${Name}</h1>
         </header>
         
