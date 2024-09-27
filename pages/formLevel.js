@@ -4,7 +4,7 @@ import nextI18NextConfig from '../next-i18next.config';
 import { useTranslation, withTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-function formLevel() {
+function FormLevel() {
   const { t } = useTranslation(['form2', 'aboutus'])
   return (
     <div><FormularioLevel t={t}/></div>
@@ -13,7 +13,7 @@ function formLevel() {
 }
 
 //export default Formulario;
-export default withTranslation(['form2', 'footer', 'landing', 'form'])(formLevel);
+export default withTranslation(['form2', 'footer', 'landing', 'form'])(FormLevel);
 
 export async function getStaticProps({ locale }) {
   return {
