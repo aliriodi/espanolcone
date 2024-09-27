@@ -18,7 +18,7 @@ export default withTranslation(['form2', 'footer', 'landing', 'form'])(FormLevel
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['form2', 'footer', 'common', 'menu', 'aboutus', 'index', 'register'], nextI18NextConfig)),
+      ...(await serverSideTranslations(locale, ['form3', 'footer', 'common', 'menu', 'aboutus', 'index', 'register'], nextI18NextConfig)),
 
     },
   }
