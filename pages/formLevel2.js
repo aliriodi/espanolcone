@@ -13,7 +13,7 @@ function FormLevel3() {
 }
 
 //export default Formulario;
-export default withTranslation(['form2', 'footer', 'landing', 'form'])(FormLevel3);
+export default withTranslation(['form3', 'footer', 'landing', 'form'])(FormLevel3);
 
 export async function getStaticProps({ locale }) {
   return {
