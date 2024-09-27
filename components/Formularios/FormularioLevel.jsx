@@ -1984,6 +1984,7 @@ md:text-[14px]"
             test='taiwebs.com'
               width={385}
               height={393}
+              alt='munecos'
               src={"https://res.cloudinary.com/dfddh08q8/image/upload/v1694366456/images/promo_img_1_fnggbr.png"}
             />
 
