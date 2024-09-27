@@ -578,6 +578,8 @@ function evaluacion(){
 
                 <h3 className='font-bold
               md:text-[19px]'>{t('pregunta2')}</h3>
+ <h3 className='font-bold pl-6
+              md:text-[19px]'>{t('pregunta2-1')}</h3>
 
                 {/* Opciones */}
                 <div>
@@ -659,7 +661,7 @@ function evaluacion(){
 
                 <h3 className='font-bold
 md:text-[19px]'>{t('pregunta3')}</h3>
-
+  
                 {/* Opciones */}
                 <div>
 
@@ -982,6 +984,8 @@ md:text-[14px]"
 
                 <h3 className='font-bold md:text-[19px]'>
                   {t('pregunta7')}</h3>
+                  <h3 className='pl-6 font-bold md:text-[19px]'>
+                  {t('pregunta7-2')}</h3>
 
                 {/* Opciones */}
                 <div>
@@ -1062,6 +1066,8 @@ md:text-[14px]"
 
                 <h3 className='font-bold md:text-[19px]'>
                   {t('pregunta8')}</h3>
+                  <h3 className='pl-6 font-bold md:text-[19px]'>
+                  {t('pregunta8-2')}</h3>
 
                 {/* Opciones */}
                 <div>
@@ -1304,8 +1310,7 @@ htmlFor="Otro horario">{t('p4op4')}</label>
 
                 <h3 className='font-bold md:text-[19px]'>
                   {t('pregunta11')}</h3>
-                  <h3 className='pl-8 font-bold md:text-[19px]'>
-                  {t('pregunta11-2')}</h3>
+                 
                 {/* Opciones */}
                 <div>
 
@@ -1368,8 +1373,7 @@ md:text-[14px]"
 
 <h3 className='font-bold md:text-[19px]'>
   {t('pregunta12')}</h3>
-  <h3 className='pl-8 font-bold md:text-[19px]'>
-  {t('pregunta12-2')}</h3>
+
 {/* Opciones */}
 <div>
 
@@ -1495,6 +1499,8 @@ md:text-[14px]"
 
 <h3 className='font-bold md:text-[19px]'>
   {t('pregunta14')}</h3>
+  <h3 className='pl-9 font-bold md:text-[19px]'>
+  {t('pregunta14-2')}</h3>
   
 {/* Opciones */}
 <div>
@@ -1685,6 +1691,8 @@ md:text-[14px]"
 
 <h3 className='font-bold md:text-[19px]'>
   {t('pregunta17')}</h3>
+  <h3 className='pl-9 font-bold md:text-[19px]'>
+  {t('pregunta17-2')}</h3>
   
 {/* Opciones */}
 <div>
