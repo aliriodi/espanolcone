@@ -36,9 +36,9 @@
     "p5op4":"Grupales presenciales en diferentes lugares (si estás Córdoba - Argentina)",
 
     "pregunta6":"6. _____ es un libro y _____ es una mesa ",
-    "p6op1":"esta/este",
-    "p6op2":"este/esta",
-    "p6op3":"esa/ese",
+    "p6op1":"Esta/este",
+    "p6op2":"Este/esta",
+    "p6op3":"Esa/ese",
     "p6op4":"null",
 
     "pregunta7":"7. Se compró un departamento en el _______ piso.",
@@ -50,14 +50,14 @@
     "pregunta8":"8. (Yo) ________ flores para Clara. ________ voy a llevar a casa.",
     "p8op1":"Tengo/Les",
     "p8op2":"Tiene/Se los",
-    "p8op3":"Tengo/se las",
+    "p8op3":"Tengo/Se las",
     "p8op4":"null",
 
-    "pregunta9":"9. ¿__________ alguna vez en Argentina?",
-    "pregunta9-2":"Sí, ______ a Córdoba, _____ una ciudad muy linda. ",
-    "p9op1":"Vas/ fuiste/ está",
-    "p9op2":"Ir / estuve/ era",
-    "p9op3":"Has estado/fui/es",
+    "pregunta9":"9. ¿Has estado alguna vez en Argentina? Sí, ______ a Córdoba, _____ una ciudad muy linda.",
+    "pregunta9-2":" ",
+    "p9op1":"fuiste/ está",
+    "p9op2":"estuve/ era",
+    "p9op3":"fui/es",
     "p9op4":"null",
     
 
@@ -68,10 +68,10 @@
     "p10op3":"me llevo",
     "p10op4":"null",
 
-    "pregunta11":"11. Y tú ¿Cuándo estuviste en Perú? ",
+    "pregunta11":"11. ¿Cuándo estuviste en Perú? ",
     "pregunta11-2":"Estuve ____________",
     "p11op1":"dos años",
-    "p11op2":"en dos años ",
+    "p11op2":"en dos años",
     "p11op3":"hace dos años",
     "p11op4":"null",
     
@@ -108,7 +108,7 @@
 
     "pregunta17":"17. Esta ciudad es ________ agradable.",
     "p17op1":"mucho",
-    "p17op2":"nada",
+    "p17op2":"ninguna",
     "p17op3":"muy",
     "p17op4":"null",
 
@@ -127,9 +127,10 @@
     "p19op3":"habrás/habrías",
     "p19op4":"null",
 
-    "pregunta20":"20. ¿Qué tal la fiesta de ayer? __________ divertidísima, lo _________ muy bien.",
+    "pregunta20":"20. ¿Qué tal la fiesta de ayer?",
+    "pregunta20-1":" __________ divertidísima, lo _________ muy bien.",
     "p20op1":"Estuvo/pasamos",
-    "p20op2":"Estuvo/pasábamos ",
+    "p20op2":"Estuvo/pasábamos",
     "p20op3":"Era/pasamos",
     "p20op4":"null", 
      
