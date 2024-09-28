@@ -1310,6 +1310,8 @@ htmlFor="Otro horario">{t('p4op4')}</label>
 
                 <h3 className='font-bold md:text-[19px]'>
                   {t('pregunta11')}</h3>
+                  <h3 className='pl-8 font-bold md:text-[19px]'>
+                  {t('pregunta11-2')}</h3>
                  
                 {/* Opciones */}
                 <div>
