@@ -492,6 +492,8 @@ function evaluacion(){
                 {/* ¿Qué tipo de clases te interesan? */}
                 <h3 className=' font-bold
               md:text-[19px]'>{t('pregunta1')}</h3>
+              <h3 className=' pl-6 font-bold
+              md:text-[19px]'>{t('pregunta1-2')}</h3>
 
                 {/* Opciones */}
                 <div className=' my-5 '>
