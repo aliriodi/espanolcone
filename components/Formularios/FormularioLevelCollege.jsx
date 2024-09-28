@@ -261,7 +261,7 @@ function evaluacion(){
   if(opcionSeleccionada15 === t('p15op1')){ puntosAcumulados += 5; }
   if(opcionSeleccionada16 === t('p16op2')){ puntosAcumulados += 5; }
   if(opcionSeleccionada17 === t('p17op2')){ puntosAcumulados += 5; }
-  if(opcionSeleccionada18 === t('p18op3')){ puntosAcumulados += 10; }
+  if(opcionSeleccionada18 === t('p18op2')){ puntosAcumulados += 10; }
   if(opcionSeleccionada19 === t('p19op2')){ puntosAcumulados += 10; }
   if(opcionSeleccionada20 === t('p20op1')){ puntosAcumulados += 10; }
   
