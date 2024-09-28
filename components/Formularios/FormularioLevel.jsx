@@ -190,7 +190,7 @@ function FormularioLevel({t}) {
   // const handleRadioChange = (e) => {
   //   const opcion = e.target.value;
   //   // Si la opción ya está seleccionada, la removemos
-  //   if (opcionSeleccionada.includes(opcion)) {
+  //   if (opcionSeleccionada==(opcion)) {
   //     setOpcionSeleccionada('0');
   //   } else { // Si no está seleccionada, la agregamos
   //     setOpcionSeleccionada(opcion);
@@ -250,9 +250,7 @@ function evaluacion(){
   if(opcionSeleccionada4 === t('p4op3')){ puntosAcumulados += 2; }
   if(opcionSeleccionada5 === t('p5op2')){ puntosAcumulados += 2; }
   if(opcionSeleccionada6 === t('p6op2')){ puntosAcumulados += 4; }
-  // esto es porque el algoritmo debi meter un espacio para
-  // que no coincida con otra respuesta
-  if(opcionSeleccionada7 === ' '+t('p7op3')){ puntosAcumulados += 2; } 
+  if(opcionSeleccionada7 === t('p7op3')){ puntosAcumulados += 2; } 
   if(opcionSeleccionada8 === t('p8op3')){ puntosAcumulados += 4; }
   if(opcionSeleccionada9 === t('p9op3')){ puntosAcumulados += 4; }
   if(opcionSeleccionada10 === t('p10op2')){ puntosAcumulados += 2; }
@@ -261,7 +259,7 @@ function evaluacion(){
   if(opcionSeleccionada13 === t('p13op3')){ puntosAcumulados += 8; }
   if(opcionSeleccionada14 === t('p14op2')){ puntosAcumulados += 4; }
   if(opcionSeleccionada15 === t('p15op2')){ puntosAcumulados += 4; }
-  if(opcionSeleccionada16 === t('p16op2')+' '){ puntosAcumulados += 5; }
+  if(opcionSeleccionada16 === t('p16op2')){ puntosAcumulados += 5; }
   if(opcionSeleccionada17 === t('p17op3')){ puntosAcumulados += 5; }
   if(opcionSeleccionada18 === t('p18op1')){ puntosAcumulados += 10; }
   if(opcionSeleccionada19 === t('p19op2')){ puntosAcumulados += 10; }
@@ -507,7 +505,7 @@ function evaluacion(){
                       id="opcion1"
                       name="pregunta1"
                       value="estamos/somos"
-                      checked={opcionSeleccionada.includes('estamos/somos')}
+                      checked={opcionSeleccionada==('estamos/somos')}
                       onChange={handleRadioChange}
                     />
                     {/* Pregunta 1 opcion1 */}
@@ -527,7 +525,7 @@ function evaluacion(){
                       id="opcion2"
                       name="pregunta1"
                       value="estoy/soy"
-                      checked={opcionSeleccionada.includes('estoy/soy')}
+                      checked={opcionSeleccionada==('estoy/soy')}
                       onChange={handleRadioChange}
                     />
                     {/* Pregunta 1 opcion 2 */}
@@ -545,7 +543,7 @@ function evaluacion(){
                       id="opcion3"
                       name="pregunta1"
                       value={t('p1op3')} //soy/soy
-                      checked={opcionSeleccionada.includes(t('p1op3'))}
+                      checked={opcionSeleccionada==(t('p1op3'))}
                       onChange={handleRadioChange}
                     />
                     <label
@@ -562,7 +560,7 @@ function evaluacion(){
                       id="opcion4"
                       name="pregunta1"
                       value="Grupales presenciales en diferentes lugares  (si estás en CBA)"
-                      checked={opcionSeleccionada.includes('Grupales presenciales en diferentes lugares  (si estás en CBA)')}
+                      checked={opcionSeleccionada==('Grupales presenciales en diferentes lugares  (si estás en CBA)')}
                       onChange={handleRadioChange}
                     />
                     <label
@@ -591,7 +589,7 @@ function evaluacion(){
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada2.includes('son/está')}
+                      checked={opcionSeleccionada2==('son/está')}
                       value={'son/está'}
                       onChange={handleRadioChange2}
                     />
@@ -608,8 +606,8 @@ function evaluacion(){
                       type="checkbox"
                       id="opcion3"
                       name="pregunta2"
-                      checked={opcionSeleccionada2.includes('hay/tiene')}
-                      value={'hay/tiene'}
+                      checked={opcionSeleccionada2==(t('p2op2'))}
+                      value={t('p2op2')}
                       onChange={handleRadioChange2}
                     />
                     <label
@@ -625,7 +623,7 @@ function evaluacion(){
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada2.includes('están/tiene')}
+                      checked={opcionSeleccionada2==('están/tiene')}
                       value={'están/tiene'}
                       onChange={handleRadioChange2}
                     />
@@ -642,7 +640,7 @@ function evaluacion(){
                       type="checkbox"
                       id="opcion3"
                       name="pregunta2"
-                      checked={opcionSeleccionada2.includes('Otro horario')}
+                      checked={opcionSeleccionada2==('Otro horario')}
                       value={'Otro horario'}
                       onChange={handleRadioChange2}
                     />
@@ -672,8 +670,8 @@ md:text-[19px]'>{t('pregunta3')}</h3>
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada3.includes('es/en')}
-                      value={'es/en'}
+                      checked={opcionSeleccionada3==(t('p3op1'))}
+                      value={t('p3op1')}
                       onChange={handleRadioChange3}
                     />
                     <label
@@ -689,7 +687,7 @@ md:text-[19px]'>{t('pregunta3')}</h3>
                       type="checkbox"
                       id="opcion3"
                       name="pregunta2"
-                      checked={opcionSeleccionada3.includes('soy/por')}
+                      checked={opcionSeleccionada3==('soy/por')}
                       value={'soy/por'}
                       onChange={handleRadioChange3}
                     />
@@ -706,7 +704,7 @@ md:text-[19px]'>{t('pregunta3')}</h3>
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada3.includes('está/en')}
+                      checked={opcionSeleccionada3==('está/en')}
                       value={'está/en'}
                       onChange={handleRadioChange3}
                     />
@@ -723,7 +721,7 @@ md:text-[19px]'>{t('pregunta3')}</h3>
                       type="checkbox"
                       id="opcion3"
                       name="pregunta2"
-                      checked={opcionSeleccionada3.includes('Otro horario')}
+                      checked={opcionSeleccionada3==('Otro horario')}
                       value={'Otro horario'}
                       onChange={handleRadioChange3}
                     />
@@ -754,7 +752,7 @@ md:text-[19px]'>{t('pregunta3')}</h3>
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada4.includes('también')}
+                      checked={opcionSeleccionada4==('también')}
                       value={'también'}
                       onChange={handleRadioChange4}
                     />
@@ -771,7 +769,7 @@ md:text-[19px]'>{t('pregunta3')}</h3>
                       type="checkbox"
                       id="opcion3"
                       name="pregunta2"
-                      checked={opcionSeleccionada4.includes('no')}
+                      checked={opcionSeleccionada4==('no')}
                       value={'no'}
                       onChange={handleRadioChange4}
                     />
@@ -788,8 +786,8 @@ md:text-[19px]'>{t('pregunta3')}</h3>
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada4.includes('tampoco')}
-                      value={'tampoco'}
+                      checked={opcionSeleccionada4==(t('p4op3'))}
+                      value={t('p4op3')}
                       onChange={handleRadioChange4}
                     />
                     <label
@@ -805,7 +803,7 @@ md:text-[19px]'>{t('pregunta3')}</h3>
                       type="checkbox"
                       id="opcion3"
                       name="pregunta2"
-                      checked={opcionSeleccionada4.includes('Otro horario')}
+                      checked={opcionSeleccionada4==('Otro horario')}
                       value={'Otro horario'}
                       onChange={handleRadioChange4}
                     />
@@ -835,7 +833,7 @@ md:text-[19px]'>{t('pregunta3')}</h3>
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada5.includes('también')}
+                      checked={opcionSeleccionada5==('también')}
                       value={'también'}
                       onChange={handleRadioChange5}
                     />
@@ -852,8 +850,8 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion3"
                       name="pregunta2"
-                      checked={opcionSeleccionada5.includes('gusta/gustan')}
-                      value={'gusta/gustan'}
+                      checked={opcionSeleccionada5==(t('p5op2'))}
+                      value={t('p5op2')}
                       onChange={handleRadioChange5}
                     />
                     <label
@@ -869,7 +867,7 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada5.includes('tampoco')}
+                      checked={opcionSeleccionada5==('tampoco')}
                       value={'tampoco'}
                       onChange={handleRadioChange5}
                     />
@@ -886,7 +884,7 @@ md:text-[14px]"
       type="checkbox"
       id="opcion3"
       name="pregunta2"
-      checked={opcionSeleccionada4.includes('Otro horario')}
+      checked={opcionSeleccionada4==('Otro horario')}
       value={'Otro horario'}
       onChange={handleRadioChange4}
     />
@@ -915,8 +913,8 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada6.includes('esta/este')}
-                      value={'esta/este'}
+                      checked={opcionSeleccionada6==('Esta/este')}
+                      value={'Esta/este'}
                       onChange={handleRadioChange6}
                     />
                     <label
@@ -932,8 +930,8 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion3"
                       name="pregunta2"
-                      checked={opcionSeleccionada6.includes('este/esta')}
-                      value={'este/esta'}
+                      checked={opcionSeleccionada6==(t('p6op2'))}
+                      value={t('p6op2')}
                       onChange={handleRadioChange6}
                     />
                     <label
@@ -949,7 +947,7 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada6.includes('gusta/gusta')}
+                      checked={opcionSeleccionada6==('gusta/gusta')}
                       value={'gusta/gusta'}
                       onChange={handleRadioChange6}
                     />
@@ -966,7 +964,7 @@ md:text-[14px]"
       type="checkbox"
       id="opcion3"
       name="pregunta2"
-      checked={opcionSeleccionada4.includes('Otro horario')}
+      checked={opcionSeleccionada4==('Otro horario')}
       value={'Otro horario'}
       onChange={handleRadioChange4}
     />
@@ -995,7 +993,7 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada7.includes('tercero ')}
+                      checked={opcionSeleccionada7==('tercero ')}
                       value={'tercero '}
                       onChange={handleRadioChange7}
                     />
@@ -1012,7 +1010,7 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion3"
                       name="pregunta2"
-                      checked={opcionSeleccionada7.includes('primero')}
+                      checked={opcionSeleccionada7==('primero')}
                       value={'primero'}
                       onChange={handleRadioChange7}
                     />
@@ -1029,8 +1027,8 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada7.includes(' tercer')}
-                      value={' tercer'}
+                      checked={opcionSeleccionada7==(t('p7op3'))}
+                      value={t('p7op3')}
                       onChange={handleRadioChange7}
                     />
                     <label
@@ -1046,7 +1044,7 @@ md:text-[14px]"
       type="checkbox"
       id="opcion3"
       name="pregunta2"
-      checked={opcionSeleccionada4.includes('Otro horario')}
+      checked={opcionSeleccionada4==('Otro horario')}
       value={'Otro horario'}
       onChange={handleRadioChange4}
     />
@@ -1075,7 +1073,7 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada8.includes('Tengo/Les')}
+                      checked={opcionSeleccionada8==('Tengo/Les')}
                       value={'Tengo/Les'}
                       onChange={handleRadioChange8}
                     />
@@ -1092,7 +1090,7 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion3"
                       name="pregunta2"
-                      checked={opcionSeleccionada8.includes('Tiene/Se los')}
+                      checked={opcionSeleccionada8==('Tiene/Se los')}
                       value={'Tiene/Se los'}
                       onChange={handleRadioChange8}
                     />
@@ -1109,8 +1107,8 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada8.includes('Tengo/se las')}
-                      value={'Tengo/se las'}
+                      checked={opcionSeleccionada8==(t('p8op3'))}
+                      value={t('p8op3')}
                       onChange={handleRadioChange8}
                     />
                     <label
@@ -1126,7 +1124,7 @@ className="checkbox mr-2 my-2"
 type="checkbox"
 id="opcion3"
 name="pregunta2"
-checked={opcionSeleccionada4.includes('Otro horario')}
+checked={opcionSeleccionada4==('Otro horario')}
 value={'Otro horario'}
 onChange={handleRadioChange4}
 />
@@ -1156,7 +1154,7 @@ htmlFor="Otro horario">{t('p4op4')}</label>
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada9.includes('Vas/ fuiste/ está')}
+                      checked={opcionSeleccionada9==('Vas/ fuiste/ está')}
                       value={'Vas/ fuiste/ está'}
                       onChange={handleRadioChange9}
                     />
@@ -1173,7 +1171,7 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion3"
                       name="pregunta2"
-                      checked={opcionSeleccionada9.includes('Ir / estuve/ era')}
+                      checked={opcionSeleccionada9==('Ir / estuve/ era')}
                       value={'Ir / estuve/ era'}
                       onChange={handleRadioChange9}
                     />
@@ -1190,8 +1188,8 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada9.includes('Has estado/fui/es')}
-                      value={'Has estado/fui/es'}
+                      checked={opcionSeleccionada9==(t('p9op3'))}
+                      value={t('p9op3')}
                       onChange={handleRadioChange9}
                     />
                     <label
@@ -1207,7 +1205,7 @@ className="checkbox mr-2 my-2"
 type="checkbox"
 id="opcion3"
 name="pregunta2"
-checked={opcionSeleccionada4.includes('Otro horario')}
+checked={opcionSeleccionada4==('Otro horario')}
 value={'Otro horario'}
 onChange={handleRadioChange4}
 />
@@ -1237,7 +1235,7 @@ htmlFor="Otro horario">{t('p4op4')}</label>
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada10.includes('se lo lleva')}
+                      checked={opcionSeleccionada10==('se lo lleva')}
                       value={'se lo lleva'}
                       onChange={handleRadioChange10}
                     />
@@ -1254,8 +1252,8 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion3"
                       name="pregunta2"
-                      checked={opcionSeleccionada10.includes('me lo llevo')}
-                      value={'me lo llevo'}
+                      checked={opcionSeleccionada10==(t('p10op2'))}
+                      value={t('p10op2')}
                       onChange={handleRadioChange10}
                     />
                     <label
@@ -1271,7 +1269,7 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada10.includes('me llevo')}
+                      checked={opcionSeleccionada10==('me llevo')}
                       value={'me llevo'}
                       onChange={handleRadioChange10}
                     />
@@ -1288,7 +1286,7 @@ className="checkbox mr-2 my-2"
 type="checkbox"
 id="opcion3"
 name="pregunta2"
-checked={opcionSeleccionada4.includes('Otro horario')}
+checked={opcionSeleccionada4==('Otro horario')}
 value={'Otro horario'}
 onChange={handleRadioChange4}
 />
@@ -1318,7 +1316,7 @@ htmlFor="Otro horario">{t('p4op4')}</label>
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada11.includes(' dos años ')}
+                      checked={opcionSeleccionada11==(' dos años ')}
                       value={' dos años '}
                       onChange={handleRadioChange11}
                     />
@@ -1335,7 +1333,7 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion3"
                       name="pregunta2"
-                      checked={opcionSeleccionada11.includes('en dos años')}
+                      checked={opcionSeleccionada11==('en dos años')}
                       value={'en dos años'}
                       onChange={handleRadioChange11}
                     />
@@ -1352,8 +1350,8 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada11.includes('hace dos años')}
-                      value={'hace dos años'}
+                      checked={opcionSeleccionada11==(t('p11op3'))}
+                      value={t('p11op3')}
                       onChange={handleRadioChange11}
                     />
                     <label
@@ -1382,7 +1380,7 @@ md:text-[14px]"
       type="checkbox"
       id="opcion4"
       name="pregunta2"
-      checked={opcionSeleccionada12.includes('te duele')}
+      checked={opcionSeleccionada12==('te duele')}
       value={'te duele'}
       onChange={handleRadioChange12}
     />
@@ -1399,7 +1397,7 @@ md:text-[14px]"
       type="checkbox"
       id="opcion3"
       name="pregunta2"
-      checked={opcionSeleccionada12.includes('me duele')}
+      checked={opcionSeleccionada12==('me duele')}
       value={'me duele'}
       onChange={handleRadioChange12}
     />
@@ -1416,8 +1414,8 @@ md:text-[14px]"
       type="checkbox"
       id="opcion4"
       name="pregunta2"
-      checked={opcionSeleccionada12.includes('le duele')}
-      value={'le duele'}
+      checked={opcionSeleccionada12==(t('p12op3'))}
+      value={t('p12op3')}
       onChange={handleRadioChange12}
     />
     <label
@@ -1445,7 +1443,7 @@ md:text-[14px]"
       type="checkbox"
       id="opcion4"
       name="pregunta2"
-      checked={opcionSeleccionada13.includes('he salido/llamaste')}
+      checked={opcionSeleccionada13==('he salido/llamaste')}
       value={'he salido/llamaste'}
       onChange={handleRadioChange13}
     />
@@ -1462,7 +1460,7 @@ md:text-[14px]"
       type="checkbox"
       id="opcion3"
       name="pregunta2"
-      checked={opcionSeleccionada13.includes('salí/habías llamado')}
+      checked={opcionSeleccionada13==('salí/habías llamado')}
       value={'salí/habías llamado'}
       onChange={handleRadioChange13}
     />
@@ -1479,8 +1477,8 @@ md:text-[14px]"
       type="checkbox"
       id="opcion4"
       name="pregunta2"
-      checked={opcionSeleccionada13.includes('había salido/llamaste')}
-      value={'había salido/llamaste'}
+      checked={opcionSeleccionada13==(t('p13op3'))}
+      value={t('p13op3')}
       onChange={handleRadioChange13}
     />
     <label
@@ -1508,7 +1506,7 @@ md:text-[14px]"
       type="checkbox"
       id="opcion4"
       name="pregunta2"
-      checked={opcionSeleccionada14.includes('hagas')}
+      checked={opcionSeleccionada14==('hagas')}
       value={'hagas'}
       onChange={handleRadioChange14}
     />
@@ -1525,8 +1523,8 @@ md:text-[14px]"
       type="checkbox"
       id="opcion3"
       name="pregunta2"
-      checked={opcionSeleccionada14.includes('hayas')}
-      value={'hayas'}
+      checked={opcionSeleccionada14==(t('p14op2'))}
+      value={t('p14op2')}
       onChange={handleRadioChange14}
     />
     <label
@@ -1542,7 +1540,7 @@ md:text-[14px]"
       type="checkbox"
       id="opcion4"
       name="pregunta2"
-      checked={opcionSeleccionada14.includes('has')}
+      checked={opcionSeleccionada14==('has')}
       value={'has'}
       onChange={handleRadioChange14}
     />
@@ -1571,7 +1569,7 @@ md:text-[14px]"
       type="checkbox"
       id="opcion4"
       name="pregunta2"
-      checked={opcionSeleccionada15.includes(' habla')}
+      checked={opcionSeleccionada15==(' habla')}
       value={' habla'}
       onChange={handleRadioChange15}
     />
@@ -1588,8 +1586,8 @@ md:text-[14px]"
       type="checkbox"
       id="opcion3"
       name="pregunta2"
-      checked={opcionSeleccionada15.includes('hable')}
-      value={'hable'}
+      checked={opcionSeleccionada15==(t('p15op2'))}
+      value={t('p15op2')}
       onChange={handleRadioChange15}
     />
     <label
@@ -1605,7 +1603,7 @@ md:text-[14px]"
       type="checkbox"
       id="opcion4"
       name="pregunta2"
-      checked={opcionSeleccionada15.includes('hablara')}
+      checked={opcionSeleccionada15==('hablara')}
       value={'hablara'}
       onChange={handleRadioChange15}
     />
@@ -1634,7 +1632,7 @@ md:text-[14px]"
       type="checkbox"
       id="opcion4"
       name="pregunta2"
-      checked={opcionSeleccionada16.includes('está')}
+      checked={opcionSeleccionada16==('está')}
       value={'está'}
       onChange={handleRadioChange16}
     />
@@ -1651,8 +1649,8 @@ md:text-[14px]"
       type="checkbox"
       id="opcion3"
       name="pregunta2"
-      checked={opcionSeleccionada16.includes('es ')}
-      value={'es '}
+      checked={opcionSeleccionada16==(t('p16op2'))}
+      value={t('p16op2')}
       onChange={handleRadioChange16}
     />
     <label
@@ -1668,7 +1666,7 @@ md:text-[14px]"
       type="checkbox"
       id="opcion4"
       name="pregunta2"
-      checked={opcionSeleccionada16.includes('estará')}
+      checked={opcionSeleccionada16==('estará')}
       value={'estará'}
       onChange={handleRadioChange16}
     />
@@ -1698,7 +1696,7 @@ md:text-[14px]"
       type="checkbox"
       id="opcion4"
       name="pregunta2"
-      checked={opcionSeleccionada17.includes('mucho')}
+      checked={opcionSeleccionada17==('mucho')}
       value={'mucho'}
       onChange={handleRadioChange17}
     />
@@ -1715,7 +1713,7 @@ md:text-[14px]"
       type="checkbox"
       id="opcion3"
       name="pregunta2"
-      checked={opcionSeleccionada17.includes('nada')}
+      checked={opcionSeleccionada17==('nada')}
       value={'nada'}
       onChange={handleRadioChange17}
     />
@@ -1732,8 +1730,8 @@ md:text-[14px]"
       type="checkbox"
       id="opcion4"
       name="pregunta2"
-      checked={opcionSeleccionada17.includes('muy')}
-      value={'muy'}
+      checked={opcionSeleccionada17==(t('p17op3'))}
+      value={t('p17op3')}
       onChange={handleRadioChange17}
     />
     <label
@@ -1763,8 +1761,8 @@ md:text-[14px]"
       type="checkbox"
       id="opcion4"
       name="pregunta2"
-      checked={opcionSeleccionada18.includes('hará/llueva')}
-      value={'hará/llueva'}
+      checked={opcionSeleccionada18==(t('p18op1'))}
+      value={t('p18op1')}
       onChange={handleRadioChange18}
     />
     <label
@@ -1780,7 +1778,7 @@ md:text-[14px]"
       type="checkbox"
       id="opcion3"
       name="pregunta2"
-      checked={opcionSeleccionada18.includes('haga/llueva')}
+      checked={opcionSeleccionada18==('haga/llueva')}
       value={'haga/llueva'}
       onChange={handleRadioChange18}
     />
@@ -1797,7 +1795,7 @@ md:text-[14px]"
       type="checkbox"
       id="opcion4"
       name="pregunta2"
-      checked={opcionSeleccionada18.includes('hará/lloverá')}
+      checked={opcionSeleccionada18==('hará/lloverá')}
       value={'hará/lloverá'}
       onChange={handleRadioChange18}
     />
@@ -1826,7 +1824,7 @@ md:text-[14px]"
       type="checkbox"
       id="opcion4"
       name="pregunta2"
-      checked={opcionSeleccionada19.includes('habrías/perderías')}
+      checked={opcionSeleccionada19==('habrías/perderías')}
       value={'habrías/perderías'}
       onChange={handleRadioChange19}
     />
@@ -1843,8 +1841,8 @@ md:text-[14px]"
       type="checkbox"
       id="opcion3"
       name="pregunta2"
-      checked={opcionSeleccionada19.includes('hubieras/habrías')}
-      value={'hubieras/habrías'}
+      checked={opcionSeleccionada19==(t('p19op2'))}
+      value={t('p19op2')}
       onChange={handleRadioChange19}
     />
     <label
@@ -1860,7 +1858,7 @@ md:text-[14px]"
       type="checkbox"
       id="opcion4"
       name="pregunta2"
-      checked={opcionSeleccionada19.includes('habrás/habrías')}
+      checked={opcionSeleccionada19==('habrás/habrías')}
       value={'habrás/habrías'}
       onChange={handleRadioChange19}
     />
@@ -1878,6 +1876,8 @@ md:text-[14px]"
 
 <h3 className='font-bold md:text-[19px]'>
   {t('pregunta20')}</h3>
+  <h3 className='pl-10 font-bold md:text-[19px]'>
+  {t('pregunta20-1')}</h3>
   
 {/* Opciones */}
 <div>
@@ -1889,8 +1889,8 @@ md:text-[14px]"
       type="checkbox"
       id="opcion4"
       name="pregunta2"
-      checked={opcionSeleccionada20.includes('Estuvo/pasamos')}
-      value={'Estuvo/pasamos'}
+      checked={opcionSeleccionada20==(t('p20op1'))}
+      value={t('p20op1')}
       onChange={handleRadioChange20}
     />
     <label
@@ -1906,7 +1906,7 @@ md:text-[14px]"
       type="checkbox"
       id="opcion3"
       name="pregunta2"
-      checked={opcionSeleccionada20.includes('Estuvo/pasábamos')}
+      checked={opcionSeleccionada20==('Estuvo/pasábamos')}
       value={'Estuvo/pasábamos'}
       onChange={handleRadioChange20}
     />
@@ -1923,7 +1923,7 @@ md:text-[14px]"
       type="checkbox"
       id="opcion4"
       name="pregunta2"
-      checked={opcionSeleccionada20.includes('Era/pasamos')}
+      checked={opcionSeleccionada20==('Era/pasamos')}
       value={'Era/pasamos'}
       onChange={handleRadioChange20}
     />
