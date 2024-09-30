@@ -34,7 +34,7 @@ function FormularioLevel({t}) {
   const [Email, setEmail] = useState('')
   const [texto, setTexto] = useState('One');
   const [puntuacion, setPuntuacion] = useState(0);
-  const [Nivel, setNivel] = useState('A1');
+  const [Nivel, setNivel] = useState('A1.1');
   const [formularioValido, setFormularioValido] = useState(false);
 
   const [loading, setLoading] = useState(false)
