@@ -269,23 +269,23 @@ function evaluacion(){
     case (puntuacion + puntosAcumulados > 5 && puntuacion + puntosAcumulados < 11):
       setNivel('A1.2');      break;
     case (puntuacion + puntosAcumulados > 10 && puntuacion + puntosAcumulados < 16):
-      setNivel('A2');        break;
+      setNivel('A2.1');        break;
     case (puntuacion + puntosAcumulados > 15 && puntuacion + puntosAcumulados < 27):
       setNivel('A2.2');      break;
     case (puntuacion + puntosAcumulados > 26 && puntuacion + puntosAcumulados < 35):
-      setNivel('B1');        break;
+      setNivel('B1.1');        break;
     case (puntuacion + puntosAcumulados > 34 && puntuacion + puntosAcumulados < 51):
       setNivel('B1.2');      break;
     case (puntuacion + puntosAcumulados > 50 && puntuacion + puntosAcumulados < 61):
-      setNivel('B2');        break;
+      setNivel('B2.1');        break;
     case (puntuacion + puntosAcumulados > 60 && puntuacion + puntosAcumulados < 71):
       setNivel('B2.2');      break;
     case (puntuacion + puntosAcumulados > 70 && puntuacion + puntosAcumulados < 81):
-      setNivel('C1');        break;
+      setNivel('C1.1');        break;
     case (puntuacion + puntosAcumulados > 80):
-      setNivel('C2');        break;
+      setNivel('C2.1');        break;
     default:
-      setNivel('A1');        break;
+      setNivel('A1.1');        break;
   }
   setPuntuacion(puntuacion + puntosAcumulados);
 }
