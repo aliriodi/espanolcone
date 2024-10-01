@@ -1,95 +1,52 @@
-import React, { useState, useEffect } from 'react';
-import { Form } from 'react-router-dom';
-import Menu from "../../../components/Menu";
-import Head from 'next/head';
-import BarChart from '../../../components/BarChart/Bartchart2';
+import Form1 from '../../../components/Formularios/ViewForm1';
+import Form2 from '../../../components/Formularios/ViewForm2';
+import Form3 from '../../../components/Formularios/ViewForm3';
+import Menu from '../../../components/Menu';
+import React , { useState, useEffect } from 'react'
 import NavBarAdmin from '../../../components/admin/NavBarAdmin';
 
-//https://codesandbox.io/p/devbox/reactchartjs-react-chartjs-2-grouped-cfm95?embed=1&file=%2FApp.tsx%3A1%2C1-74%2C1
-//https://react-chartjs-2.js.org/examples/grouped-bar-chart
-
-export default function FormResult() {
-    const [resp, setResp] = useState('');
-    const [qtyresp, setqytResp] = useState('');
-    useEffect(
-        () => {
-            async function Resp() {
-                const forms = await fetch('/api/formulario/get').then(response => response.json());
-                setResp(await forms.forms)
-                const qty = await fetch('/api/formulario/getResp').then(response => response.json());
-                setqytResp(await qty)
-            };
-            Resp()
-
-        }, []
-    )
-    //console.log(resp)
-    //console.log(qtyresp)
-    const respuesta1 = qtyresp[0]?.p1; // Datos de la primera respuesta
-    const respuesta2 = qtyresp[1]?.p2;   // Datos de la segunda respuesta
-
+function Formulario() {
+    const [Formulario1, setFormulario1] = useState(false);
+    const [Formulario2, setFormulario2] = useState(false);
+    const [Formulario3, setFormulario3] = useState(false);
+  
+    const mostrarFormulario1 = () => {
+      setFormulario1(true);
+      setFormulario2(false);
+      setFormulario3(false);
+    };
+  
+    const mostrarFormulario2 = () => {
+      setFormulario1(false);
+      setFormulario2(true);
+      setFormulario3(false);
+    };
+  
+    const mostrarFormulario3 = () => {
+      setFormulario1(false);
+      setFormulario2(false);
+      setFormulario3(true);
+    };
+  
     return (
-        <div >
-            <Head>
-                <title>Español con E | Bienvenidos</title>
-                <meta name="landing" content="welcome" />
-
-            </Head>
-
-            <Menu />
-            
-            <div className='px-[60px] py-[119px] md:px-[25px]'>
-            <NavBarAdmin />
-            </div>
-            <div className="flex justify-center ">
-            
-                <div className='grid  gap-4 w-[90%] grid-cols-2 md:grid-cols-1 justify-items-center items-center'>
-                    <div className='w-full '>
-                        <h1 className="text-center">¿Qué tipo de clases te interesan?</h1>
-                        <BarChart data1={respuesta1 ? respuesta1 : 0} label1={['Individuales online',
-                            'Grupales Online',
-                            'Grupales presenciales en salón de clases (si estás en CBA)',
-                            'Grupales presenciales en diferentes lugares (si estás en CBA)']}
-                            q1={'¿Qué tipo de clases te interesan?'}
-                            title={''} />
-                    </div>
-                    <div className='w-full '>
-                        <h1 className="text-center">¿Tienes alguna preferencia de horario o ubicación para las clases?</h1>
-                        <BarChart data1={respuesta2 ? respuesta2 : 0} label1={['En la mañana despues de las 9:00 AM',
-                            'En la mañana despues de las 11:00 AM',
-                            'En la tarde despues de las 3:00 PM',
-                            'Otro horario']}
-                            q1={'¿Tienes alguna preferencia de horario o ubicación para las clases?'}
-                            title={''} />
-                    </div>
-                </div>
-            </div>
-            <div className="flex justify-center pt-4">
-                <div className="overflow-x-auto">
-                    <table className="table-auto border-collapse border">
-                        <thead>
-                            <tr>
-                                <th className="border px-2 py-2">ID</th>
-                                <th className="border px-2 py-2">Nombre</th>
-                                <th className="border px-2 py-2">Email</th>
-                                <th className="border px-2 py-2">Descripción</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {resp ? resp.map((e,index) =>
-                                <tr key={index}>
-                                    <td className="border px-2 py-2">{ index +1 }</td>
-                                    <td className="border px-2 py-2">{e.Name ? e.Name : 'Sin nombre'}</td>
-                                    <td className="border px-2 py-2">{e.Email ? e.Email : 'Sin email'}</td>
-                                    <td className="border px-2 py-2">{e.texto}</td>
-                                </tr>) : null}
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+      <div>
+        <Menu />
+        <div className='px-[60px] py-[119px] md:px-[25px]'>
+          <NavBarAdmin />
         </div>
+        
+        <div className='flex  md:flex-row gap-4 justify-center items-center buttons'>
+          <button className='px-4 py-2 bg-primary text-white rounded-md' onClick={mostrarFormulario1}>Formulario 1</button>
+          <button className='px-4 py-2 bg-primary text-white rounded-md' onClick={mostrarFormulario2}>Formulario 2</button>
+          <button className='px-4 py-2 bg-primary text-white rounded-md' onClick={mostrarFormulario3}>Formulario 3</button>
+        </div>
+  <div className='pt-8'>
+        {Formulario1 && <Form1 />}
+        {Formulario2 && <Form2 />}
+        {Formulario3 && <Form3 />}
+        </div>
+      </div>
     );
-};
-
-
+  }
+  
+  export default Formulario;
