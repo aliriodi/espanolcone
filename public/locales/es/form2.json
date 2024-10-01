@@ -9,6 +9,13 @@
     
     "CheckEmail":"Abrir Formulario",
 
+    "welcome":"Bienvenido(a)",
+    "text2":"a continuación tienes un cuestionario con",
+    "text3":"20 preguntas.",
+    "text4":"Al culminar el cuestionario se te enviará un email a:",
+    "text5":"con los  resultados de tu evaluación.",
+    "enjoytProcess":"¡Disfruta el proceso!",
+
     "pregunta1":"1. Yo ___ estudiante de español y no  ____ argentino.",
     "p1op1":"estoy/estoy",
     "p1op2":"estoy/soy",
