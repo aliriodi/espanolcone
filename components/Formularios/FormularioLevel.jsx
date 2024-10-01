@@ -371,8 +371,10 @@ function FormularioLevel({ t }) {
         if (response2.totalResults) {
           //alert('existe');
           setshowMessage(true)
-          setemailvalido(false)
-          setshowForm(false)
+          setemailvalido(true)
+          setshowForm(true)
+          //setemailvalido(false)
+          //setshowForm(false)
         }
         if (!response2.totalResults) {
           //alert('NO EXISTE');
@@ -540,7 +542,7 @@ md:text-[14px]'
                   </div>}
                   <div className='pt-10'>
                     <button
-                      className={`bg-primary text-white rounded-md px-10 py-2  font-medium ${!emailvalido ? 'opacity-[50%]' : 'btn-primary'} w-full`} type="submit" disabled={!emailvalido}
+                     className={`bg-primary text-white rounded-md px-10 py-2  font-medium ${!emailvalido || false? 'opacity-[50%]' : 'btn-primary'} w-full`} type="submit" disabled={!emailvalido || false}
                       onClick={() => checkEmail()} id="checkEmailButton">{t('CheckEmail')}</button>
                   </div>
                 </div>
@@ -561,7 +563,7 @@ md:text-[14px]'
               <div className='pb-6 font-bold'>
                 {t('enjoytProcess')}
               </div>
-              
+
               {/* PREGUNTA 1 */}
               <div className=''>
                 {/* ¿Qué tipo de clases te interesan? */}
