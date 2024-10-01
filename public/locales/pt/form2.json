@@ -3,6 +3,10 @@
     "title":"EXAMEN NIVELADOR - ESPAÑOL CON E",
     "title2":"VOCABULARIO Y ESTRUCTURAS",
     "title3":" SELECCIONA LA OPCIÓN CORRECTA",
+
+    "showMessage1":"Email ya existe en formulario. En caso de no haber llenado este formulario",
+    "showMessage2":"comuniquese con nosotros a traves de",
+    "CheckEmail":"Abrir Formulario",
     
     "pregunta1":"1. Yo ___ estudiante de español y no  ____ argentino.",
     "p1op1":"estoy/estoy",
