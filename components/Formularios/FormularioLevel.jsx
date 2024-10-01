@@ -555,7 +555,7 @@ md:text-[14px]'
 
               {/* Mensaje de bienvenida */}
               {/* Linea para recordar donde elimine la proyeccion */}
-             {showMessage && <div><b>Este mensaje aparece porque tu {Email} existe y saltamos la proyeccion en la linea 377 de esye componente. yo estoy em 558</b></div>}
+             {showMessage && <div className='pb-6'><b>Este mensaje aparece porque tu <span className='text-warning'>{Email}</span> existe y saltamos la proteccion en la linea 377 de esye componente. yo estoy en 558</b></div>}
                {/* Mensaje de bienvenida */}
                <div className='pb-6'>
                 {t('welcome')} <span className='text-warning'><b>{Name}</b></span>, {t('text2')} <span className='text-warning'><b>{t('text3')} </b> </span>
