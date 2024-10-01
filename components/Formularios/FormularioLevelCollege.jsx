@@ -541,7 +541,7 @@ md:text-[14px]'
                   </div>}
                   <div className='pt-10'>
                     <button
-                    className={`bg-primary text-white rounded-md px-10 py-2  font-medium ${!emailvalido || false? 'opacity-[50%]' : 'btn-primary'} w-full`} type="submit" disabled={!emailvalido || false}
+                    className={`bg-primary text-white rounded-md px-10 py-2  font-medium ${!emailvalido ? 'opacity-[50%]' : 'btn-primary'} w-full`} type="submit" disabled={!emailvalido }
                       onClick={() => checkEmail()} id="checkEmailButton">{t('CheckEmail')}</button>
                   </div>
                 </div>
