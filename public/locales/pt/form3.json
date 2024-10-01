@@ -3,6 +3,11 @@
     "title":"EXAMEN NIVELADOR - ESPAÑOL CON E",
     "title2":"ESTUDIANTES DE SECUNDARIA",
     "title3":" SELECCIONA LA OPCIÓN CORRECTA",
+
+    "showMessage1":"Email ya existe en formulario. En caso de no haber llenado este formulario",
+    "showMessage2":"comuniquese con nosotros a traves de",
+    "CheckEmail":"Abrir Formulario",
+
     "pregunta1":"1. A - ¿Cómo te llamas?",
     "pregunta1-2":" B - ___ Felipe.",
     "p1op1":"Estoy",

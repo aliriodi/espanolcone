@@ -1,13 +1,23 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import {sendEmail} from './sendEmail'
+import { sendEmail } from './sendEmail'
 import styles from '../../styles/navbar.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 
-function FormularioLevel({t}) {
+function FormularioLevel({ t }) {
+  // Para el boton de email
+  const [emailfound, setemailfound] = useState(null);
+  //Para mensaje de alerta en caso de que exista email en BD
+  const [showMessage, setshowMessage] = useState(null);
+  //Para mostrar formulario en caso de que el email no exista en formulario
+  const [showForm, setshowForm] = useState(null);
+  const [showInput, setshowInput] = useState(true);
+  const [emailvalido, setemailvalido] = useState(false);
+
+
   const [opcionSeleccionada, setOpcionSeleccionada] = useState([]);
   const [opcionSeleccionada2, setOpcionSeleccionada2] = useState([]);
   const [opcionSeleccionada3, setOpcionSeleccionada3] = useState([]);
@@ -176,7 +186,7 @@ function FormularioLevel({t}) {
       opcionSeleccionada19.length && opcionSeleccionada20.length
 
       //texto.trim() !== ''  //Inhabilito el texto
-    ) {  
+    ) {
       //Evaluo para habilitar boton de evaluacion
       evaluacion()
       setFormularioValido(true);
@@ -236,71 +246,73 @@ function FormularioLevel({t}) {
   const handleTextChangeName = (e) => {
     setName(e.target.value);
   };
+
   const handleTextChangeEmail = (e) => {
     setEmail(e.target.value);
+    setemailvalido(validarEmail(e.target.value));
   };
-//Seccion de evaluacion de Formulario
-function evaluacion(){
+  //Seccion de evaluacion de Formulario
+  function evaluacion() {
 
-  let puntosAcumulados = 0;
+    let puntosAcumulados = 0;
 
-  if(opcionSeleccionada === t('p1op2')){ puntosAcumulados += 2; }
-  if(opcionSeleccionada2 === t('p2op2')){ puntosAcumulados += 2; }
-  if(opcionSeleccionada3 === t('p3op1')){ puntosAcumulados += 2; }
-  if(opcionSeleccionada4 === t('p4op3')){ puntosAcumulados += 2; }
-  if(opcionSeleccionada5 === t('p5op2')){ puntosAcumulados += 2; }
-  if(opcionSeleccionada6 === t('p6op2')){ puntosAcumulados += 3; }
-  if(opcionSeleccionada7 === t('p7op1')){ puntosAcumulados += 3; } 
-  if(opcionSeleccionada8 === t('p8op3')){ puntosAcumulados += 4; }
-  if(opcionSeleccionada9 === t('p9op3')){ puntosAcumulados += 4; }
-  if(opcionSeleccionada10 === t('p10op1')){ puntosAcumulados += 4; }
-  if(opcionSeleccionada11 === t('p11op2')){ puntosAcumulados += 4; }
-  if(opcionSeleccionada12 === t('p12op3')){ puntosAcumulados += 4; }
-  if(opcionSeleccionada13 === t('p13op1')){ puntosAcumulados += 4; }
-  if(opcionSeleccionada14 === t('p14op3')){ puntosAcumulados += 5; }
-  if(opcionSeleccionada15 === t('p15op1')){ puntosAcumulados += 5; }
-  if(opcionSeleccionada16 === t('p16op2')){ puntosAcumulados += 5; }
-  if(opcionSeleccionada17 === t('p17op2')){ puntosAcumulados += 5; }
-  if(opcionSeleccionada18 === t('p18op2')){ puntosAcumulados += 10; }
-  if(opcionSeleccionada19 === t('p19op2')){ puntosAcumulados += 10; }
-  if(opcionSeleccionada20 === t('p20op1')){ puntosAcumulados += 10; }
-  
-  switch (puntuacion+puntosAcumulados>5) {
-    case (puntuacion + puntosAcumulados > 5 && puntuacion + puntosAcumulados < 11):
-      setNivel('A1.2');      break;
-    case (puntuacion + puntosAcumulados > 10 && puntuacion + puntosAcumulados < 16):
-      setNivel('A2,1');        break;
-    case (puntuacion + puntosAcumulados > 15 && puntuacion + puntosAcumulados < 27):
-      setNivel('A2.2');      break;
-    case (puntuacion + puntosAcumulados > 26 && puntuacion + puntosAcumulados < 35):
-      setNivel('B1.1');        break;
-    case (puntuacion + puntosAcumulados > 34 && puntuacion + puntosAcumulados < 51):
-      setNivel('B1.2');      break;
-    case (puntuacion + puntosAcumulados > 50 && puntuacion + puntosAcumulados < 61):
-      setNivel('B2.1');        break;
-    case (puntuacion + puntosAcumulados > 60 && puntuacion + puntosAcumulados < 71):
-      setNivel('B2.2');      break;
-    case (puntuacion + puntosAcumulados > 70 && puntuacion + puntosAcumulados < 81):
-      setNivel('C1.1');        break;
-    case (puntuacion + puntosAcumulados > 80):
-      setNivel('C2.1');        break;
-    default:
-      setNivel('A1.1');        break;
+    if (opcionSeleccionada === t('p1op2')) { puntosAcumulados += 2; }
+    if (opcionSeleccionada2 === t('p2op2')) { puntosAcumulados += 2; }
+    if (opcionSeleccionada3 === t('p3op1')) { puntosAcumulados += 2; }
+    if (opcionSeleccionada4 === t('p4op3')) { puntosAcumulados += 2; }
+    if (opcionSeleccionada5 === t('p5op2')) { puntosAcumulados += 2; }
+    if (opcionSeleccionada6 === t('p6op2')) { puntosAcumulados += 3; }
+    if (opcionSeleccionada7 === t('p7op1')) { puntosAcumulados += 3; }
+    if (opcionSeleccionada8 === t('p8op3')) { puntosAcumulados += 4; }
+    if (opcionSeleccionada9 === t('p9op3')) { puntosAcumulados += 4; }
+    if (opcionSeleccionada10 === t('p10op1')) { puntosAcumulados += 4; }
+    if (opcionSeleccionada11 === t('p11op2')) { puntosAcumulados += 4; }
+    if (opcionSeleccionada12 === t('p12op3')) { puntosAcumulados += 4; }
+    if (opcionSeleccionada13 === t('p13op1')) { puntosAcumulados += 4; }
+    if (opcionSeleccionada14 === t('p14op3')) { puntosAcumulados += 5; }
+    if (opcionSeleccionada15 === t('p15op1')) { puntosAcumulados += 5; }
+    if (opcionSeleccionada16 === t('p16op2')) { puntosAcumulados += 5; }
+    if (opcionSeleccionada17 === t('p17op2')) { puntosAcumulados += 5; }
+    if (opcionSeleccionada18 === t('p18op2')) { puntosAcumulados += 10; }
+    if (opcionSeleccionada19 === t('p19op2')) { puntosAcumulados += 10; }
+    if (opcionSeleccionada20 === t('p20op1')) { puntosAcumulados += 10; }
+
+    switch (puntuacion + puntosAcumulados > 5) {
+      case (puntuacion + puntosAcumulados > 5 && puntuacion + puntosAcumulados < 11):
+        setNivel('A1.2'); break;
+      case (puntuacion + puntosAcumulados > 10 && puntuacion + puntosAcumulados < 16):
+        setNivel('A2,1'); break;
+      case (puntuacion + puntosAcumulados > 15 && puntuacion + puntosAcumulados < 27):
+        setNivel('A2.2'); break;
+      case (puntuacion + puntosAcumulados > 26 && puntuacion + puntosAcumulados < 35):
+        setNivel('B1.1'); break;
+      case (puntuacion + puntosAcumulados > 34 && puntuacion + puntosAcumulados < 51):
+        setNivel('B1.2'); break;
+      case (puntuacion + puntosAcumulados > 50 && puntuacion + puntosAcumulados < 61):
+        setNivel('B2.1'); break;
+      case (puntuacion + puntosAcumulados > 60 && puntuacion + puntosAcumulados < 71):
+        setNivel('B2.2'); break;
+      case (puntuacion + puntosAcumulados > 70 && puntuacion + puntosAcumulados < 81):
+        setNivel('C1.1'); break;
+      case (puntuacion + puntosAcumulados > 80):
+        setNivel('C2.1'); break;
+      default:
+        setNivel('A1.1'); break;
+    }
+    setPuntuacion(puntuacion + puntosAcumulados);
   }
-  setPuntuacion(puntuacion + puntosAcumulados);
-}
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     setLoading(true)
 
     // Aquí puedes enviar los datos del formulario a través de una API o realizar cualquier otra acción necesaria
-   // console.log('Opción seleccionada:', opcionSeleccionada);
-   // console.log('Opción seleccionada2:', opcionSeleccionada2);
-   // console.log('Texto ingresado:', texto);
-   // console.log('language:', language)
+    // console.log('Opción seleccionada:', opcionSeleccionada);
+    // console.log('Opción seleccionada2:', opcionSeleccionada2);
+    // console.log('Texto ingresado:', texto);
+    // console.log('language:', language)
 
-//alert('tu puntaje es: '+ puntuacion)
+    //alert('tu puntaje es: '+ puntuacion)
 
     await fetch('/api/formulario/add2/',
       {  //redirect: 'follow',
@@ -323,18 +335,57 @@ function evaluacion(){
           pregunta17: opcionSeleccionada17, pregunta18: opcionSeleccionada18,
           pregunta19: opcionSeleccionada19, pregunta20: opcionSeleccionada20,
           texto: texto,
-          puntos:puntuacion,
+          puntos: puntuacion,
           language: locale,
           Name: Name,
           Email: Email
         })
 
         //mando por el body la nueva clase
-      }).then(response=>{sendEmail(Email, Name, puntuacion,Nivel)})
-        .then(response => setSuccessSend(true))
+      }).then(response => { sendEmail(Email, Name, puntuacion, Nivel) })
+      .then(response => setSuccessSend(true))
 
     setLoading(false)
 
+  };
+
+  //Para VALIDAR email en formulario y activar email en boton
+  function validarEmail(email) {
+    // Expresión regular para validar un email
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Retorna true si el email es válido, de lo contrario retorna false
+    return regex.test(email);
+  }
+  //Para VALIDAR que el email no este en la BD
+  async function checkEmail() {
+
+    await fetch('/api/formulario/' + Email,
+      {  //redirect: 'follow',
+        method: 'GET', // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
+          'Content-Type': 'application/json'  // 'Content-Type': 'application/x-www-form-urlencoded',
+        }
+      }).then(response => response.json())
+      .then(response2 => {
+        if (response2.totalResults) {
+          //  alert('existe');
+          setshowMessage(true)
+          setemailvalido(false)
+          setshowForm(false)
+        }
+        if (!response2.totalResults) {
+          //  alert('NO EXISTE');
+          setshowMessage(null)
+          setemailvalido(true)
+          setshowForm(true)
+        }
+
+        //  console.log(response2)
+      })
   };
 
   return (
@@ -434,65 +485,88 @@ function evaluacion(){
             <div className="pt-2 md:pt-0 font-bold  text-[41px] md:text-[18px] mx-auto text-center text-primary md:w-full md:m-0">
               {t('title3')}</div>
 
+            {/* Chequeo de Nome e EMAIL */}
+            {!showForm &&
+              <div className="p-10 w-[768px] mx-auto    md:w-full md:m-0">
+                {/* Nombre */}
+                <div className='flex flex-col my-8'>
 
-              {/* <iframe  src="https://wordwall.net/es/embed/50915df6f6e34b5f87e83fca1b8ba292?themeId=1&templateId=8&fontStackId=0" width="500" height="380" frameborder="0" allowfullscreen></iframe> */}
-            {/* Formulario */}
-            <form className="p-10 w-[768px] mx-auto
-          md:w-full md:m-0" onSubmit={handleSubmit}>
-              {/* Nombre */}
-              <div className='flex flex-col my-8'>
+                  <label
+                    className='mb-2 font-bold text-[21px] text-violet_dark
+md:text-[19px]'
+                    htmlFor="name">
+                    {t('name')}
+                  </label>
 
-                <label
-                  className='mb-2 font-bold text-[21px] text-violet_dark
-  md:text-[19px]'
-                  htmlFor="name">
-                  {t('name')}
-                </label>
+                  <input
+                    className='p-2 rounded-[15px] border-2 outline-primary
+md:text-[14px]'
+                    type="text"
+                    placeholder="Yohn Doe"
+                    id="name"
+                    value={Name}
+                    onChange={handleTextChangeName}
+                    rows="1"
+                    cols="50"
+                  />
 
-                <input
-                  className='p-2 rounded-[15px] border-2 outline-primary
-  md:text-[14px]'
-                  type="text"
-                  placeholder="Yohn Doe"
-                  id="name"
-                  value={Name}
-                  onChange={handleTextChangeName}
-                  rows="1"
-                  cols="50"
-                />
+                </div>
 
+                {/* Email */}
+                <div className='flex flex-col my-8'>
+
+                  <label
+                    className='mb-2 font-bold text-[21px] text-violet_dark
+md:text-[19px]'
+                    htmlFor="email">
+                    {t('email')}
+                  </label>
+
+                  <input
+                    className='p-2 rounded-[15px] border-2 outline-primary
+md:text-[14px]'
+                    type="text"
+                    placeholder="yohn@gmail.com"
+                    id="email"
+                    value={Email}
+                    onChange={handleTextChangeEmail}
+                    rows="1"
+                    cols="30"
+                  />
+                  {showMessage && <div className='pt-2 text-warning'><p>{t('showMessage1')}</p>
+                    <p>{t('showMessage2')}
+                      <a href='mailto:espanolconeacademy@gmail.com' ><span className='text-primary'> espanolconeacademy@gmail.com</span></a></p>
+                  </div>}
+                  <div className='pt-10'>
+                    <button
+                      className={`bg-primary text-white rounded-md px-10 py-2  font-medium ${!emailvalido ? 'opacity-[50%]' : 'btn-primary'} w-full`} type="submit" disabled={!emailvalido}
+                      onClick={() => checkEmail()} id="checkEmailButton">{t('CheckEmail')}</button>
+                  </div>
+                </div>
               </div>
+            }
 
-              {/* Email */}
-              <div className='flex flex-col my-8'>
+            {/* <iframe  src="https://wordwall.net/es/embed/50915df6f6e34b5f87e83fca1b8ba292?themeId=1&templateId=8&fontStackId=0" width="500" height="380" frameborder="0" allowfullscreen></iframe> */}
+            {/* Formulario */}
+            {showForm && <form className="p-10 w-[768px] mx-auto
+          md:w-full md:m-0" onSubmit={handleSubmit}>
 
-                <label
-                  className='mb-2 font-bold text-[21px] text-violet_dark
-  md:text-[19px]'
-                  htmlFor="email">
-                  {t('email')}
-                </label>
-
-                <input
-                  className='p-2 rounded-[15px] border-2 outline-primary
-  md:text-[14px]'
-                  type="text"
-                  placeholder="yohn@gmail.com"
-                  id="email"
-                  value={Email}
-                  onChange={handleTextChangeEmail}
-                  rows="1"
-                  cols="30"
-                />
-
+              {/* Mensaje de bienvenida */}
+              <div className='pb-6'>
+                Bienvenido(a) <span className='text-warning'><b>{Name}</b></span>, a continuación tienes un cuestionario con <span className='text-warning'><b>20 preguntas. </b> </span>
+                Al culminar el cuestionario se te enviará un email a: <span className='text-warning'><b>{Email} </b></span>
+                con los  resultados de tu evaluación.
+              </div>
+              <div className='pb-6 font-bold'>
+                ¡Disfruta el proceso!
               </div>
 
               {/* PREGUNTA 1 */}
-              <div className='my-8'>
+              <div className=''>
                 {/* ¿Qué tipo de clases te interesan? */}
                 <h3 className=' font-bold
               md:text-[19px]'>{t('pregunta1')}</h3>
-              <h3 className=' pl-6 font-bold
+                <h3 className=' pl-6 font-bold
               md:text-[19px]'>{t('pregunta1-2')}</h3>
 
                 {/* Opciones */}
@@ -507,7 +581,7 @@ function evaluacion(){
                       id="opcion1"
                       name="pregunta1"
                       value={t('p1op1')}
-                      checked={opcionSeleccionada==(t('p1op1'))}
+                      checked={opcionSeleccionada == (t('p1op1'))}
                       onChange={handleRadioChange}
                     />
                     {/* Pregunta 1 opcion1 */}
@@ -527,7 +601,7 @@ function evaluacion(){
                       id="opcion2"
                       name="pregunta1"
                       value={t('p1op2')}
-                      checked={opcionSeleccionada==(t('p1op2'))}
+                      checked={opcionSeleccionada == (t('p1op2'))}
                       onChange={handleRadioChange}
                     />
                     {/* Pregunta 1 opcion 2 */}
@@ -545,7 +619,7 @@ function evaluacion(){
                       id="opcion3"
                       name="pregunta1"
                       value={t('p1op3')} //soy/soy
-                      checked={opcionSeleccionada==(t('p1op3'))}
+                      checked={opcionSeleccionada == (t('p1op3'))}
                       onChange={handleRadioChange}
                     />
                     <label
@@ -580,7 +654,7 @@ function evaluacion(){
 
                 <h3 className='font-bold
               md:text-[19px]'>{t('pregunta2')}</h3>
- <h3 className='font-bold pl-6
+                <h3 className='font-bold pl-6
               md:text-[19px]'>{t('pregunta2-1')}</h3>
 
                 {/* Opciones */}
@@ -593,7 +667,7 @@ function evaluacion(){
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada2==(t('p2op1'))}
+                      checked={opcionSeleccionada2 == (t('p2op1'))}
                       value={t('p2op1')}
                       onChange={handleRadioChange2}
                     />
@@ -610,7 +684,7 @@ function evaluacion(){
                       type="checkbox"
                       id="opcion3"
                       name="pregunta2"
-                      checked={opcionSeleccionada2==(t('p2op2'))}
+                      checked={opcionSeleccionada2 == (t('p2op2'))}
                       value={t('p2op2')}
                       onChange={handleRadioChange2}
                     />
@@ -627,7 +701,7 @@ function evaluacion(){
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada2==(t('p2op3'))}
+                      checked={opcionSeleccionada2 == (t('p2op3'))}
                       value={t('p2op3')}
                       onChange={handleRadioChange2}
                     />
@@ -663,7 +737,7 @@ function evaluacion(){
 
                 <h3 className='font-bold
 md:text-[19px]'>{t('pregunta3')}</h3>
-  
+
                 {/* Opciones */}
                 <div>
 
@@ -674,7 +748,7 @@ md:text-[19px]'>{t('pregunta3')}</h3>
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada3==(t('p3op1'))}
+                      checked={opcionSeleccionada3 == (t('p3op1'))}
                       value={t('p3op1')}
                       onChange={handleRadioChange3}
                     />
@@ -691,7 +765,7 @@ md:text-[19px]'>{t('pregunta3')}</h3>
                       type="checkbox"
                       id="opcion3"
                       name="pregunta2"
-                      checked={opcionSeleccionada3==(t('p3op2'))}
+                      checked={opcionSeleccionada3 == (t('p3op2'))}
                       value={t('p3op2')}
                       onChange={handleRadioChange3}
                     />
@@ -708,7 +782,7 @@ md:text-[19px]'>{t('pregunta3')}</h3>
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada3==(t('p3op3'))}
+                      checked={opcionSeleccionada3 == (t('p3op3'))}
                       value={t('p3op3')}
                       onChange={handleRadioChange3}
                     />
@@ -756,7 +830,7 @@ md:text-[19px]'>{t('pregunta3')}</h3>
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada4==(t('p4op1'))}
+                      checked={opcionSeleccionada4 == (t('p4op1'))}
                       value={t('p4op1')}
                       onChange={handleRadioChange4}
                     />
@@ -773,7 +847,7 @@ md:text-[19px]'>{t('pregunta3')}</h3>
                       type="checkbox"
                       id="opcion3"
                       name="pregunta2"
-                      checked={opcionSeleccionada4==(t('p4op2'))}
+                      checked={opcionSeleccionada4 == (t('p4op2'))}
                       value={t('p4op2')}
                       onChange={handleRadioChange4}
                     />
@@ -790,7 +864,7 @@ md:text-[19px]'>{t('pregunta3')}</h3>
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada4==(t('p4op3'))}
+                      checked={opcionSeleccionada4 == (t('p4op3'))}
                       value={t('p4op3')}
                       onChange={handleRadioChange4}
                     />
@@ -837,7 +911,7 @@ md:text-[19px]'>{t('pregunta3')}</h3>
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada5==(t('p5op1'))}
+                      checked={opcionSeleccionada5 == (t('p5op1'))}
                       value={t('p5op1')}
                       onChange={handleRadioChange5}
                     />
@@ -854,7 +928,7 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion3"
                       name="pregunta2"
-                      checked={opcionSeleccionada5==(t('p5op2'))}
+                      checked={opcionSeleccionada5 == (t('p5op2'))}
                       value={t('p5op2')}
                       onChange={handleRadioChange5}
                     />
@@ -871,7 +945,7 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada5==(t('p5op3'))}
+                      checked={opcionSeleccionada5 == (t('p5op3'))}
                       value={t('p5op3')}
                       onChange={handleRadioChange5}
                     />
@@ -917,7 +991,7 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada6==(t('p6op1'))}
+                      checked={opcionSeleccionada6 == (t('p6op1'))}
                       value={t('p6op1')}
                       onChange={handleRadioChange6}
                     />
@@ -934,7 +1008,7 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion3"
                       name="pregunta2"
-                      checked={opcionSeleccionada6==(t('p6op2'))}
+                      checked={opcionSeleccionada6 == (t('p6op2'))}
                       value={t('p6op2')}
                       onChange={handleRadioChange6}
                     />
@@ -951,7 +1025,7 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada6==(t('p6op3'))}
+                      checked={opcionSeleccionada6 == (t('p6op3'))}
                       value={t('p6op3')}
                       onChange={handleRadioChange6}
                     />
@@ -986,7 +1060,7 @@ md:text-[14px]"
 
                 <h3 className='font-bold md:text-[19px]'>
                   {t('pregunta7')}</h3>
-                  <h3 className='pl-6 font-bold md:text-[19px]'>
+                <h3 className='pl-6 font-bold md:text-[19px]'>
                   {t('pregunta7-2')}</h3>
 
                 {/* Opciones */}
@@ -999,7 +1073,7 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada7==(t('p7op1'))}
+                      checked={opcionSeleccionada7 == (t('p7op1'))}
                       value={t('p7op1')}
                       onChange={handleRadioChange7}
                     />
@@ -1016,7 +1090,7 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion3"
                       name="pregunta2"
-                      checked={opcionSeleccionada7==(t('p7op2'))}
+                      checked={opcionSeleccionada7 == (t('p7op2'))}
                       value={t('p7op2')}
                       onChange={handleRadioChange7}
                     />
@@ -1033,7 +1107,7 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada7==(t('p7op3'))}
+                      checked={opcionSeleccionada7 == (t('p7op3'))}
                       value={t('p7op3')}
                       onChange={handleRadioChange7}
                     />
@@ -1068,7 +1142,7 @@ md:text-[14px]"
 
                 <h3 className='font-bold md:text-[19px]'>
                   {t('pregunta8')}</h3>
-                  <h3 className='pl-6 font-bold md:text-[19px]'>
+                <h3 className='pl-6 font-bold md:text-[19px]'>
                   {t('pregunta8-2')}</h3>
 
                 {/* Opciones */}
@@ -1081,7 +1155,7 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada8==(t('p8op1'))}
+                      checked={opcionSeleccionada8 == (t('p8op1'))}
                       value={t('p8op1')}
                       onChange={handleRadioChange8}
                     />
@@ -1098,7 +1172,7 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion3"
                       name="pregunta2"
-                      checked={opcionSeleccionada8==(t('p8op2'))}
+                      checked={opcionSeleccionada8 == (t('p8op2'))}
                       value={t('p8op2')}
                       onChange={handleRadioChange8}
                     />
@@ -1115,7 +1189,7 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada8==(t('p8op3'))}
+                      checked={opcionSeleccionada8 == (t('p8op3'))}
                       value={t('p8op3')}
                       onChange={handleRadioChange8}
                     />
@@ -1149,7 +1223,7 @@ htmlFor="Otro horario">{t('p4op4')}</label>
 
                 <h3 className='font-bold md:text-[19px]'>
                   {t('pregunta9')}</h3>
-                  <h3 className='pl-8 font-bold md:text-[19px]'>
+                <h3 className='pl-8 font-bold md:text-[19px]'>
                   {t('pregunta9-2')}</h3>
 
                 {/* Opciones */}
@@ -1162,7 +1236,7 @@ htmlFor="Otro horario">{t('p4op4')}</label>
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada9==(t('p9op1'))}
+                      checked={opcionSeleccionada9 == (t('p9op1'))}
                       value={t('p9op1')}
                       onChange={handleRadioChange9}
                     />
@@ -1179,7 +1253,7 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion3"
                       name="pregunta2"
-                      checked={opcionSeleccionada9==(t('p9op2'))}
+                      checked={opcionSeleccionada9 == (t('p9op2'))}
                       value={t('p9op2')}
                       onChange={handleRadioChange9}
                     />
@@ -1196,7 +1270,7 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada9==(t('p9op3'))}
+                      checked={opcionSeleccionada9 == (t('p9op3'))}
                       value={t('p9op3')}
                       onChange={handleRadioChange9}
                     />
@@ -1230,7 +1304,7 @@ htmlFor="Otro horario">{t('p4op4')}</label>
 
                 <h3 className='font-bold md:text-[19px]'>
                   {t('pregunta10')}</h3>
-                  <h3 className='font-bold pl-8 md:text-[19px]'>
+                <h3 className='font-bold pl-8 md:text-[19px]'>
                   {t('pregunta10-2')}</h3>
 
                 {/* Opciones */}
@@ -1243,7 +1317,7 @@ htmlFor="Otro horario">{t('p4op4')}</label>
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada10==(t('p10op1'))}
+                      checked={opcionSeleccionada10 == (t('p10op1'))}
                       value={t('p10op1')}
                       onChange={handleRadioChange10}
                     />
@@ -1260,7 +1334,7 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion3"
                       name="pregunta2"
-                      checked={opcionSeleccionada10==(t('p10op2'))}
+                      checked={opcionSeleccionada10 == (t('p10op2'))}
                       value={t('p10op2')}
                       onChange={handleRadioChange10}
                     />
@@ -1277,7 +1351,7 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada10==(t('p10op3'))}
+                      checked={opcionSeleccionada10 == (t('p10op3'))}
                       value={t('p10op3')}
                       onChange={handleRadioChange10}
                     />
@@ -1312,9 +1386,9 @@ htmlFor="Otro horario">{t('p4op4')}</label>
 
                 <h3 className='font-bold md:text-[19px]'>
                   {t('pregunta11')}</h3>
-                  <h3 className='pl-8 font-bold md:text-[19px]'>
+                <h3 className='pl-8 font-bold md:text-[19px]'>
                   {t('pregunta11-2')}</h3>
-                 
+
                 {/* Opciones */}
                 <div>
 
@@ -1325,7 +1399,7 @@ htmlFor="Otro horario">{t('p4op4')}</label>
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada11==(t('p11op1'))}
+                      checked={opcionSeleccionada11 == (t('p11op1'))}
                       value={t('p11op1')}
                       onChange={handleRadioChange11}
                     />
@@ -1342,7 +1416,7 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion3"
                       name="pregunta2"
-                      checked={opcionSeleccionada11==(t('p11op2'))}
+                      checked={opcionSeleccionada11 == (t('p11op2'))}
                       value={t('p11op2')}
                       onChange={handleRadioChange11}
                     />
@@ -1359,7 +1433,7 @@ md:text-[14px]"
                       type="checkbox"
                       id="opcion4"
                       name="pregunta2"
-                      checked={opcionSeleccionada11==(t('p11op3'))}
+                      checked={opcionSeleccionada11 == (t('p11op3'))}
                       value={t('p11op3')}
                       onChange={handleRadioChange11}
                     />
@@ -1372,579 +1446,579 @@ md:text-[14px]"
                 </div>
               </div>
 
-{/* PREGUNTA 12 */}
-<div className='my-8'>
+              {/* PREGUNTA 12 */}
+              <div className='my-8'>
 
-<h3 className='font-bold md:text-[19px]'>
-  {t('pregunta12')}</h3>
+                <h3 className='font-bold md:text-[19px]'>
+                  {t('pregunta12')}</h3>
 
-{/* Opciones */}
-<div>
+                {/* Opciones */}
+                <div>
 
-  {/* Opcion 1 */}
-  <div className="flex items-center mt-4">
-    <input
-      className="checkbox mr-2 my-2"
-      type="checkbox"
-      id="opcion4"
-      name="pregunta2"
-      checked={opcionSeleccionada12==(t('p12op1'))}
-      value={t('p12op1')}
-      onChange={handleRadioChange12}
-    />
-    <label
-      className="text-violet_dark
+                  {/* Opcion 1 */}
+                  <div className="flex items-center mt-4">
+                    <input
+                      className="checkbox mr-2 my-2"
+                      type="checkbox"
+                      id="opcion4"
+                      name="pregunta2"
+                      checked={opcionSeleccionada12 == (t('p12op1'))}
+                      value={t('p12op1')}
+                      onChange={handleRadioChange12}
+                    />
+                    <label
+                      className="text-violet_dark
 md:text-[14px]"
-      htmlFor="En la mañana despues de las 9:00am">{t('p12op1')} </label>
-  </div>
+                      htmlFor="En la mañana despues de las 9:00am">{t('p12op1')} </label>
+                  </div>
 
-  {/* Opcion 2 */}
-  <div className="flex items-center">
-    <input
-      className="checkbox mr-2 my-2"
-      type="checkbox"
-      id="opcion3"
-      name="pregunta2"
-      checked={opcionSeleccionada12==(t('p12op2'))}
-      value={t('p12op2')}
-      onChange={handleRadioChange12}
-    />
-    <label
-      className="text-violet_dark
+                  {/* Opcion 2 */}
+                  <div className="flex items-center">
+                    <input
+                      className="checkbox mr-2 my-2"
+                      type="checkbox"
+                      id="opcion3"
+                      name="pregunta2"
+                      checked={opcionSeleccionada12 == (t('p12op2'))}
+                      value={t('p12op2')}
+                      onChange={handleRadioChange12}
+                    />
+                    <label
+                      className="text-violet_dark
 md:text-[14px]"
-      htmlFor="En la mañana despues de las 11:00 am">{t('p12op2')} </label>
-  </div>
+                      htmlFor="En la mañana despues de las 11:00 am">{t('p12op2')} </label>
+                  </div>
 
-  {/* Opcion 3 */}
-  <div className="flex items-center">
-    <input
-      className="checkbox mr-2 my-2"
-      type="checkbox"
-      id="opcion4"
-      name="pregunta2"
-      checked={opcionSeleccionada12==(t('p12op3'))}
-      value={t('p12op3')}
-      onChange={handleRadioChange12}
-    />
-    <label
-      className="text-violet_dark
+                  {/* Opcion 3 */}
+                  <div className="flex items-center">
+                    <input
+                      className="checkbox mr-2 my-2"
+                      type="checkbox"
+                      id="opcion4"
+                      name="pregunta2"
+                      checked={opcionSeleccionada12 == (t('p12op3'))}
+                      value={t('p12op3')}
+                      onChange={handleRadioChange12}
+                    />
+                    <label
+                      className="text-violet_dark
 md:text-[14px]"
-      htmlFor="opcion4">{t('p12op3')} </label>
-  </div>
+                      htmlFor="opcion4">{t('p12op3')} </label>
+                  </div>
 
-</div>
-</div>
+                </div>
+              </div>
 
-{/* PREGUNTA 13 */}
-<div className='my-8'>
+              {/* PREGUNTA 13 */}
+              <div className='my-8'>
 
-<h3 className='font-bold md:text-[19px]'>
-  {t('pregunta13')}</h3>
-  
-{/* Opciones */}
-<div>
+                <h3 className='font-bold md:text-[19px]'>
+                  {t('pregunta13')}</h3>
 
-  {/* Opcion 1 */}
-  <div className="flex items-center mt-4">
-    <input
-      className="checkbox mr-2 my-2"
-      type="checkbox"
-      id="opcion4"
-      name="pregunta2"
-      checked={opcionSeleccionada13==(t('p13op1'))}
-      value={t('p13op1')}
-      onChange={handleRadioChange13}
-    />
-    <label
-      className="text-violet_dark
+                {/* Opciones */}
+                <div>
+
+                  {/* Opcion 1 */}
+                  <div className="flex items-center mt-4">
+                    <input
+                      className="checkbox mr-2 my-2"
+                      type="checkbox"
+                      id="opcion4"
+                      name="pregunta2"
+                      checked={opcionSeleccionada13 == (t('p13op1'))}
+                      value={t('p13op1')}
+                      onChange={handleRadioChange13}
+                    />
+                    <label
+                      className="text-violet_dark
 md:text-[14px]"
-      htmlFor="En la mañana despues de las 9:00am">{t('p13op1')} </label>
-  </div>
+                      htmlFor="En la mañana despues de las 9:00am">{t('p13op1')} </label>
+                  </div>
 
-  {/* Opcion 2 */}
-  <div className="flex items-center">
-    <input
-      className="checkbox mr-2 my-2"
-      type="checkbox"
-      id="opcion3"
-      name="pregunta2"
-      checked={opcionSeleccionada13==(t('p13op2'))}
-      value={t('p13op2')}
-      onChange={handleRadioChange13}
-    />
-    <label
-      className="text-violet_dark
+                  {/* Opcion 2 */}
+                  <div className="flex items-center">
+                    <input
+                      className="checkbox mr-2 my-2"
+                      type="checkbox"
+                      id="opcion3"
+                      name="pregunta2"
+                      checked={opcionSeleccionada13 == (t('p13op2'))}
+                      value={t('p13op2')}
+                      onChange={handleRadioChange13}
+                    />
+                    <label
+                      className="text-violet_dark
 md:text-[14px]"
-      htmlFor="En la mañana despues de las 11:00 am">{t('p13op2')} </label>
-  </div>
+                      htmlFor="En la mañana despues de las 11:00 am">{t('p13op2')} </label>
+                  </div>
 
-  {/* Opcion 3 */}
-  <div className="flex items-center">
-    <input
-      className="checkbox mr-2 my-2"
-      type="checkbox"
-      id="opcion4"
-      name="pregunta2"
-      checked={opcionSeleccionada13==(t('p13op3'))}
-      value={t('p13op3')}
-      onChange={handleRadioChange13}
-    />
-    <label
-      className="text-violet_dark
+                  {/* Opcion 3 */}
+                  <div className="flex items-center">
+                    <input
+                      className="checkbox mr-2 my-2"
+                      type="checkbox"
+                      id="opcion4"
+                      name="pregunta2"
+                      checked={opcionSeleccionada13 == (t('p13op3'))}
+                      value={t('p13op3')}
+                      onChange={handleRadioChange13}
+                    />
+                    <label
+                      className="text-violet_dark
 md:text-[14px]"
-      htmlFor="opcion4">{t('p13op3')} </label>
-  </div>
+                      htmlFor="opcion4">{t('p13op3')} </label>
+                  </div>
 
-</div>
-</div>
+                </div>
+              </div>
 
-{/* PREGUNTA 14 */}
-<div className='my-8'>
+              {/* PREGUNTA 14 */}
+              <div className='my-8'>
 
-<h3 className='font-bold md:text-[19px]'>
-  {t('pregunta14')}</h3>
-  <h3 className='pl-9 font-bold md:text-[19px]'>
-  {t('pregunta14-2')}</h3>
-  
-{/* Opciones */}
-<div>
+                <h3 className='font-bold md:text-[19px]'>
+                  {t('pregunta14')}</h3>
+                <h3 className='pl-9 font-bold md:text-[19px]'>
+                  {t('pregunta14-2')}</h3>
 
-  {/* Opcion 1 */}
-  <div className="flex items-center mt-4">
-    <input
-      className="checkbox mr-2 my-2"
-      type="checkbox"
-      id="opcion4"
-      name="pregunta2"
-      checked={opcionSeleccionada14==(t('p14op1'))}
-      value={t('p14op1')}
-      onChange={handleRadioChange14}
-    />
-    <label
-      className="text-violet_dark
+                {/* Opciones */}
+                <div>
+
+                  {/* Opcion 1 */}
+                  <div className="flex items-center mt-4">
+                    <input
+                      className="checkbox mr-2 my-2"
+                      type="checkbox"
+                      id="opcion4"
+                      name="pregunta2"
+                      checked={opcionSeleccionada14 == (t('p14op1'))}
+                      value={t('p14op1')}
+                      onChange={handleRadioChange14}
+                    />
+                    <label
+                      className="text-violet_dark
 md:text-[14px]"
-      htmlFor="En la mañana despues de las 9:00am">{t('p14op1')} </label>
-  </div>
+                      htmlFor="En la mañana despues de las 9:00am">{t('p14op1')} </label>
+                  </div>
 
-  {/* Opcion 2 */}
-  <div className="flex items-center">
-    <input
-      className="checkbox mr-2 my-2"
-      type="checkbox"
-      id="opcion3"
-      name="pregunta2"
-      checked={opcionSeleccionada14==(t('p14op2'))}
-      value={t('p14op2')}
-      onChange={handleRadioChange14}
-    />
-    <label
-      className="text-violet_dark
+                  {/* Opcion 2 */}
+                  <div className="flex items-center">
+                    <input
+                      className="checkbox mr-2 my-2"
+                      type="checkbox"
+                      id="opcion3"
+                      name="pregunta2"
+                      checked={opcionSeleccionada14 == (t('p14op2'))}
+                      value={t('p14op2')}
+                      onChange={handleRadioChange14}
+                    />
+                    <label
+                      className="text-violet_dark
 md:text-[14px]"
-      htmlFor="En la mañana despues de las 11:00 am">{t('p14op2')} </label>
-  </div>
+                      htmlFor="En la mañana despues de las 11:00 am">{t('p14op2')} </label>
+                  </div>
 
-  {/* Opcion 3 */}
-  <div className="flex items-center">
-    <input
-      className="checkbox mr-2 my-2"
-      type="checkbox"
-      id="opcion4"
-      name="pregunta2"
-      checked={opcionSeleccionada14==(t('p14op3'))}
-      value={t('p14op3')}
-      onChange={handleRadioChange14}
-    />
-    <label
-      className="text-violet_dark
+                  {/* Opcion 3 */}
+                  <div className="flex items-center">
+                    <input
+                      className="checkbox mr-2 my-2"
+                      type="checkbox"
+                      id="opcion4"
+                      name="pregunta2"
+                      checked={opcionSeleccionada14 == (t('p14op3'))}
+                      value={t('p14op3')}
+                      onChange={handleRadioChange14}
+                    />
+                    <label
+                      className="text-violet_dark
 md:text-[14px]"
-      htmlFor="opcion4">{t('p14op3')} </label>
-  </div>
+                      htmlFor="opcion4">{t('p14op3')} </label>
+                  </div>
 
-</div>
-</div>
+                </div>
+              </div>
 
-{/* PREGUNTA 15 */}
-<div className='my-8'>
+              {/* PREGUNTA 15 */}
+              <div className='my-8'>
 
-<h3 className='font-bold md:text-[19px]'>
-  {t('pregunta15')}</h3>
-  
-{/* Opciones */}
-<div>
+                <h3 className='font-bold md:text-[19px]'>
+                  {t('pregunta15')}</h3>
 
-  {/* Opcion 1 */}
-  <div className="flex items-center mt-4">
-    <input
-      className="checkbox mr-2 my-2"
-      type="checkbox"
-      id="opcion4"
-      name="pregunta2"
-      checked={opcionSeleccionada15==(t('p15op1'))}
-      value={t('p15op1')}
-      onChange={handleRadioChange15}
-    />
-    <label
-      className="text-violet_dark
+                {/* Opciones */}
+                <div>
+
+                  {/* Opcion 1 */}
+                  <div className="flex items-center mt-4">
+                    <input
+                      className="checkbox mr-2 my-2"
+                      type="checkbox"
+                      id="opcion4"
+                      name="pregunta2"
+                      checked={opcionSeleccionada15 == (t('p15op1'))}
+                      value={t('p15op1')}
+                      onChange={handleRadioChange15}
+                    />
+                    <label
+                      className="text-violet_dark
 md:text-[14px]"
-      htmlFor="En la mañana despues de las 9:00am">{t('p15op1')} </label>
-  </div>
+                      htmlFor="En la mañana despues de las 9:00am">{t('p15op1')} </label>
+                  </div>
 
-  {/* Opcion 2 */}
-  <div className="flex items-center">
-    <input
-      className="checkbox mr-2 my-2"
-      type="checkbox"
-      id="opcion3"
-      name="pregunta2"
-      checked={opcionSeleccionada15==(t('p15op2'))}
-      value={t('p15op2')}
-      onChange={handleRadioChange15}
-    />
-    <label
-      className="text-violet_dark
+                  {/* Opcion 2 */}
+                  <div className="flex items-center">
+                    <input
+                      className="checkbox mr-2 my-2"
+                      type="checkbox"
+                      id="opcion3"
+                      name="pregunta2"
+                      checked={opcionSeleccionada15 == (t('p15op2'))}
+                      value={t('p15op2')}
+                      onChange={handleRadioChange15}
+                    />
+                    <label
+                      className="text-violet_dark
 md:text-[14px]"
-      htmlFor="En la mañana despues de las 11:00 am">{t('p15op2')} </label>
-  </div>
+                      htmlFor="En la mañana despues de las 11:00 am">{t('p15op2')} </label>
+                  </div>
 
-  {/* Opcion 3 */}
-  <div className="flex items-center">
-    <input
-      className="checkbox mr-2 my-2"
-      type="checkbox"
-      id="opcion4"
-      name="pregunta2"
-      checked={opcionSeleccionada15==(t('p15op3'))}
-      value={t('p15op3')}
-      onChange={handleRadioChange15}
-    />
-    <label
-      className="text-violet_dark
+                  {/* Opcion 3 */}
+                  <div className="flex items-center">
+                    <input
+                      className="checkbox mr-2 my-2"
+                      type="checkbox"
+                      id="opcion4"
+                      name="pregunta2"
+                      checked={opcionSeleccionada15 == (t('p15op3'))}
+                      value={t('p15op3')}
+                      onChange={handleRadioChange15}
+                    />
+                    <label
+                      className="text-violet_dark
 md:text-[14px]"
-      htmlFor="opcion4">{t('p15op3')} </label>
-  </div>
+                      htmlFor="opcion4">{t('p15op3')} </label>
+                  </div>
 
-</div>
-</div>
+                </div>
+              </div>
 
-{/* PREGUNTA 16 */}
-<div className='my-8'>
+              {/* PREGUNTA 16 */}
+              <div className='my-8'>
 
-<h3 className='font-bold md:text-[19px]'>
-  {t('pregunta16')}</h3>
-  
-{/* Opciones */}
-<div>
+                <h3 className='font-bold md:text-[19px]'>
+                  {t('pregunta16')}</h3>
 
-  {/* Opcion 1 */}
-  <div className="flex items-center mt-4">
-    <input
-      className="checkbox mr-2 my-2"
-      type="checkbox"
-      id="opcion4"
-      name="pregunta2"
-      checked={opcionSeleccionada16==(t('p16op1'))}
-      value={t('p16op1')}
-      onChange={handleRadioChange16}
-    />
-    <label
-      className="text-violet_dark
+                {/* Opciones */}
+                <div>
+
+                  {/* Opcion 1 */}
+                  <div className="flex items-center mt-4">
+                    <input
+                      className="checkbox mr-2 my-2"
+                      type="checkbox"
+                      id="opcion4"
+                      name="pregunta2"
+                      checked={opcionSeleccionada16 == (t('p16op1'))}
+                      value={t('p16op1')}
+                      onChange={handleRadioChange16}
+                    />
+                    <label
+                      className="text-violet_dark
 md:text-[14px]"
-      htmlFor="En la mañana despues de las 9:00am">{t('p16op1')} </label>
-  </div>
+                      htmlFor="En la mañana despues de las 9:00am">{t('p16op1')} </label>
+                  </div>
 
-  {/* Opcion 2 */}
-  <div className="flex items-center">
-    <input
-      className="checkbox mr-2 my-2"
-      type="checkbox"
-      id="opcion3"
-      name="pregunta2"
-      checked={opcionSeleccionada16==(t('p16op2'))}
-      value={t('p16op2')}
-      onChange={handleRadioChange16}
-    />
-    <label
-      className="text-violet_dark
+                  {/* Opcion 2 */}
+                  <div className="flex items-center">
+                    <input
+                      className="checkbox mr-2 my-2"
+                      type="checkbox"
+                      id="opcion3"
+                      name="pregunta2"
+                      checked={opcionSeleccionada16 == (t('p16op2'))}
+                      value={t('p16op2')}
+                      onChange={handleRadioChange16}
+                    />
+                    <label
+                      className="text-violet_dark
 md:text-[14px]"
-      htmlFor="En la mañana despues de las 11:00 am">{t('p16op2')} </label>
-  </div>
+                      htmlFor="En la mañana despues de las 11:00 am">{t('p16op2')} </label>
+                  </div>
 
-  {/* Opcion 3 */}
-  <div className="flex items-center">
-    <input
-      className="checkbox mr-2 my-2"
-      type="checkbox"
-      id="opcion4"
-      name="pregunta2"
-      checked={opcionSeleccionada16==(t('p16op3'))}
-      value={t('p16op3')}
-      onChange={handleRadioChange16}
-    />
-    <label
-      className="text-violet_dark
+                  {/* Opcion 3 */}
+                  <div className="flex items-center">
+                    <input
+                      className="checkbox mr-2 my-2"
+                      type="checkbox"
+                      id="opcion4"
+                      name="pregunta2"
+                      checked={opcionSeleccionada16 == (t('p16op3'))}
+                      value={t('p16op3')}
+                      onChange={handleRadioChange16}
+                    />
+                    <label
+                      className="text-violet_dark
 md:text-[14px]"
-      htmlFor="opcion4">{t('p16op3')} </label>
-  </div>
+                      htmlFor="opcion4">{t('p16op3')} </label>
+                  </div>
 
-</div>
-</div>
+                </div>
+              </div>
 
 
-{/* PREGUNTA 17 */}
-<div className='my-8'>
+              {/* PREGUNTA 17 */}
+              <div className='my-8'>
 
-<h3 className='font-bold md:text-[19px]'>
-  {t('pregunta17')}</h3>
-  <h3 className='pl-9 font-bold md:text-[19px]'>
-  {t('pregunta17-2')}</h3>
-  
-{/* Opciones */}
-<div>
+                <h3 className='font-bold md:text-[19px]'>
+                  {t('pregunta17')}</h3>
+                <h3 className='pl-9 font-bold md:text-[19px]'>
+                  {t('pregunta17-2')}</h3>
 
-  {/* Opcion 1 */}
-  <div className="flex items-center mt-4">
-    <input
-      className="checkbox mr-2 my-2"
-      type="checkbox"
-      id="opcion4"
-      name="pregunta2"
-      checked={opcionSeleccionada17==(t('p17op1'))}
-      value={t('p17op1')}
-      onChange={handleRadioChange17}
-    />
-    <label
-      className="text-violet_dark
+                {/* Opciones */}
+                <div>
+
+                  {/* Opcion 1 */}
+                  <div className="flex items-center mt-4">
+                    <input
+                      className="checkbox mr-2 my-2"
+                      type="checkbox"
+                      id="opcion4"
+                      name="pregunta2"
+                      checked={opcionSeleccionada17 == (t('p17op1'))}
+                      value={t('p17op1')}
+                      onChange={handleRadioChange17}
+                    />
+                    <label
+                      className="text-violet_dark
 md:text-[14px]"
-      htmlFor="En la mañana despues de las 9:00am">{t('p17op1')} </label>
-  </div>
+                      htmlFor="En la mañana despues de las 9:00am">{t('p17op1')} </label>
+                  </div>
 
-  {/* Opcion 2 */}
-  <div className="flex items-center">
-    <input
-      className="checkbox mr-2 my-2"
-      type="checkbox"
-      id="opcion3"
-      name="pregunta2"
-      checked={opcionSeleccionada17==(t('p17op2'))}
-      value={t('p17op2')}
-      onChange={handleRadioChange17}
-    />
-    <label
-      className="text-violet_dark
+                  {/* Opcion 2 */}
+                  <div className="flex items-center">
+                    <input
+                      className="checkbox mr-2 my-2"
+                      type="checkbox"
+                      id="opcion3"
+                      name="pregunta2"
+                      checked={opcionSeleccionada17 == (t('p17op2'))}
+                      value={t('p17op2')}
+                      onChange={handleRadioChange17}
+                    />
+                    <label
+                      className="text-violet_dark
 md:text-[14px]"
-      htmlFor="En la mañana despues de las 11:00 am">{t('p17op2')} </label>
-  </div>
+                      htmlFor="En la mañana despues de las 11:00 am">{t('p17op2')} </label>
+                  </div>
 
-  {/* Opcion 3 */}
-  <div className="flex items-center">
-    <input
-      className="checkbox mr-2 my-2"
-      type="checkbox"
-      id="opcion4"
-      name="pregunta2"
-      checked={opcionSeleccionada17==(t('p17op3'))}
-      value={t('p17op3')}
-      onChange={handleRadioChange17}
-    />
-    <label
-      className="text-violet_dark
+                  {/* Opcion 3 */}
+                  <div className="flex items-center">
+                    <input
+                      className="checkbox mr-2 my-2"
+                      type="checkbox"
+                      id="opcion4"
+                      name="pregunta2"
+                      checked={opcionSeleccionada17 == (t('p17op3'))}
+                      value={t('p17op3')}
+                      onChange={handleRadioChange17}
+                    />
+                    <label
+                      className="text-violet_dark
 md:text-[14px]"
-      htmlFor="opcion4">{t('p17op3')} </label>
-  </div>
+                      htmlFor="opcion4">{t('p17op3')} </label>
+                  </div>
 
-</div>
-</div>
+                </div>
+              </div>
 
 
-{/* PREGUNTA 18 */}
-<div className='my-8'>
+              {/* PREGUNTA 18 */}
+              <div className='my-8'>
 
-<h3 className='font-bold md:text-[19px]'>
-  {t('pregunta18')}</h3>
-  <h3 className='pl-8 font-bold md:text-[19px]'>
-  {t('pregunta18-2')}</h3>
-{/* Opciones */}
-<div>
+                <h3 className='font-bold md:text-[19px]'>
+                  {t('pregunta18')}</h3>
+                <h3 className='pl-8 font-bold md:text-[19px]'>
+                  {t('pregunta18-2')}</h3>
+                {/* Opciones */}
+                <div>
 
-  {/* Opcion 1 */}
-  <div className="flex items-center mt-4">
-    <input
-      className="checkbox mr-2 my-2"
-      type="checkbox"
-      id="opcion4"
-      name="pregunta2"
-      checked={opcionSeleccionada18==(t('p18op1'))}
-      value={t('p18op1')}
-      onChange={handleRadioChange18}
-    />
-    <label
-      className="text-violet_dark
+                  {/* Opcion 1 */}
+                  <div className="flex items-center mt-4">
+                    <input
+                      className="checkbox mr-2 my-2"
+                      type="checkbox"
+                      id="opcion4"
+                      name="pregunta2"
+                      checked={opcionSeleccionada18 == (t('p18op1'))}
+                      value={t('p18op1')}
+                      onChange={handleRadioChange18}
+                    />
+                    <label
+                      className="text-violet_dark
 md:text-[14px]"
-      htmlFor="En la mañana despues de las 9:00am">{t('p18op1')} </label>
-  </div>
+                      htmlFor="En la mañana despues de las 9:00am">{t('p18op1')} </label>
+                  </div>
 
-  {/* Opcion 2 */}
-  <div className="flex items-center">
-    <input
-      className="checkbox mr-2 my-2"
-      type="checkbox"
-      id="opcion3"
-      name="pregunta2"
-      checked={opcionSeleccionada18==(t('p18op2'))}
-      value={t('p18op2')}
-      onChange={handleRadioChange18}
-    />
-    <label
-      className="text-violet_dark
+                  {/* Opcion 2 */}
+                  <div className="flex items-center">
+                    <input
+                      className="checkbox mr-2 my-2"
+                      type="checkbox"
+                      id="opcion3"
+                      name="pregunta2"
+                      checked={opcionSeleccionada18 == (t('p18op2'))}
+                      value={t('p18op2')}
+                      onChange={handleRadioChange18}
+                    />
+                    <label
+                      className="text-violet_dark
 md:text-[14px]"
-      htmlFor="En la mañana despues de las 11:00 am">{t('p18op2')} </label>
-  </div>
+                      htmlFor="En la mañana despues de las 11:00 am">{t('p18op2')} </label>
+                  </div>
 
-  {/* Opcion 3 */}
-  <div className="flex items-center">
-    <input
-      className="checkbox mr-2 my-2"
-      type="checkbox"
-      id="opcion4"
-      name="pregunta2"
-      checked={opcionSeleccionada18==(t('p18op3'))}
-      value={t('p18op3')}
-      onChange={handleRadioChange18}
-    />
-    <label
-      className="text-violet_dark
+                  {/* Opcion 3 */}
+                  <div className="flex items-center">
+                    <input
+                      className="checkbox mr-2 my-2"
+                      type="checkbox"
+                      id="opcion4"
+                      name="pregunta2"
+                      checked={opcionSeleccionada18 == (t('p18op3'))}
+                      value={t('p18op3')}
+                      onChange={handleRadioChange18}
+                    />
+                    <label
+                      className="text-violet_dark
 md:text-[14px]"
-      htmlFor="opcion4">{t('p18op3')} </label>
-  </div>
+                      htmlFor="opcion4">{t('p18op3')} </label>
+                  </div>
 
-</div>
-</div>
+                </div>
+              </div>
 
-{/* PREGUNTA 19 */}
-<div className='my-8'>
+              {/* PREGUNTA 19 */}
+              <div className='my-8'>
 
-<h3 className='font-bold md:text-[19px]'>
-  {t('pregunta19')}</h3>
-  
-{/* Opciones */}
-<div>
+                <h3 className='font-bold md:text-[19px]'>
+                  {t('pregunta19')}</h3>
 
-  {/* Opcion 1 */}
-  <div className="flex items-center mt-4">
-    <input
-      className="checkbox mr-2 my-2"
-      type="checkbox"
-      id="opcion4"
-      name="pregunta2"
-      checked={opcionSeleccionada19==(t('p19op1'))}
-      value={t('p19op1')}
-      onChange={handleRadioChange19}
-    />
-    <label
-      className="text-violet_dark
+                {/* Opciones */}
+                <div>
+
+                  {/* Opcion 1 */}
+                  <div className="flex items-center mt-4">
+                    <input
+                      className="checkbox mr-2 my-2"
+                      type="checkbox"
+                      id="opcion4"
+                      name="pregunta2"
+                      checked={opcionSeleccionada19 == (t('p19op1'))}
+                      value={t('p19op1')}
+                      onChange={handleRadioChange19}
+                    />
+                    <label
+                      className="text-violet_dark
 md:text-[14px]"
-      htmlFor="En la mañana despues de las 9:00am">{t('p19op1')} </label>
-  </div>
+                      htmlFor="En la mañana despues de las 9:00am">{t('p19op1')} </label>
+                  </div>
 
-  {/* Opcion 2 */}
-  <div className="flex items-center">
-    <input
-      className="checkbox mr-2 my-2"
-      type="checkbox"
-      id="opcion3"
-      name="pregunta2"
-      checked={opcionSeleccionada19==(t('p19op2'))}
-      value={t('p19op2')}
-      onChange={handleRadioChange19}
-    />
-    <label
-      className="text-violet_dark
+                  {/* Opcion 2 */}
+                  <div className="flex items-center">
+                    <input
+                      className="checkbox mr-2 my-2"
+                      type="checkbox"
+                      id="opcion3"
+                      name="pregunta2"
+                      checked={opcionSeleccionada19 == (t('p19op2'))}
+                      value={t('p19op2')}
+                      onChange={handleRadioChange19}
+                    />
+                    <label
+                      className="text-violet_dark
 md:text-[14px]"
-      htmlFor="En la mañana despues de las 11:00 am">{t('p19op2')} </label>
-  </div>
+                      htmlFor="En la mañana despues de las 11:00 am">{t('p19op2')} </label>
+                  </div>
 
-  {/* Opcion 3 */}
-  <div className="flex items-center">
-    <input
-      className="checkbox mr-2 my-2"
-      type="checkbox"
-      id="opcion4"
-      name="pregunta2"
-      checked={opcionSeleccionada19==(t('p19op3'))}
-      value={t('p19op3')}
-      onChange={handleRadioChange19}
-    />
-    <label
-      className="text-violet_dark
+                  {/* Opcion 3 */}
+                  <div className="flex items-center">
+                    <input
+                      className="checkbox mr-2 my-2"
+                      type="checkbox"
+                      id="opcion4"
+                      name="pregunta2"
+                      checked={opcionSeleccionada19 == (t('p19op3'))}
+                      value={t('p19op3')}
+                      onChange={handleRadioChange19}
+                    />
+                    <label
+                      className="text-violet_dark
 md:text-[14px]"
-      htmlFor="opcion4">{t('p19op3')} </label>
-  </div>
+                      htmlFor="opcion4">{t('p19op3')} </label>
+                  </div>
 
-</div>
-</div>
+                </div>
+              </div>
 
-{/* PREGUNTA 20 */}
-<div className='my-8'>
+              {/* PREGUNTA 20 */}
+              <div className='my-8'>
 
-<h3 className='font-bold md:text-[19px]'>
-  {t('pregunta20')}</h3>
-  
-{/* Opciones */}
-<div>
+                <h3 className='font-bold md:text-[19px]'>
+                  {t('pregunta20')}</h3>
 
-  {/* Opcion 1 */}
-  <div className="flex items-center mt-4">
-    <input
-      className="checkbox mr-2 my-2"
-      type="checkbox"
-      id="opcion4"
-      name="pregunta2"
-      checked={opcionSeleccionada20==(t('p20op1'))}
-      value={t('p20op1')}
-      onChange={handleRadioChange20}
-    />
-    <label
-      className="text-violet_dark
+                {/* Opciones */}
+                <div>
+
+                  {/* Opcion 1 */}
+                  <div className="flex items-center mt-4">
+                    <input
+                      className="checkbox mr-2 my-2"
+                      type="checkbox"
+                      id="opcion4"
+                      name="pregunta2"
+                      checked={opcionSeleccionada20 == (t('p20op1'))}
+                      value={t('p20op1')}
+                      onChange={handleRadioChange20}
+                    />
+                    <label
+                      className="text-violet_dark
 md:text-[14px]"
-      htmlFor="En la mañana despues de las 9:00am">{t('p20op1')} </label>
-  </div>
+                      htmlFor="En la mañana despues de las 9:00am">{t('p20op1')} </label>
+                  </div>
 
-  {/* Opcion 2 */}
-  <div className="flex items-center">
-    <input
-      className="checkbox mr-2 my-2"
-      type="checkbox"
-      id="opcion3"
-      name="pregunta2"
-      checked={opcionSeleccionada20==(t('p20op2'))}
-      value={t('p20op2')}
-      onChange={handleRadioChange20}
-    />
-    <label
-      className="text-violet_dark
+                  {/* Opcion 2 */}
+                  <div className="flex items-center">
+                    <input
+                      className="checkbox mr-2 my-2"
+                      type="checkbox"
+                      id="opcion3"
+                      name="pregunta2"
+                      checked={opcionSeleccionada20 == (t('p20op2'))}
+                      value={t('p20op2')}
+                      onChange={handleRadioChange20}
+                    />
+                    <label
+                      className="text-violet_dark
 md:text-[14px]"
-      htmlFor="En la mañana despues de las 11:00 am">{t('p20op2')} </label>
-  </div>
+                      htmlFor="En la mañana despues de las 11:00 am">{t('p20op2')} </label>
+                  </div>
 
-  {/* Opcion 3 */}
-  <div className="flex items-center">
-    <input
-      className="checkbox mr-2 my-2"
-      type="checkbox"
-      id="opcion4"
-      name="pregunta2"
-      checked={opcionSeleccionada20==(t('p20op3'))}
-      value={t('p20op3')}
-      onChange={handleRadioChange20}
-    />
-    <label
-      className="text-violet_dark
+                  {/* Opcion 3 */}
+                  <div className="flex items-center">
+                    <input
+                      className="checkbox mr-2 my-2"
+                      type="checkbox"
+                      id="opcion4"
+                      name="pregunta2"
+                      checked={opcionSeleccionada20 == (t('p20op3'))}
+                      value={t('p20op3')}
+                      onChange={handleRadioChange20}
+                    />
+                    <label
+                      className="text-violet_dark
 md:text-[14px]"
-      htmlFor="opcion4">{t('p20op3')} </label>
-  </div>
+                      htmlFor="opcion4">{t('p20op3')} </label>
+                  </div>
 
-</div>
-</div>
+                </div>
+              </div>
 
 
               {/* Temas */}
@@ -1982,7 +2056,7 @@ md:text-[14px]"
                 }
               </button>
 
-            </form>
+            </form>}
 
           </>
           :
@@ -1991,7 +2065,7 @@ md:text-[14px]"
           <div className='flex flex-col justify-center items-center w-full h-screen'>
 
             <Image
-            test='taiwebs.com'
+              test='taiwebs.com'
               width={385}
               height={393}
               alt='munecos'
