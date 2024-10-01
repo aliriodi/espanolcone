@@ -6,7 +6,14 @@
 
     "showMessage1":"Email already exists in form. If you have not filled out this form",
     "showMessage2":"contact us through",
-    "CheckEmail":"Abrir Formulario",
+    "CheckEmail":"Open Form",
+
+    "welcome":"Welcome",
+    "text2":"Below you have a questionnaire with",
+    "text3":"20 questions.",
+    "text4":"Upon completion of the questionnaire, an email will be sent to:",
+    "text5":"with the results of your evaluation.",
+    "enjoytProcess":"Enjoy the process!",
 
     "pregunta1":"1. A - ¿Cómo te llamas?",
     "pregunta1-2":" B - ___ Felipe.",

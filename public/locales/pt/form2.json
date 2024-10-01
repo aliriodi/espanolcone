@@ -6,7 +6,14 @@
 
     "showMessage1":"O e-mail já existe no formulário. Se você não preencheu este formulário",
     "showMessage2":"entre em contato conosco através",
-    "CheckEmail":"Abrir Formulario",
+    "CheckEmail":"Abrir formulário",
+
+    "welcome":"Bem-vindo",
+    "text2":"Abaixo você tem um questionário com",
+    "text3":"20 perguntas.",
+    "text4":"Após o preenchimento do questionário, um e-mail será enviado para:",
+    "text5":"com os resultados da sua avaliação.",
+    "enjoytProcess":"Aproveite o processo!",
     
     "pregunta1":"1. Yo ___ estudiante de español y no  ____ argentino.",
     "p1op1":"estoy/estoy",

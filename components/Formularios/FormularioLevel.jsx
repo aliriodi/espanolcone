@@ -552,14 +552,16 @@ md:text-[14px]'
           md:w-full md:m-0" onSubmit={handleSubmit}>
 
               {/* Mensaje de bienvenida */}
-              <div className='pb-6'>
-                Bienvenido(a) <span className='text-warning'><b>{Name}</b></span>, a continuación tienes un cuestionario con <span className='text-warning'><b>20 preguntas. </b> </span>
-                Al culminar el cuestionario se te enviará un email a: <span className='text-warning'><b>{Email} </b></span>
-                con los  resultados de tu evaluación.
+               {/* Mensaje de bienvenida */}
+               <div className='pb-6'>
+                {t('welcome')} <span className='text-warning'><b>{Name}</b></span>, {t('text2')} <span className='text-warning'><b>{t('text3')} </b> </span>
+                {t('text4')} <span className='text-warning'><b>{Email} </b></span>
+                {t('text5')}
               </div>
               <div className='pb-6 font-bold'>
-                ¡Disfruta el proceso!
+                {t('enjoytProcess')}
               </div>
+              
               {/* PREGUNTA 1 */}
               <div className=''>
                 {/* ¿Qué tipo de clases te interesan? */}
