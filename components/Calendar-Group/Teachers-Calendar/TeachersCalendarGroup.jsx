@@ -336,8 +336,8 @@ export const TeachersCalendarGroup = () => {
                 />
             </div>
             <div>
-                {idTeacher ? idTeacher : 'No hay'} <br />
-                {deltaTime ? deltaTime : 'No hay'}
+                {/* {idTeacher ? idTeacher : 'No hay'} <br /> */}
+                {/* {deltaTime ? deltaTime : 'No hay'} */}
                 <TeacherCardsButton teacherCards={teacherCards} takeCardId={takeCardId} renders={renders} />
             </div>
         </div >
