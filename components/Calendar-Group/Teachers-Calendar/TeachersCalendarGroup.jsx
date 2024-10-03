@@ -44,6 +44,7 @@ export const TeachersCalendarGroup = () => {
     const [newcalendar, setCalendar] = useState([]);
     let [newMeeting, setNewMeeting] = useState()
     const [idTeacher, setidTeacher] = useState('')
+    const [hasclass, setHasClass] = useState({idTeacher:idTeacher,hasclass:false})
     const [hoursMeet, setHoursMeet] = useState('')
     const [description, setDescription] = useState('')
     const [deltaTime, setdeltaTime] = useState(0)
@@ -59,7 +60,19 @@ export const TeachersCalendarGroup = () => {
     function takeDescriptionMeet(descripción) {
         setDescription(descripción)
     }
-
+//para ver disponibilidad de teacher
+const checkTeacherAvailability2 = (idTeacher) => {
+    const hasMeeting = teacherCards?.some((teach) => 
+      teach._id === idTeacher && 
+      teach.calendarGroup?.some((meeting) => 
+        isAfter(parseISO(meeting.startDatetime), today) || 
+        isSameDay(parseISO(meeting.startDatetime), day) 
+      )
+    );
+  
+    return hasMeeting; // Retorna true o false según la disponibilidad
+  };
+//
     useEffect(() => {
         //update();
         if (session) {
@@ -73,6 +86,29 @@ export const TeachersCalendarGroup = () => {
         const alirio = teacherCards?.find((teacher) => {
             // const tiempo = utn(today, teacher.calendarGroup[0]?.utnCreated);
 
+            //Para ver si tiene clses
+              
+            const checkTeacherAvailability = () => {
+                const hasMeeting = teacherCards?.some((teach) => 
+                  teach._id === idTeacher && 
+                  teach.calendarGroup?.some((meeting) => 
+                    isAfter(parseISO(meeting.startDatetime), today) || 
+                    isSameDay(parseISO(meeting.startDatetime), day) 
+                  ) 
+                );
+              
+                if (hasMeeting) {
+                  // Si la condición es verdadera, actualiza el estado
+                  setHasClass({ idTeacher: idTeacher, hasclass: true });
+                } else {
+                  // Si no se cumple la condición, puedes asegurarte de que el estado siga siendo falso
+                  setHasClass({ idTeacher: idTeacher, hasclass: false });
+                }
+              };
+
+
+              checkTeacherAvailability();
+    
             return teacher._id === idTeacher
 
         })
@@ -338,7 +374,12 @@ export const TeachersCalendarGroup = () => {
             <div>
                 {/* {idTeacher ? idTeacher : 'No hay'} <br /> */}
                 {/* {deltaTime ? deltaTime : 'No hay'} */}
-                <TeacherCardsButton teacherCards={teacherCards} takeCardId={takeCardId} renders={renders} />
+                <TeacherCardsButton 
+                        teacherCards={teacherCards} 
+                        takeCardId={takeCardId} 
+                        hasclass={hasclass} 
+                        renders={renders}
+                        checkTeacherAvailability2={checkTeacherAvailability2} />
             </div>
         </div >
     )
