@@ -77,6 +77,7 @@ const checkTeacherAvailability2 = (idTeacher) => {
   };
 //
     useEffect(() => {
+        setHoursMeet('')
         //update();
         if (session) {
             setRenders(session)
@@ -370,7 +371,7 @@ const checkTeacherAvailability2 = (idTeacher) => {
                     selectedDay={selectedDay}
                     idTeacher={idTeacher}
                     takeHoursMeet={takeHoursMeet}
-                    deltaTime={deltaTime}
+                    deltaTime={deltaTime?deltaTime:0}
                     description={description}
                 />
             </div>
