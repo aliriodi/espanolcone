@@ -67,16 +67,16 @@ export default function PDFReader({ data }) {
       if(NumPageNow===10){setNumPageNow(14)}
       if(NumPageNow===11){setNumPageNow(10)}
       if(NumPageNow===12){setNumPageNow(11)}
-      if(NumPageNow===13){setNumPageNow(12)}
-      if(NumPageNow===15){setNumPageNow(13)}
+      if(NumPageNow===3){setNumPageNow(12)}
+      if(NumPageNow===15){setNumPageNow(3)}
   }
   function NextPage() {
          
       if(NumPageNow===14){setNumPageNow(10)}
       if(NumPageNow===10){setNumPageNow(11)}
       if(NumPageNow===11){setNumPageNow(12)}
-      if(NumPageNow===12){setNumPageNow(13)}
-      if(NumPageNow===13){setNumPageNow(15)}
+      if(NumPageNow===12){setNumPageNow(3)}
+      if(NumPageNow===3){setNumPageNow(15)}
 
     
   }
@@ -103,7 +103,7 @@ export default function PDFReader({ data }) {
        {NumPageNow===10?2:null}  
        {NumPageNow===11?3:null}  
        {NumPageNow===12?4:null}  
-       {NumPageNow===13?5:null}  
+       {NumPageNow===3?5:null}  
        {NumPageNow===15?6:null}      
                                      / 
         {totalPages} </span></b>
