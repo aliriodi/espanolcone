@@ -4,7 +4,7 @@ import {
     parseISO
 } from 'date-fns';
 import useStudent from '../hooks/useStudent';
-import { useState } from 'react';
+import { useState ,useEffect} from 'react';
 
 
 export function HoursMeetingTeacher({ teacherCards, renders, selectedDay, idTeacher, takeHoursMeet, deltaTime, description }) {
@@ -12,6 +12,13 @@ export function HoursMeetingTeacher({ teacherCards, renders, selectedDay, idTeac
     const [selectedMeet, setSelectedMeet] = useState(null);
     const [selectedMeetEnd, setSelectedMeetEnd] = useState(null);
     const [selectedTeacher, setSelectedTeacher] = useState(null);
+
+useEffect(()=>
+{
+    setSelectedMeet(null)
+    setSelectedMeetEnd(null)
+    setSelectedTeacher(null)
+},[idTeacher])
 
     const handleSelectMeet = (datetime, datetimeEnd, teacher) => {
         setSelectedTeacher(teacher);

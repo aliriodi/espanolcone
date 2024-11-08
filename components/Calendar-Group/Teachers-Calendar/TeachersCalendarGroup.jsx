@@ -36,6 +36,9 @@ function classNames(...classes) {
 export const TeachersCalendarGroup = () => {
 
     const teacherCards = useSelector((state) => state.datos.cards)
+
+   //Para ordenar los teacher por disponibilidad
+   
     const cardDetail = useSelector((state) => state.datos.cardDetail);
     const { selectedTeacherId } = useStudent()
 
@@ -74,6 +77,7 @@ const checkTeacherAvailability2 = (idTeacher) => {
   };
 //
     useEffect(() => {
+        setHoursMeet('')
         //update();
         if (session) {
             setRenders(session)
@@ -367,7 +371,7 @@ const checkTeacherAvailability2 = (idTeacher) => {
                     selectedDay={selectedDay}
                     idTeacher={idTeacher}
                     takeHoursMeet={takeHoursMeet}
-                    deltaTime={deltaTime}
+                    deltaTime={deltaTime?deltaTime:0}
                     description={description}
                 />
             </div>

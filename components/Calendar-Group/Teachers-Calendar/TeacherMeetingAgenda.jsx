@@ -18,6 +18,12 @@ export const TeacherMeetingAgenda = (props) => {
         });
     }, [teacherCards, idTeacher, hoursMeet, deltaTime]);
 
+
+    useEffect(()=>
+    {
+        setSelectedDescription('')
+    },[idTeacher])
+
     return (
         <div>
             {selectedDescription && <p>Temario de la clase: <br /> {selectedDescription}</p>}
