@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import ReactGA, { initialize } from "react-ga";
 import { useSession, SessionProvider } from "next-auth/react";
 import { appWithTranslation } from 'next-i18next'
-import nextI18NextConfig from '../next-i18next.config';
+#import nextI18NextConfig from '../next-i18next.config';
 import Head from 'next/head';
 import GoogleAnalytics from './GoogleAnalytics'
 import GTMscript from './GoogleGTM';
