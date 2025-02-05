@@ -1,5 +1,6 @@
 import '../styles/globals.css'
 import { store } from "../redux/store";
+import { Analytics } from '@vercel/analytics/next';
 import { Provider } from "react-redux";
 import ReactGA, { initialize } from "react-ga";
 import { useSession, SessionProvider } from "next-auth/react";
@@ -53,6 +54,7 @@ fbq('track', 'PageView');
           <GTMscript />
           {/* Fin Section */}
           <GoogleAnalytics />
+          <Analytics />
           <noscript><img height='1' width='1' style={{display:"none"}}
 src="https://www.facebook.com/tr?id=1143667253742120&ev=PageView&noscript=1"
 /></noscript>
