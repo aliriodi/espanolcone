@@ -21,7 +21,7 @@ import WaitList from '../components/landingComponents/WaitList';
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-
+  
   const { locale, locales, push } = useRouter()
   const { t } = useTranslation(['landing', 'navbar', 'index', 'register'])
 
