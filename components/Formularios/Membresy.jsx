@@ -13,12 +13,8 @@ function FormularioLevel({ t }) {
   const [showMessage, setshowMessage] = useState(null);
   //Para mostrar formulario en caso de que el email no exista en formulario
   const [showForm, setshowForm] = useState(true);
-  const [showInput, setshowInput] = useState(true);
   const [emailvalido, setemailvalido] = useState(false);
-
-
   const [opcionSeleccionada, setOpcionSeleccionada] = useState([]);
-
   const [country, setCountry] = useState('')
   const [city, setCity] = useState('')
   const [Name, setName] = useState('')
@@ -50,35 +46,26 @@ function FormularioLevel({ t }) {
       borderRadius: '8px', // Curvatura de bordes
       borderColor: 'white',
       outline: 'none', // Remove the blue outline when focused
-
-      //  borderWidth: '2px', // Cambiar el grosor del borde a 2px
       boxShadow: '0 0 0 0px white', // Utilizar box-shadow en lugar de outline al enfocar
       '&:hover': {
         backgroundColor: 'rgba(60, 187, 214, 0.4)',
-
       },
 
-      //border-radius: 6px,
       padding: '0px 0px',
 
     }),
     singleValue: (provided, state) => ({
       ...provided,
       color: 'white', // Change the color of the default value text to white
-
       backgroundColor: 'rgba(60, 187, 214, 0.0)',
       '&:hover': {
         color: '#3CBBD6',  // Cambiar el color del borde al pasar el cursor sobre el componente
-      },
+      }, }),
 
-    }),
     option: (provided) => ({
       ...provided,
       color: 'black', // Cambiar el color del texto de las opciones a blanco
       backgroundColor: 'white', // Cambiar el color de fondo de las opciones a "inherit"
-      //backgroundColor: '#3CBBD6'
-      //backgroundColor: 'inherit'
-
       border: 'white',
       width: '207px', // Ancho específico
       height: '40px', // Alto específico
@@ -91,13 +78,9 @@ function FormularioLevel({ t }) {
     menu: (provided) => ({
       ...provided,
       backgroundColor: 'rgba(60, 187, 214, 0.0)', // Change the background color of the menu to translucent
-      //  border: '2px solid white', // Eliminar el borde del menú desplegable
       boxShadow: 'none', // Eliminar la sombra del menú desplegable
       borderRadius: '8px',
-    }),
-
-
-  };
+    }),  };
 
   //#region Menu De Idiomas
   const menuLanguage = useRef(null);
@@ -105,7 +88,6 @@ function FormularioLevel({ t }) {
     push('', undefined, { locale: lang.value });
     setLanguage(languages2.find(objeto => objeto.value === lang.value))
   }
-
 
   function handleOnChangeLanguage() {
     showMenuLanguage ? setShowMenuLanguage(false) : setShowMenuLanguage(true)
@@ -145,24 +127,12 @@ function FormularioLevel({ t }) {
       //texto.trim() !== ''  //Inhabilito el texto
     ) {
       //Evaluo para habilitar boton de evaluacion
-
       setFormularioValido(true);
     } else {
       setFormularioValido(false);
     }
   };
 
-
-
-  // const handleRadioChange = (e) => {
-  //   const opcion = e.target.value;
-  //   // Si la opción ya está seleccionada, la removemos
-  //   if (opcionSeleccionada==(opcion)) {
-  //     setOpcionSeleccionada('0');
-  //   } else { // Si no está seleccionada, la agregamos
-  //     setOpcionSeleccionada(opcion);
-  //   }
-  // };
   const generarHandleRadioChange = (opcionSeleccionada, setOpcionSeleccionada) => {
     return (e) => {
       const opcion = e.target.value;
@@ -174,8 +144,8 @@ function FormularioLevel({ t }) {
       }
     };
   };
-  const handleRadioChange = generarHandleRadioChange(opcionSeleccionada, setOpcionSeleccionada);
 
+  const handleRadioChange = generarHandleRadioChange(opcionSeleccionada, setOpcionSeleccionada);
 
   const handleTextChange = (e) => {
     setTexto(e.target.value);
@@ -244,39 +214,7 @@ function FormularioLevel({ t }) {
     // Retorna true si el email es válido, de lo contrario retorna false
     return regex.test(email);
   }
-  //Para VALIDAR que el email no este en la BD
-  async function checkEmail() {
-
-    await fetch('/api/formulario/' + Email,
-      {  //redirect: 'follow',
-        method: 'GET', // *GET, POST, PUT, DELETE, etc.
-        mode: 'cors', // no-cors, *cors, same-origin
-        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: 'same-origin', // include, *same-origin, omit
-        headers: {
-          'Content-Type': 'application/json'  // 'Content-Type': 'application/x-www-form-urlencoded',
-        }
-      }).then(response => response.json())
-      .then(response2 => {
-        if (response2.totalResults) {
-          //  alert('existe');
-          setshowMessage(true)
-          setemailvalido(true)
-          setshowForm(true)
-          //setemailvalido(false)
-          //setshowForm(false)
-        }
-        if (!response2.totalResults) {
-          //  alert('NO EXISTE');
-          setshowMessage(null)
-          setemailvalido(true)
-          setshowForm(true)
-        }
-
-        //  console.log(response2)
-      })
-  };
-
+ 
   return (
     <div className="flex flex-col overflow-hidden">
 
