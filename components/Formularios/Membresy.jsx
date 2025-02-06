@@ -19,14 +19,12 @@ function FormularioLevel({ t }) {
 
   const [opcionSeleccionada, setOpcionSeleccionada] = useState([]);
 
-
+  const [country, setCountry] = useState('')
+  const [city, setCity] = useState('')
   const [Name, setName] = useState('')
   const [Email, setEmail] = useState('')
   const [texto, setTexto] = useState('');
-  const [puntuacion, setPuntuacion] = useState(0);
-  const [Nivel, setNivel] = useState('A1.1');
   const [formularioValido, setFormularioValido] = useState(false);
-
   const [loading, setLoading] = useState(false)
   const [successSend, setSuccessSend] = useState(false)
 
@@ -138,12 +136,12 @@ function FormularioLevel({ t }) {
     // Código que se ejecutará después del renderizado
     validarFormulario();
 
-  }, [opcionSeleccionada,  emailvalido,Name,  language]);
+  }, [opcionSeleccionada, texto,emailvalido, Name, language, city, country]);
 
   const validarFormulario = () => {
     // Verificar si se ha seleccionado una opción en ambos radio buttons y si se ha ingresado texto
-    if (opcionSeleccionada.length && emailvalido && Name.length>3
-
+    if (opcionSeleccionada.length && emailvalido && Name.length > 3
+      && country.length > 3 && city.length > 3, texto.length>5
       //texto.trim() !== ''  //Inhabilito el texto
     ) {
       //Evaluo para habilitar boton de evaluacion
@@ -186,6 +184,12 @@ function FormularioLevel({ t }) {
   const handleTextChangeName = (e) => {
     setName(e.target.value);
   };
+  const handleCityChangeName = (e) => {
+    setCity(e.target.value);
+  };
+  const handleCountryChangeName = (e) => {
+    setCountry(e.target.value);
+  };
 
   const handleTextChangeEmail = (e) => {
     setEmail(e.target.value);
@@ -218,6 +222,8 @@ function FormularioLevel({ t }) {
         body: JSON.stringify({
           pregunta1: opcionSeleccionada,
           texto: texto,
+          city:city,
+          country:country,
           language: locale,
           Name: Name,
           Email: Email
@@ -372,7 +378,7 @@ function FormularioLevel({ t }) {
             {showForm &&
               <div className="p-10 w-[768px] mx-auto    md:w-full md:m-0">
                 {/* Nombre */}
-                <div className='flex flex-col my-8'>
+                <div className='flex flex-col my-3'>
 
                   <label
                     className='mb-2 font-bold text-[21px] text-violet_dark
@@ -416,16 +422,59 @@ md:text-[14px]'
                     rows="1"
                     cols="30"
                   />
+
+                  {/* CIUDAD */}
+                  {/* <div className='flex flex-col my-2'> */}
+                  <div className='flex flex-col pt-3'>
+                    <label
+                      className='mb-2 font-bold text-[21px] text-violet_dark
+md:text-[19px]'
+                      htmlFor="text">
+                      {t('city')}
+                    </label>
+
+                    <input
+                      className='p-2 rounded-[15px] border-2 outline-primary
+md:text-[14px]'
+                      type="text"
+                      placeholder="City"
+                      id="City"
+                      value={city}
+                      onChange={handleCityChangeName}
+                      rows="1"
+                      cols="30"
+                    />
+                  </div>
+
+                  {/* PAIS */}
+                  {/* <div className='flex flex-col my-2'> */}
+                  <div className='flex flex-col pt-3'>
+                    <label
+                      className='mb-2 font-bold text-[21px] text-violet_dark
+md:text-[19px]'
+                      htmlFor="text">
+                      {t('country')}
+                    </label>
+
+                    <input
+                      className='p-2 rounded-[15px] border-2 outline-primary
+md:text-[14px]'
+                      type="text"
+                      placeholder="Country"
+                      id="Country"
+                      value={country}
+                      onChange={handleCountryChangeName}
+                      rows="1"
+                      cols="30"
+                    />
+                  </div>
+
+
                   {showMessage && <div className='pt-2 text-warning'><p>{t('showMessage1')}</p>
                     <p>{t('showMessage2')}
                       <a href='mailto:espanolconeacademy@gmail.com' ><span className='text-primary'> espanolconeacademy@gmail.com</span></a></p>
                   </div>}
 
-                  {/* <div className='pt-10'>
-                    <button
-                    className={`bg-primary text-white rounded-md px-10 py-2  font-medium ${!emailvalido ? 'opacity-[50%]' : 'btn-primary'} w-full`} type="submit" disabled={!emailvalido }
-                      onClick={() => checkEmail()} id="checkEmailButton">{t('CheckEmail')}</button>
-                  </div> */}
                 </div>
               </div>
             }
@@ -434,23 +483,10 @@ md:text-[14px]'
             {/* Formulario */}
             {showForm && <form className="pl-10 w-[768px] mx-auto
           md:w-full md:m-0" onSubmit={handleSubmit}>
-{/* Linea para recordar donde elimine la proyeccion */}
-
-{/* {showMessage && <div className='pb-6'><b>Este mensaje aparece porque tu <span className='text-warning'>{Email}</span> existe y saltamos la proteccion en la linea 377 de este componente yo estoy en 556</b></div>} */}
-              {/* Mensaje de bienvenida */}
-              {/* <div className='pb-6'>
-                {t('welcome')} <span className='text-warning'><b>{Name}</b></span>
-                 {t('text2')} <span className='text-warning'><b>{t('text3')} </b> </span>
-                {t('text4')} <span className='text-warning'><b>{Email} </b></span>
-                {t('text5')}
-              </div>
-              <div className='pb-6 font-bold'>
-                {t('enjoytProcess')}
-              </div> */}
 
               {/* PREGUNTA 1 */}
               <div className=''>
-                {/* ¿Qué tipo de clases te interesan? */}
+                {/* ¿Cuál de nuestros planes te interesa? */}
                 <h3 className=' font-bold
               md:text-[19px]'>{t('pregunta1')}</h3>
                 <h3 className=' pl-6 font-bold
@@ -522,15 +558,15 @@ md:text-[14px]'
 
 
               {/* Horarios */}
-              <div className='my-8'> 
+              <div className='my-8'>
 
-         
-               <h3 className='font-bold
+
+                <h3 className='font-bold
               md:text-[19px]'
                   htmlFor="¿Qué temas específicos te gustaría aprender?">
                   {t('temasespecific')}</h3>
 
-              <textarea
+                <textarea
                   className='mt-3 rounded-[15px] p-3 border-2 outline-primary w-full
                 md:text-[14px]'
                   type="text"
@@ -586,15 +622,4 @@ md:text-[14px]'
   );
 }
 
-//export default Formulario;
 export default FormularioLevel
-//withTranslation(['form2', 'footer', 'landing', 'form'])(FormularioLevel);
-
-// export async function getStaticProps({ locale }) {
-//   return {
-//     props: {
-//       ...(await serverSideTranslations(locale, ['form2', 'footer', 'common', 'menu', 'aboutus', 'index', 'register'], nextI18NextConfig)),
-
-//     },
-//   }
-// }

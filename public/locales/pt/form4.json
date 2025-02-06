@@ -3,6 +3,8 @@
     "title":"",
     "title2":"",
     "title3":"",
+    "city":"Cidade",
+    "country":"país",
 
     "showMessage1":"Email already exists in form. If you have not filled out this form",
     "showMessage2":"contact us through",
@@ -150,7 +152,7 @@
     "p20op3":"se puso",
     "p20op4":"null", 
 
-    "temasespecific":"Que horas você teria para solicitar a adesão?",
+    "temasespecific":"Que horas você teria para solicitar?",
     "temasespecificPH":"Escreva aqui os horários....",
 
     "texto":"",

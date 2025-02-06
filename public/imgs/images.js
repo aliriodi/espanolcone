@@ -33,13 +33,7 @@ export const experts = [
     linkedin:"https://www.linkedin.com/in/eucaris-rodriguez/",
     job: "Founder"
   },
-  {
-    name: "picture2", image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366487/images/team-photo-02_ruhmc1.png",
-    namePerson: "Roiber Avendaño",
-    linkedin:"https://www.linkedin.com/in/roiber-avendano/",
-    job: "UX/UI Designer"
-  },
-
+ 
   {
     name: "picture3",
     image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1696624364/images/Alirio_llwj0p.png",
@@ -68,13 +62,7 @@ export const experts = [
     linkedin:"https://www.linkedin.com/in/eucaris-rodriguez/",
     job: "Founder"
   },
-  {
-    name: "picture7", image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1694366487/images/team-photo-02_ruhmc1.png",
-    namePerson: "Roiber Avendaño",
-    linkedin:"https://www.linkedin.com/in/roiber-avendano/",
-    job: "UX/UI Designer"
-  },
-
+  
   {
     name: "picture8",
     image: "https://res.cloudinary.com/dfddh08q8/image/upload/v1696624364/images/Alirio_llwj0p.png",
@@ -95,14 +83,8 @@ export const experts = [
     namePerson: "Mariela Romero",
     linkedin:"https://www.linkedin.com/in/mariela-romero-mr/",
     job: "UX/UI Designer"
-  },
-  {
-    name: "picture10",
-    image: "https://res.cloudinary.com/dfddh08q8/image/upload/s--aft9D2kf--/v1709057974/images/dndzggkfwwqv1eluh0rd.png",
-    namePerson: "Ariana Hernández ",
-    linkedin:"https://www.linkedin.com/in/arianagabriela/",
-    job: "UX/UI Writer"
   }
+ 
 ]
 
 

