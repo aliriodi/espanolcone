@@ -1,5 +1,5 @@
 import dbConnect from '../../../config/mongo'
-import Formulario2 from '../../../models/Formulario4'
+import Formulario4 from '../../../models/Formulario4'
 
 /**
  * 
