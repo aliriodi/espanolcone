@@ -1,11 +1,11 @@
 import { Schema, model, models } from 'mongoose'
-
+//viene de /Membresy
 
 const FormularioSchema = new Schema(
   {
 
     pregunta1: {
-      type: String,
+      type: [],
 
     },
     country: {
