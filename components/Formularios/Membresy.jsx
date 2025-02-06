@@ -138,9 +138,9 @@ function FormularioLevel({ t }) {
       const opcion = e.target.value;
       // Si la opción ya está seleccionada, la removemos
       if (opcionSeleccionada.includes(opcion)) {
-        setOpcionSeleccionada([]);
+        setOpcionSeleccionada(opcionSeleccionada.filter(opcioni => opcioni !== opcion ));
       } else { // Si no está seleccionada, la agregamos
-        setOpcionSeleccionada(opcion);
+        setOpcionSeleccionada([...opcionSeleccionada ,opcion]);
       }
     };
   };
@@ -442,7 +442,7 @@ md:text-[14px]'
                       id="opcion1"
                       name="pregunta1"
                       value={t('p1op1')}
-                      checked={opcionSeleccionada == (t('p1op1'))}
+                      checked={opcionSeleccionada.includes(t('p1op1'))}
                       onChange={handleRadioChange}
                     />
                     {/* Pregunta 1 opcion1 */}
@@ -462,7 +462,7 @@ md:text-[14px]'
                       id="opcion2"
                       name="pregunta1"
                       value={t('p1op2')}
-                      checked={opcionSeleccionada == (t('p1op2'))}
+                      checked={opcionSeleccionada.includes(t('p1op2'))}
                       onChange={handleRadioChange}
                     />
                     {/* Pregunta 1 opcion 2 */}
@@ -480,7 +480,7 @@ md:text-[14px]'
                       id="opcion3"
                       name="pregunta1"
                       value={t('p1op3')} //soy/soy
-                      checked={opcionSeleccionada == (t('p1op3'))}
+                      checked={opcionSeleccionada.includes(t('p1op3'))}
                       onChange={handleRadioChange}
                     />
                     <label
