@@ -66,8 +66,7 @@ function evaluacion(puntos) {
 
             </Head>
 
-             {console.log(resp)}
-            <div className="flex justify-center pt-4">
+              <div className="flex justify-center pt-4">
                 <div className="overflow-x-auto">
                     <table className="table-auto border-collapse border">
                         <thead>
@@ -79,6 +78,7 @@ function evaluacion(puntos) {
                                 <th className="border px-2 py-2">Pais</th>
                                 <th className="border px-2 py-2">Ciudad</th>
                                 <th className="border px-2 py-2">Horarios</th>
+                                <th className="border px-2 py-2">Respuestas</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -91,6 +91,7 @@ function evaluacion(puntos) {
                                     <td className="border px-2 py-2">{e.country}</td>
                                     <td className="border px-2 py-2">{e.city}</td>
                                     <td className="border px-2 py-2">{e.texto}</td>
+                                    <td className="border px-2 py-2">{e?.pregunta1?.map((answer,index)=><p key={index}>{answer}.</p>)}</td>
                                     
                                 </tr>) : null}
 
