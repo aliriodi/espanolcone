@@ -9,16 +9,15 @@ import NavBarAdmin from '../admin/NavBarAdmin';
 //https://react-chartjs-2.js.org/examples/grouped-bar-chart
 
 export default function FormResult() {
-    const [resp, setResp] = useState('');
+    const [resp, setResp] = useState([]);
     const [qtyresp, setqytResp] = useState('');
     useEffect(
         () => {
             async function Resp() {
-                const forms = await fetch('/api/formulario/get2').then(response => response.json())
-                              .then(data => data.forms.filter(form => form.texto == 'Two'));
-                setResp(await forms)
-                const qty = await fetch('/api/formulario/getResp2').then(response => response.json());
-                setqytResp(await qty)
+                const forms = await fetch('/api/formulario/getMembresy1').then(response => response.json())
+                setResp(await forms.forms)
+                // const qty = await fetch('/api/formulario/getResp2').then(response => response.json());
+                // setqytResp(await qty)
             };
             Resp()
 
@@ -67,33 +66,7 @@ function evaluacion(puntos) {
 
             </Head>
 
-                   
-            {/* <div className='px-[60px] py-[119px] md:px-[25px]'>
-            <NavBarAdmin />
-            </div> */}
-            <div className="flex justify-center ">
-            
-                {/* <div className='grid  gap-4 w-[90%] grid-cols-2 md:grid-cols-1 justify-items-center items-center'>
-                    <div className='w-full '>
-                        <h1 className="text-center">¿Qué tipo de clases te interesan?</h1>
-                        <BarChart data1={respuesta1 ? respuesta1 : 0} label1={['Individuales online',
-                            'Grupales Online',
-                            'Grupales presenciales en salón de clases (si estás en CBA)',
-                            'Grupales presenciales en diferentes lugares (si estás en CBA)']}
-                            q1={'¿Qué tipo de clases te interesan?'}
-                            title={''} />
-                    </div>
-                    <div className='w-full '>
-                        <h1 className="text-center">¿Tienes alguna preferencia de horario o ubicación para las clases?</h1>
-                        <BarChart data1={respuesta2 ? respuesta2 : 0} label1={['En la mañana despues de las 9:00 AM',
-                            'En la mañana despues de las 11:00 AM',
-                            'En la tarde despues de las 3:00 PM',
-                            'Otro horario']}
-                            q1={'¿Tienes alguna preferencia de horario o ubicación para las clases?'}
-                            title={''} />
-                    </div>
-                </div> */}
-            </div>
+             {console.log(resp)}
             <div className="flex justify-center pt-4">
                 <div className="overflow-x-auto">
                     <table className="table-auto border-collapse border">
@@ -102,8 +75,10 @@ function evaluacion(puntos) {
                                 <th className="border px-2 py-2">ID</th>
                                 <th className="border px-2 py-2">Nombre</th>
                                 <th className="border px-2 py-2">Email</th>
-                                <th className="border px-2 py-2">Nivel</th>
-                                <th className="border px-2 py-2">Puntos</th>
+                                <th className="border px-2 py-2">Idioma</th>
+                                <th className="border px-2 py-2">Pais</th>
+                                <th className="border px-2 py-2">Ciudad</th>
+                                <th className="border px-2 py-2">Horarios</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -112,8 +87,11 @@ function evaluacion(puntos) {
                                     <td className="border px-2 py-2">{ index +1 }</td>
                                     <td className="border px-2 py-2">{e.Name ? e.Name : 'Sin nombre'}</td>
                                     <td className="border px-2 py-2">{e.Email ? e.Email : 'Sin email'}</td>
-                                    <td className="border px-2 py-2">{evaluacion(e.puntos)}</td>
-                                    <td className="border px-2 py-2">{e.puntos}</td>
+                                    <td className="border px-2 py-2">{e.language ? e.language : 'sin lenguage'}</td>
+                                    <td className="border px-2 py-2">{e.country}</td>
+                                    <td className="border px-2 py-2">{e.city}</td>
+                                    <td className="border px-2 py-2">{e.texto}</td>
+                                    
                                 </tr>) : null}
 
                         </tbody>
