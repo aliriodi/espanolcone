@@ -11,7 +11,8 @@ export default function Calendar2 () {
   const dispatch = useDispatch();
   const { data: session, status } = useSession();
   if(session){
-console.log(session.user.role.includes('admin'))}
+//console.log(session.user.role.includes('admin'))
+}
 
   useEffect(() => {
     dispatch(fetchTeachers())

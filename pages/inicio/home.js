@@ -512,7 +512,7 @@ export default function Home() {
                         </animated.div>
                         :
                         <div className="progress-bar rounded-l-full h-[14px] flex justify-center items-center bg-warning_flat_hover w-full"
-                        onClick={()=>console.log(session)}>
+                        onClick={()=>console.log("session")}>
                           <p className='text-[12px] text-warning font-semibold'>No tienes clases</p>
                         </div>
                       }

@@ -8,7 +8,7 @@ export default function Preview() {
     const classpreview = useSelector((state) => state.datos.classpreview);
     useEffect(() => {
         {console.log('otroUSEEFFECT')}
-        {console.log(classpreview)}
+        {console.log('classpreview')}
     }, [classpreview]);
   return (
     <div className={style['container']}>

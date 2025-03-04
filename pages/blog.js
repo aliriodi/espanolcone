@@ -42,7 +42,7 @@ function Blog({ devDotToPosts }) {
     }
     blog();
   }, []);
-  console.log("////////////////////", blogs);
+  console.log("////////////////////", "blogs");
 
   return (
     <div id="nav">
