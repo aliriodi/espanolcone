@@ -19,7 +19,7 @@ import { useSession } from "next-auth/react";
 export default function Post() {
   const [isOpen, setIsOpen] = useState(false);
   const [reviewPoint, setReviewPoint] = useState(0);
-  console.log("esto es un review point", reviewPoint);
+  console.log("esto es un review point", "reviewPoint");
   const { data: session, status } = useSession(); // necesito la sesion para saber el id y nombre del usuario
   const router = useRouter(); // testear para sacarlo
   const { locale } = router; // testear para sacarlo
@@ -30,10 +30,10 @@ export default function Post() {
   const [reviews, setReviews] = useState([]);
   const [reviewText, setReviewText] = useState(""); // estado para saber lo que escribe en el input
   const [averageRating, setAverageRating] = useState(0);
-  console.log("esto es user", session);
+  console.log("esto es user"," session");
 
-  useEffect(() => console.log(session));
-  console.log("esto son las reviews", reviews);
+  useEffect(() => console.log("session"));
+  console.log("esto son las reviews"," reviews");
 
   useEffect(() => {
     if (post) {
@@ -71,7 +71,7 @@ export default function Post() {
     const devDotToPosts = await fetch(`/api/blog/posts/${slug}`);
     const res = await devDotToPosts.json();
 
-    console.log(res?.postid);
+    console.log("res?.postid");
     setPost(res?.postid);
   }
 
