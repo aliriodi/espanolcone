@@ -35,7 +35,7 @@ export default function Post() {
   const [averageRating, setAverageRating] = useState(0);
   const [login, setLogin] = useState("");
 
-  console.log("////////////", session);
+  // console.log("////////////", session);
 
   useEffect(() => {
     if (post) {
