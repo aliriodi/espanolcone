@@ -102,7 +102,7 @@ export default function Paragragraphcomplete(props) {
     if (!newInputValues || !previousValue) return;
 
     newInputValues?.map((inputValue,index)=> {
-        inputValue.answer=previousValue[index]?.answer
+      inputValue?  inputValue.answer=previousValue[index]?.answer : null
         // inputValue.done=previousValue[index]?.done      
       }
     )
